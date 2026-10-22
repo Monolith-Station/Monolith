@@ -126,7 +126,7 @@ ent-ClothingBackpackDuffelEVABundleChaplain = pacote EVA de capelão
     .desc = Uma bolsa contendo um conjunto de roupa espacial.
     .suffix = Preenchido
 
-ent-ClothingBackpackDuffelEVABundleContractor = pacote EVA de vagrante
+ent-ClothingBackpackDuffelEVABundleContractor = pacote EVA de vagante
     .desc = Uma bolsa contendo um conjunto de roupa espacial.
     .suffix = Preenchido
 
@@ -562,7 +562,7 @@ ent-SpawnPointBailiff = bailio
 
 ent-SpawnPointCadet = cadete
 
-ent-SpawnPointContractor = vagrante
+ent-SpawnPointContractor = vagante
 
 ent-SpawnPointDeputy = delegado
 
@@ -2375,7 +2375,7 @@ ent-MobExperimentationVictim = cativo
 ent-MobSyndicateNavalBase = agente naval do Sindicato
 
 ent-MobSyndicateNavalCaptainA = capitão do Sindicato
-    .desc = O oficial executivo em lugar do comandante, capitões do Sindicato garantem que as operações a bordo corram suavemente. Equipado com um revólver 45_magnum.
+    .desc = O oficial executivo em lugar do comandante, capitões do Sindicato garantem que as operações a bordo corram suavemente. Equipado com um revólver 357_magnum.
 
 ent-MobSyndicateNavalCaptainVoid = capitão do Sindicato
 
@@ -5381,7 +5381,7 @@ ent-NFPouchChaplain = bolsa do capelão
 
 ent-NFPouchClown = bolsa do palhaço
 
-ent-NFPouchContractor = bolsa do vagrante
+ent-NFPouchContractor = bolsa do vagante
 
 ent-NFPouchEngineering = bolsa do engenheiro
 
@@ -5518,10 +5518,10 @@ ent-NFBlueprintAmmoBox12_gaugeIncendiary = projeto de munição incendiária de 
 ent-NFBlueprintAmmoBox12_gaugeUranium = projeto de munição de urânio de espingarda 12 gauge
     .desc = Um projeto com esquema de munição de urânio de espingarda. Pode ser inserido em um torno ou em um techfab.
 
-ent-NFBlueprintAmmoBox45_magnumIncendiary = projeto de munição incendiária .357 magnum
+ent-NFBlueprintAmmoBox357_magnumIncendiary = projeto de munição incendiária .357 magnum
     .desc = Um projeto com esquema de munição incendiária .357 magnum. Pode ser inserido em um torno ou em um techfab.
 
-ent-NFBlueprintAmmoBox45_magnumUranium = projeto de munição de urânio .357 magnum
+ent-NFBlueprintAmmoBox357_magnumUranium = projeto de munição de urânio .357 magnum
     .desc = Um projeto com esquema de munição de urânio .357 magnum. Pode ser inserido em um torno ou em um techfab.
 
 ent-NFBlueprintAmmoBox556x45mmIncendiary = projeto de munição incendiária 556x45mm
@@ -5963,12 +5963,6 @@ ent-WeaponRevolverArgenti = Argenti (5.56x45mm)
 
 ent-WeaponRevolverArgentiNonlethal = {ent-WeaponRevolverArgenti}
     .desc = {ent-WeaponRevolverArgenti.desc}
-    .suffix = Não letal
-
-ent-WeaponRevolverDeckardExpeditionGrifty = Resolver de Suporte ao Cliente
-
-ent-WeaponRevolverDeckardNonlethal = {ent-WeaponRevolverDeckard}
-    .desc = {ent-WeaponRevolverDeckard.desc}
     .suffix = Não letal
 
 # From: _NF/Entities/Objects/Weapons/Guns/Rifles/rifles.yml
@@ -8472,7 +8466,7 @@ ent-LockerWallEVAColorCargo = armário EVA na parede de técnico de carga
 ent-LockerWallEVAColorChaplain = armário EVA na parede de capelão
     .desc = {ent-SuitStorageWallmount.desc}
 
-ent-LockerWallEVAColorContractor = armário EVA na parede de vagrante
+ent-LockerWallEVAColorContractor = armário EVA na parede de vagante
     .desc = {ent-SuitStorageWallmount.desc}
 
 ent-LockerWallEVAColorEmergency = armário EVA de emergência na parede
@@ -11477,7 +11471,7 @@ ent-SuitStorageEVAChaplain = {ent-SuitStorageBase}
 
 ent-SuitStorageEVAContractor = {ent-SuitStorageBase}
     .desc = {ent-SuitStorageBase.desc}
-    .suffix = EVA, Vagrante
+    .suffix = EVA, Vagante
 
 ent-SuitStorageEVAEngineer = {ent-SuitStorageBase}
     .desc = {ent-SuitStorageBase.desc}
@@ -11718,7 +11712,7 @@ ent-StorageFillEVASuitChaplain = ""
 # Abstract entity (referenceable by children)
 
 ent-StorageFillEVASuitContractor = ""
-    .desc = Contém um kit EVA padrão de vagrante.
+    .desc = Contém um kit EVA padrão de vagante.
 
 # Abstract entity (referenceable by children)
 
@@ -11892,7 +11886,7 @@ ent-ClothingBackpackMessengerColorRed = bolsa mensageira vermelha
 
 ent-ClothingBackpackMessengerColorWhite = bolsa mensageira branca
 
-ent-ClothingBackpackMessengerContractor = bolsa mensageira de vagrante
+ent-ClothingBackpackMessengerContractor = bolsa mensageira de vagante
     .desc = Uma bolsa mensageira com aparência moderna em cores de bom gosto.
 
 ent-ClothingBackpackMessengerEngineering = bolsa mensageira de engenharia
@@ -12333,7 +12327,7 @@ ent-ClothingHeadEVAHelmetCargo = capacete EVA de carga
 
 ent-ClothingHeadEVAHelmetChaplain = capacete EVA de capelão
 
-ent-ClothingHeadEVAHelmetContractor = capacete EVA de vagrante
+ent-ClothingHeadEVAHelmetContractor = capacete EVA de vagante
 
 ent-ClothingHeadEVAHelmetEngineer = capacete EVA de engenheiro
 
@@ -12736,8 +12730,8 @@ ent-ClothingOuterEVASuitCargo = traje EVA de técnico de carga
 ent-ClothingOuterEVASuitChaplain = traje EVA de capelão
     .desc = Um traje EVA com capacete integrado geralmente emitido para capelães.
 
-ent-ClothingOuterEVASuitContractor = traje EVA de vagrante
-    .desc = Um traje EVA com capacete integrado geralmente emitido para vagrantes.
+ent-ClothingOuterEVASuitContractor = traje EVA de vagante
+    .desc = Um traje EVA com capacete integrado geralmente emitido para vagantes.
 
 ent-ClothingOuterEVASuitEngineer = traje EVA de engenheiro
     .desc = Um traje EVA com capacete integrado geralmente emitido para engenheiros.
@@ -12976,7 +12970,7 @@ ent-ClothingUniformJumpsuitPirateSlops = trapos de pirata
     .desc = Um uniforme esfarrapado mas confortável para saquear o setor.
 
 ent-ClothingUniformJumpsuitPrivateSec = macacão de segurança particular
-    .desc = Um uniforme especializado para um guarda de segurança particular. Para o vagrante particular exigente que precisa de uma aparência profissional.
+    .desc = Um uniforme especializado para um guarda de segurança particular. Para o vagante particular exigente que precisa de uma aparência profissional.
 
 ent-ClothingUniformJumpsuitPublicAffairsLiaison = macacão de liaison de assuntos públicos
     .desc = Um terno engomado e passado para o liaison de assuntos públicos.
@@ -13076,13 +13070,13 @@ ent-ClothingUniformJumpsuitMilitaryColorYellow = macacão amarelo
     .suffix = Militar
     .desc = Um macacão amarelo genérico sem marcações de patente.
 
-ent-ClothingUniformJumpsuitMilitaryContractor = macacão de vagrante
+ent-ClothingUniformJumpsuitMilitaryContractor = macacão de vagante
     .suffix = Militar
-    .desc = Um macacão robusto, comumente emitido para vagrantes da NT.
+    .desc = Um macacão robusto, comumente emitido para vagantes da NT.
 
-ent-ClothingUniformJumpsuitMilitaryContractorTac = macacão de vagrante
+ent-ClothingUniformJumpsuitMilitaryContractorTac = macacão de vagante
     .suffix = Militar, Tático
-    .desc = Um macacão robusto, comumente emitido para vagrantes da NT.
+    .desc = Um macacão robusto, comumente emitido para vagantes da NT.
 
 ent-ClothingUniformJumpsuitMilitaryEngineering = {ent-ClothingUniformJumpsuitEngineering}
     .desc = {ent-ClothingUniformJumpsuitEngineering.desc}
@@ -13417,9 +13411,3 @@ ent-RadioImplantCivilian = implante de rádio civíl
 
 ent-RadioImplantTsf = implante de rádio TSF
     .desc = Esse implante concede acesso ao canal TSF sem um headset.
-
-ent-NFBlueprintAmmoBox357_magnumIncendiary = diagrama de munição .357 magnum incendiária
-    .desc = Um diagrama com o esquema de munição .357 magnum incendiária. Pode ser inserido em um torno ou em um techfab.
-
-ent-NFBlueprintAmmoBox357_magnumUranium = diagrama de munição .357 de urânio
-    .desc = Um diagrama com o esquema de munição .357 magnum de urânio. Pode ser inserido em um torno ou em um techfab.

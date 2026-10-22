@@ -10,7 +10,7 @@ public static class BoundKeyHelper
     public static string ShortKeyName(BoundKeyFunction keyFunction)
     {
         // need to use shortened key names so they fit in the buttons.
-        return TryGetShortKeyName(keyFunction, out var name) ? Loc.GetString(name) : " ";
+        return TryGetShortKeyName(keyFunction, out var name) ? name : " "; // Andromeda: move loc.getstring pra lugar que vai causar menos log spam
     }
 
     public static bool IsBound(BoundKeyFunction keyFunction)
@@ -37,6 +37,7 @@ public static class BoundKeyHelper
                 return false;
             }
 
+            var fallback = DefaultShortKeyName(keyFunction); // Andromeda: fuck my stupid chud life
             name = null;
             name = key switch
             {
@@ -100,7 +101,7 @@ public static class BoundKeyHelper
                 Keyboard.Key.PageUp => "PgU",
                 Keyboard.Key.RBracket => "]",
                 Keyboard.Key.SemiColon => ";",
-                _ => DefaultShortKeyName(keyFunction)
+                _ => fallback != null ? Loc.GetString(fallback) : " " // Andromeda: move loc.getstring pra lugar que vai causar menos log spam
             };
             return name != null;
         }

@@ -192,12 +192,12 @@ public sealed class ActionButton : Control, IEntityControl
         if (!_entities.TryGetComponent(ActionId, out MetaDataComponent? metadata))
             return null;
 
-        var name = FormattedMessage.FromMarkupPermissive(Loc.GetString(metadata.EntityName));
-        var decr = FormattedMessage.FromMarkupPermissive(Loc.GetString(metadata.EntityDescription));
+        var name = FormattedMessage.FromMarkupPermissive(metadata.EntityName); // Andromeda: remove loc.getstring inuteis (actions sao localizadas via ent-actionID)
+        var decr = FormattedMessage.FromMarkupPermissive(metadata.EntityDescription); // Andromeda: remove loc.getstring inuteis (actions sao localizadas via ent-actionID)
 
         if (_action is { Charges: not null })
         {
-            var charges = FormattedMessage.FromMarkupPermissive(Loc.GetString($"Charges: {_action.Charges.Value.ToString()}/{_action.MaxCharges.ToString()}"));
+            var charges = FormattedMessage.FromMarkupPermissive($"Charges: {_action.Charges.Value.ToString()}/{_action.MaxCharges.ToString()}"); // Andromeda: remove loc.getstring inuteis (this is just wrong)
             return new ActionAlertTooltip(name, decr, charges: charges);
         }
 

@@ -44,7 +44,6 @@ guide-entry-factions = Facções
 guide-entry-tsfmc = TSFMC
 guide-entry-pdv = PDV
 guide-entry-smuggling = Contrabandeio
-guide-entry-defusal = Desarme de Bombas
 guide-entry-tsfmc-sop = P.O.P
 guide-entry-tsfmc-structure = Estrutura
 guide-entry-tsfmc-brigade = 21ª Brigada

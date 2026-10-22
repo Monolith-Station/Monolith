@@ -37,12 +37,18 @@ namespace Content.Server.GameTicking
         private void GetStatusResponse(JsonNode jObject)
         {
             var preset = CurrentPreset ?? Preset;
+            // Andromeda start: deus me abandonou
+            var actualCurrentMap = "Desconhecido";
+            var currMap = _gameMapManager.GetSelectedMap();
+            if (currMap != null)
+                actualCurrentMap = currMap.MapName;
+            // Andromeda end
 
             // This method is raised from another thread, so this better be thread safe!
             lock (_statusShellLock)
             {
                 jObject["name"] = _baseServer.ServerName;
-                jObject["map"] = _gameMapManager.GetSelectedMap()?.MapName ?? "Desconhecido"; // Andromeda - deus me abandonou
+                jObject["map"] = actualCurrentMap; // Andromeda - deus me abandonou
                 jObject["round_id"] = _gameTicker.RoundId;
                 jObject["players"] = _cfg.GetCVar(CCVars.AdminsCountInReportedPlayerCount)
                     ? _playerManager.PlayerCount

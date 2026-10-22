@@ -86,7 +86,7 @@ guide-entry-cyborgs = Ciborgues
 # Frontier: Security<TSFMC
 guide-entry-security = TSFMC
 guide-entry-forensics = Forense
-guide-entry-defusal = Desarmamento de Bombas Grandes
+guide-entry-defusal = Desarme de Bombas Grandes
 guide-entry-criminal-records = Registros Criminais
 guide-entry-command = Comando
 guide-entry-service = Serviço

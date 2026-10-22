@@ -756,7 +756,7 @@ ent-ClothingBackpackDuffelSyndicateFilledMedical = mochila cirúrgica do Sindica
     .desc = Uma mochila grande contendo um conjunto completo de ferramentas cirúrgicas.
 
 ent-ClothingBackpackDuffelSyndicateFilledRevolver = pacote Python
-    .desc = Vá alto e orgulhoso com um 45_magnum Python completamente carregado, agrupado com dois speed loaders.
+    .desc = Vá alto e orgulhoso com um 357_magnum Python completamente carregado, agrupado com dois speed loaders.
 
 ent-ClothingBackpackDuffelSyndicateFilledShotgun = pacote Bulldog
     .desc = Elegante e mean: Contém o popular Shotgun Bulldog e quatro tambores de chumbo calibre 12.
@@ -835,13 +835,13 @@ ent-BoxMagazine45_ACPSubMachineGunPractice = caixa de carregadores de SMG .45 AC
 ent-BoxMagazine45_ACPSubMachineGunRubber = caixa de carregadores de SMG .45 ACP (borracha)
     .desc = Uma caixa cheia de carregadores de SMG .45 ACP (borracha).
 
-ent-BoxMagazine45_magnumFMJ = caixa de speedloaders .357 magnum
+ent-BoxMagazine357_magnumFMJ = caixa de speedloaders .357 magnum
     .desc = Uma caixa cheia de speedloaders .357 magnum.
 
-ent-BoxMagazine45_magnumSubMachineGunFMJ = caixa de carregadores de SMG .357 magnum
+ent-BoxMagazine357_magnumSubMachineGunFMJ = caixa de carregadores de SMG .357 magnum
     .desc = Uma caixa cheia de carregadores de SMG .357 magnum.
 
-ent-BoxMagazine45_magnumSubMachineGunPractice = caixa de carregadores de SMG .357 magnum (prática)
+ent-BoxMagazine357_magnumSubMachineGunPractice = caixa de carregadores de SMG .357 magnum (prática)
     .desc = Uma caixa cheia de carregadores de SMG .357 magnum (prática).
 
 ent-BoxMagazine46x30mmSubMachineGunTopMountedFMJ = caixa de carregadores WT550 46x30mm
@@ -2916,7 +2916,7 @@ ent-IceCrust = crosta de gelo
 
 # From: Entities/Objects/Misc/identification_cards.yml
 
-ent-AgentIDCard = cartão de ID de vagrante
+ent-AgentIDCard = cartão de ID de vagante
     .suffix = Agente
     .desc = {ent-IDCardStandard.desc}
 
@@ -3029,7 +3029,7 @@ ent-MimeIDCard = cartão de ID de mímico
 ent-MusicianIDCard = cartão de ID de músico
     .desc = {ent-IDCardStandard.desc}
 
-ent-NukieAgentIDCard = cartão de ID de vagrante
+ent-NukieAgentIDCard = cartão de ID de vagante
     .desc = {ent-IDCardStandard.desc}
     .suffix = Nukie
 
@@ -7011,9 +7011,6 @@ ent-WatcherBoltMagmawing = projétil vigia de asma de magma
 ent-BaseWeaponRevolver = BaseWeaponRevolver
     .desc = Uma arma de apontar e atirar.
 
-ent-WeaponRevolverDeckard = NT Deckard (.357 magnum)
-    .desc = Um revólver raro, de grau civil, personalizado. Use quando não há tempo para o teste Voight-Kampff. Usa munição .357 magnum.
-
 ent-WeaponRevolverInspector = Inspector (.357 magnum)
     .desc = O melhor amigo de um detetive. Usa munição .357 magnum. No cabo há uma etiqueta que diz 'para uso autorizado apenas'.
 
@@ -7023,9 +7020,6 @@ ent-WeaponRevolverMateba = NT Mateba (.357 magnum)
 ent-WeaponRevolverMatebaAP = {ent-WeaponRevolverMateba}
     .desc = {ent-WeaponRevolverMateba.desc}
     .suffix = armor-piercing
-
-ent-WeaponRevolverPirate = revólver pirata (.357 magnum)
-    .desc = Um revólver estranho, ilegal, com aparência antiga, favorecido por tripulações piratas. Usa munição .357 magnum.
 
 ent-WeaponRevolverPython = LWC Python (.357 magnum)
     .desc = Um revólver comumente encontrado no espaço da Dinastia Phaethon, é tipicamente usado por imperiais de alta patente. Usa munição .357 magnum.
@@ -12257,8 +12251,6 @@ ent-TritiumCanister = cilindro de trítio
 
 ent-WaterVaporCanister = cilindro de vapor de água
     .desc = Um cilindro que pode conter qualquer tipo de gás. Este deveria conter vapor de água. Pode ser anexado a portas conectoras usando uma chave inglesa.
-
-ent-WaterVaporCanisterBroken = cilindro de vapor de água quebrado
 
 # From: Entities/Structures/Storage/Closets/base_structureclosets.yml
 # Abstract entity (referenceable by children)
@@ -28090,7 +28082,7 @@ ent-CentcomPDA = PDA do CentComm
 ent-CEPDA = PDA de engenheiro chefe
     .desc = Parece que mal foi usado.
 
-ent-ChameleonPDA = PDA de vagrante
+ent-ChameleonPDA = PDA de vagante
     .suffix = Camaleão
     .desc = Por que não é cinza?
 

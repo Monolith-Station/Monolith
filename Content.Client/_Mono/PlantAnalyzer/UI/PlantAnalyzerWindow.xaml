@@ -54,12 +54,12 @@ SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
                 <ItemList Name="GeneList" SelectMode="Single" VerticalExpand="True" Margin="0 4"/>
             </BoxContainer>
             <BoxContainer TabContainer.TabTitle="{Loc 'plant-analyzer-window-tab-databank'}" Orientation="Vertical" VerticalAlignment="Stretch" Margin="10 0 5 0">
-                <Button Name="DeleteDatabaseEntryButton" Text="Delete selected" MaxWidth="180" Margin="4"/>
+                <Button Name="DeleteDatabaseEntryButton" Text="{Loc 'plant-analyzer-delete-entry'}" MaxWidth="180" Margin="4"/>
                 <TabContainer VerticalExpand="True" HorizontalExpand="True">
                     <ItemList Name="GeneDatabaseList" TabContainer.TabTitle="Genes" SelectMode="Single" VerticalExpand="True" Margin="0 4"/>
-                    <ItemList Name="ConsumeDatabaseList" TabContainer.TabTitle="Consumed Gases" SelectMode="Single" VerticalExpand="True" Margin="0 4"/>
-                    <ItemList Name="ExudeDatabaseList" TabContainer.TabTitle="Emitted Gases" SelectMode="Single" VerticalExpand="True" Margin="0 4"/>
-                    <ItemList Name="ChemicalDatabaseList" TabContainer.TabTitle="Chemicals" SelectMode="Single" VerticalExpand="True" Margin="0 4"/>
+                    <ItemList Name="ConsumeDatabaseList" TabContainer.TabTitle="{Loc 'plant-analyzer-gene-consumegases'}" SelectMode="Single" VerticalExpand="True" Margin="0 4"/>
+                    <ItemList Name="ExudeDatabaseList" TabContainer.TabTitle="{Loc 'plant-analyzer-gene-exudegases'}" SelectMode="Single" VerticalExpand="True" Margin="0 4"/>
+                    <ItemList Name="ChemicalDatabaseList" TabContainer.TabTitle="{Loc 'plant-analyzer-gene-chemicals'}" SelectMode="Single" VerticalExpand="True" Margin="0 4"/>
                 </TabContainer>
             </BoxContainer>
         </TabContainer>

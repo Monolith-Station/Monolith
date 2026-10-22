@@ -148,13 +148,18 @@ public sealed partial class PlantAnalyzerWindow : FancyWindow
     }
 
     private static string GeneName(PlantGeneId gene)
-        => gene switch
-        {
-            PlantGeneId.ConsumeGases => "Consume Gases",
-            PlantGeneId.ExudeGases => "Exude Gases",
-            PlantGeneId.Chemicals => "Chemical",
-            _ => gene.ToString()
-        };
+    // Andromeda start: SONION :sobs:
+    {
+        return Loc.GetString($"plant-analyzer-gene-{gene.ToString().ToLowerInvariant()}");
+    }
+    // => gene switch
+    // {
+    //     PlantGeneId.ConsumeGases => "Consume Gases",
+    //     PlantGeneId.ExudeGases => "Exude Gases",
+    //     PlantGeneId.Chemicals => "Chemical",
+    //     _ => gene.ToString()
+    // };
+    // Andromeda end
 
     public void Populate(PlantAnalyzerScannedSeedPlantInformation msg)
     {
