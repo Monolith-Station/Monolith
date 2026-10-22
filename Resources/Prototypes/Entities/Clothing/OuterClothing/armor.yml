@@ -28,7 +28,7 @@
 
 #Standard armor vest, allowed for security and bartenders
 - type: entity
-  parent: [ClothingOuterArmorBase, ClothingArmorPlate] # Mono - armor plates
+  parent: ClothingOuterArmorBase
   id: ClothingOuterArmorBasic
   components:
   - type: Tag  # Mono
