@@ -2,8 +2,6 @@
   id: UndergroundCodespeak
   isVisibleLanguage: true
   chatPrefix: cds
-  speech:
-    color: "#ff004cdd"
   obfuscation:
     !type:PhraseObfuscation
     minPhrases: 1
