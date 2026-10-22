@@ -2,7 +2,7 @@
 job-name-bailiff = Capitão do TSFMC
 job-name-brigmedic = Corpsman do TSFMC
 job-name-cadet-nf = Soldado do TSFMC
-job-name-contractor = Vagrante
+job-name-contractor = Vagante
 job-name-deputy = Fuzileiro do TSFMC
 job-name-nf-detective = Detetive
 job-name-ertmailcarrier = Carteiro da ERT

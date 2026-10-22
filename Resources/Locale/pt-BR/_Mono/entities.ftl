@@ -321,7 +321,7 @@ ent-PaperWrittenTeaGuide = Como Fazer Chá para Idiotas
 # Abstract entity (referenceable by children)
 
 ent-StorageFillEVASuitDME = ""
-    .desc = Contém um kit EVA de vagrante DME padrão.
+    .desc = Contém um kit EVA de vagante DME padrão.
 
 # From: _Mono/CorticalBorer/cortical_borer_species.yml
 
@@ -3786,33 +3786,33 @@ ent-AmmoBox45_ACPUranium = caixa de munição (.45 ACP urânio)
 
 ent-BaseAmmoBox45_ACP = caixa de munição (.45 ACP FMJ)
 
-# From: _Mono/Entities/Objects/Weapons/Guns/Ammunition/Boxes/45_magnum.yml
+# From: _Mono/Entities/Objects/Weapons/Guns/Ammunition/Boxes/357_magnum.yml
 
-ent-AmmoBox45_magnumAP = caixa de munição (.357 magnum extreme perfurante)
+ent-AmmoBox357_magnumAP = caixa de munição (.357 magnum extreme perfurante)
 
-ent-AmmoBox45_magnumBigFMJ = caixa grande de munição (.357 magnum FMJ)
+ent-AmmoBox357_magnumBigFMJ = caixa grande de munição (.357 magnum FMJ)
     .desc = Uma caixa de munição.
     .suffix = Grande
 
-ent-AmmoBox45_magnumFMJ = caixa de munição (.357 magnum FMJ)
+ent-AmmoBox357_magnumFMJ = caixa de munição (.357 magnum FMJ)
 
-ent-AmmoBox45_magnumHP = caixa de munição (.357 magnum ogiva oca)
+ent-AmmoBox357_magnumHP = caixa de munição (.357 magnum ogiva oca)
 
-ent-AmmoBox45_magnumIncendiary = caixa de munição (.357 magnum incendiário)
+ent-AmmoBox357_magnumIncendiary = caixa de munição (.357 magnum incendiário)
 
-ent-AmmoBox45_magnumPlasteelAP = caixa de munição (.357 magnum perfurante)
+ent-AmmoBox357_magnumPlasteelAP = caixa de munição (.357 magnum perfurante)
 
-ent-AmmoBox45_magnumPractice = caixa de munição (.357 magnum prática)
+ent-AmmoBox357_magnumPractice = caixa de munição (.357 magnum prática)
 
-ent-AmmoBox45_magnumRIP = caixa de munição (.357 magnum RIP)
+ent-AmmoBox357_magnumRIP = caixa de munição (.357 magnum RIP)
 
-ent-AmmoBox45_magnumRubber = caixa de munição (.357 magnum borracha)
+ent-AmmoBox357_magnumRubber = caixa de munição (.357 magnum borracha)
 
-ent-AmmoBox45_magnumUranium = caixa de munição (.357 magnum urânio)
+ent-AmmoBox357_magnumUranium = caixa de munição (.357 magnum urânio)
 
 # Abstract entity (referenceable by children)
 
-ent-BaseAmmoBox45_magnum = caixa de munição (.357 magnum FMJ)
+ent-BaseAmmoBox357_magnum = caixa de munição (.357 magnum FMJ)
 
 # From: _Mono/Entities/Objects/Weapons/Guns/Ammunition/Boxes/5.56x45mm.yml
 
@@ -4172,29 +4172,29 @@ ent-Cartridge45_ACPRubber = cartucho (.45 ACP borracha)
 
 ent-Cartridge45_ACPUranium = cartucho (.45 ACP urânio)
 
-# From: _Mono/Entities/Objects/Weapons/Guns/Ammunition/Cartridges/45_magnum.yml
+# From: _Mono/Entities/Objects/Weapons/Guns/Ammunition/Cartridges/357_magnum.yml
 # Abstract entity (referenceable by children)
 
-ent-BaseCartridge45_magnum = cartucho (.357 magnum)
+ent-BaseCartridge357_magnum = cartucho (.357 magnum)
     .desc = Cartucho magnum pesado, geralmente visto apenas em magnums ou rifles de ação manual.
 
-ent-Cartridge45_magnumAP = cartucho (.357 magnum perfurante)
+ent-Cartridge357_magnumAP = cartucho (.357 magnum perfurante)
 
-ent-Cartridge45_magnumFMJ = cartucho (.357 magnum)
+ent-Cartridge357_magnumFMJ = cartucho (.357 magnum)
 
-ent-Cartridge45_magnumHP = cartucho (.357 magnum ogiva oca)
+ent-Cartridge357_magnumHP = cartucho (.357 magnum ogiva oca)
 
-ent-Cartridge45_magnumIncendiary = cartucho (.357 magnum incendiário)
+ent-Cartridge357_magnumIncendiary = cartucho (.357 magnum incendiário)
 
-ent-Cartridge45_magnumPlasteelAP = cartucho (.357 magnum perfurante)
+ent-Cartridge357_magnumPlasteelAP = cartucho (.357 magnum perfurante)
 
-ent-Cartridge45_magnumPractice = cartucho (.357 magnum prática)
+ent-Cartridge357_magnumPractice = cartucho (.357 magnum prática)
 
-ent-Cartridge45_magnumRIP = cartucho (.357 magnum RIP)
+ent-Cartridge357_magnumRIP = cartucho (.357 magnum RIP)
 
-ent-Cartridge45_magnumRubber = cartucho (.357 magnum borracha)
+ent-Cartridge357_magnumRubber = cartucho (.357 magnum borracha)
 
-ent-Cartridge45_magnumUranium = cartucho (.357 magnum urânio)
+ent-Cartridge357_magnumUranium = cartucho (.357 magnum urânio)
 
 # From: _Mono/Entities/Objects/Weapons/Guns/Ammunition/Cartridges/5.56x45mm.yml
 # Abstract entity (referenceable by children)
@@ -4676,70 +4676,70 @@ ent-Magazine45_ACPSubMachineGunTopMountedFMJ = pente montado no topo (.45 ACP mo
 
 ent-Magazine45_ACPSubMachineGunUranium = pente de SMG (.45 ACP urânio)
 
-# From: _Mono/Entities/Objects/Weapons/Guns/Ammunition/Magazines/45_magnum.yml
+# From: _Mono/Entities/Objects/Weapons/Guns/Ammunition/Magazines/357_magnum.yml
 # Abstract entity (referenceable by children)
 
-ent-BaseMagazine45_magnum = pente de pistola (.357 magnum FMJ)
-
-# Abstract entity (referenceable by children)
-
-ent-BaseMagazine45_magnumPistolHighCapacityFMJ = pente de pistola metralhadora (.357 magnum FMJ)
+ent-BaseMagazine357_magnum = pente de pistola (.357 magnum FMJ)
 
 # Abstract entity (referenceable by children)
 
-ent-BaseMagazine45_magnumSubMachineGunFMJ = pente de SMG (.357 magnum FMJ)
+ent-BaseMagazine357_magnumPistolHighCapacityFMJ = pente de pistola metralhadora (.357 magnum FMJ)
 
-ent-Magazine45_magnumPistolAP = pente de pistola (.357 magnum perfuração extrema)
+# Abstract entity (referenceable by children)
 
-ent-Magazine45_magnumPistolEmpty = pente de pistola (.357 magnum qualquer)
+ent-BaseMagazine357_magnumSubMachineGunFMJ = pente de SMG (.357 magnum FMJ)
+
+ent-Magazine357_magnumPistolAP = pente de pistola (.357 magnum perfuração extrema)
+
+ent-Magazine357_magnumPistolEmpty = pente de pistola (.357 magnum qualquer)
     .desc = Um carregador vazio.
     .suffix = vazio
 
-ent-Magazine45_magnumPistolFMJ = pente de pistola (.357 magnum FMJ)
+ent-Magazine357_magnumPistolFMJ = pente de pistola (.357 magnum FMJ)
 
-ent-Magazine45_magnumPistolHighCapacityEmpty = pente de pistola metralhadora (.357 magnum qualquer)
+ent-Magazine357_magnumPistolHighCapacityEmpty = pente de pistola metralhadora (.357 magnum qualquer)
     .desc = Um carregador vazio.
     .suffix = vazio
 
-ent-Magazine45_magnumPistolHighCapacityFMJ = pente de pistola metralhadora (.357 magnum FMJ)
+ent-Magazine357_magnumPistolHighCapacityFMJ = pente de pistola metralhadora (.357 magnum FMJ)
 
-ent-Magazine45_magnumPistolHighCapacityPractice = pente de pistola metralhadora (.357 magnum prática)
+ent-Magazine357_magnumPistolHighCapacityPractice = pente de pistola metralhadora (.357 magnum prática)
 
-ent-Magazine45_magnumPistolHighCapacityRubber = pente de pistola metralhadora (.357 magnum borracha)
+ent-Magazine357_magnumPistolHighCapacityRubber = pente de pistola metralhadora (.357 magnum borracha)
 
-ent-Magazine45_magnumPistolHP = pente de pistola (.357 magnum ogiva oca)
+ent-Magazine357_magnumPistolHP = pente de pistola (.357 magnum ogiva oca)
 
-ent-Magazine45_magnumPistolIncendiary = pente de pistola (.357 magnum incendiário)
+ent-Magazine357_magnumPistolIncendiary = pente de pistola (.357 magnum incendiário)
 
-ent-Magazine45_magnumPistolPlasteelAP = pente de pistola (.357 magnum PP)
+ent-Magazine357_magnumPistolPlasteelAP = pente de pistola (.357 magnum PP)
 
-ent-Magazine45_magnumPistolPractice = pente de pistola (.357 magnum prática)
+ent-Magazine357_magnumPistolPractice = pente de pistola (.357 magnum prática)
 
-ent-Magazine45_magnumPistolRIP = pente de pistola (.357 magnum RIP)
+ent-Magazine357_magnumPistolRIP = pente de pistola (.357 magnum RIP)
 
-ent-Magazine45_magnumPistolRubber = pente de pistola (.357 magnum borracha)
+ent-Magazine357_magnumPistolRubber = pente de pistola (.357 magnum borracha)
 
-ent-Magazine45_magnumPistolUranium = pente de pistola (.357 magnum urânio)
+ent-Magazine357_magnumPistolUranium = pente de pistola (.357 magnum urânio)
 
-ent-Magazine45_magnumSubMachineGunEmpty = pente de SMG (.357 magnum qualquer)
+ent-Magazine357_magnumSubMachineGunEmpty = pente de SMG (.357 magnum qualquer)
     .desc = Um carregador vazio.
     .suffix = vazio
 
-ent-Magazine45_magnumSubMachineGunFMJ = pente de SMG (.357 magnum FMJ)
+ent-Magazine357_magnumSubMachineGunFMJ = pente de SMG (.357 magnum FMJ)
 
-ent-Magazine45_magnumSubMachineGunHP = pente de SMG (.357 magnum ogiva oca)
+ent-Magazine357_magnumSubMachineGunHP = pente de SMG (.357 magnum ogiva oca)
 
-ent-Magazine45_magnumSubMachineGunIncendiary = pente de SMG (.357 magnum incendiário)
+ent-Magazine357_magnumSubMachineGunIncendiary = pente de SMG (.357 magnum incendiário)
 
-ent-Magazine45_magnumSubMachineGunPlasteelAP = pente de SMG (.357 magnum PP)
+ent-Magazine357_magnumSubMachineGunPlasteelAP = pente de SMG (.357 magnum PP)
 
-ent-Magazine45_magnumSubMachineGunPractice = pente de SMG (.357 magnum prática)
+ent-Magazine357_magnumSubMachineGunPractice = pente de SMG (.357 magnum prática)
 
-ent-Magazine45_magnumSubMachineGunRIP = pente de SMG (.357 magnum RIP)
+ent-Magazine357_magnumSubMachineGunRIP = pente de SMG (.357 magnum RIP)
 
-ent-Magazine45_magnumSubMachineGunRubber = pente de SMG (.357 magnum borracha)
+ent-Magazine357_magnumSubMachineGunRubber = pente de SMG (.357 magnum borracha)
 
-ent-Magazine45_magnumSubMachineGunUranium = pente de SMG (.357 magnum urânio)
+ent-Magazine357_magnumSubMachineGunUranium = pente de SMG (.357 magnum urânio)
 
 # From: _Mono/Entities/Objects/Weapons/Guns/Ammunition/Magazines/5.56x45mm.yml
 # Abstract entity (referenceable by children)
@@ -4887,31 +4887,31 @@ ent-Magazine635x40mmCaselessShortPractice = pente curto (635x40mm sem estojo pr�
 # From: _Mono/Entities/Objects/Weapons/Guns/Ammunition/Magazines/68x52mm.yml
 # Abstract entity (referenceable by children)
 
-ent-BaseMagazine68x52mmCaseless = pente (6,8x52mm STANAG sem estojo)
+ent-BaseMagazine68x52mmCaseless = pente (6.8x52mm STANAG sem estojo)
 
 # Abstract entity (referenceable by children)
 
-ent-BaseMagazine68x52mmCaselessShort = pente curto de rifle sem estojo (6,8x52mm STANAG sem estojo)
+ent-BaseMagazine68x52mmCaselessShort = pente curto de rifle sem estojo (6.8x52mm STANAG sem estojo)
 
-ent-Magazine68x52mmCaseless = pente (6,8x52mm STANAG sem estojo)
+ent-Magazine68x52mmCaseless = pente (6.8x52mm STANAG sem estojo)
 
-ent-Magazine68x52mmCaselessBig = pente de caixa (6,8x52mm STANAG sem estojo)
+ent-Magazine68x52mmCaselessBig = pente de caixa (6.8x52mm STANAG sem estojo)
 
-ent-Magazine68x52mmCaselessEmpty = pente (6,8x52mm STANAG sem estojo qualquer)
+ent-Magazine68x52mmCaselessEmpty = pente (6.8x52mm STANAG sem estojo qualquer)
 
-ent-Magazine68x52mmCaselessHP = pente (6,8x52mm STANAG sem estojo PO)
+ent-Magazine68x52mmCaselessHP = pente (6.8x52mm STANAG sem estojo PO)
 
-ent-Magazine68x52mmCaselessPlasteelAP = pente (6,8x52mm STANAG sem estojo PP)
+ent-Magazine68x52mmCaselessPlasteelAP = pente (6.8x52mm STANAG sem estojo PP)
 
-ent-Magazine68x52mmCaselessPractice = pente (6,8x52mm STANAG sem estojo prática)
+ent-Magazine68x52mmCaselessPractice = pente (6.8x52mm STANAG sem estojo prática)
 
-ent-Magazine68x52mmCaselessRIP = pente (6,8x52mm STANAG sem estojo RIP)
+ent-Magazine68x52mmCaselessRIP = pente (6.8x52mm STANAG sem estojo RIP)
 
-ent-Magazine68x52mmCaselessRubber = pente (6,8x52mm STANAG sem estojo borracha)
+ent-Magazine68x52mmCaselessRubber = pente (6.8x52mm STANAG sem estojo borracha)
 
-ent-Magazine68x52mmCaselessShort = pente curto (6,8x52mm STANAG sem estojo)
+ent-Magazine68x52mmCaselessShort = pente curto (6.8x52mm STANAG sem estojo)
 
-ent-Magazine68x52mmCaselessShortPractice = pente curto (6,8x52mm STANAG sem estojo prática)
+ent-Magazine68x52mmCaselessShortPractice = pente curto (6.8x52mm STANAG sem estojo prática)
 
 # From: _Mono/Entities/Objects/Weapons/Guns/Ammunition/Magazines/7.62x39mm.yml
 # Abstract entity (referenceable by children)
@@ -5263,25 +5263,25 @@ ent-Bullet45_ACPRubber = projétil (.45 ACP borracha)
 
 ent-Bullet45_ACPUranium = projétil (.45 ACP urânio)
 
-# From: _Mono/Entities/Objects/Weapons/Guns/Ammunition/Projectiles/45_magnum.yml
+# From: _Mono/Entities/Objects/Weapons/Guns/Ammunition/Projectiles/357_magnum.yml
 
-ent-Bullet45_magnumAP = projétil (.357 magnum perfurante)
+ent-Bullet357_magnumAP = projétil (.357 magnum perfurante)
 
-ent-Bullet45_magnumFMJ = projétil (.357 magnum)
+ent-Bullet357_magnumFMJ = projétil (.357 magnum)
 
-ent-Bullet45_magnumHP = projétil (.357 magnum ponta oca)
+ent-Bullet357_magnumHP = projétil (.357 magnum ponta oca)
 
-ent-Bullet45_magnumIncendiary = projétil (.357 magnum incendiário)
+ent-Bullet357_magnumIncendiary = projétil (.357 magnum incendiário)
 
-ent-Bullet45_magnumPlasteelAP = projétil (.357 magnum PP)
+ent-Bullet357_magnumPlasteelAP = projétil (.357 magnum PP)
 
-ent-Bullet45_magnumPractice = projétil (.357 magnum prática)
+ent-Bullet357_magnumPractice = projétil (.357 magnum prática)
 
-ent-Bullet45_magnumRIP = projétil (.357 magnum RIP)
+ent-Bullet357_magnumRIP = projétil (.357 magnum RIP)
 
-ent-Bullet45_magnumRubber = projétil (.357 magnum borracha)
+ent-Bullet357_magnumRubber = projétil (.357 magnum borracha)
 
-ent-Bullet45_magnumUranium = projétil (.357 magnum urânio)
+ent-Bullet357_magnumUranium = projétil (.357 magnum urânio)
 
 # From: _Mono/Entities/Objects/Weapons/Guns/Ammunition/Projectiles/5.56x45mm.yml
 
@@ -5335,17 +5335,17 @@ ent-Bullet635x40mmCaselessRubber = projétil (635x40mm Sem estojo borracha)
 
 # From: _Mono/Entities/Objects/Weapons/Guns/Ammunition/Projectiles/68x52mm.yml
 
-ent-Bullet68x52mmCaseless = projétil (6,8x52mm Sem estojo)
+ent-Bullet68x52mmCaseless = projétil (6.8x52mm Sem estojo)
 
-ent-Bullet68x52mmCaselessHP = projétil (6,8x52mm Sem estojo PO)
+ent-Bullet68x52mmCaselessHP = projétil (6.8x52mm Sem estojo PO)
 
-ent-Bullet68x52mmCaselessPlasteelAP = projétil (6,8x52mm Sem estojo PP)
+ent-Bullet68x52mmCaselessPlasteelAP = projétil (6.8x52mm Sem estojo PP)
 
-ent-Bullet68x52mmCaselessPractice = projétil (6,8x52mm Sem estojo prática)
+ent-Bullet68x52mmCaselessPractice = projétil (6.8x52mm Sem estojo prática)
 
-ent-Bullet68x52mmCaselessRIP = projétil (6,8x52mm Sem estojo RIP)
+ent-Bullet68x52mmCaselessRIP = projétil (6.8x52mm Sem estojo RIP)
 
-ent-Bullet68x52mmCaselessRubber = projétil (6,8x52mm Sem estojo borracha)
+ent-Bullet68x52mmCaselessRubber = projétil (6.8x52mm Sem estojo borracha)
 
 # From: _Mono/Entities/Objects/Weapons/Guns/Ammunition/Projectiles/7.62x39mm.yml
 
@@ -5470,30 +5470,30 @@ ent-StickyGrenadeLaunched = bomba pegajosa
 
 ent-HandheldAutopulserProjectile = projétil de plasma
 
-# From: _Mono/Entities/Objects/Weapons/Guns/Ammunition/SpeedLoaders/45_magnum.yml
+# From: _Mono/Entities/Objects/Weapons/Guns/Ammunition/SpeedLoaders/357_magnum.yml
 # Abstract entity (referenceable by children)
 
-ent-BaseSpeedLoader45_magnum = carregador rápido (.357 magnum)
+ent-BaseSpeedLoader357_magnum = carregador rápido (.357 magnum)
 
-ent-SpeedLoader45_magnumAP = carregador rápido (.357 magnum perfuração extrema de blindagem)
+ent-SpeedLoader357_magnumAP = carregador rápido (.357 magnum perfuração extrema de blindagem)
 
-ent-SpeedLoader45_magnumEmpty = carregador rápido (.357 magnum qualquer)
+ent-SpeedLoader357_magnumEmpty = carregador rápido (.357 magnum qualquer)
 
-ent-SpeedLoader45_magnumFMJ = carregador rápido (.357 magnum FMJ)
+ent-SpeedLoader357_magnumFMJ = carregador rápido (.357 magnum FMJ)
 
-ent-SpeedLoader45_magnumHP = carregador rápido (.357 magnum ponta oca)
+ent-SpeedLoader357_magnumHP = carregador rápido (.357 magnum ponta oca)
 
-ent-SpeedLoader45_magnumIncendiary = carregador rápido (.357 magnum incendiário)
+ent-SpeedLoader357_magnumIncendiary = carregador rápido (.357 magnum incendiário)
 
-ent-SpeedLoader45_magnumPlasteelAP = carregador rápido (.357 magnum PP)
+ent-SpeedLoader357_magnumPlasteelAP = carregador rápido (.357 magnum PP)
 
-ent-SpeedLoader45_magnumPractice = carregador rápido (.357 magnum prática)
+ent-SpeedLoader357_magnumPractice = carregador rápido (.357 magnum prática)
 
-ent-SpeedLoader45_magnumRIP = carregador rápido (.357 magnum RIP)
+ent-SpeedLoader357_magnumRIP = carregador rápido (.357 magnum RIP)
 
-ent-SpeedLoader45_magnumRubber = carregador rápido (.357 magnum borracha)
+ent-SpeedLoader357_magnumRubber = carregador rápido (.357 magnum borracha)
 
-ent-SpeedLoader45_magnumUranium = carregador rápido (.357 magnum urânio)
+ent-SpeedLoader357_magnumUranium = carregador rápido (.357 magnum urânio)
 
 # From: _Mono/Entities/Objects/Weapons/Guns/Ammunition/SpeedLoaders/5.56x45mm.yml
 # Abstract entity (referenceable by children)
@@ -5752,7 +5752,7 @@ ent-ProjectileBabyDragonsBreath = fôlego de dragão bebê
 
 # From: _Mono/Entities/Objects/Weapons/Guns/Projectiles/projectiles.yml
 
-ent-BulletEnergyGun45_magnum = projétil 45_magnum
+ent-BulletEnergyGun357_magnum = projétil 357 magnum
 
 ent-BulletLaserPellet = energia
 
@@ -10380,30 +10380,6 @@ ent-AmmoBox12_gaugeBlank = caixa de cartuchos de escopeta (calibre 12 festim)
 
 ent-AmmoBox145x114mmEMP = caixa de munição (14.5x114mm EMPHE)
 
-ent-AmmoBox357_magnumAP = caixa de munição (.357 magnum extreme perfurante)
-
-ent-AmmoBox357_magnumBigFMJ = caixa de munição grande (.357 magnum FMJ)
-    .desc = Uma caixa de munição.
-    .suffix = Grande
-
-ent-AmmoBox357_magnumFMJ = caixa de munição (.357 magnum FMJ)
-
-ent-AmmoBox357_magnumHP = caixa de munição (.357 magnum ogiva oca)
-
-ent-AmmoBox357_magnumIncendiary = caixa de munição (.357 magnum incendiário)
-
-ent-AmmoBox357_magnumPlasteelAP = caixa de munição (.357 magnum AP)
-
-ent-AmmoBox357_magnumPractice = caixa de munição (.357 magnum prática)
-
-ent-AmmoBox357_magnumRIP = caixa de munição (.357 magnum RIP)
-
-ent-AmmoBox357_magnumRubber = caixa de munição (.357 magnum borracha)
-
-ent-AmmoBox357_magnumUranium = caixa de munição (.357 magnum urânio)
-
-ent-BaseAmmoBox357_magnum = caixa de munição (.357 magnum FMJ)
-
 ent-AmmoBox68x52mmCaselessPlasma = caixa de munição (6.8x52mm STANAG plasma sem estojo)
 
 ent-ShellShotgun12_gaugeBlank = cartucho de escopeta (calibre 12 festim)
@@ -10411,27 +10387,6 @@ ent-ShellShotgun12_gaugeBlank = cartucho de escopeta (calibre 12 festim)
 
 ent-Cartridge145x114mmEMP = cartucho (14.5x114mm EMPHE)
     .desc = Projétil antimaterial ainda maior, capaz de perfurar qualquer armadura e barreiras sem dificuldade. O Pulso Eletromagnético desativa toda a eletrônica no local do impacto, enquanto um explosivo convencional fornece negação de área.
-
-ent-BaseCartridge357_magnum = cartucho (.357 magnum)
-    .desc = Projétil magnum pesado, geralmente visto apenas em magnums ou rifles de ciclo manual.
-
-ent-Cartridge357_magnumAP = cartucho (.357 magnum perfurante)
-
-ent-Cartridge357_magnumFMJ = cartucho (.357 magnum)
-
-ent-Cartridge357_magnumHP = cartucho (.357 magnum ogiva oca)
-
-ent-Cartridge357_magnumIncendiary = cartucho (.357 magnum incendiário)
-
-ent-Cartridge357_magnumPlasteelAP = cartucho (.357 magnum AP)
-
-ent-Cartridge357_magnumPractice = cartucho (.357 magnum prática)
-
-ent-Cartridge357_magnumRIP = cartucho (.357 magnum RIP)
-
-ent-Cartridge357_magnumRubber = cartucho (.357 magnum borracha)
-
-ent-Cartridge357_magnumUranium = cartucho (.357 magnum urânio)
 
 ent-Cartridge35mmGrenadeStinger = granada 35x53mm FL/ST
     .desc = Um projétil menos-letal poderoso. Essencialmente uma granada de agulhas e flashbang de longo alcance, útil para contra-insurgência, contra-franco-atiradores e controle de distúrbios.
@@ -10445,24 +10400,6 @@ ent-Magazine68x52mmCaselessPlasma = pente (6.8x52mm STANAG plasma sem estojo)
 ent-LargePowerCellPlasma68x52mm = condensador de plasma DEW-PLC (grande)
     .desc = Uma caixa de energia grande e militarizada para armas de energia, ajustada para funcionar com mecanismos de disparo balísticos. Usa energia armazenada para superaquecer partículas em plasma antes de disparar. Fraca contra EMP, mas reutilizável.
 
-ent-Bullet357_magnumAP = projétil (.357 magnum perfurante)
-
-ent-Bullet357_magnumFMJ = projétil (.357 magnum)
-
-ent-Bullet357_magnumHP = projétil (.357 magnum ogiva oca)
-
-ent-Bullet357_magnumIncendiary = projétil (.357 magnum incendiário)
-
-ent-Bullet357_magnumPlasteelAP = projétil (.357 magnum AP)
-
-ent-Bullet357_magnumPractice = projétil (.357 magnum prática)
-
-ent-Bullet357_magnumRIP = projétil (.357 magnum RIP)
-
-ent-Bullet357_magnumRubber = projétil (.357 magnum borracha)
-
-ent-Bullet357_magnumUranium = projétil (.357 magnum urânio)
-
 ent-Bullet35mmGrenadeStinger = granada stinger
 
 ent-Bullet68x52mmCaselessPlasma = projétil (6.8x52mm Plasma sem estojo)
@@ -10471,28 +10408,6 @@ ent-MyokoRocket = foguete myoko
     .desc = くそ!
 
 ent-Pellet12_gaugeBlank = disparo de festim
-
-ent-BaseSpeedLoader357_magnum = carregador (.357 magnum)
-
-ent-SpeedLoader357_magnumAP = carregador (.357 magnum perfurante)
-
-ent-SpeedLoader357_magnumEmpty = carregador (.357 magnum qualquer)
-
-ent-SpeedLoader357_magnumFMJ = carregador (.357 magnum FMJ)
-
-ent-SpeedLoader357_magnumHP = carregador (.357 magnum ogiva oca)
-
-ent-SpeedLoader357_magnumIncendiary = carregador (.357 magnum incendiário)
-
-ent-SpeedLoader357_magnumPlasteelAP = carregador (.357 magnum AP)
-
-ent-SpeedLoader357_magnumPractice = carregador (.357 magnum prática)
-
-ent-SpeedLoader357_magnumRIP = carregador (.357 magnum RIP)
-
-ent-SpeedLoader357_magnumRubber = carregador (.357 magnum borracha)
-
-ent-SpeedLoader357_magnumUranium = carregador (.357 magnum urânio)
 
 ent-WeaponHeavyMiningLaser = laser de mineração pesado industrial
     .desc = Um laser manual pesado gigante. Capaz de escavar toneladas métricas de rocha, e autorrecarrega após um longo atraso.
@@ -10519,8 +10434,6 @@ ent-WeaponPistolCCTCGalactica = CAW-32 \"Galactica\" (9x19mm)
 
 ent-WeaponPistolDamocles = UGR Damocles (9x19mm)
     .desc = O Damocles detém um nível temível de poder de fogo, dando ao seu portador uma posição não escrita como o líder do submundo do Braço de Perseu. No entanto, sua dependência do carregador de pistola metralhadora oficialmente descontinuado o torna insustentável em tiroteios prolongados. Olhando para ele agora, não dá para dizer se o sangue é real ou simplesmente pintado para parecer mais intimidador.
-
-ent-BulletEnergyGun357_magnum = raio 357_magnum
 
 ent-WeaponRifleBurner = CS Burner (12.7x99mm)
     .desc = Uma arma de calibre alto do Sindicato em 12.7x99mm, capaz de disparar munição perfurante e explosiva.

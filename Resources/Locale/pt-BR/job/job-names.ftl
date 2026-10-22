@@ -184,7 +184,7 @@ JobMusician = Músico
 
 JobParamedic = Paramédico
 
-JobPassenger = Vagrante
+JobPassenger = Vagante
 
 JobPsychologist = Psicólogo
 
