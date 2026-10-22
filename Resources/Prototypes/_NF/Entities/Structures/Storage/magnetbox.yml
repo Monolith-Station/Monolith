@@ -141,6 +141,9 @@
       components:
       - ConstructionMaterials
       - ResearchDisk # Mono
+      - MachinePart # Andromeda
+      - MachineBoard # Andromeda
+      - ComputerBoard # Andromeda
     blacklist:
       tags:
       - PrizeTicket
