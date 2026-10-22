@@ -122,7 +122,7 @@
   components:
   - type: ResearchClient
   - type: ResearchPointSource
-    pointsPerSecond: 200
+    pointsPerSecond: 100 # Andromeda: Nerf em geradores passivos.
     active: true
   - type: ApcPowerReceiver
     powerLoad: 10000

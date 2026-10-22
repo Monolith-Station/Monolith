@@ -74,7 +74,7 @@
   - type: Anchorable
     flags: None # 1984
   - type: ItemMiner
-    interval: 1 # previously 20
+    interval: 8 # previously 20 || Andromeda: Nerf de produtores passivos; 1->8
   - type: PowerConsumer
     voltage: High
     drawRate: 150000

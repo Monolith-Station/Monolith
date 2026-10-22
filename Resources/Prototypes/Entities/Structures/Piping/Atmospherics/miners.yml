@@ -62,6 +62,7 @@
   components:
     - type: GasMiner
       maxExternalPressure: 4500
+      spawnAmount: 100 # Andromeda: Nerf em geradores passivos (400->100)
 
 - type: entity
   name: N2 gas miner
@@ -106,6 +107,7 @@
     - type: GasMiner
       spawnGas: Plasma
       maxExternalPressure: 50 # Mono
+      spawnAmount: 25 # Andromeda: Nerf em geradores passivos (400->25)
 
 - type: entity
   name: tritium gas miner

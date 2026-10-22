@@ -10681,7 +10681,7 @@ ent-Recycler = reciclador
 
 ent-BaseResearchAndDevelopmentPointSource = minerador de dados fixada (Pesquisa)
     .suffix = Não usado
-    .desc = Um servidor faminto por energia dedicado a coletar dados de... algum lugar. Este gera pontos de pesquisa a uma taxa de 200 por segundo. Parece estar parafusado ao chão.
+    .desc = Um servidor faminto por energia dedicado a coletar dados de... algum lugar. Este gera pontos de pesquisa a uma taxa de 35 por segundo. Parece estar parafusado ao chão.
 
 ent-ResearchAndDevelopmentServer = servidor de P&D
     .desc = Contém o conhecimento coletivo dos cientistas da estação. Destruí-lo os enviaria de volta à idade da pedra. Você não quer isso, quer?
@@ -11155,7 +11155,7 @@ ent-GasMinerAmmonia = minerador de gás amônia
 # Abstract entity (referenceable by children)
 
 ent-GasMinerBase = minerador de gás
-    .desc = Gases extraídos do gigante gasoso abaixo (acima?) fluem para fora através desta massive ventilação.
+    .desc = Gases extraídos do gigante gasoso abaixo (acima?) fluem para fora através desta ventilação gigantesca.
 
 ent-GasMinerCarbonDioxide = minerador de gás CO2
 
@@ -11188,6 +11188,7 @@ ent-GasMinerOxygenStationLarge = minerador de gás O2
     .suffix = Estação Grande, 4500kPa
 
 ent-GasMinerPlasma = minerador de gás plasma
+    .desc = {ent-GasMinerBase.desc}
 
 ent-GasMinerTritium = minerador de gás trítio
 

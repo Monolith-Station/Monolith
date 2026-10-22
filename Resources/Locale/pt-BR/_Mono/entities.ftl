@@ -6668,7 +6668,7 @@ ent-DatafarmResearch = minerador de dados (Pesquisa)
     .desc = Um servidor com alto consumo de energia dedicado a minerar dados de... algum lugar. Este gera pontos de pesquisa a uma taxa de 20 por segundo.
 
 ent-DatafarmResearchFaction = minerador de dados fixado (Pesquisa)
-    .desc = Um servidor com alto consumo de energia dedicado a minerar dados de... algum lugar. Este gera pontos de pesquisa a uma taxa de 200 por segundo. Parece estar fixada ao chão.
+    .desc = Um servidor com alto consumo de energia dedicado a minerar dados de... algum lugar. Este gera pontos de pesquisa a uma taxa de 35 por segundo. Parece estar fixada ao chão.
 
 # From: _Mono/Entities/Structures/Machines/disk_printer.yml
 
@@ -10725,8 +10725,8 @@ ent-UndergroundComputerComms = computador de comunicações subterrâneo
     .desc = O computador de comunicações principal para emitir anúncios do mercado negro.
 
 ent-DatafarmResearchFaction200 = minerador de dados fixado (Pesquisa)
-    .suffix = 200 PPS
-    .desc = Um servidor faminto por energia dedicado a minerar dados de... algum lugar. Este gera pontos de pesquisa a uma taxa de 200 por segundo. Ele parece estar parafusado ao chão.
+    .suffix = 100 PPS
+    .desc = Um servidor faminto por energia dedicado a minerar dados de... algum lugar. Este gera pontos de pesquisa a uma taxa de 100 por segundo. Ele parece estar parafusado ao chão.
 
 ent-GatewayCentral = portal de trânsito central
     .desc = Transporta você do ponto A ao ponto B. Nenhuma garantia de segurança fornecida após o início da viagem.
