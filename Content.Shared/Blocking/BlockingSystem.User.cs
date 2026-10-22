@@ -74,7 +74,7 @@ public sealed partial class BlockingSystem : SharedBlockingSystem // Mono
         if (!TryComp<BlockingComponent>(component.BlockingItem, out var blocking)) // Mono
             return;
 
-        if (args.Origin is { } origin // mono
+        if (args.Tool is { } origin // mono
             && Math.Abs(Angle.ShortestDistance(_transformSystem.GetWorldRotation(uid), _transformSystem.GetWorldRotation(origin).Opposite()).Degrees) >= blocking.BlockingArc/2)
             return;
 
@@ -107,7 +107,6 @@ public sealed partial class BlockingSystem : SharedBlockingSystem // Mono
         {
             _audio.PlayPvs(blocking.BlockSound, uid);
         }
-
     }
 
     private void OnDamageModified(EntityUid uid, BlockingComponent component, DamageModifyEvent args)
