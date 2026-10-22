@@ -5782,8 +5782,8 @@ ent-WeaponRifleMla34 = smartgun SKR-WS MLA-34 (.160 smart)
 ent-WeaponRifleMR8C = VFD QBU-243 Xian DMR (8x65mm SKR)
     .desc = Rifle de atirador de alta potência, disparo relativamente rápido, pretendido para uso MARSOC. Câmara em 8x65mm SKR. Um rail Erebus está anexado ao topo do receptor e na base do guardamão para ópticas e empunhaduras.
 
-ent-WeaponRifleNtsfLtr = NTSF-LTR-556 (5.56x45mm,6.8x52mm sem estojo)
-    .desc = Um rifle antigo da era da guerra corporativa. O Rifle Tático Leve das Forças de Segurança e Forças Especiais da Nano Trasen com câmara em 5.56x45mm, também aceita 6.8x52mm devido a ser um calibre completamente novo de sua época e ser um protótipo. Este rifle é de alta qualidade com estruturas internas de plastitânio e mobiliário de plastaço.
+ent-WeaponRifleNtsfLtr = Wayward NTSF-LTR-556 (5.56x45mm,6.8x52mm sem estojo)
+    .desc = Um fuzil anômalo. Um Fuzil Tático Leve pronto para uso de operativos de forças especiais, projetado para uso com 5.56x45. Também aceita 6.8x52mm por ser um protótipo. Mas... como que você sabe sobre isso tudo?
 
 ent-WeaponRiflePrometheus = HWM FCL "Prometheus" (5.56x45mm)
     .desc = O Fuzil de Combate Leve Prometheus da Herstal Weapon Manufacture (Fusil de Combat Léger) em 5.56x45mm. Feito para ser produzido em massa para combate contra xenos. Sua cadência de tiro é decente, com rajadas sendo superiores e precisão pobre.
@@ -5840,8 +5840,8 @@ ent-WeaponSubMachineGunVector45_ACP = LWC Vector (.45 ACP)
 ent-WeaponSubMachineGunVector9x19mm = LWC Vector (9x19mm)
     .desc = Um SMG totalmente automático excelente. Usa munição 9x19mm. Um rail Erebus está presente no topo do receptor e na base do guardamão para ópticas e empunhaduras.
 
-ent-WeaponSubMachineGunVectorNtsfHclm = NTSF-HCLM-45 (.357 magnum)
-    .desc = A Metralhadora Leve de Calibre Pesado da NTSF. Um SMG pesado de muito alta qualidade com câmara em .357 magnum para uso pela Força de Segurança da Nano Trasen e operações especiais da NT, da guerra corporativa.
+ent-WeaponSubMachineGunVectorNtsfHclm = Wayward HCLM-45 (.357 magnum)
+    .desc = Uma Metralhadora Leve de Calibre Pesado anômala. Uma SMG pesada de muita alta qualidade com câmara em .357 magnum. Embora estranha de usar e rápida de acabar a munição, pode ser bem devastante.
 
 # From: _Mono/Entities/Objects/Weapons/Guns/Snipers/coilguns.yml
 
