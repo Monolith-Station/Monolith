@@ -1,0 +1,13 @@
+- type: reaction
+  id: Superconductant
+  impact: Medium
+  quantized: true
+  minTemp: 925
+  reactants:
+    Copper:
+      amount: 5
+    Oxygen:
+      amount: 1
+  products:
+    Superconductant: 6
+

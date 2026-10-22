@@ -128,7 +128,7 @@
 
 - type: entity
   abstract: true
-  parent: [RecyclableItemClothHardsuit, ClothingOuterBase, GeigerCounterClothing, AllowSuitStorageClothing, ClothingArmorPlate] # Frontier: added RecyclableItemClothHardsuit # Mono - armor plates.
+  parent: [RecyclableItemClothHardsuit, ClothingOuterBase, GeigerCounterClothing, AllowSuitStorageClothing] # Frontier: added RecyclableItemClothHardsuit
   id: ClothingOuterHardsuitBase
   name: base hardsuit
   components:
@@ -196,7 +196,7 @@
   - type: HarpyHideWings # Frontier, needed for Harpies
   - type: StaticPrice # Frontier
     price: 20 # Frontier
-    vendPrice: 1500 # Frontier
+    vendPrice: 4000 # Frontier
 
 - type: entity
   abstract: true

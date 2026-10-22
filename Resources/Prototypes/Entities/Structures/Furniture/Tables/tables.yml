@@ -203,6 +203,23 @@
     node: Table
 
 - type: entity
+  id: TableBlack
+  parent: Table
+  name: table
+  description: A square piece of metal standing on four metal legs.
+  components:
+  - type: Sprite
+    sprite: Structures/Furniture/Tables/genericblack.rsi
+  - type: Icon
+    sprite: Structures/Furniture/Tables/genericblack.rsi
+  - type: IconSmooth
+    key: metaltable
+    base: state_
+  - type: Construction
+    graph: Table
+    node: TableBlack
+
+- type: entity
   id: TableReinforced
   parent: TableBase
   name: reinforced table
@@ -250,11 +267,33 @@
     bonkTime: 3
 
 - type: entity
+  id: TableReinforcedBlack
+  parent: TableReinforced
+  name: reinforced table
+  description: A square piece of metal standing on four metal legs. Extra robust.
+  components:
+  - type: Sprite
+    sprite: Structures/Furniture/Tables/reinforcedblack.rsi
+  - type: Icon
+    sprite: Structures/Furniture/Tables/reinforcedblack.rsi
+  - type: IconSmooth
+    key: metalreinforcedtable
+  - type: Construction
+    graph: Table
+    node: TableReinforcedBlack
+  - type: Climbable
+
+
+- type: entity
   id: TableGlass
   parent: TableBase
   name: glass table
   description: A square piece of glass, standing on four metal legs.
   components:
+  - type: RangedDamageSound # WOLFGATE - material bullet impacts
+    soundGroups:
+      Brute:
+        collection: WolfgateBulletImpactGlass
   - type: Sprite
     sprite: Structures/Furniture/Tables/glass.rsi
   - type: Icon
@@ -309,6 +348,10 @@
   name: reinforced glass table
   description: A square piece of glass, standing on four metal legs. Extra robust.
   components:
+  - type: RangedDamageSound # WOLFGATE - material bullet impacts
+    soundGroups:
+      Brute:
+        collection: WolfgateBulletImpactGlass
   - type: Sprite
     sprite: Structures/Furniture/Tables/r_glass.rsi
   - type: Icon
@@ -361,11 +404,34 @@
       collection: FootstepTile
 
 - type: entity
+  id: TableReinforcedGlassBlack
+  parent: TableReinforcedGlass
+  name: reinforced glass table
+  description: A square piece of glass, standing on four metal legs. Extra robust.
+  components:
+  - type: Sprite
+    sprite: Structures/Furniture/Tables/r_glassblack.rsi
+  - type: Icon
+    sprite: Structures/Furniture/Tables/r_glassblack.rsi
+  - type: IconSmooth
+    key: reinforcedglasstable
+  - type: Construction
+    graph: Table
+    node: TableReinforcedGlassBlack
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepTile
+
+- type: entity
   id: TablePlasmaGlass
   parent: TableBase
   name: plasma glass table
   description: A square piece of plasma glass, standing on four metal legs. Pretty!
   components:
+  - type: RangedDamageSound # WOLFGATE - material bullet impacts
+    soundGroups:
+      Brute:
+        collection: WolfgateBulletImpactGlass
   - type: Sprite
     sprite: Structures/Furniture/Tables/plasma.rsi
   - type: Icon
@@ -466,6 +532,10 @@
   name: wood table
   description: Do not apply fire to this. Rumour says it burns easily.
   components:
+  - type: RangedDamageSound # WOLFGATE - material bullet impacts
+    soundGroups:
+      Brute:
+        collection: WolfgateBulletImpactWood
   - type: Sprite
     sprite: Structures/Furniture/Tables/wood.rsi
   - type: Icon
@@ -845,6 +915,10 @@
   name: wood counter
   description: Do not apply fire to this. Rumour says it burns easily.
   components:
+  - type: RangedDamageSound # WOLFGATE - material bullet impacts
+    soundGroups:
+      Brute:
+        collection: WolfgateBulletImpactWood
   - type: Sprite
     sprite: Structures/Furniture/Tables/counterwood.rsi
   - type: Icon

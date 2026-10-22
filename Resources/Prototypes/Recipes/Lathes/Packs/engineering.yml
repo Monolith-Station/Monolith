@@ -20,6 +20,13 @@
   - HandheldStationMap
   - ClothingHeadHatWelding
   - ClothingHeadHatCone
+  - EconomyPlanner # Mono
+  # Mono - Signal Flares
+  - BoxDispenserFlare
+  - BoxDispenserFlareGreen
+  - BoxDispenserFlareRed
+  - BoxDispenserFlareWhite
+  - BoxDispenserFlareGold
 
 - type: latheRecipePack
   id: AtmosStatic
@@ -61,8 +68,8 @@
   - JawsOfLife
   - ExperimentalNaniteApplicator
   - TrayGoggles # Delta-V
-  # - Fulton # Frontier
-  # - FultonBeacon # Frontier
+  - Fulton
+  - FultonBeacon
 
 - type: latheRecipePack
   id: AtmosTools

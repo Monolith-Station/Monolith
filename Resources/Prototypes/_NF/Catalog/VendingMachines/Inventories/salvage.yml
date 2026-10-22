@@ -5,12 +5,17 @@
     WeaponProtoKineticAccelerator: 4
     WeaponCrusher: 6
     WeaponCrusherDagger: 8
-    ClothingHandsConcussiveGauntlets: 2 # Mono
+    ClothingHandsConcussiveGauntlets: 2
+    WeaponHeavyMiningLaser: 1
     WeaponGrapplingGun: 10
     Pickaxe: 10
     OreBag: 6
     Floodlight: 10
     BoxDispenserFlare: 5
+    BoxDispenserFlareRed: 5
+    BoxDispenserFlareGreen: 5
+    BoxDispenserFlareWhite: 5
+    BoxDispenserFlareGold: 5
     FlashlightLantern: 15
     RadioHandheldNF: 5
 
@@ -22,11 +27,16 @@
     WeaponCrusher: 4294967295 # Infinite
     WeaponCrusherDagger: 4294967295 # Infinite
     WeaponGrapplingGun: 4294967295 # Infinite
-    ClothingHandsConcussiveGauntlets: 4294967295 # Infinite - Mono
+    ClothingHandsConcussiveGauntlets: 4294967295 # Infinite
+    WeaponHeavyMiningLaser: 4294967295
     Pickaxe: 4294967295 # Infinite
     OreBag: 4294967295 # Infinite
     Floodlight: 4294967295 # Infinite
     BoxDispenserFlare: 4294967295 # Infinite
+    BoxDispenserFlareRed: 4294967295 # Infinite - Mono
+    BoxDispenserFlareGreen: 4294967295 # Infinite - Mono
+    BoxDispenserFlareWhite: 4294967295 # Infinite - Mono
+    BoxDispenserFlareGold: 4294967295 # Infinite - Mono
     FlashlightLantern: 4294967295 # Infinite
     RadioHandheldNF: 4294967295 # Infinite
-    SalvageRadarFlatpack: 4294967295 # Infinite - Mono
+    SalvageRadarFlatpack: 4294967295 # Infinite

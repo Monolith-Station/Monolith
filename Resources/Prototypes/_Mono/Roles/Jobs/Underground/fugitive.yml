@@ -1,0 +1,37 @@
+- type: job
+  id: Fugitive
+  name: job-name-fugitive
+  description: job-description-fugitive
+  playTimeTracker: JobFugitive
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 10800 # 3 hours # mono
+  startingGear: FugitiveGear
+  icon: JobIconFugitive
+  supervisors: job-supervisors-nobody
+  displayWeight: 100
+  accessGroups:
+  - GeneralAccess
+  access:
+  - Underground
+  special:
+  - !type:GiveItemOnHolidaySpecial
+    holiday: FrontierBirthday
+    prototype: FrontierBirthdayGift
+  - !type:AddComponentSpecial
+    components:
+    - type: Contraband
+      hideValues: true
+      turnInValues:
+        FederationMilitaryCredit: 150 # bounty on your head
+    - type: RadioOnCryosleep
+      radioChannel: Syndicate # Syndicate = Underground
+  - !type:AddImplantSpecial
+    implants: [ DeathRattleImplant, RadioImplant ]
+
+- type: startingGear
+  id: FugitiveGear
+  storage:
+    back:
+    - Telecrystal25
+    - ContractorIDCard

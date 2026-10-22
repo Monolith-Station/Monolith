@@ -1,0 +1,37 @@
+- type: entity
+  id: ActionDashMuscleFibersImplant
+  name: muscle fibers dash
+  description: Use your muscle fibers implant to do a quick dash.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: WorldTargetAction
+    checkCanAccess: false
+    range: 0
+    useDelay: 7
+    icon: { sprite: _Mono/Objects/Misc/cybernetics.rsi, state: muscule }
+    itemIconStyle: NoItem
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Effects/Footsteps/suitstep2.ogg
+      params:
+        volume: 1
+    event: !type:DashActionEvent
+
+- type: entity
+  id: ActionEnergyCyberneticsShuntTSF
+  name: KR-22 implant shunt
+  description: Teleport to anywhere you can see.
+  components:
+  - type: WorldTargetAction
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: blink
+    itemIconStyle: NoItem
+    sound:
+      path: /Audio/Magic/blink.ogg
+      params:
+        volume: 5
+    priority: -12
+    event: !type:DashEvent
+    checkCanAccess: false
+    range: 7
+    useDelay: 15

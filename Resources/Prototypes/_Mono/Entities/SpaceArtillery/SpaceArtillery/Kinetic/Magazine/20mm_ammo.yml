@@ -1,7 +1,7 @@
 - type: entity
   id: Magazine20mm
-  name: "20mm solid ammo loader"
-  description: "An ammunition loader containing infinite 20mm solid rounds. Usable by vessel-mounted artillery pieces."
+  name: "14x97mm solid ammo loader"
+  description: "An ammunition loader containing infinite 14x97mm solid rounds. Usable by vessel-mounted artillery pieces."
   parent: [BaseItem, RecyclableItemSteelTiny]
   components:
   - type: Tag
@@ -37,7 +37,7 @@
 
 - type: entity
   id: 20mmCartridge
-  name: cartridge (20mm Solid)
+  name: cartridge (14x97mm Solid)
   parent: BaseCartridge
   components:
   - type: Tag
@@ -60,7 +60,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 250
+        damage: 50
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
@@ -76,8 +76,8 @@
 
 - type: entity
   id: Magazine20mmAS
-  name: "20mm AS ammo loader"
-  description: "An ammunition loader containing 1250 20mm anti-shield rounds. Usable by vessel-mounted artillery pieces."
+  name: "14x97mm AS ammo loader"
+  description: "An ammunition loader containing 1250 14x97mm anti-shield rounds. Usable by vessel-mounted artillery pieces."
   parent: [BaseItem, RecyclableItemSteelTiny]
   components:
   - type: Tag
@@ -113,7 +113,7 @@
 
 - type: entity
   id: 20mmCartridgeAS
-  name: cartridge (20mm AS)
+  name: cartridge (14x97mm AS)
   parent: BaseCartridge
   components:
   - type: Tag
@@ -136,7 +136,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 250
+        damage: 50
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]

@@ -5,53 +5,30 @@ using Robust.Shared.Maths;
 
 namespace Content.Client.Administration.UI.CustomControls;
 
-/**
- * FRONTIER CHANGE: Added SeparatorColor so it can be set in the UI.
- */
 public sealed class HSeparator : Control
 {
-    private static readonly Color DefaultSeparatorColor = Color.FromHex("#444444");
+    private PanelContainer _panel;
 
-    private Color _separatorColor = DefaultSeparatorColor;
-    public Color SeparatorColor
+    public static readonly Color DefaultSeparatorColor = Color.FromHex("#3D4059");
+
+    public Color Color
     {
-        get => _separatorColor;
-        set
-        {
-            _separatorColor = Color.FromHex(value.ToHex());
-            UpdateSeparatorColor();
-        }
+        get => ((StyleBoxFlat)_panel.PanelOverride!).BackgroundColor;
+        set => ((StyleBoxFlat)_panel.PanelOverride!).BackgroundColor = value;
     }
 
-    private PanelContainer? _panelContainer = null;
-
-    public HSeparator(Color color)
+    public HSeparator()
     {
-        SeparatorColor = color;
-        Initialize();
-    }
-
-    public HSeparator() : this(DefaultSeparatorColor) { }
-
-    private void Initialize()
-    {
-        _panelContainer = new PanelContainer
+        _panel = new PanelContainer
         {
             PanelOverride = new StyleBoxFlat
             {
-                BackgroundColor = SeparatorColor,
+                BackgroundColor = DefaultSeparatorColor,
                 ContentMarginBottomOverride = 2,
                 ContentMarginLeftOverride = 2
             }
         };
-        AddChild(_panelContainer);
-    }
 
-    private void UpdateSeparatorColor()
-    {
-        if (_panelContainer?.PanelOverride is StyleBoxFlat styleBox)
-        {
-            styleBox.BackgroundColor = SeparatorColor;
-        }
+        AddChild(_panel);
     }
 }

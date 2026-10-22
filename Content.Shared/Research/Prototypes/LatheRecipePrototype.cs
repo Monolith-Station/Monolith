@@ -68,6 +68,20 @@ namespace Content.Shared.Research.Prototypes
         [DataField]
         public Dictionary<ProtoId<MaterialPrototype>, int> Materials = new();
 
+        /// <summary>
+        ///     Mono - Entities required to produce this recipe.
+        ///     Entity is acquired from EntityStorage.
+        /// </summary>
+        [DataField]
+        public Dictionary<EntProtoId, int> Entities = new();
+
+        /// <summary>
+        ///     Mono - Reagents required to produce this recipe.
+        ///     Reagent is acquired from beaker slot.
+        /// </summary>
+        [DataField]
+        public Dictionary<ProtoId<ReagentPrototype>, FixedPoint2> Reagents = new();
+
         [DataField]
         public float MaterialDiscountScale = 1f; // Mono - changed from bool to float
 
@@ -76,5 +90,11 @@ namespace Content.Shared.Research.Prototypes
         /// </summary>
         [DataField]
         public List<ProtoId<LatheCategoryPrototype>> Categories = new();
+
+        /// <summary>
+        /// Mono - Amount of entities to spawn on production.
+        /// </summary>
+        [DataField]
+        public int ResultCount = 1;
     }
 }

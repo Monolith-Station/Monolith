@@ -67,6 +67,16 @@
     normalBodyTemperature: 210.15
     thermalRegulationTemperatureThreshold: 30
     processWhileCrit: false
+    # Goob
+  - type: PassiveHeatGeneration
+    watts: 3900
+    mobStateModifier:
+      Alive: 1
+      Critical: 0
+      Dead: 0
+    minimumTemperature: 27.15
+    ignoreHeatResistance: true
+    # Goob end
   - type: PressureProtection
     lowPressureMultiplier: 1.2
   - type: LanguageKnowledge
@@ -100,7 +110,18 @@
           32:
             sprite: _Obelisk/Mobs/Species/Hydrakin/displacement.rsi
             state: head
-  - type: Carriable # Frontier: Carrying system from nyanotrasen.
+      neck: # Goob
+        sizeMaps:
+          32:
+            sprite: _Obelisk/Mobs/Species/Hydrakin/displacement.rsi
+            state: neck
+      outerClothing: # Mono 
+        sizeMaps:
+          32:
+            sprite: _Obelisk/Mobs/Species/Hydrakin/displacement.rsi
+            state: outerClothing
+ # Frontier: Carrying system from nyanotrasen.
+  - type: Carriable
   - type: Speech
     speechSounds: Hydrakin
     speechVerb: Reptilian
@@ -144,3 +165,13 @@
           32:
             sprite: _Obelisk/Mobs/Species/Hydrakin/displacement.rsi
             state: head
+      neck: # Goob
+        sizeMaps:
+          32:
+            sprite: _Obelisk/Mobs/Species/Hydrakin/displacement.rsi
+            state: neck
+      outerClothing: # Mono 
+        sizeMaps:
+          32:
+            sprite: _Obelisk/Mobs/Species/Hydrakin/displacement.rsi
+            state: outerClothing

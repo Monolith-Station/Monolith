@@ -44,6 +44,11 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
+  - type: AmbientSound
+    volume: 5
+    range: 20
+    sound:
+      path: /Audio/_Mono/Weapons/Guns/Missiles/engine_rocket_01.ogg
 
 - type: damageModifierSet
   id: Missile
@@ -93,11 +98,12 @@
     totalIntensity: 8
     intensitySlope: 3
     maxIntensity: 5
+    tileBreakScale: 3
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 50
+    acceleration: 140
     detectionRange: 1200
     scanArc: 15
     launchSpeed: 150
@@ -152,16 +158,18 @@
     totalIntensity: 50
     intensitySlope: 4
     maxIntensity: 15
+    tileBreakScale: 3
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 50
+    acceleration: 250
     detectionRange: 1600
-    scanArc: 20
+    scanArc: 25
     launchSpeed: 90
-    maxSpeed: 300
+    maxSpeed: 240
     trackDelay: 0.2
+    trackingAlgorithm: AdvancedPredictive
 
 - type: entity
   id: ShipMissileASM150Unguided
@@ -170,11 +178,17 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: TargetSeeking
-    acceleration: 50
+    acceleration: 150
     detectionRange: 0
     scanArc: 0
     launchSpeed: 90
     maxSpeed: 300
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 30
+    intensitySlope: 5
+    maxIntensity: 15
+    tileBreakScale: 3
 
 # TOVEK
 
@@ -209,18 +223,19 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 300
+    totalIntensity: 130
     intensitySlope: 6
     maxIntensity: 25
+    tileBreakScale: 3
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 80
+    acceleration: 180
     detectionRange: 2400
-    scanArc: 15
+    scanArc: 35
     launchSpeed: 120
-    maxSpeed: 450
+    maxSpeed: 350
     trackDelay: 0.15
 
 - type: entity
@@ -257,6 +272,7 @@
     totalIntensity: 70
     intensitySlope: 6
     maxIntensity: 25
+    tileBreakScale: 3
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
@@ -306,16 +322,16 @@
     totalIntensity: 40
     intensitySlope: 10
     maxIntensity: 25
-    maxTileBreak: 3
+    tileBreakScale: 3
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 60
+    acceleration: 220
     detectionRange: 2400
-    scanArc: 15
+    scanArc: 35
     launchSpeed: 60
-    maxSpeed: 400
+    maxSpeed: 300
     trackDelay: 0.2
 
 # Serpent Torpedo
@@ -354,15 +370,16 @@
     maxIntensity: 600
     intensitySlope: 3
     totalIntensity: 150
+    tileBreakScale: 3
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 10 # low
+    acceleration: 100 # low
     detectionRange: 2000
-    scanArc: 10
+    scanArc: 20
     launchSpeed: 25
-    maxSpeed: 300
+    maxSpeed: 180
     trackDelay: 2
     trackingAlgorithm: AdvancedPredictive
   - type: Destructible
@@ -415,15 +432,16 @@
     maxIntensity: 450
     intensitySlope: 5
     totalIntensity: 550
+    tileBreakScale: 3
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 170
+    acceleration: 570
     detectionRange: 1200
     scanArc: 60
     launchSpeed: 100
     maxSpeed: 300
-    trackDelay: 2
+    trackDelay: 0.5
     trackingAlgorithm: AdvancedPredictive
   - type: EmpOnTrigger
     range: 7

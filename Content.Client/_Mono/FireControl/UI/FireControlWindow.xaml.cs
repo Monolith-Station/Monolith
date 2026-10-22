@@ -44,6 +44,9 @@ public sealed partial class FireControlWindow : FancyWindow
         IFFToggle.OnToggled += OnIFFTogglePressed;
         IFFToggle.Pressed = NavRadar.ShowIFF;
 
+        IFFDetailedToggle.OnToggled += OnIFFDetailedTogglePressed; // Mono
+        IFFDetailedToggle.Pressed = NavRadar.ShowIFFDetailed; // Mono
+
         DockToggle.OnToggled += OnDockTogglePressed;
         DockToggle.Pressed = NavRadar.ShowDocks;
     }
@@ -148,6 +151,12 @@ public sealed partial class FireControlWindow : FancyWindow
     {
         NavRadar.ShowIFF ^= true;
         args.Button.Pressed = NavRadar.ShowIFF;
+    }
+
+    private void OnIFFDetailedTogglePressed(BaseButton.ButtonEventArgs args)
+    {
+        NavRadar.ShowIFFDetailed ^= true;
+        args.Button.Pressed = NavRadar.ShowIFFDetailed;
     }
 
     private void OnDockTogglePressed(BaseButton.ButtonEventArgs args)

@@ -24,6 +24,52 @@
 
 - type: entity
   parent: ClothingHandsGlovesColorBlackSMG
+  id: ClothingHandsGlovesColorBlackLecter
+  name: combat gloves
+  suffix: smg
+  description: Regular black gloves that do not keep you from frying.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Unremoveable
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    layers:
+    - state: icon
+      color: "#535353"
+  - type: Clothing
+    clothingVisuals:
+      gloves:
+      - sprite: Clothing/Hands/Gloves/Color/color.rsi
+        state: equipped-HAND
+        color: "#535353"
+      - sprite: _Mono/Objects/Weapons/Guns/Rifles/lecter_inhands_32x.rsi
+        state: wielded-inhand-right
+
+- type: entity
+  parent: ClothingHandsGlovesColorBlackSMG
+  id: ClothingHandsGlovesColorBlackC20r
+  name: combat gloves
+  suffix: smg
+  description: Regular black gloves that do not keep you from frying.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Unremoveable
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    layers:
+    - state: icon
+      color: "#535353"
+  - type: Clothing
+    clothingVisuals:
+      gloves:
+      - sprite: Clothing/Hands/Gloves/Color/color.rsi
+        state: equipped-HAND
+        color: "#535353"
+      - sprite: Objects/Weapons/Guns/SMGs/c20r.rsi
+        state: wielded-inhand-right
+
+- type: entity
+  parent: ClothingHandsGlovesColorBlackSMG
   id: ClothingHandsGlovesColorBlackAK
   name: combat gloves
   suffix: ak

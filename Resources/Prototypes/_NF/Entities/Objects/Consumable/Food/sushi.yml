@@ -14,6 +14,10 @@
   id: FoodMealAvocadoSushi
   description: Where did the seaweed come from?
   components:
+  - type: Tag
+    tags:
+    - Sushi
+    - BountyAvocadoSushi
   - type: FlavorProfile
     flavors:
       - cucumber
@@ -63,6 +67,10 @@
   id: FoodMealCarpSushi
   description: Certainly worth the risk.
   components:
+  - type: Tag
+    tags:
+    - Sushi
+    - BountyCarpSushi
   - type: FlavorProfile
     flavors:
       - cucumber
@@ -116,6 +124,10 @@
   id: CuredCarpSushi
   description: Less risky, still delicious. You're still not sure where the seaweed came from.
   components:
+  - type: Tag
+    tags:
+    - Sushi
+    - BountyFreshFishSushi
   - type: FlavorProfile
     flavors:
       - cucumber

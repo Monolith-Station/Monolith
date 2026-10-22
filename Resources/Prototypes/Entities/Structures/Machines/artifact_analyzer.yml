@@ -155,3 +155,13 @@
       machine_parts: !type:Container
       entity_storage: !type:Container
       output_container: !type:Container
+
+# Xenoborg body crusher
+- type: entity
+  parent: MachineArtifactCrusher
+  id: MachineArtifactCrusherXenoborg
+  name: body crusher
+  description: Best not to let your head get stuck...
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/body_crusher.rsi

@@ -9,3 +9,124 @@
       - id: WeaponDEWSmilodon
       - id: LargePowerCell700Thz
       - id: LargePowerCell400Thz
+
+- type: entity
+  parent: ClothingBackpackDuffelSecurity
+  id: ClothingBackpackDuffelPDVFilledSMG
+  name: C-20r bundle
+  description: "Old faithful; The classic C-20r Submachine Gun, bundled with three 9x19mm magazines." #, and a Suppressor.
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponSubMachineGunC20r
+    - id: Magazine9x19mmSubMachineGunFMJ
+      amount: 3
+
+- type: entity
+  parent: ClothingBackpackDuffelSecurity
+  id: ClothingBackpackDuffelPDVFilledWSPR
+  name: WSPR bundle
+  description: "A bundle carrying a WSPR assault rifle, packed with 4 spare 7.62x39mm subsonic magazines and two ammo boxes."
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRifleWSPR
+    - id: Magazine762x39mmSubsonic
+      amount: 4 # Mono 2->4
+    - id: AmmoBox762x39mmSubsonic # Mono
+      amount: 2
+
+- type: entity
+  parent: ClothingBackpackDuffelSecurity
+  id: ClothingBackpackDuffelPDVFilledShotgun
+  name: Bulldog bundle
+  description: "Lean and mean: Contains a Bulldog Shotgun and four 12g buckshot drums." #, and a pair of Thermal Imaging Goggles.
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponShotgunBulldog
+    - id: Magazine12_gaugeBuckshot
+    - id: Magazine12_gaugeBuckshot
+    - id: Magazine12_gaugeBuckshot
+#     - id: ThermalImagingGoggles
+
+- type: entity
+  parent: ClothingBackpackDuffelSecurity
+  id: ClothingBackpackDuffelPDVFilledLMG
+  name: L6 Saw bundle
+  description: "More dakka. A modernized L6 light machine gun, chambered in  7.62x39mm, bundled with 2 box magazines."
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponLightMachineGunL6
+    - id: Magazine762x39mmBox
+
+- type: entity
+  parent: ClothingBackpackDuffelSecurity
+  id: ClothingBackpackDuffelPDVFilledAtreides
+  name: Atreides bundle
+  description: "A compact, one-handed Submachine Gun favored by hullcrashers, bundled with three 5.7x28mm magazines." #, and a Suppressor.
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponSubMachineGunAtreides
+    - id: Magazine57x28mmSubMachineGunFMJ
+      amount: 3
+
+- type: entity
+  parent: ClothingBackpackDuffelSecurity
+  id: ClothingBackpackDuffelPDVBurner
+  name: Burner Bundle
+  description: "A high caliber Burner rifle. Comes with some anti materiel and high explosive ammunition."
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRifleBurner
+    - id: Magazine127x99mmExplosive
+    - id: Magazine127x99mm
+    - id: AmmoBox127x99mm
+
+- type: entity
+  parent: ClothingBackpackDuffelSecurity
+  id: ClothingBackpackDuffelPDVFilledGrenadeLauncher
+  name: China-Lake bundle
+  description: "An old China-Lake grenade launcher bundled with 11 rounds of various destruction capability."
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponLauncherChinaLake
+    - id: 40mmGrenadeThermobaric
+      amount: 4
+    - id: 40mmGrenadeFragmentation
+      amount: 4
+
+- type: entity
+  parent: ClothingBackpackDuffelSecurity
+  id: ClothingBackpackDuffelPDVC4tBundle
+  name: C-4 bundle
+  description: "Contains a lot of C-4 charges."
+  components:
+  - type: StorageFill
+    contents:
+    - id: C4
+      amount: 8
+
+- type: entity
+  parent: ClothingBackpackDuffelSecurity
+  id: ClothingBackpackDuffelPDVMedicalBundleFilled
+  name: medical bundle
+  description: "All you need to get your comrades back in the fight."
+  components:
+  - type: StorageFill
+    contents:
+    - id: DefibrillatorSyndicate
+    - id: MedkitCombatFilled
+      amount: 2 # Frontier: 4<2
+    - id: CombatMedipen
+      amount: 4 # Mono: 4
+    - id: PunctAutoInjector
+      amount: 4 # Mono: 4
+    - id: PyraAutoInjector
+      amount: 4 # Mono: 4
+    - id: Stimpack
+      amount: 8  # Mono: 8

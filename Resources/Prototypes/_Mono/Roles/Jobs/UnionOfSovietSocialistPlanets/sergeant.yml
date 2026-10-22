@@ -18,6 +18,8 @@
   canBeAntag: false
   weight: 30
   displayWeight: 30
+  guides:
+  - USSP_Entry
   special:
   - !type:AddImplantSpecial
     implants: [ UsspTrackingImplant ]
@@ -29,8 +31,8 @@
     - type: NpcFactionMember
       factions:
       - USSP
-    - type: ChatRank
-      rank: ussp-sergeant
+    - type: RadioOnCryosleep
+      radioChannel: Ussp
   - !type:AddLanguageSpecial
     languagesSpoken:
     - NovaCygniBasic

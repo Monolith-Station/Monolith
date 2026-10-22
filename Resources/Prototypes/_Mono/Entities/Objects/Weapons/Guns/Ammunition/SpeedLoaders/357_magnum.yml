@@ -1,0 +1,210 @@
+- type: entity
+  id: BaseSpeedLoader357_magnum
+  name: "speed loader (.357 magnum)"
+  parent: BaseItem
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+      - SpeedLoader357_magnumFMJ
+  - type: SpeedLoader
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+        - Cartridge357_magnumFMJ
+    capacity: 6
+  - type: Sprite
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []
+
+- type: entity
+  id: SpeedLoader357_magnumFMJ
+  name: "speed loader (.357 magnum FMJ)"
+  parent: BaseSpeedLoader357_magnum
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge357_magnumFMJ
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/SpeedLoaders/357_magnum/357_magnum_speed_loader.rsi
+    layers:
+      - state: base
+        map: [ "enum.GunVisualLayers.Base" ]
+      - state: base-6
+        map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: base
+    steps: 7
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: SpeedLoader357_magnumEmpty
+  name: "speed loader (.357 magnum any)"
+  parent: SpeedLoader357_magnumFMJ
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/SpeedLoaders/357_magnum/357_magnum_speed_loader.rsi
+    layers:
+      - state: base
+        map: [ "enum.GunVisualLayers.Base" ]
+      # TODO: This is actually a issue with all the speed loaders:
+      #       You can mix different ammo types, but it will always
+      #       use the one it was printed for.
+      - state: base-6
+        map: [ "enum.GunVisualLayers.Mag" ]
+
+- type: entity
+  id: SpeedLoader357_magnumIncendiary
+  name: "speed loader (.357 magnum incendiary)"
+  parent: SpeedLoader357_magnumFMJ
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge357_magnumIncendiary
+
+- type: entity
+  id: SpeedLoader357_magnumPractice
+  name: "speed loader (.357 magnum practice)"
+  parent: BaseSpeedLoader357_magnum
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge357_magnumPractice
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/SpeedLoaders/357_magnum/357_magnum_speed_loader.rsi
+    layers:
+      - state: base
+        map: [ "enum.GunVisualLayers.Base" ]
+      - state: practice-6
+        map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: practice
+    steps: 7
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: SpeedLoader357_magnumAP
+  name: "speed loader (.357 magnum extreme armor-piercing)"
+  parent: BaseSpeedLoader357_magnum
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge357_magnumAP
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/SpeedLoaders/357_magnum/357_magnum_speed_loader.rsi
+    layers:
+      - state: base
+        map: [ "enum.GunVisualLayers.Base" ]
+      - state: piercing-6
+        map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: piercing
+    steps: 7
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: SpeedLoader357_magnumUranium
+  name: "speed loader (.357 magnum uranium)"
+  parent: BaseSpeedLoader357_magnum
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge357_magnumUranium
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/SpeedLoaders/357_magnum/357_magnum_speed_loader.rsi
+    layers:
+      - state: base
+        map: [ "enum.GunVisualLayers.Base" ]
+      - state: uranium-6
+        map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: uranium
+    steps: 7
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: SpeedLoader357_magnumRubber
+  name: "speed loader (.357 magnum rubber)"
+  parent: BaseSpeedLoader357_magnum
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge357_magnumRubber
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/SpeedLoaders/357_magnum/357_magnum_rubber_speed_loader.rsi
+    layers:
+      - state: base
+        map: [ "enum.GunVisualLayers.Base" ]
+      - state: rubber-6
+        map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: rubber
+    steps: 7
+    zeroVisible: false
+  - type: Appearance
+
+#Mono AP system
+#anti-flesh ammo
+- type: entity
+  id: SpeedLoader357_magnumHP
+  name: speed loader (.357 magnum hollow-point)
+  parent: BaseSpeedLoader357_magnum
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge357_magnumHP
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/SpeedLoaders/357_magnum/357_magnum_speed_loader.rsi
+    layers:
+      - state: base
+        map: [ "enum.GunVisualLayers.Base" ]
+      - state: piercing-6
+        map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: piercing
+    steps: 7
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: SpeedLoader357_magnumRIP
+  name: speed loader (.357 magnum RIP)
+  parent: BaseSpeedLoader357_magnum
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge357_magnumRIP
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/SpeedLoaders/357_magnum/357_magnum_speed_loader.rsi
+    layers:
+      - state: base
+        map: [ "enum.GunVisualLayers.Base" ]
+      - state: piercing-6
+        map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: piercing
+    steps: 7
+    zeroVisible: false
+  - type: Appearance
+
+#armor-piercing ammo
+
+- type: entity
+  id: SpeedLoader357_magnumPlasteelAP
+  name: speed loader (.357 magnum AP)
+  parent: BaseSpeedLoader357_magnum
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge357_magnumPlasteelAP
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/SpeedLoaders/357_magnum/357_magnum_speed_loader.rsi
+    layers:
+      - state: base
+        map: [ "enum.GunVisualLayers.Base" ]
+      - state: piercing-6
+        map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: piercing
+    steps: 7
+    zeroVisible: false
+  - type: Appearance

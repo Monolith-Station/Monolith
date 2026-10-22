@@ -2,7 +2,7 @@
   id: WeaponTurretPaladin
   name: MLRS-382 "Paladin" Missile Pod
   parent:
-  - BallisticArtilleryUnanchorableMagazine
+  - BallisticArtilleryMagazine
   - BallisticArtilleryTier4HP
   description: Heavy missile pod firing 250mm guided rockets in bursts of 4.
   suffix: Large, T4
@@ -20,6 +20,7 @@
     range: 500
   - type: GunSignalControl
   - type: Gun
+    damageModifier: 0.8
     selectedMode: Burst
     availableModes: Burst
     burstCooldown: 5
@@ -74,6 +75,9 @@
         - MachineMask
         layer:
         - MachineLayer
+  - type: HardpointAnchorableOnly
+    class: Missile
+    size: Heavy
 
 - type: entity
   id: WeaponTurretPaladinInfinite

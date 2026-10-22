@@ -1,0 +1,61 @@
+# Cash (1 MIC = 1k, the highest paying bounties are $2m each)
+
+- type: listing
+  id: MMCSpaceCash1k
+  name: mmc-uplink-cash1000-name
+  description: mmc-uplink-generic-desc
+  productEntity: SpaceCash1000
+  cost:
+    MMCIndustrialCredit: 1
+  categories:
+  - UplinkMmcPayout
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
+  id: MMCSpaceCash10k
+  name: mmc-uplink-cash10000-name
+  description: mmc-uplink-generic-desc
+  productEntity: SpaceCash10000
+  cost:
+    MMCIndustrialCredit: 10
+  categories:
+  - UplinkMmcPayout
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
+  id: MMCSpaceCash100k
+  name: mmc-uplink-cash100000-name
+  description: mmc-uplink-generic-desc
+  productEntity: SpaceCash100000
+  cost:
+    MMCIndustrialCredit: 100
+  categories:
+  - UplinkMmcPayout
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
+  id: MMCSpaceCash1m
+  name: mmc-uplink-cash1000000-name
+  description: mmc-uplink-generic-desc
+  productEntity: SpaceCash1000000
+  cost:
+    MMCIndustrialCredit: 1000
+  categories:
+  - UplinkMmcPayout
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink

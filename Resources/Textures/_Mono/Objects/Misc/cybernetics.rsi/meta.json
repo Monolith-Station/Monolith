@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from SS13 Baystation.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "leuko"
+    },
+    {
+      "name": "armor-chest"
+    },
+    {
+      "name": "muscule"
+    },
+    {
+      "name": "iatric_monitor"
+    },
+    {
+      "name": "corrective_lenses"
+    },
+    {
+      "name": "glare_dampeners"
+    },
+    {
+      "name": "internal_air_system"
+    },
+    {
+      "name": "adaptive_binoculars"
+    },
+    {
+      "name": "cranial_aug"
+    },
+    {
+      "name": "circuit"
+    },
+    {
+      "name": "booster",
+      "delays": [
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "skeletal_bracing"
+    }
+  ]
+}

@@ -1,5 +1,4 @@
-using Content.Server.DeviceLinking.Components;
-using Content.Server.DeviceNetwork;
+using Content.Shared.DeviceLinking.Components;
 using Content.Shared.Interaction;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -9,6 +8,7 @@ namespace Content.Server.DeviceLinking.Systems;
 public sealed partial class SignalSwitchSystem : EntitySystem
 {
     [Dependency] private DeviceLinkSystem _deviceLink = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
 
     public override void Initialize()
@@ -36,6 +36,7 @@ public sealed partial class SignalSwitchSystem : EntitySystem
         if (comp.OnPort != comp.OffPort)
         {
             _deviceLink.SendSignal(uid, comp.StatusPort, comp.State);
+            _appearance.SetData(uid, SwitchVisuals.Visuals, comp.State);
         }
 
         _audio.PlayPvs(comp.ClickSound, uid, AudioParams.Default.WithVariation(0.125f).WithVolume(8f));

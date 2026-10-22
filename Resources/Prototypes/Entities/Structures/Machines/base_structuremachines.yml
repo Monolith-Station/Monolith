@@ -68,6 +68,12 @@
   - type: StationAiWhitelist # Mono
   - type: LightningTarget
     priority: 1
+# ES Start
+  - type: ESSparkOnHit
+    prob: 0.25
+    tileFireChance: 0.2
+    count: 2
+# ES End
 
 - type: entity
   abstract: true
@@ -91,6 +97,9 @@
   - type: FootstepModifier # mono
     footstepSoundCollection:
       collection: FootstepHull
+  - type: ShipRepairable # Mono
+    repairTime: 15
+    repairCost: 100
 
 - type: entity
   abstract: true

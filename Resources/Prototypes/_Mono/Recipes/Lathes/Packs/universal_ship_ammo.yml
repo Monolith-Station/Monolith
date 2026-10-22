@@ -14,6 +14,8 @@
   - 90mmMagazineFlakAmmoRecipe
   - Magazine140mmAmmoRecipe
   - Magazine140mmSACLOSAmmoRecipe
+  - Magazine35mmAmmoRecipe
+  - Magazine35mmHEAmmoRecipe
   # Individual load
   - 120mmCartridgeAPHEDSAmmoRecipe
   - 220mmCartridgeAPHEAmmoRecipe
@@ -23,6 +25,13 @@
   - 255mmCartridgeEMPAmmoRecipe
   - 255mmCartridgeMineAmmoRecipe
   - R300ShellHEAmmoRecipe
+  # Boxes
+  - Box220mmAPHEAmmoRecipe
+  - Box220mmHEClusterAmmoRecipe
+  - Box220mmSmartClusterAmmoRecipe
+  - Box255mmAPHEAmmoRecipe
+  - Box255mmEMPAmmoRecipe
+  - Box255mmMineAmmoRecipe
   # Missiles
   - VanykMagazineAmmoRecipe
   - MissileMagazine50mmHEAmmoRecipe
@@ -38,6 +47,7 @@
   - ASM220TorpedoHESACLOSUniversal
   - ASM220TorpedoECMUniversal
   - ASM220TorpedoLOSATUniversal
+  - SandboxHEMissileUniversal
 
 - type: latheRecipePack
   id: UniversalRailgunAmmo

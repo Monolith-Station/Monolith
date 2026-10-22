@@ -3,7 +3,7 @@
 
 - type: entity
   abstract: true
-  parent: [ ClothingOuterBase, AllowSuitStorageClothing, GeigerCounterClothing, ClothingArmorPlate ] # Mono - add geiger, armor plates
+  parent: [ ClothingOuterBase, AllowSuitStorageClothing, GeigerCounterClothing ] # Mono - add geiger
   id: ClothingModsuitChestplateBase
   name: modsuit chestplate
   description: A special modular suit spaceproof cover designed for compact folding inside modular suit control.
@@ -243,7 +243,7 @@
         Heat: 0.7
         Shock: 0.4 # Mono
         Caustic: 0.4 # Mono
-        Radiation: 0.01 # Mono
+        Radiation: 0.1 # Mono
   - type: StaminaDamageResistance
     coefficient: 0.7 # Mono
 

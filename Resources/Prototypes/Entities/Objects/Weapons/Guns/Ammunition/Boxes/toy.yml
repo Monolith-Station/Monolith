@@ -43,7 +43,7 @@
       - state: shelltoy
 
 - type: entity
-  parent: BaseAmmoBox45_magnum
+  parent: BaseAmmoBox357_magnum
   id: BoxCartridgeCap
   name: cap gun cartridge box
   components:
@@ -55,7 +55,7 @@
   #  steps: 4
   #  zeroVisible: false
   - type: Sprite
-    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Boxes/45_magnum.rsi # Frontier: add _NF prefix
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Boxes/357_magnum.rsi # Frontier: add _NF prefix
     layers:
       - state: capbase # Frontier: base<capbase
         map: ["enum.GunVisualLayers.Base"]

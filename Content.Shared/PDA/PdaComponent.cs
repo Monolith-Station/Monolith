@@ -39,5 +39,8 @@ namespace Content.Shared.PDA
         [ViewVariables] public string? StationName;
         [ViewVariables] public string? StationAlertLevel;
         [ViewVariables] public Color StationAlertColor = Color.White;
+        [ViewVariables] public string? WarLevel; // Mono
+        [DataField] public DateTime CurrentDate; // DeltaV - PDA date
+        [DataField] public DateTime? DateOverride; // DeltaV - PDA date
     }
 }

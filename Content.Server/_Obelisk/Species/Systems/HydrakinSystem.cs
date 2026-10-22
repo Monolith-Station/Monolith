@@ -3,6 +3,7 @@ using Content.Server.Popups;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
 using Content.Shared._Mono.Species.Systems;
+using Content.Shared._Obelisk.Species.Components;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Events;
 using Content.Shared.DoAfter;
@@ -37,7 +38,11 @@ public sealed partial class HydrakinSystem : EntitySystem
 
     private void OnCoolOff(EntityUid uid, HydrakinComponent component, HydrakinCoolOffActionEvent args)
     {
-        var doafter = new DoAfterArgs(EntityManager, uid, TimeSpan.FromSeconds(3), new CoolOffDoAfterEvent(), uid);
+        var doafter = new DoAfterArgs(EntityManager, uid, TimeSpan.FromSeconds(3), new CoolOffDoAfterEvent(), uid){
+            NeedHand = false,
+            RequireCanInteract = false,
+            BreakOnHandChange = false
+        };
 
         if (!_doAfter.TryStartDoAfter(doafter))
             return;

@@ -8,6 +8,7 @@
   - TsfClothingNeckColonelCloak
   - TsfClothingNeckCaptainCloak
   - TsfClothingNeckCloak
+  - TsfmcClothingNeckWearableCameraTSF
   fallbacks:
   - TsfmcClothingNeckIFFCyan
 
@@ -19,6 +20,8 @@
   - TsfmcClothingNeckIFFCyan
   - TsfClothingNeckCaptainCloak
   - TsfClothingNeckCloak
+  - TsfClothingNeckCaptainFormal
+  - TsfmcClothingNeckWearableCameraTSF
   fallbacks:
   - TsfmcClothingNeckIFFCyan
 
@@ -29,6 +32,7 @@
   loadouts:
   - TsfmcClothingNeckIFFCyan
   - TsfClothingNeckCloak
+  - TsfmcClothingNeckWearableCameraTSF
   fallbacks:
   - TsfmcClothingNeckIFFCyan
 
@@ -55,6 +59,17 @@
     neck: ClothingNeckCaptainCloak
 
 - type: loadout
+  id: TsfClothingNeckCaptainFormal
+  equipment:
+    neck: ClothingNeckFormalTSFCaptain
+
+- type: loadout  
+  id: SheriffClothingNeckMantleSheriff
+  equipment:
+    neck: ClothingNeckMantleSheriff
+
+- type: loadout
   id: TsfClothingNeckCloak
   equipment:
     neck: ClothingNeckTSFCloak
+

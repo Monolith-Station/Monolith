@@ -14,9 +14,9 @@
   id: TSFMCHalcyon
   parent: [BasePOI, BaseRepairablePOI]
   name: 'TSFMC Flagship Halcyon'
-  minimumDistance: 4500 # Mono
-  maximumDistance: 5500 # Mono
-  spawnGamePreset: [ NFAdventure, NFPirate, MonoStandard, MonoRogueTSF, MonoTSFUSSP, MonoADS, MonoChimera, MonoMixed, MonoAllAtOnce ]
+  minimumDistance: 2500 # Mono
+  maximumDistance: 3500 # Mono
+  spawnGamePreset: [ NFAdventure, NFPirate, MonoStandard, MonoRogueTSF, MonoTSFUSSP, MonoADS, MonoChimera, MonoMixed, MonoAllAtOnce, MonoChimeraTsf ]
   spawnGroup: Required
   gridPath: /Maps/_Mono/POI/tsfmchalcyon.yml
   addComponents:
@@ -45,6 +45,7 @@
       gridComponents:
       - type: VesselInfo
         description: "A mothballed battleship-turned-FOB, and Home of the TSFMC operations."
+      - type: DeleteNearbyDrones
       components:
         - type: StationNameSetup
           mapNameTemplate: 'TSFMC Flagship Halcyon'
@@ -57,6 +58,7 @@
           lobbySortOrder: 2
         - type: StationJobs
           availableJobs:
+            #TsfCivilian: [ -1, -1 ]
             Sheriff: [ 1, 1 ]
             Bailiff: [1, 1 ]
             SeniorOfficer: [ 3, 3 ] # Mono

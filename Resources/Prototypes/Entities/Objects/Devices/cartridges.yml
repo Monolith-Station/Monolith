@@ -113,7 +113,8 @@
     readonly: true # Frontier
   - type: WantedListCartridge
   - type: StealTarget
-    stealGroup: WantedListCartridge
+    stealGroup:
+    - WantedListCartridge
 
 - type: entity
   parent: NFBasePDACartridge # Frontier: BaseItem<NFBasePDACartridge

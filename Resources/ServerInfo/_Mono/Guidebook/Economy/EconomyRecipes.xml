@@ -8,4 +8,22 @@
 
   Many common materials can also contain chemicals. These can be extracted via a reagent grinder.
 
+  [color=yellow]"Unfinished" components universally say what components they need to start construction![/color]
+
+  # Industrial Planner
+
+  An industrial planner can be built at any autolathe or bought at cargo pads. It has a display of the chains for all hand-crafting, such as heavy armor plates.
+
+  <Box>
+    <GuideEntityEmbed Entity="EconomyPlanner" Caption="industrial planner"/>
+  </Box>
+
+  # Arc Furnace
+
+  <GuideMicrowaveGroupEmbed Group="ArcFurnace"/>
+
+  # Precision Assembler
+
+  <GuideMicrowaveGroupEmbed Group="PrecisionAssembler"/>
+
 </Document>

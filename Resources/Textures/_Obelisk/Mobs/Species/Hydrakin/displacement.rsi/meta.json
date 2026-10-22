@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "by Zethine / @synthetic_086 (discord).",
+    "copyright": "by Zethine / @synthetic_086 (discord). Outerclothing by @thoughtlessuser (Discord)",
     "size": {
         "x": 32,
         "y": 32
@@ -24,6 +24,14 @@
         },
         {
             "name": "head",
+            "directions": 4
+        },
+        {
+            "name": "neck",
+            "directions": 4
+        },
+        {
+            "name": "outerClothing",
             "directions": 4
         }
     ]

@@ -65,6 +65,9 @@ public sealed partial class DamageContactsSystem : EntitySystem
         if (HasComp<DamagedByContactComponent>(otherUid))
             return;
 
+        if (!_whitelistSystem.IsWhitelistPass(component.Whitelist, otherUid) && component.Whitelist != null) // Mono
+            return;
+
         if (_whitelistSystem.IsWhitelistPass(component.IgnoreWhitelist, otherUid))
             return;
 

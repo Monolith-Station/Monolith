@@ -151,3 +151,14 @@
   id: SurveillanceCameraUSSP
   name: device-frequency-prototype-name-surveillance-camera-USSP
   frequency: 3528
+
+#Xenoborg Frequency
+- type: deviceFrequency
+  id: Xenoborgs
+  name: device-frequency-prototype-name-surveillance-camera-xenoborgs
+  frequency: 2004
+
+- type: deviceFrequency
+  id: Mothership
+  name: device-frequency-prototype-name-mothership
+  frequency: 2005

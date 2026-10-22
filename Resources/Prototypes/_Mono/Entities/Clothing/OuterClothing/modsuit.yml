@@ -81,7 +81,6 @@
         Heat: 0.5
         Radiation: 0.2
         Caustic: 0.3
-        Poison: 0.8
 
 # Volta
 
@@ -116,7 +115,7 @@
         Piercing: 0.65
         Heat: 0.5
         Shock: 0.9
-        Radiation: 0.01
+        Radiation: 0.1
   - type: StaminaDamageResistance
     coefficient: 0.9
   - type: FireProtection

@@ -48,7 +48,7 @@ public sealed class GunSpreadOverlay : Overlay
         if (mapPos.MapId == MapId.Nullspace)
             return;
 
-        if (!_guns.TryGetGun(player.Value, out var gunUid, out var gun))
+        if (!_guns.TryGetGun(player.Value, out var gunUid))
             return;
 
         var mouseScreenPos = _input.MouseScreenPosition;
@@ -58,11 +58,11 @@ public sealed class GunSpreadOverlay : Overlay
             return;
 
         // (☞ﾟヮﾟ)☞
-        var maxSpread = gun.MaxAngleModified;
-        var minSpread = gun.MinAngleModified;
-        var timeSinceLastFire = (_timing.CurTime - gun.NextFire).TotalSeconds;
-        var currentAngle = new Angle(MathHelper.Clamp(gun.CurrentAngle.Theta - gun.AngleDecayModified.Theta * timeSinceLastFire,
-            gun.MinAngleModified.Theta, gun.MaxAngleModified.Theta));
+        var maxSpread = gunUid.Comp.MaxAngleModified;
+        var minSpread = gunUid.Comp.MinAngleModified;
+        var timeSinceLastFire = (_timing.CurTime - gunUid.Comp.NextFire).TotalSeconds;
+        var currentAngle = new Angle(MathHelper.Clamp(gunUid.Comp.CurrentAngle.Theta - gunUid.Comp.AngleDecayModified.Theta * timeSinceLastFire,
+            gunUid.Comp.MinAngleModified.Theta, gunUid.Comp.MaxAngleModified.Theta));
         var direction = (mousePos.Position - mapPos.Position);
 
         worldHandle.DrawLine(mapPos.Position, mousePos.Position + direction, Color.Orange);

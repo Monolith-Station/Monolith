@@ -20,7 +20,7 @@
 
 #Syndicate EVA
 - type: entity
-  parent: [ClothingOuterEVASuitBase]
+  parent: [ClothingOuterEVASuitBase, BaseFactionGearOtherFactionT2]
   id: ClothingOuterHardsuitSyndicate # TODO: rename to ClothingOuterEVASuitSyndicate
   name: syndicate EVA suit
   description: "Has a tag on the back that reads: 'Totally not property of an enemy corporation, honest!'"
@@ -126,7 +126,8 @@
         Caustic: 0.5
   - type: GroupExamine
   - type: StealTarget
-    stealGroup: ClothingOuterHardsuitVoidParamed
+    stealGroup:
+    - ClothingOuterHardsuitVoidParamed
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetVoidParamed

@@ -48,11 +48,11 @@
   loadouts:
   - MercenaryClothingOuterVestWebMercenary
   - MercenaryClothingOuterVestWebMercenaryBlack
-  - MercenaryClothingOuterArmorPunkGreen # Punkish (Static visuals)
-  - MercenaryClothingOuterArmorPunkOrange # Punkish (Static visuals)
-  - MercenaryClothingOuterArmorPunkRed # Punkish (Static visuals)
-  - MercenaryClothingOuterArmorPunkRandomized # Punkish (Randomized visuals)
-  - MercenaryClothingOuterArmorCaptainCarapace
+  #- MercenaryClothingOuterArmorPunkGreen # Punkish (Static visuals)
+  #- MercenaryClothingOuterArmorPunkOrange # Punkish (Static visuals)
+  #- MercenaryClothingOuterArmorPunkRed # Punkish (Static visuals)
+  #- MercenaryClothingOuterArmorPunkRandomized # Punkish (Randomized visuals)
+  #- MercenaryClothingOuterArmorCaptainCarapace > Commented out by Monolith
   subgroups:
   - MonoMercenaryOuterClothing # Mono
   # - MonoUSSPOuterClothing # Mono
@@ -148,7 +148,10 @@
   loadouts:
   - MercenaryClothingMaskGasMercenary
   - MercenaryClothingMaskGasSecurity
-  - MercenaryClothingMaskDrakeIndustriesWatchdog
+  - MercenaryClothingMaskDrakeIndustriesWatchdog #Mono
+  - MercenaryClothingMaskSOM40 #Mono
+  - MercenaryClothingMaskSOM41 #Mono
+  - MercenaryClothingMaskSOM42 #Mono
   subgroups:
   - PilotFace
   - ContractorFace

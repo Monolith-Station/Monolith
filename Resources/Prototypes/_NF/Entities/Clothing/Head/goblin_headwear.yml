@@ -8,7 +8,10 @@
     sprite: _NF/Clothing/Head/Hoods/goblin_robe_hood.rsi
   - type: Clothing
     sprite: _NF/Clothing/Head/Hoods/goblin_robe_hood.rsi
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadEVAHelmetBase
   id: ClothingHeadEVAHelmetGoblin
@@ -20,3 +23,7 @@
     sprite: _NF/Clothing/Head/Helmets/goblin_eva_hood.rsi
   - type: Clothing
     sprite: _NF/Clothing/Head/Helmets/goblin_eva_hood.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    

@@ -2,6 +2,7 @@ using Content.Server._Obelisk.Species.Components;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Bed.Sleep; // Mono
 
 namespace Content.Server._Obelisk.Species.Systems;
 
@@ -26,7 +27,13 @@ public sealed partial class PassiveHeatGenerationSystem : EntitySystem
 
         while (query.MoveNext(out var uid, out var passiveHeatComp, out var tempComp))
         {
-            // If your too cold or hot don't update.
+            // Mono
+            // If you're sleeping, don't update. - thanks eris
+            if (TryComp<SleepingComponent>(uid, out _))
+                continue;
+            // Mono end
+
+            // If you're too cold or hot don't update.
             var currentTemp = tempComp.CurrentTemperature;
             if (currentTemp > passiveHeatComp.MaximumTemperature || currentTemp < passiveHeatComp.MinimumTemperature)
                 continue;

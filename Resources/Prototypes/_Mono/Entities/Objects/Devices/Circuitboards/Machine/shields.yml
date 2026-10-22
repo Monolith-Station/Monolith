@@ -8,15 +8,25 @@
       state: security
     - type: MachineBoard
       prototype: ShieldGeneratorSmall
-      componentRequirements:
-        AmeFuelContainer:
-          amount: 3
-          defaultPrototype: AmeJar
+      flatpackable: false
       stackRequirements:
         Glass: 10
         Steel: 10
         Plasma: 30
         Plasteel: 10
+      tagRequirements:
+        ComponentBrickEconomy1:
+          amount: 1
+          defaultPrototype: ComponentBrickEconomy1
+        ElectromagnetEconomy1:
+          amount: 2
+          defaultPrototype: ElectromagnetEconomy1
+        MicroprocessorEconomy1:
+          amount: 2
+          defaultPrototype: MicroprocessorEconomy1
+        RadioEconomy1:
+          amount: 1
+          defaultPrototype: RadioEconomy1
 
 - type: entity
   id: MachineShieldMS250Circuitboard
@@ -28,10 +38,7 @@
     state: security
   - type: MachineBoard
     prototype: ShieldGeneratorMedium
-    componentRequirements:
-      AmeFuelContainer:
-        amount: 5
-        defaultPrototype: AmeJar
+    flatpackable: false
     stackRequirements:
       Glass: 10
       Steel: 10
@@ -40,6 +47,19 @@
       Gold: 10
       Silver: 10
       UraniumFissile: 1
+    tagRequirements:
+      ComponentBrickEconomy1:
+        amount: 2
+        defaultPrototype: ComponentBrickEconomy1
+      ElectromagnetEconomy2:
+        amount: 3
+        defaultPrototype: ElectromagnetEconomy2
+      MicroprocessorEconomy1:
+        amount: 3
+        defaultPrototype: MicroprocessorEconomy1
+      RadioEconomy2:
+        amount: 1
+        defaultPrototype: RadioEconomy2
 
 - type: entity
   id: MachineShieldMS500Circuitboard
@@ -51,10 +71,7 @@
     state: security
   - type: MachineBoard
     prototype: ShieldGenerator
-    componentRequirements:
-      AmeFuelContainer:
-        amount: 8
-        defaultPrototype: AmeJar
+    flatpackable: false
     stackRequirements:
       Glass: 30
       Steel: 30
@@ -63,3 +80,16 @@
       Gold: 15
       Silver: 15
       UraniumFissile: 2
+    tagRequirements:
+      ComponentBrickEconomy1:
+        amount: 2
+        defaultPrototype: ComponentBrickEconomy1
+      ElectromagnetEconomy2:
+        amount: 3
+        defaultPrototype: ElectromagnetEconomy2
+      MicroprocessorEconomy1:
+        amount: 3
+        defaultPrototype: MicroprocessorEconomy1
+      RadioEconomy2:
+        amount: 1
+        defaultPrototype: RadioEconomy2

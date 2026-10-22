@@ -1,5 +1,5 @@
 using Content.Server.Inventory;
-using Content.Server.Radio.Components;
+using Content.Shared.Radio.Components;
 using Content.Shared._CorvaxNext.Silicons.Borgs.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Silicons.Borgs;
@@ -53,9 +53,7 @@ public sealed partial class BorgSwitchableTypeSystem : SharedBorgSwitchableTypeS
                 (ent.Owner, transponder),
                 new SpriteSpecifier.Rsi(new ResPath("Mobs/Silicon/chassis.rsi"), prototype.SpriteBodyState));
 
-            _borgSystem.SetTransponderName(
-                (ent.Owner, transponder),
-                Loc.GetString($"borg-type-{borgType}-transponder"));
+            _borgSystem.SetTransponderName((ent.Owner, transponder),Loc.GetString($"borg-type-{borgType}-name"));
         }
 
         // Configure modules

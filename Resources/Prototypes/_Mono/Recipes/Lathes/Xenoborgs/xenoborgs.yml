@@ -1,0 +1,86 @@
+# xenoborgs
+- type: latheRecipe
+  id: BorgChassisSelectableXenoborg
+  result: BorgChassisSelectableXenoborg
+  completetime: 2
+  materials:
+     Steel: 3000
+     
+# xenoborg Modules 
+
+- type: latheRecipe
+  id: XenoborgModuleBasic
+  result: XenoborgModuleBasic
+  completetime: 2
+  materials:
+     Steel: 3000
+
+- type: latheRecipe
+  id: XenoborgModuleTool
+  result: XenoborgModuleTool
+  completetime: 2
+  materials:
+     Steel: 3000
+
+- type: latheRecipe
+  id: XenoborgModuleDefense
+  result: XenoborgModuleDefense
+  completetime: 2
+  materials:
+     Steel: 3000
+
+- type: latheRecipe
+  id: XenoborgModuleJammer
+  result: XenoborgModuleJammer
+  completetime: 2
+  materials:
+     Steel: 3000
+
+- type: latheRecipe
+  id: XenoborgModuleHeavyLaser
+  result: XenoborgModuleHeavyLaser
+  completetime: 2
+  materials:
+     Steel: 3000
+
+- type: latheRecipe
+  id: XenoborgModuleAccessBreaker
+  result: XenoborgModuleAccessBreaker
+  completetime: 2
+  materials:
+     Steel: 3000
+
+- type: latheRecipe
+  id: XenoborgModuleDoorControl
+  result: XenoborgModuleDoorControl
+  completetime: 2
+  materials:
+     Steel: 3000
+
+- type: latheRecipe
+  id: XenoborgAdvancedModuleTool
+  result: XenoborgAdvancedModuleTool
+  completetime: 2
+  materials:
+     Steel: 3000
+
+- type: latheRecipe
+  id: XenoborgModuleHypo
+  result: XenoborgModuleHypo
+  completetime: 2
+  materials:
+     Steel: 3000
+     
+- type: latheRecipe
+  id: XenoborgModuleChameleonProjector
+  result: XenoborgModuleChameleonProjector
+  completetime: 2
+  materials:
+     Steel: 3000
+
+- type: latheRecipe
+  id: XenoborgModuleSuperCloakDevice
+  result: XenoborgModuleSuperCloakDevice
+  completetime: 2
+  materials:
+     Steel: 3000

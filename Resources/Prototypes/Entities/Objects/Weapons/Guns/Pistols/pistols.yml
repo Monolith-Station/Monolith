@@ -86,12 +86,27 @@
     sound:
       collection: PistolsDrop
   # Goobstation edit end
+  # Mono - Gun stock attack
+  - type: MeleeWeapon
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 10
+    angle: 20
+    wideAnimationRotation: -80
+    animation: WeaponArcThrust
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Light
+  - type: CanShootWithShield # Mono: only sidearms can be used alongside a shield
+  # Mono end
 
 - type: entity
   name: LWC PT-45A viper (9x19mm)
   parent: BaseWeaponPistol
   id: WeaponPistolViper
-  description: A small, easily concealable, but somewhat underpowered gun. Retrofitted with a fully automatic receiver. Uses 9x19mm ammo. While the schematics to build new Vipers has been lost, they are so abundant from the Corporate War that building new ones is no longer required. Outfitted with a threaded barrel & tactical device mount.
+  description: A small, easily concealable, but somewhat underpowered gun. Retrofitted with a fully automatic receiver. Uses 9x19mm ammo. The blueprint is nowhere to be found, but for unknown reasons this model of pistol has become so common that making new ones is no longer required. Outfitted with a threaded barrel & tactical device mount. # Mono: remove syndicate references
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Pistols/viper.rsi
@@ -413,48 +428,3 @@
   # Mono end
   - type: StaticPrice # Mono
     price: 150
-
-- type: entity
-  name: NT N1984 (.45 magnum)
-  parent: BaseWeaponPistol
-  id: WeaponPistolN1984 # the spaces in description are for formatting.
-  description: The sidearm of any self respecting officer. Comes in .45 magnum, the lord's caliber. On the handle is a label that says 'for authorized use only.'
-  components:
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Pistols/N1984.rsi
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-0
-      map: ["enum.GunVisualLayers.Mag"]
-  - type: Clothing
-    sprite: Objects/Weapons/Guns/Pistols/N1984.rsi
-  - type: Gun
-    minAngle: 1
-    maxAngle: 20
-    angleIncrease: 8
-    angleDecay: 9
-    fireRate: 4
-    availableModes:
-    - SemiAuto
-    soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/mateba.ogg
-  - type: ItemSlots
-    slots:
-      gun_magazine:
-        name: Magazine
-        startingItem: Magazine45_magnumPistolFMJ
-        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
-        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
-        priority: 2
-        whitelist:
-          tags:
-            - Magazine45_magnumPistolFMJ
-        whitelistFailPopup: gun-magazine-whitelist-fail
-      gun_chamber:
-        name: Chamber
-        startingItem: Cartridge45_magnumFMJ
-        priority: 1
-        whitelist:
-          tags:
-            - Cartridge45_magnumFMJ

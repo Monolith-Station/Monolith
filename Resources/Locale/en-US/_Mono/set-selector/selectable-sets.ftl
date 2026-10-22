@@ -85,3 +85,144 @@ selectable-set-tsfmarsoc-hailstorm-kit-desc =
     - an EG-4 energy magnum
     - a jaws of life
     - and a combat medkit.
+
+# CROCUS
+
+selectable-set-crocus-infantry-kit-name = Rifleman Kit
+
+selectable-set-crocus-infantry-tsf-kit-desc =
+    Contains:
+      - QBZ-410 Lecter
+      - NVGs
+      - 4 mags
+      - 1 box of ammo
+      - 1 explosive grenade
+      - 1 flashbang
+      - 1 first aid kit
+      - 2 tourniquets
+
+selectable-set-crocus-infantry-pdv-kit-desc =
+    Contains:
+      - M-32 Vympel
+      - NVGs
+      - 4 mags
+      - 1 box of ammo
+      - 1 explosive grenade
+      - 1 flashbang
+      - 1 first aid kit
+      - 2 tourniquets
+
+
+selectable-set-crocus-medic-kit-name = Medic Kit
+
+selectable-set-crocus-medic-tsf-kit-desc =
+    Contains:
+      - CS/LR-8 Drozd
+      - 3 mags
+      - 1 box of ammo
+      - 2 combat IFAKs
+      - a medical scanner
+      - a set of surgical tools
+      - a sterile mask
+      - a medical HUD
+      - a portable AED
+
+selectable-set-crocus-medic-pdv-kit-desc =
+    Contains:
+      - M-32 Vympel
+      - 3 mags
+      - 1 box of ammo
+      - 2 combat IFAKs
+      - a medical scanner
+      - a set of surgical tools
+      - a sterile mask
+      - a medical HUD
+      - a portable AED
+
+selectable-set-crocus-sapper-kit-name = Sapper Kit
+
+selectable-set-crocus-sapper-tsf-kit-desc =
+    Contains:
+      - CS/LR-8 Drozd
+      - NVGs
+      - 3 mags
+      - 1 box of ammo
+      - 1 first aid kit
+      - 4 breaching charges
+      - a breaching hammer
+      - an advanced remote signaller
+
+selectable-set-crocus-sapper-pdv-kit-desc =
+    Contains:
+      - M-32 Vympel
+      - NVGs
+      - 3 mags
+      - 1 box of ammo
+      - 1 first aid kit
+      - 4 breaching charges
+      - a breaching hammer
+      - an advanced remote signaller
+
+
+selectable-set-crocus-autorifleman-kit-name = Autorifleman Kit
+
+selectable-set-crocus-autorifleman-tsf-kit-desc =
+    Contains:
+      - QJY-68 Grizzly
+      - 2 boxes of ammo (240 rounds)
+      - 1 bruisepack
+      - 2 tourniquets
+
+selectable-set-crocus-autorifleman-pdv-kit-desc =
+    Contains:
+      - PKMS
+      - NVGs
+      - 3 boxes of ammo
+      - 1 bruisepack
+      - 2 tourniquets
+
+
+selectable-set-crocus-grenadier-kit-name = Grenadier Kit
+
+selectable-set-crocus-grenadier-tsf-kit-desc =
+    Contains:
+      - CS/LR-8 Drozd
+      - 3 mags
+      - 1 box of ammo
+      - 1 first aid kit
+      - 4 explosive grenades
+      - 2 flashbangs
+      - 2 smoke grenades
+
+selectable-set-crocus-grenadier-pdv-kit-desc =
+    Contains:
+      - C-20r
+      - 3 mags
+      - 1 box of ammo
+      - 1 first aid kit
+      - 4 explosive grenades
+      - 2 flashbangs
+      - 2 smoke grenades
+
+# Wildcards
+
+selectable-set-crocus-marksman-tsf-kit-name = Marksman Kit
+
+selectable-set-crocus-marksman-tsf-kit-desc =
+    Contains:
+      - QBU-430 Bandit
+      - NVGs
+      - 3 mags
+      - 1 box of ammo
+      - 1 first aid kit
+
+selectable-set-crocus-pointman-pdv-kit-name = Pointman Kit
+
+selectable-set-crocus-pointman-pdv-kit-desc =
+    Contains:
+      - MlA-73 SMG
+      - a heavy ballistic shield
+      - 3 mags
+      - 1 box of ammo
+      - 1 first aid kit
+      - 2 flashbangs

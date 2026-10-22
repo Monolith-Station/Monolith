@@ -130,8 +130,8 @@
                             TextAlign="Center"
                             StyleClasses="ButtonSquare"
                             ToggleMode="True"/>
-                    <controls:Button Name="IFFShuttleToggle"
-                             Text="{controls:Loc 'shuttle-console-iffshuttles-toggle'}"
+                    <controls:Button Name="IFFDetailedToggle"
+                             Text="{controls:Loc 'shuttle-console-iff-detailed'}"
                              TextAlign="Center"
                              StyleClasses="ButtonSquare"
                              ToggleMode="True"/>

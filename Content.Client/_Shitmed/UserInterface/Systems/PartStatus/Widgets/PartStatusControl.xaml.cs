@@ -40,7 +40,7 @@ public sealed partial class PartStatusControl : UIWidget
         {
             string enumName = Enum.GetName(typeof(TargetBodyPart), bodyPart) ?? "Unknown";
             int enumValue = (int) integrity;
-            var texture = new SpriteSpecifier.Rsi(new ResPath($"/Textures/_Shitmed/Interface/Targeting/Status/{enumName.ToLowerInvariant()}.rsi"), $"{enumName.ToLowerInvariant()}_{enumValue}");
+            var texture = new SpriteSpecifier.Rsi(new ResPath($"/Textures/_Crescent/Interface/Targeting/Status/{enumName.ToLowerInvariant()}.rsi"), $"{enumName.ToLowerInvariant()}_{enumValue}");
             _partStatusControls[bodyPart].Texture = _controller.GetTexture(texture);
         }
     }

@@ -35,10 +35,11 @@
     maxIntensity: 250
     intensitySlope: 30
     totalIntensity: 2500
+    tileBreakScale: 3
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 60
+    acceleration: 100
     detectionRange: 3000
     scanArc: 15
     launchSpeed: 60
@@ -81,11 +82,22 @@
     scale: 0.55, 0.725
   - type: Appearance
   - type: SpentAmmoVisuals
+  - type: Flammable
+    fireSpread: true
+    firestackFade: -0.01
+    alwaysCombustible: true
+    damage:
+      types:
+        Heat: 1
+        Structural: 2
+  - type: FireVisuals
+    sprite: Mobs/Effects/onfire.rsi
+    normalState: Generic_mob_burning
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 250
+        damage: 50
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
@@ -137,11 +149,12 @@
     maxIntensity: 250
     intensitySlope: 30
     totalIntensity: 2500
+    tileBreakScale: 3
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetGuided
     turnRate: 30
-    acceleration: 60
+    acceleration: 100
     launchSpeed: 70
     maxSpeed: 300
     maxLifetime: 50
@@ -183,11 +196,22 @@
     scale: 0.55, 0.725
   - type: Appearance
   - type: SpentAmmoVisuals
+  - type: Flammable
+    fireSpread: true
+    firestackFade: -0.01
+    alwaysCombustible: true
+    damage:
+      types:
+        Heat: 1
+        Structural: 2
+  - type: FireVisuals
+    sprite: Mobs/Effects/onfire.rsi
+    normalState: Generic_mob_burning
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 250
+        damage: 50
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
@@ -236,7 +260,7 @@
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 70
+    acceleration: 120
     detectionRange: 2000
     scanArc: 10
     launchSpeed: 60
@@ -247,6 +271,7 @@
     maxIntensity: 30
     intensitySlope: 100
     totalIntensity: 100
+    tileBreakScale: 3
   - type: Destructible
     thresholds:
     - trigger:
@@ -283,11 +308,22 @@
     scale: 0.55, 0.725
   - type: Appearance
   - type: SpentAmmoVisuals
+  - type: Flammable
+    fireSpread: true
+    firestackFade: -0.01
+    alwaysCombustible: true
+    damage:
+      types:
+        Heat: 1
+        Structural: 2
+  - type: FireVisuals
+    sprite: Mobs/Effects/onfire.rsi
+    normalState: Generic_mob_burning
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 250
+        damage: 50
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
@@ -339,10 +375,11 @@
     maxIntensity: 50
     intensitySlope: 4
     totalIntensity: 150
+    tileBreakScale: 3
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 60
+    acceleration: 100
     detectionRange: 3500
     scanArc: 25
     launchSpeed: 50
@@ -388,6 +425,17 @@
     scale: 0.55, 0.725
   - type: Appearance
   - type: SpentAmmoVisuals
+  - type: Flammable
+    fireSpread: true
+    firestackFade: -0.01
+    alwaysCombustible: true
+    damage:
+      types:
+        Heat: 1
+        Structural: 2
+  - type: FireVisuals
+    sprite: Mobs/Effects/onfire.rsi
+    normalState: Generic_mob_burning
   - type: EmpDescription
     range: 12
     energyConsumption: 2900000
@@ -396,7 +444,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 250
+        damage: 50
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]

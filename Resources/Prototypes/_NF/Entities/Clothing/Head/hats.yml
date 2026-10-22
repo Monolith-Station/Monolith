@@ -9,6 +9,9 @@
   - type: Clothing
     sprite: _NF/Clothing/Head/Hats/bounty_hunter_hat.rsi
   - type: HamsterWearable
+  - type: Tag
+    tags:
+    - PetWearable
 
 - type: entity
   parent: ClothingHeadBaseButcherable
@@ -20,6 +23,9 @@
     sprite: _NF/Clothing/Head/Hats/pilgrim_hat.rsi
   - type: Clothing
     sprite: _NF/Clothing/Head/Hats/pilgrim_hat.rsi
+  - type: Tag
+    tags:
+    - PetWearable
 
 - type: entity
   parent: ClothingHeadBaseButcherable
@@ -31,6 +37,9 @@
     sprite: _NF/Clothing/Head/Hats/widebrim_hat.rsi
   - type: Clothing
     sprite: _NF/Clothing/Head/Hats/widebrim_hat.rsi
+  - type: Tag
+    tags:
+    - PetWearable
 
 - type: entity
   parent: ClothingHeadBaseButcherable
@@ -42,7 +51,10 @@
     sprite: _NF/Clothing/Head/Hats/cardinal_hat.rsi
   - type: Clothing
     sprite: _NF/Clothing/Head/Hats/cardinal_hat.rsi
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatWitchhunter
@@ -53,7 +65,10 @@
     sprite: _NF/Clothing/Head/Hats/witch_hunter_hat.rsi
   - type: Clothing
     sprite: _NF/Clothing/Head/Hats/witch_hunter_hat.rsi
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatBishopMitre
@@ -64,7 +79,10 @@
     sprite: _NF/Clothing/Head/Hats/bishop_mitre.rsi
   - type: Clothing
     sprite: _NF/Clothing/Head/Hats/bishop_mitre.rsi
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatKippah
@@ -75,7 +93,10 @@
     sprite: _NF/Clothing/Head/Hats/kippah.rsi
   - type: Clothing
     sprite: _NF/Clothing/Head/Hats/kippah.rsi
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatHoodCardinalHood
@@ -87,7 +108,10 @@
     sprite: _NF/Clothing/Head/Hoods/cardinal_hood.rsi
   - type: Clothing
     sprite: _NF/Clothing/Head/Hoods/cardinal_hood.rsi
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatMcCrown
@@ -98,7 +122,10 @@
     sprite: _NF/Clothing/Head/Hoods/mccargocrown.rsi
   - type: Clothing
     sprite: _NF/Clothing/Head/Hoods/mccargocrown.rsi
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatPilot
@@ -112,7 +139,10 @@
   - type: HideLayerClothing
     slots:
     - Hair
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatPirates
@@ -123,7 +153,10 @@
     sprite: _NF/Clothing/Head/Hats/pirate_hat.rsi
   - type: Clothing
     sprite: _NF/Clothing/Head/Hats/pirate_hat.rsi
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatPirateLuffy
@@ -134,7 +167,10 @@
     sprite: _NF/Clothing/Head/Hats/pirate_hat_luffy.rsi
   - type: Clothing
     sprite: _NF/Clothing/Head/Hats/pirate_hat_luffy.rsi
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatNfsdBeretGreen
@@ -146,7 +182,10 @@
   - type: Clothing
     sprite: _NF/Clothing/Head/Hats/nfsd_beret_green.rsi
   - type: CatWearable
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatNfsdBeretBrown
@@ -158,7 +197,10 @@
   - type: Clothing
     sprite: _NF/Clothing/Head/Hats/nfsd_beret_brown.rsi
   - type: CatWearable
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatNfsdBeretCream
@@ -170,7 +212,10 @@
   - type: Clothing
     sprite: _NF/Clothing/Head/Hats/nfsd_beret_cream.rsi
   - type: CatWearable
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatNfsdCampaign
@@ -199,7 +244,10 @@
       storagebase: !type:Container
   - type: PirateBountyItem
     id: CampaignHat
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadHatNfsdCampaign
   id: ClothingHeadHatNfsdCampaignFilled
@@ -212,7 +260,10 @@
       - id: FlippoEngravedLighter
       - id: CigarGold
         amount: 3
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatNfsdSmallCampaign
@@ -226,7 +277,10 @@
   - type: CatWearable
   - type: PirateBountyItem
     id: CampaignHat
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadHatHopcap
   id: ClothingHeadHatSrCap
@@ -238,7 +292,10 @@
   - type: Clothing
     sprite: _NF/Clothing/Head/Hats/sr_cap.rsi
   - type: HamsterWearable
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadHatHopcap
   id: ClothingHeadHatSrBeret
@@ -250,7 +307,10 @@
   - type: Clothing
     sprite: _NF/Clothing/Head/Hats/sr_beret.rsi
   - type: CatWearable
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadHatHopcap
   id: ClothingHeadHatStcCap
@@ -262,13 +322,16 @@
   - type: Clothing
     sprite: _NF/Clothing/Head/Hats/stc_cap.rsi
   - type: HamsterWearable
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadHatBeretHoS
   id: ClothingHeadHatBeretCommander
   name: commander's beret
   description: A black beret with a commander's rank emblem.
-
+    
 - type: entity
   parent: ClothingHeadHatBeretHoS
   id: ClothingHeadHatBeretCommon
@@ -279,7 +342,10 @@
     sprite: _Mono/Clothing/Head/Hats/tsf_blue_beret.rsi
   - type: Clothing
     sprite: _Mono/Clothing/Head/Hats/tsf_blue_beret.rsi
-
+  - type: Tag
+    tags:
+    - PetWearable
+    
 - type: entity
   parent: ClothingHeadHatHopcap
   id: ClothingHeadHatUtilityTsfmc
@@ -294,3 +360,4 @@
     tags:
     - HamsterWearable
     - WhitelistChameleon
+    - PetWearable

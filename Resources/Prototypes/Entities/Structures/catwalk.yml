@@ -61,3 +61,6 @@
     delay: 2
     fx: EffectRCDDeconstruct2
   - type: RequiresGrid # Mono
+  - type: ShipRepairable # Mono
+    repairTime: 1
+    repairCost: 5

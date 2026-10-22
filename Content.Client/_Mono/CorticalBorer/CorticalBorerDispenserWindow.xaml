@@ -5,7 +5,7 @@
     xmlns:ui="clr-namespace:Content.Client.Chemistry.UI"
     Title="{Loc 'reagent-dispenser-bound-user-interface-title'}"
     MinSize="400 175"
-    SetSize="600 300">
+    SetSize="600 475">
     <BoxContainer Orientation="Horizontal">
         <BoxContainer Orientation="Vertical" MinWidth="170">
             <Label Text="{Loc 'reagent-dispenser-window-amount-to-dispense-label'}" HorizontalAlignment="Center" />

@@ -1,0 +1,13 @@
+- type: entity
+  id: ActionActivatePersonalShield
+  name: Activate personal shield
+  description: "Activates suit's personal energy shield that slowly consumes battery charge."
+  components:
+  - type: InstantAction
+    event: !type:PersonalShieldActionEvent
+    itemIconStyle: BigAction
+    icon:
+      sprite: Objects/Weapons/Melee/e_shield.rsi
+      state: eshield-on
+    useDelay: 1
+    priority: 3

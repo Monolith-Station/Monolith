@@ -43,8 +43,8 @@ public abstract partial class SharedShuttleSystem
         }
 
         // Get the company information if available
-        Color? companyColor = null;
-        string? companyName = null;
+        Color? companyColor = Color.White;
+        string? companyName = Loc.GetString("shuttle-console-company-unknown");
 
         if (TryComp<_Mono.Company.CompanyComponent>(gridUid, out var companyComp) && !string.IsNullOrEmpty(companyComp.CompanyName))
         {

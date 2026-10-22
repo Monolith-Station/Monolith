@@ -79,6 +79,9 @@
   - type: ShipRepairable
     repairTime: 60
     repairCost: 300
+  - type: HardpointAnchorableOnly
+    class: Ballistic
+    size: Superheavy
 
 
 # If someone wants to make a ship version go nuts, but be SURE it uses ammo

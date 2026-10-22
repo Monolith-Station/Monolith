@@ -44,3 +44,65 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsSecurity ]
+
+# MMC
+
+- type: entity
+  parent: AirlockMieyo
+  id: AirlockMieyoLocked
+  suffix: Mieyo, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMieyo ]
+
+- type: entity
+  parent: AirlockMieyo
+  id: AirlockMieyoLockedSecurity
+  suffix: Mieyo Security, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMieyoSecurity ]
+
+- type: entity
+  parent: AirlockMieyo
+  id: AirlockMieyoLockedLiason
+  suffix: Mieyo Liason, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMieyoLiason ]
+
+- type: entity
+  parent: AirlockMaint
+  id: AirlockMaintMieyoLocked
+  suffix: Mieyo, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMieyo ]
+  - type: Wires
+    layoutId: AirlockSecurity
+
+- type: entity
+  parent: AirlockMaint
+  id: AirlockMaintMieyoSecurityLocked
+  suffix: Mieyo Security, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMieyoSecurity ]
+  - type: Wires
+    layoutId: AirlockSecurity
+
+- type: entity
+  parent: AirlockMaint
+  id: AirlockMaintMieyoLiasonLocked
+  suffix: Mieyo Liason, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMieyoLiason ]
+  - type: Wires
+    layoutId: AirlockSecurity

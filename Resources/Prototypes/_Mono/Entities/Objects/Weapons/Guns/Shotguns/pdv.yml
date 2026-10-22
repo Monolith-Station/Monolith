@@ -1,6 +1,6 @@
 - type: entity
   name: PD-VI "Sultan's Pulsar" shotgun (4 gauge)
-  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseC3SyndicateContraband]
+  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseC3PirateContraband]
   id: WeaponShotgunSultanPulsar
   description: A beast of a bolt-action shotgun, capable of firing the Sultan's finest 4-gauge with exceptional accuracy. Overkill for most space fauna, but using this means its certain you're hunting the most dangerous game.
   components:
@@ -19,15 +19,17 @@
       path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/bigshotgun_fire.ogg
     fireRate: 0.7
     selectedMode: Semiauto
+    damageModifier: 1.5
     availableModes:
     - SemiAuto
   - type: GunSpreadModifier
     spread: 0.4
   - type: BallisticAmmoProvider
+    autoCycle: false
     whitelist:
       tags:
       - ShellShotgun23x75mmBuckshot
-    capacity: 8
+    capacity: 4
     proto: ShellShotgun23x75mmBuckshot
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg

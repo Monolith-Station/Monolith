@@ -127,8 +127,8 @@
 
 - type: entity
   id: BaseImplantOnlyImplanterSyndi
-  parent: BaseImplantOnlyImplanter
-  name: syndicate implanter
+  parent: [BaseImplantOnlyImplanter, BaseFactionGearOtherFactionT2]
+  name: underground implanter
   description: A compact disposable syringe exclusively designed for the injection of subdermal implants.
   abstract: true
   components:

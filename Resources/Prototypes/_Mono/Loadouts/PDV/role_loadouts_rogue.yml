@@ -21,7 +21,7 @@
   - RogueSidearm
   - RogueMag
   - RoguePistolMag
-  - FactionArmorPlates
+  #- FactionArmorPlates
   canCustomizeName: true
 
 - type: roleLoadout
@@ -47,7 +47,7 @@
   - RogueSidearm
   - RogueCommandMag
   - RoguePistolMag
-  - FactionArmorPlates
+  #- FactionArmorPlates
   canCustomizeName: true
 
 - type: roleLoadout
@@ -56,10 +56,10 @@
   - PDVCommanderHead
   - PDVJumpsuit
   - PDVGloves
-  - PDVOuterClothing
+  - PDVOuterClothingVizier
   - PDVHud
   - PDVBackpack
-  - PDVShoes
+  - PDVShoesVizier
   - PDVFace
   - PDVCommanderNeck
   - ContractorBoxSurvival
@@ -72,8 +72,7 @@
   - RogueFirearmCommander
   - RogueSidearm
   - RogueCommandMag
-  - RoguePistolMag
-  - FactionArmorPlates
+  #- FactionArmorPlates
   canCustomizeName: true
 
 - type: roleLoadout
@@ -97,7 +96,7 @@
   - ContractorEncryptionKey
   - RogueFirearm
   - RogueMag
-  - FactionArmorPlates
+  #- FactionArmorPlates
   canCustomizeName: true
 
 - type: roleLoadout
@@ -123,7 +122,7 @@
   - RogueSidearm
   - RogueCommandMag
   - RoguePistolMag
-  - FactionArmorPlates
+  #- FactionArmorPlates
   canCustomizeName: true
 
 - type: roleLoadout
@@ -137,5 +136,51 @@
   - ContractorEncryptionKey
   - RogueSidearm
   - RoguePistolMag
-  - FactionArmorPlates
+  #- FactionArmorPlates
+  canCustomizeName: true
+
+- type: roleLoadout
+  id: JobPdvCivilian # Civvie
+  groups:
+  - MercenaryHead
+  - ContractorNeck
+  - MercenaryJumpsuit
+  - MercenaryGloves
+  - MercenaryBackpack
+  - ContractorOuterClothing
+  - MercenaryShoes
+  - MercenaryFace
+  - MercenaryGlasses
+  - MercenaryBelt
+  - MercenaryEars
+  - ContractorEncryptionKey
+  - ContractorBoxSurvival
+  - ContractorPDA
+  - ContractorWallet
+  - ContractorCartridge
+  - ContractorImplanter
+  - ContractorUtility
+  - ContractorFun
+  - ContractorTrinkets
+  - ContractorBureaucracy
+  - NFSpeciesSpecific
+  - MercenaryBalaclava # Mono
+  - CivGunCaseSpecial # Mono
+  - RogueSidearm
+  - RoguePistolMag
+  canCustomizeName: true
+
+- type: roleLoadout
+  id: JobPdvInfantry
+  groups:
+  - PDVInfantryHead
+  - PDVInfantryJumpsuit
+  - PDVGloves
+  - PDVInfantryOuterClothing
+  - PDVInfantryBackpack
+  - PDVShoes
+  - TsfmcBalaclava
+  - RakhshanPDA
+  - NFSpeciesSpecific
+  - PDVInfantryBelt
   canCustomizeName: true

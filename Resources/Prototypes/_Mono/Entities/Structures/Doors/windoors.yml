@@ -6,3 +6,12 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsPirate ]
+
+- type: entity
+  parent: WindoorSecure
+  id: WindoorSecureMieyoLocked
+  suffix: Mieyo, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMieyo ]

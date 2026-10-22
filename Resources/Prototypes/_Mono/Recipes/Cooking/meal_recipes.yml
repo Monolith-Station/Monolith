@@ -64,3 +64,91 @@
   recipeType:
   - Oven # Frontier
   - Microwave #Mono
+
+- type: microwaveMealRecipe
+  id: RecipeMustardMothRoachburger
+  name: mustardmothroachburger recipe
+  result: FoodBurgerMustardMothRoach
+  group: Savory
+  solids:
+    FoodBreadBun: 1
+    MobMothroachMustard: 1
+  recipeType: Microwave # Mono: Deviating to match the item description and restore the humor
+#Breads & Sandwiches
+
+- type: microwaveMealRecipe
+  id: RecipeBoomRoachburger
+  name: boomroachburger recipe
+  result: FoodBurgerBoomRoach
+  group: Savory
+  solids:
+    FoodBreadBun: 1
+    MobBoomroach: 1
+  recipeType: Microwave # Mono: Deviating to match the item description and restore the humor
+#Breads & Sandwiches
+
+- type: microwaveMealRecipe
+  id: RecipeImperiRoachburger
+  name: imperiroachburger recipe
+  result: FoodBurgerImperiRoach
+  group: Savory
+  solids:
+    FoodBreadBun: 1
+    MobImperiRoach: 1
+  recipeType: Microwave # Mono: Deviating to match the item description and restore the humor
+#Breads & Sandwiches
+
+- type: microwaveMealRecipe
+  id: RecipeOwORoachburger
+  name: oworoachburger recipe
+  result: FoodBurgerOwORoach
+  group: Savory
+  solids:
+    FoodBreadBun: 1
+    MobOwORoach: 1
+  recipeType: Microwave # Mono: Deviating to match the item description and restore the humor
+#Breads & Sandwiches
+
+- type: microwaveMealRecipe
+  id: RecipeMopRoachburger
+  name: moproachburger recipe
+  result: FoodBurgerMopRoach
+  group: Savory
+  solids:
+    FoodBreadBun: 1
+    MobMoproach: 1
+  recipeType: Microwave # Mono: Deviating to match the item description and restore the humor
+#Breads & Sandwiches
+
+- type: microwaveMealRecipe
+  id: RecipeCecropiMothRoachburger
+  name: cecropimothroachburger recipe
+  result: FoodBurgerCecropiaMothRoach
+  group: Savory
+  solids:
+    FoodBreadBun: 1
+    MobMothroachCecropia: 1
+  recipeType: Microwave # Mono: Deviating to match the item description and restore the humor
+#Breads & Sandwiches
+
+- type: microwaveMealRecipe
+  id: RecipeleopardMothRoachburger
+  name: leopardmothroachburger recipe
+  result: FoodBurgerLeopardMothRoach
+  group: Savory
+  solids:
+    FoodBreadBun: 1
+    MobMothroachLeopard: 1
+  recipeType: Microwave # Mono: Deviating to match the item description and restore the humor
+#Breads & Sandwiches
+
+- type: microwaveMealRecipe
+  id: RecipeLunarMothRoachburger
+  name: lunarmothroachburger recipe
+  result: FoodBurgerLunarMothRoach
+  group: Savory
+  solids:
+    FoodBreadBun: 1
+    MobMothroachLunar: 1
+  recipeType: Microwave # Mono: Deviating to match the item description and restore the humor
+#Breads & Sandwiches

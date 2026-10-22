@@ -195,3 +195,19 @@
   - type: Tag
     tags:
     - USSPStratcommStamp
+
+- type: entity
+  name: MMC liason rubber stamp
+  parent: RubberStampBase
+  id: RubberStampMMCLiason
+  categories: [ DoNotMap ]
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-mmc-liason
+    stampedColor: "#f4a42e"
+    stampState: "paper_stamp-mono-mmc-liason"
+  - type: Sprite
+    state: stamp-syndicate
+  - type: Tag
+    tags:
+    - MMCLiasonStamp

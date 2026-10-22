@@ -6,6 +6,10 @@ lathe-category-dangerous-animals = Dangerous Animals
 # Misc
 lathe-category-vouchers = Ship Vouchers
 lathe-category-nfr = NFR Rods
+lathe-category-componentmaterials = Packaged Components
+lathe-category-components = Industry Components
+lathe-category-altrecipes = Alternative Recipes
+lathe-category-tradecrates = Trade Crates
 
 # Mechs
 lathe-category-mech-weapons-s2s4 = S2/4 Mech Equipment

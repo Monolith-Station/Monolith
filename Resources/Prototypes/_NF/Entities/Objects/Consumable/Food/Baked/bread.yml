@@ -4,6 +4,10 @@
   id: FoodBreadChallah
   description: Twisted bread sprinkled with poppy seeds.
   components:
+  - type: Tag
+    tags:
+    - Bread
+    - BountyHoneyChallah
   - type: FlavorProfile
     flavors:
       - bread

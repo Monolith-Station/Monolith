@@ -84,7 +84,7 @@ public sealed partial class GuideMicrowaveEmbed : PanelContainer, IDocumentTag, 
         var entity = _prototype.Index<EntityPrototype>(recipe.Result);
 
         IconContainer.AddChild(new GuideEntityEmbed(recipe.Result, false, false));
-        ResultName.SetMarkup(entity.Name);
+        ResultName.SetMarkup(Loc.GetString("guidebook-microwave-recipe-name-display", ("amount", recipe.ResultCount), ("name", entity.Name))); // Mono
         ResultDescription.SetMarkup(entity.Description);
     }
 

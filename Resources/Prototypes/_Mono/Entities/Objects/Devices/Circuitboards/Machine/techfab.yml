@@ -17,6 +17,13 @@
         defaultPrototype: Beaker
 
 - type: entity
+  id: SecurityTechFabCaelestinusMachineCircuitboard
+  parent: SecurityTechFabCircuitboard
+  components:
+  - type: MachineBoard
+    prototype: SecurityTechFabCaelestinus
+
+- type: entity
   id: USSPTechfabMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: USSP field assembler machine board
@@ -44,6 +51,24 @@
     state: security
   - type: MachineBoard
     prototype: ViperLathe
+    requirements: # Frontier
+      MatterBin: 2 # Frontier stackRequirements<requirements
+      Manipulator: 2 # Frontier stackRequirements<requirements
+    tagRequirements:
+      GlassBeaker:
+        amount: 2
+        defaultPrototype: Beaker
+
+- type: entity
+  id: MMCTechfabMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: MMC multipurpose assembler machine board
+  description: A machine printed circuit board for a MMC multipurpose assembler.
+  components:
+  - type: Sprite
+    state: security
+  - type: MachineBoard
+    prototype: MMCLathe
     requirements: # Frontier
       MatterBin: 2 # Frontier stackRequirements<requirements
       Manipulator: 2 # Frontier stackRequirements<requirements

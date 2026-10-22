@@ -603,7 +603,7 @@
     state: base
 
 - type: entity
-  parent: CrateGenericSteel
+  parent: [CrateGenericSteel, BaseFactionGearOtherFactionT1]
   id: CrateSyndicate
   name: Syndicate crate
   description: A dark steel crate with red bands and a letter S embossed on the front.

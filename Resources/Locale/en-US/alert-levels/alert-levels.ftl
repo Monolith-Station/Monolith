@@ -2,6 +2,10 @@
 
 # alert-level-announcement = Attention! Sector alert level is now {$name}! {$announcement}
 alert-level-announcement = WARNING. Sector DEFCON level is now DEFCON {CAPITALIZE($name)}. {$announcement}
+# Mono
+war-level-announcement-sender = International Diplomatic Monitoring
+war-level-announcement-pre = ATTENTION! TSF and PDV high command have called a ceasefire on base strikes!
+war-level-announcement-post = ATTENTION! TSF and PDV high command have declared total war! Civilians are advised to stay away from faction bases until the conflict passes!
 
 alert-level-unknown = Unknown.
 alert-level-unknown-instructions = Unknown.

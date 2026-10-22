@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from shiptest-ss13/Shiptest. Vox states made by Flareguy for SS14. hydrakin sprite by Zethine / @synthetic_086 (discord).",
+  "copyright": "Taken from shiptest-ss13/Shiptest. Vox states made by Flareguy for SS14. hydrakin sprite by Zethine / @synthetic_086 (discord). Hydrakin sprites by bobbble (discord)",
   "size": {
     "x": 32,
     "y": 32
@@ -20,6 +20,14 @@
     },
     {
       "name": "equipped-HELMET-hydrakin",
+      "directions": 4
+    },
+    {
+      "name": "on-equipped-HELMET-hydrakin",
+      "directions": 4
+    },
+    {
+      "name": "off-equipped-HELMET-hydrakin",
       "directions": 4
     }
   ]

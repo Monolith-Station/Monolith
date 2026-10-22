@@ -7,7 +7,7 @@
     - type: Sprite
       state: engineering
     - type: MachineBoard
-      prototype: Shredder
+      prototype: Shredder # Would add economy mats to this but it's literally just for paper
       requirements:
         MatterBin: 1
       stackRequirements:
@@ -26,10 +26,6 @@
       requirements:
         MatterBin: 2
         Manipulator: 2
-      tagRequirements:
-        GlassBeaker:
-          amount: 2
-          defaultPrototype: Beaker
 
 - type: entity
   id: MercenaryTechFabCircuitboardNF
@@ -100,51 +96,35 @@
 # Thrusters
 - type: entity
   id: ThrusterSecurityMachineCircuitboard
-  parent: BaseMachineCircuitboard
+  parent: ThrusterMachineCircuitboard
   name: security thruster machine board
   components:
   - type: MachineBoard
     prototype: ThrusterSecurity
-    requirements:
-      Capacitor: 1
-    stackRequirements:
-      Steel: 5
 
 - type: entity
   id: ThrusterNfsdMachineCircuitboard
-  parent: BaseMachineCircuitboard
+  parent: ThrusterMachineCircuitboard
   name: TSFMC thruster machine board
   components:
   - type: MachineBoard
     prototype: ThrusterNfsd
-    requirements:
-      Capacitor: 1
-    stackRequirements:
-      Steel: 5
 
 - type: entity
   id: ThrusterUSSPMachineCircuitboard
-  parent: BaseMachineCircuitboard
+  parent: ThrusterMachineCircuitboard
   name: USSP thruster machine board
   components:
   - type: MachineBoard
     prototype: ThrusterUSSP
-    requirements:
-      Capacitor: 1
-    stackRequirements:
-      Steel: 5
 
 - type: entity
   id: ThrusterRogueMachineCircuitboard
-  parent: BaseMachineCircuitboard
-  name: Rogue thruster machine board
+  parent: ThrusterMachineCircuitboard
+  name: PDV thruster machine board
   components:
   - type: MachineBoard
     prototype: ThrusterRogue
-    requirements:
-      Capacitor: 1
-    stackRequirements:
-      Steel: 5
 
 - type: entity
   id: SmallThrusterMachineCircuitboard
@@ -166,59 +146,35 @@
 # Gyroscope
 - type: entity
   id: GyroscopeSecurityMachineCircuitboard
-  parent: BaseMachineCircuitboard
+  parent: GyroscopeMachineCircuitboard
   name: security gyroscope machine board
   components:
   - type: MachineBoard
     prototype: GyroscopeSecurity
-    requirements:
-      Manipulator: 2
-      Capacitor: 1
-    stackRequirements:
-      Glass: 2
 
 - type: entity
   id: SmallGyroscopeSecurityMachineCircuitboard
-  parent: BaseMachineCircuitboard
+  parent: SmallGyroscopeMachineCircuitboard
   name: small security gyroscope machine board
   components:
   - type: MachineBoard
     prototype: SmallGyroscopeSecurity
-    requirements:
-      Manipulator: 2
-      Capacitor: 1
-    stackRequirements:
-      Glass: 2
-  - type: StaticPrice
-    price: 20
 
 - type: entity
   id: GyroscopeNfsdMachineCircuitboard
-  parent: BaseMachineCircuitboard
+  parent: GyroscopeMachineCircuitboard
   name: TSFMC gyroscope machine board
   components:
   - type: MachineBoard
     prototype: GyroscopeNfsd
-    requirements:
-      Manipulator: 2
-      Capacitor: 1
-    stackRequirements:
-      Glass: 2
 
 - type: entity
   id: SmallGyroscopeNfsdMachineCircuitboard
-  parent: BaseMachineCircuitboard
+  parent: SmallGyroscopeMachineCircuitboard
   name: small TSFMC gyroscope machine board
   components:
   - type: MachineBoard
     prototype: SmallGyroscopeNfsd
-    requirements:
-      Manipulator: 2
-      Capacitor: 1
-    stackRequirements:
-      Glass: 2
-  - type: StaticPrice
-    price: 18 # 12.5<18
 
 - type: entity
   id: SmallGyroscopeMachineCircuitboard
@@ -249,6 +205,13 @@
         Capacitor: 2
       stackRequirements:
         CableHV: 10
+      tagRequirements:
+        MotorEconomy1: # Stator!
+          amount: 1
+          defaultPrototype: MotorEconomy1
+        MicroprocessorEconomy1:
+          amount: 1
+          defaultPrototype: MicroprocessorEconomy1
     - type: PhysicalComposition
       materialComposition:
         Glass: 200
@@ -271,6 +234,13 @@
         Capacitor: 2
       stackRequirements:
         CableHV: 10
+      tagRequirements:
+        MotorEconomy1: # Stator!
+          amount: 1
+          defaultPrototype: MotorEconomy1
+        MicroprocessorEconomy1:
+          amount: 1
+          defaultPrototype: MicroprocessorEconomy1
     - type: PhysicalComposition
       materialComposition:
         Glass: 200
@@ -358,7 +328,7 @@
     - type: MachineBoard
       prototype: MedicalAssembler
       requirements:
-        Capacitor: 3
+        Manipulator: 2
       stackRequirements:
         Steel: 5
         Glass: 2

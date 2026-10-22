@@ -24,7 +24,8 @@
     - WhitelistChameleon
     - WhitelistChameleonIdCard
   - type: StealTarget
-    stealGroup: IDCard
+    stealGroup:
+    - IDCard
   - type: StaticPrice # Frontier
     price: 5 # Frontier The card need to cost less then the PDA that comes with a card and a pen in it.
   - type: CargoSellBlacklist # Frontier
@@ -142,7 +143,8 @@
     - WhitelistChameleonIdCard
     - HighRiskItem
   - type: StealTarget
-    stealGroup: CaptainIDCard
+    stealGroup:
+    - CaptainIDCard
 
 - type: entity
   parent: IDCardStandard
@@ -663,7 +665,7 @@
     job: AtmosphericTechnician
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseFactionGearOtherFactionT1]
   id: SyndicateIDCard
   name: syndicate ID card
   components:
@@ -833,6 +835,32 @@
     - Wizard
     - External
     - Maintenance
+# Xenoborg
+- type: entity
+  parent: IDCardStandard
+  id: XenoborgIDCard
+  name: xenoborg ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+  - type: Access
+    tags:
+    - Xenoborg
+
+# Xenoborg
+- type: entity
+  parent: IDCardStandard
+  id: MothershipIDCard
+  name: Mothership ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+  - type: Access
+    tags:
+    - Xenoborg
+    - Mothership
 
 - type: entity
   parent: IDCardStandard
@@ -857,6 +885,8 @@
     groups:
     - AllAccess
     - USSPAA # Mono
+    - Mieyo # Mono
+    - Viper # Mono
     tags:
     - CentralCommand
     - NuclearOperative

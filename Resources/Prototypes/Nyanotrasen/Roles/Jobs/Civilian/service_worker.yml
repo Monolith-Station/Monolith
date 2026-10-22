@@ -1,11 +1,11 @@
 - type: job
   id: CCServiceWorker
-  name: job-name-service-worker
-  description: job-description-service-worker
+  name: job-name-caelestinus-worker # Mono
+  description: job-description-caelestinus-worker # Mono
   playTimeTracker: JobCCServiceWorker
-  requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 10800
+# requirements:
+#   - !type:OverallPlaytimeRequirement # Mono: remove playtime requirements.
+#     time: 10800
   startingGear: CCServiceWorkerGear
   alwaysUseSpawner: true
   icon: "JobIconValet" # Frontier: JobIconServiceWorker<JobIconValet
@@ -20,8 +20,8 @@
   - Service
   - Frontier # Frontier
   special:
-  - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ]
+# - !type:AddImplantSpecial # Mono: remove TSFMC implant
+#   implants: [ MindShieldImplant ]
   - !type:GiveItemOnHolidaySpecial # Frontier
     holiday: FrontierBirthday # Frontier
     prototype: FrontierBirthdayGift # Frontier
@@ -36,5 +36,5 @@
   storage:
     back:
     - EncryptionKeyService # Frontier
-    - ShipVoucherFrontierService
+#   - ShipVoucherFrontierService # Mono
 # End Frontier

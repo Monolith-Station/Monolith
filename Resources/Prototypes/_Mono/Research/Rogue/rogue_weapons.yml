@@ -12,7 +12,7 @@
   - EnergyDaggerRogue
   technologyPrerequisites:
   - UniversalMaterialResearchT2
-  position: 12, 9
+  position: -2, -22
 
 - type: technology
   id: HFSwordTech
@@ -25,7 +25,7 @@
   - HFSwordVT7
   technologyPrerequisites:
   - RogueMeleeWeapons
-  position: 12, 14
+  position: -3, -22
 
 - type: technology
   id: RogueBasicGuns
@@ -42,49 +42,42 @@
   - PrintableDirtyBomb
   technologyPrerequisites:
   - UniversalMaterialResearchT1
-  position: 12, 2
+  position: -2, -12
 
 - type: technology
   id: RogueAdvancedGuns
   name: research-technology-rogue-advanced-guns
-  entityIcon: WeaponRifleM90
+  entityIcon: WeaponLauncherPanzero
   discipline: RogueWeaponry
   tier: 2
-  cost: 55000
+  cost: 15000
   recipeUnlocks:
-  - WeaponSubMachineGunWt550Rogue
-  - WeaponSubMachineGunAtreidesRogue
-  - WeaponRifleM90Rogue
-  - WeaponShotgunBulldogRogue
   - WeaponLauncherPanzeroRogue
   technologyPrerequisites:
-  - RogueBasicGuns
   - UniversalMaterialResearchT2
-  position: 12, 8
+  - RogueBasicGuns
+  position: -4, -22
 
 - type: technology
   id: RogueHeavyWeapons
   name: research-technology-rogue-heavy-weapons
-  entityIcon: WeaponLightMachineGunL6
+  entityIcon: WeaponSniperHristov
   discipline: RogueWeaponry
   tier: 3
-  cost: 75000
+  cost: 20000
   recipeUnlocks:
-  - WeaponSniperHristovRogue
-  - WeaponLightMachineGunL6Rogue
-  - WeaponRifleBurnerRogue
   - Magazine762x39mmBox
   - Magazine127x99mm
   - AmmoBox127x99mm
   - AmmoBox145x114mm
+  - AmmoBox145x114mmEMP
   - AmmoBox145x114mmBig
-  - WeaponDEWBasilisk
   - Magazine10Phz # for basilisk
   - AmmoBox10Phz # for basilisk
   technologyPrerequisites:
-  - RogueAdvancedGuns
   - UniversalMaterialResearchT3
-  position: 12, 13
+  - RogueAdvancedGuns
+  position: -2, -30
 
 - type: technology
   id: RogueSubsonic
@@ -92,16 +85,14 @@
   entityIcon: WeaponSubMachineGunMla73
   discipline: RogueWeaponry
   tier: 2
-  cost: 35000
+  cost: 10000
   recipeUnlocks:
-  - WeaponRifleWSPRRogue
   - Magazine762x39mmSubsonic
   - AmmoBox762x39mmSubsonic
-  - WeaponSubMachineGunMla73Rogue
   - Magazine635x40mmCaseless
   - AmmoBox635x40mmCaseless
   - MagazineAsmgtUniversal635x40mm
   - AmmoBox635x40mmCaselessBig
   technologyPrerequisites:
   - RogueAdvancedGuns
-  position: 13, 8
+  position: -5, -22

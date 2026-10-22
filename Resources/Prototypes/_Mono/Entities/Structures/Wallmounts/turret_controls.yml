@@ -292,3 +292,48 @@
   id: TurretAIVG
   name: device-frequency-prototype-name-turret
   frequency: 1690
+
+- type: entity
+  parent: WeaponEnergyTurretStationControlPanel
+  id: WeaponEnergyTurretMieyoControlPanel
+  name: mieyo sentry turret control panel
+  suffix: Mieyo Security access
+  description: A wall-mounted interface that allows a local artifical intelligence to adjust the operational parameters of linked sentry turrets.
+  components:
+  - type: AccessReader
+    access: [["MieyoSecurity"]]
+  - type: TurretTargetSettings
+    exemptAccessLevels:
+    - MieyoLiason
+    - MieyoSecurity
+    - Mieyo
+  - type: DeviceNetwork
+    receiveFrequencyId: TurretAIMieyo
+    transmitFrequencyId: TurretControlAIMieyo
+
+- type: entity
+  parent: BallisticTurretHeavyAIBase
+  id: BallisticTurretHeavyAIMieyo
+  name: mieyo heavy remote sentry turret
+  suffix: Mieyo
+  components:
+  - type: AccessReader
+    access: [["MieyoSecurity"]]
+  - type: TurretTargetSettings
+    exemptAccessLevels:
+    - MieyoLiason
+    - MieyoSecurity
+    - Mieyo
+  - type: DeviceNetwork
+    receiveFrequencyId: TurretControlAIMieyo
+    transmitFrequencyId: TurretAIMieyo
+
+- type: deviceFrequency
+  id: TurretControlAIMieyo
+  name: device-frequency-prototype-name-turret-control
+  frequency: 1691
+
+- type: deviceFrequency
+  id: TurretAIMieyo
+  name: device-frequency-prototype-name-turret
+  frequency: 1692

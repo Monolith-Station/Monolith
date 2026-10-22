@@ -18,9 +18,13 @@ public sealed class SpawnOnDespawnSystem : EntitySystem
         if (!TryComp(uid, out TransformComponent? xform))
             return;
 
-        Spawn(comp.Prototype, xform.Coordinates);
+        // Mono start - multiple entity spawning
+            for (int i = 0; i <= comp.Count; i++)
+            {
+                Spawn(comp.Prototype, xform.Coordinates);
+            }
+        // End mono
     }
-
     public void SetPrototype(Entity<SpawnOnDespawnComponent> entity, EntProtoId prototype)
     {
         entity.Comp.Prototype = prototype;

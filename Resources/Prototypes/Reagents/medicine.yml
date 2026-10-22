@@ -785,7 +785,16 @@
     Drink:
       effects:
         - !type:SatiateThirst
+          conditions: # DeltaV nerf of saline for Feroxi
+          - !type:OrganType
+            type: Feroxi
+            shouldHave: false
           factor: 6
+        - !type:SatiateThirst # DeltaV nerf of saline for Feroxi
+          conditions:
+          - !type:OrganType
+            type: Feroxi
+          factor: 2
         - !type:ModifyBloodLevel
           amount: 6
 
@@ -921,7 +930,7 @@
           min: 15
         reagent: Tricordrazine
         amount: -0.8
-        
+
 
 - type: reagent
   id: Lipozine
@@ -956,7 +965,7 @@
           Burn: -1.5
           Toxin: -1.5
           Airloss: -1.5
-          Brute: -1.5   
+          Brute: -1.5
       - !type:AdjustReagent # Mono: Overdose, penalize metabolism
         conditions:
         - !type:ReagentThreshold
@@ -1460,7 +1469,7 @@
           component: ForcedSleeping
           refresh: false
           type: Add
-        
+
 
 - type: reagent
   id : Aloxadone

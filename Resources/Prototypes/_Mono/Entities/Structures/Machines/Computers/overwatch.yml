@@ -1,0 +1,219 @@
+- type: entity
+  parent: [BaseStructureDisableToolUse, BaseStructureDestructible, BaseComputerAiAccess]
+  id: BaseComputerOverwatch
+  name: overwatch console
+  description: A computer console used to track faction members via wearable cameras.
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: OverwatchConsole
+  - type: StationAiWhitelist
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: comm
+    - map: ["computerLayerKeys"]
+      state: generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+  - type: ActivatableUI
+    key: enum.OverwatchUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.OverwatchUiKey.Key:
+        type: OverwatchBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#3c5eb5"
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
+  - type: ShipRepairable
+    repairTime: 4
+    repairCost: 8
+
+- type: entity
+  parent: BaseComputerOverwatch
+  id: TSFOverwatchComputer
+  name: TSFMC overwatch console
+  components:
+  - type: OverwatchConsole
+    faction: TSF
+  - type: CompanyAccessReader
+    requiredCompanies:
+    - TSF
+
+- type: entity
+  parent: BaseComputerOverwatch
+  id: PDVOverwatchComputer
+  name: PDV overwatch console
+  components:
+  - type: OverwatchConsole
+    faction: PDV
+  - type: CompanyAccessReader
+    requiredCompanies:
+    - PDV
+
+- type: entity
+  parent: BaseComputerOverwatch
+  id: MMCOverwatchComputer
+  name: MMC overwatch console
+  components:
+  - type: OverwatchConsole
+    faction: MMC
+  - type: CompanyAccessReader
+    requiredCompanies:
+    - MMC
+
+- type: entity
+  parent: BaseComputerOverwatch
+  id: MDOverwatchComputer
+  name: MD overwatch console
+  components:
+  - type: OverwatchConsole
+    faction: MD
+  - type: CompanyAccessReader
+    requiredCompanies:
+    - MD
+
+- type: entity
+  parent: BaseComputerOverwatch
+  id: CCTCOverwatchComputer
+  name: CCTC overwatch console
+  components:
+  - type: OverwatchConsole
+    faction: Colonial
+  - type: CompanyAccessReader
+    requiredCompanies:
+    - Colonial
+
+- type: entity
+  parent: BaseComputerOverwatch
+  id: USSPOverwatchComputer
+  name: USSP overwatch console
+  components:
+  - type: OverwatchConsole
+    faction: USSP
+  - type: CompanyAccessReader
+    requiredCompanies:
+    - USSP
+
+- type: entity
+  parent: BaseComputerOverwatch
+  id: VGOverwatchComputer
+  name: VG overwatch console
+  components:
+  - type: OverwatchConsole
+    faction: TheViperGroup
+  - type: CompanyAccessReader
+    requiredCompanies:
+    - TheViperGroup
+
+# Handheld
+- type: entity
+  parent: [BaseHandheldComputer, BaseItem]
+  id: BaseHandheldOverwatchConsole
+  name: handheld overwatch console
+  description: Displays a readout of faction squad members.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/tablets.rsi
+    layers:
+    - state: tablet
+    - state: overwatch
+      shader: unshaded
+  - type: OverwatchConsole
+  - type: ActivatableUI
+    inHandsOnly: true
+    singleUser: true
+    key: enum.OverwatchUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.OverwatchUiKey.Key:
+        type: OverwatchBoundUserInterface
+
+- type: entity
+  parent: BaseHandheldOverwatchConsole
+  id: TSFHandheldOverwatchConsole
+  name: TSFMC handheld overwatch console
+  components:
+  - type: OverwatchConsole
+    faction: TSF
+  - type: CompanyAccessReader
+    requiredCompanies:
+    - TSF
+
+- type: entity
+  parent: BaseHandheldOverwatchConsole
+  id: PDVHandheldOverwatchConsole
+  name: PDV handheld overwatch console
+  components:
+  - type: OverwatchConsole
+    faction: PDV
+  - type: CompanyAccessReader
+    requiredCompanies:
+    - PDV
+
+- type: entity
+  parent: BaseHandheldOverwatchConsole
+  id: MMCHandheldOverwatchConsole
+  name: MMC handheld overwatch console
+  components:
+  - type: OverwatchConsole
+    faction: MMC
+  - type: CompanyAccessReader
+    requiredCompanies:
+    - MMC
+
+- type: entity
+  parent: BaseHandheldOverwatchConsole
+  id: MDHandheldOverwatchConsole
+  name: MD handheld overwatch console
+  components:
+  - type: OverwatchConsole
+    faction: MD
+  - type: CompanyAccessReader
+    requiredCompanies:
+    - MD
+
+- type: entity
+  parent: BaseHandheldOverwatchConsole
+  id: CCHandheldOverwatchConsole
+  name: CCTC handheld overwatch console
+  components:
+  - type: OverwatchConsole
+    faction: Colonial
+  - type: CompanyAccessReader
+    requiredCompanies:
+    - Colonial
+
+- type: entity
+  parent: BaseHandheldOverwatchConsole
+  id: USSPHandheldOverwatchConsole
+  name: USSP handheld overwatch console
+  components:
+  - type: OverwatchConsole
+    faction: USSP
+  - type: CompanyAccessReader
+    requiredCompanies:
+    - USSP
+
+- type: entity
+  parent: BaseHandheldOverwatchConsole
+  id: VGHandheldOverwatchConsole
+  name: VG handheld overwatch console
+  components:
+  - type: OverwatchConsole
+    faction: TheViperGroup
+  - type: CompanyAccessReader
+    requiredCompanies:
+    - TheViperGroup

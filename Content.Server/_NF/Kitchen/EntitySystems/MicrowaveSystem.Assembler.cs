@@ -7,6 +7,7 @@ using Content.Shared._NF.Kitchen.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.FixedPoint;
 using Content.Shared.Kitchen;
+using Content.Shared.Kitchen.Components;
 using Content.Shared.Stacks;
 
 namespace Content.Server.Kitchen.EntitySystems;

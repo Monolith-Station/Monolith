@@ -7,11 +7,16 @@
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Attachments/Grips/erebus_railmount.rsi
     state: vfg
-  - type: ESGunRecoilAttachment
-    recoilRecoveryModifier: 0.65
-    recoilIncreaseModifier: 0.35
-    minSpreadModifier: 0.8
-    maxSpreadModifier: 0.95
+  - type: ESGunRecoilAttachment # It's a handgrip. You hold onto it. Why would it ever help one-handed.
+    recoilRecoveryModifier: 1.2
+    recoilIncreaseModifier: 1.0
+    minSpreadModifier: 1.05
+    maxSpreadModifier: 1.05
+  - type: ESGunWieldRecoilAttachment
+    wieldRecoilRecoveryModifier: 1.55
+    wieldRecoilIncreaseModifier: 2.8
+    wieldMinSpreadModifier: 1.25
+    wieldMaxSpreadModifier: 1.05
   - type: Tag
     tags:
     - MonoGrip
@@ -35,9 +40,14 @@
     storedRotation: -90
   - type: ESGunRecoilAttachment
     recoilRecoveryModifier: 1.2
-    recoilIncreaseModifier: 1.0
-    minSpreadModifier: 0.05
+    recoilIncreaseModifier: 1.1
+    minSpreadModifier: 0.7
     maxSpreadModifier: 1.0
+  - type: ESGunWieldRecoilAttachment
+    wieldRecoilRecoveryModifier: 0.83 # rounded from the inverse
+    wieldRecoilIncreaseModifier: 0.9 # rounded from the inverse
+    wieldMinSpreadModifier: 20
+    wieldMaxSpreadModifier: 1
   - type: ESGunComponentAttachment
     component:
     - type: LaserPointer
@@ -64,11 +74,16 @@
   - type: Item
     size: Small
     storedRotation: -90
-  - type: ESGunRecoilAttachment
+  - type: ESGunRecoilAttachment # Near same values for both of these because most pistols can't be wielded.
     recoilRecoveryModifier: 1.2
-    recoilIncreaseModifier: 1.0
+    recoilIncreaseModifier: 1.1
     minSpreadModifier: 0.05
-    maxSpreadModifier: 1.0
+    maxSpreadModifier: 1
+  - type: ESGunWieldRecoilAttachment
+    wieldRecoilRecoveryModifier: 0.83 # rounded from the inverse
+    wieldRecoilIncreaseModifier: 0.9 # rounded from the inverse
+    wieldMinSpreadModifier: 20
+    wieldMaxSpreadModifier: 1
   - type: ESGunComponentAttachment
     component:
     - type: LaserPointer
@@ -98,6 +113,11 @@
     recoilIncreaseModifier: 1.0
     minSpreadModifier: 1.0
     maxSpreadModifier: 1.0
+  - type: ESGunWieldRecoilAttachment
+    wieldRecoilRecoveryModifier: 1.0
+    wieldRecoilIncreaseModifier: 1.0
+    wieldMinSpreadModifier: 1.0
+    wieldMaxSpreadModifier: 1.0
   - type: ESGunComponentAttachment
     component:
     - type: ItemTogglePointLight
@@ -105,7 +125,7 @@
       enabled: false
       mask: /Textures/Effects/LightMasks/cone.png
       autoRot: true
-      radius: 6
+      radius: 7
       netsync: true
     - type: ItemToggle # No sfx because its annoying (it triggers it when u wield)
       predictable: true
@@ -116,3 +136,88 @@
     - MonoGrip
     - MonoGripErebusRailmount
     - MonoGripLight
+
+- type: entity
+  parent: BaseGunAttachmentGrip
+  id: GunAttachmentQLG20
+  name: TCA QLG-20 under-barrel grenade launcher (TSF UBGL mount)
+  description: A UBGL designed to be mounted to TSF longarms to provide a lightweight option for fire-support and utility.
+  suffix: Grip, TSF mount
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Attachments/Grips/erebus_railmount.rsi
+    state: ubgl_qlg
+  - type: ESGunTemporaryItemSlotAttachment
+    slotName: launcher_mag
+    itemSlot:
+      name: UBGL Chamber
+      priority: 3
+      insertSound: /Audio/_FinalHorizon/Weapons/Guns/MagIn/m203_insertgrenade.ogg
+      ejectSound: /Audio/_FinalHorizon/Weapons/Guns/MagOut/m203_openbarrel.ogg
+      whitelist:
+        tags:
+        - Grenade
+        - LessLethalGrenade
+  - type: ESGunComponentAttachment
+    component:
+    - type: AlternateGun
+      slot: attachment_grip
+      switchSound:
+        path: /Audio/_FinalHorizon/Weapons/Guns/Deploy/m203_select.ogg
+  - type: ESGunRecoilAttachment
+    recoilRecoveryModifier: 0.4
+    recoilIncreaseModifier: 1.05
+    minSpreadModifier: 1.05
+    maxSpreadModifier: 1.1
+  - type: ESGunWieldRecoilAttachment
+    wieldRecoilRecoveryModifier: 0.95
+    wieldRecoilIncreaseModifier: 1.05
+    wieldMinSpreadModifier: 0.95
+    wieldMaxSpreadModifier: 0.9
+  - type: Gun
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/_FinalHorizon/Weapons/Guns/Gunshots/m203.ogg
+  - type: AlternateGunAmmoProvider
+  - type: Tag
+    tags:
+    - MonoGrip
+    - MonoGrip40mmUBGL
+    - MonoGrip40mmUBGLTSF
+
+- type: entity
+  parent: GunAttachmentQLG20
+  id: GunAttachmentRKR40
+  name: PD-VI RKR/40 under-barrel grenade launcher (Vympel UBGL mount)
+  description: A properitary UBGL designed for the M-32 Vympel and anything else that shares it's unique trigger assembly (which is nothing).
+  suffix: Grip, Vympel mount
+  components:
+  - type: Sprite
+    state: ubgl_vympel
+  - type: ESGunTemporaryItemSlotAttachment
+    slotName: launcher_mag
+    itemSlot:
+      name: UBGL Chamber
+      priority: 3
+      insertSound: /Audio/_FinalHorizon/Weapons/Guns/MagIn/gp25_insertgrenade.ogg
+      ejectSound: /Audio/_FinalHorizon/Weapons/Guns/MagOut/gp25_openbarrel.ogg
+      whitelist:
+        tags:
+        - Grenade
+        - LessLethalGrenade
+  - type: ESGunComponentAttachment
+    component:
+    - type: AlternateGun
+      slot: attachment_grip
+      switchSound:
+        path: /Audio/_FinalHorizon/Weapons/Guns/Deploy/gp25_select.ogg
+  - type: Gun
+    soundGunshot:
+      path: /Audio/_FinalHorizon/Weapons/Guns/Gunshots/vog25.ogg
+  - type: Tag
+    tags:
+    - MonoGrip
+    - MonoGrip40mmUBGL
+    - MonoGrip40mmUBGLVympel

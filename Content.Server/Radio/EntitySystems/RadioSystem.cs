@@ -3,7 +3,7 @@ using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems;
 using Content.Server._EinsteinEngines.Language;
 using Content.Server.Power.Components;
-using Content.Server.Radio.Components;
+using Content.Shared.Radio.Components;
 using Content.Shared._Mono.Radio;
 using Content.Shared.Chat;
 using Content.Shared.Database;
@@ -128,6 +128,9 @@ public sealed partial class RadioSystem : EntitySystem
             return;
         // Einstein Engines - Language end
 
+        var prefix = _language.GetLanguageFromPrefix(messageSource, ref message, out var parsed, true); // Starlight: Language prefixes
+        language = parsed && _language.CanSpeak(messageSource, prefix) ? prefix : language;
+
         // TODO if radios ever garble / modify messages, feedback-prevention needs to be handled better than this.
         if (!_messages.Add(message))
             return;
@@ -193,9 +196,16 @@ public sealed partial class RadioSystem : EntitySystem
         var ev = new RadioReceiveEvent(messageSource, channel, msg, notUdsMsg, language, radioSource);
         // Einstein Engines - Language end
 
-        var sendAttemptEv = new RadioSendAttemptEvent(channel, radioSource);
+        var transmitFrequency = frequency ?? GetFrequency(messageSource, channel);
+
+        var sendAttemptEv = new RadioSendAttemptEvent(
+            channel,
+            radioSource,
+            transmitFrequency);
+
         RaiseLocalEvent(ref sendAttemptEv);
         RaiseLocalEvent(radioSource, ref sendAttemptEv);
+
         var canSend = !sendAttemptEv.Cancelled;
 
         var sourceMapId = Transform(radioSource).MapID;

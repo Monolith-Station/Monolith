@@ -7,9 +7,13 @@
 
 - type: npcFaction
   id: TSFMC
+  friendly:
+  - TSFMCTurret
   neutral:
-  - CC
-  - NanoTrasen
+  - Cat
+  - PetsNT
+  - MD
+  - Mouse
   - SimpleNeutral
   defaultHostile: true
 
@@ -18,8 +22,8 @@
   friendly:
   - TSFMC
   neutral:
-  - CC
-  - NanoTrasen
+  #- CC
+  #- NanoTrasen
   - Cat
   - PetsNT
   - SimpleNeutral
@@ -91,4 +95,22 @@
   - SimpleNeutral
   - Mouse
   - USSP
+  defaultHostile: true
+
+- type: npcFaction
+  id: MMC
+  neutral:
+  - CC
+  - USSP
+  - VG
+  - NanoTrasen
+  - SimpleNeutral
+  - Mouse
+  defaultHostile: true
+
+- type: npcFaction
+  id: XenoborgTurret # Doesn't like intruders.
+  friendly:
+  - Mothership
+  - Xenoborg
   defaultHostile: true

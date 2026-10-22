@@ -55,7 +55,7 @@
     quickEquip: false
   - type: OnUseTimerTrigger
     delay: 10
-    delayOptions: [10, 30, 60, 120, 300]
+    delayOptions: [10, 30, 60, 120, 300, 600, 900, 1200, 1800] # Mono
     initialBeepDelay: 0
     beepSound: /Audio/Machines/Nuke/general_beep.ogg
     startOnStick: true
@@ -78,6 +78,14 @@
   - type: HolidayRsiSwap
     sprite:
       festive: Objects/Weapons/Bombs/c4gift.rsi
+  - type: EmbeddableProjectile
+    offset: 0.3,0.0
+    removalTime: 3.0
+  - type: ExtendDescription
+    descriptionList:
+    - description: Can be thrown to stick to targets.
+      color: "#4f94ad"
+      requireDetailRange: true
 
 - type: entity
   name: seismic charge

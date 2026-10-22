@@ -1,0 +1,95 @@
+# The things in this are cheap because you can get them for cheap. Literally just buy a flatpack and deconstruct it. An autolathe flatpack is so cheap
+
+- type: cargoProduct
+  id: EconomyPlanner
+  icon:
+    sprite: _Mono/Objects/Misc/Economy/economyplanner.rsi
+    state: tablet
+  product: EconomyPlanner
+  cost: 500
+  category: cargoproduct-category-name-economy
+  group: market
+
+# T1
+
+- type: cargoProduct
+  id: ArmorPlateEconomy1
+  icon:
+    sprite: _Mono/Objects/Materials/bayponents.rsi
+    state: armor1
+  product: ArmorPlateEconomy1
+  cost: 2500
+  category: cargoproduct-category-name-economy
+  group: market
+
+- type: cargoProduct
+  id: ElectromagnetEconomy1
+  icon:
+    sprite: _Mono/Objects/Materials/bayponents.rsi
+    state: electromagnet1
+  product: ElectromagnetEconomy1
+  cost: 2000
+  category: cargoproduct-category-name-economy
+  group: market
+
+- type: cargoProduct
+  id: CapacitorEconomy1
+  icon:
+    sprite: _Mono/Objects/Materials/bayponents.rsi
+    state: capacitor1
+  product: CapacitorEconomy1
+  cost: 1200
+  category: cargoproduct-category-name-economy
+  group: market
+
+- type: cargoProduct
+  id: OpticsEconomy1
+  icon:
+    sprite: _Mono/Objects/Materials/bayponents.rsi
+    state: optics1
+  product: OpticsEconomy1
+  cost: 1200
+  category: cargoproduct-category-name-economy
+  group: market
+
+- type: cargoProduct
+  id: MatterBinEconomy1
+  icon:
+    sprite: _Mono/Objects/Materials/bayponents.rsi
+    state: canister
+  product: MatterBinEconomy1
+  cost: 1400
+  category: cargoproduct-category-name-economy
+  group: market
+
+- type: cargoProduct
+  id: MicroprocessorEconomy1
+  icon:
+    sprite: _Mono/Objects/Materials/bayponents.rsi
+    state: microprocessor1
+  product: MicroprocessorEconomy1
+  cost: 1600
+  category: cargoproduct-category-name-economy
+  group: market
+
+# T2
+
+- type: cargoProduct
+  id: ComponentBrickEconomy1
+  icon:
+    sprite: _Mono/Objects/Materials/bayponents.rsi
+    state: componentbrick1
+  product: ComponentBrickEconomy1
+  cost: 2000
+  category: cargoproduct-category-name-economy
+  group: market
+
+- type: cargoProduct
+  id: MotorEconomy1
+  icon:
+    sprite: _Mono/Objects/Materials/bayponents.rsi
+    state: motor
+  product: MotorEconomy1
+  cost: 2400
+  category: cargoproduct-category-name-economy
+  group: market

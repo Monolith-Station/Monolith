@@ -1,3 +1,15 @@
+# TSF
+
+- type: entity
+  id: SpawnPointTSFCivilian
+  parent: SpawnPointJobBase
+  name: TSF Civilian Spawn
+  components:
+  - type: SpawnPoint
+    job_id: TsfCivilian
+  - type: Sprite
+    sprite: _NF/Structures/Decoration/banner.rsi
+    state: banner-blue
 
 #PDV
 - type: entity
@@ -18,6 +30,17 @@
   components:
   - type: SpawnPoint
     job_id: PDVTarkhan
+  - type: Sprite
+    sprite: Structures/Decoration/banner.rsi
+    state: banner-red
+
+- type: entity
+  id: SpawnPointPDVInfantry
+  parent: SpawnPointJobBase
+  name: PDV Infantry
+  components:
+  - type: SpawnPoint
+    job_id: PdvInfantry
   - type: Sprite
     sprite: Structures/Decoration/banner.rsi
     state: banner-red
@@ -47,6 +70,17 @@
       state: robot
     - sprite: Mobs/Silicon/chassis.rsi
       state: robot_e
+
+- type: entity
+  id: SpawnPointPDVCivilian
+  parent: SpawnPointJobBase
+  name: PDV Civilian Spawn
+  components:
+  - type: SpawnPoint
+    job_id: PdvCivilian
+  - type: Sprite
+    sprite: Structures/Decoration/banner.rsi
+    state: banner-red
 
 #USSP
 
@@ -125,6 +159,18 @@
     - state: green
 
 - type: entity
+  id: SpawnPointTsfInfantry
+  parent: SpawnPointJobBase
+  name: TSF Infantry
+  components:
+  - type: SpawnPoint
+    job_id: TsfInfantry
+  - type: Sprite
+    sprite: _NF/Markers/jobs.rsi
+    layers:
+    - state: green
+
+- type: entity
   id: SpawnPointTSFBorg
   parent: SpawnPointJobBase
   name: tsf cyborg
@@ -173,3 +219,82 @@
   - type: Sprite
     sprite: Structures/Decoration/banner.rsi
     state: banner-red
+
+# Mieyo
+
+- type: entity
+  id: SpawnPointMMCEmployee
+  parent: SpawnPointJobBase
+  name: MMC Employee
+  components:
+  - type: SpawnPoint
+    job_id: MMCEmployee
+  - type: Sprite
+    sprite: _NF/Markers/jobs.rsi
+    layers:
+    - state: green
+
+- type: entity
+  id: SpawnPointMMCSecurity
+  parent: SpawnPointJobBase
+  name: MMC Security
+  components:
+  - type: SpawnPoint
+    job_id: MMCSecurity
+  - type: Sprite
+    sprite: _NF/Markers/jobs.rsi
+    layers:
+    - state: green
+
+- type: entity
+  id: SpawnPointMMCLiason
+  parent: SpawnPointJobBase
+  name: MMC Liason
+  components:
+  - type: SpawnPoint
+    job_id: MMCLiason
+  - type: Sprite
+    sprite: _NF/Markers/jobs.rsi
+    layers:
+    - state: green
+
+# Crocus
+
+- type: entity
+  id: SpawnPointCrocusDockworker
+  parent: SpawnPointJobBase
+  name: Jianghui Dockworker
+  suffix: Crocus
+  components:
+  - type: SpawnPoint
+    job_id: CrocusDockworker
+  - type: Sprite
+    sprite: _NF/Markers/jobs.rsi
+    layers:
+    - state: green
+
+# Underground
+
+- type: entity
+  id: SpawnPointFugitive
+  parent: SpawnPointJobBase
+  name: Fugitive
+  components:
+  - type: SpawnPoint
+    job_id: Fugitive
+  - type: Sprite
+    sprite: _NF/Markers/jobs.rsi
+    layers:
+    - state: green
+
+- type: entity
+  id: SpawnPointGodfather
+  parent: SpawnPointJobBase
+  name: Godfather
+  components:
+  - type: SpawnPoint
+    job_id: Godfather
+  - type: Sprite
+    sprite: _NF/Markers/jobs.rsi
+    layers:
+    - state: green

@@ -25,6 +25,24 @@
     - Inorganic
     - Silicon
     - Biological
+  - type: Tag
+    tags:
+    - PetWearable
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesBallisticGogglesRedCrocus
+  name: anti-flash goggles
+  description: A pair of ballistic goggles with red lenses to block intense light. Works for welding eye protection too.
+  suffix: Crocus
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Eyes/Glasses/ballistic_goggles_red.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Eyes/Glasses/ballistic_goggles_red.rsi
+  - type: GroupExamine
+  - type: IdentityBlocker
+    coverage: EYES
 
 - type: entity
   parent: ClothingEyesHudMedical
@@ -51,6 +69,9 @@
     - Inorganic
     - Silicon
     - Biological
+  - type: Tag
+    tags:
+    - PetWearable
 
 - type: entity
   parent: ClothingEyesHudMedical
@@ -77,6 +98,9 @@
     - Inorganic
     - Silicon
     - Biological
+  - type: Tag
+    tags:
+    - PetWearable
 
 - type: entity
   parent: ClothingEyesHudMedical
@@ -103,6 +127,9 @@
     - Inorganic
     - Silicon
     - Biological
+  - type: Tag
+    tags:
+    - PetWearable
 
 - type: entity
   parent: ClothingEyesHudMedical
@@ -129,6 +156,9 @@
     - Inorganic
     - Silicon
     - Biological
+  - type: Tag
+    tags:
+    - PetWearable
 
 - type: entity
   parent: ClothingEyesHudMedical
@@ -155,6 +185,9 @@
     - Inorganic
     - Silicon
     - Biological
+  - type: Tag
+    tags:
+    - PetWearable
 
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons]
@@ -182,3 +215,7 @@
     action: ActionToggleNightVision
     phosphorColor: "#41D7D9"
     lightingColor: "#FFFFFF32"
+  - type: Tag
+    tags:
+    - PetWearable
+    - SafetyDepositBlacklist

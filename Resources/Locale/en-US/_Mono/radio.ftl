@@ -5,3 +5,5 @@ chat-radio-cortical-borer = Cortical Borer Hivemind
 chat-radio-remnants = Remnants
 chat-radio-monolithic = Monolith Connection
 chat-radio-viper = Viper Group
+chat-radio-mieyo = Mieyo Corporate Network
+chat-radio-mieyo-command = Mieyo Command Network

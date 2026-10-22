@@ -60,3 +60,8 @@ comp-pda-ui-unassigned = Unassigned
 
 pda-notification-message = [font size=12][bold]PDA[/bold] { $header }: [/font]
     "{ $message }"
+
+# Mono
+comp-pda-ui-station-war-level-pre = WAR LEVEL: [color=cornflowerblue]COLD[/color]
+comp-pda-ui-station-war-level-post = WAR LEVEL: [color=crimson]HOT[/color]
+comp-pda-ui-station-war-level-unknown = WAR LEVEL: [color=white]UNKNOWN[/color]

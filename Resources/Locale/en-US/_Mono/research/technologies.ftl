@@ -15,7 +15,9 @@ research-technology-advanced-melee-combat-options = Advanced Melee Combat Option
 research-technology-mechs-base = Base Mech Production
 research-technology-mechs-combat = Combat Mech Production
 
-research-technology-basic-economy = Portable Processing Equipment
+research-technology-basic-economy = Basic Industrial Processing
 research-technology-uranium-processing-advanced = Advanced Uranium Processing
+
+research-technology-processing-advanced = Advanced Material Processing
 
 research-technology-drones-1 = Drone Research 1

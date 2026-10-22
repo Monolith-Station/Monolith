@@ -83,7 +83,7 @@ entities:
     - type: Broadphase
     - type: OccluderTree
     - type: Parallax
-      parallax: FrontierStation
+      parallax: SnowballStation
   - uid: 2
     components:
     - type: MetaData
@@ -93,8 +93,6 @@ entities:
       parent: 1
     - type: ForceAnchor
     - type: StationTransit
-    - type: IFF
-      readOnly: True
     - type: ProtectedGrid
       hostileMobKillSound: !type:SoundPathSpecifier
         path: /Audio/Effects/holy.ogg

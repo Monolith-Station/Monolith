@@ -10,10 +10,16 @@
       Cable: 3
       Manipulator: 4
       Steel: 10
-    tagRequirements:
-      BorgArm:
-        amount: 3
-        defaultPrototype: LeftArmBorg
+    tagRequirements: # Mono
+      ComponentBrickEconomy1:
+        amount: 2
+        defaultPrototype: ComponentBrickEconomy1
+      MicroprocessorEconomy3:
+        amount: 1
+        defaultPrototype: MicroprocessorEconomy3
+      MotorEconomy1:
+        amount: 4
+        defaultPrototype: MotorEconomy1
 
 - type: entity
   parent: AutodocCircuitboard

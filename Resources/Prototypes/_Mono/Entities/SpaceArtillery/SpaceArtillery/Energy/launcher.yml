@@ -24,7 +24,7 @@
   - type: WirelessNetworkConnection
     range: 500
   - type: Gun
-    fireRate: 0.5
+    fireRate: 0.7
     recoil: 5 # 1/5x
     minAngle: 0
     maxAngle: 0
@@ -57,6 +57,9 @@
   - type: ShipRepairable
     repairTime: 15
     repairCost: 60
+  - type: HardpointAnchorableOnly
+    class: Energy
+    size: Medium
 
 # Cerbrus
 
@@ -116,6 +119,9 @@
   - type: ShipRepairable
     repairTime: 50
     repairCost: 120
+  - type: HardpointAnchorableOnly
+    class: Energy
+    size: Heavy
 
 # Type 54 autopulser
 
@@ -123,7 +129,7 @@
   id: WeaponTurretType54
   name: Type-54C plasma autopulser
   parent:
-  - BallisticArtilleryUnanchorable
+  - BallisticArtillery
   - BallisticArtilleryTier2HP
   suffix: Medium, T2
   description: A rapidly firing energy weapon, well known for its devastating burst followed by a constant stream of plasma.
@@ -143,6 +149,7 @@
   - type: WirelessNetworkConnection
     range: 500
   - type: Gun
+    damageModifier: 2
     fireRate: 20
     recoil: 5 # 1/5x
     minAngle: 0
@@ -155,7 +162,7 @@
       path: /Audio/Weapons/click.ogg
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 2250
+    autoRechargeRate: 1175
   - type: SpaceArtillery
     powerChargeRate: 700
     powerUsePassive: 100
@@ -176,13 +183,15 @@
   - type: ShipRepairable
     repairTime: 25
     repairCost: 100
-
+  - type: HardpointAnchorableOnly
+    class: Energy
+    size: Medium
 
  # M25
 
 - type: entity
   id: WeaponTurretM25
-  name: M25 mining pulser
+  name: M25 mining pulsar
   parent:
   - BallisticArtillery
   - BallisticArtilleryTier1HP
@@ -205,6 +214,7 @@
     range: 500
   - type: FireControlRotate
   - type: Gun
+    damageModifier: 1
     fireRate: 5
     recoil: 2 # 2/25x
     projectileSpeed: 20
@@ -249,6 +259,9 @@
   - type: ShipRepairable
     repairTime: 10
     repairCost: 20
+  - type: HardpointAnchorableOnly
+    class: Energy
+    size: Light
 
 # RUBICON
 
@@ -281,7 +294,7 @@
     projectileSpeed: 170
     shootThermalSignature: 2000000 # ~1414m after firing - relatively low
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/laser_cannon2.ogg
+      collection: ShipGunMjolnir
     soundEmpty:
       path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
   - type: BatterySelfRecharger
@@ -306,6 +319,9 @@
   - type: ShipRepairable
     repairTime: 30
     repairCost: 60
+  - type: HardpointAnchorableOnly
+    class: Energy
+    size: Light
 
 # Scylla
 
@@ -313,7 +329,7 @@
   id: WeaponTurretScylla
   name: TPC Scylla plasma impulse driver
   parent:
-  - BallisticArtilleryUnanchorable
+  - BallisticArtillery
   - BallisticArtilleryTier4HP
   suffix: Large, T4
   description: A more specialized energy weapon, the Scylla fires a massive burst of plasma projectiles down range, in a huge spew to erase large and small targets alike.
@@ -333,12 +349,13 @@
   - type: WirelessNetworkConnection
     range: 500
   - type: Gun
+    damageModifier: 2
     projectileSpeed: 350
     minAngle: 0
     maxAngle: 6
     fireRate: 1
     recoil: 10 # 2/5x
-    burstCooldown: 5.5
+    burstCooldown: 4.5
     burstFireRate: 15
     shotsPerBurst: 35
     selectedMode: Burst
@@ -372,10 +389,13 @@
   - type: ShipGunType
     shipType: Energy
   - type: ShipGunClass
-    shipClass: SuperHeavy
+    shipClass: Superheavy
   - type: ShipRepairable
     repairTime: 70
     repairCost: 150
+  - type: HardpointAnchorableOnly
+    class: Energy
+    size: Superheavy
 
 # DYMERE
 
@@ -383,7 +403,7 @@
   id: WeaponTurretDymere
   name: ADEX-9 DYMERE Turbolaser
   parent:
-  - BallisticArtilleryUnanchorable
+  - BallisticArtillery
   - BallisticArtilleryTier5HP
   suffix: Station, T5
   description: Aetherion Dynamics' most iconic supercapital battery. Fires enormous ionized gas projectiles that melt through the toughest ship armor. Can be remotely activated or linked to a GCS.
@@ -421,7 +441,10 @@
     recoil: 500 # 20x - station weapon
     shootThermalSignature: 12000000 # ~6km after firing
     soundGunshot:
-      path: /Audio/_Mono/Weapons/Guns/Gunshots/laserfire.ogg
+      collection: ShipGunMjolnir
+      params:
+        pitch: 0.8
+        volume: 1.2
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: BatterySelfRecharger
@@ -454,6 +477,9 @@
   - type: ShipRepairable
     repairTime: 45
     repairCost: 250
+  - type: HardpointAnchorableOnly
+    class: Energy
+    size: Superheavy
 
 # Laser Hitscan
 
@@ -511,6 +537,9 @@
   - type: ShipRepairable
     repairTime: 15
     repairCost: 40
+  - type: HardpointAnchorableOnly
+    class: Energy
+    size: Light
 
 # Prometheus
 
@@ -536,7 +565,7 @@
     startingCharge: 50000
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 500
+    autoRechargeRate: 4002
   - type: ExaminableBattery
   - type: WirelessNetworkConnection
     range: 500
@@ -577,13 +606,16 @@
   - type: ShipRepairable
     repairTime: 30
     repairCost: 100
+  - type: HardpointAnchorableOnly
+    class: Energy
+    size: Medium
 
 # Apollo
 
 - type: entity
   id: WeaponLaserTurretApollo
   parent:
-  - BallisticArtilleryUnanchorable
+  - BallisticArtillery
   - BallisticArtilleryTier4HP # This shit is massive lol
   suffix: Large, T3
   name: L-20 Apollo Mining Laser Cannon
@@ -642,6 +674,13 @@
   - type: ShipRepairable
     repairTime: 25
     repairCost: 100
+  - type: SpaceArtillery
+    powerChargeRate: 500
+    powerUsePassive: 600
+    powerUseActive: 0
+  - type: HardpointAnchorableOnly
+    class: Energy
+    size: Heavy
 
 # PRE- FRACTURE
 
@@ -652,7 +691,7 @@
   id: WeaponTurretType241
   name: Curio-8640 plasma lance "Malice"
   parent:
-  - BallisticArtilleryUnanchorable
+  - BallisticArtillery
   - BallisticArtilleryTier5HP
   suffix: ADS ONLY
   description: A devastating weapon, known for glassing whole fleets when used en masse
@@ -734,6 +773,9 @@
     toolWhitelist:
       tags:
       - ADSRepairTool
+  - type: HardpointAnchorableOnly
+    class: Energy
+    size: Superheavy
 
 
 # Tachyon Lance "Reaper"
@@ -815,6 +857,9 @@
     toolWhitelist:
       tags:
       - ADSRepairTool
+  - type: HardpointAnchorableOnly
+    class: Energy
+    size: Superheavy
 
 # Ion Cannnon "Harbringer"
 
@@ -896,6 +941,9 @@
     toolWhitelist:
       tags:
       - ADSRepairTool
+  - type: HardpointAnchorableOnly
+    class: Energy
+    size: Superheavy
 
 # Anti-Matter Particle Cannon "Tartarus"
 
@@ -903,7 +951,7 @@
   id: WeaponTurretTartarus
   name: Curio-1810 antimatter particle cannon "Tartarus"
   parent:
-  - BallisticArtilleryUnanchorable
+  - BallisticArtillery
   - BallisticArtilleryTier4HP
   suffix: ADS ONLY
   description: A rarer, powerful cannon mounted on larger ADS units. Firing a singular particle of antimatter wrapped in energy. Annihalating sections of shuttles at a time.
@@ -969,6 +1017,9 @@
     toolWhitelist:
       tags:
       - ADSRepairTool
+  - type: HardpointAnchorableOnly
+    class: Energy
+    size: Heavy
 
 # Proton Cannon "Sunder"
 
@@ -1032,6 +1083,9 @@
     toolWhitelist:
       tags:
       - ADSRepairTool
+  - type: HardpointAnchorableOnly
+    class: Energy
+    size: Heavy
 
 # Neutron Repeater "Scythe"
 
@@ -1100,6 +1154,9 @@
     toolWhitelist:
       tags:
       - ADSRepairTool
+  - type: HardpointAnchorableOnly
+    class: Energy
+    size: Heavy
 
 # Auto-Coil "Flayer"
 
@@ -1136,7 +1193,7 @@
     maxAngle: 4
     shootThermalSignature: 2000000
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/ship_svalinn.ogg
+      path: /Audio/_Mono/Weapons/Guns/Gunshots/sonic_jackhammer.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
   - type: SpaceArtillery
@@ -1159,3 +1216,6 @@
     toolWhitelist:
       tags:
       - ADSRepairTool
+  - type: HardpointAnchorableOnly
+    class: Ballistic # Because it's not a energy weapon, actually.
+    size: Medium

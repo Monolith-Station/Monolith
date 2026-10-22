@@ -189,6 +189,24 @@
     containers:
       board: [ DoorElectronicsCaptain ]
 
+# Underground
+- type: entity
+  parent: AirlockHeavy
+  id: AirlockHeavyUndergroundLocked
+  suffix: Underground, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsUnderground ]
+
+- type: entity
+  parent: AirlockHeavy
+  id: AirlockHeavyGodfatherLocked
+  suffix: Godfather, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsGodfather ]
 
 # Companies.
 
@@ -211,3 +229,25 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsViperCommand ]
+
+- type: entity
+  parent: AirlockHeavyCommand
+  id: AirlockHeavyMieyoLocked
+  suffix: Mieyo Security, Locked
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Doors/HeavyAirlocks/Standard/mieyo.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMieyoSecurity ]
+
+- type: entity
+  parent: AirlockHeavyMieyoLocked
+  id: AirlockHeavyMieyoLiasonLocked
+  suffix: Mieyo Liason, Locked
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Doors/HeavyAirlocks/Standard/mieyo.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMieyoLiason ]

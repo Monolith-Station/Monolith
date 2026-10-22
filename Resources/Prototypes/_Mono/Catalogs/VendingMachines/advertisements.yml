@@ -11,6 +11,12 @@
     count: 6
 
 - type: localizedDataset
+  id: MieyoAds
+  values:
+    prefix: advertisement-mieyo-ads-
+    count: 2
+
+- type: localizedDataset
   id: WaywardComments
   values:
     prefix: wayward-comments-ads-

@@ -15,7 +15,7 @@ RELEASE_DIR = "release"
 # CONFIGURATION PARAMETERS
 # Forks should change these to publish to their own infrastructure.
 #
-ROBUST_CDN_URL = "http://cdn-ss14.erisws.com:8992/"
+ROBUST_CDN_URL = "https://robust.atmosia.org/"
 FORK_ID = "monolith"
 
 def main():

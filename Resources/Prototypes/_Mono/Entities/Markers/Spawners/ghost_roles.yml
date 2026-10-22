@@ -55,3 +55,34 @@
     - state: green
     - sprite: _Mono/Mobs/Species/Asakim/parts.rsi
       state: full
+
+# Xenoborg
+- type: entity
+  name: Xenoborg tender spawner
+  id: SpawnPlayerXenoBorg
+  parent: MarkerBase
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - PlayerXenoBorgGhostRole
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: _Mono/Mobs/Silicon/XENOBORG/xenoborgchassis.rsi
+      state: xenoborg_engi
+
+- type: entity
+  name: Xenoborg playtime-locked tender spawner
+  id: SpawnPlayerXenoBorgPlaytime
+  parent: MarkerBase
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - PlayerXenoBorgGhostRolePlaytime
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: _Mono/Mobs/Silicon/XENOBORG/xenoborgchassis.rsi
+      state: xenoborg_engi

@@ -45,7 +45,7 @@
   sprite: /Textures/_Mono/Interface/Radial/RCD/smes.png
   mode: ConstructObject
   prototype: SMESBasicEmpty
-  cost: 12
+  cost: 50 # Tax for the comps
   delay: 4
   collisionMask: FullTileMask
   rotation: Fixed
@@ -57,7 +57,7 @@
   sprite: /Textures/_Mono/Interface/Radial/RCD/substation.png
   mode: ConstructObject
   prototype: SubstationBasicEmpty
-  cost: 12
+  cost: 30 # Tax for the comps
   delay: 4
   collisionMask: FullTileMask
   rotation: Fixed
@@ -73,3 +73,15 @@
   delay: 2
   rotation: User
   fx: EffectRCDConstruct0
+
+- type: rcd
+  id: MachineFrame
+  category: Electrical
+  sprite: /Textures/_Mono/Interface/Radial/RCD/frame.png
+  mode: ConstructObject
+  prototype: MachineFrame
+  cost: 5
+  delay: 2
+  collisionMask: FullTileMask
+  rotation: Fixed
+  fx: EffectRCDConstruct2
