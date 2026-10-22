@@ -23,6 +23,15 @@ shuttle-console-signature-unknown =
        *[other] Desconhecido
     }
 
+shuttle-console-target = Alvo do Radar
+shuttle-console-set-target = Definir
+shuttle-console-set-target-description = Define um ponto de coordenadas alvo no console do radar.
+shuttle-console-hide-target = Mostrar
+shuttle-console-hide-target-description = Alterna a visibilidade do alvo no console do radar.
+shuttle-console-target-name = Alvo
+shuttle-console-map-track = ⌖
+
+# MONO
 shuttle-console-company-unknown = NÃO AFILIADO
 
 # Network Port Buttons

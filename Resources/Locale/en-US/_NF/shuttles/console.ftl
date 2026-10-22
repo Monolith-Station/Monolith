@@ -23,6 +23,15 @@ shuttle-console-signature-unknown =
        *[other] Unknown
     }
 
+shuttle-console-target = Radar Target
+shuttle-console-set-target = Set
+shuttle-console-set-target-description = Sets a target waypoint coordinate on the radar console.
+shuttle-console-hide-target = Show
+shuttle-console-hide-target-description = Toggles the visibility of the target waypoint on the radar console.
+shuttle-console-target-name = Target
+shuttle-console-map-track = ⌖
+
+# MONO
 shuttle-console-company-unknown = UNAFFILIATED
 
 # Network Port Buttons

@@ -120,7 +120,7 @@ public sealed partial class NavScreen : BoxContainer
         // Update port names if custom names are available
         UpdateNetworkPortButtonNames(scc.NetworkPortNames);
 
-        NfUpdateState(); // Frontier Update State
+        NfUpdateState(scc); // Frontier Update State
     }
 
     /// <summary>

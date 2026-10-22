@@ -15,6 +15,17 @@ namespace Content.Client.Shuttles.UI
 {
     public partial class ShuttleNavControl // Mono
     {
+        // Constants for gunnery system
+        // These 2 handle timing updates
+        private static readonly Color TargetColor = Color.FromHex("#99ff66");
+
+
+        // Constants for IFF system
+        public bool HideCoords { get; set; } = false;
+        public bool HideTarget { get; set; } = false;
+        public Vector2? Target { get; set; } = null;
+        public NetEntity? TargetEntity { get; set; } = null;
+
         public InertiaDampeningMode DampeningMode { get; set; }
 
         /// <summary>
@@ -23,12 +34,22 @@ namespace Content.Client.Shuttles.UI
         /// </summary>
         public bool InFtl { get; set; }
 
+        /// <summary>
+        /// Updates the radar UI with the latest navigation state and sets additional NF-specific state.
+        /// </summary>
+        /// <param name="state">The navigation interface state.</param>
         private void NfUpdateState(NavInterfaceState state)
         {
+            if (state.MaxIffRange != null)
+                MaximumIFFDistance = state.MaxIffRange.Value;
+            HideCoords = state.HideCoords;
+            Target = state.Target;
+            TargetEntity = state.TargetEntity;
+            HideTarget = state.HideTarget;
 
             if (!EntManager.GetCoordinates(state.Coordinates).HasValue ||
-                !EntManager.TryGetComponent(EntManager.GetCoordinates(state.Coordinates).GetValueOrDefault().EntityId,out TransformComponent? transform) ||
-                !EntManager.TryGetComponent(transform.GridUid, out PhysicsComponent? physicsComponent))
+                !EntManager.TryGetComponent(EntManager.GetCoordinates(state.Coordinates).GetValueOrDefault().EntityId, out TransformComponent? transform) ||
+                !EntManager.HasComponent<PhysicsComponent>(transform.GridUid))
             {
                 return;
             }

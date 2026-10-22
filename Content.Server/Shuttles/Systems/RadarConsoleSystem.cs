@@ -1,5 +1,6 @@
 using System.Numerics;
 using Content.Server.UserInterface;
+using Content.Server.Shuttles.Components; // Frontier
 using Content.Shared.Shuttles.BUIStates;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Shuttles.Systems;
@@ -7,8 +8,6 @@ using Content.Shared.PowerCell;
 using Content.Shared.Movement.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
-using Content.Shared.PowerCell;
-using Content.Shared.Movement.Components;
 
 namespace Content.Server.Shuttles.Systems;
 
@@ -73,9 +72,39 @@ public sealed partial class RadarConsoleSystem : SharedRadarConsoleSystem
             if (component.MaxIffRange != null)
                 state.MaxIffRange = component.MaxIffRange.Value;
             state.HideCoords = component.HideCoords;
+            state.Target = component.Target;
+            state.TargetEntity = GetNetEntity(component.TargetEntity);
+            state.HideTarget = component.HideTarget;
             // End Frontier
 
             _uiSystem.SetUiState(uid, RadarConsoleUiKey.Key, new NavBoundUserInterfaceState(state));
         }
     }
+
+    // Frontier: settable waypoints
+    public void SetTarget(Entity<RadarConsoleComponent> ent, NetEntity targetEntity, Vector2 target)
+    {
+        // Try to get entity
+        if (EntityManager.TryGetEntity(targetEntity, out var targetUid)
+            && HasComp<ShuttleComponent>(targetUid)
+            && (!TryComp(targetUid, out IFFComponent? iff) || (iff.Flags & (IFFFlags.Hide | IFFFlags.HideLabel)) == 0)
+            && TryComp(targetUid, out TransformComponent? xform))
+        {
+            ent.Comp.TargetEntity = targetUid.Value;
+            ent.Comp.Target = _transform.GetMapCoordinates(xform).Position;
+        }
+        else
+        {
+            ent.Comp.Target = target;
+            ent.Comp.TargetEntity = null;
+        }
+        Dirty(ent);
+    }
+
+    public void SetHideTarget(Entity<RadarConsoleComponent> ent, bool hideTarget)
+    {
+        ent.Comp.HideTarget = hideTarget;
+        Dirty(ent);
+    }
+    // End Frontier
 }

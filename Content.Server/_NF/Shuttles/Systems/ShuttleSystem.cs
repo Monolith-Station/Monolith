@@ -14,6 +14,7 @@ namespace Content.Server.Shuttles.Systems;
 
 public sealed partial class ShuttleSystem
 {
+    [Dependency] private readonly RadarConsoleSystem _radarConsole = default!;
     private const float SpaceFrictionStrength = 0.0075f;
     private const float DampenDampingStrength = 0.25f;
     private const float AnchorDampingStrength = 2.5f;
@@ -24,6 +25,8 @@ public sealed partial class ShuttleSystem
     {
         SubscribeLocalEvent<ShuttleConsoleComponent, SetInertiaDampeningRequest>(OnSetInertiaDampening);
         SubscribeLocalEvent<ShuttleConsoleComponent, SetMaxShuttleSpeedRequest>(OnSetMaxShuttleSpeed);
+        SubscribeLocalEvent<ShuttleConsoleComponent, SetTargetCoordinatesRequest>(NfSetTargetCoordinates);
+        SubscribeLocalEvent<ShuttleConsoleComponent, SetHideTargetRequest>(NfSetHideTarget);
     }
 
     public bool SetInertiaDampening(EntityUid uid, PhysicsComponent physicsComponent, ShuttleComponent shuttleComponent, TransformComponent transform, InertiaDampeningMode mode)
@@ -133,5 +136,67 @@ public sealed partial class ShuttleSystem
             return InertiaDampeningMode.Off;
         else
             return InertiaDampeningMode.Dampen;
+    }
+
+    public void NfSetPowered(EntityUid uid, ShuttleConsoleComponent component, bool powered)
+    {
+        // Ensure that the entity requested is a valid shuttle (stations should not be togglable)
+        if (!EntityManager.TryGetComponent(uid, out TransformComponent? transform) ||
+            !transform.GridUid.HasValue ||
+            !EntityManager.TryGetComponent(transform.GridUid, out PhysicsComponent? physicsComponent) ||
+            !EntityManager.TryGetComponent(transform.GridUid, out ShuttleComponent? shuttleComponent))
+        {
+            return;
+        }
+
+        // Update dampening physics without adjusting requested mode.
+        if (!powered)
+        {
+            SetInertiaDampening(uid, physicsComponent, shuttleComponent, transform, InertiaDampeningMode.Anchor);
+        }
+        else
+        {
+            // Update our dampening mode if we need to, and if we aren't a station.
+            var currentDampening = NfGetInertiaDampeningMode(uid);
+            if (currentDampening != component.DampeningMode &&
+                currentDampening != InertiaDampeningMode.Station &&
+                component.DampeningMode != InertiaDampeningMode.Station)
+            {
+                SetInertiaDampening(uid, physicsComponent, shuttleComponent, transform, component.DampeningMode);
+            }
+        }
+    }
+
+    public void NfSetTargetCoordinates(EntityUid uid, ShuttleConsoleComponent component, SetTargetCoordinatesRequest args)
+    {
+        if (!TryComp<RadarConsoleComponent>(uid, out var radarConsole))
+            return;
+
+        var transform = Transform(uid);
+        // Get the grid entity from the console transform
+        if (!transform.GridUid.HasValue)
+            return;
+
+        var gridUid = transform.GridUid.Value;
+
+        _radarConsole.SetTarget((uid, radarConsole), args.TrackedEntity, args.TrackedPosition);
+        _radarConsole.SetHideTarget((uid, radarConsole), false); // Force target visibility
+        _console.RefreshShuttleConsoles(gridUid);
+    }
+
+    public void NfSetHideTarget(EntityUid uid, ShuttleConsoleComponent component, SetHideTargetRequest args)
+    {
+        if (!TryComp<RadarConsoleComponent>(uid, out var radarConsole))
+            return;
+
+        var transform = Transform(uid);
+        // Get the grid entity from the console transform
+        if (!transform.GridUid.HasValue)
+            return;
+
+        var gridUid = transform.GridUid.Value;
+
+        _radarConsole.SetHideTarget((uid, radarConsole), args.Hidden);
+        _console.RefreshShuttleConsoles(gridUid);
     }
 }
