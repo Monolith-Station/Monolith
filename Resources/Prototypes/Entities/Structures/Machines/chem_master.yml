@@ -92,6 +92,7 @@
     solutions:
       buffer:
         maxVol: 250000 # Monolith
+        canReact: false # Monolith
   - type: DumpableSolution
     solution: buffer
     unlimited: true
