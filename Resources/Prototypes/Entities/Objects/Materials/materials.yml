@@ -288,7 +288,7 @@
     fireEnergyMultiplier: 2500
     maxFireTemperature: 1200
   - type: MaterialFuel # Monolith
-    ConsumptionRate: 5
+    consumptionRate: 5
   - type: FireVisuals # Monolith
     sprite: Effects/fire.rsi
     normalState: fire
