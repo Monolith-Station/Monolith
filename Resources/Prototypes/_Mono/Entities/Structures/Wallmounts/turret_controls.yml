@@ -57,11 +57,19 @@
     - AllHostile
 
 - type: entity
-  parent: WeaponTurretLaserTSFMC
+  parent: BaseWeaponTurretEnergyNF
   id: WeaponTurretLaserBase
   name: remote laser sentry turret
   abstract: true
   components:
+  - type: Sprite
+    sprite: _NF/Objects/Weapons/Guns/Turrets/laser.rsi
+  - type: Gun
+    fireRate: 2
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+      params:
+        variation: 0.125
   - type: AccessReader
     access: [["Security"]]
   - type: DeployableTurret
@@ -76,8 +84,8 @@
     - Security
     - Borg
     - BasicSilicon
-  - type: HitscanBatteryAmmoProvider
-    proto: RedLaser
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletDisablerStaminaOnly
     fireCost: 10
   - type: DeviceNetworkRequiresPower
   - type: WiredNetworkConnection
@@ -96,7 +104,7 @@
   - type: LockedWiresPanel
   - type: BatteryWeaponFireModes
     fireModes:
-    - proto: RedLightLaser
+    - proto: BulletDisablerStaminaOnly
       fireCost: 10
     - proto: RedLaser
       fireCost: 10
