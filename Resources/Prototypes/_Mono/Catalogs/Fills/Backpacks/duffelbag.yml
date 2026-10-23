@@ -10,6 +10,22 @@
       - id: LargePowerCell700Thz
       - id: LargePowerCell400Thz
 
+
+- type: entity
+  parent: ClothingBackpackDuffelTsfmc
+  id: ClothingBackpackDuffelAnubisBundle
+  name: QLU-907 'Anubis' bundle
+  description: TSF's answer to the PDV's China Lake. Give 'em hell, Marine.
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponLauncherTSFAnubis
+    - id: Magazine35mmGrenade
+      amount: 2
+    - id: Magazine35mmGrenadeStinger
+      amount: 2
+
+
 - type: entity
   parent: ClothingBackpackDuffelSecurity
   id: ClothingBackpackDuffelPDVFilledSMG
