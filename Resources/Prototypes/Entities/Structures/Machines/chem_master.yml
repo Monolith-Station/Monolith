@@ -91,7 +91,7 @@
   - type: SolutionContainerManager
     solutions:
       buffer:
-        maxVol: 250000
+        maxVol: 250000 # Monolith
   - type: DumpableSolution
     solution: buffer
     unlimited: true
