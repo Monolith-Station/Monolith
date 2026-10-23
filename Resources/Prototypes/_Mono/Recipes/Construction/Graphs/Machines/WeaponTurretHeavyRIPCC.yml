@@ -15,10 +15,6 @@
           doAfter: 12
         - tool: Welding        
           doAfter: 12
-        completed:
-          - !type:SpawnPrototype    
-            prototype: WeaponTurretHeavyRIPCC
-          - !type:DeleteEntity {}
       - to: repairTurret
         steps:
         - tool: Applicating
@@ -27,10 +23,6 @@
           doAfter: 12
         - tool: Applicating
           doAfter: 12
-        completed:
-          - !type:SpawnPrototype    
-            prototype: WeaponTurretHeavyRIPCC
-          - !type:DeleteEntity {}
           
   - node: repairTurret
     entity: WeaponTurretHeavyRIPCC

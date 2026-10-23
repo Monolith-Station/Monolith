@@ -1,0 +1,43 @@
+- type: vessel
+  id: Saturn
+  parent: BaseVesselIFFDisabled
+  name: HSS Saturn
+  description: A heavy brute of a capital, with large main batteries, a thick interior structure of full plastitanium, and 2 bays for large mechs in the rear. This a ship fit for the Dynasty's finest and most prestigeous.
+  limit: 1
+  hyperwarLimit: 3
+  hyperwarTimelock: 3600
+  price: 780000 # only 3k over appraisal btw jfc
+  category: Large
+  purchasable: false # voucher only - T4
+  group: BlackMarket
+  shuttlePath: /SharedMaps/_Mono/Shuttles/PDV/saturn.yml
+  guidebookPage: Null
+  class:
+  - Brawler
+  - MechCarrier
+  - EarlyWarning
+  - Destroyer
+  engine:
+  - AME
+
+- type: gameMap
+  id: Saturn
+  mapName: 'PDV Saturn'
+  mapPath: /SharedMaps/_Mono/Shuttles/PDV/saturn.yml
+  minPlayers: 0
+  stations:
+    Saturn:
+      stationProto: StandardFrontierSecurityVessel
+      gridComponents:
+      - type: VesselInfo
+        description: "There is a time for flee, and there is a time for fight. A wise leader knows when to make the right choice. But the strike cruisers are already here, Tarkhan, so your right of choice has been revoked."
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Saturn HSS{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Pirate: [ 0, 0 ]
+            PdvBorg: [ 0, 0 ]

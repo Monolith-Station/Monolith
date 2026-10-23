@@ -251,10 +251,10 @@
   id: GeneratorRTG
   name: RTG
   description: A Radioisotope Thermoelectric Generator for long term power.
-  suffix: 10kW
+  suffix: 40kW # Mono 10kW -> 40kW
   components:
   - type: PowerSupplier
-    supplyRate: 10000 # supposed to be low power at no fuel cost to power derelicts
+    supplyRate: 40000 # Mono
     heatSignatureRatio: 16 # Mono
   - type: ThermalSignature # Mono
   - type: Sprite
@@ -307,10 +307,10 @@
   id: GeneratorRTGDamaged
   name: damaged RTG
   description: A Radioisotope Thermoelectric Generator for long term power. This one has damaged shielding.
-  suffix: 10kW
+  suffix: 40kW # Mono 10kW -> 40kW
   components:
   - type: PowerSupplier
-    supplyRate: 10000
+    supplyRate: 40000 # Mono
   - type: Sprite
     sprite: Structures/Power/Generation/rtg.rsi
     layers:

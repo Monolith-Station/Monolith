@@ -97,3 +97,10 @@
   id: DisposalEject
   name: signal-port-name-eject
   description: signal-port-description-eject
+
+# Vinyl player
+
+- type: sinkPort
+  id: StationRadioRigPort
+  name: signal-port-name-radio-rig
+  description: signal-port-description-radio-rig

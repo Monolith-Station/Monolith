@@ -42,6 +42,9 @@
           invert: true
       - !type:PopupMessage
         conditions:
+        - !type:OrganType
+          type: Chimera
+          shouldHave: false
         - !type:ReagentThreshold
           min: 4
         type: Local
@@ -50,6 +53,9 @@
         probability: 0.2
       - !type:PopupMessage
         conditions:
+        - !type:OrganType
+          type: Chimera
+          shouldHave: false
         - !type:ReagentThreshold
           min: 6
         type: Local
@@ -59,6 +65,9 @@
       - !type:Drunk
         boozePower: 15
         conditions:
+        - !type:OrganType
+          type: Chimera
+          shouldHave: false
         - !type:ReagentThreshold
           min: 8
 
@@ -111,19 +120,22 @@
         - !type:HasTag
           tag: Chimera
           invert: true
-      - !type:Polymorph
-        prototype: LetoferolMutationBeastNatural
-        conditions:
-        - !type:ReagentThreshold
-          min: 10 # less for non-humanoids
-        - !type:HasTag
-          tag: Humanoid
-          invert: true
-        - !type:HasTag
-          tag: Chimera
-          invert: true
+#      - !type:Polymorph
+#        prototype: LetoferolMutationBeastNatural
+#        conditions:
+#        - !type:ReagentThreshold
+#          min: 10 # less for non-humanoids
+#        - !type:HasTag
+#          tag: Humanoid
+#          invert: true
+#        - !type:HasTag
+#          tag: Chimera
+#          invert: true
       - !type:PopupMessage
         conditions:
+        - !type:OrganType
+          type: Chimera
+          shouldHave: false
         - !type:ReagentThreshold
           min: 4
         type: Local
@@ -132,6 +144,9 @@
         probability: 0.2
       - !type:PopupMessage
         conditions:
+        - !type:OrganType
+          type: Chimera
+          shouldHave: false
         - !type:ReagentThreshold
           min: 6
         type: Local
@@ -141,6 +156,9 @@
       - !type:Drunk
         boozePower: 15
         conditions:
+        - !type:OrganType
+          type: Chimera
+          shouldHave: false
         - !type:ReagentThreshold
           min: 10
 

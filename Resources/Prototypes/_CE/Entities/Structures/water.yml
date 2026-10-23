@@ -80,3 +80,16 @@
   - type: Sprite
     state: moving
     snapCardinals: false
+
+- type: entity
+  parent: CEWater
+  id: CEWaterCrocus
+  suffix: Crocus
+  components:
+  - type: SpeedModifierContacts
+    walkSpeedModifier: 0.2
+    sprintSpeedModifier: 0.2
+  - type: DamageContacts
+    damage:
+      types:
+        Asphyxiation: 5 # Dont leave me yo

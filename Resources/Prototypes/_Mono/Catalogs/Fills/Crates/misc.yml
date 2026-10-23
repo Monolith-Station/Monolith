@@ -16,3 +16,53 @@
       amount: 4
     - id: BoxFolderNuclearCodes
       amount: 1
+
+- type: entity
+  id: CrateVinylsNulb
+  name: vinyls crate 'nulb'
+  parent: CrateGenericSteel
+  description: A faded crate from some bygone era. It's a miracle the contents still play.
+  components:
+  - type: StorageFill
+    contents:
+      - id: VinylDiskNulbEmulator
+        amount: 1
+      - id: VinylDiskNulbEruption
+        amount: 1
+      - id: VinylDiskNulbEverpresence
+        amount: 1
+      - id: VinylDiskNulbHakonechloa
+        amount: 1
+      - id: VinylDiskNulbHyperacusis
+        amount: 1
+      - id: VinylDiskNulbImDown
+        amount: 1
+      - id: VinylDiskNulbRecalled
+        amount: 1
+      - id: VinylDiskNulbTakeYourTime
+        amount: 1
+
+- type: entity
+  id: CrateVinylsDeltarisk
+  name: vinyls crate 'deltarisk'
+  parent: CrateGenericSteel
+  description: A faded crate from some bygone era. It's a miracle the contents still play.
+  components:
+  - type: StorageFill
+    contents:
+      - id: VinylDiskNulbBallsfish
+        amount: 1
+      - id: VinylDiskNulbChronograph
+        amount: 1
+      - id: VinylDiskNulbCrueltyEngines
+        amount: 1
+      - id: VinylDiskNulbDueTime
+        amount: 1
+      - id: VinylDiskNulbInterloc
+        amount: 1
+      - id: VinylDiskNulbReRecalled
+        amount: 1
+      - id: VinylDiskNulbSeige
+        amount: 1
+      - id: VinylDiskNulbTimeout
+        amount: 1

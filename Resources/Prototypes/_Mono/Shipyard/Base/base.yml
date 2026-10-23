@@ -13,7 +13,7 @@
     flags: [IsPlayerShuttle]
 
 - type: vessel
-  id: BaseVesselAntag
+  id: BaseVesselIFFDisabled
   abstract: true
   parent: BaseVessel
   addComponents:

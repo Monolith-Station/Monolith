@@ -73,6 +73,7 @@ entities:
         MetalFoam: []
     - type: Shuttle
       dampingModifier: 0.25
+    - type: HostileDroneGrid
     - type: ImplicitRoof
     - type: GridPathfinding
     - type: Gravity

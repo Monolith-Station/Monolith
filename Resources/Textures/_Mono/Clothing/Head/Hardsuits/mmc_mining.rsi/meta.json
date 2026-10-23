@@ -1,7 +1,7 @@
 {
   "version": 2,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from SS13 Shiptest, modified by kasature90 (github).",
+  "copyright": "Taken from SS13 Shiptest, modified by kasature90 (Github), Hydrakin sprites by Synthetic086 (Discord).",
   "size": {
     "x": 32,
     "y": 32
@@ -9,6 +9,10 @@
   "states": [
     {
       "name": "equipped-HELMET",
+      "directions": 4
+    },
+    {
+      "name": "equipped-HELMET-hydrakin",
       "directions": 4
     },
     {

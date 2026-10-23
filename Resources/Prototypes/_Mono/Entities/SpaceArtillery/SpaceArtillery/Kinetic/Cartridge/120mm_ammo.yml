@@ -1,7 +1,7 @@
 - type: entity
   id: 120mmCartridgeAPHEDS
-  name: 120mm APHEDS shell
-  description: A chemically-propelled armor-piercing high-explosive discarding-sabot shell for 120mm cannons.
+  name: 100x650mm APHEDS shell
+  description: A chemically-propelled armor-piercing high-explosive discarding-sabot shell for 100x650mm cannons.
   parent: BaseGrenade
   components:
   - type: Tag
@@ -12,7 +12,7 @@
   - type: CartridgeAmmo
     proto: 120mmBulletAPHEDS
     deleteOnSpawn: true
-    muzzleFlash: MuzzleFlashEffect120mm
+    muzzleFlash: MuzzleFlashEffect120mmAK800
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/shells.rsi
     layers:
@@ -24,7 +24,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 250
+        damage: 50
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
@@ -41,7 +41,7 @@
 
 - type: entity
   id: 120mmBulletAPHEDS
-  name: 120mm APHEDS projectile
+  name: 100x650mm APHEDS projectile
   parent: BaseBulletTriggerSpent
   categories: [ HideSpawnMenu ]
   components:
@@ -56,12 +56,12 @@
     layers:
     - state: 220mmAPHE
   - type: Ammo
-    muzzleFlash: MuzzleFlashEffect120mm
+    muzzleFlash: MuzzleFlashEffect120mmAK800
   - type: ShipWeaponProjectile
   - type: RadarBlip
-    scale: 2.25
-    shape: triangle
-    radarColor: "#f55e1d"
+    scale: 1
+    shape: circle
+    radarColor: "#FFFFFF"
   - type: TimedDespawn
     lifetime: 8
   - type: PointLight
@@ -73,10 +73,10 @@
     totalIntensity: 10
     intensitySlope: 5
     maxIntensity: 5
-    maxTileBreak: 2
+    tileBreakScale: 3
 
 - type: entity
-  id: MuzzleFlashEffect120mm
+  id: MuzzleFlashEffect120mmAK800
   categories: [ HideSpawnMenu ]
   components:
   - type: TimedDespawn
@@ -86,12 +86,24 @@
     layers:
     - shader: unshaded
       map: ["enum.EffectLayers.Unshaded"]
-      sprite: _Mono/Objects/ShuttleWeapons/ak820.rsi
-      state: muzzle_ak820
-    scale: 2,2
-    offset: 0.9, 0
+      sprite: _Mono/Objects/ShuttleWeapons/ak800.rsi
+      state: muzzle_ak800
+    scale: 1,1
+    offset: 1.4, 0
   - type: EffectVisuals
   - type: Tag
     tags:
     - HideContextMenu
   - type: AnimationPlayer
+
+- type: entity
+  id: MuzzleFlashEffect120mmAK820
+  parent: MuzzleFlashEffect120mmAK800
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - shader: unshaded
+      map: ["enum.EffectLayers.Unshaded"]
+      sprite: _Mono/Objects/ShuttleWeapons/ak820.rsi
+      state: muzzle_ak820

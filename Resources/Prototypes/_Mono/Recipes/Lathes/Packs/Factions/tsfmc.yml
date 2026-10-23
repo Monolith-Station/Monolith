@@ -1,13 +1,13 @@
 - type: latheRecipePack
   id: MonoTSFGearDynamic
   recipes:
-  - ClothingOuterHardsuitM82cTsf
-  - ClothingOuterHardsuitM82bTsf
+#  - ClothingOuterHardsuitM82cTsf
+#  - ClothingOuterHardsuitM82bTsf
   - ClothingOuterHardsuitM86Tsf
   - ClothingOuterHardsuitM92XTsf
   - ClothingEyesNightVisionGoggles
-  - ClothingUniformTsfmcMoppTsf
-  - ClothingHandsGlovesMoppTsf
+# - ClothingUniformTsfmcMoppTsf
+# - ClothingHandsGlovesMoppTsf
 
 - type: latheRecipePack
   id: MonoTSFWeaponsDynamicMelee
@@ -27,22 +27,20 @@
   - WeaponLMGGrizzlyTSF
   - WeaponDEWCalico
   - WeaponDEWSmilodon
-  - WeaponLauncherTSFOsiris
+  #- WeaponLauncherTSFOsiris
   - WeaponLauncherTSFAnubis
-  - WeaponAMRShenzhenTSF
+  #- WeaponAMRShenzhenTSF
   - WeaponRifleRiversongTSF
   - WeaponRifleDragonfangTSF
 
 - type: latheRecipePack
   id: MonoTSFVouchersDynamic
   recipes:
-  - FlyssaVoucherTSF
-  - FujianVoucherTSF
-  - AltairVoucherTSF
-  - PolarisVoucherTSF
   - ShipVoucherTsfT0Recipe
   - ShipVoucherTsfT1Recipe
   - ShipVoucherTsfT2Recipe
+  - ShipVoucherPolarisRecipe
+  - ShipVoucherLudaRecipe
 
 - type: latheRecipePack
   id: MonoTSFMiscDynamic

@@ -64,6 +64,58 @@
     slotId: feet # Shitmed
 
 - type: entity
+  id: LeftLegsAnimal
+  name: "left animal legs"
+  parent: [ PartAnimalBase, BaseLeftLeg, BaseAnimalOrgan ]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    layers:
+    - state: l_leg
+    - state: r_leg
+  - type: Icon
+    state: l_leg # cba to make a state for it
+
+- type: entity
+  id: RightLegsAnimal
+  name: "right animal legs"
+  parent: [ PartAnimalBase, BaseRightLeg, BaseAnimalOrgan ]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    layers:
+    - state: l_leg
+    - state: r_leg
+  - type: Icon
+    state: l_leg # cba to make a state for it
+
+- type: entity
+  id: LeftAnimalFeet
+  name: "left animal feet"
+  parent: [ PartAnimalBase, BaseLeftFoot, BaseAnimalOrgan ]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    layers:
+    - state: r_foot
+    - state: l_foot
+  - type: Icon
+    state: l_foot # cba to make a state for it
+
+- type: entity
+  id: RightAnimalFeet
+  name: "right animal feet"
+  parent: [ PartAnimalBase, BaseRightFoot, BaseAnimalOrgan ]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Reptilian/parts.rsi
+    layers:
+    - state: r_foot
+    - state: l_foot
+  - type: Icon
+    state: l_foot # cba to make a state for it
+
+- type: entity
   parent: [ PartAnimalBase, BaseTorso ]
   id: TorsoAnimal
   name: animal torso

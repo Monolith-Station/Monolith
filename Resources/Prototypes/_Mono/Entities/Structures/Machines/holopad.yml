@@ -29,3 +29,11 @@
   components:
   - type: Label
     currentLabel: holopad-vg
+
+- type: entity
+  parent: NFHolopadPoiBase
+  id: HolopadGodfather
+  suffix: Godfather
+  components:
+  - type: Label
+    currentLabel: holopad-underground-godfather

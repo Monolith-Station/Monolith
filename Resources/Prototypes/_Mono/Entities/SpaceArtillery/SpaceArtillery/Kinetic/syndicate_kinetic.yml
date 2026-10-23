@@ -39,7 +39,7 @@
     maxAngle: 5
     shootThermalSignature: 10000 # relatively low for a shipgun, ~693m signature if firing continuously
     soundGunshot:
-      path: /Audio/_Mono/Weapons/Guns/Gunshots/slammer.ogg
+      collection: ShipGunGenericSmall
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: BatterySelfRecharger
@@ -68,15 +68,18 @@
   - type: ShipRepairable
     repairTime: 10
     repairCost: 30
+  - type: HardpointAnchorableOnly
+    class: Ballistic
+    size: Light
 
 - type: entity
   id: WeaponTurretFang
-  name: Fang heavy 90mm autocannon
+  name: Fang heavy 57mm autocannon
   suffix: Medium, T3
   parent:
   - BallisticArtillery
   - BallisticArtilleryTier3HP
-  description: A heavy 90mm autocannon of syndicate design, created during the corporate war. Made for shattering opponent destroyers. Uses a self loading mechanism similar to the anaconda handgun.
+  description: A heavy 57mm autocannon of syndicate design, created during the corporate war. Made for shattering opponent destroyers. Uses a self loading mechanism similar to the anaconda handgun.
   components:
   - type: StaticPrice
     price: 2000
@@ -106,7 +109,7 @@
     availableModes: Burst
     shootThermalSignature: 2000000 # ~4.5km signature if firing continuously
     soundGunshot:
-      path: /Audio/_Mono/Weapons/Guns/Gunshots/120mm_mortar.ogg
+      collection: ShipGunGenericSmallAlt
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: BatterySelfRecharger
@@ -148,13 +151,16 @@
   - type: ShipRepairable
     repairTime: 20
     repairCost: 80
+  - type: HardpointAnchorableOnly
+    class: Ballistic
+    size: Heavy
 
 - type: entity
   id: WeaponTurretHydra
-  name: Hydra 220mm battery
+  name: Hydra 130mm battery
   suffix: Large, T4
-  parent: BallisticArtilleryUnanchorable
-  description: A main cannonade of syndicate origin, the hydra is a monstrous tri-barreled battery of 220-millimeter pain, designed to shatter corpations' toughest vessels. Loads with a similar mechanism as the anaconda handgun.
+  parent: BallisticArtillery
+  description: A main cannonade of syndicate origin, the hydra is a monstrous tri-barreled battery of 130-millimeter pain, designed to shatter corpations' toughest vessels. Loads with a similar mechanism as the anaconda handgun.
   components:
   - type: StaticPrice
     price: 20000
@@ -196,7 +202,7 @@
     availableModes: Burst
     shootThermalSignature: 48000000 # ~7km after firing
     soundGunshot:
-      path: /Audio/_Mono/Weapons/Guns/Gunshots/cannon.ogg
+      path: /Audio/_Mono/Weapons/Guns/Gunshots/cannon2.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: BatterySelfRecharger
@@ -244,10 +250,13 @@
   - type: ShipRepairable
     repairTime: 40
     repairCost: 250
+  - type: HardpointAnchorableOnly
+    class: Ballistic
+    size: Heavy
 
 - type: entity
   id: WeaponTurretLeviathan
-  name: LEVIATHAN 520mm howitzer
+  name: LEVIATHAN 380mm howitzer
   suffix: Capital, T5
   parent:
   - BallisticArtilleryUnanchorable
@@ -289,7 +298,7 @@
     fireRate: 0.05
     shootThermalSignature: 48000000 # ~7km after firing
     soundGunshot:
-      path: /Audio/_Mono/Weapons/Guns/Gunshots/cannon.ogg
+      collection: ShipGunGenericBig
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: BatterySelfRecharger
@@ -316,8 +325,11 @@
   - type: ShipGunType
     shipType: Ballistic
   - type: ShipGunClass
-    shipClass: SuperHeavy
+    shipClass: Superheavy
   - type: ShipRepairable
     repairTime: 40
     repairCost: 250
+  - type: HardpointAnchorableOnly
+    class: Ballistic
+    size: Superheavy
 

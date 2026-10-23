@@ -34,7 +34,7 @@ public abstract partial class SharedEntityStorageComponent : Component
     /// The total amount of items that can fit in one entitystorage
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public int Capacity = 30;
+    public int Capacity = 100; // mono
 
     /// <summary>
     /// Whether or not the entity still has collision when open

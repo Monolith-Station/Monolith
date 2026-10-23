@@ -26,7 +26,7 @@
     maxAngle: 45
     angleIncrease: 2 # Mono
     angleDecay: 20
-    fireRate: 8
+    fireRate: 8.5 # Mono
     projectileSpeed: 60 # Mono
     selectedMode: FullAuto
     availableModes:
@@ -91,6 +91,21 @@
     sound:
       collection: RiflesDrop
   # Goobstation edit end
+  # Mono - Gun stock attack
+  - type: MeleeRequiresWield
+  - type: MeleeWeapon
+    attackRate: 0.7
+    damage:
+      types:
+        Blunt: 15
+    angle: 0
+    wideAnimationRotation: 135
+    animation: WeaponArcThrust
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Light
+  # Mono end
 
 - type: entity
   name: PA L6B SAW (7.62x39mm)

@@ -1,0 +1,42 @@
+- type: entity
+  id: PDVThiefBeacon
+  name: PDV extraction beacon
+  description: A device that will extract materials placed around it at the end of the operation.
+  components:
+  - type: ThiefBeacon
+  - type: StealArea
+    range: 2 # Slightly larger than fulton beacon's random offset
+  - type: Item
+    size: Ginormous
+  - type: Physics
+    bodyType: Dynamic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.4,0.25,0.1"
+        density: 200
+        mask:
+        - Impassable
+  - type: Foldable
+    folded: true
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Tag
+    tags:
+    - PDVStealArea
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.FoldedVisuals.State:
+        foldedLayer:
+          True: { state: folded_extraction }
+          False: { state: extraction_point }
+  - type: Sprite
+    sprite: Objects/Tools/thief_beacon.rsi
+    drawdepth: SmallObjects
+    noRot: true
+    layers:
+    - state: extraction_point
+      map: [ "foldedLayer" ]

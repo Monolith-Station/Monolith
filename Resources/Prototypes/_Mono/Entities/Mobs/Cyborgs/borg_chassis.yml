@@ -110,6 +110,7 @@
     - Common
     - Traffic
     - Nfsd
+    - Command
 
 - type: entity
   id: TSFBorgChassisAssault
@@ -180,7 +181,7 @@
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
   - type: BorgSwitchableType
-    typeWhitelist: 
+    typeWhitelist:
     - xenoborgheavy
     - xenoborgengineer
     - xenoborgscout
@@ -197,7 +198,7 @@
       cell_slot:
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellCombat
-    
+
 - type: entity
   id: XenoborgChassisEngineer
   parent: [ BorgChassisSelectableXenoborg, BaseXenoborgTransponder ]

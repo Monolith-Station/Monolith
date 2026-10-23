@@ -30,6 +30,24 @@
     price: 1
 
 - type: entity
+  id: ShellShotgun12_gaugeBlank
+  name: shotgun shell (12 gauge blank)
+  description: Someone forgot the gunpowder.
+  parent: BaseShellShotgun12_gauge
+  components:
+  - type: Sprite
+    layers:
+    - state: blank
+      map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: CartridgeAmmo
+    proto: Pellet12_gaugeBlank
+    muzzleFlash: null
+    soundGunshot:
+      path: /Audio/Weapons/click.ogg
+  - type: SpentAmmoVisuals
+    state: "blank"
+
+- type: entity
   id: ShellShotgun12_gaugeBeanbag
   name: shotgun shell (12 gauge beanbag)
   parent: BaseShellShotgun12_gauge

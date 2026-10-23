@@ -20,10 +20,10 @@
     sprite: _Mono/Objects/Weapons/Guns/LMGs/ratel/Ratel-inhands.rsi
   - type: GunWieldBonus
     minAngle: -25
-    maxAngle: -35
+    maxAngle: -45
   - type: Gun
     minAngle: 25
-    maxAngle: 40
+    maxAngle: 60
     angleIncrease: 7
     angleDecay: 28
     fireRate: 6 # 360 rpm

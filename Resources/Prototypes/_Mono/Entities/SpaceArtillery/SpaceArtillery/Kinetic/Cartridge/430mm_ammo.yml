@@ -1,6 +1,6 @@
 - type: entity
   id: R300ShellHE
-  name: 430mm HE shell
+  name: 320x752mm HE shell
   description: Giant sluggish HE shell. Exclusive to the R300.
   parent: BaseGrenade
   components:
@@ -25,7 +25,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 250
+        damage: 50
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
@@ -42,7 +42,7 @@
 
 - type: entity
   id: R300BulletHE
-  name: 430mm HE projectile
+  name: 320x752mm HE projectile
   parent: ShipMissileBase # For shootdown
   categories: [ HideSpawnMenu ]
   components:
@@ -59,9 +59,9 @@
     muzzleFlash: MuzzleFlashEffectR300
   - type: ShipWeaponProjectile
   - type: RadarBlip
-    scale: 5
-    shape: triangle
-    radarColor: "#f55e1d"
+    scale: 2
+    shape: circle
+    radarColor: "#FFFFFF"
   - type: TimedDespawn
     lifetime: 20
   - type: PointLight
@@ -69,10 +69,10 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 3600 # This is 1/5th of a subnuclear shell
+    totalIntensity: 10800 # This is 3/5th of a subnuclear shell
     intensitySlope: 12
-    maxIntensity: 75
-    maxTileBreak: 3
+    maxIntensity: 750
+    tileBreakScale: 3
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard

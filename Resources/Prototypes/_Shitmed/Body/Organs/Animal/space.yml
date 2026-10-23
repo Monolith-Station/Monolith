@@ -35,6 +35,7 @@
   components:
   - type: Organ
     onAdd:
+    - type: BreathingImmunity
     - type: ActionGun
       action: ActionDragonsBreath
       gunProto: DragonsBreathGun

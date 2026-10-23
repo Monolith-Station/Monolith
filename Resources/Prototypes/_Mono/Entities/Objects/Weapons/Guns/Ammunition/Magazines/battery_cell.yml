@@ -91,8 +91,8 @@
   - type: Item
     size: Normal
   - type: Battery
-    maxCharge: 10000
-    startingCharge: 10000
+    maxCharge: 20000
+    startingCharge: 20000
   - type: EmpResistance
     coefficient: 0.002
   - type: HitscanBatteryAmmoProvider
@@ -121,8 +121,8 @@
     - type: Item
       size: Normal
     - type: Battery
-      maxCharge: 10000
-      startingCharge: 10000
+      maxCharge: 20000
+      startingCharge: 20000
     - type: EmpResistance
       coefficient: 0.001
     - type: HitscanBatteryAmmoProvider
@@ -131,3 +131,36 @@
     - type: Tag
       tags:
         - LargeMilitaryPowerCell
+
+# Plasma
+- type: entity
+  id: LargePowerCellPlasma68x52mm
+  parent: BaseMilitaryPowerCell
+  name: DEW-PLC plasma condenser (large)
+  description: A large and militarized power box for energy weapons, tweaked to function with ballistic firing mechanisms. Uses stored power to superheat particles into plasma before firing. Weak to EMP, but re-usable.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Power/plasmabattery.rsi
+    layers:
+    - map: [ "enum.PowerCellVisualLayers.Base" ]
+      state: base
+    - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+      state: o2
+      shader: unshaded
+  - type: Item
+    size: Normal
+  - type: Battery
+    maxCharge: 12000
+    startingCharge: 12000
+  - type: HitscanBatteryAmmoProvider
+    proto: Bullet68x52mmCaselessPlasma
+    fireCost: 200
+  - type: Tag
+    tags:
+    - Magazine68x52mmCaselessBoxSmall
+    - LargeMilitaryPowerCell
+  - type: ExtendDescription
+    descriptionList:
+    - description: Fits into TSF ballistic & chemical laser GPMGs.
+      color: "#4f94ad"
+      requireDetailRange: true

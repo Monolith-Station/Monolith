@@ -14,6 +14,7 @@
 - type: entity
   id: Cartridge35mmGrenadeSAPHE
   name: 35x53mm SAPHE grenade
+  description: A powerful high-explosive grenade. Useful for area denial, mass casualties and sabotage. Keep your distance.
   parent: Base35mmGrenade
   components:
   - type: CartridgeAmmo
@@ -26,4 +27,22 @@
   - type: Appearance
   - type: SpentAmmoVisuals
     state: frag
+    suffix: false
+
+- type: entity
+  id: Cartridge35mmGrenadeStinger
+  name: 35x53mm FL/ST grenade
+  description: A powerful less-lethal round. Essentially a long-range stinger and flashbang grenade, useful for counter-insurgency, counter-sniping and riot control.
+  parent: Base35mmGrenade
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet35mmGrenadeStinger
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/35mm_grenade.rsi
+    layers:
+    - state: stinger
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+    state: stinger
     suffix: false

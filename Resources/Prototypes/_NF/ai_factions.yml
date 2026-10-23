@@ -56,6 +56,11 @@
 # Todo: Add/Change to PDV - Mono
 - type: npcFaction
   id: PirateNF
+  neutral:
+  - Cat
+  - PetsNT
+  - SimpleNeutral
+  - Mouse
   defaultHostile: true
 
 - type: npcFaction

@@ -11,6 +11,8 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Server.GameObjects;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 
@@ -22,6 +24,11 @@ public sealed class AmmoLoaderUiSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _containers = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+
+    public SoundSpecifier ActionSound = new SoundPathSpecifier("/Audio/_Mono/Weapons/Guns/autoloader.ogg");
+    public SoundSpecifier UnloadSound = new SoundPathSpecifier("/Audio/_Mono/Weapons/Guns/hydraulics_1.ogg");
+    public AudioParams SoundParams = AudioParams.Default.WithMaxDistance(6).WithVolume(-1f);
 
     public override void Initialize()
     {
@@ -156,7 +163,10 @@ public sealed class AmmoLoaderUiSystem : EntitySystem
             return;
 
         if (_ammoLoader.TryLoadAmmoToTurret(ent, turret.Value, args.AmmoPrototypeId, args.Actor))
+        {
             UpdateUi(ent);
+            _audio.PlayPvs(ActionSound, ent, SoundParams);
+        }
     }
 
     private void OnUnloadTurret(Entity<AmmoLoaderComponent> ent, ref AmmoLoaderUnloadTurretMessage args)
@@ -165,7 +175,10 @@ public sealed class AmmoLoaderUiSystem : EntitySystem
             return;
 
         if (_ammoLoader.TryUnloadTurretToLoader(ent, turret.Value, args.Actor))
+        {
             UpdateUi(ent);
+            _audio.PlayPvs(UnloadSound, ent, SoundParams);
+        }
     }
 
     private void UpdateUi(Entity<AmmoLoaderComponent> ent)

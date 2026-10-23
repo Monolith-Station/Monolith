@@ -1,18 +1,18 @@
 using Content.Server.Objectives.Components;
 using Content.Server.Objectives.Components.Targets;
+using Content.Shared._Mono.Company;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.Interaction;
-using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
 using Content.Shared.Objectives.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Stacks;
+using Content.Shared.Tag;
 
 namespace Content.Server.Objectives.Systems;
 
@@ -25,6 +25,7 @@ public sealed partial class StealConditionSystem : EntitySystem
     [Dependency] private SharedInteractionSystem _interaction = default!;
     [Dependency] private SharedObjectivesSystem _objectives = default!;
     [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private TagSystem _tag = default!; // Mono
 
     private EntityQuery<ContainerManagerComponent> _containerQuery;
 
@@ -50,7 +51,7 @@ public sealed partial class StealConditionSystem : EntitySystem
         var query = AllEntityQuery<StealTargetComponent>();
         while (query.MoveNext(out var target))
         {
-            if (condition.Comp.StealGroup != target.StealGroup)
+            if (!target.StealGroup.Contains(condition.Comp.StealGroup)) // Mono
                 continue;
 
             targetList.Add(target);
@@ -94,42 +95,55 @@ public sealed partial class StealConditionSystem : EntitySystem
     }
     private void OnGetProgress(Entity<StealConditionComponent> condition, ref ObjectiveGetProgressEvent args)
     {
-        args.Progress = GetProgress(args.Mind, condition);
+        args.Progress = GetProgress(args.MindId, condition);
     }
 
-    private float GetProgress(MindComponent mind, StealConditionComponent condition)
+    private float GetProgress(EntityUid entityUid, StealConditionComponent condition)
     {
-        if (!_containerQuery.TryGetComponent(mind.OwnedEntity, out var currentManager))
-            return 0;
+        // Mono - I changed some of this system to make it not hardcoded to minds.
 
         var containerStack = new Stack<ContainerManagerComponent>();
         var count = 0;
 
         _countedItems.Clear();
 
+        // Mono - Check all other company members if we have one and if the objective calls for it.
+        if (condition.CheckCompanyMembers && TryComp<CompanyComponent>(entityUid, out var mindCompany))
+        {
+            var companyQuery = AllEntityQuery<CompanyComponent, TransformComponent>();
+            while (companyQuery.MoveNext(out var uid, out var company, out var xform))
+            {
+                if (company.CompanyName == mindCompany.CompanyName
+                    && uid != entityUid)
+                {
+                    CheckEntity(uid, condition, ref containerStack, ref count);
+                }
+            }
+        }
         //check stealAreas
         if (condition.CheckStealAreas)
         {
-            var areasQuery = AllEntityQuery<StealAreaComponent, TransformComponent>();
-            while (areasQuery.MoveNext(out var uid, out var area, out var xform))
+            var areasQuery = AllEntityQuery<StealAreaComponent, TagComponent, TransformComponent>(); // Mono - tag check
+            while (areasQuery.MoveNext(out var uid, out var area, out var tag, out var xform))
             {
-                if (!area.Owners.Contains(mind.Owner))
-                    continue;
-
-                _nearestEnts.Clear();
-                _lookup.GetEntitiesInRange<TransformComponent>(xform.Coordinates, area.Range, _nearestEnts);
-                foreach (var ent in _nearestEnts)
+                // Mono - tag check instead of owner check
+                if (_tag.HasTag(tag, condition.StealAreaTagProto))
                 {
-                    if (!_interaction.InRangeUnobstructed((uid, xform), (ent, ent.Comp), range: area.Range))
-                        continue;
+                    _nearestEnts.Clear();
+                    _lookup.GetEntitiesInRange<TransformComponent>(xform.Coordinates, area.Range, _nearestEnts);
+                    foreach (var ent in _nearestEnts)
+                    {
+                        if (!_interaction.InRangeUnobstructed((uid, xform), (ent, ent.Comp), range: area.Range))
+                            continue;
 
-                    CheckEntity(ent, condition, ref containerStack, ref count);
+                        CheckEntity(ent, condition, ref containerStack, ref count);
+                    }
                 }
             }
         }
 
         //check pulling object
-        if (TryComp<PullerComponent>(mind.OwnedEntity, out var pull)) //TO DO: to make the code prettier? don't like the repetition
+        if (TryComp<PullerComponent>(entityUid, out var pull)) //TO DO: to make the code prettier? don't like the repetition
         {
             var pulledEntity = pull.Pulling;
             if (pulledEntity != null)
@@ -140,21 +154,25 @@ public sealed partial class StealConditionSystem : EntitySystem
 
         // recursively check each container for the item
         // checks inventory, bag, implants, etc.
-        do
-        {
-            foreach (var container in currentManager.Containers.Values)
-            {
-                foreach (var entity in container.ContainedEntities)
-                {
-                    // check if this is the item
-                    count += CheckStealTarget(entity, condition);
 
-                    // if it is a container check its contents
-                    if (_containerQuery.TryGetComponent(entity, out var containerManager))
-                        containerStack.Push(containerManager);
+        if (_containerQuery.TryGetComponent(entityUid, out var currentManager))
+        {
+            do
+            {
+                foreach (var container in currentManager.Containers.Values)
+                {
+                    foreach (var entity in container.ContainedEntities)
+                    {
+                        // check if this is the item
+                        count += CheckStealTarget(entity, condition);
+
+                        // if it is a container check its contents
+                        if (_containerQuery.TryGetComponent(entity, out var containerManager))
+                            containerStack.Push(containerManager);
+                    }
                 }
-            }
-        } while (containerStack.TryPop(out currentManager));
+            } while (containerStack.TryPop(out currentManager));
+        }
 
         var result = count / (float) condition.CollectionSize;
         result = Math.Clamp(result, 0, 1);
@@ -167,12 +185,12 @@ public sealed partial class StealConditionSystem : EntitySystem
         counter += CheckStealTarget(entity, condition);
 
         //we don't check the inventories of sentient entity
-        if (!TryComp<MindContainerComponent>(entity, out var pullMind))
-        {
+        //if (!TryComp<MindContainerComponent>(entity, out var pullMind)) // Mono - remove !check for minds
+        //{
             // if it is a container check its contents
             if (_containerQuery.TryGetComponent(entity, out var containerManager))
                 containerStack.Push(containerManager);
-        }
+        //}
     }
 
     private int CheckStealTarget(EntityUid entity, StealConditionComponent condition)
@@ -184,7 +202,7 @@ public sealed partial class StealConditionSystem : EntitySystem
         if (!TryComp<StealTargetComponent>(entity, out var target))
             return 0;
 
-        if (target.StealGroup != condition.StealGroup)
+        if (!target.StealGroup.Contains(condition.StealGroup)) // Mono
             return 0;
 
         // check if cartridge is installed

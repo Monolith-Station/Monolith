@@ -16,20 +16,21 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 # Contractor
+# mono: give vagrants mercenary loadout options
 - type: roleLoadout
   id: JobContractor
   groups:
-  - ContractorHead
+  - MercenaryHead
   - ContractorNeck
-  - ContractorJumpsuit
-  - ContractorGloves
-  - ContractorBackpack
-  - ContractorOuterClothing
-  - ContractorShoes
-  - ContractorFace
-  - ContractorGlasses
-  - ContractorBelt
-  - ContractorEars
+  - MercenaryJumpsuit
+  - MercenaryGloves
+  - MercenaryBackpack
+  - MercenaryOuterClothing
+  - MercenaryShoes
+  - MercenaryFace
+  - MercenaryGlasses
+  - MercenaryBelt
+  - MercenaryEars
   - ContractorEncryptionKey
   - ContractorBoxSurvival
   - ContractorPDA
@@ -41,10 +42,10 @@
   - ContractorTrinkets
   - ContractorBureaucracy
   - NFSpeciesSpecific
+  - MercenaryBalaclava # Mono
   - ContractorFirearm # Mono
   - ContractorMag # Mono
   - CivGunCaseSpecial # Mono
-  - ContractorArmorPlates # Mono
 
 # Pilot
 - type: roleLoadout
@@ -72,10 +73,9 @@
   - ContractorTrinkets
   - ContractorBureaucracy
   - NFSpeciesSpecific
-  - ContractorArmorPlates # Mono
   - ContractorFirearm # Mono
   - ContractorMag # Mono
-  - CivGunCaseSpecial # Mono
+# - CivGunCaseSpecial # Mono
 
 # Mercenary
 - type: roleLoadout
@@ -107,8 +107,7 @@
   - ContractorTrinkets
   - ContractorBureaucracy
   - NFSpeciesSpecific
-  - CivGunCaseSpecial # Mono
-  - ContractorArmorPlates # Mono
+# - CivGunCaseSpecial # Mono
 
 # Frontier
 - type: roleLoadout
@@ -135,7 +134,6 @@
   - NFSpeciesSpecific
   - ContractorFirearm # Mono
   - ContractorMag # Mono
-  - ContractorArmorPlates # Mono
 
 - type: roleLoadout
   id: JobNFJanitor
@@ -159,7 +157,6 @@
   - NFSpeciesSpecific
   - ContractorFirearm # Mono
   - ContractorMag # Mono
-  - ContractorArmorPlates # Mono
 
 - type: roleLoadout
   id: JobMailCarrier
@@ -184,7 +181,6 @@
   - NFSpeciesSpecific
   - ContractorFirearm # Mono
   - ContractorMag # Mono
-  - ContractorArmorPlates # Mono
 
 - type: roleLoadout
   id: JobStationTrafficController
@@ -211,7 +207,6 @@
   - NFSpeciesSpecific
   - ContractorFirearm # Mono
   - ContractorMag # Mono
-  - ContractorArmorPlates # Mono
 
 # Mono edit
 - type: roleLoadout
@@ -244,7 +239,6 @@
   - StationRepTrinkets
   - ContractorBureaucracy
   - NFSpeciesSpecific
-  - ContractorArmorPlates # Mono
 
 - type: roleLoadout
   id: JobSecurityGuard
@@ -275,7 +269,7 @@
   - ContractorTrinkets
   - ContractorBureaucracy
   - NFSpeciesSpecific
-  - FactionArmorPlates # Mono
+  #- FactionArmorPlates # Mono
 
 - type: roleLoadout
   id: JobDirectorOfCare
@@ -302,7 +296,6 @@
   - ContractorTrinkets
   - ContractorBureaucracy
   - NFSpeciesSpecific
-  - ContractorArmorPlates # Mono
 
 # Nfsd
 

@@ -1,0 +1,42 @@
+# Author Info
+# GitHub: LassiH
+# Discord: lassih
+
+#
+- type: vessel
+  id: Leviathan
+  parent: BaseVessel
+  name: VG Leviathan
+  description: The Viper group's capital-sized brawler with thick armor. Made by the GS from an old cargo freighter.
+  limit: 1
+  price: 540000
+  purchasable: false # Voucher only
+  category: Large
+  group: Viper
+  access: Viper
+  shuttlePath: /SharedMaps/_Mono/Shuttles/VG/leviathan.yml
+  guidebookPage: ShipyardNFROperation
+  class:
+  - Frigate
+  engine:
+  - NFR
+
+- type: gameMap
+  id: Leviathan
+  mapName: 'VG Leviathan'
+  mapPath: /SharedMaps/_Mono/Shuttles/VG/leviathan.yml
+  minPlayers: 0
+  stations:
+    Leviathan:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Leviathan VG{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            VGInfanteer: [ 0, 0 ]
+            VGLieutenant: [ 0, 0 ]
+            VGCommander: [ 0, 0 ]

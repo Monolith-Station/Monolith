@@ -1,6 +1,6 @@
 - type: entity
   name: Cortical Borer
-  parent: SimpleSpaceMobBase
+  parent: [SimpleSpaceMobBase, ProximityShootOverBase]
   id: MobCorticalBorer
   description: A worm that burrows into brains and lays its eggs
   components:

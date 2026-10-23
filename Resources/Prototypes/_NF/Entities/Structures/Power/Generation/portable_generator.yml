@@ -109,6 +109,28 @@
     - type: FuelGradeAdapter
       inputMaterial: Bananium
       outputMaterial: FuelGradeBananium
+    - type: Explosive # Mono
+      explosionType: ESWelderBomb
+      maxIntensity: 100
+      intensitySlope: 1
+      totalIntensity: 800
+      # Mono start
+    - type: ESSparkOnHit
+      prob: 0.4
+      tileFireChance: 0.4
+      count: 3
+    - type: Flammable
+      fireSpread: true
+      firestackFade: 0.1
+      alwaysCombustible: true
+      damage:
+        types:
+          Heat: 1
+          Structural: 2
+    - type: FireVisuals
+      sprite: Mobs/Effects/onfire.rsi
+      normalState: Generic_mob_burning
+      # Mono end
 
 - type: entity
   parent:
@@ -165,6 +187,28 @@
     - type: AmbientSound
       sound:
         path: /Audio/Ambience/Objects/engine_hum.ogg
+    - type: Explosive # Mono
+      explosionType: ESWelderBomb
+      maxIntensity: 100
+      intensitySlope: 1
+      totalIntensity: 400
+      # Mono start
+    - type: ESSparkOnHit
+      prob: 0.4
+      tileFireChance: 0.4
+      count: 3
+    - type: Flammable
+      fireSpread: true
+      firestackFade: 0.1
+      alwaysCombustible: true
+      damage:
+        types:
+          Heat: 1
+          Structural: 2
+    - type: FireVisuals
+      sprite: Mobs/Effects/onfire.rsi
+      normalState: Generic_mob_burning
+      # Mono end
 
 - type: entity
   parent:

@@ -140,7 +140,7 @@ public sealed partial class ContrabandTurnInSystem : SharedContrabandTurnInSyste
                 // Dont sell:
                 // - anything already being sold
                 // - anything anchored (e.g. light fixtures)
-                // - anything blacklisted (e.g. players).
+                // - anything blacklisted (e.g. players). // Mono: actually putting contraband values on players is something that needs to be allowed
                 if (toSell.Contains(ent) ||
                     _xformQuery.TryGetComponent(ent, out var xform) &&
                     (xform.Anchored || !CanSell(ent, xform)))
@@ -148,8 +148,8 @@ public sealed partial class ContrabandTurnInSystem : SharedContrabandTurnInSyste
                     continue;
                 }
 
-                if (_blacklistQuery.HasComponent(ent))
-                    continue;
+                //if (_blacklistQuery.HasComponent(ent)) // Mono: allow blacklisted items to be exchanged again
+                //    continue;
 
                 if (TryComp<ContrabandComponent>(ent, out var comp))
                 {

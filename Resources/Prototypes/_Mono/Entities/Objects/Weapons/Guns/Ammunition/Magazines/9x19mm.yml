@@ -221,7 +221,7 @@
 - type: entity
   id: Magazine9x19mmPistolHighCapacityFMJ
   name: machine pistol magazine (9x19mm FMJ)
-  parent: BaseMagazine9x19mmPistolHighCapacityFMJ
+  parent: [ BaseMagazine9x19mmPistolHighCapacityFMJ, BaseC3SyndicateContraband ]
   components:
   - type: BallisticAmmoProvider
     proto: Cartridge9x19mmFMJ

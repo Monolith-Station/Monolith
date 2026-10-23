@@ -2,7 +2,7 @@
   id: WeaponTurretVanyk
   name: ASM-150 "Vanyk" Missile Pod
   parent:
-  - BallisticArtilleryUnanchorableMagazine
+  - BallisticArtilleryMagazine
   - BallisticArtilleryTier2HP
   description: An escort missile pod manufactured by Aetherion Dynamics. Launches 150mm guided missiles for basic ship-to-ship combat and area denial. Uses a built-in autoloader instead of a rack, increasing capacity but reducing rate of fire. Can be remotely activated or linked to a GCS.
   components:
@@ -25,7 +25,7 @@
     maxAngle: 0
     shootThermalSignature: 8000000 # ~5km if firing continuously
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/rocket_launcher.ogg
+      path: /Audio/_Mono/Weapons/Guns/Gunshots/launcher_alt.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
   - type: Actions
@@ -57,3 +57,6 @@
   - type: ShipRepairable
     repairTime: 30
     repairCost: 100
+  - type: HardpointAnchorableOnly
+    class: Missile
+    size: Light

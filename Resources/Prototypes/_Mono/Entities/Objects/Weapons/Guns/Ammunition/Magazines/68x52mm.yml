@@ -198,3 +198,19 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
+
+# plasma
+
+- type: entity
+  id: Magazine68x52mmCaselessPlasma
+  name: "magazine (6.8x52mm STANAG caseless plasma)"
+  parent: BaseMagazine68x52mmCaseless
+  components:
+  - type: BallisticAmmoProvider
+    proto: Cartridge68x52mmCaselessPlasma
+  - type: Sprite
+    layers:
+    - state: pink
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]

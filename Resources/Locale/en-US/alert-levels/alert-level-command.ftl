@@ -9,6 +9,5 @@ cmd-setalertlevel-hint-2 = [locked]
 
 # Mono
 cmd-setwarlevel-desc = Set the war level to HOT (true) or COLD (false).
-cmd-setwarlevel-help = Usage: setwarlevel <postwar>
-cmd-setwarlevel-invalid-grid = You must be on grid of station code that you are going to change.
-cmd-setwarlevel-hint = <postwar>
+cmd-setwarlevel-help = Usage: setwarlevel [postwar]
+cmd-setwarlevel-hint-1 = [postwar]

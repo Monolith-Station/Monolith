@@ -1,0 +1,40 @@
+- type: vessel
+  id: KortikR
+  parent: BaseVesselIFFDisabled
+  name: PDV-NCI Kortik-R
+  description: An retrofitted version of old purchased hulls. Equipped with a heavy up-close armament, 2 howitzers for bombardment, and lots of extra hardpoints, but lacking in PD, GCS power, and unable to use shields.
+  limit: 2
+  hyperwarLimit: 3
+  hyperwarTimelock: 3600
+  price: 500000
+  purchasable: false # Voucher only - T3
+  category: Large
+  group: BlackMarket
+  shuttlePath: /SharedMaps/_Mono/Shuttles/PDV/kortik_r.yml
+  guidebookPage: Null
+  class:
+  - Brawler
+  - Frigate
+  engine:
+  - AME
+
+- type: gameMap
+  id: KortikR
+  mapName: 'Kortik-R'
+  mapPath: /SharedMaps/_Mono/Shuttles/PDV/kortik_r.yml
+  minPlayers: 0
+  stations:
+    KortikR:
+      stationProto: StandardFrontierVessel
+      gridComponents:
+      - type: ShipShieldDisabledGrid
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Kortik-R PDV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Pirate: [ 0, 0 ]
+            PdvBorg: [ 0, 0 ]

@@ -1,0 +1,38 @@
+# Made by harrow/waphun
+- type: vessel
+  id: Xiphos
+  parent: BaseVesselIFFDisabled
+  name: TSF-ELF Xiphos
+  description: A rapid-response patrol craft with EMP capabilities. Equipped with a holding cell to transport prisoners.
+  price: 120000
+  category: Small
+  group: Security
+  access: Security
+  shuttlePath: /SharedMaps/_Mono/Shuttles/TSF/xiphos.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  engine:
+  - Plasma
+  company:
+  - TSF
+
+- type: gameMap
+  id: Xiphos
+  mapName: 'Xiphos'
+  mapPath: /SharedMaps/_Mono/Shuttles/TSF/xiphos.yml
+  minPlayers: 0
+  stations:
+    Xiphos:
+      stationProto: StandardFrontierSecurityVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Xiphos TSF{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          Deputy: [ 0, 0 ]
+          TsfBorg: [ 0, 0 ]
+

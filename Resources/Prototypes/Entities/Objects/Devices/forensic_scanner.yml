@@ -25,7 +25,8 @@
         type: ForensicScannerBoundUserInterface
   - type: ForensicScanner
   - type: StealTarget
-    stealGroup: ForensicScanner
+    stealGroup:
+    - ForensicScanner
   - type: Appearance # Frontier
   - type: ItemSlots # Frontier
     slots: # Frontier

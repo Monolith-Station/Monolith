@@ -1,0 +1,18 @@
+- type: entity
+  parent: ReinforcementRadio
+  id: ReinforcementRadioPDVImperiroach
+  name: ImperiRoach reinforcement radio
+  description: Calls in a faithfully trained ImperiRoach with a microbomb to assist you.
+  components:
+  - type: GhostRole
+    name: ghost-role-information-imperiroach-name
+    description: ghost-role-information-imperiroach-description
+    rules: ghost-role-information-imperiroach-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+    raffle:
+      settings: default
+  - type: GhostRoleMobSpawner
+    prototype: MobImperiRoach
+  - type: EmitSoundOnUse
+    sound: /Audio/Voice/Moth/moth_chitter.ogg

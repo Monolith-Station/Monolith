@@ -17,18 +17,26 @@ armor-plate-gait-walk = walking speed
 armor-plate-gait-sprint = running speed
 
 armor-plate-speed-display =
-    { $deltasign ->
-        [-1] Increases your {$gait} by [color=yellow]{$speedPercent}%[/color].
-         [0] Doesn't affect your speed.
-         [1] Decreases your {$gait} by [color=yellow]{$speedPercent}%[/color].
-        *[other] Shouldn't be have this speed value!
+    { $stringClause ->
+         [1] Increases your {$gait} by [color=yellow]{$speedPercent}%[/color].
+         [-1] Decreases your {$gait} by [color=yellow]{$speedPercent}%[/color].
+        *[other] Shouldn't be have this speed clause!
     }
 
 armor-plate-ratios-display =
-    { $deltasign ->
-        [-1] [color=cyan]Absorbs[/color] [color=yellow]{$ratioPercent}%[/color] of [color=yellow]{$dmgType}[/color] and takes it as [color=yellow]x{$multiplier}[/color] durability damage.
-         [0] Is unaffected by {$dmgType}
-         [1] [color=fuchsia]Amplifies[/color] [color=yellow]{$dmgType}[/color] by [color=yellow]{$ratioPercent}%[/color] and takes the added damage as [color=yellow]x{$multiplier}[/color] durability damage.
-        *[other] {$dmgType} shouldn't be have this absorption value!
+    { $stringClause ->
+        [1] [color=cyan]Absorbs[/color] [color=yellow]{$ratioPercent}%[/color] of [color=yellow]{$dmgType}[/color]
+        [-1] [color=fuchsia]Amplifies[/color] [color=yellow]{$dmgType}[/color] by [color=yellow]{$ratioPercent}%[/color]
+        [0] Does not affect [color=yellow]{$dmgType}[/color]
+       *[other] {$dmgType} shouldn't have this absorption clause!
     }
-armor-plate-stamina-value = Inflicts [color=yellow]{$multiplier}%[/color] of absorbed damage as stamina damage.
+
+armor-plate-multiplier-display = and deducts [color=yellow]{$multiplier}%[/color] of raw damage value from durability.
+armor-plate-multiplier-none = and does not damage the plate.
+
+armor-plate-stamina-source-absorb = [color=cyan]Absorbed[/color]
+armor-plate-stamina-concat = and
+armor-plate-stamina-source-amplified = [color=fuchsia]Amplified[/color]
+armor-plate-stamina-source-raw = [color=red]All Oncoming[/color]
+armor-plate-stamina-value = Inflicts [color=yellow]{$multiplier}%[/color] of {$sources} damage as stamina damage.
+

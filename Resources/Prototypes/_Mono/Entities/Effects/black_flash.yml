@@ -1,0 +1,22 @@
+- type: entity
+  id: EffectBlackFlash
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BlackFlashEffect
+    scale: 1.1
+    intensity: 1
+    duration: 0.75
+  - type: TimedDespawn
+    lifetime: 0.75
+
+- type: entity
+  id: EffectBlackFlashWhiff
+  parent: EffectBlackFlash
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BlackFlashEffect
+    scale: 0.6
+    intensity: 0.3
+    duration: 0.45
+  - type: TimedDespawn
+    lifetime: 0.45

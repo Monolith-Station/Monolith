@@ -183,6 +183,9 @@
     borderColor: "#48484b"
   - type: Icon
     state: pda-security
+  - type: StealTarget
+    stealGroup:
+    - TSFPDAs
 
 - type: entity
   parent: BaseSecurityPDA

@@ -12,13 +12,13 @@
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
   - type: GunWieldBonus
-    minAngle: -18
-    maxAngle: -17
+    minAngle: -10
+    maxAngle: -10
   - type: Gun
-    minAngle: 18
-    maxAngle: 35
-    angleIncrease: 2
-    angleDecay: 40
+    minAngle: 12
+    maxAngle: 50
+    angleIncrease: 6
+    angleDecay: 80
     fireRate: 11 # 660 rpm
     shotsPerBurst: 3
     availableModes:
@@ -70,9 +70,9 @@
 
 - type: entity
   name: TCA QBZ-410 Lecter (6.8x52mm Caseless)
-  parent: BaseWeaponRifle
+  parent: [BaseWeaponRifle, BaseFactionGearTSFT1]
   id: WeaponRifleLecter
-  description: The result of a project to make a new standard rifle for the branches of the TSF military. Highly accurate and easy to use, but poor damage output. Also accepts 5.56x45mm magazines to assist with standardization. The barrel is threaded for suppressors, and an Erebus railmount is on the bottom for grips.
+  description: The result of a project to make a new standard rifle for the branches of the TSF military. Highly accurate and easy to use, but poor damage output. Also accepts 5.56x45mm magazines to assist with standardization. The barrel is threaded for suppressors, and an Erebus railmount is on the bottom for grips. Capable of mounting QLG-20 UBGLs.
   components:
   - type: Item
     size: Huge
@@ -133,6 +133,7 @@
         whitelist:
           tags:
           - MonoGripErebusRailmount
+          - MonoGrip40mmUBGLTSF
       attachment_barrel:
         insertSound: /Audio/Items/screwdriver.ogg
         ejectSound: /Audio/Items/screwdriver.ogg
@@ -166,6 +167,7 @@
       whitelist:
         tags:
         - MonoGripErebusRailmount
+        - MonoGrip40mmUBGLTSF
     - name: es-gun-attachments-slot-name-optic
       containerId: attachment_optic
       whitelist:
@@ -197,6 +199,11 @@
         whitelist:
           tags:
           - MonoGripLight
+      - containerId: attachment_grip
+        state: ubgl
+        whitelist:
+          tags:
+          - MonoGrip40mmUBGL
       barrelAttachment:
       - containerId: attachment_barrel
         state: suppressed
@@ -417,11 +424,11 @@
     soundRack:
       path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
   - type: GunWieldBonus
-    minAngle: 0
-    maxAngle: -43
+    minAngle: -5
+    maxAngle: -40
   - type: Gun
-    minAngle: 0
-    maxAngle: 43
+    minAngle: 6
+    maxAngle: 45
     angleIncrease: 3
     angleDecay: 15
     fireRate: 7.5
@@ -578,15 +585,15 @@
     soundRack:
       path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
   - type: GunWieldBonus
-    minAngle: -4
-    maxAngle: -30
+    minAngle: -32
+    maxAngle: -65 # 65 65 65
   - type: Gun
-    minAngle: 4
-    maxAngle: 33
+    minAngle: 32
+    maxAngle: 75
     angleIncrease: 4
     angleDecay: 10
     fireRate: 4.5
-    damageModifier: 1.3
+    damageModifier: 1.3 # very slightly out DPS'd by M-90 still
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/lmg.ogg
   - type: ItemSlots

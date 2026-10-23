@@ -1,0 +1,12 @@
+- type: currency
+  id: MMCIndustrialCredit
+  displayName: store-currency-display-mmc
+  cash:
+    1: MMCIndustrialCredit1
+  canWithdraw: true
+
+- type: stack
+  id: MMCIndustrialCredit
+  name: MMC industrial credits
+  icon: { sprite: _Mono/Objects/Specific/MMC/mmc_ticket.rsi, state: ticket }
+  spawn: MMCIndustrialCredit

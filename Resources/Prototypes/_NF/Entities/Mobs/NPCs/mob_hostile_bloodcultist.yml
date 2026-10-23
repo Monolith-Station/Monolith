@@ -466,7 +466,7 @@
 - type: entity
   categories: [ HideSpawnMenu ]
   parent:
-  - BaseC3MobCreatureNoValue
+# - BaseC3MobCreatureNoValue  # Mono: I don't think we need to have a big magenta sign TELLING ME that i'll probably get into deep shit if I keep a chimera alive. also what the fuck even is "class 3 contraband"
   - MobBloodCultDrainedOne
   - NFMobTimedDespawn180
   id: MobBloodCultDrainedOneNanoTrasen

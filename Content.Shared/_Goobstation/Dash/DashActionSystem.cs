@@ -1,4 +1,10 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Shared.Emoting;
 using Content.Shared.Actions;
+using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Gravity;
 using Content.Shared.Movement.Components;
 using Content.Shared.Throwing;
@@ -11,6 +17,7 @@ public sealed class DashActionSystem : EntitySystem
     [Dependency] private readonly SharedGravitySystem _gravity = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly StaminaSystem _stamina = default!;
 
     public override void Initialize()
     {
@@ -30,9 +37,9 @@ public sealed class DashActionSystem : EntitySystem
         if (args.NeedsGravity && _gravity.IsWeightless(args.Performer))
             return;
 
+        args.Handled = true;
         var vec = (_transform.ToMapCoordinates(args.Target).Position -
-                   _transform.GetMapCoordinates(args.Performer).Position).Normalized() *
-                   args.Distance;
+                   _transform.GetMapCoordinates(args.Performer).Position).Normalized() * args.Distance;
 
         var speed = args.Speed;
 
@@ -42,9 +49,16 @@ public sealed class DashActionSystem : EntitySystem
             speed *= speedcomp.CurrentSprintSpeed / speedcomp.BaseSprintSpeed;
         }
 
-        _throwing.TryThrow(args.Performer, vec, speed, null, 0, null, false, false, false);
+        _throwing.TryThrow( args.Performer, vec, baseThrowSpeed: speed, user: null, pushbackRatio: 0, friction: null, compensateFriction: false, recoil: false, animated: false);
 
-        args.Handled = true;
+        if (args.StaminaDrain != null)
+            _stamina.TakeStaminaDamage(args.Performer, args.StaminaDrain.Value, visual: false, immediate: false);
+
+        if (args.Emote != null && TryComp<AnimatedEmotesComponent>(args.Performer, out var emotes))
+        {
+            emotes.Emote = args.Emote;
+            Dirty(args.Performer, emotes);
+        }
     }
 
     private void OnComponentInit(EntityUid uid, DashActionComponent comp, ref ComponentInit args)

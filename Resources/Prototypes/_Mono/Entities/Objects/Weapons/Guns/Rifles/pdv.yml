@@ -79,8 +79,10 @@
     sprite: _Mono/Objects/Weapons/Guns/Rifles/wspr_inhands_32x.rsi
   - type: GunWieldBonus
     minAngle: -14
-    maxAngle: -41
+    maxAngle: -27
   - type: Gun
+    minAngle: 14
+    maxAngle: 41
     availableModes:
     - Burst
     - FullAuto
@@ -163,13 +165,12 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
-  - type: GunRequiresWield
 
 - type: entity
   name: PD-VI M-32 Vympel (5.56x45mm)
   parent: BaseWeaponRifle
   id: WeaponRifleVympel
-  description: A compact bullpup design. Uses 5.56x45mm rifle ammo. The barrel is threaded for suppressors, and an Erebus railmount is present on the handguard for grips.
+  description: A compact bullpup design. Uses 5.56x45mm rifle ammo. The barrel is threaded for suppressors, and an Erebus railmount is present on the handguard for grips. Capable of mounting RKR/40 UBGLs.
   components:
   - type: Item
     size: Large
@@ -194,9 +195,9 @@
   - type: Gun
     minAngle: 3
     maxAngle: 64
-    angleIncrease: 6
+    angleIncrease: 2
     angleDecay: 25
-    fireRate: 6.5
+    fireRate: 7.2
     selectedMode: FullAuto
     damageModifier: 1.1
     availableModes:
@@ -230,6 +231,7 @@
         whitelist:
           tags:
           - MonoGripErebusRailmount
+          - MonoGrip40mmUBGLVympel
       attachment_barrel:
         insertSound: /Audio/Items/screwdriver.ogg
         ejectSound: /Audio/Items/screwdriver.ogg
@@ -255,6 +257,7 @@
       whitelist:
         tags:
         - MonoGripErebusRailmount
+        - MonoGrip40mmUBGLVympel
   - type: ActivatableUI
     key: enum.ESAttachableGunUiKey.Key
     verbOnly: true
@@ -276,6 +279,11 @@
         whitelist:
           tags:
           - MonoGripLAM
+      - containerId: attachment_grip
+        state: ubgl
+        whitelist:
+          tags:
+          - MonoGrip40mmUBGL
       - containerId: attachment_grip
         state: light
         whitelist:
@@ -319,10 +327,10 @@
     soundRack:
       path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
   - type: GunWieldBonus
-    minAngle: -3
+    minAngle: -30
     maxAngle: -54
   - type: Gun
-    minAngle: 3
+    minAngle: 30
     maxAngle: 64
     angleIncrease: 5
     angleDecay: 25

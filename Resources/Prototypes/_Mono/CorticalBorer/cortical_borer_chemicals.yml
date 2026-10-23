@@ -58,3 +58,34 @@
   id: borerNocturine
   cost: 5 # needs 18u to start the sleep, so more than blind but still cheaper
   reagent: Nocturine
+
+- type: borerChemical
+  id: borerLeporazine
+  cost: 5
+  reagent: Leporazine
+
+- type: borerChemical
+  id: borerPax
+  cost: 20
+  reagent: Pax
+
+- type: borerChemical
+  id: borerWeh
+  cost: 2
+  reagent: JuiceThatMakesYouWeh
+
+- type: borerChemical
+  id: borerHew
+  cost: 2
+  reagent: JuiceThatMakesYouHew
+
+- type: borerChemical
+  id: borerHonk
+  cost: 5
+  reagent: Honk
+
+- type: borerChemical
+  id: borerBarozine
+  cost: 10
+  reagent: Barozine
+

@@ -26,13 +26,6 @@
       requirements:
         MatterBin: 2
         Manipulator: 2
-      tagRequirements:
-        MicroprocessorEconomy1:
-          amount: 1
-          defaultPrototype: MicroprocessorEconomy1
-        MotorEconomy1:
-          amount: 1
-          defaultPrototype: MotorEconomy1
 
 - type: entity
   id: MercenaryTechFabCircuitboardNF
@@ -46,12 +39,9 @@
         MatterBin: 2
         Manipulator: 2
       tagRequirements:
-        MicroprocessorEconomy1:
+        GlassBeaker:
           amount: 2
-          defaultPrototype: MicroprocessorEconomy1
-        MotorEconomy1:
-          amount: 1
-          defaultPrototype: MotorEconomy1
+          defaultPrototype: Beaker
 
 - type: entity
   id: MercenaryTechFabCircuitboardHackedNF
@@ -68,12 +58,9 @@
         MatterBin: 2
         Manipulator: 2
       tagRequirements:
-        MicroprocessorEconomy1:
+        GlassBeaker:
           amount: 2
-          defaultPrototype: MicroprocessorEconomy1
-        MotorEconomy1:
-          amount: 1
-          defaultPrototype: MotorEconomy1
+          defaultPrototype: Beaker
 
 - type: entity
   id: NFScrapProcessorCircuitboard
@@ -92,12 +79,6 @@
         GlassBeaker:
           amount: 2
           defaultPrototype: Beaker
-        MicroprocessorEconomy1:
-          amount: 1
-          defaultPrototype: MicroprocessorEconomy1
-        MotorEconomy1:
-          amount: 4
-          defaultPrototype: MotorEconomy1
 
 # TechFab
 - type: entity
@@ -156,16 +137,6 @@
       Capacitor: 1 # Mono 1<4
     stackRequirements:
       Steel: 5
-    tagRequirements:
-      ComponentBrickEconomy1:
-        amount: 1
-        defaultPrototype: ComponentBrickEconomy1
-      ElectromagnetEconomy1:
-        amount: 1
-        defaultPrototype: ElectromagnetEconomy1
-      ArmorPlateEconomy1:
-        amount: 1
-        defaultPrototype: ArmorPlateEconomy1
   - type: StaticPrice
     price: 18 # 12.5<18
   - type: Tag # Frontier
@@ -217,13 +188,6 @@
       Capacitor: 1
     stackRequirements:
       Glass: 2
-    tagRequirements:
-      ComponentBrickEconomy1:
-        amount: 1
-        defaultPrototype: ComponentBrickEconomy1
-      ArmorPlateEconomy1:
-        amount: 1
-        defaultPrototype: ArmorPlateEconomy1
   - type: StaticPrice
     price: 17.5
 
@@ -242,15 +206,12 @@
       stackRequirements:
         CableHV: 10
       tagRequirements:
-        ComponentBrickEconomy2:
-          amount: 2
-          defaultPrototype: ComponentBrickEconomy2
         MotorEconomy1: # Stator!
-          amount: 2
-          defaultPrototype: MotorEconomy1
-        MicroprocessorEconomy2:
           amount: 1
-          defaultPrototype: MicroprocessorEconomy2
+          defaultPrototype: MotorEconomy1
+        MicroprocessorEconomy1:
+          amount: 1
+          defaultPrototype: MicroprocessorEconomy1
     - type: PhysicalComposition
       materialComposition:
         Glass: 200
@@ -274,15 +235,12 @@
       stackRequirements:
         CableHV: 10
       tagRequirements:
-        ComponentBrickEconomy2:
-          amount: 4
-          defaultPrototype: ComponentBrickEconomy2
         MotorEconomy1: # Stator!
-          amount: 4
+          amount: 1
           defaultPrototype: MotorEconomy1
-        MicroprocessorEconomy2:
-          amount: 2
-          defaultPrototype: MicroprocessorEconomy2
+        MicroprocessorEconomy1:
+          amount: 1
+          defaultPrototype: MicroprocessorEconomy1
     - type: PhysicalComposition
       materialComposition:
         Glass: 200
