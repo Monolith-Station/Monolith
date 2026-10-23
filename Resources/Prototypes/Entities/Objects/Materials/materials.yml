@@ -276,6 +276,23 @@
         reagents:
         - ReagentId: Cellulose
           Quantity: 10
+  - type: Flammable # Monolith
+    fireSpread: true
+    alwaysCombustible: true
+    firestacksOnIgnite: 5
+    firestackFade: 0
+    fireStacks: 0
+    minimumFireStacks: 0
+    maximumFireStacks: 5
+    firestackVisualDivisor: 5
+    fireEnergyMultiplier: 2500
+    maxFireTemperature: 1200
+  - type: MaterialFuel # Monolith
+    ConsumptionRate: 5
+  - type: FireVisuals # Monolith
+    sprite: Effects/fire.rsi
+    normalState: fire
+  - type: Appearance # Monolith
 
 - type: entity
   parent: MaterialWoodPlank
