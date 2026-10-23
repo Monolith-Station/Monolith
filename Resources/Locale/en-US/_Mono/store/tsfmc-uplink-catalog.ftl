@@ -88,6 +88,9 @@ uplink-security-ashstorm-desc = The TSF-EM72 Ashstorm is a directed-energy light
 uplink-security-smilodon-name = QBH-50-C Smilodon
 uplink-security-smilodon-desc = The QBH-50-C Smilodon is a directed-energy light machine gun used by the TSF. Devastating.
 
+uplink-security-smilodon-name = QLU-907 Anubis
+uplink-security-smilodon-desc = TSF's answer to the PDV's China Lake. Give 'em hell, Marine.
+
 uplink-security-t0-voucher-name = TSFMC Tier 0 Ship Voucher
 uplink-security-t0-voucher-desc = A single-use voucher for any small ship.
 
