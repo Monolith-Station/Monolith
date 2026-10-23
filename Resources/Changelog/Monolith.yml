@@ -26317,3 +26317,42 @@ Entries:
   id: 2834
   time: '2026-10-19T17:43:53.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4881
+- author: NazrinNya
+  changes:
+    - type: Fix
+      message: Fix some lathes not being linkable to the silo
+  id: 2835
+  time: '2026-10-22T14:47:27.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4900
+- author: tonotom1
+  changes:
+    - type: Add
+      message: UW Sandbox, A ship intended to do what the Framework did.
+  id: 2836
+  time: '2026-10-22T17:54:32.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4794
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Caelestinus radio room had a comfy grenade thrown into it + a bunch of
+        small fixes and adjustments
+  id: 2837
+  time: '2026-10-22T19:19:16.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4858
+- author: SuperGDPWYL
+  changes:
+    - type: Add
+      message: >-
+        The Godfather and Fugitives now speak Underground Codespeak, an
+        overcomplicated system of code phrases used to hide the true nature of
+        their conversations from the uninitiated. It generally requires an
+        implant to learn, which the Godfather can purchase for 10TC. Underground
+        deathrattles speak it now too.
+    - type: Tweak
+      message: >-
+        Corrected the name of the Underground pAI. It understands and speaks
+        Underground Codespeak now too.
+  id: 2838
+  time: '2026-10-22T20:59:51.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4854
