@@ -92,6 +92,29 @@
   - 0     # nitrium
 
 - type: crystallizerRecipe
+  id: Steel
+  name: Steel (10)
+  minimumTemperature: 1250
+  maximumTemperature: 2500
+  energyRelease: -2040
+  products:
+    SheetSteel10: 1
+  dangerous: false
+  minimumRequirements:
+  - 3     # oxygen
+  - 0     # nitrogen
+  - 4     # carbon dioxide
+  - 0     # plasma
+  - 0     # tritium
+  - 0     # vapor
+  - 0     # ammonia
+  - 0     # n2o
+  - 0     # frezon
+  - 0     # bz
+  - 0     # healium
+  - 0     # nitrium
+
+- type: crystallizerRecipe
   id: Plasma
   name: Plasma (1)
   minimumTemperature: 40
