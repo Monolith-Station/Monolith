@@ -245,7 +245,10 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
                 PlayDenySound(player, shipyardConsoleUid, component);
                 return;
             }
-            voucher.RedemptionsLeft--;
+
+            if (voucher.DestroyOnEmpty) { // Mono - Make infinite vouchers actually infinite
+                voucher.RedemptionsLeft--;
+            }
             voucherUsed = true;
         }
         else
