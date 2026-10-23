@@ -37,6 +37,8 @@
     - type: NpcFactionMember
       factions:
       - MMC
+    - type: RadioOnCryosleep
+      radioChannel: Mieyo
   - !type:AddLanguageSpecial
     languagesSpoken:
     - Nekomimetic

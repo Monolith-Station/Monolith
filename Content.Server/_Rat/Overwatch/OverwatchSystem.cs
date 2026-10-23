@@ -659,7 +659,7 @@ public sealed class OverwatchSystem : EntitySystem
 
     /// <summary>
     /// Mono: This is so that overwatch console jamming components on grids can function as intended.
-    /// </summary> 
+    /// </summary>
     private void OnGridUidChanged(Entity<CompanyComponent> ent, ref GridUidChangedEvent args)
     {
         if (_factionMembersCache.Keys.Contains(ent.Comp.CompanyName))
@@ -729,7 +729,7 @@ public sealed class OverwatchSystem : EntitySystem
         {
             if (Transform(uid).GridUid != null && TryComp<JamOverwatchComponent>(Transform(uid).GridUid, out var jamComp) && !jamComp.ExcludedFactions.Contains(faction)) // Mono: grids can jam the overwatch console to prevent coordinates leaks.
                 continue;
-            if (factionComp.CompanyName == faction && !HasComp<ShuttleComponent>(uid) && !jammedPlayers.Contains(uid))
+            if (factionComp.CompanyName == faction && HasComp<MobStateComponent>(uid) && !jammedPlayers.Contains(uid))
                 members.Add(uid);
         }
 

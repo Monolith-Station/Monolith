@@ -1,0 +1,8 @@
+- type: entity
+  parent: SyndicateComputerComms
+  id: UndergroundComputerComms
+  name: underground communications computer
+  description: The primary communications computer for issuing black market announcements.
+  components:
+  - type: AccessReader
+    access: [[ "Godfather" ]]

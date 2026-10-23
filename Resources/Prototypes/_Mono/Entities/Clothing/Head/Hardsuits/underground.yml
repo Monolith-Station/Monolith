@@ -1,0 +1,72 @@
+- type: entity
+  parent: [ ClothingHeadHelmetHardsuitSyndie, ShowSecurityIcons, ShowMedicalIcons ]
+  id: ClothingHeadHelmetHardsuitGodfather
+  name: BR-238 hardsuit helmet
+  description: A symbol of power, this helmet has as many gadgets as its designer could haphazardly cram inside.
+  components:
+  - type: ThermalVision
+    flashDurationMultiplier: 2
+    pulseTime: 3
+    isEquipment: true
+    toggleAction: PulseThermalVision
+  - type: NightVision # Gen 4 quadtube-wide
+    relayOverlay: true
+    goggleEffect: true
+    viewCircleRadius: 450
+    viewCircleCount: 4
+    viewCircleSpacing: 280
+    action: ActionToggleNightVision
+    phosphorColor: "#41D7D9"
+    lightingColor: "#FFFFFF32"
+  - type: Sprite
+    sprite: Clothing/Head/Hardsuits/syndiecommander.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hardsuits/syndiecommander.rsi
+  - type: FlashImmunity
+
+- type: entity
+  parent: [ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase]
+  id: ClothingHelmetHardsuitWarlord
+  name: WL-01 helmet
+  description: A heavy headgear piece accompanying the Warlord suit, it offers flash inmunity as well as an integrated mass scanner.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Head/Hardsuits/merc_warlordsuit.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Head/Hardsuits/merc_warlordsuit.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
+  - type: FlashImmunity
+  - type: ToggleableVisuals
+  - type: PointLight
+    radius: 8
+    energy: 3
+    color: "#e24242"
+  - type: RadarConsole
+    followEntity: true
+    noRotate: true
+  - type: DetectionRangeMultiplier
+    infraredMultiplier: 0.5
+    visualMultiplier: 0.75
+  - type: ActivatableUI
+    key: enum.RadarConsoleUiKey.Key
+    singleUser: true
+  - type: UserInterface
+    interfaces:
+      enum.RadarConsoleUiKey.Key:
+        type: RadarConsoleBoundUserInterface
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide

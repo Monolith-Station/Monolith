@@ -1,36 +1,36 @@
 # FUC->FMC. FMC cost 5x - Mono
 
-- type: listing
-  id: UplinkClothingOuterHardsuitM82c
-  name: uplink-security-hardsuit-m82c-name
-  description: uplink-security-hardsuit-m82c-desc
-  productEntity: ClothingOuterHardsuitM82c
-  icon: { sprite: _Mono/Clothing/OuterClothing/Hardsuits/m82c.rsi, state: icon }
-  cost:
-    FederationMilitaryCredit: 10
-  categories:
-    - UplinkSecurityHardsuits
-  conditions:
-    - !type:StoreWhitelistCondition
-      whitelist:
-        tags:
-          - SecurityUplink
-
-- type: listing
-  id: UplinkClothingOuterHardsuitM82b
-  name: uplink-security-hardsuit-m82b-name
-  description: uplink-security-hardsuit-m82b-desc
-  productEntity: ClothingOuterHardsuitM82b
-  icon: { sprite: _Mono/Clothing/OuterClothing/Hardsuits/m82b.rsi, state: icon }
-  cost:
-    FederationMilitaryCredit: 10
-  categories:
-    - UplinkSecurityHardsuits
-  conditions:
-    - !type:StoreWhitelistCondition
-      whitelist:
-        tags:
-          - SecurityUplink
+#- type: listing
+#  id: UplinkClothingOuterHardsuitM82c
+#  name: uplink-security-hardsuit-m82c-name
+#  description: uplink-security-hardsuit-m82c-desc
+#  productEntity: ClothingOuterHardsuitM82c
+#  icon: { sprite: _Mono/Clothing/OuterClothing/Hardsuits/m82c.rsi, state: icon }
+#  cost:
+#    FederationMilitaryCredit: 10
+#  categories:
+#    - UplinkSecurityHardsuits
+#  conditions:
+#    - !type:StoreWhitelistCondition
+#      whitelist:
+#        tags:
+#          - SecurityUplink
+#
+#- type: listing
+#  id: UplinkClothingOuterHardsuitM82b
+#  name: uplink-security-hardsuit-m82b-name
+#  description: uplink-security-hardsuit-m82b-desc
+#  productEntity: ClothingOuterHardsuitM82b
+#  icon: { sprite: _Mono/Clothing/OuterClothing/Hardsuits/m82b.rsi, state: icon }
+#  cost:
+#    FederationMilitaryCredit: 10
+#  categories:
+#    - UplinkSecurityHardsuits
+#  conditions:
+#    - !type:StoreWhitelistCondition
+#      whitelist:
+#        tags:
+#          - SecurityUplink
 
 - type: listing
   id: UplinkSecurityMK58
@@ -392,10 +392,10 @@
       whitelist:
         tags:
           - SecurityUplink
-    - !type:BuyerJobCondition
-      whitelist:
-        - Sheriff
-        - Brigmedic
+    # - !type:BuyerJobCondition # Mono
+    #   whitelist:
+    #     - Sheriff
+    #     - Brigmedic
 
 - type: listing
   id: UplinkSecurityMedicalAssembler
@@ -411,10 +411,10 @@
       whitelist:
         tags:
           - SecurityUplink
-    - !type:BuyerJobCondition
-      whitelist:
-        - Sheriff
-        - Brigmedic
+    # - !type:BuyerJobCondition # Mono
+    #   whitelist:
+    #     - Sheriff
+    #     - Brigmedic
 
 - type: listing
   id: UplinkSecurityCompactDefibrillator
@@ -430,10 +430,10 @@
       whitelist:
         tags:
           - SecurityUplink
-    - !type:BuyerJobCondition
-      whitelist:
-        - Sheriff
-        - Brigmedic
+    # - !type:BuyerJobCondition # Mono
+    #   whitelist:
+    #     - Sheriff
+    #     - Brigmedic
 
 - type: listing
   id: UplinkSecuritySyringeCaseFilled
@@ -696,10 +696,10 @@
       whitelist:
         tags:
           - SecurityUplink
-    - !type:BuyerJobCondition
-      whitelist:
-        - Sheriff
-        - Brigmedic
+    # - !type:BuyerJobCondition # Mono
+    #   whitelist:
+    #     - Brigmedic
+    #     - Sheriff
 
 - type: listing
   id: UplinkSecurityAmbuzol
@@ -732,11 +732,11 @@
       whitelist:
         tags:
           - SecurityUplink
-    - !type:BuyerJobCondition
-      whitelist:
-        - Brigmedic
-        - Bailiff
-        - Sheriff
+    # - !type:BuyerJobCondition # Mono
+    #   whitelist:
+    #     - Brigmedic
+    #     - Bailiff
+    #     - Sheriff
 
 - type: listing
   id: UplinkSecurityInspector
@@ -1047,10 +1047,10 @@
           - SecurityUplink
 
 - type: listing
-  id: UplinkSecurityCash7500
-  name: uplink-security-cash7500-name
-  description: uplink-security-cash7500-desc
-  productEntity: SpaceCash7500 # Mono: Changed the exchange rate from 1000 to 5000 to 7500
+  id: UplinkSecurityCash10000
+  name: uplink-security-cash10000-name
+  description: uplink-security-cash10000-desc
+  productEntity: SpaceCash10000 # Mono: Changed the exchange rate from 1000 to 5000 to 7500 to 10000
   icon: { sprite: Objects/Economy/cash.rsi, state: cash_1000000 }
   cost:
     FederationMilitaryCredit: 5

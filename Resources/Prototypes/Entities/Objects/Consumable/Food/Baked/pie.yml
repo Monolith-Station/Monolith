@@ -84,6 +84,7 @@
     tags:
     - Fruit
     - Pie
+    - BountyApplePie # Mono
 
 - type: entity
   name: slice of apple pie
@@ -112,6 +113,10 @@
   id: FoodPieBaklava
   description: A delightful healthy snack made of nut layers with thin bread.
   components:
+  - type: Tag # Mono
+    tags:
+    - Pie
+    - BountyBaklava
   - type: FlavorProfile
     flavors:
       - sweet
@@ -175,6 +180,7 @@
     tags:
     - Fruit
     - Pie
+    - BountyBananaCreamPie # Mono
   - type: SliceableFood
     slice: FoodPieBananaCreamSlice
 
@@ -219,6 +225,7 @@
     tags:
     - Fruit
     - Pie
+    - BountyBerryClafoutis # Mono
 
 - type: entity
   name: slice of berry clafoutis
@@ -260,6 +267,7 @@
     tags:
     - Fruit
     - Pie
+    - BountyCherryPie # Mono
 
 - type: entity
   name: slice of cherry pie
@@ -300,6 +308,7 @@
     tags:
     - Meat
     - Pie
+    - BountyMeatPie # Mono
 
 - type: entity
   name: slice of meat pie
@@ -340,6 +349,7 @@
   - type: Tag
     tags:
     - Pie
+    - BountyPumpkinPie # Mono
 
 - type: entity
   name: slice of pumpkin pie
@@ -377,6 +387,7 @@
     tags:
     - Meat
     - Pie
+    - BountyXenoPie # Mono
 
 - type: entity
   name: slice of xeno pie
@@ -405,6 +416,10 @@
   id: FoodPieFrosty
   description: Tastes like blue and cold.
   components:
+  - type: Tag # Mono
+    tags:
+    - Pie
+    - BountyFrostyPie
   - type: FlavorProfile
     flavors:
       - cold
@@ -436,6 +451,10 @@
   id: FoodTartMime
   description: "\"      \""
   components:
+  - type: Tag # Mono
+    tags:
+    - Pie
+    - BountyMimeTart
   - type: FlavorProfile
     flavors:
       - nothing
@@ -469,6 +488,10 @@
   id: FoodPieAmanita
   description: Sweet and tasty poison pie.
   components:
+  - type: Tag # Mono
+    tags:
+    - Pie
+    - BountyAmanitaPie
   - type: FlavorProfile
     flavors:
       - mushroom
@@ -519,6 +542,7 @@
     tags:
     - Fruit
     - Pie
+    - BountyGrapeTart # Mono
 # Tastes like tart, grape.
 
 - type: entity
@@ -536,6 +560,7 @@
     tags:
     - Fruit
     - Pie
+    - BountyGoldenAppleStreuselTart # Mono
 # Tastes like tart, apple, expensive metal.
 
 - type: entity
@@ -544,6 +569,10 @@
   id: FoodTartCoco
   description: A tasty dessert made of chocolate, with a liquid core.
   components:
+  - type: Tag # Mono
+    tags:
+    - Pie
+    - BountyChocolateLavaTart
   - type: FlavorProfile
     flavors:
       - chocolate

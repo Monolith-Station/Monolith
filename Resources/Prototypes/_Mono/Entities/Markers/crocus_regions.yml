@@ -13,6 +13,20 @@
   name: Crocus
 
 - type: entity
+  id: BiomeSourceFallbackCrocusUnderground
+  parent: BaseBiomeSource
+  name: crocus underground fallback biome source
+  components:
+  - type: SpaceBiomeSource
+    id: CrocusBiomeUnderground
+    swapDistance: null #infinite
+    priority: 1
+
+- type: ambientSpaceBiome
+  id: CrocusBiomeUnderground
+  name: Jianghui Underground
+
+- type: entity
   id: BiomeSourceFallbackJianghuiIndustrial
   parent: BaseBiomeSource
   name: crocus jianghui industrial biome source

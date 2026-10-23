@@ -38,6 +38,7 @@
   - MedkitCombatFilled
   - MedkitCombatFilled
   - ClothingMaskSterile
+  - ClothingEyesHudMedical
   - HandheldHealthAnalyzer
   - Hemostat
   - SawElectric
@@ -46,6 +47,7 @@
   - Retractor
   - Scalpel
   - BoneGel
+  - DefibrillatorCompact
 
 - type: thiefBackpackSet
   id: KitSelectorCrocusSapperTSF
@@ -71,21 +73,6 @@
   - RemoteSignallerAdvanced
 
 - type: thiefBackpackSet
-  id: KitSelectorCrocusAutoriflemanTSF
-  name: selectable-set-crocus-autorifleman-kit-name
-  description: selectable-set-crocus-autorifleman-tsf-kit-desc
-  sprite:
-    sprite: _Mono/Objects/Weapons/Guns/LMGs/grizzly/Grizzly-icon.rsi
-    state: icon
-  content:
-  - WeaponLMGGrizzly
-  - AmmoBox68x52mmCaselessBig
-  - AmmoBox68x52mmCaselessBig
-  - Brutepack
-  - Tourniquet
-  - Tourniquet
-
-- type: thiefBackpackSet
   id: KitSelectorCrocusGrenadierTSF
   name: selectable-set-crocus-grenadier-kit-name
   description: selectable-set-crocus-grenadier-tsf-kit-desc
@@ -107,20 +94,3 @@
   - GrenadeFlashBang
   - SmokeGrenade
   - SmokeGrenade
-
-- type: thiefBackpackSet
-  id: KitSelectorCrocusMarksmanTSF
-  name: selectable-set-crocus-marksman-tsf-kit-name
-  description: selectable-set-crocus-marksman-tsf-kit-desc
-  sprite:
-    sprite: _Mono/Objects/Weapons/Guns/Rifles/bandit.rsi
-    state: icon
-  content:
-  - WeaponRifleMR3C
-  - Magazine8x65mmSKR
-  - Magazine8x65mmSKR
-  - Magazine8x65mmSKR
-  - AmmoBox8x65mmSKR
-  - MedkitFilled
-  - ClothingHelmetAttachmentNVGsBasic
-  - ClothingHelmetCoverHelmetMount

@@ -115,10 +115,27 @@
       range: 200
     - type: MaterialStorageMagnetPickup # Mono
     - type: Explosive # Mono
-      explosionType: Default
+      explosionType: ESWelderBomb
       maxIntensity: 100
       intensitySlope: 1
-      totalIntensity: 400
+      totalIntensity: 200
+      # Mono start
+    - type: ESSparkOnHit
+      prob: 0.4
+      tileFireChance: 0.4
+      count: 3
+    - type: Flammable
+      fireSpread: true
+      firestackFade: 0.1
+      alwaysCombustible: true
+      damage:
+        types:
+          Heat: 1
+          Structural: 2
+    - type: FireVisuals
+      sprite: Mobs/Effects/onfire.rsi
+      normalState: Generic_mob_burning
+      # Mono end
 
 - type: entity
   abstract: true
@@ -376,8 +393,8 @@
       # Full tank is 25 moles of gas
       moleRatio: 0.5
     - type: Explosive
-      explosionType: Default
-      tileBreakScale: 0
+      explosionType: ESWelderBomb # Mono
+      tileBreakScale: 0.5 # Mono
     - type: Destructible
       thresholds:
         - trigger:
@@ -410,3 +427,20 @@
     - type: ShipRepairable
       repairTime: 5
       repairCost: 20
+      # Mono start
+    - type: ESSparkOnHit
+      prob: 0.4
+      tileFireChance: 0.4
+      count: 3
+    - type: Flammable
+      fireSpread: true
+      firestackFade: 0.1
+      alwaysCombustible: true
+      damage:
+        types:
+          Heat: 1
+          Structural: 2
+    - type: FireVisuals
+      sprite: Mobs/Effects/onfire.rsi
+      normalState: Generic_mob_burning
+      # Mono end

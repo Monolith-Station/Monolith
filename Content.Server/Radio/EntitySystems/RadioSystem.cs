@@ -3,7 +3,7 @@ using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems;
 using Content.Server._EinsteinEngines.Language;
 using Content.Server.Power.Components;
-using Content.Server.Radio.Components;
+using Content.Shared.Radio.Components;
 using Content.Shared._Mono.Radio;
 using Content.Shared.Chat;
 using Content.Shared.Database;
@@ -127,6 +127,9 @@ public sealed partial class RadioSystem : EntitySystem
         if (!language.SpeechOverride.AllowRadio)
             return;
         // Einstein Engines - Language end
+
+        var prefix = _language.GetLanguageFromPrefix(messageSource, ref message, out var parsed, true); // Starlight: Language prefixes
+        language = parsed && _language.CanSpeak(messageSource, prefix) ? prefix : language;
 
         // TODO if radios ever garble / modify messages, feedback-prevention needs to be handled better than this.
         if (!_messages.Add(message))
