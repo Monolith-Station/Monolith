@@ -92,7 +92,7 @@ uplink-security-t0-voucher-name = TSFMC Tier 0 Ship Voucher
 uplink-security-t0-voucher-desc = A single-use voucher for any small ship.
 
 uplink-security-t1-voucher-name = TSFMC Tier 1 Ship Voucher
-uplink-security-t1-voucher-desc = A TSF requisitions voucher for any mediun ship.
+uplink-security-t1-voucher-desc = A TSF requisitions voucher for any medium ship.
 
 uplink-security-t2-voucher-name = TSFMC Tier 2 Ship Voucher
 uplink-security-t2-voucher-desc = A TSF requisitions voucher for any large ship.
