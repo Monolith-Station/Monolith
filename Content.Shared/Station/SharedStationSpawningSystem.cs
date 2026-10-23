@@ -270,16 +270,26 @@ public abstract partial class SharedStationSpawningSystem : EntitySystem
     /// <param name="encryptionKeys">The encryption key prototype IDs to equip.</param>
     protected void EquipEncryptionKeysIfPossible(EntityUid entity, List<EntProtoId> encryptionKeys)
     {
-        if (!InventorySystem.TryGetSlotEntity(entity, "ears", out var slotEnt))
+        EncryptionKeyHolderComponent? entKeyHolderComp = null;
+        if (!InventorySystem.TryGetSlotEntity(entity, "ears", out var slotEnt)
+        && !TryComp(entity, out entKeyHolderComp))
         {
-            DebugTools.Assert(false, $"Entity {entity} has a non-empty encryption key loadout, but doesn't have a headset!");
+            DebugTools.Assert(false, $"Entity {entity} has a non-empty encryption key loadout, but doesn't have a headset nor is able to be inserted keys!");
             return;
         }
-        if (!_container.TryGetContainer(slotEnt.Value, EncryptionKeyHolderComponent.KeyContainerName, out var keyContainer))
+
+        BaseContainer? keyContainer;
+        if (entKeyHolderComp != null)
         {
-            DebugTools.Assert(false, $"Entity {entity} has a non-empty encryption key loadout, but their headset doesn't have an encryption key container!");
+            keyContainer = entKeyHolderComp.KeyContainer;
+        }
+        else if (slotEnt == null
+            || !_container.TryGetContainer(slotEnt.Value, EncryptionKeyHolderComponent.KeyContainerName, out keyContainer))
+        {
+            DebugTools.Assert(false, $"Entity {entity} has a non-empty encryption key loadout, but their headset or key holder component doesn't have an encryption key container!");
             return;
         }
+
         var coords = _xformSystem.GetMapCoordinates(entity);
         foreach (var entProto in encryptionKeys)
         {
@@ -287,7 +297,7 @@ public abstract partial class SharedStationSpawningSystem : EntitySystem
             if (!_container.Insert(spawnedEntity, keyContainer))
             {
                 QueueDel(spawnedEntity);
-                DebugTools.Assert(false, $"Entity {entity} could not insert their loadout encryption key {entProto} into their headset!");
+                DebugTools.Assert(false, $"Entity {entity} could not insert their loadout encryption key {entProto} into their key container!");
             }
         }
     }

@@ -33,7 +33,6 @@ using Content.Server._NF.Bank; // Frontier
 using Content.Server.Preferences.Managers; // Frontier
 using System.Linq;
 using Content.Shared.NameIdentifier; // Frontier
-using Content.Server._EinsteinEngines.Silicon.IPC;
 using Content.Shared.Radio.Components; // Goobstation
 using Content.Server.CartridgeLoader; // Frontier
 using Content.Shared.CartridgeLoader; // Frontier
@@ -60,7 +59,6 @@ public sealed partial class StationSpawningSystem : SharedStationSpawningSystem
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private IDependencyCollection _dependencyCollection = default!; // Frontier
     [Dependency] private IServerPreferencesManager _preferences = default!; // Frontier
-    [Dependency] private InternalEncryptionKeySpawner _internalEncryption = default!; // Goobstation
 
     [Dependency] private BankSystem _bank = default!; // Frontier
     [Dependency] private MonoCoinsManager _coins = default!; // Mono
@@ -233,12 +231,6 @@ public sealed partial class StationSpawningSystem : SharedStationSpawningSystem
                         bankBalance -= int.Max(0, loadoutProto.Price); // Treat negatives as zero.
                         EquipStartingGear(entity.Value, loadoutProto, raiseEvent: false);
                         equippedItems.Add(loadoutProto.ID);
-
-                        // Add support for IPC encryption keys from loadout headsets
-                        if (HasComp<EncryptionKeyHolderComponent>(entity.Value))
-                        {
-                            _internalEncryption.TryInsertEncryptionKey(entity.Value, loadoutProto); // Removed EntityManager
-                        }
                     }
                 }
 
@@ -269,12 +261,6 @@ public sealed partial class StationSpawningSystem : SharedStationSpawningSystem
                         EquipStartingGear(entity.Value, loadoutProto, raiseEvent: false);
                         equippedItems.Add(fallback);
 
-                        // Add support for IPC encryption keys from loadout headsets
-                        if (HasComp<EncryptionKeyHolderComponent>(entity.Value))
-                        {
-                            _internalEncryption.TryInsertEncryptionKey(entity.Value, loadoutProto); // Removed EntityManager
-                        }
-
                         // Minimum number of items equipped, no need to load more prototypes.
                         if (equippedItems.Count >= groupPrototype.MinLimit)
                             break;
@@ -287,13 +273,6 @@ public sealed partial class StationSpawningSystem : SharedStationSpawningSystem
             if (prototype?.StartingGear is not null)
             {
                 EquipStartingGear(entity.Value, prototype.StartingGear, raiseEvent: false);
-
-                // Add support for IPC encryption keys from job starting gear headsets
-                if (HasComp<EncryptionKeyHolderComponent>(entity.Value) &&
-                    _prototypeManager.TryIndex(prototype.StartingGear, out var startingGearProto))
-                {
-                    _internalEncryption.TryInsertEncryptionKey(entity.Value, startingGearProto);
-                }
             }
 
             var bankComp = EnsureComp<BankAccountComponent>(entity.Value);

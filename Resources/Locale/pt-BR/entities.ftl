@@ -835,9 +835,6 @@ ent-BoxMagazine45_ACPSubMachineGunPractice = caixa de carregadores de SMG .45 AC
 ent-BoxMagazine45_ACPSubMachineGunRubber = caixa de carregadores de SMG .45 ACP (borracha)
     .desc = Uma caixa cheia de carregadores de SMG .45 ACP (borracha).
 
-ent-BoxMagazine357_magnumFMJ = caixa de speedloaders .357 magnum
-    .desc = Uma caixa cheia de speedloaders .357 magnum.
-
 ent-BoxMagazine357_magnumSubMachineGunFMJ = caixa de carregadores de SMG .357 magnum
     .desc = Uma caixa cheia de carregadores de SMG .357 magnum.
 
