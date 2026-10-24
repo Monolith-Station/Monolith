@@ -466,7 +466,7 @@
     access: [["Security"]]
 
 - type: entity
-  parent: [BaseStructureDisableScrewing, BaseStructureIndestructible, BaseStructureAccessReaderImmuneToEmag, VendingMachineCart]
+  parent: [BaseStructureIndestructible, VendingMachineCart] # Mono change: unhackable access-locked vending machines are stupid with very few exceptions
   id: NFVendingMachineCart
   suffix: SR
   components:
