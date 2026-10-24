@@ -234,8 +234,7 @@ namespace Content.Server.Voting.Managers
             foreach (var (k, v) in presets)
             {
                 options.Options.Add((Loc.GetString(v.Name), k));
-                if (v.Weight != 1f)
-                    options.Weights.Add(k, v.Weight);
+
             }
 
             WirePresetVoteInitiator(options, initiator);
@@ -602,7 +601,7 @@ namespace Content.Server.Voting.Managers
                 if(_playerManager.PlayerCount > (preset.MaxPlayers ?? int.MaxValue))
                     continue;
 
-                presets[preset.ID] = (preset.ModeTitle, preset.Weight);
+                presets[preset.ID] = (preset.ModeTitle, 1f); // Also Mono: Soft-disable weight
             }
             return presets;
         }

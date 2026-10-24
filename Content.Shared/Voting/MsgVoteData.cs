@@ -14,7 +14,7 @@ namespace Content.Shared.Voting
         public string VoteInitiator = string.Empty;
         public TimeSpan StartTime; // Server RealTime.
         public TimeSpan EndTime; // Server RealTime.
-        public (ushort votes, string name, ushort realVotes)[] Options = default!; // Mono - account for vote weight
+        public (ushort votes, string name)[] Options = default!; // Mono - account for vote weight
         public bool IsYourVoteDirty;
         public byte? YourVote;
         public bool DisplayVotes;
@@ -36,10 +36,10 @@ namespace Content.Shared.Voting
             DisplayVotes = buffer.ReadBoolean();
             TargetEntity = buffer.ReadVariableInt32();
 
-            Options = new (ushort votes, string name, ushort realvotes)[buffer.ReadByte()];
+            Options = new (ushort votes, string name)[buffer.ReadByte()];
             for (var i = 0; i < Options.Length; i++)
             {
-                Options[i] = (buffer.ReadUInt16(), buffer.ReadString(), buffer.ReadUInt16());
+                Options[i] = (buffer.ReadUInt16(), buffer.ReadString());
             }
 
             IsYourVoteDirty = buffer.ReadBoolean();
@@ -66,11 +66,10 @@ namespace Content.Shared.Voting
             buffer.WriteVariableInt32(TargetEntity);
 
             buffer.Write((byte) Options.Length);
-            foreach (var (votes, name, realVotes) in Options)
+            foreach (var (votes, name) in Options)
             {
                 buffer.Write(votes);
                 buffer.Write(name);
-                buffer.Write(realVotes); // Mono
             }
 
             buffer.Write(IsYourVoteDirty);

@@ -44,12 +44,6 @@ namespace Content.Server.GameTicking.Presets
         public string? MapPool;
 
         /// <summary>
-        /// Mono - as how much votes should each player click count.
-        /// </summary>
-        [DataField]
-        public float Weight = 1f;
-
-        /// <summary>
         /// Mono - multiply respawn timer by this amount
         /// </summary>
         [DataField]
