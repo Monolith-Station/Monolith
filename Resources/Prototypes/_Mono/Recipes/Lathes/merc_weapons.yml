@@ -238,3 +238,20 @@
     Steel: 3000
     Plasteel: 2500
     Plastic: 700
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponLMGJill
+  result: WeaponLMGJill
+  categories:
+  - MGs
+  - Ballistic
+  - Weapons
+  materials:
+    Steel: 7000
+    Plasteel: 6000
+    UraniumDepleted: 500
+    Copper: 2000
+    Lithium: 2000
+    Gold: 500
+    Silver: 500
