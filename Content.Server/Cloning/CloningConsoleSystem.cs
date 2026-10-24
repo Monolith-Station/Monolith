@@ -49,7 +49,7 @@ namespace Content.Server.Cloning
 
         private void OnInit(EntityUid uid, CloningConsoleComponent component, ComponentInit args)
         {
-            _signalSystem.EnsureSourcePorts(uid, CloningConsoleComponent.ScannerPort, CloningConsoleComponent.PodPort);
+            _signalSystem.EnsureSourcePorts(uid, CloningConsoleComponent.PodPort); // Mono, Removed CloningConsoleComponent.ScannerPort,
         }
         private void OnButtonPressed(EntityUid uid, CloningConsoleComponent consoleComponent, UiButtonPressedMessage args)
         {
