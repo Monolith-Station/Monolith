@@ -101,6 +101,26 @@
     - ClothingOuterHardsuitMaximPrototype
 
 - type: latheRecipePack
+  id: NFSalvageTechfabAdvanced
+  recipes:
+  # Shared lathe recipes
+  # Salvage techfab
+    - WeaponCrusher
+    - WeaponCrusherDagger
+    - WeaponCrusherGlaive
+    - WeaponGrapplingGun
+    - OreProcessorIndustrialMachineCircuitboard
+    - ShipDrillMachineCircuitboard
+    - OreBagOfHolding
+    - Fulton
+    - FultonBeacon
+    - ClothingOuterHardsuitBasic
+    - ClothingOuterHardsuitSpatio
+    - ClothingOuterHardsuitSalvage
+    - ClothingOuterHardsuitLuxury
+    - ClothingOuterHardsuitMaximPrototype
+
+- type: latheRecipePack
   id: NFSalvageTechfabDeprecatedEmag
   recipes:
     - ClothingHeadHelmetCosmonaut
