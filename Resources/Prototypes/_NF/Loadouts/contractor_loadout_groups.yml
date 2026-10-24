@@ -165,6 +165,34 @@
   - ContractorClothingUniformJumpsuitMilitarySalvageSpecialist
   - ContractorClothingUniformJumpsuitMilitaryCargo
   - ContractorClothingUniformJumpsuitMilitaryQM
+  - MonoSecJumpsuitMilitary # Mono start
+  - MonoSecJumpsuitMilitaryShort
+  - MonoSecJumpsuitMilitaryGuard
+  - MonoSecJumpskirtMilitary
+  - MonoSecJumpskirtMilitaryShort
+  - MonoSecJumpskirtMilitaryGuard
+  - ContractorClothingUniformDressExquisiteBlue
+  - ContractorClothingUniformDressFancyBlue
+  - ContractorClothingUniformDressFlowyBlue
+  - ContractorClothingUniformDressFormalBlue
+  - ContractorClothingUniformDressFrillyBlue
+  - ContractorClothingUniformDressProfessionalBlue
+  - ContractorClothingUniformDressSleekBlue
+  - ContractorClothingUniformDressStylishBlue
+  - ContractorClothingUniformDressSuaveBlue
+  - ContractorClothingUniformSuitExquisiteBlue
+  - ContractorClothingUniformSuitFancyBlue
+  - ContractorClothingUniformSuitFlowyBlue
+  - ContractorClothingUniformSuitFormalBlue
+  - ContractorClothingUniformSuitStylishBlue
+  - ContractorClothingUniformSuitSuaveBlue
+  - ContractorClothingUniformTurtleneckSkirtFancyBlue
+  - ContractorClothingUniformTurtleneckSkirtPlainBlue
+  - ContractorClothingUniformTurtleneckSkirtStylishBlue
+  - ContractorClothingUniformTurtleneckSkirtClassicalBlue
+  - ContractorClothingUniformTurtleneckSuitFancyBlue
+  - ContractorClothingUniformTurtleneckSuitStylishBlue
+  - ContractorClothingUniformTurtleneckSuitClassicalBlue # Mono end?
   - ContractorClothingUniformDrakeIndustriesHauler
   - ContractorClothingUniformJumpsuitMilitaryMedicalDoctor
   - ContractorClothingUniformJumpsuitMilitaryParamedic
@@ -208,6 +236,7 @@
   - ContractorClothingUniformJumpskirtYellowOldDress
   - ContractorClothingUniformJabroni
 
+
   fallbacks:
   - ContractorClothingUniformJumpsuitColorGrey
   - ContractorClothingUniformJumpskirtColorGrey
@@ -224,6 +253,7 @@
   - ContractorClothingBackpackDuffel
   - ContractorClothingBackpackSatchel
   - ContractorClothingBackpackMessenger
+  - ContractorClothingBackpackSatchelLeather
   - ContractorClothingBackpackCaptain
   - ContractorClothingBackpackDuffelCaptain
   - ContractorClothingBackpackSatchelCaptain
@@ -364,6 +394,10 @@
   - ContractorClothingOuterCoatTrench
   - ContractorClothingOuterDameDane
   - ContractorClothingOuterWinterCoatPlaid
+  - ContractorClothingOuterMilBomber # Mono start
+  - ContractorClothingOuterMilBomberCorpsman
+  - ContractorClothingOuterMilFormal
+  - ContractorClothingOuterMilLongcoat # Mono end
   - ContractorClothingOuterCoatBomber
   - ContractorClothingOuterCoatBomberPunkRed # Punkish (Static visuals)
   - ContractorClothingOuterCoatJacketLeather # Punkish (Static visuals)
@@ -933,6 +967,9 @@
   loadouts:
   - ContractorClothingWalletLeatherBrown
   - ContractorClothingWalletLeatherBlack
+  - ContractorClothingWalletLeatherRed
+  - ContractorClothingWalletLeatherBlue
+  - ContractorClothingWalletLeatherGreen
   fallbacks:
   - ContractorClothingWalletLeatherBrown
 
