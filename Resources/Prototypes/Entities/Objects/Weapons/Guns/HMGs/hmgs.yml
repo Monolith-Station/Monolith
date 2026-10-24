@@ -18,6 +18,7 @@
       path: /Audio/Weapons/Guns/Gunshots/lmg.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
+    drawTime: 1.0 #Mono, unklikely to mean much other than PDV cyborgs being able to shoot a tad faster upon opening the relevant module.
   - type: StaticPrice
     price: 500
   - type: WieldedCrosshair
@@ -48,6 +49,7 @@
     animation: WeaponArcThrust
     soundHit:
       collection: MetalThud
+    resetOnHandSelected: false
   - type: AltFireMelee
     attackType: Light
   # Mono end

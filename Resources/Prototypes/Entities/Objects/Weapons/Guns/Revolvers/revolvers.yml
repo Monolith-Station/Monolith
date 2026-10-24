@@ -30,6 +30,7 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/revolver.ogg
     projectileSpeed: 45 # Mono
+    drawTime: 0.05 # Mono basically instant, but prevents guns going off while grabbing off floor in harm-mode unless input is held
   - type: UseDelay
     delay: 0.66
   - type: ContainerContainer
@@ -80,6 +81,7 @@
     animation: WeaponArcThrust
     soundHit:
       collection: MetalThud
+    resetOnHandSelected: false
   - type: AltFireMelee
     attackType: Light
   - type: CanShootWithShield # Mono: only sidearms can be used with shields
