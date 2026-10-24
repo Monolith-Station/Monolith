@@ -23,7 +23,7 @@ public abstract partial class SharedMaterialStorageSystem : EntitySystem
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private IPrototypeManager _prototype = default!;
     [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
-    [Dependency] private readonly MaterialFuelSystem _materialFuelSystem = default!;
+    [Dependency] private readonly MaterialFuelSystem _materialFuelSystem = default!; // Monolith
     [Dependency] private SharedStackSystem _sharedStackSystem = default!; // Frontier
 
     /// <summary>
