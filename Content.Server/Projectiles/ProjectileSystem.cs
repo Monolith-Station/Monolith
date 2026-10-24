@@ -138,7 +138,7 @@ public sealed partial class ProjectileSystem : SharedProjectileSystem
             }
 
             var xform = Transform(uid);
-            var parentVel = _physics.GetMapLinearVelocity(xform.ParentUid); // Mono ensure velocity is relative to parent grid
+            var parentVel = _physics.GetMapLinearVelocity(uid, physicsComp, xform) - physicsComp.LinearVelocity; // Mono
             var currentVelocity = projectileComp.RaycastResetVelocity - parentVel ?? physicsComp.LinearVelocity;
             var velLen = currentVelocity.Length();
             if (!ShouldRaycastProjectile(velLen) && projectileComp.RaycastResetVelocity == null)
