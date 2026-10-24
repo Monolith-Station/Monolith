@@ -2,12 +2,14 @@ using Content.Shared._Mono.IFF.Components;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Shuttles.Systems;
 using Content.Shared.Whitelist;
+using Robust.Shared.Timing;
 
-namespace Content.Shared._Mono.IFF.Systems;
+namespace Content.Server._Mono.IFF.Systems;
 
 public sealed partial class ApplyIFFFlagInRadiusSystem : EntitySystem
 {
     [Dependency] private EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private IGameTiming _timing = default!;
     [Dependency] private SharedShuttleSystem _shuttle = default!;
     [Dependency] private SharedTransformSystem _xform = default!;
 
@@ -16,12 +18,16 @@ public sealed partial class ApplyIFFFlagInRadiusSystem : EntitySystem
         base.Update(frameTime);
 
         var query = EntityQueryEnumerator<ApplyIFFFlagInRadiusComponent>();
+        var curTime = _timing.CurTime;
         while (query.MoveNext(out var applyUid, out var applyComp))
         {
             var iffQuery = EntityQueryEnumerator<IFFComponent>();
+            if (applyComp.LastUpdate + applyComp.Interval > curTime)
+                continue;
+            applyComp.LastUpdate = curTime;
             while (iffQuery.MoveNext(out var iffUid, out var iffComp))
             {
-                if (_whitelist.IsBlacklistPassOrNull(applyComp.Blacklist, iffUid))
+                if (_whitelist.IsBlacklistPass(applyComp.Blacklist, iffUid))
                     continue;
                 if (Transform(applyUid).MapID != Transform(iffUid).MapID) // this shouldn't affect something on a different map
                     continue;

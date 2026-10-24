@@ -5,7 +5,7 @@ namespace Content.Shared._Mono.IFF.Components;
 
 /// <summary>
 /// Applies IFF flags to anything within (or outside, if inverted) the radius of the entity, and removes them if they exit (or enter, if inverted) that radius.
-/// </summary>A
+/// </summary>
 [RegisterComponent]
 public sealed partial class ApplyIFFFlagInRadiusComponent : Component
 {
