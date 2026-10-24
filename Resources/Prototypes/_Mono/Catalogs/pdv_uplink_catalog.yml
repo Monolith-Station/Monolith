@@ -1402,18 +1402,18 @@
 #      tags:
 #      - PirateUplink
 
-- type: listing
-  id: UplinkPirateStealthSuit
-  productEntity: ClothingOuterHardsuitCybersunStealth
-  cost:
-    Doubloon: 90
-  categories:
-  - UplinkPirateEquipment
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - PirateUplink
+# - type: listing
+#   id: UplinkPirateStealthSuit
+#   productEntity: ClothingOuterHardsuitCybersunStealth
+#   cost:
+#     Doubloon: 90
+#   categories:
+#   - UplinkPirateEquipment
+#   conditions:
+#   - !type:StoreWhitelistCondition
+#     whitelist:
+#       tags:
+#       - PirateUplink
 
 # - type: listing
 #   id: UplinkPirateModsuit
