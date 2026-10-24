@@ -11,10 +11,10 @@ namespace Content.Shared._Mono.Fuel;
 /// </summary>
 public sealed partial class MaterialFuelSystem : EntitySystem
 {
-    [Dependency] private readonly SharedStackSystem _stackSystem = default!;
+    [Dependency] private  SharedStackSystem _stackSystem = default!;
 
     private float _updateInterval = 1f;
-    private float _updateAccumulator = 0f;
+    private float _updateAccumulator;
 
     public override void Initialize()
     {
@@ -26,10 +26,10 @@ public sealed partial class MaterialFuelSystem : EntitySystem
         if (!TryComp<PhysicalCompositionComponent>(uid, out var composition))
             return;
 
-        component.Material = component.Material != "" ? component.Material : composition.MaterialComposition.First().Key;
+        component.Material ??= composition.MaterialComposition.First().Key;
         component.BaseMaterialComposition = composition.MaterialComposition[component.Material];
     }
-    
+
     public override void Update(float frameTime)
     {
         _updateAccumulator += frameTime;
@@ -49,7 +49,7 @@ public sealed partial class MaterialFuelSystem : EntitySystem
 
     private void Burn(EntityUid uid, MaterialFuelComponent fuel, PhysicalCompositionComponent composition)
     {
-        string key = fuel.Material;
+        string key = fuel.Material ?? composition.MaterialComposition.First().Key;
 
         composition.MaterialComposition[key] -= fuel.ConsumptionRate;
 

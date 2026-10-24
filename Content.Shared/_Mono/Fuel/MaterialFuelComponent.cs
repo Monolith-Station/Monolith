@@ -11,11 +11,11 @@ public sealed partial class MaterialFuelComponent : Component
     /// If not specified - picks first in composition.
     /// </summary>
     [DataField]
-    public ProtoId<MaterialPrototype> Material = "";
+    public ProtoId<MaterialPrototype>? Material;
 
     [DataField]
     public int ConsumptionRate = 1;
 
     [DataField]
-    public int BaseMaterialComposition = 0;
+    public int BaseMaterialComposition;
 }
