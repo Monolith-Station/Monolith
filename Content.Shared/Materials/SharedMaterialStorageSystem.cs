@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared._Mono.Fuel;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Mobs;
@@ -22,7 +23,7 @@ public abstract partial class SharedMaterialStorageSystem : EntitySystem
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private IPrototypeManager _prototype = default!;
     [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
-
+    [Dependency] private readonly MaterialFuelSystem _materialFuelSystem = default!;
     [Dependency] private SharedStackSystem _sharedStackSystem = default!; // Frontier
 
     /// <summary>
@@ -355,9 +356,9 @@ public abstract partial class SharedMaterialStorageSystem : EntitySystem
         var totalVolume = 0;
         foreach (var (mat, vol) in composition.MaterialComposition)
         {
-            if (!CanChangeMaterialAmount(receiver, mat, vol * multiplier, storage))
+            if (!CanChangeMaterialAmount(receiver, mat, _materialFuelSystem.CalculateComposition(toInsert, null, mat, multiplier, vol), storage)) // Mono
                 return false;
-            totalVolume += vol * multiplier;
+            totalVolume += _materialFuelSystem.CalculateComposition(toInsert, null, mat, multiplier, vol); // Mono
         }
 
         if (!CanTakeVolume(receiver, totalVolume, storage, localOnly: true))
@@ -365,7 +366,7 @@ public abstract partial class SharedMaterialStorageSystem : EntitySystem
 
         foreach (var (mat, vol) in composition.MaterialComposition)
         {
-            TryChangeMaterialAmount(receiver, mat, vol * multiplier, storage);
+            TryChangeMaterialAmount(receiver, mat, _materialFuelSystem.CalculateComposition(toInsert, null, mat, multiplier, vol), storage); // Mono
         }
 
         var insertingComp = EnsureComp<InsertingMaterialStorageComponent>(receiver);
@@ -439,9 +440,9 @@ public abstract partial class SharedMaterialStorageSystem : EntitySystem
         var totalVolume = 0;
         foreach (var (mat, vol) in composition.MaterialComposition)
         {
-            if (!CanChangeMaterialAmount(receiver, mat, vol * multiplier, storage))
+            if (!CanChangeMaterialAmount(receiver, mat, _materialFuelSystem.CalculateComposition(toInsert, null, mat, multiplier, vol), storage))
                 return false;
-            totalVolume += vol * multiplier;
+            totalVolume += _materialFuelSystem.CalculateComposition(toInsert, null, mat, multiplier, vol);
         }
 
         if (!CanTakeVolume(receiver, totalVolume, storage))
@@ -449,7 +450,7 @@ public abstract partial class SharedMaterialStorageSystem : EntitySystem
 
         foreach (var (mat, vol) in composition.MaterialComposition)
         {
-            TryChangeMaterialAmount(receiver, mat, vol * multiplier, storage);
+            TryChangeMaterialAmount(receiver, mat, _materialFuelSystem.CalculateComposition(toInsert, null, mat, multiplier, vol), storage);
         }
 
         var insertingComp = EnsureComp<InsertingMaterialStorageComponent>(receiver);
