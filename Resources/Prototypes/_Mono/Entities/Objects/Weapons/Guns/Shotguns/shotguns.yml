@@ -243,17 +243,17 @@
   - type: Clothing
     sprite: _Mono/Objects/Weapons/Guns/Shotguns/Helepolis.rsi
   - type: Gun
-    minAngle: 3
-    maxAngle: 12
     fireRate: 1.2
-    angleIncrease: 4
-    angleDecay: 4
+    projectileSpeed: 25
+    damageModifier: 1.6 # Mono
+  - type: GunSpreadModifier
+    spread: 1.3
   - type: Tag
     tags:
     - WeaponShotgunHelepolis
   - type: BallisticAmmoProvider
     autoCycle: false
-    capacity: 4
+    capacity: 3
     proto: ShellShotgun12_gaugeSlug
   - type: StaticPrice
     price: 600
