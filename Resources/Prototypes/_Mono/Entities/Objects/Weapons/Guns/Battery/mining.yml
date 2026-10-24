@@ -37,8 +37,8 @@
     steps: 5
     zeroVisible: true
   - type: Battery
-    maxCharge: 4000
-    startingCharge: 4000
+    maxCharge: 8000
+    startingCharge: 8000
   - type: BatterySelfRecharger
     autoRechargePause: true
     autoRechargePauseTime: 60
@@ -61,6 +61,9 @@
   - type: StaticPrice
     price: 1500
     vendPrice: 20000
+  - type: ChangeBatteryOnMaterial
+    chargingMaterials:
+      RawPlasma: 10
 
 # I didn't feel like making a new file. Really sorry.
 
