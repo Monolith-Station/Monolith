@@ -28,6 +28,13 @@ namespace Content.Client.Hands
         public Texture? IconOverride;
         public EntityUid? EntityOverride;
 
+        // Mono - dual wielding
+        /// <summary>
+        /// Suppresses the overlay entirely. Set while dual-wielding, where DualWieldCursorOverlay draws both held weapons instead.
+        /// </summary>
+        public bool Hidden;
+        // End Mono
+
         public ShowHandItemOverlay()
         {
             IoCManager.InjectDependencies(this);
@@ -50,6 +57,9 @@ namespace Content.Client.Hands
 
         protected override bool BeforeDraw(in OverlayDrawArgs args)
         {
+            if (Hidden) // Mono - dual wielding
+                return false;
+
             if (!_cfg.GetCVar(CCVars.HudHeldItemShow))
                 return false;
 
