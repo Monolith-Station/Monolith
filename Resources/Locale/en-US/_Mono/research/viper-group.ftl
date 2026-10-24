@@ -10,3 +10,6 @@ research-technology-viper-group-shipyard-adv = Viper Group LPC procurement
 # T3 VG
 research-technology-viper-group-heavy = Viper Group Heavy Hardsuits
 research-technology-viper-group-shipyard-T3 = Viper Group Tier III LPC procurement
+
+# VG GUN
+research-technology-viper-group-weapons = Viper Group Ballistics
