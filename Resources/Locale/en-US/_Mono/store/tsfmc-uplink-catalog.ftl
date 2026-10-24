@@ -89,7 +89,7 @@ uplink-security-smilodon-name = QBH-50-C Smilodon
 uplink-security-smilodon-desc = The QBH-50-C Smilodon is a directed-energy light machine gun used by the TSF. Devastating.
 
 uplink-security-anubis-name = QLU-907 Anubis
-uplink-security-anubis-desc = TSF's answer to the PDV's China Lake. Give 'em hell, Marine.
+uplink-security-anubis-desc = The QLU-907 Anubis, a magazine-fed six-shot 35mm grenade launcher as the TSF's answer to the PDV's China Lake.
 
 uplink-security-t0-voucher-name = TSFMC Tier 0 Ship Voucher
 uplink-security-t0-voucher-desc = A single-use voucher for any small ship.
