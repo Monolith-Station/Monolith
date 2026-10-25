@@ -2,16 +2,16 @@
   id: Mote
   parent: BaseVessel
   name: MAWC Mote
-  description: Insert Desc here
+  description: A small, expendable vessel armed with an AK800 120mm and two L85 14mm's. Its fast, cheap, will die like a fly, and is only slightly better armed than comparable light vessels in sector.
   price: 62000 # 52K * 1.2~
-#  purchasable: false # T1 - voucher only
+#  purchasable: false # T0
   category: Small
   group: Mawc
   access: MAWC
   shuttlePath: /SharedMaps/_Mono/Shuttles/MAWC/mote.yml
   guidebookPage: Null
   class:
-  - Salvage
+  - Patrol
   engine:
   - Uranium
 
@@ -23,9 +23,9 @@
   stations:
     Mote:
       stationProto: StandardFrontierVessel
-#      gridComponents:
-#      - type: VesselInfo
-#        description: "A vessel so rugged you can still see the radiation scarring after the new paintjob."
+      gridComponents:
+      - type: VesselInfo
+        description: "The hull rattles softly from the thruster hum. Every shot feels like it will be your last."
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Mote MAWC{1}'
@@ -37,4 +37,3 @@
             MAWCInitiate: [ 0, 0 ]
             MAWCCarpenter: [ 0, 0 ]
             MAWCAcolyte: [ 0, 0 ]
-            MAWCSeraph: [ 0, 0 ]

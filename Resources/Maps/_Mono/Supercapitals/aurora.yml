@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 10/04/2026 19:30:52
-  entityCount: 3898
+  time: 10/23/2026 00:14:43
+  entityCount: 3906
 maps: []
 grids:
 - 1
@@ -167,10 +167,11 @@ entities:
     - type: ThermalSignature
     - type: SpreaderGrid
       spreadQueues:
+        Kudzu: []
         Puddle: []
         Smoke: []
         MetalFoam: []
-        Kudzu: []
+        ESTileFire: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: ImplicitRoof
@@ -2212,7 +2213,7 @@ entities:
       - 3851
       - 3821
       - 3822
-- proto: AirlockCaptainLocked
+- proto: AirlockCaptainMawc
   entities:
   - uid: 28
     components:
@@ -2220,21 +2221,21 @@ entities:
       rot: 3.141592653589793 rad
       pos: 0.5,5.5
       parent: 1
-- proto: AirlockCargo
+- proto: AirlockCargoMawc
   entities:
   - uid: 3296
     components:
     - type: Transform
       pos: 12.5,9.5
       parent: 1
-- proto: AirlockChemistry
+- proto: AirlockChemistryMawc
   entities:
   - uid: 29
     components:
     - type: Transform
       pos: 9.5,7.5
       parent: 1
-- proto: AirlockExternal
+- proto: AirlockExternalMAWCLocked
   entities:
   - uid: 30
     components:
@@ -2475,6 +2476,33 @@ entities:
           - Close
         - - DoorStatus
           - DoorBolt
+- proto: AirlockGlassMawc
+  entities:
+  - uid: 3383
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 13.5,16.5
+      parent: 1
+  - uid: 3385
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 12.5,16.5
+      parent: 1
+  - uid: 3544
+    components:
+    - type: Transform
+      pos: -2.5,41.5
+      parent: 1
+- proto: AirlockHatchMaintenanceMawc
+  entities:
+  - uid: 3762
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -8.5,45.5
+      parent: 1
 - proto: AirlockMawcLocked
   entities:
   - uid: 42
@@ -2596,7 +2624,7 @@ entities:
       pos: 8.5,16.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -53073.91
+      secondsUntilStateChange: -53320.637
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -2668,34 +2696,7 @@ entities:
     - type: Transform
       pos: -11.5,17.5
       parent: 1
-- proto: AirlockGlass
-  entities:
-  - uid: 3383
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 13.5,16.5
-      parent: 1
-  - uid: 3385
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 12.5,16.5
-      parent: 1
-  - uid: 3544
-    components:
-    - type: Transform
-      pos: -2.5,41.5
-      parent: 1
-- proto: AirlockHatchMaintenanceMawc
-  entities:
-  - uid: 3762
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -8.5,45.5
-      parent: 1
-- proto: AirlockScience
+- proto: AirlockScienceMawc
   entities:
   - uid: 3484
     components:
@@ -9783,7 +9784,7 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
-- proto: ComputerShipyard
+- proto: ComputerShipyardMAWC
   entities:
   - uid: 1195
     components:
@@ -18211,6 +18212,56 @@ entities:
       canCollide: False
     - type: EmitSoundOnCollide
       nextSound: -23275.0100583
+- proto: SpawnPointLatejoin
+  entities:
+  - uid: 3900
+    components:
+    - type: Transform
+      pos: 0.5,23.5
+      parent: 1
+- proto: SpawnPointMAWCAcolyte
+  entities:
+  - uid: 3905
+    components:
+    - type: Transform
+      pos: -0.5,35.5
+      parent: 1
+  - uid: 3906
+    components:
+    - type: Transform
+      pos: 7.5,35.5
+      parent: 1
+- proto: SpawnPointMAWCCarpenter
+  entities:
+  - uid: 3901
+    components:
+    - type: Transform
+      pos: -9.5,21.5
+      parent: 1
+  - uid: 3902
+    components:
+    - type: Transform
+      pos: -9.5,29.5
+      parent: 1
+- proto: SpawnPointMAWCInitiate
+  entities:
+  - uid: 3903
+    components:
+    - type: Transform
+      pos: -8.5,21.5
+      parent: 1
+  - uid: 3904
+    components:
+    - type: Transform
+      pos: -8.5,29.5
+      parent: 1
+- proto: SpawnPointMAWCSeraph
+  entities:
+  - uid: 3899
+    components:
+    - type: Transform
+      pos: -0.5,8.5
+      parent: 1
 - proto: Stairs
   entities:
   - uid: 2157

@@ -9,7 +9,7 @@
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 2
     rechargeSound:
-      path: /Audio/Weapons/Guns/Cock/shotgun_close.ogg
+      collection: MAWCReload
   - type: AmmoCounter
   - type: MeleeWeapon
     attackRate: 0.9

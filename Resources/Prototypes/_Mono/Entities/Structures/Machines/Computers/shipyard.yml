@@ -181,7 +181,7 @@
 - type: entity
   id: ComputerShipyardMAWC
   parent: ComputerShipyardBase
-  name: MAWC Group shipyard console
+  name: MAWC shipyard console
   description: Pulls from a database linked to a nanoforge which rapidly fabricates a desired vessel from Aurora's storage.
   components:
   - type: ActivatableUI

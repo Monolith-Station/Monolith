@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 10/04/2026 05:39:30
-  entityCount: 367
+  time: 10/23/2026 00:24:42
+  entityCount: 368
 maps: []
 grids:
 - 1
@@ -80,10 +80,11 @@ entities:
     - type: ThermalSignature
     - type: SpreaderGrid
       spreadQueues:
+        Kudzu: []
         Puddle: []
         Smoke: []
         MetalFoam: []
-        Kudzu: []
+        ESTileFire: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: ImplicitRoof
@@ -362,7 +363,7 @@ entities:
     - type: Transform
       pos: -2.5,3.5
       parent: 1
-- proto: AirlockExternal
+- proto: AirlockExternalMAWCLocked
   entities:
   - uid: 5
     components:
@@ -390,6 +391,13 @@ entities:
           - Open
         - - DoorStatus
           - DoorBolt
+- proto: AirlockHatchMaintenanceMawc
+  entities:
+  - uid: 9
+    components:
+    - type: Transform
+      pos: -1.5,2.5
+      parent: 1
 - proto: AirlockMawcLocked
   entities:
   - uid: 7
@@ -402,13 +410,6 @@ entities:
     components:
     - type: Transform
       pos: 2.5,4.5
-      parent: 1
-- proto: AirlockHatchMaintenanceMawc
-  entities:
-  - uid: 9
-    components:
-    - type: Transform
-      pos: -1.5,2.5
       parent: 1
 - proto: AirlockShuttleMawcLocked
   entities:
@@ -2285,6 +2286,13 @@ entities:
     components:
     - type: Transform
       pos: -0.5,0.5
+      parent: 1
+- proto: SpawnPointLatejoin
+  entities:
+  - uid: 368
+    components:
+    - type: Transform
+      pos: 2.5,1.5
       parent: 1
 - proto: SubstationBasic
   entities:

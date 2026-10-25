@@ -1,0 +1,49 @@
+- type: pointOfInterest
+  id: Aurora
+  parent: [BaseMobilePOI, BaseRepairablePOI]
+  name: 'MAWC Survery Cruiser - Aurora'
+  minimumDistance: 17000
+  maximumDistance: 19000
+  spawnGamePreset: [ NFAdventure, NFPirate, MonoStandard, MonoRogueTSF, MonoRogueUSSP, MonoADS, MonoChimera, MonoMixed, MonoAllAtOnce, MonoChimeraPdv ]
+  spawnGroup: Required
+  gridPath: /Maps/_Mono/Supercapitals/aurora.yml
+  addComponents:
+  - type: IFF
+    color: "#ffc759"
+    flags: [HideLabel]
+    readOnly: false
+  - type: WorldGenDistanceCarver
+    distanceThresholds:
+    # Dead zone
+    - maxDistance: 800
+      prob: 0.0
+    - maxDistance: 1500
+      prob: 0.3
+
+- type: gameMap
+  id: Aurora
+  mapName: 'MAWC Aurora Class Cruiser'
+  mapPath: /Maps/_Mono/Supercapitals/aurora.yml
+  minPlayers: 0
+  stations:
+    Aurora:
+      stationProto: RecordsFrontierOutpostCargo
+      gridComponents:
+      - type: VesselInfo
+        description: "There is a time to flee, and there is a time to fight. There is a time to burn, and there is a time to grow. Hope."
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'MAWC Aurora Class Cruiser'
+      - type: ExtraStationInformation
+        icon: /Textures/_NF/Interface/Pirate/piratelogo.png
+        stationSubtext: 'frontier-lobby-aurora-subtext'
+        stationDescription: 'frontier-lobby-aurora-description'
+        lobbySortOrder: 2
+      - type: StationJobs
+        availableJobs:
+          MAWCInitiate: [ -1, -1 ]
+          MAWCCarpenter: [ -1, -1 ]
+          MAWCAcolyte: [ -1, -1 ]
+          MAWCSeraph: [ 1, 1 ]
+        tags:
+        - CentralCommand # As funny as 500 Seraphs would be...

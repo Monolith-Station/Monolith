@@ -2,18 +2,18 @@
   id: Phantom
   parent: BaseVessel
   name: MAWC Phantom
-  description: Insert Desc here
-  price: 62000 # 52K * 1.2~
-#  purchasable: false # T1 - voucher only
+  description: The ultimatum to all combat needs, and the number one lineship. Armed with four AK800's, and two longbows, the Phantom is the Hammer of War upon which Aurora's enemy's will be broken by.
+  price: 316800 # 264K * 1.2~
+  purchasable: false # T3 - voucher only
   category: Small
   group: Mawc
   access: MAWC
   shuttlePath: /SharedMaps/_Mono/Shuttles/MAWC/phantom.yml
   guidebookPage: Null
   class:
-  - Salvage
+  - Destroyer
   engine:
-  - Uranium
+  - AME
 
 - type: gameMap
   id: Phantom
@@ -23,9 +23,9 @@
   stations:
     Phantom:
       stationProto: StandardFrontierVessel
-#      gridComponents:
-#      - type: VesselInfo
-#        description: "A vessel so rugged you can still see the radiation scarring after the new paintjob."
+      gridComponents:
+      - type: VesselInfo
+        description: "You were beautiful, Outstretched. Like antennas to heaven. Samsara of cut sinew and bone."
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Phantom MAWC{1}'
@@ -37,4 +37,3 @@
             MAWCInitiate: [ 0, 0 ]
             MAWCCarpenter: [ 0, 0 ]
             MAWCAcolyte: [ 0, 0 ]
-            MAWCSeraph: [ 0, 0 ]

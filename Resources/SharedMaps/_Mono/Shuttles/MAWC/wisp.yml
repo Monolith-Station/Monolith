@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 10/04/2026 00:31:54
-  entityCount: 686
+  time: 10/23/2026 00:27:13
+  entityCount: 688
 maps: []
 grids:
 - 1
@@ -79,10 +79,11 @@ entities:
     - type: ThermalSignature
     - type: SpreaderGrid
       spreadQueues:
+        Kudzu: []
         Puddle: []
         Smoke: []
         MetalFoam: []
-        Kudzu: []
+        ESTileFire: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: ImplicitRoof
@@ -317,6 +318,24 @@ entities:
       - 333
       - 328
       - 262
+- proto: AirlockHatchMaintenanceMawc
+  entities:
+  - uid: 13
+    components:
+    - type: Transform
+      pos: 1.5,-0.5
+      parent: 1
+  - uid: 14
+    components:
+    - type: Transform
+      pos: -0.5,-0.5
+      parent: 1
+  - uid: 15
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 1.5,5.5
+      parent: 1
 - proto: AirlockMawcLocked
   entities:
   - uid: 7
@@ -354,24 +373,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 0.5,-1.5
-      parent: 1
-- proto: AirlockHatchMaintenanceMawc
-  entities:
-  - uid: 13
-    components:
-    - type: Transform
-      pos: 1.5,-0.5
-      parent: 1
-  - uid: 14
-    components:
-    - type: Transform
-      pos: -0.5,-0.5
-      parent: 1
-  - uid: 15
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 1.5,5.5
       parent: 1
 - proto: AirlockShuttleMawcLocked
   entities:
@@ -3751,6 +3752,18 @@ entities:
     components:
     - type: Transform
       pos: 1.5,8.5
+      parent: 1
+- proto: SpawnPointLatejoin
+  entities:
+  - uid: 687
+    components:
+    - type: Transform
+      pos: 3.5,-1.5
+      parent: 1
+  - uid: 688
+    components:
+    - type: Transform
+      pos: 5.5,-3.5
       parent: 1
 - proto: Stairs
   entities:

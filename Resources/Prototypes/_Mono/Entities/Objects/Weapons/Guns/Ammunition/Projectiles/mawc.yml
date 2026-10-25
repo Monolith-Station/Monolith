@@ -1,7 +1,43 @@
 - type: entity
+  parent: MuzzleFlashEffect
+  id: MuzzleFlashMawcBeam
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    enabled: true
+    color: "#78b9ff"
+    radius: 1.4
+    energy: 3.0
+  - type: Sprite
+    drawdepth: BelowMobs
+    offset: 0.15, 0
+    layers:
+    - shader: unshaded
+      map: ["enum.EffectLayers.Unshaded"]
+      sprite: _Mono/Objects/Weapons/Guns/Projectiles/muzzleflashes.rsi
+      state: mawcbeam
+
+- type: entity
+  id: BaseBulletMawc
+  name: MAWC Sprite + Muzzle effect for projectiles
+  parent: BaseBullet
+  categories: [HideSpawnMenu]
+  components:
+  - type: Sprite
+    noRot: false
+    sprite: _Mono/Objects/Weapons/Guns/Projectiles/hardlight.rsi
+    layers:
+    - state: hardlightbullet
+      shader: unshaded
+  - type: Ammo
+    muzzleFlash: MuzzleFlashMawcBeam
+  - type: Tracer
+    color: "#78b9ff"
+
+- type: entity
   id: BulletMAWCGame
   name: pistol charge
-  parent: BaseBullet
+  parent: BaseBulletMawc
   categories: [HideSpawnMenu]
   components:
   - type: Projectile
@@ -10,8 +46,6 @@
         Piercing: 20
         Heat: 6
     armorPenetration: 0.1
-  - type: Tracer
-    color: "#ffc759"
 
 - type: entity
   id: BulletMAWCHeartpiercer
@@ -28,11 +62,13 @@
         Piercing: 50
         Heat: 20
     armorPenetration: 0.3
+  - type: HitscanStaminaDamage
+    staminaDamage: 40
 
 - type: entity
   id: BulletMAWCFlanker
   name: small-caliber charge
-  parent: BaseBullet
+  parent: BaseBulletMawc
   categories: [HideSpawnMenu]
   components:
   - type: Projectile
@@ -41,13 +77,11 @@
         Piercing: 14
         Heat: 8
     armorPenetration: 0.05
-  - type: Tracer
-    color: "#ffc759"
 
 - type: entity
   id: BulletMAWCFulcrum
   name: battle rifle charge
-  parent: BaseBullet
+  parent: BaseBulletMawc
   categories: [HideSpawnMenu]
   components:
   - type: Projectile
@@ -56,8 +90,6 @@
         Piercing: 24
         Heat: 12
     armorPenetration: 0.1
-  - type: Tracer
-    color: "#ffc759"
 
 - type: entity
   id: BulletMAWCStonehenge
@@ -71,14 +103,14 @@
   - type: HitscanBasicDamage
     damage:
       types:
-        Piercing: 60
+        Piercing: 20
         Heat: 20
         Structural: 500
     armorPenetration: 0.9
   - type: HitscanStaminaDamage
-    staminaDamage: 250
+    staminaDamage: 20
   - type: HitscanMultiRaycast
-    maxPierce: 10 # This is going to be so fucking funny
+    maxPierce: 1 # This is going to be so fucking funny. Alas, the dream is dead.
     maxDistance: 200
     collisionMask:
     - Impassable
@@ -88,7 +120,7 @@
 - type: entity
   id: PelletMAWCIntruder
   name: hardlight flechette
-  parent: BaseBullet
+  parent: BaseBulletMawc
   categories: [HideSpawnMenu]
   components:
   - type: Projectile
@@ -98,8 +130,6 @@
         Heat: 3
         Structural: 15
     armorPenetration: 0.4
-  - type: Tracer
-    color: "#ffc759"
 
 - type: entity
   id: PelletMAWCIntruderSpread

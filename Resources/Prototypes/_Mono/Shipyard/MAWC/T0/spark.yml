@@ -2,9 +2,9 @@
   id: Spark
   parent: BaseVessel
   name: MAWC Spark
-  description: Insert Desc here
-  price: 62000 # 52K * 1.2~
-#  purchasable: false # T1 - voucher only
+  description: A small and frail pre-fabricated vessel equipped with an APOLLO mining laser. Its sole purpose is to come in, harvest, and leave without overstaying its welcome.
+  price: 67250 # 61K * 1.1~
+#  purchasable: false # T0
   category: Small
   group: Mawc
   access: MAWC
@@ -23,9 +23,9 @@
   stations:
     Spark:
       stationProto: StandardFrontierVessel
-#      gridComponents:
-#      - type: VesselInfo
-#        description: "A vessel so rugged you can still see the radiation scarring after the new paintjob."
+      gridComponents:
+      - type: VesselInfo
+        description: "And so the little kobold snuck into the hoard, seeking something shiny. And the dragon awoke, but the little kobold stood defiant."
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Spark MAWC{1}'
@@ -36,5 +36,3 @@
           availableJobs:
             MAWCInitiate: [ 0, 0 ]
             MAWCCarpenter: [ 0, 0 ]
-            MAWCAcolyte: [ 0, 0 ]
-            MAWCSeraph: [ 0, 0 ]

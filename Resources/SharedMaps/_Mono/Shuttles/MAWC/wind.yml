@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 10/03/2026 23:16:45
-  entityCount: 285
+  time: 10/23/2026 00:26:31
+  entityCount: 286
 maps: []
 grids:
 - 1
@@ -71,10 +71,11 @@ entities:
     - type: ThermalSignature
     - type: SpreaderGrid
       spreadQueues:
-        Puddle: []
         Kudzu: []
-        MetalFoam: []
+        Puddle: []
         Smoke: []
+        MetalFoam: []
+        ESTileFire: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: ImplicitRoof
@@ -328,7 +329,7 @@ entities:
     - type: Transform
       pos: 0.5,-5.5
       parent: 1
-- proto: AirlockExternal
+- proto: AirlockExternalMAWCLocked
   entities:
   - uid: 6
     components:
@@ -1753,6 +1754,13 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 0.5,-4.5
+      parent: 1
+- proto: SpawnPointLatejoin
+  entities:
+  - uid: 286
+    components:
+    - type: Transform
+      pos: -0.5,-4.5
       parent: 1
 - proto: TableReinforced
   entities:

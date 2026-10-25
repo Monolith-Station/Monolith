@@ -2,16 +2,16 @@
   id: Wind
   parent: BaseVessel
   name: MAWC Wind
-  description: Insert Desc here
-  price: 62000 # 52K * 1.2~
-#  purchasable: false # T1 - voucher only
+  description: A cheap, slow vessel. Thinly armored, it is almost entirely reliant on not being detected to survive. Armed with two VANYK platforms and a PALADIN 250mm, it serves a missile artillery purist role.
+  price: 65040 # 54K * 1.2~
+#  purchasable: false # T0
   category: Small
   group: Mawc
   access: MAWC
   shuttlePath: /SharedMaps/_Mono/Shuttles/MAWC/wind.yml
   guidebookPage: Null
   class:
-  - Salvage
+  - MissileCarrier
   engine:
   - Uranium
 
@@ -23,9 +23,9 @@
   stations:
     Wind:
       stationProto: StandardFrontierVessel
-#      gridComponents:
-#      - type: VesselInfo
-#        description: "A vessel so rugged you can still see the radiation scarring after the new paintjob."
+      gridComponents:
+      - type: VesselInfo
+        description: "Silence. Then a flash. A constellation of Seven stars rose from the sky before burning the town below."
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Wind MAWC{1}'
@@ -37,4 +37,3 @@
             MAWCInitiate: [ 0, 0 ]
             MAWCCarpenter: [ 0, 0 ]
             MAWCAcolyte: [ 0, 0 ]
-            MAWCSeraph: [ 0, 0 ]

@@ -26,3 +26,6 @@ frontier-lobby-underground-subtext = A hideout harboring enemies of the Trans-So
 frontier-lobby-underground-description = A hideout with its IFF disabled in the Outer Cloud, containing a medbay, manufactory and four UndergroundVends that serve as a direct link to a distant Persean black market.
 
    - [color=red][bold]All roles on this station are actively wanted by the TSFMC and should expect to be killed on sight if discovered.[/bold][/color] That said, you get some pretty neat benefits from it.
+
+frontier-lobby-aurora-subtext = A mobile large survey-explorer vessel with an equipped nanoforge.
+frontier-lobby-aurora-description = This does NOT fall under the protection of portstriking rules. A large back-line Survey Exploration cruiser operated by the Malo-Avaliite Weapons Corporation. Bristling with guns but is comparatively paper armored in comparison to other capitals, and comes with basic utilities to enable some growth.

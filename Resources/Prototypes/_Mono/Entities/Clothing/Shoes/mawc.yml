@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ClothingShoesBootsMagBase]
+  parent: [ClothingShoesBootsMagBase , ClothingShoesBootsCombat]
   id: ClothingShoesBootsMAWC
   name: MAWC boots
   description: Standard issue MAWC footwear. An upgraded design based on standard magboots with elements from jackboots to allow for fast movement while in pain.
@@ -10,3 +10,13 @@
     sprite: _Mono/MAWC/Clothing/Shoes/mawc.rsi
   - type: ClothingSlowOnDamageModifier # Mono: Added to parent
     modifier: 0.75
+
+- type: entity
+  parent: ClothingShoesBootsMAWC
+  id: ClothingShoesBootsMAWCFilled
+  suffix: Filled
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+      - WeaponMawcClaw

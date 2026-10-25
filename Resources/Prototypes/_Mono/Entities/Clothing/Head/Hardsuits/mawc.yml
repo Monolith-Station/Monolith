@@ -1,40 +1,74 @@
 - type: entity
-  parent: ClothingHeadHardsuitBase
+  parent: [ClothingHeadHardsuitBase , ShowMedicalIcons , ShowSecurityIcons]
   id: ClothingHelmetHardsuitMAWCWidowmaker
   name: M-WC E-767 Widowmaker helmet
+  description: Its heavy, almost unwieldy, but damn does it have one hell of an EWAR kit. Comes with an onboard AI managing your shield! And all the other good sensors the Weaver had. No, the AI isnt chatty, Get a pAI instead.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _Mono/MAWC/Clothing/Head/Hardsuits/widowmaker.rsi
   - type: Clothing
     sprite: _Mono/MAWC/Clothing/Head/Hardsuits/widowmaker.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+  - type: FlashImmunity
+  - type: NightVision # Gen 4 wide
+    relayOverlay: true
+    goggleEffect: true
+    action: ActionToggleNightVision
+    viewCircleRadius: 400
+    viewCircleCount: 4
+    viewCircleSpacing: 260
+    phosphorColor: "#41D7D9"
+    lightingColor: "#FFFFFF32"
 
 - type: entity
-  parent: ClothingHeadHardsuitBase
+  parent: [ClothingHeadHardsuitBase , ShowMedicalIcons , ShowSecurityIcons]
   id: ClothingHelmetHardsuitMAWCWeaver
   name: M-WC CS-8W Weaver helmet
+  description: Advanced IFF sensors are fitted in this helm, with additional armor plating and ergonomics improvements to boot. Designed for fighting dirty, Dont be afraid to brawl now.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _Mono/MAWC/Clothing/Head/Hardsuits/weaver.rsi
   - type: Clothing
     sprite: _Mono/MAWC/Clothing/Head/Hardsuits/weaver.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.85
+  - type: FlashImmunity
 
 - type: entity
   parent: ClothingHeadHardsuitBase
   id: ClothingHelmetHardsuitMAWCCarpenter
   name: M-WC LH-8 Carpenter helmet
+  description: A refitting of the termite helm, given bulk and added protections tailored towards eye safety. The IFF sensor set has been tuned for diagnostics work instead.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _Mono/MAWC/Clothing/Head/Hardsuits/carpenter.rsi
   - type: Clothing
     sprite: _Mono/MAWC/Clothing/Head/Hardsuits/carpenter.rsi
+  - type: EyeProtection
+  - type: FlashImmunity
+  - type: ShowHealthBars
+    damageContainers:
+    - Inorganic
+    - Silicon
+    - Biological
 
 - type: entity
-  parent: ClothingHeadHardsuitBase
+  parent: [ClothingHeadHardsuitBase , ShowSecurityIcons]
   id: ClothingHelmetHardsuitMAWCTermite
   name: M-WC SS-11 Termite helmet
+  description: Simplistic and fitted with only basic IFF sensor tech. Protects the face fairly well, but is just as thinly armored as the rest of the parent suit.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite

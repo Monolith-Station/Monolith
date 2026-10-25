@@ -2,14 +2,26 @@
   parent: [ClothingOuterHardsuitBase, MonoEnergyShieldClothing]
   id: ClothingOuterHardsuitMAWCWidowmaker
   name: M-WC E-767 Widowmaker hardsuit
+  description: A Corporate warfare suit designed with support in mind. Designed with a specialty shield generation and projection system, when paired with nearby compatible reciever suits it grows stronger than before. Fitted with a boatload of heavy sensors on the head too, for information, or just overcompensation. Tailored to the specifics of field officers for maximum battlefield control.
   components:
   - type: Sprite
     sprite: _Mono/MAWC/Clothing/OuterClothing/Hardsuits/widowmaker.rsi
   - type: Clothing
     sprite: _Mono/MAWC/Clothing/OuterClothing/Hardsuits/widowmaker.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.6
+        Radiation: 0.6
+        Caustic: 0.8
+  - type: ExplosionResistance
+    damageCoefficient: 0.2
   - type: PersonalShield
     shield:
-      maxCharge: 400
+      maxCharge: 75
       spinupTime: 2
     visuals:
       color: "#ffc759"
@@ -26,7 +38,11 @@
       shardScale: 3
   - type: ShieldLinkSource
     linkId: MAWC
-    shieldBonusPerLink: 100
+    shieldBonusPerLink: 50
+  - type: ClothingSpeedModifier
+    walkModifier: 0.7
+    sprintModifier: 0.7
+  - type: HeldSpeedModifier
   - type: ItemToggle
     predictable: false
   - type: ToggleableClothing
@@ -42,24 +58,43 @@
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitMAWCWeaver
   name: M-WC CS-8W Weaver hardsuit
+  description: The corporation's ideal corporate warfare suit. Packed with sensors and electronic doodads, this suit projects a protective shield around itself which grows in power with access to supply suits. Seemingly a modernization of the termite, and a serious step up in protection, developed following specific needs after an unlabeled planetary disaster to upgrade archaic models for frontline soldiers.
   components:
   - type: Sprite
     sprite: _Mono/MAWC/Clothing/OuterClothing/Hardsuits/weaver.rsi
   - type: Clothing
     sprite: _Mono/MAWC/Clothing/OuterClothing/Hardsuits/weaver.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.6
+        Radiation: 0.6
+        Caustic: 0.8
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
   - type: ItemToggle
     onActivate: false
     onUse: false
     predictable: false
   - type: PersonalShield
     shield:
-      maxCharge: 200
+      maxCharge: 50
       spinupTime: 0.75
     visuals:
       color: "#ffc759"
       scale: 2
+  - type: ShieldLinkSource
+    linkId: MAWC
+    shieldBonusPerLink: 25
   - type: ShieldLinkReceiver
     linkId: MAWC
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.85
+  - type: HeldSpeedModifier
   - type: ToggleableClothing
     requiredSlot: outerclothing
     blockUnequipWhenAttached: false
@@ -73,11 +108,27 @@
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitMAWCCarpenter
   name: M-WC LH-8 Carpenter hardsuit
+  description: A Well woven and engineered hardsuit, designed with a built-in hydraulic exo-frame, clamps and utilities that enable ideal engineering work without compromising on mobility too much. Worn by carpenters commonly, as the suit is specifically tailored for engineering.
   components:
   - type: Sprite
     sprite: _Mono/MAWC/Clothing/OuterClothing/Hardsuits/carpenter.rsi
   - type: Clothing
     sprite: _Mono/MAWC/Clothing/OuterClothing/Hardsuits/carpenter.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.7
+        Heat: 0.65
+        Radiation: 0.3
+        Caustic: 0.4
+  - type: ExplosionResistance
+    damageCoefficient: 0.25
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: HeldSpeedModifier
   - type: ToggleableClothing
     requiredSlot: outerclothing
     blockUnequipWhenAttached: false
@@ -91,11 +142,27 @@
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitMAWCTermite
   name: M-WC SS-11 Termite hardsuit
+  description: A Cheap and ubiquitous hardsuit commonly deployed for low-intensity operations or Initiate protection. Thinly armored and not the most protective, its only slightly better than an average EVA. Nevertheless it is commonplace among all ranks of MAWC and is treated as the "Newblood's Armor".
   components:
   - type: Sprite
     sprite: _Mono/MAWC/Clothing/OuterClothing/Hardsuits/termite.rsi
   - type: Clothing
     sprite: _Mono/MAWC/Clothing/OuterClothing/Hardsuits/termite.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.7
+        Heat: 0.65
+        Radiation: 0.65
+        Caustic: 0.8
+  - type: ExplosionResistance
+    damageCoefficient: 0.8
+  - type: ClothingSpeedModifier
+    walkModifier: 1.0
+    sprintModifier: 1.0
+  - type: HeldSpeedModifier
   - type: ToggleableClothing
     requiredSlot: outerclothing
     blockUnequipWhenAttached: false

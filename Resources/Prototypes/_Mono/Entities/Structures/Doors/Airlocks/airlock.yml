@@ -123,3 +123,39 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsMawcLow ]
+
+- type: entity
+  parent: AirlockCaptainLocked
+  id: AirlockCaptainMawc
+  suffix: MAWC lower nexus, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMawcLow ]
+
+- type: entity
+  parent: AirlockCargo
+  id: AirlockCargoMawc
+  suffix: MAWC lower nexus, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMawcLow ]
+
+- type: entity
+  parent: AirlockChemistry
+  id: AirlockChemistryMawc
+  suffix: MAWC lower nexus, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMawcLow ]
+
+- type: entity
+  parent: AirlockScience
+  id: AirlockScienceMawc
+  suffix: MAWC lower nexus, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMawcLow ]
