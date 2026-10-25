@@ -42,6 +42,8 @@
       - type: ApplyIFFFlagsToDockedShips
         flags:
         - HideLabelAlways # hide all docked ships
+      - type: VoiceOverride # The UBM is the entity speaking when it says to "stop any further activity". Lilyflower pointed out that's kind of nonsensical, and I do agree with her so.
+        nameOverride: TSF Cargo Monitoring
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Underground Black Market'
