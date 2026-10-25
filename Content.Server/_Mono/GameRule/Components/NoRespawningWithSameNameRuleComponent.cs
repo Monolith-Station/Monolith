@@ -5,6 +5,6 @@ namespace Content.Server._Mono.GameRule.Components;
 [RegisterComponent]
 public sealed partial class NoRespawningWithSameNameRuleComponent : Component
 {
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
     public Dictionary<NetUserId, List<string>> SpawnedCharacters = new Dictionary<NetUserId, List<string>>();
 }

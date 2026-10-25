@@ -24,7 +24,8 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
-using Content.Server._Corvax.Respawn; // Frontier
+using Content.Server._Corvax.Respawn;
+using Content.Shared.CCVar; // Frontier
 
 namespace Content.Server.GameTicking
 {
@@ -181,29 +182,6 @@ namespace Content.Server.GameTicking
                 return;
             }
 
-            // Mono start: prevent same-name respawns
-            var rules = GetActiveGameRules();
-            foreach (var rule in rules)
-            {
-                if (!TryComp<NoRespawningWithSameNameRuleComponent>(rule, out var respawnRule))
-                    continue;
-
-                if (!respawnRule.SpawnedCharacters.Keys.Contains(player.UserId))
-                {
-                    respawnRule.SpawnedCharacters.Add(player.UserId, new List<string>() { character.Name });
-                    continue;
-                }
-
-                if (respawnRule.SpawnedCharacters[player.UserId].Contains(character.Name))
-                {
-                    _chatManager.DispatchServerMessage(player, Loc.GetString("no-respawning-with-same-name"));
-                    return;
-                }
-
-                respawnRule.SpawnedCharacters[player.UserId].Add(character.Name);
-            }
-            // Mono end
-
             // We raise this event to allow other systems to handle spawning this player themselves. (e.g. late-join wizard, etc)
             var bev = new PlayerBeforeSpawnEvent(player, character, jobId, lateJoin, station);
             RaiseLocalEvent(bev);
@@ -343,6 +321,31 @@ namespace Content.Server.GameTicking
                 station,
                 character);
             RaiseLocalEvent(mob, aev, true);
+
+            // Mono start: prevent same-name respawns
+            var rules = GetActiveGameRules();
+            foreach (var rule in rules)
+            {
+                if (CCVars.GameLobbyEnabled.Equals(false)) // they literally can't change their character so don't bother
+                    break;
+                if (!TryComp<NoRespawningWithSameNameRuleComponent>(rule, out var respawnRule))
+                    continue;
+
+                if (!respawnRule.SpawnedCharacters.TryGetValue(player.UserId, out var list))
+                {
+                    respawnRule.SpawnedCharacters.Add(player.UserId, new List<string>() { character.Name });
+                    continue;
+                }
+
+                if (list.Contains(character.Name))
+                {
+                    _chatManager.DispatchServerMessage(player, Loc.GetString("no-respawning-with-same-name"));
+                    return;
+                }
+
+                list.Add(character.Name);
+            }
+            // Mono end
         }
 
         public void Respawn(ICommonSession player)
