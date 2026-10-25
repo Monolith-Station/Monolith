@@ -688,7 +688,7 @@
   - type: ActionGrant
     actions:
     - ActionMothroachSwarm
-    - ActionMouseCall
+    - ActionMothroachCall
   - type: MouseSwarm
     sprite: /Textures/Mobs/Animals/mothroach/mothroach.rsi
     state: mothroach

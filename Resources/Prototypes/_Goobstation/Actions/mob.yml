@@ -30,6 +30,19 @@
     event: !type:MouseSwarmActionEvent
 
 - type: entity
+  id: ActionMothroachCall
+  name: Mothroachcall
+  description: Call nearby mothroach to your location.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: _Goobstation/Actions/call.rsi
+      state: icon
+    useDelay: 15
+    event: !type:MobCallActionEvent
+
+- type: entity
   id: ActionMothroachSwarm
   name: Join Swarm
   description: Absorb a nearby mothroach into your swarm.
