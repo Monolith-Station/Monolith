@@ -117,7 +117,7 @@
   - type: Contraband
     turnInValues:
       FederationMilitaryCredit: 30 # Mono 12 -> 30 (on par with small monolithic crystal)
-    # Doubloon: 30 # Mono: moved to CrateTradeBaseSecurePDV, where it is 12 -> 30
+      Doubloon: 30 # Mono: 12 -> 30
   - type: ShipyardSellCondition
     blockSale: true
     reason: shipyard-console-contraband-onboard
