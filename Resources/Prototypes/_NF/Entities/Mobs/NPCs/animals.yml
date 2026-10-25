@@ -63,7 +63,10 @@
     - id: MaterialHideRosyMothroach
       amount: 1
       prob: 0.3
-      
+  - type: MouseSwarm
+    sprite: _NF/Mobs/Animals/rosy_mothroach.rsi
+    state: mothroach
+
 - type: entity
   name: bee
   suffix: Angry, Timed

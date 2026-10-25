@@ -1,0 +1,48 @@
+- type: entity
+  id: ActionMouseCall
+  name: Mousecall
+  description: Call nearby mice to your location.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: _Goobstation/Actions/call.rsi
+      state: icon
+    useDelay: 15
+    event: !type:MobCallActionEvent
+
+- type: entity
+  id: ActionMouseSwarm
+  name: Join Swarm
+  description: Absorb a nearby mouse into your swarm.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTargetAction
+    icon: { sprite: Mobs/Animals/mouse.rsi, state: mouse-0 }
+    itemIconStyle: NoItem
+    useDelay: 2
+    range: 1.5
+    interactOnMiss: false
+    canTargetSelf: false
+    whitelist:
+      components:
+      - MouseSwarm
+    event: !type:MouseSwarmActionEvent
+
+- type: entity
+  id: ActionMothroachSwarm
+  name: Join Swarm
+  description: Absorb a nearby mothroach into your swarm.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTargetAction
+    icon: { sprite: Mobs/Animals/mothroach/mothroach.rsi, state: mothroach }
+    itemIconStyle: NoItem
+    useDelay: 2
+    range: 1.5
+    interactOnMiss: false
+    canTargetSelf: false
+    whitelist:
+      components:
+      - MouseSwarm
+    event: !type:MouseSwarmActionEvent
