@@ -101,8 +101,6 @@
   parent:
   - CrateTradeBaseSecure
   id: CrateTradeBaseSecureContraband
-  name: phaethon dynasty supply crate
-  description: Contains a small batch of supplies for the Phaethon Dynasty Vanguard, which will be shipped to them upon sale at a cargo depot. The courier will be paid handsomely. A tamper-lock will acidify the crate's contents upon its destruction.
   abstract: true
   components:
   - type: Fixtures
@@ -119,7 +117,7 @@
   - type: Contraband
     turnInValues:
       FederationMilitaryCredit: 30 # Mono 12 -> 30 (on par with small monolithic crystal)
-      Doubloon: 30 # Mono 12 -> 30
+    # Doubloon: 30 # Mono: moved to CrateTradeBaseSecurePDV, where it is 12 -> 30
   - type: ShipyardSellCondition
     blockSale: true
     reason: shipyard-console-contraband-onboard
@@ -137,12 +135,8 @@
     scale: 1.5
     shape: hexagon
     visibleFromOtherGrids: true
-  - type: CurrencyInjectionOnSell # Mono: smuggling directly funds the PDV
-    company: PDV
-    amount:
-      Doubloon: 10
-  - type: ExtendDescription
-    descriptionList:
-    - description: Selling this item will fund the PDV.
-      color: "#4f94ad"
-      requireDetailRange: true
+    maxDistance: 8192 # Mono: should be harder to hide (4x increase from base)
+  - type: SoldAlert # maybe the TSF should learn when a contraband crate is sold? just maybe?
+    threshold: 1
+    channels:
+    - Command

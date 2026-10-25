@@ -1,0 +1,29 @@
+- type: entity
+  parent: ComputerCargoOrders
+  id: ComputerCargoOrdersUnderground
+  name: underground cargo request console
+  description: Used to order supplies and approve requests. This one is also capable of ordering underground supply crates to be smuggled for telecrystals. Biolocked to prevent the TSFMC or PDV from accessing it.
+  components:
+  - type: CargoOrderConsole
+    allowedGroups: 
+    - market 
+    - underground
+    announcementChannel: Command
+    alertOnPurchase: 
+    - CrateTradeContrabandSecureUnderground
+  - type: ExtendDescription
+    descriptionList: 
+    - description: Purchasing Underground Black Market supply crates will notify the TSFMC.
+      color: "#4f94ad"
+      requireDetailRange: true
+  - type: CompanyAccessReader
+    requiredCompanies: 
+    - TSF
+    - PDV
+    inverted: true
+
+- type: entity
+  parent: [ComputerTabletopCargoOrders, ComputerCargoOrdersUnderground]
+  id: ComputerTabletopCargoOrdersUnderground
+  name: underground cargo request console
+  description: Used to order supplies and approve requests. This one is also capable of ordering underground supply crates to be smuggled for telecrystals. Biolocked to prevent the TSFMC or PDV from accessing it.

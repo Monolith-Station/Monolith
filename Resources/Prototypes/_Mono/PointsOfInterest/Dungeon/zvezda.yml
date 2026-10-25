@@ -36,10 +36,6 @@
     Zvezda:
       stationProto: RecordsFrontierOutpostCargo
       gridComponents:
-      - type: StationCargoOrderDatabase
-        capacity: 240
-      - type: TradeCrateDestination
-        destinationProto: Trade
       - type: VesselInfo
         description: "A half-abandoned decaying station. Sometimes you can hear the hull bend."
       - type: VesselMusic
@@ -50,6 +46,10 @@
           mapNameTemplate: 'Zvezda Orbital Habitation'
         - type: StationDeadDrop
           maxDeadDrops: 12
+        - type: StationCargoOrderDatabase
+          capacity: 240
+        - type: TradeCrateDestination
+          destinationProto: Trade
         - type: ExtraStationInformation
           icon:
             sprite: _NF/Structures/Storage/Crates/secure_ammo.rsi

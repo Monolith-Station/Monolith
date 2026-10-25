@@ -63,6 +63,13 @@
   color: "#D2B48C"
   disabled: true
   whitelisted: true
+
+- type: company
+  id: Underground # This isn't actually used by any roles, and fugitives should actively not have it as it makes it impossible for them to hide as different companies.
+  name: Underground Black Market
+  color: "#b8253d"
+  disabled: true
+  companyUplinkCurrency: Telecrystal
 # DO NOT TOUCH
 
 # ====TSF / Protag. Companies====

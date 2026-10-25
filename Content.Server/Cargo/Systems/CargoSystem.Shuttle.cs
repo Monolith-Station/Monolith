@@ -521,7 +521,7 @@ public sealed partial class CargoSystem
                     }
                 }
                 // Mono: Calculate if any factions need to receive currency
-                if (TryComp<CurrencyInjectionOnSellComponent>(ent, out var injection))
+                if (TryComp<CurrencyInjectionOnSellComponent>(ent, out var injection) && (!injection.RequireCorrectDestination || !TryComp<TradeCrateComponent>(ent, out var tradeCrate) || _station.GetOwningStation(ent) == tradeCrate.DestinationStation))
                 {
                     injectionCompany = injection.Company;
                     if (currencyInjections == null)

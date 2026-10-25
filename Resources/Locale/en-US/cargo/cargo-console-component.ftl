@@ -29,7 +29,10 @@ cargo-console-snip-snip = Order trimmed to capacity
 cargo-console-insufficient-funds = Insufficient funds (require {$cost})
 cargo-console-unfulfilled = No room to fulfill order
 cargo-console-trade-station = Sent to {$destination}
-cargo-console-unlock-approved-order-broadcast = [bold]{$productName} x{$orderAmount}[/bold], which cost [bold]{$cost}[/bold], was approved by [bold]{$approver}[/bold]
+
+# Mono: rewrite buy alert
+cargo-console-unlock-approved-order-broadcast = [bold]{$productName} x{$orderAmount}[/bold] was requisitioned by [bold]{$approver}[/bold]. Stop any further activity.
+
 # Frontier
 cargo-console-nf-no-bank-account = No bank account found
 
