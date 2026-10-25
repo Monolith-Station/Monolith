@@ -100,5 +100,15 @@
     Plasteel: 3500
     Plastic: 2000
 
-
-
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponRifleVGFangRecipe
+  result: WeaponRifleVGFang
+  categories:
+  - Rifles
+  - Ballistic
+  - Weapons
+  materials:
+    Steel: 6000
+    Plasteel: 3500
+    Plastic: 2000

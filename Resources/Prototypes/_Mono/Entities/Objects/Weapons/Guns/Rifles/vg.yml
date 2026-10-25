@@ -132,3 +132,74 @@
     magState: mag
     steps: 1
     zeroVisible: true
+
+- type: entity
+  name: VG Fang (5.56x45mm)
+  parent: [BaseWeaponRifle, BaseGunWieldable]
+  id: WeaponRifleVGFang
+  description: An experimental bullpup assault rifle, designed for the Viper group. Having only one mode, a 3 round burst,  it is designed to be used mid-long range using it's high accuracy and velocity.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/vgfang.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: GunWieldBonus
+    minAngle: -18
+    maxAngle: -47
+  - type: Gun
+    minAngle: 18
+    maxAngle: 54
+    angleIncrease: 3
+    angleDecay: 13
+    fireRate: 11
+    projectileSpeed: 45
+    damageModifier: 1.2
+    burstDelay: 0.1
+    burstCooldown: 0.2
+    selectedMode: Burst
+    availableModes:
+    - Burst
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/smg.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+    
+  - type: ChamberMagazineAmmoProvider
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: Magazine556x45mmFMJ
+        insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - Magazine556x45mmFMJ
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: Cartridge556x45mmFMJ
+        priority: 1
+        whitelist:
+          tags:
+            - Cartridge556x45mmFMJ
+  - type: SpeedModifiedOnWield # Mono
+    walkModifier: 1
+    sprintModifier: 1
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/vgfang_inhands_32x.rsi
+  - type: Item
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/vgfang_inhands_32x.rsi
