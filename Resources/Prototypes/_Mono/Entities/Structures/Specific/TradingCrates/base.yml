@@ -1,6 +1,6 @@
 - type: entity
   abstract: true
-  parent: CrateTradeBaseSecureContraband
+  parent: [ CrateTradeBaseSecureContraband, BaseC3PirateContraband ]
   id: CrateTradeBaseSecurePDV
   name: phaethon dynasty supply crate
   description: Contains a small batch of supplies for the Phaethon Dynasty Vanguard, which will be shipped to them upon sale at a cargo depot. The courier will be paid handsomely. A tamper-lock will acidify the crate's contents upon its destruction.
