@@ -24,7 +24,7 @@
 - type: entity
   abstract: true
   parent: [ CrateTradeBaseSecureContraband, BaseC3SyndicateContraband ]
-  id: CrateTradeBaseSecureUnderground # Probably don't give this a DC price given UBM and PDV ally a lot and this would be a money -> DC method.
+  id: CrateTradeBaseSecureUnderground
   name: underground black market supply crate
   description: Contains a small batch of deactivated telecrystals for the Underground Black Market, which will be activated and sent to them upon sale at a cargo depot. The courier will be paid handsomely. A tamper-lock will acidify the crate's already-useless contents upon its destruction.
   components:
@@ -42,6 +42,7 @@
       requireDetailRange: true
   - type: Contraband
     turnInValues:
-      FederationMilitaryCredit: 5 # less, because it's purchaseable for money.
+      FederationMilitaryCredit: 10 # less, because it's purchaseable for money.
+      Doubloon: 10
   - type: PassiveThermalSignature # I'd apply this to PDV too, but that gives dead drops and Jupiter muuuch bigger thermsigs.
     signature: 1000000 # i think this is around 1km or so
