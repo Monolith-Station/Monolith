@@ -25,6 +25,8 @@
     - yells
     - yelled
     - yelling
+    - grita # Andromeda
+    - berra # Andromeda
 
 - type: emote
   id: Laugh
@@ -52,6 +54,23 @@
     - chortles
     - chortling
     - chortled # Frontier
+    - ri # Andromeda
+    - risada # Andromeda
+    - risadinha # Andromeda
+    - da risada # Andromeda
+    - da uma risada # Andromeda
+    - dá risada # Andromeda
+    - dá uma risada # Andromeda
+    - solta uma risada # Andromeda
+    - gargalha # Andromeda
+    - gargalhada # Andromeda
+    - da gargalhada # Andromeda
+    - da uma gargalhada # Andromeda
+    - dá gargalhada # Andromeda
+    - dá uma gargalhada # Andromeda
+    - solta uma gargalhada # Andromeda
+    - racha o bico # Andromeda
+    - chora de rir # Andromeda
 
 - type: emote
   id: Honk
@@ -69,6 +88,10 @@
     - honks
     - honked
     - honking
+    - buzina # Andromeda
+    - buzinada # Andromeda
+    - da uma buzinada # Andromeda
+    - dá uma buzinada # Andromeda
 
 - type: emote
   id: Sigh
@@ -87,6 +110,11 @@
     - sighs
     - sighed
     - sighing # Frontier
+    - suspira # Andromeda
+    - suspirada # Andromeda
+    - da uma suspirada # Andromeda
+    - dá uma suspirada # Andromeda
+    - suspira em lamento # Andromeda
 
 - type: emote
   id: Whistle
@@ -105,6 +133,12 @@
     - whistles
     - whistleblowing
     - whistled # Frontier
+    - assobia # Andromeda
+    - assovia # Andromeda
+    - assobio # Andromeda
+    - assovio # Andromeda
+    - assobiada # Andromeda
+    - assoviada # Andromeda
 
 - type: emote
   id: Crying
@@ -127,6 +161,13 @@
     - sobbing
     - sobbed # Frontier
     - cried # Frontier
+    - chora # Andromeda
+    - chorar # Andromeda
+    - chorando # Andromeda
+    - dá uma chorada # Andromeda
+    - dá uma chorada # Andromeda
+    - lamenta # Andromeda
+    - lamentando # Andromeda
 
 - type: emote
   id: Squish
@@ -146,6 +187,9 @@
     - squishing
     - squishes
     - squished # Frontier
+    - espreme # Andromeda
+    - espremer # Andromeda
+    - espremida # Andromeda
 
 - type: emote
   id: Chitter
@@ -165,6 +209,12 @@
    - chitters
    - chittered
    - chittering # Frontier
+   - chirria # Andromeda
+   - chirriada # Andromeda
+   - chirriar # Andromeda
+   - estala # Andromeda
+   - estalada # Andromeda
+   - estalar # Andromeda
 
 - type: emote
   id: Squeak
@@ -184,6 +234,10 @@
    - squeaks
    - squeaked
    - squeaking # Frontier
+   - chia # Andromeda
+   - chiar # Andromeda
+   - da uma chiada # Andromeda
+   - dá uma chiada # Andromeda
 
 - type: emote
   id: Click
@@ -203,6 +257,12 @@
    - clicks
    - clicked # Frontier
    - clicking # Frontier
+   - clica # Andromeda
+   - clicar # Andromeda
+   - clicada # Andromeda
+   - clique # Andromeda
+   - da uma clicada # Andromeda
+   - dá uma clicada # Andromeda
 
 # hand emotes
 - type: emote
@@ -221,6 +281,9 @@
     - claps
     - clapping
     - clapped
+    - palmas # Andromeda
+    - bate palma # Andromeda
+    - bate palmas # Andromeda
 
 - type: emote
   id: ClapSingle
@@ -240,6 +303,10 @@
     - claps her hands together
     - claps his hands together
     - claps its hands together
+    - junta suas maos # Andromeda
+    - junta suas mãos # Andromeda
+    - bate suas maos juntas # Andromeda
+    - bate suas mãos juntas # Andromeda
 
 - type: emote
   id: Snap
@@ -266,6 +333,8 @@
     - snaps its fingers
     - snapping fingers
     - snapped fingers
+    - estalo # Andromeda
+    - estala os dedos # Andromeda
 
 - type: emote
   id: Thump
@@ -291,6 +360,10 @@
     - thumps her tail
     - thumps his tail
     - thumps its tail
+    - bate a cauda # Andromeda
+    - bate a cauda dele # Andromeda
+    - bate a cauda dela # Andromeda
+    - bate sua cauda # Andromeda
 
 - type: emote
   id: Salute
@@ -309,6 +382,12 @@
     - salutes
     - saluted # Frontier
     - saluting # Frontier
+    - continencia # Andromeda
+    - continência # Andromeda
+    - bate continencia # Andromeda
+    - bate continência # Andromeda
+    - faz continencia # Andromeda
+    - faz continência # Andromeda
 
 - type: emote
   id: Gasp
@@ -322,6 +401,9 @@
    - gasps
    - gasped
    - gasping # Frontier
+   - ofega # Andromeda
+   - suspira ofegantemente # Andromeda
+   - suspira em surpresa # Andromeda
 
 - type: emote
   id: DefaultDeathgasp
@@ -337,12 +419,31 @@
   chatMessages: ["chat-emote-msg-deathgasp"]
   chatTriggers: # Mono - D-V ready for some more 1984 - Readds deathgasp
     - deathgasp
+    - ultimo suspiro # Andromeda
+    - último suspiro # Andromeda
+    - da seu ultimo suspiro # Andromeda
+    - dá seu ultimo suspiro # Andromeda
+    - da seu último suspiro # Andromeda
+    - dá seu último suspiro # Andromeda
 
 - type: emote
   id: MonkeyDeathgasp
   name: chat-emote-name-deathgasp
   icon: Interface/Emotes/deathgasp.png
   chatMessages: ["chat-emote-msg-deathgasp-monkey"]
+  chatTriggers:
+    - ultimo suspiro # Andromeda
+    - último suspiro # Andromeda
+    - da seu ultimo suspiro # Andromeda
+    - dá seu ultimo suspiro # Andromeda
+    - da seu último suspiro # Andromeda
+    - dá seu último suspiro # Andromeda
+    - ultima macacada # Andromeda
+    - última macacada # Andromeda
+    - da sua ultima macacada # Andromeda
+    - dá sua ultima macacada # Andromeda
+    - da sua última macacada # Andromeda
+    - dá sua última macacada # Andromeda
 
 - type: emote
   id: Buzz
@@ -359,6 +460,9 @@
     - buzz
     - buzzed
     - buzzes
+    - faz um buzz # Andromeda
+    - solta um buzz # Andromeda
+    - emite um buzz # Andromeda
 
 - type: emote
   id: Weh
@@ -396,6 +500,13 @@
     - chirps
     - chirped
     - chirping
+    - cri # Andromeda
+    - cricri # Andromeda
+    - cricrila # Andromeda
+    - cricrilar # Andromeda
+    - cricrilo # Andromeda
+    - chilreia # Andromeda
+    - chilreio # Andromeda
 
 # Machine Emotes
 - type: emote
@@ -413,6 +524,11 @@
     - beeps
     - beeped
     - beeping
+    - bipe # Andromeda
+    - bipa # Andromeda
+    - faz um bipe # Andromeda
+    - emite um bipe # Andromeda
+    - solta um bipe # Andromeda
 
 - type: emote
   id: Chime
@@ -429,6 +545,9 @@
     - chimes
     - chimed
     - chiming
+    - apita # Andromeda
+    - apito # Andromeda
+    - emite um apito # Andromeda
 
 - type: emote
   id: Buzz-Two
@@ -452,6 +571,10 @@
     - buzzing twice
     - buzzed twice
     - buzzedtwice # Frontier
+    - emite dois buzz # Andromeda
+    - emite dois buzzes # Andromeda
+    - faz dois buzz # Andromeda
+    - faz dois buzzes # Andromeda
 
 - type: emote
   id: Ping
@@ -468,3 +591,5 @@
     - pings
     - pinged
     - pinging
+    - faz um ping # Andromeda
+    - emite um ping # Andromeda

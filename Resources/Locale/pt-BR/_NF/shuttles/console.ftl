@@ -4,7 +4,7 @@ shuttle-console-maximum-iff-distance = Distância Máxima IFF
 shuttle-console-maximum-speed = Velocidade Máxima da Nave
 
 shuttle-console-iff-search = Buscar IFF
-shuttle-console-inertia-dampener-off = Cruzar
+shuttle-console-inertia-dampener-off = Navegar
 shuttle-console-inertia-dampener-dampen = Dirigir
 shuttle-console-inertia-dampener-anchor = Estacionar
 

@@ -13026,7 +13026,7 @@ ent-ShelfRMetal = prateleira de metal resistente
     .desc = Um lugar forte e brilhante para manter todos os seus frascos seguros.
 
 ent-ShelfRWood = prateleira de madeira resistente
-    .desc = Um lugar seguro para colocar sua garrafa favorita de uísque.
+    .desc = Um lugar seguro para colocar sua garrafa favorita de whiskey.
 
 ent-ShelfWood = prateleira de madeira
     .desc = Um lugar conveniente para colocar, bem, qualquer coisa mesmo.
@@ -15797,7 +15797,7 @@ ent-DrinkBubbleTeaGlass = copo de bubble tea
     .desc = Canudo grande não incluído.
 
 ent-DrinkCircusJuiceGlass = copo de suco de circo
-    .desc = Mamãe Palhaço estaria orgulhosa.
+    .desc = Mamãe Honk estaria orgulhosa.
 
 ent-DrinkClownBloodGlass = copo de sangue de palhaço
     .desc = Bebida favorita dos Oficiais de Segurança após um longo dia.
@@ -23922,7 +23922,7 @@ ent-DrinkWaterMelonJuiceJug = jarra de suco de melancia
     .desc = Pode incluir sementes restantes.
 
 ent-DrinkWhiskeyBottleFull = Reserva Especial do Tio Git
-    .desc = Um uísque premium malte único, gentilmente maturado dentro dos túneis de um abrigo nuclear. TÚNEL DE WHISKEY MANDA.
+    .desc = Um whiskey premium malte único, gentilmente maturado dentro dos túneis de um abrigo nuclear. TÚNEL DE WHISKEY MANDA.
 
 ent-DrinkWineBottleFull = garrafa de vinho Especial Barbado Duplo
     .desc = Uma aura fraca de inquietação e dor de bunda cerca a garrafa.

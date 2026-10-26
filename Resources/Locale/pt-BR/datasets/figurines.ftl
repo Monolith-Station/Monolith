@@ -46,7 +46,7 @@ figurines-warden-3 = Nós tratamos todos com justiça e NÃO maltratamos nossos 
 figurines-warden-4 = O brig é minha casa. Minha casa é o brig. Meu brig é casa. Para, o quê?
 
 figurines-detective-1 = O mordomo fez isso.
-figurines-detective-2 = Eu preciso de uísque depois disso.
+figurines-detective-2 = Eu preciso de whiskey depois disso.
 
 figurines-security-1 = Eu sou a lei!
 figurines-security-2 = Você violou o artigo 1984.

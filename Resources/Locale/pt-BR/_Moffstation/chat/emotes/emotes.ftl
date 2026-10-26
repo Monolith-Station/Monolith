@@ -5,5 +5,5 @@ chat-emote-name-resomichirp = Chilro
 
 chat-emote-msg-scree = grita
 chat-emote-msg-call = chama
-chat-emote-msg-squawk = grasneia
+chat-emote-msg-squawk = grasna
 chat-emote-msg-resomichirp = chilreia

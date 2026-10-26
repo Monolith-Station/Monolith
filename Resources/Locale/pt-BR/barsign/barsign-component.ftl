@@ -14,23 +14,23 @@ barsign-prototype-description-singulo = Onde as pessoas vão que preferem não s
 
 ## The Drunk Carp
 barsign-prototype-name-drunk-carp = A Carpa Bêbada
-barsign-prototype-description-drunk-carp =Don't beber e nadar.
+barsign-prototype-description-drunk-carp = Não beba e nade.
 
 ## Officer Beersky
 barsign-prototype-name-officer-beersky = Do Oficial Beersky
-barsign-prototype-description-officer-beersky = Cara, come um pau, essas bebidas são ótimas.
+barsign-prototype-description-officer-beersky = Caralho, essas bebidas são ótimas.
 
 ## The Outer Spess
 barsign-prototype-name-outer-spess = O Spess Externo
-barsign-prototype-description-outer-spess =isso Bar isn't actually located em externo espaço.
+barsign-prototype-description-outer-spess = Esse bar não tá realmente no espaço externo.
 
 ## The Coderbus
 barsign-prototype-name-coderbus = O Coderbus
-barsign-prototype-description-coderbus =um muito controversial Bar conhecido para dele largo variedade de constantemente-changing drinks.
+barsign-prototype-description-coderbus = Um bar muito controvérsio conhecido pela grande variedade de coquetéis que constantemente mudam.
 
 ## Robusta Cafe
 barsign-prototype-name-robusta-cafe = O Café Robusta
-barsign-prototype-description-robusta-cafe =Holder do 'maioria Lethal Barfights' registro 5 years uncontested.
+barsign-prototype-description-robusta-cafe = Campeão unânime do recorde de 'As Mais Letais Lutas de Bar' há 5 anos.
 
 ## Emergency Rum Party
 barsign-prototype-name-emergency-rum-party = A Festa de Rum de Emergência
@@ -38,15 +38,15 @@ barsign-prototype-description-emergency-rum-party = Recentemente relicenciado ap
 
 ## The Combo Cafe
 barsign-prototype-name-combo-cafe = O Café Combo
-barsign-prototype-description-combo-cafe =Renowned sistema-largo para deles utterly uncreative beber combinations.
+barsign-prototype-description-combo-cafe = Renomado no sistema inteiro pela incrivel falta de criatividade nas suas combinações de coquetéis.
 
 ## The Ale Nath
 barsign-prototype-name-ale-nath = O Ale' Nath
-barsign-prototype-description-ale-nath = Tudo bem, cara. Acho que você teve EI NATH. Hora de pegar um táxi.
+barsign-prototype-description-ale-nath = EI, NATH. Acho que você bebeu demais. Hora de pegar um táxi.
 
 ## The Net
 barsign-prototype-name-the-net = A Rede
-barsign-prototype-description-the-net =você apenas parecer para pegar pegou cima em isso para hours.
+barsign-prototype-description-the-net = Você sempre fica preso nela por horas.
 
 ## Maid Cafe
 barsign-prototype-name-maid-cafe = Café das Empregadas
@@ -62,23 +62,23 @@ barsign-prototype-description-the-sun = Ironicamente brilhante para um bar tão 
 
 ## The Birdcage
 barsign-prototype-name-the-birdcage = A Gaiola dos Pássaros
-barsign-prototype-description-the-birdcage =Caw caw!
+barsign-prototype-description-the-birdcage = Caw caw!
 
 ## Zocalo
 barsign-prototype-name-zocalo = Zócalo
-barsign-prototype-description-zocalo = Anteriormente localizado na Spessmérida.
+barsign-prototype-description-zocalo = Anteriormente ubicado en Spessmerica.
 
 ## LV426
 barsign-prototype-name-lv426 =LV-426
-barsign-prototype-description-lv426 =Drinking com chique facemasks é claramente mais importante do que going para medbay.
+barsign-prototype-description-lv426 = Beber com máscaras chiques é claramente mais importante do que ir para a medbay.
 
 ## The Wiggle Roomm
 barsign-prototype-name-wiggle-room = A Sala Balançante
-barsign-prototype-description-wiggle-room = MoMMIs têm ginga.
+barsign-prototype-description-wiggle-room = MoMMIs têm a ginga.
 
 ## The Lightbulb
 barsign-prototype-name-the-lightbulb = A Lâmpada
-barsign-prototype-description-the-lightbulb = Um café popular entre traças e moffs. Uma vez fechou por uma semana depois que a barmaid usou naftalina para proteger seus uniformes reserva.
+barsign-prototype-description-the-lightbulb = Um café popular entre mariposas e moffs. Uma vez fechou por uma semana depois que a barmaid usou naftalina para proteger seus uniformes reserva.
 
 ## The Loose Goose
 barsign-prototype-name-goose = O Ganso Solto
@@ -90,22 +90,22 @@ barsign-prototype-description-enginechange = Ainda esperando.
 
 ## 4 The Emprah
 barsign-prototype-name-emprah = 4 O Imperador
-barsign-prototype-description-emprah =Enjoyed por fanatics, heretics, e Cérebro-damaged patrons alike.
+barsign-prototype-description-emprah = Apreciado igualmente por fanáticos, heréges e patrões com dano cerebral.
 
 ## Spacebucks
-barsign-prototype-name-spacebucks = EspacioBucks
-barsign-prototype-description-spacebucks =você pode't pegar embora de eles, mesmo em espaço, e mesmo depois de we started calling eles 'credits' em vez de.
+barsign-prototype-name-spacebucks = Spacebucks
+barsign-prototype-description-spacebucks = Você não consegue se afastar deles, até mesmo no espaço, e até mesmo depois que a gente começo a chamar eles de "créditos".
 
 ## Maltroach
-barsign-prototype-name-maltroach = BarataCerveja
-barsign-prototype-description-maltroach =Squeak!
+barsign-prototype-name-maltroach = Barata Maltada
+barsign-prototype-description-maltroach = Squeak!
 
 ## Whiskey Echoes
-barsign-prototype-name-whiskeyechoes = Ecos de Uísque
-barsign-prototype-description-whiskeyechoes =um elite Bar para elite oper-esperar, isso é um TSF região. por que's isso sinal no banco de dados?
+barsign-prototype-name-whiskeyechoes = Ecos de Whiskey
+barsign-prototype-description-whiskeyechoes = Um bar de elite para operad-pera, isso é uma região da TSF. Por que que essa placa tá no banco de dados?
 
 ## EmpBarSign
 barsign-prototype-description-empbarsign = Algo deu muito errado.
 
 ## SignOff
-barsign-prototype-description-sign-off =isso sinal doesn't parecer para ser em.
+barsign-prototype-description-sign-off = Essa placa não parece estar ligado.

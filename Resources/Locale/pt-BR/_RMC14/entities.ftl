@@ -151,7 +151,7 @@ ent-CMSemioticLadder = placa semiótica de escada
     .desc = Placa semiótica indicando a presença próxima de uma escada.
 
 ent-CMSemioticLandingzone = placa semiótica de zona de pouso
-    .desc = Placa semiótica indicando a presena de uma zona de pouso nas proximidades.
+    .desc = Placa semiótica indicando a presença de uma zona de pouso nas proximidades.
 
 ent-CMSemioticLaser = placa semiótica de laser
     .desc = Placa semiótica indicando a presença próxima de lasers. Geralmente não tão legal quanto parece.
@@ -160,7 +160,7 @@ ent-CMSemioticLife_support = placa semiótica de sistema de suporte de vida
     .desc = Placa semiótica indicando a presença próxima de um sistema de suporte de vida.
 
 ent-CMSemioticLuggageclaim = placa semiótica de bagagem
-    .desc = Placa semiótica indicando a presena de uma área de bagagem nas proximidades.
+    .desc = Placa semiótica indicando a presença de uma área de bagagem nas proximidades.
 
 ent-CMSemioticMaint = placa semiótica de manutenção
     .desc = Placa semiótica indicando a presença próxima de acesso de manutenção.

@@ -16,6 +16,10 @@
     - honks
     - honking
     - honked
+    - buzina # Andromeda
+    - buzinada # Andromeda
+    - da uma buzinada # Andromeda
+    - dá uma buzinada # Andromeda
 
 - type: emote
   id: HarpyRing
@@ -35,6 +39,9 @@
     - ringing
     - ringed
     - rang
+    - toca # Andromeda
+    - tocar # Andromeda
+    - está tocando # Andromeda
 
 - type: emote
   id: HarpyPew
@@ -124,6 +131,8 @@
     - caws
     - cawing
     - cawed
+    - corveja # Andromeda
+    - corvejar # Andromeda
 
 #Vulpkanin
 - type: emote
@@ -143,6 +152,9 @@
     - barks
     - barked
     - barking
+    - late # Andromeda
+    - latido # Andromeda
+    - latir # Andromeda
 
 - type: emote
   id: Snarl
@@ -161,6 +173,8 @@
     - snarls
     - snarled
     - snarling
+    - rosna # Andromeda
+    - rosnando # Andromeda
 
 - type: emote
   id: Whimper # Starlight / Monolith: Renamed to whimper
@@ -179,6 +193,11 @@
     - whimpers
     - whimpered
     - whimpering
+    - whine # Andromeda
+    - whines # Andromeda
+    - whined # Andromeda
+    - whining # Andromeda
+    - choraminga # Andromeda
 
 - type: emote
   id: Howl
@@ -197,24 +216,33 @@
     - howls
     - howling
     - howled
+    - awoo # Andromeda
+    - awoos # Andromeda
+    - awooing # Andromeda
+    - awooed # Andromeda
+    - uiva # Andromeda
+    - uivado # Andromeda
+    - uivando # Andromeda
 
-- type: emote
-  id: Awoo
-  name: delta-chat-emote-name-awoo
-  category: Vocal
-  available: false
-  whitelist:
-    components:
-    - Vocal
-  blacklist:
-    components:
-    - BorgChassis
-  chatMessages: [awoos.]
-  chatTriggers:
-    - awoo
-    - awoos
-    - awooing
-    - awooed
+# Andromeda start: Comenta awoo fora (awoo e howl são literalmente a mesma coisa)
+# - type: emote
+#   id: Awoo
+#   name: delta-chat-emote-name-awoo
+#   category: Vocal
+#   available: false
+#   whitelist:
+#     components:
+#     - Vocal
+#   blacklist:
+#     components:
+#     - BorgChassis
+#   chatMessages: [awoos.]
+#   chatTriggers:
+#     - awoo
+#     - awoos
+#     - awooing
+#     - awooed
+# Andromeda end
 
 # Feroxi
 - type: emote
@@ -250,3 +278,8 @@
     - gnashed her teeth
     - gnashed his teeth
     - gnashed its teeth
+    - morde # Andromeda
+    - mordida # Andromeda
+    - mordendo # Andromeda
+    - da uma mordida # Andromeda
+    - dá uma mordida # Andromeda

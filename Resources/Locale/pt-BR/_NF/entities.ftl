@@ -8383,7 +8383,7 @@ ent-ChemicalBarrelWater = {ent-BaseBarrel}
 
 ent-ChemicalBarrelWhiskey = {ent-BaseBarrel}
     .desc = {ent-BaseBarrel.desc}
-    .suffix = Uísque
+    .suffix = Whiskey
 
 ent-ChemicalBarrelWine = {ent-BaseBarrel}
     .desc = {ent-BaseBarrel.desc}
@@ -11082,7 +11082,7 @@ ent-DrinkPremiumTequilaBottleFull = garrafa de tequila Casa del Eorg
 ent-DrinkPremiumVodkaBottleFull = garrafa de vodca Momento de Clareza
     .desc = Quando as coisas ficam um pouco agitadas, tudo que você precisa é um Momento de Clareza.
 
-ent-DrinkPremiumWhiskeyBottleFull = garrafa de uísque Velho Prowler 18
+ent-DrinkPremiumWhiskeyBottleFull = garrafa de whiskey Velho Prowler 18
     .desc = Surpreendentemente suave, tem o hábito perigoso de pegar você de surpresa.
 
 ent-NecrosolChemistryBottle = {ent-BaseChemistryEmptyBottle}

@@ -10,7 +10,7 @@ delta-chat-emote-name-bark = Bark
 delta-chat-emote-name-snarl = Snarl
 delta-chat-emote-name-whine = Whimper
 delta-chat-emote-name-howl = Howl
-delta-chat-emote-name-awoo = Awoo
+# delta-chat-emote-name-awoo = Awoo # Andromeda
 
 chat-speech-verb-name-feroxi = Feroxi
 chat-speech-verb-feroxi-1 = blubs
@@ -18,3 +18,12 @@ chat-speech-verb-feroxi-2 = swishes
 chat-speech-verb-feroxi-3 = gnashes
 chat-speech-verb-feroxi-4 = growls
 chat-emote-name-gnash = Gnash
+
+# Andromeda - Localization for non-localized emotes.
+chat-emote-msg-ring = rings.
+chat-emote-msg-caw = caws.
+chat-emote-msg-bark = barks.
+chat-emote-msg-snarl = snarls.
+chat-emote-msg-whine = whines.
+chat-emote-msg-howl = howls.
+chat-emote-msg-gnash = gnashes.

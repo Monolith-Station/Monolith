@@ -393,25 +393,25 @@ ent-ClothingBackpackDrakeIndustries = mochila da Drake Industries
 
 # From: _Mono/Entities/Clothing/Back/duffel.yml
 
-ent-ClothingBackpackDuffelDrakeIndustries = bagagem da Drake Industries
+ent-ClothingBackpackDuffelDrakeIndustries = bolsa de viagem da Drake Industries
     .desc = Um saco pesado. Alguns esforços foram feitos para torná-lo mais leve, sem sucesso. Tem as cores da Drake Industries.
 
-ent-ClothingBackpackDuffelTacticalDuffelBlack = bagagem tática preta
+ent-ClothingBackpackDuffelTacticalDuffelBlack = bolsa de viagem tática preta
     .desc = Um saco pesado. Alguns esforços foram feitos para torná-lo mais leve, sem sucesso.
 
-ent-ClothingBackpackDuffelTacticalDuffelCoyoteBrown = bagagem tática coyote brown
+ent-ClothingBackpackDuffelTacticalDuffelCoyoteBrown = bolsa de viagem tática coyote brown
     .desc = Um saco pesado. Alguns esforços foram feitos para torná-lo mais leve, sem sucesso.
 
-ent-ClothingBackpackDuffelTacticalDuffelOlive = bagagem tática olive
+ent-ClothingBackpackDuffelTacticalDuffelOlive = bolsa de viagem tática olive
     .desc = Um saco pesado. Alguns esforços foram feitos para torná-lo mais leve, sem sucesso.
 
-ent-ClothingBackpackDuffelTacticalDuffelRangerGreen = bagagem tática ranger green
+ent-ClothingBackpackDuffelTacticalDuffelRangerGreen = bolsa de viagem tática ranger green
     .desc = Um saco pesado. Alguns esforços foram feitos para torná-lo mais leve, sem sucesso.
 
-ent-ClothingBackpackDuffelTacticalDuffelTan = bagagem tática tan
+ent-ClothingBackpackDuffelTacticalDuffelTan = bolsa de viagem tática tan
     .desc = Um saco pesado. Alguns esforços foram feitos para torná-lo mais leve, sem sucesso.
 
-ent-ClothingBackpackDuffelTacticalDuffelWhite = bagagem tática branca
+ent-ClothingBackpackDuffelTacticalDuffelWhite = bolsa de viagem tática branca
     .desc = Um saco pesado. Alguns esforços foram feitos para torná-lo mais leve, sem sucesso.
 
 # From: _Mono/Entities/Clothing/Back/modsuit.yml
@@ -438,13 +438,13 @@ ent-ClothingBackpackSatchelDrakeIndustries = alforge da Drake Industries
 
 # From: _Mono/Entities/Clothing/Back/specific.yml
 
-ent-ClothingBackpackDuffelPDV = bagagem tática de vanguarda
-    .desc = Uma bagagem tática desenvolvida para as tropas dinasta de Hélio.
+ent-ClothingBackpackDuffelPDV = bolsa de viagem tática de vanguarda
+    .desc = Uma bolsa de viagem tática desenvolvida para as tropas dinasta de Hélio.
 
-ent-ClothingBackpackDuffelTsfmc = bagagem TSFMC
+ent-ClothingBackpackDuffelTsfmc = bolsa de viagem TSFMC
     .desc = Parte de um sistema padrão de suporte de carga de fuzileiros.
 
-ent-ClothingBackpackDuffelUSSP = bagagem USSP
+ent-ClothingBackpackDuffelUSSP = bolsa de viagem USSP
     .desc = Evidentemente reaproveitada de algum uso industrial.
 
 ent-ClothingBackpackJack = armazenamento de munição GS-004-B Hammer

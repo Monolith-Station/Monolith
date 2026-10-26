@@ -109,7 +109,7 @@ ent-ChronoPortal = Portal Táquion
 
 # From: _Goobstation/Entities/Clothing/Back/modsuit.yml
 
-ent-ClothingModsuitAtmostech = Unidade de Controle de Traje MOD Aeolus de Técnico Atmosférico
+ent-ClothingModsuitAtmostech = Unidade de Controle de Traje MOD Aeolus
     .desc = Uma unidade modular de controle de traje rígido para suportar os maiores perigos do trabalho.
 
 ent-ClothingModsuitAtmostechPowerCell = {ent-ClothingModsuitAtmostech}

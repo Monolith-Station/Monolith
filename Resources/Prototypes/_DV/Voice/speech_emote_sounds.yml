@@ -66,8 +66,8 @@
       collection: VulpkaninWhines  # Starlight / Monolith - yip & whine ]
     Howl:
       collection: VulpkaninHowls
-    Awoo:
-      collection: VulpkaninHowls
+    # Awoo: # Andromeda - awoo = howls
+    #   collection: VulpkaninHowls
     #    Honk:
     #      collection: BikeHorn
     Weh:
@@ -124,8 +124,8 @@
       collection: VulpkaninWhimpers # Starlight / Monolith: Rename to whimper
     Howl:
       collection: VulpkaninMaleHowl #Monolith
-    Awoo:
-      collection: VulpkaninMaleHowl #Monolith
+    # Awoo: # Andromeda - awoo = howls
+    #   collection: VulpkaninMaleHowl #Monolith
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
@@ -176,8 +176,8 @@
       collection: VulpkaninWhimpers # Starlight / Monolith: Rename to whimper
     Howl:
       collection: VulpkaninFemaleHowl #Monolith
-    Awoo:
-      collection: VulpkaninFemaleHowl #Monolith
+    # Awoo: # Andromeda - awoo = howls
+    #   collection: VulpkaninFemaleHowl #Monolith
     Gasp:
       collection: FemaleGasp
     DefaultDeathgasp:
@@ -206,8 +206,8 @@
       collection: VulpkaninWhines  # Starlight / Monolith - yip & whine ]
     Howl:
       collection: VulpkaninHowls
-    Awoo:
-      collection: VulpkaninHowls
+    # Awoo: # Andromeda - awoo = howls
+    #   collection: VulpkaninHowls
 
 - type: emoteSounds
   id: MaleRodentia

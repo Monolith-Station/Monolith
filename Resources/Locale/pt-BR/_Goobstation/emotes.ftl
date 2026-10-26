@@ -9,12 +9,12 @@ chat-emote-msg-flip = dá um mortal!
 chat-emote-name-trill = Trilar
 chat-emote-name-warble = Trinar
 chat-emote-name-wurble = Gorgolejar
-chat-emote-name-mars = Marte
-chat-emote-name-bagawk = Grasnar
+chat-emote-name-mars = Mars
+chat-emote-name-bagawk = Cocoriar
 
 # Message
 chat-emote-msg-trill = trila!
 chat-emote-msg-warble = trina!
 chat-emote-msg-wurble = gorgoleja!
-chat-emote-msg-mars = marcha.
-chat-emote-msg-bagawk = grasna!
+chat-emote-msg-mars = mars.
+chat-emote-msg-bagawk = cocoria!
