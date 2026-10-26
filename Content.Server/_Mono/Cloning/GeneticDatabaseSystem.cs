@@ -5,6 +5,7 @@ using Content.Shared._Mono.Cloning;
 using Content.Shared.Mind;
 using Robust.Server.Player;
 using Robust.Shared.Prototypes;
+using Content.Server._NF.CryoSleep;
 
 namespace Content.Server._Mono.Cloning;
 
@@ -14,6 +15,7 @@ public sealed partial class GeneticDatabaseSystem : EntitySystem
     [Dependency] private IPlayerManager _playerManager = default!;
     [Dependency] private IPrototypeManager _prototype = default!;
     [Dependency] private SharedMindSystem _mindSystem = default!;
+    [Dependency] private CryoSleepSystem _cryoSleep = default!;
 
     private readonly HashSet<Entity<GeneticDatabaseComponent>> _found = new();
 
@@ -103,6 +105,9 @@ public sealed partial class GeneticDatabaseSystem : EntitySystem
     {
         if (!TryComp<MindComponent>(record.Mind, out var mind))
             return GeneticRecordStatus.Lost;
+
+        if ((mind.UserId ?? mind.OriginalOwnerUserId) is { } user && _cryoSleep.HasCryosleepingBody(user))
+            return GeneticRecordStatus.MovedOn;
 
         if (mind.UserId == null)
         {
