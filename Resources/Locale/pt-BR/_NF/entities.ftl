@@ -7648,7 +7648,7 @@ ent-BlueprintLithograph = litógrafo de diagramas
 ent-EngineeringTechFab = techfab de engenharia
     .desc = Imprime equipamentos para engenheiros.
 
-ent-EngineeringTechFabBolted = {ent-EngineeringTechfab}
+ent-EngineeringTechFabBolted = techfab de engenharia
     .desc = Imprime equipamentos para engenheiros. Possúi pesquisa adicional.
     .suffix = Rebitado
 
@@ -7667,7 +7667,7 @@ ent-PrizeCounter = balcão de prêmios
 ent-SalvageTechfabNF = techfab de salvagem
     .desc = Imprime equipamentos para salvagistas.
 
-ent-SalvageTechfabNFBolted = {ent-SalvageTechfabNF}
+ent-SalvageTechfabNFBolted = techfab de salvagem
     .desc = Imprime equipamentos para salvagistas. Possúi pesquisa adicional.
     .suffix = Rebitado
 
