@@ -1,6 +1,6 @@
 using System.Text.RegularExpressions;
 
-namespace Content.Server._Andromeda.Chat.Managers;
+namespace Content.Server.Chat.Managers;
 
 public sealed partial class ChatSanitizationManager
 {
@@ -18,7 +18,7 @@ public sealed partial class ChatSanitizationManager
     {
         // no need for shorthand escaping
         var pattern = new Regex(
-            $@"^[{characters}]{{{minCharacters},}}+\b",
+            $@"^[{characters}]{{{minCharacters},}}\b",
             RegexOptions.RightToLeft | RegexOptions.IgnoreCase | RegexOptions.Compiled);
 
         return (pattern, emoteKey);
