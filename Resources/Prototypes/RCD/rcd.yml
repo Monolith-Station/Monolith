@@ -40,7 +40,7 @@
   mode: ConstructTile
   prototype: FloorSteel
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -53,7 +53,7 @@
   mode: ConstructObject
   prototype: Catwalk
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - MustBuildOnSubfloor
@@ -70,7 +70,7 @@
   mode: ConstructTile
   prototype: Lattice
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -84,7 +84,7 @@
   mode: ConstructTile
   prototype: LatticeCornerNE
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -98,7 +98,7 @@
   mode: ConstructTile
   prototype: LatticeCornerNW
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -112,7 +112,7 @@
   mode: ConstructTile
   prototype: LatticeCornerSE
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -126,7 +126,7 @@
   mode: ConstructTile
   prototype: LatticeCornerSW
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -140,7 +140,7 @@
   mode: ConstructTile
   prototype: LatticeHalfV
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -154,7 +154,7 @@
   mode: ConstructTile
   prototype: LatticeHalfH
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -168,7 +168,7 @@
   mode: ConstructTile
   prototype: LatticeWedgeN
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -182,7 +182,7 @@
   mode: ConstructTile
   prototype: LatticeWedgeE
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -196,7 +196,7 @@
   mode: ConstructTile
   prototype: LatticeWedgeS
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -210,7 +210,7 @@
   mode: ConstructTile
   prototype: LatticeWedgeW
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -224,7 +224,7 @@
   mode: ConstructTile
   prototype: LatticeHalfTiltNESLower
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -238,7 +238,7 @@
   mode: ConstructTile
   prototype: LatticeHalfTiltSEWLower
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -252,7 +252,7 @@
   mode: ConstructTile
   prototype: LatticeHalfTiltSWNLower
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -266,7 +266,7 @@
   mode: ConstructTile
   prototype: LatticeHalfTiltNWELower
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -280,7 +280,7 @@
   mode: ConstructTile
   prototype: LatticeHalfTiltNESUpper
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -294,7 +294,7 @@
   mode: ConstructTile
   prototype: LatticeHalfTiltSEWUpper
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -308,7 +308,7 @@
   mode: ConstructTile
   prototype: LatticeHalfTiltSWNUpper
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -322,7 +322,7 @@
   mode: ConstructTile
   prototype: LatticeHalfTiltNWEUpper
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -336,7 +336,7 @@
   mode: ConstructTile
   prototype: LatticeHalfTiltNEWLower
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -350,7 +350,7 @@
   mode: ConstructTile
   prototype: LatticeHalfTiltSENLower
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -364,7 +364,7 @@
   mode: ConstructTile
   prototype: LatticeHalfTiltSWELower
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -378,7 +378,7 @@
   mode: ConstructTile
   prototype: LatticeHalfTiltNWSLower
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -392,7 +392,7 @@
   mode: ConstructTile
   prototype: LatticeHalfTiltNEWUpper
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -406,7 +406,7 @@
   mode: ConstructTile
   prototype: LatticeHalfTiltSENUpper
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -420,7 +420,7 @@
   mode: ConstructTile
   prototype: LatticeHalfTiltSWEUpper
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -434,7 +434,7 @@
   mode: ConstructTile
   prototype: LatticeHalfTiltNWSUpper
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -449,7 +449,7 @@
   mode: ConstructTile
   prototype: Plating
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -463,7 +463,7 @@
   mode: ConstructTile
   prototype: PlatingCornerNE
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -477,7 +477,7 @@
   mode: ConstructTile
   prototype: PlatingCornerNW
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -491,7 +491,7 @@
   mode: ConstructTile
   prototype: PlatingCornerSE
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -505,7 +505,7 @@
   mode: ConstructTile
   prototype: PlatingCornerSW
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -519,7 +519,7 @@
   mode: ConstructTile
   prototype: PlatingHalfV
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -533,7 +533,7 @@
   mode: ConstructTile
   prototype: PlatingHalfH
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -547,7 +547,7 @@
   mode: ConstructTile
   prototype: PlatingWedgeN
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -561,7 +561,7 @@
   mode: ConstructTile
   prototype: PlatingWedgeE
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -575,7 +575,7 @@
   mode: ConstructTile
   prototype: PlatingWedgeS
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -589,7 +589,7 @@
   mode: ConstructTile
   prototype: PlatingWedgeW
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -603,7 +603,7 @@
   mode: ConstructTile
   prototype: PlatingHalfTiltNESLower
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -617,7 +617,7 @@
   mode: ConstructTile
   prototype: PlatingHalfTiltSEWLower
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -631,7 +631,7 @@
   mode: ConstructTile
   prototype: PlatingHalfTiltSWNLower
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -645,7 +645,7 @@
   mode: ConstructTile
   prototype: PlatingHalfTiltNWELower
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -659,7 +659,7 @@
   mode: ConstructTile
   prototype: PlatingHalfTiltNESUpper
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -673,7 +673,7 @@
   mode: ConstructTile
   prototype: PlatingHalfTiltSEWUpper
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -687,7 +687,7 @@
   mode: ConstructTile
   prototype: PlatingHalfTiltSWNUpper
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -701,7 +701,7 @@
   mode: ConstructTile
   prototype: PlatingHalfTiltNWEUpper
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -715,7 +715,7 @@
   mode: ConstructTile
   prototype: PlatingHalfTiltNEWLower
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -729,7 +729,7 @@
   mode: ConstructTile
   prototype: PlatingHalfTiltSENLower
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -743,7 +743,7 @@
   mode: ConstructTile
   prototype: PlatingHalfTiltSWELower
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -757,7 +757,7 @@
   mode: ConstructTile
   prototype: PlatingHalfTiltNWSLower
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -771,7 +771,7 @@
   mode: ConstructTile
   prototype: PlatingHalfTiltNEWUpper
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -785,7 +785,7 @@
   mode: ConstructTile
   prototype: PlatingHalfTiltSENUpper
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -799,7 +799,7 @@
   mode: ConstructTile
   prototype: PlatingHalfTiltSWEUpper
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
@@ -813,7 +813,7 @@
   mode: ConstructTile
   prototype: PlatingHalfTiltNWSUpper
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
