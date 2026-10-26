@@ -141,3 +141,7 @@
     species: IPC
   - type: Inventory
     templateId: ipc
+  # Andromeda start - port de implante e cartridge auto-inserido tá falhando teste por causa da porra do IPC eu juro por deus also eu n sei se esse é o jeito certo de consertar isso fodase
+  - type: EncryptionKeyHolder
+    keySlots: 8
+  # Andromeda end
