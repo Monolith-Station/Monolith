@@ -34,11 +34,8 @@
   - type: GunWieldBonus
     minAngle: -5
     maxAngle: -8
-  - type: BasicEntityAmmoProvider
+  - type: HeatAmmoProvider
     proto: BulletMAWCFlanker
-    capacity: 30
-    count: 30
-  - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 0.5
-    additionalRechargeCooldownPerBullet: 0.15
-    maximumRechargeCooldown: 4
+    maxHeat: 30
+    heatDissipation: 2
+    heatDissipationFactor: -0.875

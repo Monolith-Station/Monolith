@@ -32,12 +32,10 @@
     - SemiAuto
     soundGunshot:
       collection: MAWCLight
-  - type: BasicEntityAmmoProvider # define the actual bullet in your prototype.
+  - type: HeatAmmoProvider
     proto: BulletMAWCGame
-    capacity: 16
-    count: 16
-  - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 0.75
+    maxHeat: 16
+    heatDissipation: 1.333333
   - type: MeleeWeapon
     attackRate: 1.1
     damage:
@@ -82,9 +80,7 @@
     - SemiAuto
     soundGunshot:
       path: Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/gauss_cannon_fire_01.ogg
-  - type: BasicEntityAmmoProvider
+  - type: HeatAmmoProvider
     proto: BulletMAWCHeartpiercer
-    capacity: 2
-    count: 2
-  - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 6
+    maxHeat: 2
+    heatDissipation: 0.166667

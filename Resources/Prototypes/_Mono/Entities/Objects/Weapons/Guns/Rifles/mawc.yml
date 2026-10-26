@@ -34,7 +34,5 @@
   - type: GunWieldBonus
     minAngle: -10
     maxAngle: -19
-  - type: BasicEntityAmmoProvider
+  - type: HeatAmmoProvider
     proto: BulletMAWCFulcrum
-    capacity: 20
-    count: 20

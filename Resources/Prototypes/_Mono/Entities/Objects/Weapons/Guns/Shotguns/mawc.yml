@@ -30,12 +30,10 @@
   - type: GunWieldBonus
     minAngle: -9
     maxAngle: -16
-  - type: BasicEntityAmmoProvider
+  - type: HeatAmmoProvider
     proto: PelletMAWCIntruderSpread
-    capacity: 12
-    count: 12
-  - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 1.5
+    maxHeat: 12
+    heatDissipation: 0.666667
   - type: HeldSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.85

@@ -29,12 +29,10 @@
   - type: GunWieldBonus
     minAngle: -24
     maxAngle: -38
-  - type: BasicEntityAmmoProvider
+  - type: HeatAmmoProvider
     proto: BulletMAWCStonehenge
-    count: 2
-    capacity: 2
-  - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 15
+    maxHeat: 2
+    heatDissipation: 0.066667
   - type: CursorOffsetRequiresWield
   - type: EyeCursorOffset
     maxOffset: 10

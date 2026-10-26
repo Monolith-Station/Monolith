@@ -3,12 +3,12 @@
   parent: BaseItem
   id: BaseWeaponMAWC
   components:
-  - type: BasicEntityAmmoProvider # define the actual bullet in your prototype.
-    capacity: 20
-    count: 20
-  - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 2
-    rechargeSound:
+  - type: HeatAmmoProvider
+    maxHeat: 20
+    heatPerShot: 1
+    heatDissipation: 0.5
+    maxHeatDamage: 10
+    ventSound:
       collection: MAWCReload
   - type: AmmoCounter
   - type: MeleeWeapon
