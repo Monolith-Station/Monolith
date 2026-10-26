@@ -91,7 +91,13 @@ public sealed partial class ChatSanitizationManager : IChatSanitizationManager
         Entry("[':", "chatsan-tearfully-smiles"),
         Entry("('=", "chatsan-tearfully-smiles"),
         Entry("['=", "chatsan-tearfully-smiles"),
-        (new(@"^[kopsarhud]+\b", RegexOptions.RightToLeft | RegexOptions.IgnoreCase | RegexOptions.Compiled), "chatsan-laughs"), // Andromeda: Chatsan para risadas brasileiras (kospaksoa, ushausauha, rsrsrs, kkkkk, kakaka)
+        // Andromeda start: Brazillian netspeak laughs
+        AnyCharacterEntry("ka", 2, "chatsan-laughs"),
+        AnyCharacterEntry("rs", 2, "chatsan-laughs"),
+        AnyCharacterEntry("huas", 5, "chatsan-laughs"),
+        AnyCharacterEntry("huasd", 7, "chatsan-laughs"),
+        AnyCharacterEntry("kopsa", 8, "chatsan-laughs"),
+        // Andromeda end
     ];
 
     [Dependency] private IConfigurationManager _configurationManager = default!;
@@ -164,4 +170,25 @@ public sealed partial class ChatSanitizationManager : IChatSanitizationManager
 
         return (pattern, emoteKey);
     }
+
+    // Andromeda start: Brasilian netspeak laughs
+    // TODO: Make this in a partial class most likely
+    /// <summary>
+    /// Builds a regex meant to be used for chatsan;
+    /// Catches words that consist of only the passed characters, as long as they're above the minimum characters number passed.
+    /// </summary>
+    /// <param name="characters">Characters to look for</param>
+    /// <param name="minCharacters">Minimum characters the word needs to have</param>
+    /// <param name="emoteKey">Emote key to return alongside built regex</param>
+    /// <returns>Tuple containing built regex and emote key</returns>
+    private static (Regex regex, string emoteKey) AnyCharacterEntry(string characters, int minCharacters, string emoteKey)
+    {
+        // no need for shorthand escaping
+        var pattern = new Regex(
+            $@"^[{characters}]{{{minCharacters},}}+\b",
+            RegexOptions.RightToLeft | RegexOptions.IgnoreCase | RegexOptions.Compiled);
+
+        return (pattern, emoteKey);
+    }
+    // Andromeda end
 }
