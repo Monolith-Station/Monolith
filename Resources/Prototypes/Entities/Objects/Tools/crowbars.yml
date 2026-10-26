@@ -201,3 +201,17 @@
       - state: equipped-BELT
       - state: cover-equipped-BELT
         color: "#968000"
+
+# Test Crowbar
+- type: entity
+  parent: BaseCrowbar
+  id: Swagbar
+  name: Swagbar
+  description: A swaggy ass crowbar bitch!
+  components:
+  - type: Sprite
+    state: icon
+  - type: Item
+    storedSprite:
+      sprite: _NF/Objects/Tools/crowbar.rsi # Frontier: _NF prefix
+      state: storage
