@@ -71,7 +71,7 @@
 - type: startingGear
   id: PDVDenasvarGear
   equipment:
-    ears: ClothingHeadsetAltVanguardCommand
+    # ears: ClothingHeadsetAltVanguardCommand # Andromeda - Move headsets de startingGear para loadout (para auto-inserção de chave)
     #belt: ClothingBeltUtility
     pocket1: BasePirateUplinkPirateCrew
     #pocket2: AppraisalTool

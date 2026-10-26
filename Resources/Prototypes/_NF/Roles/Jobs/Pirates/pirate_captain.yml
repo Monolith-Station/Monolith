@@ -61,7 +61,7 @@
 - type: startingGear
   id: PirateCaptainNFGear
   equipment:
-    ears: ClothingHeadsetAltVanguardCommand
+    # ears: ClothingHeadsetAltVanguardCommand # Andromeda - Move headsets de startingGear para loadout (para auto-inserção de chave)
     #belt: ClothingBeltUtility # mono
     pocket1: BasePirateUplinkRadioPirateCaptain
     pocket2: EnergySword

@@ -61,7 +61,7 @@
 - type: startingGear
   id: PDVInfiltratorGear
   equipment:
-    ears: ClothingHeadsetAltFreelancer
+    # ears: ClothingHeadsetAltFreelancer # Andromeda - Move headsets de startingGear para loadout (para auto-inserção de chave)
     #belt: ClothingBeltUtility
     pocket1: UndeterminedPDVInfiltratorKit
     pocket2: WeaponPistolHawk4

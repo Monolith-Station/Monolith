@@ -33,6 +33,15 @@
   - PilotFace
 
 - type: loadoutGroup
+  id: PDVEars
+  name: loadout-group-contractor-ears
+  hidden: true # No point in showing this, it gets auto-selected.
+  loadouts:
+  - PDVEarsPDVEars
+  fallbacks:
+  - PDVEarsPDVEars
+
+- type: loadoutGroup
   id: PirateShoes
   name: loadout-group-contractor-shoes
   loadouts:
@@ -110,6 +119,15 @@
   - PirateCaptainClothingWalletLeatherPirate
   fallbacks:
   - PirateCaptainClothingWalletLeatherPirate
+
+- type: loadoutGroup
+  id: PDVEarsCommand
+  name: loadout-group-contractor-ears
+  hidden: true # No point in showing this, it gets auto-selected.
+  loadouts:
+  - PDVEarsCommandPDVEarsCommand
+  fallbacks:
+  - PDVEarsCommandPDVEarsCommand
 
 - type: loadoutGroup
   id: PirateCaptainTrinkets
