@@ -6,3 +6,7 @@ reagent-dispenser-component-examine-auto-label-on = The auto-labeler is turned [
 reagent-dispenser-component-examine-auto-label-off = The auto-labeler is turned [color=red]off[/color].
 
 reagent-dispenser-component-examine-extra-slots = Number of jug slots
+
+# Verb menu
+
+reagent-dispenser-eject-verb-storage-slot = Storage Slot {$id}
