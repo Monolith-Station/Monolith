@@ -266,6 +266,17 @@ flavor-complex-themartinez = de violetas e vodca de limão
 flavor-complex-cogchamp = de latão
 flavor-complex-white-gilgamesh = de creme levemente carbonatado
 flavor-complex-antifreeze = morno
+flavor-complex-caipirinha = brasileiro
+flavor-complex-daiquiri = de rum, limão e açúcar
+flavor-complex-deathintheafternoon = de anis com champanhe
+flavor-complex-empress75 = púrpura real
+flavor-complex-espressomartini = de vodka com café
+flavor-complex-mayojito = de dor de barriga
+flavor-complex-mimeosa = de silêncio com laranjas
+flavor-complex-mimosa = de um brunch cedo
+flavor-complex-moscowmule = de vodka com ginger ale
+flavor-complex-thesunalsorises = de um daiquiri com absinto
+flavor-complex-whiskeysour = de whiskey com ovo
 flavor-complex-zombiecocktail = de comer cérebros
 flavor-complex-absinthe = de anis
 flavor-complex-blue-curacao = de flores de laranja
@@ -305,7 +316,7 @@ flavor-complex-vodka-tonic = amargosamente refrescante
 flavor-complex-coconut-rum = de açúcar fermentado com nozes
 
 ### "Isso é exatamente o gosto de pilk. Não estou brincando. Talvez eu estava um pouco bêbado no dia"
-### - relatods de um gringo
+### - relatos de um gringo
 flavor-complex-pilk = de leite doce
 
 # Sabores específicos de medicamentos/químicos.

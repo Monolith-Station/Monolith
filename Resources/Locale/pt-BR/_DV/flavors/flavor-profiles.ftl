@@ -22,6 +22,5 @@ flavor-complex-corncob = como uma piada de mau gosto
 flavor-complex-gunmetal = amargo e cremoso
 flavor-complex-lemondrop = refrescantemente azedo
 flavor-complex-greengrass = como um feriado no sol
-flavor-complex-daiquiri = na moda
 flavor-complex-arsonistsbrew = como cinzas e chamas
 flavor-complex-dulleavene = ominoso

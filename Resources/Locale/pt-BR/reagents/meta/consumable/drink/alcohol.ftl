@@ -49,7 +49,7 @@ reagent-desc-vermouth = Vinho branco aromatizado e fortificado saborizado com v�
 reagent-name-vodka = vódca
 reagent-desc-vodka = Bebida alcoólica destilada clara que se origina da Polônia e Rússia.
 
-reagent-name-whiskey = uísque
+reagent-name-whiskey = whiskey
 reagent-desc-whiskey = Um tipo de bebida alcoólica destilada feita de mosto de grãos fermentados.
 
 reagent-name-wine = vinho
@@ -161,7 +161,7 @@ reagent-name-irish-slammer = slammer irlandês
 reagent-desc-irish-slammer = Uma mistura não convencional de creme irlandês e stout.
 
 reagent-name-irish-cream = creme irlandês
-reagent-desc-irish-cream = Creme imbuído de uísque. O que mais você poderia esperar dos irlandeses.
+reagent-desc-irish-cream = Creme imbuído de whiskey. O que mais você poderia esperar dos irlandeses.
 
 reagent-name-irish-coffee = café irlandês
 reagent-desc-irish-coffee = Café servido com creme irlandês. Creme comum simplesmente não é o mesmo!
@@ -256,10 +256,10 @@ reagent-desc-vodka-martini = Vódca ao invés de gin. Não é bem como 007 gosta
 reagent-name-vodka-tonic = vódca tônica
 reagent-desc-vodka-tonic = Pra quando uma gin tônica não é russa o suficiente.
 
-reagent-name-whiskey-cola = uísque cola
-reagent-desc-whiskey-cola = Uísque, misturado com cola. Surpreendentemente refrescante.
+reagent-name-whiskey-cola = whiskey cola
+reagent-desc-whiskey-cola = Whiskey, misturado com cola. Surpreendentemente refrescante.
 
-reagent-name-whiskey-soda = uísque soda
+reagent-name-whiskey-soda = whiskey soda
 reagent-desc-whiskey-soda = Para o grifo mais refinado.
 
 reagent-name-white-gilgamesh = Gilgamesh Branco
@@ -286,5 +286,38 @@ reagent-desc-watermelon-wakeup = Se você quer estar acordado, isso vai fazer...
 reagent-name-rubberneck = rubberneck
 reagent-desc-rubberneck = Uma bebida popular entre os que aderem uma dieta totalmente sintética.
 
+reagent-name-caipirinha = caipirinha
+reagent-desc-caipirinha = Um coquetel especial e único do Brasil Antigo.
+
+reagent-name-daiquiri = daiquiri
+reagent-desc-daiquiri = Um coquetel de rum clássico que continua popular mesmo no frio do espaço.
+
+reagent-name-death-in-the-afternoon = death in the afternoon
+reagent-desc-death-in-the-afternoon = "Bota um tanto de absinto dentro d'um copo de champanhe. Coloca champanhe gelado até ele atingir a opalescência leitosa ideal. Beba três a cinco desses devagar." - Ernest Hemingway
+
+reagent-name-empress-75 = empress 75
+reagent-desc-empress-75 = Uma mimosa mais refinada. Isso talvez seja justamente o que Maria Antonietta tomou um gole antes da revolução.
+
+reagent-name-espresso-martini = martini espresso
+reagent-desc-espresso-martini = Pra te acordar e pra te descansar. Bem geladinho e enfeitado com grãos de café.
+
+reagent-name-mayojito = maiojito
+reagent-desc-mayojito = Um ataque a Deus e homem. Não bebe isso.
+
+reagent-name-mimeosa = mimeosa
+reagent-desc-mimeosa = Tem um gosto de laranja tão ácido que você simplesmente não consegue descrever.
+
+reagent-name-mimosa = mimosa
+reagent-desc-mimosa = Perfeito pra um bom brunch com as garotas.
+
+reagent-name-moscow-mule = moscow mule
+reagent-desc-moscow-mule = Uma mistura surpreendentemente forte e refrescante, servida em uma caneca de cobre icônica.
+
+reagent-name-the-sun-also-rises = the sun also rises
+reagent-desc-the-sun-also-rises = Um coquetel forte de mistura turva. Um favorito secreto de autores torturados.
+
+reagent-name-whiskey-sour = whiskey sour
+reagent-desc-whiskey-sour = Qual o ingrediente secreto? Ovo. É ovo.
+
 reagent-name-zombiecocktail = Zumbi
-reagent-desc-zombiecocktail = Entra na sua cabeça. Na na na na na ca-be-ça.
+reagent-desc-zombiecocktail = Entra na sua cabeça. Na sua cabe-êêêê-ça.
