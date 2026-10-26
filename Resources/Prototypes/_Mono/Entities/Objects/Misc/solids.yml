@@ -10,7 +10,7 @@
   - type: Item
     size: Tiny
   - type: StaticPrice
-    price: 10000 # worth a lot but expensive to make
+    price: 3000 # worth a lot but expensive to make # Andromeda: 10k > 3k
   - type: Food
   - type: FlavorProfile
     flavors:
@@ -45,12 +45,12 @@
     id: FentanylCrystal
   - type: ItemTax # Mono
     taxAccounts:
-      Medical: -0.05
-      nfsd: -0.1
-      BlackMarket: 0.25
+      # Medical: -0.05 # Andromeda: não temos pop pra ter TSF todo turno, foder com a conta bancaria médica é foda
+      nfsd: -0.05 # Andromeda: TSF pode se foder tho. caguei. -0.1 -> -0.05
+      BlackMarket: 0.1 # Andromeda: mas PDV tava ganhando muito disso. 0.25 -> 0.1
   - type: ExtendDescription
     descriptionList:
-    - description: Selling this item will fund the PDV.
+    - description: Vender isso financiará a PDV. # Andromeda: cade a localização :wilted:
       color: "#4f94ad"
       requireDetailRange: true
   - type: SoldAlert
