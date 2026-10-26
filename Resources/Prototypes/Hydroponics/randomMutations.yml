@@ -134,7 +134,7 @@
       persists: false
       effect: !type:PlantChangeStat
         targetValue: Production
-        minValue: 1
+        minValue: 3 # Andromeda - Nerf em taxa de produção mínima possível (1 > 3)
         maxValue: 10
         steps: 5
     - name: ChangePotency
