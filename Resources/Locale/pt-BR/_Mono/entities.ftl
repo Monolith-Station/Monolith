@@ -2362,7 +2362,7 @@ ent-ShipVoucherFlyssa = LPC Flyssa TSF [T4]
     .desc = Um pequeno cartão que contém os dados para a aquisição de um destroyer classe Flyssa das reservas da nau capitânia.
 
 ent-ShipVoucherFrontierIronMan = LPC Ironman
-    .desc = Permite a compra de um Baeg ou Framework gratuitamente do Estaleiro. Destruído na venda.
+    .desc = Permite a compra de uma Guppy ou Sandbox gratuitamente do Estaleiro. Destruído na venda.
 
 ent-ShipVoucherGanymede = LPC Ganymede PDV [T2]
     .desc = Um pequeno cartão que contém os dados para a aquisição de um cruzador classe Ganymede das reservas da nau capitânia.
@@ -10859,3 +10859,10 @@ ent-WeaponEnergyTurretViperControlPanel = painel de controle de torre sentinela 
 ent-SurgeryInsertPump = Inserir Bomba
 
 ent-SurgeryStepInsertPump = Add servopump
+
+# upstream merge outubro sei lá eu tenho que separar esses arquivos
+ent-UndergroundCodespeakTranslatorImplanter = implante tradutor de linguagem codificada underground
+    .desc = {ent-BaseImplantOnlyImplanterSyndi.desc}
+
+ent-UndergroundCodespeakTranslatorImplant = implante tradutor de linguagem codificada
+    .desc = Um implante avançado que automaticamente traduz qualquer Linguagem Codificada Underground detectada em Padrão Andrômeda e permite o usuário a automaticamente traduzir as suas própias palavras de volta.

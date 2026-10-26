@@ -373,3 +373,5 @@ vessel-Kupol-name = BYP Kupol
 vessel-Kupol-desc = A gunnery unit made to make up for the lacking fire-power of the Ledokol.
 vessel-Kopye-name = BYP Kopye
 vessel-Kopye-desc = A thin, pointed ram made to fit the connection port of the Ledokol.
+vessel-Sandbox-name = UW Sandbox
+vessel-Sandbox-desc = A modular platform equipped with basic equipment capable of supporting construction operations. Barebones and easy to reconfigure.

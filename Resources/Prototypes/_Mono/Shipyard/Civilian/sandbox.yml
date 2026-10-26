@@ -8,8 +8,8 @@
 - type: vessel
   id: Sandbox
   parent: BaseVessel
-  name: UW Sandbox
-  description: A modular platform equipped with basic equipment capable of supporting construction operations. Barebones and easy to reconfigure.
+  name: vessel-Sandbox-name # Andromeda - localiza nomes de naves
+  description: vessel-Sandbox-desc # Andromeda - localiza desc de naves
   price: 25000 # ~appraisegrid of 19k. The markup is a bit fat to make jacking materials from it less appealing
   category: Small
   group: Shipyard

@@ -29254,8 +29254,8 @@ ent-PersonalAI = dispositivo de ia pessoal
 ent-PotatoAI = inteligência artificial de batata
     .desc = É uma batata. Você forçou ela a ser senciente, seu monstro.
 
-ent-SyndicatePersonalAI = dispositivo de ia pessoal do Sindicato
-    .desc = Seu amigo do Sindicato que é divertido estar junto!
+ent-SyndicatePersonalAI = dispositivo de ia pessoal underground
+    .desc = Seu amigo altamente ilegal que é divertido estar junto!
 
 # From: Entities/Objects/Fun/puppet.yml
 

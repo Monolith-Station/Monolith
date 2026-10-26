@@ -6,8 +6,8 @@ pai-system-searching = Agora procurando um pAI...
 pai-system-role-name = IA Pessoal
 pai-system-role-description = Seja o amigo eletrônico de alguém!
                               (Memórias *não* inclusas.)
-pai-system-role-name-syndicate = IA Pessoal do Sindicato
-pai-system-role-description-syndicate = Seja o amigo do Sindicato de alguém!
+pai-system-role-name-syndicate = IA Pessoal Underground
+pai-system-role-description-syndicate = Seja o amigo underground de alguém!
                                         (Memórias *não* inclusas.)
 pai-system-role-name-potato = Inteligência Artificial de Batata
 pai-system-role-description-potato = É um brinquedo para crianças. E agora você vive nele.
