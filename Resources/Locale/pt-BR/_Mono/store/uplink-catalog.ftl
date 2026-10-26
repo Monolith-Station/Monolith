@@ -31,6 +31,9 @@ uplink-data-chit-50-desc = Cinquenta fichas de dados. Uma moeda extremamente val
 uplink-iff-console-flatpack-name = Flatpack de Computador de IFF
 uplink-iff-console-flatpack-desc = Um flatpack para um computador que obfuscará os sinais de IFF da sua nave.
 
+uplink-underground-codespeak-translator-implanter-name = Implante de Linguagem Codificada
+uplink-underground-codespeak-translator-implanter-desc = Um implante que permite o usuário a entender e falar a Linguagem Codificada Underground. Para trazer novos membros ao mercado negro.
+
 # ullman stuff
 
 uplink-ullman-pilot-name = Traje de Vácuo de Piloto U.I.

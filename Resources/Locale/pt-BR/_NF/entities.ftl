@@ -7648,6 +7648,10 @@ ent-BlueprintLithograph = litógrafo de diagramas
 ent-EngineeringTechFab = techfab de engenharia
     .desc = Imprime equipamentos para engenheiros.
 
+ent-EngineeringTechFabBolted = techfab de engenharia
+    .desc = Imprime equipamentos para engenheiros. Possúi pesquisa adicional.
+    .suffix = Rebitado
+
 ent-MercenaryTechFab = techfab de mercenário
     .desc = Imprime o mínimo essencial de ferramentas do ofício que qualquer mercenário orçamentário ou segurança particular poderia precisar. Nada de especial.
 
@@ -7662,6 +7666,10 @@ ent-PrizeCounter = balcão de prêmios
 
 ent-SalvageTechfabNF = techfab de salvagem
     .desc = Imprime equipamentos para salvagistas.
+
+ent-SalvageTechfabNFBolted = techfab de salvagem
+    .desc = Imprime equipamentos para salvagistas. Possúi pesquisa adicional.
+    .suffix = Rebitado
 
 ent-ScrapProcessor = processador de sucata
     .desc = Produz chapas e lingotes usando sucata.

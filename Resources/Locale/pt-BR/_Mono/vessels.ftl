@@ -645,3 +645,6 @@ vessel-Senkusha-desc = Mais pesada que uma Yukikaze, mas ainda mal contando como
 
 vessel-Akasono-name = MMC Akasono
 vessel-Akasono-desc = Uma nave básica de coleta (não processamento!) de gás. Equipada com um pulser para demolir asteroides, um braço para exportar e importar gás e o equipamento para montar uma torre de perfuração. O tanque interno de gás tem um volume de 67,5kL (sem contar a tubulação) e vem equipado com resfriadores para condensação e uma porta para cilindros.
+
+vessel-Sandbox-name = UW Sandbox
+vessel-Sandbox-desc = Uma plataforma modular com equipamento básico capaz de servir de base para operações de construção. Extremamente minimalista e fácil de reconfigurar.

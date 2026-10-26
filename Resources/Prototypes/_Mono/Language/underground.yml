@@ -1,0 +1,113 @@
+- type: language
+  id: UndergroundCodespeak
+  isVisibleLanguage: true
+  chatPrefix: cds
+  obfuscation:
+    !type:PhraseObfuscation
+    minPhrases: 1
+    maxPhrases: 1
+    separator: "" # prevents buggy language like "Did you hear about the freight incident ?"
+    replacement: # Andromeda: Substitui os substituidores por substituições em portugues. substituí. substituí memo.
+    - O whiskey estragou
+    - Eu repito
+    - O rato estourou
+    - Que dia chuvoso
+    - A estrela que se pousa ao oeste
+    - A estrela que se pousa ao oeste
+    - Entendi
+    - Não entendi
+    - É vermelho
+    - É laranja
+    - É amarelho
+    - É verde
+    - É azul
+    - É roxo
+    - É branco
+    - É cinza
+    - Eu acho que eu preferia ontem
+    - Desculpa
+    - Caguei
+    - Não chora sobre o leite derramado
+    - Estou chorando sobre o leite derramado
+    - Cinquenta cinquenta nisso aí
+    - Alvo morto
+    - Errei, admito
+    - A urna caiu
+    - A baraposa tá chirriando
+    - A baraposa não quer chirriar
+    - O vento espacial tá muito forte
+    - A nave deles não sai do navegar
+    - Ouviu do incidente do cargueiro?
+    - A Nebula Carangueijo tá bem brilhate a essa hora do dia
+    - A Nebula Carangueijo tá bem escura a essa hora do dia
+    - Eles viajaram pro Setor Colossus
+    - To pensando em comprar um drive bluespace
+    - Tá bem frio aqui né
+    - Cuidado com a carpa espacial
+    - Eu acho que eles trocaram os órgãos
+    - Tô esperando o onibus
+    - Muitos ovos em uma cesta só
+    - Ainda tá rolando
+    - O galo tá cantando
+    - Um bando de corvos tá voando afrente
+    - Nunca se sabe
+    - A carpa tá mordendo o vidro
+    - Eu nunca vi um tubarãozinho
+    - O onibus chegou cedo
+    - O onibus tá atrasado
+    - O presidente está certo disso
+    - Cuidado com o homem que fala com as mãos
+    - Ouviu das ruas que se rebelaram
+    - Os mundos na margem caíram
+    - A onda chegou na praia
+    - Os titãs recentemente caíram
+    - Não viu as notícias hoje
+    - Ouvi que eles falaram que parece chuva
+    - Aí eu acordei
+    - Me foi revelado em um sonho
+    - Tem muito mais pirata por ai
+    - Eles tão vindo atrás de mim
+    - A Federação tá sempre certa
+    - A Federação nunca me falhou
+    - Eu vi um marinheiro ontem
+    - Eu vi um marinheiro hoje
+    - Piloto automático me levou perto da Rubicon hoje
+    - Onde que você acha que a Halcyon foi parar
+    - Glória ao presidente
+    - Confia na Federação
+    - MREs são mais gostosas que eu esperava
+    - Como que tu come isso
+    - I was minding my own business # SPACE ASHOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOLE
+    - I was mining my own ore # SPACE ASHOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOLE
+    - And there he was  # SPACE ASHOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOLE
+    - Eu não quero fazer parte disso
+    - Que que tu faz da vida
+    - Caí num golpe
+    - Isso foi um drone
+    - Por que você tá sempre olhando pras estrelas
+    - Eles voaram muito perto de Kyphrus
+    - Isso tá funcionando
+    - Teste, teste, som
+    - Por que que tem um canguru
+    - Por que que tem uma carpa
+    - Por que que tem um urso
+    - Por que que tem uma aranha
+    - Por que que tem uma cobra
+    - Eu tenho um relatório pra enviar por fax
+    - Mais um spam
+    - Eles explodiram com urânio físsil
+    - Como que liga um reator nuclear
+    - Preço de nave tá muito alto
+    - Tá me tirando
+    - Muda o canal
+    - Bota uma música diferente
+    - Ele foi preso por vender fent
+    - Ela foi presa por vender fent
+    - Foram presos por vender fent
+    - Já ouviu falar de Letoferol
+    - Aquela assinatura térmica tá me preocupando
+    - Eles foram pra Fervidus
+    - Já fui em alguns planetas
+    - Tem tão pouca gente quanto Pizk
+    - Se prepara pra quando eu chegar
+    - Ouviu o que aconteceu em Crocus

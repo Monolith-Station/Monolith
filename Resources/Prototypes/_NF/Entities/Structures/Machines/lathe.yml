@@ -89,6 +89,29 @@
     id: Techfab
 
 - type: entity
+  parent: EngineeringTechFab
+  id: EngineeringTechFabBolted
+  name: engineering techfab
+  suffix: Bolted
+  description: Prints equipment for engineers. Comes with packed research inside.
+  components:
+  - type: Lathe
+    idleState: icon
+    runningState: icon
+    staticPacks:
+    - NFEngineeringTechfabDeprecatedStatic
+    # Mono
+    - GasMiningStatic
+    - AutomationStatic
+    - NFEngineeringTechfabAdvanced
+    dynamicPacks:
+    - NFEngineeringTechfabDeprecated
+    # Mono End
+  - type: DisableToolUse
+    screwing: true
+    anchoring: true
+
+- type: entity
   parent: [ BlueprintReceiverBase, BaseLatheLube ]
   id: SalvageTechfabNF
   name: salvage techfab
@@ -122,6 +145,28 @@
     - NFSalvageTechfabDeprecatedEmag
   - type: PirateBountyItem # Mono
     id: Techfab
+
+- type: entity
+  parent: SalvageTechfabNF
+  id: SalvageTechfabNFBolted
+  suffix: Bolted
+  name: salvage techfab
+  description: Prints equipment for salvagers. Comes with packed research inside.
+  components:
+  - type: Lathe
+    idleState: icon
+    runningState: icon
+    staticPacks:
+    - NFSalvageTechfabDeprecatedStatic
+    - NFSalvageTechfabAdvanced
+    dynamicPacks:
+    - NFSalvageTechfabDeprecated
+  - type: EmagLatheRecipes
+    emagStaticPacks:
+    - NFSalvageTechfabDeprecatedEmag
+  - type: DisableToolUse
+    screwing: true
+    anchoring: true
 
 - type: entity
   id: NfsdTechFab

@@ -110,8 +110,8 @@
         Caustic: 0.5
         Radiation: 0.2
   - type: ClothingSpeedModifier
-    walkModifier: 0.85 # Mono
-    sprintModifier: 0.85 # Mono
+    walkModifier: 0.95 # Mono
+    sprintModifier: 0.95 # Mono
   - type: HeldSpeedModifier
   - type: ToggleableClothing # Goobstation - Modsuits change - Mono - this is a solution for helmet attachment/cover to not fit on hardsuits
     requiredSlot: outerclothing
@@ -123,6 +123,18 @@
       helmetattachment: ClothingHeadHelmetAttachmentBlock
   - type: StaminaDamageResistance # Mono - Stamres
     coefficient: 0.55 # slightly better than atmos hardsuit, cuz insulating plating or whatever
+  - type: GasTank ## Mono
+    outputPressure: 21.3
+    air:
+      volume: 5
+      temperature: 293.15
+      moles:
+        Oxygen: 1.025689525 # oxygen
+        Nitrogen: 1.025689525 # nitrogen
+  - type: Jetpack ## Mono
+    acceleration: 1.15 # Mono
+    weightlessModifier: 2.4 # Mono
+    moleUsage: 0.00085
 
 #Spationaut Hardsuit
 - type: entity
@@ -472,8 +484,8 @@
         Radiation: 0.1 # Mono 0.0 -> 0.1
         Caustic: 0.7
   - type: ClothingSpeedModifier
-    walkModifier: 0.8
-    sprintModifier: 0.8
+    walkModifier: 0.95 # Mono
+    sprintModifier: 0.95 # Mono
   - type: HeldSpeedModifier
   - type: StaminaDamageResistance # Mono - Stamres
     coefficient: 0.45
@@ -485,6 +497,18 @@
       head: ClothingHeadHelmetHardsuitEngineeringWhite
       helmetcover: ClothingHeadHelmetCoverBlock
       helmetattachment: ClothingHeadHelmetAttachmentBlock
+  - type: GasTank ## Mono
+    outputPressure: 21.3
+    air:
+      volume: 5
+      temperature: 293.15
+      moles:
+        Oxygen: 1.025689525 # oxygen
+        Nitrogen: 1.025689525 # nitrogen
+  - type: Jetpack ## Mono
+    acceleration: 1.15 # Mono
+    weightlessModifier: 2.4 # Mono
+    moleUsage: 0.00085
 
 #Chief Medical Officer's Hardsuit
 - type: entity

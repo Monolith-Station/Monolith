@@ -84,7 +84,7 @@ public sealed partial class DrainSystem : SharedDrainSystem
         }
 
         // try to find the drain's solution
-        if (!_solutionContainerSystem.ResolveSolution(target, DrainComponent.SolutionName, ref drain.Solution, out var drainSolution))
+        if (!_solutionContainerSystem.ResolveSolution(target, drain.SolutionName, ref drain.Solution, out var drainSolution)) // Monolith
         {
             return;
         }
@@ -135,7 +135,7 @@ public sealed partial class DrainSystem : SharedDrainSystem
                 continue;
 
             // Best to do this one every second rather than once every tick...
-            if (!_solutionContainerSystem.ResolveSolution((uid, manager), DrainComponent.SolutionName, ref drain.Solution, out var drainSolution))
+            if (!_solutionContainerSystem.ResolveSolution((uid, manager), drain.SolutionName, ref drain.Solution, out var drainSolution)) // Monolith
                 continue;
 
             if (drainSolution.Volume <= 0 && !drain.AutoDrain)
@@ -199,7 +199,7 @@ public sealed partial class DrainSystem : SharedDrainSystem
     {
         if (!args.IsInDetailsRange ||
             !HasComp<SolutionContainerManagerComponent>(entity) ||
-            !_solutionContainerSystem.ResolveSolution(entity.Owner, DrainComponent.SolutionName, ref entity.Comp.Solution, out var drainSolution))
+            !_solutionContainerSystem.ResolveSolution(entity.Owner, entity.Comp.SolutionName, ref entity.Comp.Solution, out var drainSolution)) // Monolith
         {
             return;
         }
@@ -214,7 +214,7 @@ public sealed partial class DrainSystem : SharedDrainSystem
     {
         if (!args.CanReach || args.Target == null ||
             !_tagSystem.HasTag(args.Used, DrainComponent.PlungerTag) ||
-            !_solutionContainerSystem.ResolveSolution(args.Target.Value, DrainComponent.SolutionName, ref entity.Comp.Solution, out var drainSolution))
+            !_solutionContainerSystem.ResolveSolution(args.Target.Value, entity.Comp.SolutionName, ref entity.Comp.Solution, out var drainSolution)) // Monolith
         {
             return;
         }
@@ -250,7 +250,7 @@ public sealed partial class DrainSystem : SharedDrainSystem
         }
 
 
-        if (!_solutionContainerSystem.ResolveSolution(args.Target.Value, DrainComponent.SolutionName, ref entity.Comp.Solution))
+        if (!_solutionContainerSystem.ResolveSolution(args.Target.Value, entity.Comp.SolutionName, ref entity.Comp.Solution)) // Monolith
         {
             return;
         }
