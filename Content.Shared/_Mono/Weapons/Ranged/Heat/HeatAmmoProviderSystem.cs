@@ -176,8 +176,6 @@ public sealed partial class HeatAmmoProviderSystem : EntitySystem
 
         var fraction = ent.Comp.MaxHeat > 0 ? Math.Clamp(ent.Comp.Heat / ent.Comp.MaxHeat, 0f, 1f) : 0f;
         args.PushMarkup(Loc.GetString("gun-heat-examine", ("heat", Math.Round(fraction * 100f))));
-        if (ent.Comp.Overheated)
-            args.PushMarkup(Loc.GetString("gun-heat-overheated"));
         if (_timing.CurTime < ent.Comp.NextVent)
             args.PushMarkup(Loc.GetString("gun-heat-vent-cooldown",
                 ("seconds", Math.Ceiling((ent.Comp.NextVent - _timing.CurTime).TotalSeconds))));
