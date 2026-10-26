@@ -9,7 +9,7 @@
   parent: BaseVessel
   name: vessel-Guppy-name # Andromeda: Localizar nome e descrição de nave
   description: vessel-Guppy-desc # Andromeda: Localizar nome e descrição de nave
-  price: 22000
+  price: 28000 # Andromeda: um teste falhou, provavel que veio da upstream, e me pergunto como que esse mesmo teste não falhou lá. esperar eles ajustarem e quando ajustarem remover esse valor
   category: Small
   group: Shipyard
   shuttlePath: /SharedMaps/_Mono/Shuttles/Civilian/guppy.yml
