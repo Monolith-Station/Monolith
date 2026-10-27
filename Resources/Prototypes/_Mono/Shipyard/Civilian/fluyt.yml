@@ -2,15 +2,15 @@
   id: fluyt
   parent: BaseVessel
   name: KSP fluyt
-  description: A reliable but uninspired cargo hauler design, the Fluyt can carry anything you want, anywhere you want, runs on a twin-generator setup and has 76 cargo slots.
-  price: 70000
+  description: A Reliably uninspired cargo hauler. The Fluyt embodies the motto 'Anything, Anywhere.' owing to gargantuan cargo bay with 90 slots of free space. Business is all about sacrifice though, and the Fluyt chose to sacrifice almost all weaponry.
+  price: 55000
   category: Large
   group: Shipyard
   shuttlePath: /SharedMaps/_Mono/Shuttles/Civilian/fluyt.yml
   class:
   - Cargo
   engine:
-  - Uranium
+  - Plasma
 
 - type: gameMap
   id: Fluyt
