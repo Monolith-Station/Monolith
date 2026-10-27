@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using Content.Server._NF.Traits.Assorted;
 using Content.Server.Chat.Systems;
@@ -56,37 +57,47 @@ public sealed partial class GeneticCloningSystem : EntitySystem
     [Dependency] private GrammarSystem _grammar = default!;
 
     /// <summary>
-    /// Snapshots a body
+    /// body check for ui
     /// </summary>
-    public GeneticRecord? CreateRecord(EntityUid body, float failChanceModifier, out string? failReason)
+    public bool CanRecord(EntityUid body, out EntityUid mindId, [NotNullWhen(false)] out string? failReason)
     {
-        if (!_mindSystem.TryGetMind(body, out var mindId, out var mind) || mind.UserId == null)
+        if (!_mindSystem.TryGetMind(body, out mindId, out var mind) || mind.UserId == null)
         {
             failReason = Loc.GetString("genetic-scan-fail-no-mind");
-            return null;
+            return false;
         }
 
         if (!TryComp<HumanoidAppearanceComponent>(body, out var humanoid) ||
             HasComp<SiliconComponent>(body) || // Yet another IPC nerf, poor robots
-            !_prototype.TryIndex(humanoid.Species, out _) ||
-            !TryComp<PhysicsComponent>(body, out var physics))
+            !_prototype.HasIndex(humanoid.Species) ||
+            !HasComp<PhysicsComponent>(body))
         {
             failReason = Loc.GetString("genetic-scan-fail-incompatible");
-            return null;
+            return false;
         }
 
         if (TryComp<UncloneableComponent>(body, out var uncloneable))
         {
             failReason = Loc.GetString(uncloneable.ReasonMessage);
-            return null;
+            return false;
         }
 
-        var failChance = 0f;
-        if (TryComp<DamageableComponent>(body, out var damageable) &&
-            damageable.Damage.DamageDict.TryGetValue("Cellular", out var cellularDmg))
-        {
-            failChance = Math.Clamp((float)(cellularDmg / 100), 0, 1) * failChanceModifier;
-        }
+        failReason = null;
+        return true;
+    }
+
+    /// <summary>
+    /// Snapshots a body
+    /// </summary>
+    public GeneticRecord? CreateRecord(EntityUid body, out string? failReason)
+    {
+        if (!CanRecord(body, out var mindId, out failReason))
+            return null;
+
+        var humanoid = Comp<HumanoidAppearanceComponent>(body);
+        var physics = Comp<PhysicsComponent>(body);
+
+        // fail chance would go here. Removed.
 
         var record = new GeneticRecord
         {
@@ -95,7 +106,6 @@ public sealed partial class GeneticCloningSystem : EntitySystem
             Species = humanoid.Species,
             Appearance = _serialization.CreateCopy(humanoid, notNullableOverride: true),
             Mass = physics.FixturesMass,
-            FailChance = failChance,
             HasBankAccount = HasComp<BankAccountComponent>(body),
             ScannedAt = _timing.CurTime, //not sure if this is needed anymore
         };

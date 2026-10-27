@@ -106,7 +106,7 @@ public sealed partial class BodyScannerConsoleSystem : EntitySystem
         if (!_database.TryGetDatabase(uid, out var db))
             return;
 
-        var record = _geneticCloning.CreateRecord(body, scanner.CloningFailChanceMultiplier, out var failReason);
+        var record = _geneticCloning.CreateRecord(body, out var failReason);
         if (record == null)
         {
             if (failReason != null)
@@ -184,17 +184,16 @@ public sealed partial class BodyScannerConsoleSystem : EntitySystem
         if (!IsScannerInRange(uid, component.Scanner.Value, component))
             return new BodyScannerConsoleBoundUserInterfaceState(null, BodyScanStatus.ScannerFar, null, false, databaseName);
 
-        if (!TryGetOccupant(uid, component, out var body, out var scanner) || !HasComp<MobStateComponent>(body))
+        if (!TryGetOccupant(uid, component, out var body, out _) || !HasComp<MobStateComponent>(body))
             return new BodyScannerConsoleBoundUserInterfaceState(null, BodyScanStatus.Empty, null, false, databaseName);
 
         var name = MetaData(body).EntityName;
 
-        // no infinite rerolls
-        var record = _geneticCloning.CreateRecord(body, scanner.CloningFailChanceMultiplier, out var failReason);
-        if (record == null)
+        // validate here
+        if (!_geneticCloning.CanRecord(body, out var mindId, out var failReason))
             return new BodyScannerConsoleBoundUserInterfaceState(name, BodyScanStatus.Invalid, failReason, false, databaseName);
 
-        var onFile = db != null && _database.HasRecord(db.Value, record.Mind);
+        var onFile = db != null && _database.HasRecord(db.Value, mindId);
         return new BodyScannerConsoleBoundUserInterfaceState(name, BodyScanStatus.Ready, null, onFile, databaseName);
     }
 
