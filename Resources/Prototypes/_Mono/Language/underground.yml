@@ -6,6 +6,7 @@
     !type:PhraseObfuscation
     minPhrases: 1
     maxPhrases: 1
+    separator: "" # prevents buggy language like "Did you hear about the freight incident ?"
     replacement:
     - The whiskey has gone stale
     - I repeat
@@ -55,3 +56,58 @@
     - The bus is early
     - The bus is late
     - The president is certain
+    - Beware of the man who speaks in hands # fuck it
+    - Have you heard of the streets which went rogue
+    - The worlds around the rim have fallen
+    - The tide has approached the beach
+    - The titans have fallen recently
+    - Didn't you see the news today
+    - I heard they said it looked like rain
+    - And then I woke up
+    - It was revealed to me in a dream
+    - There are a lot more pirates about
+    - They're coming for me
+    - The Federation is always right
+    - The Federation has never failed me
+    - I saw a marine yesterday
+    - I saw a marine today
+    - Autopilot flew me past Flagship Rubicon today
+    - Where do you think the Halcyon ended up
+    - Glory to the president
+    - Trust the Federation
+    - MREs taste better than I expected
+    - How do you eat this
+    - I was minding my own business
+    - I was mining my own ore
+    - And there he was 
+    - I didn't sign up for this
+    - What do you do to make a living
+    - I fell for a scam
+    - Was that a drone
+    - Why are you always looking at the stars
+    - They flew too close to Kyphrus
+    - Is this thing working
+    - Testing, one-two
+    - Why is there a kangaroo
+    - Why is there a carp
+    - Why is there a bear
+    - Why is there a spider
+    - Why is there a cobra
+    - I have a report to fax
+    - Another one of those spam letters
+    - They mishandled fissile uranium
+    - How do you work a nuclear reactor
+    - Shuttle prices are too high
+    - You're pulling my leg
+    - Change the channel
+    - Put on a different song
+    - He got busted for selling fentanyl
+    - She got busted for selling fentanyl
+    - They got busted for selling fentanyl
+    - Have you heard about letoferol
+    - That thermal signature is concerning me
+    - They got sent to Fervidus
+    - I've been to a few planets
+    - That's about as inhabitated as Pizk
+    - Stand ready for my arrival
+    - Did you hear what happened on Crocus
