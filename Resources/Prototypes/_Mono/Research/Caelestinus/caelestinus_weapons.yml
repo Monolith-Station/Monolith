@@ -1,0 +1,16 @@
+- type: technology
+  id: CaelestinusBasicGuns
+  name: research-technology-caelestinus-weaponry
+  entityIcon: WeaponRifleIroh
+  discipline: Caelestinus
+  tier: 1
+  cost: 25000
+  recipeUnlocks:
+  - WeaponRifleIrohCaelestinus
+  - WeaponSubMachineGunFirestarter
+  - WeaponPistolCaelestinusGalactica
+  - WeaponShotgunEnforcerMerc
+  - WeaponShotgunHelepolis
+  technologyPrerequisites:
+  - UniversalMaterialResearchT1
+  position: 2, -12

@@ -674,3 +674,31 @@
     Steel: 1600
     Plasteel: 2000
     Plastic: 1000
+
+# Caelestinus
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponRifleIrohCaelestinus
+  result: WeaponRifleIroh
+  categories:
+  - Rifles
+  - Ballistic
+  - Weapons
+  materials:
+    Steel: 1500
+    Plasteel: 1200
+    Plastic: 900
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponPistolCaelestinusGalactica
+  result: WeaponPistolCaelestinusGalactica
+  categories:
+  - Sidearms
+  - Ballistic
+  - Weapons
+  materials:
+    Steel: 400
+    Plasteel: 100
+    Plastic: 400

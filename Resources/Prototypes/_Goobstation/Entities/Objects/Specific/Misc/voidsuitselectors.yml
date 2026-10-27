@@ -23,7 +23,7 @@
 # security
 - type: entity
   id: UndeterminedVoidsuitSecurity
-  name: security voidsuit selector
+  name: caelestinus security voidsuit selector # Mono
   description: A small remote utilizing bluespace technology to drop in a voidsuit or hardsuit of your choosing.
   parent: BaseItem
   components:
@@ -45,7 +45,7 @@
 # head of security
 - type: entity
   id: UndeterminedVoidsuitHeadOfSecurity
-  name: head of security voidsuit selector
+  name: overseer voidsuit selector # Mono
   description: A small remote utilizing bluespace technology to drop in a voidsuit or hardsuit of your choosing.
   parent: BaseItem
   components:

@@ -1,0 +1,34 @@
+- type: entity
+  name: UW12-B CSW-79 "Helepolis" (12 gauge)
+  parent: BaseWeaponShotgun
+  id: WeaponShotgunHelepolis
+  description: A compact shotgun utilised by Caelestinus which sacrifices all combat ergonomics to better serve as a breaching tool. Breaks doors with slugs. Combat use unadvised.
+  components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,0
+    sprite: _Mono/Objects/Weapons/Guns/Shotguns/Helepolis.rsi
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Shotguns/Helepolis.rsi
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/Shotguns/Helepolis.rsi
+  - type: Gun
+    minAngle: 3
+    maxAngle: 12
+    fireRate: 0.5
+    angleIncrease: 4
+    angleDecay: 4
+    damageModifier: 3
+  - type: GunSpreadModifier
+    spread: 3 # good luck hitting anything with buckshot
+  - type: Tag
+    tags:
+    - WeaponShotgunHelepolis
+  - type: BallisticAmmoProvider
+    autoCycle: false
+    capacity: 4
+    proto: ShellShotgun12_gaugeSlugAP
+  - type: StaticPrice
+    price: 600
+    vendPrice: 3000

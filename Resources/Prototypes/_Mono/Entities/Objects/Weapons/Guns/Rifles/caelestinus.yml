@@ -1,0 +1,163 @@
+- type: entity
+  name: HWL FG.J "Iroh" (5.56x45mm)
+  parent: BaseWeaponRifle
+  id: WeaponRifleIroh
+  description: A premium, finely-tuned rifle. Accurate and fast-firing, this bastion of independence is the pride and joy of Caelestinus. Outfitted with Erebus rails on the handguard and carryhandle, and a threaded barrel for attachments.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/prometheus_a3.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+    - map: ["gripAttachment"]
+    - map: ["barrelAttachment"]
+      offset: 0.21870, 0 # Reduce by 0.0005 to prevent gaps
+    - map: ["opticAttachment"]
+  - type: GunWieldBonus
+    minAngle: -21
+    maxAngle: -47
+  - type: Gun
+    minAngle: 21
+    maxAngle: 58
+    angleIncrease: 1.5
+    angleDecay: 20
+    fireRate: 8.4
+    selectedMode: FullAuto
+    damageModifier: 1.1 # Brings it up to 212DPS. Meant to be equivalent to M-90 and Dragonfang faction-wise, and I'm not interested in introducing another Battle Rifle That Makes The T2 AR Obsolete. Nerf this to Annie/WSPR level if M-90/Dragonfang get nerfed.
+    availableModes:
+    - SemiAuto
+    - FullAuto
+    - Burst
+    burstCooldown: 0.35 # equivalent to 8.5rps on full-auto.
+    burstFireRate: 12
+    shotsPerBurst: 3
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/vector_fire.ogg
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: Magazine556x45mmFMJ
+        insertSound: /Audio/_Mono/Weapons/Guns/SmallArms/MagIn/m16_magin.ogg
+        ejectSound: /Audio/_Mono/Weapons/Guns/SmallArms/MagOut/skm_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - Magazine556x45mmFMJ
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: Cartridge556x45mmFMJ
+        priority: 1
+        whitelist:
+          tags:
+          - Cartridge556x45mmFMJ
+      attachment_grip:
+        priority: 0
+        insertSound: /Audio/Items/screwdriver2.ogg
+        ejectSound: /Audio/Items/screwdriver2.ogg
+        whitelist:
+          tags:
+          - MonoGripErebusRailmount
+      attachment_barrel:
+        insertSound: /Audio/Items/screwdriver.ogg
+        ejectSound: /Audio/Items/screwdriver.ogg
+        priority: 0
+        whitelist:
+          tags:
+          - MonoSuppressorMulticalRifle
+      attachment_optic:
+        insertSound: /Audio/Items/screwdriver2.ogg
+        ejectSound: /Audio/Items/screwdriver2.ogg
+        priority: 0
+        whitelist:
+          tags:
+          - MonoOpticErebusRailmount
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      attachment_grip: !type:ContainerSlot
+      attachment_barrel: !type:ContainerSlot
+      attachment_optic: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/prometheus_a3_inhands_32x.rsi
+  - type: Item
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/prometheus_a3_inhands_32x.rsi
+  - type: StaticPrice
+    price: 2400
+  - type: ESAttachableGun
+    slots:
+    - name: es-gun-attachments-slot-name-barrel
+      containerId: attachment_barrel
+      whitelist:
+        tags:
+        - MonoSuppressorMulticalRifle
+    - name: es-gun-attachments-slot-name-grip
+      containerId: attachment_grip
+      whitelist:
+        tags:
+        - MonoGripErebusRailmount
+    - name: es-gun-attachments-slot-name-optic
+      containerId: attachment_optic
+      whitelist:
+        tags:
+        - MonoOpticErebusRailmount
+  - type: ActivatableUI
+    key: enum.ESAttachableGunUiKey.Key
+    verbOnly: true
+    verbText: es-gun-attachments-verb-text
+  - type: UserInterface
+    interfaces:
+      enum.ESAttachableGunUiKey.Key:
+        type: ESGunAttachmentBui
+  - type: ESItemMapper
+    mappings:
+      gripAttachment:
+      - containerId: attachment_grip
+        state: grip
+        whitelist:
+          tags:
+          - MonoGripVFG
+      - containerId: attachment_grip
+        state: lam
+        whitelist:
+          tags:
+          - MonoGripLAM
+      - containerId: attachment_grip
+        state: light
+        whitelist:
+          tags:
+          - MonoGripLight
+      barrelAttachment:
+      - containerId: attachment_barrel
+        state: suppressed
+        whitelist:
+          tags:
+          - MonoSuppressor
+      opticAttachment:
+      - containerId: attachment_optic
+        state: optic2x
+        whitelist:
+          tags:
+          - MonoOptic2x
+      - containerId: attachment_optic
+        state: optic4x
+        whitelist:
+          tags:
+          - MonoOptic4x
+      - containerId: attachment_optic
+        state: optic8x
+        whitelist:
+          tags:
+          - MonoOptic8x

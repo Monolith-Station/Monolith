@@ -5,7 +5,7 @@ meta:
   forkId: ""
   forkVersion: ""
   time: 10/11/2026 23:11:01
-  entityCount: 10115
+  entityCount: 10118
 maps:
 - 1
 grids:
@@ -56489,6 +56489,24 @@ entities:
     - type: Transform
       pos: 7.5,-2.5
       parent: 2
+- proto: ResearchAndDevelopmentServerCaelestinus
+  entities:
+  - uid: 10117
+    components:
+    - type: Transform
+      pos: -19.5,44.5
+      parent: 2
+- proto: ComputerTabletopResearchAndDevelopment
+  entities:
+  - uid: 10118
+    components:
+    - type: Transform
+      pos: -19.5,44.5
+      parent: 2
+    - type: ApcPowerReceiver
+      powerLoad: 5
+    - type: Battery
+      startingCharge: 0
 - proto: SpawnMobCleanBot
   entities:
   - uid: 7828
