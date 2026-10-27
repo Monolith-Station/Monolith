@@ -34,7 +34,6 @@
     - state: blue
     - state: voucherservice
   - type: ShipyardVoucher
-    consoleType: Shipyard
     vessels:
     - Spessbite
 
@@ -53,7 +52,6 @@
     heldPrefix: blue
   - type: ShipyardVoucher
     destroyOnEmpty: true
-    consoleType: Sr
     access:
     - Janitor
 
