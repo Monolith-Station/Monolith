@@ -20,6 +20,9 @@ public sealed partial class MobCallSourceComponent : Component
     public float Range = 20f;
 
     [DataField]
+    public int MaxRespondingMobs = 5;
+
+    [DataField]
     public string Key = "CallTarget";
 
     [DataField]

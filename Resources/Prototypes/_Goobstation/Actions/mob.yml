@@ -39,7 +39,7 @@
     icon:
       sprite: _Goobstation/Actions/call.rsi
       state: icon
-    useDelay: 15
+    useDelay: 60
     event: !type:MobCallActionEvent
 
 - type: entity

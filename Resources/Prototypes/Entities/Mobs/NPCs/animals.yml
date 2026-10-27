@@ -693,6 +693,8 @@
     sprite: /Textures/Mobs/Animals/mothroach/mothroach.rsi
     state: mothroach
   - type: MobCallSource
+    range: 20
+    maxRespondingMobs: 5
     whitelist:
       tags:
       - Mothroach
@@ -2034,6 +2036,8 @@
     - ActionMouseCall
   - type: MouseSwarm
   - type: MobCallSource
+    range: 20
+    maxRespondingMobs: 5
     whitelist:
       tags:
       - Mouse

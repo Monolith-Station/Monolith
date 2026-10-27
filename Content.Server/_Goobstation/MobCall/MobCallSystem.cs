@@ -26,10 +26,15 @@ public sealed partial class MobCallSystem : EntitySystem
         var mapCoord = _transform.GetMapCoordinates(ent);
         var entCoord = Transform(ent).Coordinates;
         var ents = _lookup.GetEntitiesInRange<MobCallableComponent>(mapCoord, ent.Comp.Range);
+        var respondingMobs = 0;
         foreach (var (uid, comp) in ents)
         {
-            if (_whitelist.IsWhitelistPass(ent.Comp.Whitelist, uid))
-                _npc.SetBlackboard(uid, ent.Comp.Key, entCoord);
+            if (!_whitelist.IsWhitelistPass(ent.Comp.Whitelist, uid))
+                continue;
+            if (respondingMobs >= ent.Comp.MaxRespondingMobs)
+                break;
+            _npc.SetBlackboard(uid, ent.Comp.Key, entCoord);
+            respondingMobs++;
         }
         args.Handled = true;
     }
