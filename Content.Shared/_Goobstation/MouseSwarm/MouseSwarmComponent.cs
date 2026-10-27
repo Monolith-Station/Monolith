@@ -52,11 +52,14 @@ public partial record struct MouseSwarmMember
     [DataField]
     public EntProtoId? Prototype;
 
+    [DataField]
+    public bool HasMicroBomb;
+
     // Snapshot of the member's factions at the time of absorption
     [DataField]
     public HashSet<ProtoId<NpcFactionPrototype>> Factions = new();
 
-    public MouseSwarmMember(ResPath sprite, string state, Vector2 offset, EntProtoId? prototype, string? extraState = null, HashSet<ProtoId<NpcFactionPrototype>>? factions = null)
+    public MouseSwarmMember(ResPath sprite, string state, Vector2 offset, EntProtoId? prototype, string? extraState = null, HashSet<ProtoId<NpcFactionPrototype>>? factions = null, bool hasMicroBomb = false)
     {
         Sprite = sprite;
         State = state;
@@ -66,5 +69,6 @@ public partial record struct MouseSwarmMember
         Factions = factions != null
             ? new HashSet<ProtoId<NpcFactionPrototype>>(factions)
             : new HashSet<ProtoId<NpcFactionPrototype>>();
+        HasMicroBomb = hasMicroBomb;
     }
 }

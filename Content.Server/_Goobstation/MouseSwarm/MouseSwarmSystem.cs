@@ -1,9 +1,13 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Numerics;
 using Content.Shared._Goobstation.MouseSwarm;
 using Content.Server.Popups;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
+using Content.Shared.Explosion;
+using Content.Shared.Implants.Components;
 using Content.Shared.Mind;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -17,6 +21,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
 namespace Content.Server._Goobstation.MouseSwarm;
@@ -31,11 +36,17 @@ public sealed partial class MouseSwarmSystem : EntitySystem
     [Dependency] private SharedMindSystem _mind = default!;
     [Dependency] private PopupSystem _popup = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private const string TsfFaction = "TSFMC";
     private const string PirateFaction = "PirateNF";
+    private const string MicroBombImplantPrototype = "MicroBombImplant";
+
+    private static readonly TimeSpan MicroBombGracePeriod = TimeSpan.FromSeconds(2);
 
     private readonly List<(EntProtoId Proto, EntityUid Host, MapCoordinates Coords)> _pendingDrops = new();
+
+    private readonly Dictionary<EntityUid, TimeSpan> _microBombProtectionUntil = new();
 
     public override void Initialize()
     {
@@ -43,11 +54,19 @@ public sealed partial class MouseSwarmSystem : EntitySystem
 
         SubscribeLocalEvent<MouseSwarmComponent, DamageChangedEvent>(OnDamageChanged);
         SubscribeLocalEvent<MouseSwarmComponent, MouseSwarmActionEvent>(OnSwarm);
+        SubscribeLocalEvent<MouseSwarmComponent, GetExplosionResistanceEvent>(OnSwarmExplosionResistance);
     }
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
+
+        // Remove expired protection and entries for deleted swarms.
+        foreach (var (uid, expires) in _microBombProtectionUntil.ToArray())
+        {
+            if (!Exists(uid) || _timing.CurTime >= expires)
+                _microBombProtectionUntil.Remove(uid);
+        }
 
         if (_pendingDrops.Count == 0)
             return;
@@ -82,6 +101,14 @@ public sealed partial class MouseSwarmSystem : EntitySystem
         var member = ent.Comp.Members[^1];
         ent.Comp.Members.RemoveAt(ent.Comp.Members.Count - 1);
         Dirty(ent);
+
+        // Keep explosion resistance for 2 seconds when the last
+        // microbomb-carrying member is expelled.
+        if (member.HasMicroBomb && !HasExplosiveMembers(ent.Comp))
+        {
+            _microBombProtectionUntil[ent.Owner] =
+                _timing.CurTime + MicroBombGracePeriod;
+        }
 
         if (TryComp<MeleeWeaponComponent>(ent, out var melee))
         {
@@ -139,14 +166,13 @@ public sealed partial class MouseSwarmSystem : EntitySystem
 
         args.Handled = true;
 
+        // Record whether the target has an installed microbomb
+        // before deleting the original entity.
+        var hasMicroBomb = HasMicroBombImplant(target);
+
+
         // Preserve appearance, optional animated tail and faction membership.
-        ent.Comp.Members.Add(RandomMember(
-            ent.Comp,
-            targetSwarm.Sprite,
-            targetSwarm.State,
-            MetaData(target).EntityPrototype?.ID,
-            targetSwarm.ExtraState,
-            targetFactions));
+        ent.Comp.Members.Add(RandomMember(ent.Comp, targetSwarm.Sprite, targetSwarm.State, MetaData(target).EntityPrototype?.ID, targetSwarm.ExtraState, targetFactions, hasMicroBomb));
 
         Dirty(ent);
 
@@ -162,6 +188,47 @@ public sealed partial class MouseSwarmSystem : EntitySystem
             ent);
 
         QueueDel(target);
+    }
+
+    private bool HasMicroBombImplant(EntityUid target)
+    {
+        var query = EntityQueryEnumerator<SubdermalImplantComponent>();
+
+        while (query.MoveNext(out var implantUid, out var implant))
+        {
+            if (implant.ImplantedEntity != target)
+                continue;
+
+            if (MetaData(implantUid).EntityPrototype?.ID == MicroBombImplantPrototype)
+                return true;
+        }
+
+        return false;
+    }
+
+    private bool HasExplosiveMembers(MouseSwarmComponent swarm)
+    {
+        foreach (var member in swarm.Members)
+        {
+            if (member.HasMicroBomb)
+                return true;
+        }
+
+        return false;
+    }
+
+    private void OnSwarmExplosionResistance(
+        Entity<MouseSwarmComponent> ent,
+        ref GetExplosionResistanceEvent args)
+    {
+        var protectedByMember = HasExplosiveMembers(ent.Comp);
+
+        var protectedByGracePeriod =
+            _microBombProtectionUntil.TryGetValue(ent.Owner, out var expires)
+            && _timing.CurTime < expires;
+
+        if (protectedByMember || protectedByGracePeriod)
+            args.DamageCoefficient *= 0.1f;
     }
 
     private HashSet<ProtoId<NpcFactionPrototype>> GetFactions(EntityUid uid)
@@ -200,13 +267,7 @@ public sealed partial class MouseSwarmSystem : EntitySystem
             || (hasPirate && targetFactions.Contains(TsfFaction));
     }
 
-    private MouseSwarmMember RandomMember(
-        MouseSwarmComponent comp,
-        ResPath sprite,
-        string state,
-        EntProtoId? prototype,
-        string? extraState = null,
-        HashSet<ProtoId<NpcFactionPrototype>>? factions = null)
+    private MouseSwarmMember RandomMember(MouseSwarmComponent comp, ResPath sprite, string state, EntProtoId? prototype, string? extraState = null, HashSet<ProtoId<NpcFactionPrototype>>? factions = null, bool hasMicroBomb = false)
     {
         var offset = new Vector2(
             _random.NextFloat(-comp.MaxOffset, comp.MaxOffset),
@@ -218,6 +279,7 @@ public sealed partial class MouseSwarmSystem : EntitySystem
             offset,
             prototype,
             extraState,
-            factions);
+            factions,
+            hasMicroBomb);
     }
 }
