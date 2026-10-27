@@ -2,7 +2,7 @@
   name: UW12-B CSW-79 "Helepolis" (12 gauge)
   parent: BaseWeaponShotgun
   id: WeaponShotgunHelepolis
-  description: A compact shotgun utilised by Caelestinus which sacrifices all combat ergonomics to better serve as a breaching tool. Breaks doors with slugs. Combat use unadvised.
+  description: A compact shotgun made by Union Wrightworks for Caelestinus. Sacrifices all combat ergonomics to better serve as a breaching tool. Breaks doors with slugs. Combat use unadvised.
   components:
   - type: Item
     size: Normal
@@ -27,7 +27,7 @@
     - WeaponShotgunHelepolis
   - type: BallisticAmmoProvider
     autoCycle: false
-    capacity: 4
+    capacity: 3
     proto: ShellShotgun12_gaugeSlugAP
   - type: StaticPrice
     price: 600
