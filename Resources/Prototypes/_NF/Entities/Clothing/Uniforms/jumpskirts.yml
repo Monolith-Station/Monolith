@@ -56,8 +56,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtSecGuard
-  name: military guard's uniform # Mono - Rename/redesc
-  description: A specialized uniform for military guardsmen. Crisp and official to let dock loiterers know you mean business. # Mono - Rename/redesc
+  name: military guard's skirt # Mono - Rename/redesc
+  description: A specialized uniform for military guardswomen. # Mono - Rename/redesc
   components:
   - type: Sprite
     sprite: _NF/Clothing/Uniforms/Jumpskirt/security_guard.rsi
