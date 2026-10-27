@@ -26304,3 +26304,186 @@ Entries:
   id: 2833
   time: '2026-10-16T20:26:59.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4873
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: >-
+        Driving and Cruise mode now affect thruster power and max velocity
+        differently.
+    - type: Tweak
+      message: Driving mode has received 3.5x thruster power buff
+    - type: Tweak
+      message: Cruise mode has received 4x max velocity buff.
+  id: 2834
+  time: '2026-10-19T17:43:53.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4881
+- author: NazrinNya
+  changes:
+    - type: Fix
+      message: Fix some lathes not being linkable to the silo
+  id: 2835
+  time: '2026-10-22T14:47:27.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4900
+- author: tonotom1
+  changes:
+    - type: Add
+      message: UW Sandbox, A ship intended to do what the Framework did.
+  id: 2836
+  time: '2026-10-22T17:54:32.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4794
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Caelestinus radio room had a comfy grenade thrown into it + a bunch of
+        small fixes and adjustments
+  id: 2837
+  time: '2026-10-22T19:19:16.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4858
+- author: SuperGDPWYL
+  changes:
+    - type: Add
+      message: >-
+        The Godfather and Fugitives now speak Underground Codespeak, an
+        overcomplicated system of code phrases used to hide the true nature of
+        their conversations from the uninitiated. It generally requires an
+        implant to learn, which the Godfather can purchase for 10TC. Underground
+        deathrattles speak it now too.
+    - type: Tweak
+      message: >-
+        Corrected the name of the Underground pAI. It understands and speaks
+        Underground Codespeak now too.
+  id: 2838
+  time: '2026-10-22T20:59:51.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4854
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: SRD now repairs multiple entities at once.
+  id: 2839
+  time: '2026-10-23T19:46:48.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4904
+- author: NazrinNya
+  changes:
+    - type: Add
+      message: Steel recipe for crystallizer
+    - type: Tweak
+      message: Buffed engineer and chief engineer hardsuits
+    - type: Tweak
+      message: Wood and Coal can now burn, producing extremely high temperatures.
+  id: 2840
+  time: '2026-10-23T19:48:38.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4902
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: Janicart and Chemmaster now drain puddles into their buffers.
+    - type: Tweak
+      message: Chemmaster has received a buffer limit - 250 000u
+  id: 2841
+  time: '2026-10-23T19:49:07.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4901
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: Placing tiles with RCD is now instant!
+    - type: Fix
+      message: Mieyo SRD is now actually 2x faster than normal one.
+  id: 2842
+  time: '2026-10-23T19:49:28.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4905
+- author: DoubleHypercube
+  changes:
+    - type: Fix
+      message: >-
+        All TSF marines can now buy omnizine jugs, medkits, hyposprays, and
+        other such.
+  id: 2843
+  time: '2026-10-23T20:38:48.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4903
+- author: DoubleHypercube
+  changes:
+    - type: Fix
+      message: Non-screwdriverable lathes are now upgradeable via the RPED.
+  id: 2844
+  time: '2026-10-23T20:54:18.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4906
+- author: SuperGDPWYL
+  changes:
+    - type: Add
+      message: Added a guidebook page for Monolith's various gamemodes.
+    - type: Tweak
+      message: Made some gamemode names in the vote clearer.
+  id: 2845
+  time: '2026-10-23T21:04:58.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4894
+- author: NazrinNya
+  changes:
+    - type: Fix
+      message: Reagents no longer mix in chemmaster buffer
+  id: 2846
+  time: '2026-10-23T22:11:40.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4907
+- author: NazrinNya
+  changes:
+    - type: Add
+      message: Salvage mode to industrial mining laser.
+    - type: Add
+      message: >-
+        Bolted techfabs that come with packed research. Mapped on
+        department-related ships.
+    - type: Tweak
+      message: Blue wrecks now have lithium and copper in the crates
+  id: 2847
+  time: '2026-10-24T18:57:57.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4912
+- author: EckoAurum
+  changes:
+    - type: Fix
+      message: >-
+        Fixed plungers, arrows, bolts, stakes, syringe gun and similar acting
+        crazy.
+  id: 2848
+  time: '2026-10-26T02:49:06.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4910
+- author: SuperGDPWYL
+  changes:
+    - type: Add
+      message: Added more variety to Underground Codespeak's codephrases.
+    - type: Fix
+      message: >-
+        There should no longer be spaces between Codespeak phrases and
+        punctuation in most circumstances.
+  id: 2849
+  time: '2026-10-26T02:51:45.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4919
+- author: DoubleHypercube
+  changes:
+    - type: Remove
+      message: Clakes are no longer in stock at the UndergroundVend.
+  id: 2850
+  time: '2026-10-27T17:07:04.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4863
+- author: DoubleHypercube
+  changes:
+    - type: Add
+      message: Mech hardpoints are now backwards compatible.
+  id: 2851
+  time: '2026-10-27T17:08:22.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4865
+- author: SuperGDPWYL
+  changes:
+    - type: Add
+      message: >-
+        The Underground shipyard has received the Bluefin, an illegally modified
+        Caracara now with an AK820 where the mining laser used to be. Have fun.
+  id: 2852
+  time: '2026-10-27T17:36:03.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4876
+- author: Mrrpip
+  changes:
+    - type: Tweak
+      message: The Argenti now deals 50% more damage per bullet.
+  id: 2853
+  time: '2026-10-27T17:53:21.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4879
