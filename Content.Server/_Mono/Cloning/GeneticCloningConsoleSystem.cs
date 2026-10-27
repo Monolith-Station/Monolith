@@ -86,7 +86,7 @@ public sealed partial class GeneticCloningConsoleSystem : EntitySystem
 
     public void TryClone(EntityUid uid, int recordId, EntityUid actor, CloningConsoleComponent? consoleComponent = null)
     {
-        if (!Resolve(uid, ref consoleComponent))
+        if (!Resolve(uid, ref consoleComponent, false))
             return;
 
         if (consoleComponent.CloningPod is not { } podUid || !TryComp<CloningPodComponent>(podUid, out var pod))
