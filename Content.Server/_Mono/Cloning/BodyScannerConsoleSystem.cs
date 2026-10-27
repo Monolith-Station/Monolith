@@ -24,8 +24,9 @@ public sealed partial class BodyScannerConsoleSystem : EntitySystem
     [Dependency] private PopupSystem _popup = default!;
     [Dependency] private PowerReceiverSystem _powerReceiverSystem = default!;
     [Dependency] private UserInterfaceSystem _uiSystem = default!;
+    [Dependency] private GeneticCloningConsoleSystem _geneticConsole = default!;
 
-    private const float UpdateRate = 5f;
+    private const float UpdateRate = 1f;
     private float _updateDif;
 
     public override void Initialize()
@@ -117,6 +118,7 @@ public sealed partial class BodyScannerConsoleSystem : EntitySystem
         }
 
         _database.Upsert(db.Value, record);
+        _geneticConsole.UpdateOpenInterfaces();
         _popup.PopupEntity(Loc.GetString("body-scanner-console-scan-complete", ("name", record.Name)), uid, args.Actor);
         _adminLogger.Add(LogType.Action, LogImpact.Low,
             $"{ToPrettyString(args.Actor):actor} scanned {ToPrettyString(body):subject} into genetic database {ToPrettyString(db.Value.Owner)} using {ToPrettyString(uid)}.");

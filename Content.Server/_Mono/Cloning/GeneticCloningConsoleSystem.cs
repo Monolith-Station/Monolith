@@ -31,8 +31,6 @@ public sealed partial class GeneticCloningConsoleSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<GeneticCloningConsoleComponent, GeneticCloningConsoleCloneRecordMessage>(OnCloneRecord);
         SubscribeLocalEvent<GeneticCloningConsoleComponent, GeneticCloningConsoleDeleteRecordMessage>(OnDeleteRecord);
-        SubscribeLocalEvent<GeneticCloningConsoleComponent, AfterActivatableUIOpenEvent>(OnUIOpen);
-        SubscribeLocalEvent<GeneticCloningConsoleComponent, PowerChangedEvent>(OnPowerChanged);
     }
 
     private void OnCloneRecord(EntityUid uid, GeneticCloningConsoleComponent component, GeneticCloningConsoleCloneRecordMessage args)
@@ -57,17 +55,7 @@ public sealed partial class GeneticCloningConsoleSystem : EntitySystem
                 $"{ToPrettyString(args.Actor):actor} deleted the genetic record of {record.Name} from {ToPrettyString(db.Value.Owner)} using {ToPrettyString(uid)}.");
         }
 
-        UpdateUserInterface(uid);
-    }
-
-    private void OnUIOpen(EntityUid uid, GeneticCloningConsoleComponent component, AfterActivatableUIOpenEvent args)
-    {
-        UpdateUserInterface(uid);
-    }
-
-    private void OnPowerChanged(EntityUid uid, GeneticCloningConsoleComponent component, ref PowerChangedEvent args)
-    {
-        UpdateUserInterface(uid);
+        UpdateOpenInterfaces();
     }
 
     public override void Update(float frameTime)
@@ -80,6 +68,14 @@ public sealed partial class GeneticCloningConsoleSystem : EntitySystem
 
         _updateDif -= UpdateRate;
 
+        UpdateOpenInterfaces();
+    }
+
+    /// <summary>
+    /// Refresh console ui
+    /// </summary>
+    public void UpdateOpenInterfaces()
+    {
         var query = EntityQueryEnumerator<GeneticCloningConsoleComponent>();
         while (query.MoveNext(out var uid, out _))
         {
@@ -150,7 +146,7 @@ public sealed partial class GeneticCloningConsoleSystem : EntitySystem
             var cloneBody = clonePod.BodyContainer.ContainedEntity;
 
             clonerMindPresent = clonePod.Status == CloningPodStatus.Cloning;
-            if (HasComp<ActiveCloningPodComponent>(consoleComponent.CloningPod))
+            if (HasComp<ActiveCloningPodComponent>(consoleComponent.CloningPod) && clonePod.Status != CloningPodStatus.Idle)
             {
                 if (cloneBody != null)
                     cloneBodyInfo = Identity.Name(cloneBody.Value, EntityManager);
