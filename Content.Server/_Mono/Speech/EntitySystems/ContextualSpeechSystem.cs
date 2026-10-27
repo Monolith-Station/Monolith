@@ -43,7 +43,11 @@ public sealed class ContextualSpeechSystem : EntitySystem
 
     private void OnThrown(EntityUid uid, ContextualSpeechComponent component, ref ThrownEvent args)
     {
-        var speechEvent = new SpeechTriggerEvent(SpeechTrigger.Thrown);
+        var trigger = args.User == null
+            ? SpeechTrigger.Dash
+            : SpeechTrigger.Thrown;
+
+        var speechEvent = new SpeechTriggerEvent(trigger);
         RaiseLocalEvent(uid, ref speechEvent);
     }
 

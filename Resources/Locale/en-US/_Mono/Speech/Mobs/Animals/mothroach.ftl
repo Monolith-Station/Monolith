@@ -51,3 +51,9 @@ mothroach-ghost-examined-4 = Mothroach cannot be possessed! Too fluffy!
 mothroach-ghost-examined-5 = Boo! Mothroach scared you first!
 mothroach-ghost-examined-6 = Mothroach has six legs. How many do ghosts have?
 mothroach-ghost-examined-7 = Mothroach offers hug, but you are noncorporeal.
+
+mothroach-dash-1 = Wheeee! So fast!
+mothroach-dash-2 = Squeak! Emergency zoom!
+mothroach-dash-3 = Mothroach is a fluffy rocket!
+mothroach-dash-4 = Chitters?! cant stop, wont stop!
+mothroach-dash-5 = Mothroach coming for hugs!
