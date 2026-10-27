@@ -95,7 +95,7 @@ uplink-security-t1-voucher-name = TSFMC Tier 1 Ship Voucher
 uplink-security-t1-voucher-desc = A TSF requisitions voucher for any medium ship.
 
 uplink-security-t2-voucher-name = TSFMC Tier 2 Ship Voucher
-uplink-security-t2-voucher-desc = A TSF requisitions voucher for any large ship.
+uplink-security-t2-voucher-desc = A TSF requisitions voucher for any medium ship.
 
 uplink-security-sentry-mk290-name = MK-290 Deployable Sentry System
 uplink-security-sentry-mk290-desc = A multipurpose portable sentry, capable of feeding from 5.56x45mm, 6.8x52mm, and 7.62x39mm magazines. Requires a screwdriver to disassemble once placed. DOES NOT come with ammo, and empty before packing.
