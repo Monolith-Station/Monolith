@@ -591,3 +591,14 @@
     state: cpu_science
   - type: ComputerBoard
     prototype: MieyoComputerComms
+
+- type: entity
+  parent: BaseComputerCircuitboard
+  id: MawcCommsComputerCircuitboard
+  name: MAWC communications computer board
+  description: A computer printed circuit board for a MAWC console.
+  components:
+  - type: Sprite
+    state: cpu_science
+  - type: ComputerBoard
+    prototype: MawcComputerComms

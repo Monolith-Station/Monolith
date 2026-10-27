@@ -73,3 +73,60 @@
   - type: Tag
     tags:
     - Knife
+
+- type: entity
+  name: M-WC CQS-6 'Talon'
+  parent: BaseMeleeWeaponEnergy
+  id: WeaponMawcTalon
+  description: 'A Heavier melee weapon for proper combat usage, the Talon is designed in such a way that it can be followed up in its strikes, made to fight with style. The hardlight blade is fueled with even more power than the Claw, giving it a larger surface and more deadly wounding ability. Comes with the quirk of deflecting stuff! Not really bullets, though.'
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Melee/fartalon.rsi/
+    layers:
+    - state: e_sword
+    - state: e_sword_blade
+      visible: false
+      shader: unshaded
+      map: [ "blade" ]
+  - type: Item
+    sprite: _Mono/Objects/Weapons/Melee/fartalon.rsi/
+  - type: MeleeWeapon
+    heavyStaminaCost: 2.5
+    wideAnimationRotation: -135
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 4.5
+  - type: ComponentToggler
+    components:
+    - type: Sharp
+    - type: DisarmMalus
+      malus: 0.4
+    - type: Execution
+      doAfterDuration: 4.0
+    - type: Tool
+      qualities:
+      - Prying
+      useSound:
+        path: /Audio/Items/crowbar.ogg
+    - type: Reflect
+      reflectProb: 0.3
+      reflects:
+      - Energy
+  - type: ItemToggleMeleeWeapon
+    activatedDamage:
+      types:
+        Slash: 20
+        Heat: 20
+  - type: EnergySword
+    colorOptions:
+    - "#FFFFFF85"
+    activatedColor: "#FFFFFF85"
+    blockHacking: true
+  - type: Tag  # Mono
+    tags:
+    - MAWCTalon
+  - type: Multihit
+    multihitWhitelist:
+      tags:
+      - MAWCTalon

@@ -42,3 +42,21 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsViperCommand ]
+
+- type: entity
+  parent: HighSecDoor
+  id: HighSecMAWCLocked
+  suffix: MAWC, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMawcLow ]
+
+- type: entity
+  parent: HighSecDoor
+  id: HighSecMAWCCommandLocked
+  suffix: MAWC, command Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMawcHigh ]
