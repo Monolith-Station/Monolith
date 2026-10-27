@@ -325,7 +325,7 @@
         Piercing: 0.5
         Caustic: 0.8
         Heat: 0.45 # Mono
-        Radiation: 0.7 # Mono: add radres
+        Radiation: 0.45 # Mono: add radres
   - type: ClothingSpeedModifier # Mono: 0.85 -> 0.9
     walkModifier: 0.9
     sprintModifier: 0.9
@@ -402,6 +402,7 @@
         Piercing: 0.25 # Mono
         Caustic: 0.7
         Heat: 0.3 # Mono
+        Radiation: 0.2 # Mono
   - type: ClothingSpeedModifier # Mono: 0.7 -> 0.65
     walkModifier: 0.65
     sprintModifier: 0.65
@@ -624,7 +625,7 @@
         Blunt: 0.4 # Mono
         Slash: 0.4 # Mono
         Piercing: 0.35 # Mono
-        Radiation: 0.5
+        Radiation: 0.3 # Mono
         Caustic: 0.6
         Heat: 0.2 # Mono
   - type: ClothingSpeedModifier
