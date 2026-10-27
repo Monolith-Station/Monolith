@@ -29,6 +29,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
+using Content.Server._Mono.Traits;
 
 namespace Content.Server._Mono.Cloning;
 
@@ -199,6 +200,16 @@ public sealed partial class GeneticCloningSystem : EntitySystem
         {
             var copy = _serialization.CreateCopy(comp, notNullableOverride: true);
             AddComp(mob, copy, overwrite: true);
+        }
+
+        // Apparently traits are exploded at spawn and come from the profile not the character, add them again for real
+        if (TryComp<AppliedTraitsComponent>(mob, out var traits))
+        {
+            foreach (var traitId in traits.Traits)
+            {
+                if (_prototype.TryIndex(traitId, out var trait))
+                    EntityManager.AddComponents(mob, trait.Components, removeExisting: false);
+            }
         }
 
         _metaSystem.SetEntityName(mob, record.Name);
