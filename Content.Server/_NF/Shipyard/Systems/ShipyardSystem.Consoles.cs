@@ -238,13 +238,6 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
                 }
                 return;
             }
-            else if (voucher!.ConsoleType != (ShipyardConsoleUiKey)args.UiKey)
-            {
-                Del(shuttleUid);
-                ConsolePopup(player, Loc.GetString("shipyard-console-invalid-voucher-type"));
-                PlayDenySound(player, shipyardConsoleUid, component);
-                return;
-            }
             voucher.RedemptionsLeft--;
             voucherUsed = true;
         }
@@ -899,19 +892,9 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
         if (TryComp<ShipyardVoucherComponent>(targetId, out var voucher))
         {
             voucherAllowed = voucher.Vessels;
-            if (voucher.ConsoleType == key)
-            {
-                accesses.Tags = voucher.Access;
-                accesses.Groups = voucher.AccessGroups;
-                // if we're not access-based we must be vessel-based instead
-                initialHasAccess = voucher.Access.Any() || voucher.AccessGroups.Any();
-            }
-            else
-            {
-                accesses.Tags = new HashSet<ProtoId<AccessLevelPrototype>>();
-                accesses.Groups = new HashSet<ProtoId<AccessGroupPrototype>>();
-                initialHasAccess = false;
-            }
+            accesses.Tags = new HashSet<ProtoId<AccessLevelPrototype>>();
+            accesses.Groups = new HashSet<ProtoId<AccessGroupPrototype>>();
+            initialHasAccess = false;
         }
 
         else if (TryComp<AccessComponent>(targetId, out var accessComponent))
