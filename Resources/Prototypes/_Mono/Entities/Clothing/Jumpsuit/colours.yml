@@ -11,9 +11,7 @@
     sprite: _Mono/Clothing/Colours/Dress/Exquisite/blue.rsi
   - type: ChameleonClothing
     slot: INNERCLOTHING
-    id: ClothingUniformColouredDressExquisiteBlue
     requireTag: DressExquisite
-    affectedByEmp: false
   - type: UserInterface
     interfaces:
       enum.ChameleonUiKey.Key:
@@ -121,9 +119,7 @@
     sprite: _Mono/Clothing/Colours/Dress/Fancy/blue.rsi
   - type: ChameleonClothing
     slot: INNERCLOTHING
-    id: ClothingUniformColouredDressFancyBlue
     requireTag: DressFancy
-    affectedByEmp: false
   - type: UserInterface
     interfaces:
       enum.ChameleonUiKey.Key:
@@ -231,9 +227,7 @@
     sprite: _Mono/Clothing/Colours/Dress/Flowy/blue.rsi
   - type: ChameleonClothing
     slot: INNERCLOTHING
-    id: ClothingUniformColouredDressFlowyBlue
     requireTag: DressFlowy
-    affectedByEmp: false
   - type: UserInterface
     interfaces:
       enum.ChameleonUiKey.Key:
@@ -341,9 +335,7 @@
     sprite: _Mono/Clothing/Colours/Dress/Formal/blue.rsi
   - type: ChameleonClothing
     slot: INNERCLOTHING
-    id: ClothingUniformColouredDressFormalBlue
     requireTag: DressFormal
-    affectedByEmp: false
   - type: UserInterface
     interfaces:
       enum.ChameleonUiKey.Key:
@@ -451,9 +443,7 @@
     sprite: _Mono/Clothing/Colours/Dress/Frilly/blue.rsi
   - type: ChameleonClothing
     slot: INNERCLOTHING
-    id: ClothingUniformColouredDressFrillyBlue
     requireTag: DressFrilly
-    affectedByEmp: false
   - type: UserInterface
     interfaces:
       enum.ChameleonUiKey.Key:
@@ -561,9 +551,7 @@
     sprite: _Mono/Clothing/Colours/Dress/Professional/blue.rsi
   - type: ChameleonClothing
     slot: INNERCLOTHING
-    id: ClothingUniformColouredDressProfessionalBlue
     requireTag: DressProfessional
-    affectedByEmp: false
   - type: UserInterface
     interfaces:
       enum.ChameleonUiKey.Key:
@@ -671,9 +659,7 @@
     sprite: _Mono/Clothing/Colours/Dress/Sleek/blue.rsi
   - type: ChameleonClothing
     slot: INNERCLOTHING
-    id: ClothingUniformColouredDressSleekBlue
     requireTag: DressSleek
-    affectedByEmp: false
   - type: UserInterface
     interfaces:
       enum.ChameleonUiKey.Key:
@@ -781,9 +767,7 @@
     sprite: _Mono/Clothing/Colours/Dress/Stylish/blue.rsi
   - type: ChameleonClothing
     slot: INNERCLOTHING
-    id: ClothingUniformColouredDressStylishBlue
     requireTag: DressStylish
-    affectedByEmp: false
   - type: UserInterface
     interfaces:
       enum.ChameleonUiKey.Key:
@@ -891,9 +875,7 @@
     sprite: _Mono/Clothing/Colours/Dress/Suave/blue.rsi
   - type: ChameleonClothing
     slot: INNERCLOTHING
-    id: ClothingUniformColouredDressSuaveBlue
     requireTag: DressSuave
-    affectedByEmp: false
   - type: UserInterface
     interfaces:
       enum.ChameleonUiKey.Key:
@@ -1001,9 +983,7 @@
     sprite: _Mono/Clothing/Colours/Suit/Exquisite/blue.rsi
   - type: ChameleonClothing
     slot: INNERCLOTHING
-    id: ClothingUniformColouredSuitExquisiteBlue
     requireTag: SuitExquisite
-    affectedByEmp: false
   - type: UserInterface
     interfaces:
       enum.ChameleonUiKey.Key:
@@ -1111,9 +1091,7 @@
     sprite: _Mono/Clothing/Colours/Suit/Fancy/blue.rsi
   - type: ChameleonClothing
     slot: INNERCLOTHING
-    id: ClothingUniformColouredSuitFancyBlue
     requireTag: SuitFancy
-    affectedByEmp: false
   - type: UserInterface
     interfaces:
       enum.ChameleonUiKey.Key:
@@ -1221,9 +1199,7 @@
     sprite: _Mono/Clothing/Colours/Suit/Flowy/blue.rsi
   - type: ChameleonClothing
     slot: INNERCLOTHING
-    id: ClothingUniformColouredSuitFlowyBlue
     requireTag: SuitFlowy
-    affectedByEmp: false
   - type: UserInterface
     interfaces:
       enum.ChameleonUiKey.Key:
@@ -1331,9 +1307,7 @@
     sprite: _Mono/Clothing/Colours/Suit/Formal/blue.rsi
   - type: ChameleonClothing
     slot: INNERCLOTHING
-    id: ClothingUniformColouredSuitFormalBlue
     requireTag: SuitFormal
-    affectedByEmp: false
   - type: UserInterface
     interfaces:
       enum.ChameleonUiKey.Key:
@@ -1441,9 +1415,7 @@
     sprite: _Mono/Clothing/Colours/Suit/Stylish/blue.rsi
   - type: ChameleonClothing
     slot: INNERCLOTHING
-    id: ClothingUniformColouredSuitStylishBlue
     requireTag: SuitStylish
-    affectedByEmp: false
   - type: UserInterface
     interfaces:
       enum.ChameleonUiKey.Key:
@@ -1551,9 +1523,7 @@
     sprite: _Mono/Clothing/Colours/Suit/Suave/blue.rsi
   - type: ChameleonClothing
     slot: INNERCLOTHING
-    id: ClothingUniformColouredSuitSuaveBlue
     requireTag: SuitSuave
-    affectedByEmp: false
   - type: UserInterface
     interfaces:
       enum.ChameleonUiKey.Key:
@@ -1661,9 +1631,7 @@
     sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Fancy/blue.rsi
   - type: ChameleonClothing
     slot: INNERCLOTHING
-    id: ClothingUniformColouredTurtleneckSkirtFancyBlue
     requireTag: TurtleneckSkirtFancy
-    affectedByEmp: false
   - type: UserInterface
     interfaces:
       enum.ChameleonUiKey.Key:
@@ -1771,9 +1739,7 @@
     sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Plain/blue.rsi
   - type: ChameleonClothing
     slot: INNERCLOTHING
-    id: ClothingUniformColouredTurtleneckSkirtPlainBlue
     requireTag: TurtleneckSkirtPlain
-    affectedByEmp: false
   - type: UserInterface
     interfaces:
       enum.ChameleonUiKey.Key:
@@ -1881,9 +1847,7 @@
     sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Stylish/blue.rsi
   - type: ChameleonClothing
     slot: INNERCLOTHING
-    id: ClothingUniformColouredTurtleneckSkirtStylishBlue
     requireTag: TurtleneckSkirtStylish
-    affectedByEmp: false
   - type: UserInterface
     interfaces:
       enum.ChameleonUiKey.Key:
@@ -1991,9 +1955,7 @@
     sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Classical/blue.rsi
   - type: ChameleonClothing
     slot: INNERCLOTHING
-    id: ClothingUniformColouredTurtleneckSkirtClassicalBlue
     requireTag: TurtleneckSkirtClassical
-    affectedByEmp: false
   - type: UserInterface
     interfaces:
       enum.ChameleonUiKey.Key:
@@ -2101,9 +2063,7 @@
     sprite: _Mono/Clothing/Colours/Turtleneck/Suit/Fancy/blue.rsi
   - type: ChameleonClothing
     slot: INNERCLOTHING
-    id: ClothingUniformColouredTurtleneckSuitFancyBlue
     requireTag: TurtleneckSuitFancy
-    affectedByEmp: false
   - type: UserInterface
     interfaces:
       enum.ChameleonUiKey.Key:
@@ -2211,9 +2171,7 @@
     sprite: _Mono/Clothing/Colours/Turtleneck/Suit/Stylish/blue.rsi
   - type: ChameleonClothing
     slot: INNERCLOTHING
-    id: ClothingUniformColouredTurtleneckSuitStylishBlue
     requireTag: TurtleneckSuitStylish
-    affectedByEmp: false
   - type: UserInterface
     interfaces:
       enum.ChameleonUiKey.Key:
@@ -2321,9 +2279,7 @@
     sprite: _Mono/Clothing/Colours/Turtleneck/Suit/Classical/blue.rsi
   - type: ChameleonClothing
     slot: INNERCLOTHING
-    id: ClothingUniformColouredTurtleneckSuitClassicalBlue
     requireTag: TurtleneckSuitClassical
-    affectedByEmp: false
   - type: UserInterface
     interfaces:
       enum.ChameleonUiKey.Key:

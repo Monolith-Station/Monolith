@@ -60,8 +60,8 @@
 - type: entity
   parent: ClothingOuterStorageBase
   id: ClothingOuterCoatNfsdBomber
-  name: military bomber jacket
-  description: A standard-issue, if old, military bomber jacket. Has some decent armor plating.
+  name: military bomber jacket # Mono: Rename/redesc
+  description: A standard-issue, if old, military bomber jacket. Has some decent armor plating. # Mono: Rename/redesc
   components:
   - type: Sprite
     sprite: _NF/Clothing/OuterClothing/Misc/nfsd_bomber.rsi
@@ -86,7 +86,7 @@
 - type: entity
   parent: ClothingOuterCoatNfsdBomber # Mono: Reparent for armour
   id: ClothingOuterCoatNfsdBomberBrigmed
-  name: military bomber jacket
+  name: military tan bomber jacket # Mono: Rename
   components:
   - type: Sprite
     sprite: _NF/Clothing/OuterClothing/Misc/nfsd_brigmed_bomber.rsi
@@ -118,8 +118,8 @@
 - type: entity
   parent: ClothingOuterCoatNfsdBomber # Mono: Reparent for armour
   id: ClothingOuterCoatNfsdLongCoat
-  name: military long coat
-  description: Big iron on his hip...
+  name: military long coat # Mono: Rename/redesc
+  description: A formal coat issued to military officers. # Mono: Rename/redesc
   components:
   - type: Sprite
     sprite: _NF/Clothing/OuterClothing/Misc/nfsd_long.rsi
