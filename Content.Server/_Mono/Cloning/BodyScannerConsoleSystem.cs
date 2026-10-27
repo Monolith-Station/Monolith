@@ -177,7 +177,7 @@ public sealed partial class BodyScannerConsoleSystem : EntitySystem
         if (_database.TryGetDatabase(uid, out var found))
         {
             db = found;
-            databaseName = found.Value.Comp.DatabaseName;
+            databaseName = _database.GetDisplayName(found.Value);
         }
 
         if (component.Scanner == null || !HasComp<MedicalScannerComponent>(component.Scanner) || !Transform(component.Scanner.Value).Anchored)

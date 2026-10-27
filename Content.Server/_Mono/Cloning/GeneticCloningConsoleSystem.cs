@@ -23,7 +23,7 @@ public sealed partial class GeneticCloningConsoleSystem : EntitySystem
     [Dependency] private PowerReceiverSystem _powerReceiverSystem = default!;
     [Dependency] private UserInterfaceSystem _uiSystem = default!;
 
-    private const float UpdateRate = 5f;
+    private const float UpdateRate = 1f;
     private float _updateDif;
 
     public override void Initialize()

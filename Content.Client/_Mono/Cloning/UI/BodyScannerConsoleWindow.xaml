@@ -9,7 +9,10 @@
             <Control MinSize="0 5" />
             <Label Name="StatusLabel" HorizontalAlignment="Center" />
             <Control MinSize="0 5" />
-            <Label Name="DatabaseLabel" HorizontalAlignment="Center" />
+            <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label Name="DatabaseLabel" VerticalAlignment="Center" Margin="0 0 5 0" />
+                <Button Name="DatabaseButton" Access="Public" Text="{Loc 'genetic-database-select-button'}" />
+            </BoxContainer>
             <Control VerticalExpand="True" />
             <Button Name="ScanButton"
                     Access="Public"

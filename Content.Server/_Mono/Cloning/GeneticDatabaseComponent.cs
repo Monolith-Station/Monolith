@@ -7,6 +7,9 @@ public sealed partial class GeneticDatabaseComponent : Component
     public string DatabaseName = "GENEDB";
 
     [ViewVariables]
+    public int Id;
+
+    [ViewVariables]
     public Dictionary<EntityUid, GeneticRecord> Records = new();
 
     [ViewVariables]

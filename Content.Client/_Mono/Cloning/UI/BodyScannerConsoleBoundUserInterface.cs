@@ -18,6 +18,7 @@ public sealed class BodyScannerConsoleBoundUserInterface : BoundUserInterface
 
         _window = this.CreateWindow<BodyScannerConsoleWindow>();
         _window.ScanButton.OnPressed += _ => SendMessage(new BodyScannerScanMessage());
+        _window.DatabaseButton.OnPressed += _ => SendMessage(new GeneticDatabaseOpenSelectMessage());
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)

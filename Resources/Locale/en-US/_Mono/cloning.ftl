@@ -1,5 +1,8 @@
 ## Thank me for not hardcoding all of this
 
+genetic-database-entry = {$name} #{$id}
+genetic-database-select-button = Database...
+genetic-database-select-window-title = Genetic Database
 genetic-database-name = Database: {$name}
 genetic-database-none = No genetic database found.
 genetic-scan-fail-no-mind = No mind detected.

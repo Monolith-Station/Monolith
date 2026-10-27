@@ -7,7 +7,10 @@
     <BoxContainer Orientation="Vertical"
                   VerticalExpand="True"
                   HorizontalExpand="True">
-        <Label Name="DatabaseLabel" HorizontalAlignment="Center" Margin="0 0 0 5" />
+        <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 5">
+            <Label Name="DatabaseLabel" VerticalAlignment="Center" Margin="0 0 5 0" />
+            <Button Name="DatabaseButton" Access="Public" Text="{Loc 'genetic-database-select-button'}" />
+        </BoxContainer>
         <BoxContainer Orientation="Horizontal" VerticalExpand="True" HorizontalExpand="True">
             <PanelContainer VerticalExpand="True" HorizontalExpand="True" StyleClasses="Inset">
                 <BoxContainer Margin="5 5 5 5" Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True">

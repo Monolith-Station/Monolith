@@ -772,6 +772,8 @@
     interfaces:
         enum.BodyScannerConsoleUiKey.Key:
           type: BodyScannerConsoleBoundUserInterface
+        enum.GeneticDatabaseSelectUiKey.Key: # Mono
+          type: GeneticDatabaseSelectBoundUserInterface
         enum.WiresUiKey.Key:
           type: WiresBoundUserInterface
   - type: Speech
@@ -1190,6 +1192,8 @@
     interfaces:
         enum.GeneticCloningConsoleUiKey.Key: # Mono > enum.CloningConsoleUiKey.Key
           type: GeneticCloningConsoleBoundUserInterface # Mono > CloningConsoleBoundUserInterface
+        enum.GeneticDatabaseSelectUiKey.Key: # Mono
+          type: GeneticDatabaseSelectBoundUserInterface # Mono
         enum.WiresUiKey.Key:
           type: WiresBoundUserInterface
   - type: Speech

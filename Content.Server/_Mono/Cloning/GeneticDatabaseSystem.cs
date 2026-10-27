@@ -6,6 +6,7 @@ using Content.Shared.Mind;
 using Robust.Server.Player;
 using Robust.Shared.Prototypes;
 using Content.Server._NF.CryoSleep;
+using Robust.Server.GameObjects;
 
 namespace Content.Server._Mono.Cloning;
 
@@ -16,8 +17,17 @@ public sealed partial class GeneticDatabaseSystem : EntitySystem
     [Dependency] private IPrototypeManager _prototype = default!;
     [Dependency] private SharedMindSystem _mindSystem = default!;
     [Dependency] private CryoSleepSystem _cryoSleep = default!;
+    [Dependency] private UserInterfaceSystem _uiSystem = default!;
 
     private readonly HashSet<Entity<GeneticDatabaseComponent>> _found = new();
+
+    public override void Initialize()
+    {
+        base.Initialize();
+        SubscribeLocalEvent<GeneticDatabaseComponent, ComponentStartup>(OnDatabaseStartup);
+        SubscribeLocalEvent<GeneticDatabaseClientComponent, GeneticDatabaseOpenSelectMessage>(OnOpenSelect);
+        SubscribeLocalEvent<GeneticDatabaseClientComponent, GeneticDatabaseSelectMessage>(OnSelect);
+    }
 
     /// <summary>
     /// Sorry for calling it a db
@@ -33,28 +43,71 @@ public sealed partial class GeneticDatabaseSystem : EntitySystem
             return false;
         }
 
-        if (comp.Database is { } cached &&
-            TryComp<GeneticDatabaseComponent>(cached, out var cachedComp) &&
-            IsUsable(cached, grid.Value))
+        if (!HasComp<GeneticDatabaseComponent>(comp.Database))
         {
-            db = (cached, cachedComp);
-            return true;
+            var onGrid = GetDatabasesOnGrid(grid.Value);
+            comp.Database = onGrid.Count == 1 ? onGrid[0].Owner : null;
         }
 
+        if (comp.Database is not { } picked ||
+            !TryComp<GeneticDatabaseComponent>(picked, out var pickedComp) ||
+            !IsUsable(picked, grid.Value))
+        {
+            return false;
+        }
+
+        db = (picked, pickedComp);
+        return true;
+    }
+
+    private List<Entity<GeneticDatabaseComponent>> GetDatabasesOnGrid(EntityUid grid)
+    {
         _found.Clear();
-        _lookup.GetChildEntities(grid.Value, _found);
-        foreach (var candidate in _found)
-        {
-            if (!IsUsable(candidate, grid.Value))
-                continue;
+        _lookup.GetChildEntities(grid, _found);
+        return _found.OrderBy(d => d.Comp.Id).ToList();
+    }
 
-            comp.Database = candidate;
-            db = candidate;
-            return true;
+    private void OnDatabaseStartup(Entity<GeneticDatabaseComponent> ent, ref ComponentStartup args)
+    {
+        // this is basically just a RD server
+        ent.Comp.Id = EntityQuery<GeneticDatabaseComponent>(true).Max(d => d.Id) + 1;
+    }
+
+    private void OnOpenSelect(Entity<GeneticDatabaseClientComponent> ent, ref GeneticDatabaseOpenSelectMessage args)
+    {
+        _uiSystem.TryToggleUi(ent.Owner, GeneticDatabaseSelectUiKey.Key, args.Actor);
+        UpdateSelectUi(ent);
+    }
+
+    private void OnSelect(Entity<GeneticDatabaseClientComponent> ent, ref GeneticDatabaseSelectMessage args)
+    {
+        var query = EntityQueryEnumerator<GeneticDatabaseComponent>();
+        while (query.MoveNext(out var uid, out var database))
+        {
+            if (database.Id == args.Id)
+                ent.Comp.Database = uid;
         }
 
-        comp.Database = null;
-        return false;
+
+        UpdateSelectUi(ent);
+    }
+
+    private void UpdateSelectUi(Entity<GeneticDatabaseClientComponent> ent)
+    {
+        if (Transform(ent).GridUid is not { } grid)
+            return;
+
+        var entries = GetDatabasesOnGrid(grid)
+            .Select(d => new GeneticDatabaseEntry(d.Comp.Id, GetDisplayName(d)))
+            .ToList();
+
+        var selected = CompOrNull<GeneticDatabaseComponent>(ent.Comp.Database)?.Id;
+        _uiSystem.SetUiState(ent.Owner, GeneticDatabaseSelectUiKey.Key, new GeneticDatabaseSelectBoundUserInterfaceState(entries, selected));
+    }
+
+    public string GetDisplayName(Entity<GeneticDatabaseComponent> db)
+    {
+        return Loc.GetString("genetic-database-entry", ("name", db.Comp.DatabaseName), ("id", db.Comp.Id));
     }
 
     private bool IsUsable(EntityUid database, EntityUid grid)

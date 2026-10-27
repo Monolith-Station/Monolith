@@ -21,6 +21,7 @@ public sealed class GeneticCloningConsoleBoundUserInterface : BoundUserInterface
 
         _window.OnCloneRecord += id => SendMessage(new GeneticCloningConsoleCloneRecordMessage(id));
         _window.OnDeleteRecord += id => SendMessage(new GeneticCloningConsoleDeleteRecordMessage(id));
+        _window.DatabaseButton.OnPressed += _ => SendMessage(new GeneticDatabaseOpenSelectMessage());
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)
