@@ -89,6 +89,7 @@
     fireCost: 10
   - type: DeviceNetworkRequiresPower
   - type: WiredNetworkConnection
+  - type: ApcPowerReceiver
   - type: UserInterface
     interfaces:
       enum.WiresUiKey.Key:
