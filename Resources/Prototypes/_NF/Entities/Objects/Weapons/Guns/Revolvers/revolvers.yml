@@ -11,6 +11,7 @@
     sprite: _NF/Objects/Weapons/Guns/Revolvers/argenti.rsi
   - type: Gun
     fireRate: 2.5
+    damageModifier: 1.5 # Mono all 8 need to hit to down light vest + mask + 15% helmet.
   - type: RevolverAmmoProvider
     whitelist:
       tags:
