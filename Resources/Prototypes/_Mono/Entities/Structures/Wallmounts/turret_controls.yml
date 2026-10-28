@@ -90,6 +90,7 @@
   - type: DeviceNetworkRequiresPower
   - type: WiredNetworkConnection
   - type: ApcPowerReceiver
+    powerLoad: 10
   - type: UserInterface
     interfaces:
       enum.WiresUiKey.Key:
