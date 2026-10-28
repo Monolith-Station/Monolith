@@ -83,3 +83,18 @@
   materials:
     Steel: 3000
     Plastic: 600
+
+# MAWC
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponMawcClawMAWC
+  categories:
+  - Energy
+  - Weapons
+  result: WeaponMawcClaw
+  materials:
+    Steel: 1200
+    Plasteel: 1500
+    Plastic: 300
+    Plasma: 500

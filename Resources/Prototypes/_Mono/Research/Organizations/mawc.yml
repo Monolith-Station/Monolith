@@ -1,0 +1,42 @@
+- type: technology
+  id: MAWCSuits
+  name: research-technology-mawc-suits
+  entityIcon: ClothingOuterHardsuitMAWCWidowmaker
+  discipline: MAWC
+  tier: 2
+  cost: 35000
+  recipeUnlocks:
+  - ClothingOuterHardsuitMAWCWeaverMAWC
+  - ClothingOuterHardsuitMAWCWidowmakerMAWC
+  technologyPrerequisites:
+  - UniversalMaterialResearchT2
+  position: 2, -23
+
+- type: technology
+  id: MAWCWeaponsBasic
+  name: research-technology-mawc-weapons-basic
+  entityIcon: WeaponSubMachineGunMAWCFlanker
+  discipline: MAWC
+  tier: 2
+  cost: 30000
+  recipeUnlocks:
+  - WeaponRifleMAWCFulcrumMAWC
+  - WeaponSubMachineGunMAWCFlankerMAWC
+  - WeaponShotgunMAWCIntruderMAWC
+  technologyPrerequisites:
+  - UniversalMaterialResearchT2
+  position: 2, -22
+
+- type: technology
+  id: MAWCWeaponsAdvanced
+  name: research-technology-mawc-weapons-advanced
+  entityIcon: WeaponRifleMAWCStonehenge
+  discipline: MAWC
+  tier: 3
+  cost: 30000
+  recipeUnlocks:
+  - WeaponRifleMAWCStonehengeMAWC
+  technologyPrerequisites:
+  - MAWCWeaponsBasic
+  - UniversalMaterialResearchT3
+  position: 2, -30

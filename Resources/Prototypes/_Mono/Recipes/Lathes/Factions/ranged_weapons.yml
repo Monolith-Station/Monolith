@@ -674,3 +674,91 @@
     Steel: 1600
     Plasteel: 2000
     Plastic: 1000
+
+# MAWC
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponPistolMAWCGameMAWC
+  result: WeaponPistolMAWCGame
+  categories:
+  - Sidearms
+  - Ballistic
+  - Weapons
+  materials:
+    Steel: 400
+    Plasteel: 100
+    Plastic: 400
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponMAWCSiriusMAWC
+  result: WeaponMAWCSirius
+  categories:
+  - AntiMaterial
+  - Energy
+  - Weapons
+  materials:
+    Steel: 500
+    Plasteel: 2500
+    Silver: 500
+    Gold: 500
+    Plasma: 1000
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponSubMachineGunMAWCFlankerMAWC
+  result: WeaponSubMachineGunMAWCFlanker
+  categories:
+  - SMGs
+  - Ballistic
+  - Weapons
+  materials:
+    Steel: 700
+    Plasteel: 1000
+    Plastic: 4500
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponShotgunMAWCIntruderMAWC
+  result: WeaponShotgunMAWCIntruder
+  categories:
+  - Shotguns
+  - Ballistic
+  - Weapons
+  materials:
+    Steel: 700
+    Plasteel: 750
+    Plastic: 500
+    Wood: 500
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponRifleMAWCFulcrumMAWC
+  result: WeaponRifleMAWCFulcrum
+  categories:
+  - Rifles
+  - Ballistic
+  - Weapons
+  materials:
+    Steel: 1500
+    Plasteel: 1200
+    Plastic: 900
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponRifleMAWCStonehengeMAWC
+  result: WeaponRifleMAWCStonehenge
+  categories:
+  - AntiMaterial
+  - Weapons
+  - Ballistic
+  materials:
+    Steel: 7000
+    Plasteel: 6000
+    Plastitanium: 1500
+    Copper: 2000
+    Lithium: 2000
+    Gold: 500
+    Silver: 500
+    MAWCScrap: 7500

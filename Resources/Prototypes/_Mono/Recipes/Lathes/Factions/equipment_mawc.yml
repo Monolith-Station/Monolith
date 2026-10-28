@@ -1,0 +1,55 @@
+- type: latheRecipe
+  abstract: true
+  id: MonoHardsuitT2RecipeMAWC # 175 scrap total, assuming no alternative means are used
+  parent: MonoHardsuitT2Recipe
+  completetime: 15
+  materials:
+    MAWCScrap: 7500
+    Plastitanium: 200 # 50 scrap
+    Iridite: 200 # 50 scrap
+
+- type: latheRecipe
+  abstract: true
+  id: MonoHardsuitT3RecipeMAWC # 260 scrap total, assuming no alternative means are used
+  parent: MonoHardsuitT3Recipe
+  completetime: 15
+  materials:
+    MAWCScrap: 11000
+    Plastitanium: 300 # 75 scrap
+    Iridite: 300 # 75 scrap
+
+- type: latheRecipe
+  id: IriditeMAWC
+  materialResult:
+    Iridite: 100
+  completetime: 5
+  materials:
+    MAWCScrap: 2500
+
+- type: latheRecipe
+  id: PlastitaniumMAWC
+  materialResult:
+    Plastitanium: 100
+  completetime: 5
+  materials:
+    MAWCScrap: 2500 
+
+- type: latheRecipe
+  parent: MonoHardsuitT1Recipe
+  id: ClothingOuterHardsuitMAWCTermiteMAWC
+  result: ClothingOuterHardsuitMAWCTermite
+
+- type: latheRecipe
+  parent: MonoHardsuitT2Recipe
+  id: ClothingOuterHardsuitMAWCCarpenterMAWC
+  result: ClothingOuterHardsuitMAWCCarpenter
+
+- type: latheRecipe
+  parent: MonoHardsuitT2RecipeMAWC
+  id: ClothingOuterHardsuitMAWCWeaverMAWC
+  result: ClothingOuterHardsuitMAWCWeaver
+
+- type: latheRecipe
+  parent: MonoHardsuitT3RecipeMAWC
+  id: ClothingOuterHardsuitMAWCWidowmakerMAWC
+  result: ClothingOuterHardsuitMAWCWidowmaker

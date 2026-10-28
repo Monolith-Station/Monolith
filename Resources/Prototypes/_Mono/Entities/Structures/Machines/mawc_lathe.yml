@@ -23,8 +23,12 @@
     idleState: icon
     runningState: icon
     staticPacks:
-    - MAWCWeaponsStatic
-    - MAWCHardsuitsStatic
+    - MonoMAWCWeaponsStatic
+    - MonoMAWCGearStatic
+    - MonoMAWCMaterialsStatic
+    dynamicPacks: 
+    - MonoMAWCWeaponsDynamic
+    - MonoMAWCGearDynamic
   - type: MaterialStorage
     whitelist:
       tags:

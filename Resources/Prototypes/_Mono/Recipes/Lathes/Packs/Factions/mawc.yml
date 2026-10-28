@@ -1,0 +1,32 @@
+- type: latheRecipePack
+  id: MonoMAWCMaterialsStatic
+  recipes:
+  - IriditeMAWC
+  - PlastitaniumMAWC
+
+- type: latheRecipePack
+  id: MonoMAWCWeaponsStatic
+  recipes:
+  - WeaponPistolMAWCGameMAWC
+  - WeaponMAWCSiriusMAWC
+  - WeaponMawcClawMAWC
+
+- type: latheRecipePack
+  id: MonoMAWCGearStatic
+  recipes:
+  - ClothingOuterHardsuitMAWCTermiteMAWC
+  - ClothingOuterHardsuitMAWCCarpenterMAWC
+
+- type: latheRecipePack
+  id: MonoMAWCWeaponsDynamic
+  recipes:
+  - WeaponSubMachineGunMAWCFlankerMAWC
+  - WeaponShotgunMAWCIntruderMAWC
+  - WeaponRifleMAWCFulcrumMAWC
+  - WeaponRifleMAWCStonehengeMAWC
+
+- type: latheRecipePack
+  id: MonoMAWCGearDynamic
+  recipes:
+  - ClothingOuterHardsuitMAWCWeaverMAWC
+  - ClothingOuterHardsuitMAWCWidowmakerMAWC
