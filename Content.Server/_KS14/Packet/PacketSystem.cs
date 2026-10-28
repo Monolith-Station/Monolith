@@ -1,15 +1,31 @@
+using System.Linq;
+using Content.Server._FarHorizons.Power.Generation.FissionGenerator;
 using Content.Server._KS14.Packet.Components;
 using Content.Server._KS14.Packet.Modules.Base;
+using Content.Server._KS14.Packet.States;
+using Content.Server.Ame.EntitySystems;
+using Content.Server.Atmos.Piping.Binary.EntitySystems;
+using Content.Server.Chat.Systems;
+using Content.Server.Chemistry.EntitySystems;
 using Content.Server.DeviceLinking.Systems;
+using Content.Server.Fax;
 using Content.Server.GameTicking.Events;
+using Content.Server.Lathe;
+using Content.Server.Materials;
+using Content.Server.Radio.EntitySystems;
+using Content.Server.VendingMachines;
 using Content.Shared._KS14.Packets.BUI;
+using Content.Shared._KS14.Packets.Widgets;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.DeviceLinking.Events;
 using Content.Shared.GameTicking;
+using Content.Shared.Lathe;
+using Content.Shared.Materials;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
 namespace Content.Server._KS14.Packet;
 
@@ -18,9 +34,19 @@ namespace Content.Server._KS14.Packet;
 /// </summary>
 public sealed partial class PacketSystem : EntitySystem
 {
-    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] internal LatheSystem LatheSystem = default!;
+    [Dependency] internal MaterialStorageSystem MaterialStorageSystem = default!;
+    [Dependency] internal VendingMachineSystem VendingMachineSystem = default!;
+    [Dependency] internal FaxSystem FaxSystem = default!;
+    [Dependency] internal ChatSystem ChatSystem = default!;
+    [Dependency] internal AmeControllerSystem AmeControllerSystem = default!;
+    [Dependency] internal ChemMasterSystem ChemMasterSystem = default!;
+    [Dependency] internal RadioSystem RadioSystem = default!;
+    [Dependency] internal UserInterfaceSystem UserInterfaceSystem = default!;
+
     [Dependency] private IRobustRandom _random = default!;
-    [Dependency] private UserInterfaceSystem _userInterfaceSystem = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private DeviceLinkSystem _deviceLinkSystem = default!;
     [Dependency] private SharedAudioSystem _audioSystem = default!;
 
@@ -36,7 +62,8 @@ public sealed partial class PacketSystem : EntitySystem
         SubscribeLocalEvent<PacketExecutorComponent, StartExecutionMessage>(OnExecute);
         SubscribeLocalEvent<PacketExecutorComponent, ReloadModulesMessage>(OnModuleReload);
         SubscribeLocalEvent<PacketExecutorComponent, TerminateExecutorMessage>(OnTerminate);
-        SubscribeLocalEvent<PacketExecutorComponent, InputExecutorMessage>(OnInput);
+        SubscribeLocalEvent<PacketExecutorComponent, WidgetButtonClickedMessage>(OnWidgetButton);
+        SubscribeLocalEvent<PacketExecutorComponent, ExecutorRequestCallsInfoMessage>(OnDeviceCallsRequest);
 
         SubscribeLocalEvent<PacketExecutorComponent, SignalReceivedEvent>(OnExecutorSignal);
 
@@ -46,7 +73,6 @@ public sealed partial class PacketSystem : EntitySystem
 
         SubscribeLocalEvent<RoundStartingEvent>(OnRoundStart);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnCleanup);
-
     }
 
     /// <summary>
@@ -64,7 +90,8 @@ public sealed partial class PacketSystem : EntitySystem
             if (uid.Comp.Log == string.Empty)
                 continue;
 
-            _userInterfaceSystem.ServerSendUiMessage(uid.Owner, ExecutorUiKey.Key, new LogExecutorMessage(uid.Comp.Log));
+            UserInterfaceSystem.ServerSendUiMessage(uid.Owner, ExecutorUiKey.Key, new LogExecutorMessage(uid.Comp.Log));
+            Logger.Info(uid.Comp.Log);
             uid.Comp.Log = string.Empty;
         }
     }
@@ -75,7 +102,7 @@ public sealed partial class PacketSystem : EntitySystem
     }
 
     /// <summary>
-    /// On "SAVE" message - receives code from client and loads it into executor's component.
+    /// Receives code from client and loads it into executor's component.
     /// </summary>
     /// <param name="ent"></param>
     /// <param name="ev"></param>
@@ -91,6 +118,7 @@ public sealed partial class PacketSystem : EntitySystem
     /// <param name="ev"></param>
     private void OnExecute(Entity<PacketExecutorComponent> ent, ref StartExecutionMessage ev)
     {
+        ent.Comp.Command = ev.Command;
         TryExecute(ent.Comp.Command, ent, ev.Actor);
     }
 
@@ -117,14 +145,23 @@ public sealed partial class PacketSystem : EntitySystem
         Cancel(ent);
     }
 
-    /// <summary>
-    /// On "SEND" message - Send data from client in input method channel.
-    /// </summary>
-    /// <param name="ent"></param>
-    /// <param name="ev"></param>
-    private void OnInput(Entity<PacketExecutorComponent> ent, ref InputExecutorMessage ev)
+    private void OnWidgetButton(Entity<PacketExecutorComponent> ent, ref WidgetButtonClickedMessage ev)
     {
-        SendData(ev.Input, ent, typeof(InputMethod), "BasePacketModule", ent.Comp);
+        if (!TryFindWidgetElement<WidgetButton>(ent, ev.Button,  out var widget))
+            return;
+
+        LoadVariables(ent, ev.Arguments);
+        InvokeAction(widget.MethodName, ent);
+    }
+
+    private void OnDeviceCallsRequest(Entity<PacketExecutorComponent> ent, ref ExecutorRequestCallsInfoMessage ev)
+    {
+        var message = new ExecutorRequestCallsInfoMessage
+        {
+            Calls = _classEntries,
+        };
+
+        UserInterfaceSystem.ServerSendUiMessage(ent.Owner, ExecutorUiKey.Key, message);
     }
 
     /// <summary>
@@ -146,7 +183,13 @@ public sealed partial class PacketSystem : EntitySystem
         var maxMemory = ent.Comp.MemoryAllocation;
         var command = ent.Comp.Command;
 
-        _userInterfaceSystem.SetUiState(ent.Owner, ExecutorUiKey.Key, new ExecutorBoundUserInterfaceState(maxStatements, maxMemory, command));
+        UserInterfaceSystem.SetUiState(ent.Owner,
+            ExecutorUiKey.Key,
+            new ExecutorBoundUserInterfaceState(
+                maxStatements,
+                maxMemory,
+                command,
+                [.. ent.Comp.Widgets.Values]));
     }
 
     private void OnRoundStart(RoundStartingEvent ev)

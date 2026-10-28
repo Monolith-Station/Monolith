@@ -55,4 +55,9 @@ public sealed partial class PacketSystem
         var engine = EnsureEngine(ent);
         engine.Invoke(func);
     }
+
+    private void InvokeAction(string func, Entity<PacketExecutorComponent> ent)
+    {
+        ExecuteCommand(func + "();", ent);
+    }
 }

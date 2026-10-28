@@ -1,4 +1,11 @@
 - type: packetFrequency
+  id: VendFrequency
+  minFrequency: 250
+  maxFrequency: 350
+  listeningFrequencies:
+  - ExecutorFrequency
+
+- type: packetFrequency
   id: LatheFrequency
   minFrequency: 350
   maxFrequency: 650
@@ -6,7 +13,7 @@
   - ExecutorFrequency
 
 - type: packetFrequency
-  id: FaxFrequency
+  id: TransmissionFrequency
   minFrequency: 650
   maxFrequency: 700
   listeningFrequencies:
@@ -16,6 +23,27 @@
   id: ConveyorFrequency
   minFrequency: 700
   maxFrequency: 750
+  listeningFrequencies:
+  - ExecutorFrequency
+
+- type: packetFrequency
+  id: MedicalFrequency
+  minFrequency: 1250
+  maxFrequency: 1650
+  listeningFrequencies:
+  - ExecutorFrequency
+
+- type: packetFrequency
+  id: PowerFrequency
+  minFrequency: 750
+  maxFrequency: 1250
+  listeningFrequencies:
+  - ExecutorFrequency
+
+- type: packetFrequency
+  id: AtmosFrequency
+  minFrequency: 1650
+  maxFrequency: 2650
   listeningFrequencies:
   - ExecutorFrequency
 

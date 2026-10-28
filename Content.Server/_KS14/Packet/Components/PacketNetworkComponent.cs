@@ -38,7 +38,7 @@ public sealed partial class PacketNetworkComponent : Component
     /// Assigned randomly upon entity initialization
     /// </summary>
     [DataField]
-    public string Address = "0x000000";
+    public string Address = "0x0000";
 
     /// <summary>
     /// Network that is assigned to this device <see cref="PacketNetwork"/>

@@ -15,9 +15,7 @@
   - type: PacketExecutor
     modules:
     - BasePacketModule
-    - LathePacketModule
     - NetworkPacketModule
-    - FaxPacketModule
   - type: PacketNetwork
     frequency: ExecutorFrequency
 

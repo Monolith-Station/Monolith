@@ -1,3 +1,4 @@
+using System.Threading;
 using System.Threading.Channels;
 using System.Threading.Tasks;
 
@@ -38,7 +39,7 @@ public sealed partial class PacketSystem
         if (Environment.CurrentManagedThreadId == _mainThreadId)
             return func.Invoke();
 
-        WrapSystemCall(async void () =>
+        await WrapSystemCallAsync(async void () =>
         {
             await channel.Writer.WriteAsync(func.Invoke()!);
         });
@@ -57,8 +58,28 @@ public sealed partial class PacketSystem
         WrapSystemCall(action);
     }
 
+    public async Task TryWrapSystemCallAsync(Action action)
+    {
+        if (Environment.CurrentManagedThreadId == _mainThreadId)
+        {
+            action.Invoke();
+            return;
+        }
+
+        await WrapSystemCallAsync(action);
+    }
+
     public void WrapSystemCall(Action action)
     {
         _callQueue.Enqueue(action);
+
+        Thread.Sleep(1000 / _gameTiming.TickRate);
+    }
+
+    public async Task WrapSystemCallAsync(Action action)
+    {
+        _callQueue.Enqueue(action);
+
+        await Task.Delay(1000 / _gameTiming.TickRate);
     }
 }

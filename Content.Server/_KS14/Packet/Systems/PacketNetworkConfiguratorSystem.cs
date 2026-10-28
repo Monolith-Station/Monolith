@@ -1,13 +1,12 @@
 using Content.Server._KS14.Packet.Components;
 using Content.Server.Chat.Systems;
-using Content.Shared._KS14.Packets.BUI;
+using Content.Shared._KS14.Packets;
 using Content.Shared.Chat;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Paper;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
-using Robust.Server.GameObjects;
 using Robust.Shared.Utility;
 
 namespace Content.Server._KS14.Packet.Systems;
@@ -20,7 +19,6 @@ public sealed partial class PacketNetworkConfiguratorSystem : EntitySystem
     [Dependency] private PacketSystem _packetSystem = default!;
     [Dependency] private ChatSystem _chatSystem = default!;
     [Dependency] private SharedPopupSystem _sharedPopupSystem = default!;
-    [Dependency] private UserInterfaceSystem _userInterfaceSystem = default!;
 
 
     public override void Initialize()
@@ -28,7 +26,6 @@ public sealed partial class PacketNetworkConfiguratorSystem : EntitySystem
         SubscribeLocalEvent<PacketNetworkConfiguratorComponent, UseInHandEvent>(OnUse);
         SubscribeLocalEvent<PacketNetworkConfiguratorComponent, AfterInteractEvent>(OnInteract);
         SubscribeLocalEvent<PacketNetworkConfiguratorComponent, GetVerbsEvent<AlternativeVerb>>(OnAltInteract);
-        SubscribeLocalEvent<PacketExecutorComponent, GetVerbsEvent<AlternativeVerb>>(OnExecutorInteract);
     }
 
     private void SwitchMode(Entity<PacketNetworkConfiguratorComponent> ent, EntityUid user)
@@ -51,37 +48,42 @@ public sealed partial class PacketNetworkConfiguratorSystem : EntitySystem
     /// <param name="ev"></param>
     private void OnUse(Entity<PacketNetworkConfiguratorComponent> ent, ref UseInHandEvent ev)
     {
-        if (ent.Comp.Addresses.Count == 0)
-            return;
-
-        var check = true;
-
-        foreach (var addr in ent.Comp.Addresses)
+       if (ent.Comp.Addresses.Count == 0)
         {
-            if(!_packetSystem.TryGetReceiver(addr, out var receiver))
-                continue;
-
-            if (_packetSystem.GetFrequency(receiver.Comp.Frequency) != ent.Comp.Frequency)
-            {
-                check = false;
-                _sharedPopupSystem.PopupEntity(Loc.GetString("packet-configurator-network-fail"), ent, ev.User);
-                break;
-            }
-        }
-
-        if (!check)
-        {
-            ent.Comp.Addresses.Clear();
+            SwitchFrequency(ent);
             return;
         }
 
         _chatSystem.TrySendInGameICMessage(ent,
             _packetSystem.CreateNetwork([..ent.Comp.Addresses],
-            ent.Comp.Frequency),
+            ent.Comp.ActiveFrequency),
             InGameICChatType.Whisper,
             false);
 
         ent.Comp.Addresses.Clear();
+    }
+
+    private void SwitchFrequency(Entity<PacketNetworkConfiguratorComponent> ent)
+    {
+        if (ent.Comp.Frequencies.Count == 0)
+            return;
+
+        if (ent.Comp.ActiveFrequency == -1)
+        {
+            ent.Comp.ActiveFrequency = ent.Comp.Frequencies[0];
+        }
+        else
+        {
+            var index = ent.Comp.Frequencies.IndexOf(ent.Comp.ActiveFrequency);
+
+            ent.Comp.ActiveFrequency = (index + 1) < ent.Comp.Frequencies.Count
+                ? ent.Comp.Frequencies[index + 1]
+                : ent.Comp.Frequencies[0];
+        }
+
+        ent.Comp.FrequencyName = _packetSystem.GetFrequency(ent.Comp.ActiveFrequency).Id;
+
+        Dirty(ent);
     }
 
     /// <summary>
@@ -95,6 +97,12 @@ public sealed partial class PacketNetworkConfiguratorSystem : EntitySystem
         if (ev.Target is not { } target)
             return;
 
+        if (TryComp<FrequenciesPaperComponent>(target, out _))
+        {
+            ReadFrequencies(ent, ev.User);
+            return;
+        }
+
         if (TryComp<PaperComponent>(target, out var paper))
         {
             TryReadPaper(ent, paper, ev.User);
@@ -102,7 +110,7 @@ public sealed partial class PacketNetworkConfiguratorSystem : EntitySystem
         }
 
         if (!TryComp<PacketNetworkComponent>(target, out var packetNetwork)
-            || _packetSystem.GetFrequency(packetNetwork.Frequency) != ent.Comp.Frequency)
+            || _packetSystem.GetFrequency(packetNetwork.Frequency) != ent.Comp.ActiveFrequency)
             {
                 _sharedPopupSystem.PopupEntity(Loc.GetString("packet-configurator-no-signal"), ent, ev.User);
                 return;
@@ -112,28 +120,6 @@ public sealed partial class PacketNetworkConfiguratorSystem : EntitySystem
             OnProbeInteract(ent, (target, packetNetwork));
         else
             OnSaveInteract(ent, (target, packetNetwork), ev.User);
-    }
-
-    /// <summary>
-    /// This is used for opening executor UIs on supported machinery (i.e lathes). Used for advanced automation.
-    /// </summary>
-    /// <param name="ent"></param>
-    /// <param name="ev"></param>
-    private void OnExecutorInteract(Entity<PacketExecutorComponent> ent, ref GetVerbsEvent<AlternativeVerb> ev)
-    {
-        if (!ev.CanAccess || !ev.CanInteract || !HasComp<PacketNetworkConfiguratorComponent>(ev.Using))
-            return;
-
-        var user = ev.User;
-
-        var executorVerb = new AlternativeVerb()
-        {
-            Text = Loc.GetString("packet-configurator-open-executor"),
-            Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/in.svg.192dpi.png")),
-            Act = () => { _userInterfaceSystem.TryOpenUi(ent.Owner, ExecutorUiKey.Key, user); }
-        };
-
-        ev.Verbs.Add(executorVerb);
     }
 
     /// <summary>
@@ -152,7 +138,11 @@ public sealed partial class PacketNetworkConfiguratorSystem : EntitySystem
         {
             Text = Loc.GetString("packet-configurator-switch-mode"),
             Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/in.svg.192dpi.png")),
-            Act = () => { SwitchMode(ent, user); }
+            Act = () =>
+            {
+                SwitchMode(ent, user);
+                Dirty(ent);
+            }
         };
 
         ev.Verbs.Add(verb);
@@ -178,6 +168,22 @@ public sealed partial class PacketNetworkConfiguratorSystem : EntitySystem
             return;
 
         _sharedPopupSystem.PopupEntity(Loc.GetString("packet-configurator-frequency-save"), ent, user);
-        ent.Comp.Frequency = freq;
+        if (!ent.Comp.Frequencies.Contains(freq))
+            ent.Comp.Frequencies.Add(freq);
+
+        Dirty(ent);
+    }
+
+    private void ReadFrequencies(Entity<PacketNetworkConfiguratorComponent> ent, EntityUid user)
+    {
+        foreach (var frequency in _packetSystem._frequencies)
+        {
+            if (!ent.Comp.Frequencies.Contains(frequency.Value))
+                ent.Comp.Frequencies.Add(frequency.Value);
+        }
+
+        _sharedPopupSystem.PopupEntity(Loc.GetString("packet-configurator-frequency-save"), ent, user);
+
+        Dirty(ent);
     }
 }

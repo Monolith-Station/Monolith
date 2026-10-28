@@ -1,0 +1,140 @@
+<Document>
+  # Packets
+  Packet network allows you to send instructions to specific devices remotely. It's a crucial tool in any sort of automation.
+
+  ## Packet devices
+  Each device that can receive packets requires 2 variables to access them:
+  - Frequency: Represented as a number. Only available to Chief Engineer. Similar devices have the same frequency
+  - Address: Represented as a 4-digit hex code (0x0000) Can be obtained by probing device using packet network configurator. Every address is unique
+
+  You can interact with packet devices by using packet network configurator.
+
+  Packet network configurator has 2 modes that can be switched on Alt-Z:
+  - Probe: If the correct frequency picked - displays device address and their network.
+  - Save. Saves device in order to create network. Network have their own address.
+
+  <Box>
+    <GuideEntityEmbed Entity="PacketNetworkConfigurator"/>
+  </Box>
+
+  In order to get frequencies into packet network configurator, you have to either scan CE's frequencies original paper or scan single frequency written on any paper.
+
+  # Executor
+  Executor is a complex device that utilizes packets by running code.
+
+  Executor uses JavaScript as it's main programming language. It's best if you get familiar with it before working with executor.
+
+  <Box>
+    <GuideEntityEmbed Entity="ComputerExecutor"/>
+  </Box>
+
+  Executor has 3 buttons:
+  - KILL: Kills any active processes in the engine.
+  - EXEC: Directly executes the code, has 5-second cooldown.
+  - UPDT: Loads device call definitions into right panel.
+
+  ## Basic commands
+
+  - log(object): Logs the result in code output panel.
+  - frequency(frequency, operation): allows or denies packets from specific frequencies. Operations can be "ALLOW" or "DENY".
+  - send_signal(frequency, address, portName): Sends signal to specified device.
+  - listen(portId, functionName): Assigns port ID (as a number) to existing method. When that port will receive signal - it will execute the method.
+  - get_network(address): Returns network of devices as an address array. Useful for bulk interactions.
+
+  ## Async
+
+  Executor fully supports async execution. In order to use async methods, you must create async function ("async function fn()", as an example).
+
+  However, async execution also introduces micro-delay (usually 50ms) to every device call, as opposed to normal execution being instant.
+
+  There are few async methods:
+  - sleep(ms): Halts the execution for specific amount of milliseconds.
+  - data_send(frequency, address, object)/receive: Used for exchanging data between executors. Receiving executor halts the execution till he receives the data.
+
+  ## Device calls
+  In order to interact with the device, you need to create a call object, usually its done like that:
+
+  [color=#40C040]"var deviceCall = new LathePrintCall();"[/color]
+
+
+  There are 2 types of device calls:
+  - State: Gets state of the device. Usually you don't parse arguments into it (refer to definitions panel). It is used to get information from the device
+  - Call: Tells the device what to do based on arguments you parse in (refer to definitions panel).
+
+  In our case, parsing argument would look like that:
+
+  [color=#40C040]"deviceCall.Recipes = {"Igniter"}; deviceCall.Quantity = {1};" (Use square brackets in executor, instead)[/color]
+
+  After you finish initializing your call, you have to now call it. In order to do that, you should use "call(frequency, address, deviceCall)" method:
+
+  [color=#40C040]"call(frequency, address, deviceCall)";[/color]
+
+  If everything is done right, your lathe will successfully print a single igniter!
+
+  ## Widgets
+
+  Have you ever wanted to build your own control panel for all your packet devices? It is possible with widgets.
+
+  The main object is Widget that has only ID as its argument in constructor. Widget all stores all widget elements with "Elements" field
+
+  [color=#40C040]"var widget = new Widget("EngiControl");"[/color]
+
+  [color=#40C040]"widget.Elements = {Element1, Element2};"[/color] Parses the elements into widget.
+
+  [color=#40C040]"init_widget(widget);"[/color] Will initialize the widget.
+
+  ### Widget elements
+
+  Every widget element has these properties:
+  - Id: Represented as a string, acts as a unique identifier for each widget element. Do not assign same ID to two widget elements.
+  - Margin: Represented as integer array with 4 arguments ({left, top, right, bottom}). It forms a transparent border on each side to separate itself from other elements.
+  - Size: Represented as integer array with 2 arguments ({X, Y}). Assigns a size to widget element, mostly used for buttons and panels.
+  - HorizontalAligment: Represented as string with specific allowed arguments (Stretch/Left/Center/Right).
+  - VerticalAligment: Represented as string with specific allowed arguments (Strech/Top/Center/Bottom).
+
+  Any widget element initializes with ID, just like the Widget.
+
+  You can reload widget element by using "update_element(widgetElement)" if you changed it in any way.
+
+  ### WidgetButton
+
+  This widget element is responsible for executing specific method on click. It has following extra arguments:
+  - Text: Represented as a string, assings the text that will be displayed on the button.
+  - MethodName: Represented as a string, name of the method that will be executed upon clicking.
+
+  ### WidgetContainer
+
+  This widget element is capable of storing widget elements inside itself. It has same arguments as Widget itself (Elements as an Array of WidgetElement)
+
+  ### WidgetLabel
+
+  This widget element is responsible for displaying text. It has "Text" as its only argument.
+
+  ### WidgetTextEdit
+
+  This widget element allows you to type in text and then use it in methods. It has "ReadOnly" as its argument, represented as boolean.
+
+  When you click on any button, arguments from this widget will be parsed into the executor as "VAR_IdOfWidgetTextEdit", allowing you to use contents of this element.
+
+  However, this will work only if button and the text edit are in the same panel.
+
+  ## Examples:
+
+  ### Making 30u of bicaridine in chemmaster.
+
+  [color=#40C040]var freq = 916;
+
+  [color=#40C040]var addr = "0xE63D"
+
+  [color=#40C040]var chemCall = new ChemMasterTransferCall();
+
+  [color=#40C040]chemCall.Mode = "Transfer";
+
+  [color=#40C040]chemCall.FromBuffer = true;
+
+  [color=#40C040]chemCall.Reagents = {"Carbon", "Sugar", "Oxygen"};
+
+  [color=#40C040]chemCall.Amount = {10, 10, 10};
+
+  [color=#40C040]call(freq, addr, chemCall);
+</Document>

@@ -2,7 +2,9 @@ using System.Threading;
 using Content.Server._KS14.Packet.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.DeviceLinking;
+using Content.Shared.Trigger.Systems;
 using Jint;
+using Jint.Runtime.Interop;
 
 namespace Content.Server._KS14.Packet;
 
@@ -43,17 +45,18 @@ public sealed partial class PacketSystem
         return true;
     }
 
-    private void ExecuteCommand(string command, Entity<PacketExecutorComponent> executor)
+    private async void ExecuteCommand(string command, Entity<PacketExecutorComponent> executor)
     {
         executor.Comp.ListeningPorts.Clear(); // Dispose ports to init them again.
         if (TryComp<PacketNetworkComponent>(executor, out var receiver))
             ReloadFrequencies((executor, receiver));
 
         var engine = EnsureEngine(executor);
+        var cts = EnsureToken(engine);
 
         try
         {
-            engine.ExecuteAsync(command);
+            await engine.ExecuteAsync(command, cancellationToken: cts.Token);
         }
         catch (Exception e)
         {
@@ -93,6 +96,8 @@ public sealed partial class PacketSystem
         _executorEntities.Add(executor, engine);
         InitializeModules(executor);
         SetConstants(executor);
+        LoadTypes(executor, _callTypes);
+        LoadTypes(executor, _widgetTypes);
         LoadMethods(executor);
         InitializePorts(executor);
 
@@ -108,6 +113,16 @@ public sealed partial class PacketSystem
         _engineCts.Add(engine, cts);
 
         return cts;
+    }
+
+    private void LoadVariables(Entity<PacketExecutorComponent> executor, Dictionary<string, string> variables)
+    {
+        var engine = EnsureEngine(executor);
+
+        foreach (var variable in variables)
+        {
+            engine.SetValue("VAR_" + variable.Key, variable.Value);
+        }
     }
 
     private void SetConstants(Entity<PacketExecutorComponent> executor)
@@ -166,6 +181,7 @@ public sealed partial class PacketSystem
 
         foreach (var moduleName in ent.Comp.Modules)
         {
+
             if (!TryGetMethods(ent, moduleName, out var methods))
                 return;
 
@@ -173,6 +189,16 @@ public sealed partial class PacketSystem
             {
                 engine.SetValue(method.Id, method.ModuleExec);
             }
+        }
+    }
+
+    public void LoadTypes(Entity<PacketExecutorComponent> ent, List<Type> types)
+    {
+        var engine = EnsureEngine(ent);
+
+        foreach (var type in types)
+        {
+            engine.SetValue(type.Name, TypeReference.CreateTypeReference(engine, type));
         }
     }
 }

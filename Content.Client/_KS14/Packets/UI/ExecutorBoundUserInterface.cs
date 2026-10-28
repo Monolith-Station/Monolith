@@ -1,5 +1,8 @@
+using System.Linq;
 using Content.Shared._KS14.Packets.BUI;
+using Content.Shared._KS14.Packets.Widgets;
 using Robust.Client.UserInterface;
+using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Utility;
 
 namespace Content.Client._KS14.Packets.UI
@@ -20,31 +23,43 @@ namespace Content.Client._KS14.Packets.UI
             _menu = this.CreateWindow<ExecutorMenu>();
 
             _menu.OnExecutionButton += OnExecute;
-            _menu.OnSaveButton += OnSave;
             _menu.OnLoadButton += OnLoad;
             _menu.OnTerminateButton += OnTerminate;
-            _menu.OnSendInputButton += OnSendInput;
+
+            _menu.Input.OnMouseExited += OnInputExit;
         }
 
         protected override void Dispose(bool disposing)
         {
-            _menu?.ExecutorLog.Text = String.Empty;
+            if (_menu is not { } menu)
+                return;
+
+            SaveCode();
+            menu.ExecutorLog.TextRope = Rope.Leaf.Empty;
+
+            for (int i = menu.ExecutorTabs.Children.Count() - 1; i >= 0; i--)
+            {
+                var child = menu.ExecutorTabs.Children[i];
+                if (child.Name != "Executor")
+                    menu.ExecutorTabs.RemoveChild(child);
+            }
+
             base.Dispose(disposing);
         }
 
-        private void OnSave()
+        private void OnInputExit(GUIMouseHoverEventArgs args)
         {
-            SendMessage(new SaveExecutorCommandMessage(Rope.Collapse(_menu?.Input.TextRope ?? Rope.Leaf.Empty)));
+            SaveCode();
         }
 
         private void OnExecute()
         {
-            SendMessage(new StartExecutionMessage());
+            SendMessage(new StartExecutionMessage(Rope.Collapse(_menu?.Input.TextRope ?? Rope.Leaf.Empty)));
         }
 
         private void OnLoad()
         {
-            SendMessage(new ReloadModulesMessage());
+            SendMessage(new ExecutorRequestCallsInfoMessage());
         }
 
         private void OnTerminate()
@@ -52,10 +67,6 @@ namespace Content.Client._KS14.Packets.UI
             SendMessage(new TerminateExecutorMessage());
         }
 
-        private void OnSendInput()
-        {
-            SendMessage(new InputExecutorMessage(Rope.Collapse(_menu?.DataInput.TextRope ?? Rope.Leaf.Empty)));
-        }
 
         protected override void UpdateState(BoundUserInterfaceState state)
         {
@@ -64,6 +75,11 @@ namespace Content.Client._KS14.Packets.UI
                 return;
 
             _menu?.UpdateState(rState);
+
+            foreach (var widget in rState.Widgets)
+            {
+                InitWidget(widget);
+            }
         }
 
         protected override void ReceiveMessage(BoundUserInterfaceMessage message)
@@ -71,10 +87,26 @@ namespace Content.Client._KS14.Packets.UI
             if (_menu == null)
                 return;
 
-            if (message is not LogExecutorMessage cast)
-                return;
+            switch (message)
+            {
+                case LogExecutorMessage cast:
+                    _menu.WriteLog(cast.Log);
+                    break;
+                case ExecutorRequestCallsInfoMessage info:
+                    _menu.UpdateDefinitions(info.Calls);
+                    break;
+                case WidgetSendMessage widget:
+                    InitWidget(widget.Widget);
+                    break;
+                case WidgetUpdateElementMessage update:
+                    UpdateWidgetElement(update.Element);
+                    break;
+            }
+        }
 
-            _menu.WriteLog(cast.Log);
+        private void SaveCode()
+        {
+            SendMessage(new SaveExecutorCommandMessage(Rope.Collapse(_menu?.Input.TextRope ?? Rope.Leaf.Empty)));
         }
     }
 }

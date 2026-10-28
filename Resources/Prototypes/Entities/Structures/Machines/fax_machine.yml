@@ -80,11 +80,10 @@
     transmitFrequencyId: Fax
   - type: RequireProjectileTarget
   - type: PacketNetwork # KS14
-    frequency: FaxFrequency
+    frequency: TransmissionFrequency
   - type: PacketExecutor # KS14
     modules:
     - BasePacketModule
-    - FaxPacketModule
     - NetworkPacketModule
   # Mono
   - type: ShipRepairable

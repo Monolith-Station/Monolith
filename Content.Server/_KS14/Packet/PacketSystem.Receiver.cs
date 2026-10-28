@@ -17,7 +17,7 @@ public sealed partial class PacketSystem
     /// String value is address.
     /// </summary>
     private Dictionary<string, Entity<PacketNetworkComponent>> _packetEntities = new();
-    private Dictionary<ProtoId<PacketFrequencyPrototype>, int> _frequencies = new();
+    internal Dictionary<ProtoId<PacketFrequencyPrototype>, int> _frequencies = new();
 
     /// <summary>
     /// Generates random address for entity.
@@ -71,7 +71,7 @@ public sealed partial class PacketSystem
     /// <returns></returns>
     private string GenerateAddress()
     {
-        var value = _random.Next((int) Math.Pow(16, 6));
+        var value = _random.Next((int) Math.Pow(16, 4));
         var address = "0x" + value.ToString("X");
 
         if (_packetEntities.ContainsKey(address))

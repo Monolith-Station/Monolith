@@ -1,9 +1,11 @@
-namespace Content.Server._KS14.Packet.Components;
+using Robust.Shared.GameStates;
+
+namespace Content.Shared._KS14.Packets;
 
 /// <summary>
 /// This is used for packet network configurators - Handheld tool made to interact with executors/packet networks
 /// </summary>
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class PacketNetworkConfiguratorComponent : Component
 {
     /// <summary>
@@ -18,12 +20,21 @@ public sealed partial class PacketNetworkConfiguratorComponent : Component
     /// If frequency doesn't match with packet network device - denies it.
     /// </summary>
     [DataField]
-    public int Frequency;
+    public List<int> Frequencies = [];
+
+    [DataField]
+    [AutoNetworkedField]
+    public int ActiveFrequency = -1;
+
+    [DataField]
+    [AutoNetworkedField]
+    public string FrequencyName = "None";
 
     /// <summary>
     /// Current configurator mode.
     /// </summary>
     [DataField]
+    [AutoNetworkedField]
     public ConfiguratorMode Mode = ConfiguratorMode.Probe;
 }
 

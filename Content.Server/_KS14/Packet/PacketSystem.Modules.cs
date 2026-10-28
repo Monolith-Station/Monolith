@@ -1,7 +1,12 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Reflection;
+using Content.Server._KS14.Packet.Attributes;
 using Content.Server._KS14.Packet.Components;
 using Content.Server._KS14.Packet.Modules;
+using Content.Server._KS14.Packet.States;
+using Content.Shared._KS14.Packets;
+using Content.Shared._KS14.Packets.Widgets;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.DeviceLinking;
 
@@ -29,22 +34,28 @@ public sealed partial class PacketSystem
     /// </summary>
     private List<Type> _moduleTypes = [];
     private List<Type> _methodTypes = [];
+    private List<Type> _callTypes = [];
+    private List<Type> _widgetTypes = [];
+    private List<DeviceCallEntry> _classEntries = [];
 
     /// <summary>
     /// Loads <see cref="PacketModule"/> and <see cref="ModuleMethod"/> types into lists upon system initialization.
     /// </summary>
     private void PreInitJint()
     {
-        _moduleTypes = AppDomain.CurrentDomain.GetAssemblies()
-            .SelectMany(assembly => assembly.GetTypes())
-            .Where(type => typeof(PacketModule).IsAssignableFrom(type)
-                           && type.IsClass
-                           && !type.IsAbstract)
-            .ToList();
+        LoadType(ref _methodTypes, typeof(ModuleMethod));
+        LoadType(ref _moduleTypes, typeof(PacketModule));
+        LoadType(ref _callTypes, typeof(DeviceCall));
+        LoadType(ref _widgetTypes, typeof(WidgetElement));
 
-        _methodTypes = AppDomain.CurrentDomain.GetAssemblies()
+        _classEntries = [.. GeneratePacketClassEntries(_callTypes)];
+    }
+
+    private void LoadType(ref List<Type> types, Type loadType)
+    {
+        types = AppDomain.CurrentDomain.GetAssemblies()
             .SelectMany(assembly => assembly.GetTypes())
-            .Where(type => typeof(ModuleMethod).IsAssignableFrom(type)
+            .Where(type => loadType.IsAssignableFrom(type)
                            && type.IsClass
                            && !type.IsAbstract)
             .ToList();
@@ -161,5 +172,67 @@ public sealed partial class PacketSystem
         }
 
         return false;
+    }
+
+    public List<DeviceCallEntry> GeneratePacketClassEntries(List<Type> types)
+    {
+        List<DeviceCallEntry> entries = [];
+
+        foreach (var type in types)
+        {
+            entries.Add(GeneratePacketClassEntry(type));
+        }
+
+        return entries;
+    }
+
+    public DeviceCallEntry GeneratePacketClassEntry(Type type)
+    {
+        var name = type.Name;
+        var inFields = new Dictionary<string, string>();
+        var outFields = new Dictionary<string, string>();
+
+        FormatFields(type.GetProperties(),  ref inFields, ref outFields);
+        FormatFields(type.GetFields(),  ref inFields, ref outFields);
+
+        return new DeviceCallEntry(name, inFields, outFields);
+    }
+
+    private void FormatFields(PropertyInfo[] info, ref Dictionary<string, string> inFields, ref Dictionary<string, string> outFields)
+    {
+        foreach (var field in info)
+        {
+            if (field.GetCustomAttribute(typeof(PacketFieldAttribute)) is not PacketFieldAttribute attribute)
+                continue;
+
+            switch (attribute.FieldType)
+            {
+                case PacketFieldType.Accepts:
+                    inFields.Add(field.Name, field.PropertyType.Name);
+                    break;
+                case PacketFieldType.Returns:
+                    outFields.Add(field.Name, field.PropertyType.Name);
+                    break;
+            }
+        }
+    }
+
+    private void FormatFields(FieldInfo[] info, ref Dictionary<string, string> inFields, ref Dictionary<string, string> outFields)
+    {
+        foreach (var field in info)
+        {
+            if (field.GetCustomAttribute(typeof(PacketFieldAttribute)) is not PacketFieldAttribute attribute)
+                continue;
+
+            switch (attribute.FieldType)
+            {
+                case PacketFieldType.Accepts:
+                    inFields.Add(field.Name, field.FieldType.Name);
+                    break;
+                case PacketFieldType.Returns:
+                    outFields.Add(field.Name, field.FieldType.Name);
+                    break;
+            }
+        }
     }
 }

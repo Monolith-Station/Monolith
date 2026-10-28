@@ -2,48 +2,54 @@
     xmlns="https://spacestation14.io"
     xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
     xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
-    SetSize="1350, 680"
+    SetSize="1650, 780"
     Title="{Loc 'executor-menu-title'}">
-    <PanelContainer Name="CodeControl" SetSize="250, 550" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Top">
-        <PanelContainer Name="Buttons" SetSize="200, 65" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="15 10 0 100">
-            <PanelContainer.PanelOverride>
-                <gfx:StyleBoxFlat BackgroundColor="#1a1a1a" />
-            </PanelContainer.PanelOverride>
-            <Button Name="ExecuteButton" SetSize="60, 30" Margin="5 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Top" Text="EXEC"></Button>
-            <Button Name="SaveButton" SetSize="60, 30" Text="SAVE" VerticalAlignment="Top"></Button>
-            <Button Name="LoadButton" SetSize="60, 30" Margin="0 0 5 0" HorizontalAlignment="Right" VerticalAlignment="Top" Text="UPDT"></Button>
-            <Button Name="TerminateButton" SetSize="60, 30" Text="KILL" Margin="5 0 0 0" VerticalAlignment="Bottom" HorizontalAlignment="Left"></Button>
-            <Button Name="SendInputButton" SetSize="60, 30" Text="SEND" Margin="0 0 5 0" VerticalAlignment="Bottom" HorizontalAlignment="Right"></Button>
+    <TabContainer Name="ExecutorTabs" Access="Public">
+        <PanelContainer Name="Executor" StyleIdentifier="executorBorderless">
+            <PanelContainer Name="CodeControl" SetSize="230, 550" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Top" StyleIdentifier="executor">
+                <PanelContainer Name="Buttons" SetSize="200, 100" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="1 0 0 70" StyleIdentifier="executor">
+                    <Button Name="ExecuteButton" SetSize="60, 30" Margin="5 0 0 0" TextAlign="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Text="EXEC" StyleIdentifier="executor"></Button>
+                    <Button Name="LoadButton" SetSize="60, 30" Margin="0 0 5 0" TextAlign="Center" HorizontalAlignment="Right" VerticalAlignment="Top" Text="UPDT" StyleIdentifier="executor"></Button>
+                    <Button Name="TerminateButton" SetSize="60, 30" Text="KILL" TextAlign="Center" Margin="5 0 0 0" VerticalAlignment="Bottom" HorizontalAlignment="Left" StyleIdentifier="executor"></Button>
+                </PanelContainer>
+                <PanelContainer Name="Data"
+                                SetSize="200, 350"
+                                VerticalAlignment="Top"
+                                Margin="5 0 0 0"
+                                StyleIdentifier="executor">
+                    <Label Name="DataLabel" VerticalAlignment="Top" StyleIdentifier="executor"></Label>
+                </PanelContainer>
+            </PanelContainer>
+            <PanelContainer Name="CodeInput"
+                            SetSize="700, 550"
+                            HorizontalAlignment="Center"
+                            StyleIdentifier="executorBlue"
+                            VerticalAlignment="Top"
+                            Margin="-355 10 0 0">
+                <TextEdit Name="Input" Access="Public" Margin="10, 10, 10, 10" StyleIdentifier="executorBlue"/>
+            </PanelContainer>
+            <PanelContainer Name="CodeOutput"
+                            SetSize="350, 550"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Top"
+                            Margin="15 10 285 0"
+                            StyleIdentifier="executorBlue">
+                <TextEdit Editable="False" Name="ExecutorLog" Access="Public" Margin="10, 10, 10, 10" StyleIdentifier="executorBlue"/>
+            </PanelContainer>
+            <PanelContainer Name="DefinitionsPanel"
+                            SetSize="250, 550"
+                            Margin="15 10 15 0"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Top"
+                            StyleIdentifier="executor">
+                <Label StyleIdentifier="executor"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Center"/>
+                <TextEdit Name="Definitions"
+                          Access="Public"
+                          StyleIdentifier="executor"
+                          Editable="False"/>
+            </PanelContainer>
         </PanelContainer>
-        <PanelContainer Name="Data" SetSize="200, 350" VerticalAlignment="Top" Margin="-15 0 0 0">
-            <PanelContainer.PanelOverride>
-                <gfx:StyleBoxFlat BackgroundColor="#1a1a1a" />
-            </PanelContainer.PanelOverride>
-            <Label Name="DataLabel" VerticalAlignment="Top"></Label>
-        </PanelContainer>
-    </PanelContainer>
-    <PanelContainer Name="CodeInput" SetSize="700, 550" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="-150 10 0 0">
-        <PanelContainer.PanelOverride>
-            <gfx:StyleBoxFlat BackgroundColor="#000000" />
-        </PanelContainer.PanelOverride>
-        <PanelContainer SetSize="700, 550" Name="InputContainer">
-            <TextEdit Name="Input" Access="Public" />
-        </PanelContainer>
-    </PanelContainer>
-    <PanelContainer Name="CodeOutput" SetSize="350, 550" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="15 10 15 0">
-        <PanelContainer.PanelOverride>
-            <gfx:StyleBoxFlat BackgroundColor="#000000" />
-        </PanelContainer.PanelOverride>
-        <PanelContainer SetSize="350, 550" Name="OutputContainer">
-            <Label Name="ExecutorLog" Text="" ClipText="True" VerticalAlignment="Top" Access="Public"></Label>
-        </PanelContainer>
-    </PanelContainer>
-    <PanelContainer Name="StandartInput" SetSize="1085, 60" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="15 10 15 10">
-        <PanelContainer.PanelOverride>
-            <gfx:StyleBoxFlat BackgroundColor="#000000" />
-        </PanelContainer.PanelOverride>
-        <PanelContainer SetSize="1085, 60" Name="StandartInputContainer">
-            <TextEdit Name="DataInput" Access="Public" />
-        </PanelContainer>
-    </PanelContainer>
+    </TabContainer>
 </controls:FancyWindow>

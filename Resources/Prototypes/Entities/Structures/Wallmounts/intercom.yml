@@ -128,6 +128,8 @@
     mode: SnapgridCenter
     snap:
     - Wallmount
+  - type: PacketNetwork # KS14
+    frequency: TransmissionFrequency
 
 - type: entity
   id: IntercomAssembly
