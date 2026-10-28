@@ -82,6 +82,9 @@ public sealed partial class ClothingAutoinjectorSystem : EntitySystem
         || comp.NextAutoInjectTime > _timing.CurTime)
         return;
 
+        if (comp.AutoInjectOnCrit == false)
+            return;
+
         TryInjectReagents(args.Args.Target, comp.Reagents);
         _audio.PlayPvs(comp.InjectSound, args.Args.Target);
         _popup.PopupEntity(Loc.GetString(comp.Popup), args.Args.Target, args.Args.Target);

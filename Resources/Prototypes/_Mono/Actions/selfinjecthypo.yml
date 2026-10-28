@@ -3,6 +3,7 @@
   id: ActionArmorAltInject
   name: Activate internal hypodermic needle
   description: injects from an armor's reserve
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     useDelay: 0.5
