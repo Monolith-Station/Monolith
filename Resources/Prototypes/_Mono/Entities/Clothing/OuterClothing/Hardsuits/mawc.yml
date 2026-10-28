@@ -13,15 +13,15 @@
       coefficients:
         Blunt: 0.6
         Slash: 0.6
-        Piercing: 0.6
-        Heat: 0.6
+        Piercing: 0.55
+        Heat: 0.55
         Radiation: 0.6
         Caustic: 0.8
   - type: ExplosionResistance
     damageCoefficient: 0.2
   - type: PersonalShield
     shield:
-      maxCharge: 75
+      maxCharge: 65
       spinupTime: 2
     visuals:
       color: "#ffc759"
@@ -38,7 +38,7 @@
       shardScale: 3
   - type: ShieldLinkSource
     linkId: MAWC
-    shieldBonusPerLink: 50
+    shieldBonusPerLink: 35
   - type: ClothingSpeedModifier
     walkModifier: 0.7
     sprintModifier: 0.7
@@ -69,8 +69,8 @@
       coefficients:
         Blunt: 0.6
         Slash: 0.6
-        Piercing: 0.6
-        Heat: 0.6
+        Piercing: 0.65
+        Heat: 0.65
         Radiation: 0.6
         Caustic: 0.8
   - type: ExplosionResistance
@@ -81,14 +81,14 @@
     predictable: false
   - type: PersonalShield
     shield:
-      maxCharge: 50
+      maxCharge: 20
       spinupTime: 0.75
     visuals:
       color: "#ffc759"
       scale: 2
   - type: ShieldLinkSource
     linkId: MAWC
-    shieldBonusPerLink: 25
+    shieldBonusPerLink: 20
   - type: ShieldLinkReceiver
     linkId: MAWC
   - type: ClothingSpeedModifier

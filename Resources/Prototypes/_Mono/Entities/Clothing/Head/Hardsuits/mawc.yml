@@ -25,6 +25,8 @@
     viewCircleSpacing: 260
     phosphorColor: "#41D7D9"
     lightingColor: "#FFFFFF32"
+  - type: SpeechSoundsReplacer
+    speechSounds: MawcHeavy
 
 - type: entity
   parent: [ClothingHeadHardsuitBase , ShowMedicalIcons , ShowSecurityIcons]
@@ -44,6 +46,8 @@
         Slash: 0.85
         Piercing: 0.85
   - type: FlashImmunity
+  - type: SpeechSoundsReplacer
+    speechSounds: Mawc
 
 - type: entity
   parent: ClothingHeadHardsuitBase
@@ -63,6 +67,8 @@
     - Inorganic
     - Silicon
     - Biological
+  - type: SpeechSoundsReplacer
+    speechSounds: MawcHeavy
 
 - type: entity
   parent: [ClothingHeadHardsuitBase , ShowSecurityIcons]
@@ -75,3 +81,5 @@
     sprite: _Mono/MAWC/Clothing/Head/Hardsuits/termite.rsi
   - type: Clothing
     sprite: _Mono/MAWC/Clothing/Head/Hardsuits/termite.rsi
+  - type: SpeechSoundsReplacer
+    speechSounds: Mawc
