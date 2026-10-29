@@ -26424,3 +26424,75 @@ Entries:
   id: 2846
   time: '2026-10-23T22:11:40.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4907
+- author: NazrinNya
+  changes:
+    - type: Add
+      message: Salvage mode to industrial mining laser.
+    - type: Add
+      message: >-
+        Bolted techfabs that come with packed research. Mapped on
+        department-related ships.
+    - type: Tweak
+      message: Blue wrecks now have lithium and copper in the crates
+  id: 2847
+  time: '2026-10-24T18:57:57.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4912
+- author: EckoAurum
+  changes:
+    - type: Fix
+      message: >-
+        Fixed plungers, arrows, bolts, stakes, syringe gun and similar acting
+        crazy.
+  id: 2848
+  time: '2026-10-26T02:49:06.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4910
+- author: SuperGDPWYL
+  changes:
+    - type: Add
+      message: Added more variety to Underground Codespeak's codephrases.
+    - type: Fix
+      message: >-
+        There should no longer be spaces between Codespeak phrases and
+        punctuation in most circumstances.
+  id: 2849
+  time: '2026-10-26T02:51:45.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4919
+- author: DoubleHypercube
+  changes:
+    - type: Remove
+      message: Clakes are no longer in stock at the UndergroundVend.
+  id: 2850
+  time: '2026-10-27T17:07:04.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4863
+- author: DoubleHypercube
+  changes:
+    - type: Add
+      message: Mech hardpoints are now backwards compatible.
+  id: 2851
+  time: '2026-10-27T17:08:22.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4865
+- author: SuperGDPWYL
+  changes:
+    - type: Add
+      message: >-
+        The Underground shipyard has received the Bluefin, an illegally modified
+        Caracara now with an AK820 where the mining laser used to be. Have fun.
+  id: 2852
+  time: '2026-10-27T17:36:03.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4876
+- author: Mrrpip
+  changes:
+    - type: Tweak
+      message: The Argenti now deals 50% more damage per bullet.
+  id: 2853
+  time: '2026-10-27T17:53:21.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4879
+- author: EckoAurum
+  changes:
+    - type: Tweak
+      message: >-
+        Space Animals hearts and lungs will disintegrate if touched by anybody
+        not pure of heart. Dragon lungs remain for the wicked.
+  id: 2854
+  time: '2026-10-28T23:10:52.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4929
