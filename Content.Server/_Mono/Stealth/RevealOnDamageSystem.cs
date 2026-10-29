@@ -1,9 +1,9 @@
-using Content.Shared._Mono.Stealth.Components;
+using Content.Server._Mono.Stealth.Components;
 using Content.Shared.Damage;
 using Content.Shared.Stealth;
 using Content.Shared.Stealth.Components;
 
-namespace Content.Shared._Mono.Stealth;
+namespace Content.Server._Mono.Stealth;
 
 public sealed partial class RevealOnDamageSystem : EntitySystem
 {
