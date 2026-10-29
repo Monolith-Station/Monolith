@@ -9,6 +9,7 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Verbs;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
+using Content.Shared.Wieldable;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
@@ -32,7 +33,7 @@ public sealed partial class HeatAmmoProviderSystem : EntitySystem
         SubscribeLocalEvent<HeatAmmoProviderComponent, TakeAmmoEvent>(OnTakeAmmo);
         SubscribeLocalEvent<HeatAmmoProviderComponent, GetAmmoCountEvent>(OnGetAmmoCount);
         SubscribeLocalEvent<HeatAmmoProviderComponent, CheckShootPrototypeEvent>(OnCheckPrototype);
-        SubscribeLocalEvent<HeatAmmoProviderComponent, UseInHandEvent>(OnUse);
+        SubscribeLocalEvent<HeatAmmoProviderComponent, UseInHandEvent>(OnUse, after: [typeof(SharedWieldableSystem)]);
         SubscribeLocalEvent<HeatAmmoProviderComponent, GetVerbsEvent<AlternativeVerb>>(OnGetVerbs);
         SubscribeLocalEvent<HeatAmmoProviderComponent, HeatVentDoAfterEvent>(OnVent);
         SubscribeLocalEvent<HeatAmmoProviderComponent, ExaminedEvent>(OnExamined);
@@ -109,6 +110,7 @@ public sealed partial class HeatAmmoProviderSystem : EntitySystem
         args.Verbs.Add(new AlternativeVerb
         {
             Text = Loc.GetString("gun-heat-vent"),
+            Priority = -1,
             Act = () => TryVent(ent, user),
         });
     }

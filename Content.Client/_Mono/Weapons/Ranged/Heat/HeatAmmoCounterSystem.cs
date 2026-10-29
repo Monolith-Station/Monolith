@@ -33,7 +33,7 @@ public sealed partial class HeatAmmoCounterSystem : EntitySystem
             _gun = gun;
             _entities = entities;
             _timing = timing;
-            MinSize = new Vector2(60, 12);
+            MinSize = new Vector2(60, 15);
             HorizontalExpand = true;
             VerticalAlignment = VAlignment.Center;
         }
@@ -43,7 +43,19 @@ public sealed partial class HeatAmmoCounterSystem : EntitySystem
             if (!_entities.TryGetComponent<HeatAmmoProviderComponent>(_gun, out var heat))
                 return;
 
-            handle.DrawRect(PixelSizeBox, heat.BackgroundColor);
+            var heatTop = 3f * UIScale;
+            var heatSize = new Vector2(PixelWidth, Math.Max(0f, PixelHeight - heatTop));
+            handle.DrawRect(UIBox2.FromDimensions(0, heatTop, heatSize.X, heatSize.Y), heat.BackgroundColor);
+
+            var cooldown = heat.VentCooldown.TotalSeconds > 0
+                ? (float) Math.Clamp((heat.NextVent - _timing.CurTime).TotalSeconds / heat.VentCooldown.TotalSeconds, 0, 1)
+                : 0f;
+            if (cooldown > 0f)
+            {
+                handle.DrawRect(UIBox2.FromDimensions(0, 0, PixelWidth, 2f * UIScale), heat.BackgroundColor);
+                handle.DrawRect(UIBox2.FromDimensions(0, 0, PixelWidth * cooldown, 2f * UIScale), heat.LowHeatColor);
+            }
+
             var fraction = heat.Overheated ? 1f : heat.MaxHeat > 0 ? Math.Clamp(heat.Heat / heat.MaxHeat, 0f, 1f) : 0f;
             var color = Color.InterpolateBetween(heat.LowHeatColor, heat.HighHeatColor, fraction);
             if (heat.Overheated)
@@ -53,7 +65,7 @@ public sealed partial class HeatAmmoCounterSystem : EntitySystem
             }
 
             if (fraction > 0f)
-                handle.DrawRect(UIBox2.FromDimensions(Vector2.Zero, new Vector2(PixelWidth * fraction, PixelHeight)), color);
+                handle.DrawRect(UIBox2.FromDimensions(0, heatTop, heatSize.X * fraction, heatSize.Y), color);
         }
     }
 }
