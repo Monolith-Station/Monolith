@@ -36,7 +36,7 @@ public sealed partial class LobbyCharacterPreviewPanel : Control
     // Frontier: show bank balance on character selection.
     public void SetBankBalanceText(string value)
     {
-        BankBalance.Text = value;
+        BankBalance.Visible = false;
     }
     // End Frontier
 
@@ -56,7 +56,7 @@ public sealed partial class LobbyCharacterPreviewPanel : Control
     // MonoCoins Display
     public void SetMonoCoinsText(string value)
     {
-        MonoCoins.Text = value;
+        MonoCoins.Visible = false; // removed savings
     }
     // End MonoCoins Display
 

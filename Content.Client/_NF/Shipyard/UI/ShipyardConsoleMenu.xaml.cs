@@ -303,7 +303,7 @@ public sealed partial class ShipyardConsoleMenu : FancyWindow
 
     public void UpdateState(ShipyardConsoleInterfaceState state)
     {
-        BalanceLabel.Text = BankSystemExtensions.ToSpesoString(state.Balance);
+        BalanceLabel.Visible = false;
         CashSlotLabel.Text = BankSystemExtensions.ToSpesoString(state.CashBalance);
         var shipPrice = 0;
         if (!state.FreeListings)

@@ -328,15 +328,16 @@
         flatReductions:
           Radiation: 1
 
-- type: trait
-  id: Ironman
-  name: trait-ironman-name
-  description: trait-ironman-desc
-  category: Physical
-  cost: -5 # This shit was FREE for factions practically
-  components:
-  - type: Ironman
-  traitGear: ShipVoucherFrontierIronMan
+# Removed with the removal of the persistent economy. Everyone's an Ironman now!
+#- type: trait
+#  id: Ironman
+#  name: trait-ironman-name
+#  description: trait-ironman-desc
+#  category: Physical
+#  cost: -5 # This shit was FREE for factions practically
+#  components:
+#  - type: Ironman
+#  traitGear: ShipVoucherFrontierIronMan
 
 - type: trait
   id: TemperatureTolerance

@@ -20,13 +20,16 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Linq;
-using Content.Shared._NF.Bank.BUI; // Frontier
+using Content.Shared._NF.Bank.BUI;
+using Content.Shared._Mono.Economy;
+using YamlDotNet.Core.Tokens; // Frontier
 
 namespace Content.Server.Cargo.Systems
 {
     public sealed partial class CargoSystem
     {
         [Dependency] private SharedTransformSystem _transformSystem = default!;
+        [Dependency] private SharedCreditReceiverSystem _creditReceiver = default!;
         [Dependency] private EmagSystem _emag = default!;
 
         /// <summary>
@@ -214,7 +217,8 @@ namespace Content.Server.Cargo.Systems
             var cost = order.Price * order.OrderQuantity;
 
             // Not enough balance
-            if (cost > bankAccount.Balance)
+            if (!_creditReceiver.CanPayWithCredit(uid) ||
+                cost > _creditReceiver.GetCashBalance(uid))
             {
                 ConsolePopup(args.Actor, Loc.GetString("cargo-console-insufficient-funds", ("cost", cost)));
                 PlayDenySound(uid, component);
@@ -262,7 +266,7 @@ namespace Content.Server.Cargo.Systems
 
             // Log order approval
             _adminLogger.Add(LogType.Action, LogImpact.Low,
-                $"{ToPrettyString(player):user} approved order [orderId:{order.OrderId}, quantity:{order.OrderQuantity}, product:{order.ProductId}, requester:{order.Requester}, reason:{order.Reason}] with balance at {bankAccount.Balance}");
+                $"{ToPrettyString(player):user} approved order [orderId:{order.OrderId}, quantity:{order.OrderQuantity}, product:{order.ProductId}, requester:{order.Requester}, reason:{order.Reason}]"); // Mono: remove persistent economy from log
 
             // orderDatabase.Orders.Remove(order); // Frontier
 
@@ -274,8 +278,9 @@ namespace Content.Server.Cargo.Systems
                 var tax = (int)Math.Floor(cost * taxCoeff);
                 _bank.TrySectorDeposit(account, tax, LedgerEntryType.CargoTax);
             }
-            _bank.TryBankWithdraw(player, cost);
+            // _bank.TryBankWithdraw(player, cost); // Mono: remove persistent economy
             // End Frontier
+            _creditReceiver.TryCashPayment(uid, cost, out _, false);
 
             UpdateOrders(station.Value);
         }
@@ -402,12 +407,18 @@ namespace Content.Server.Cargo.Systems
             {
                 var balance = 0;
 
-                if (Transform(user).GridUid is EntityUid stationGrid &&
+                // Mono: removing Frontier's persistent economy
+                /*if (Transform(user).GridUid is EntityUid stationGrid &&
                     TryComp<BankAccountComponent>(user, out var playerBank))
                 {
                     station = stationGrid;
                     balance = playerBank.Balance;
-                }
+                }*/
+                if (_creditReceiver.CanPayWithCredit(uid) &&
+                    _creditReceiver.TryGetCashBalance(uid, out var value))
+                {
+                    balance = value.Value;
+                } // Mono end
                 else if (TryComp<StationBankAccountComponent>(station, out var stationBank))
                 {
                     balance = stationBank.Balance;

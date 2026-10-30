@@ -54,6 +54,7 @@ public sealed partial class LoadoutPrototype : IPrototype, IEquipmentLoadout
 
     /// <summary>
     /// Frontier - the cost of the item simple as
+    /// Mono: This is deducted from the character's wallet on load.
     /// </summary>
     [DataField]
     public int Price = 0;

@@ -19,8 +19,8 @@
             <BoxContainer Orientation="Vertical" Margin="5 0 5 0">
         <BoxContainer Orientation="Horizontal">
             <BoxContainer Orientation="Horizontal" HorizontalAlignment="Left" >
-                <Label Text="{Loc 'bank-atm-menu-balance-label'}"
-                    StyleClasses="LabelKeyText" />
+                <!-- <Label Text="{Loc 'bank-atm-menu-balance-label'}"
+                    StyleClasses="LabelKeyText" /> Mono: remove persistent economy-->
                 <Label Name="BalanceLabel"
                     Text="{Loc 'shipyard-console-no-bank'}" />
             </BoxContainer>

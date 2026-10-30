@@ -6,6 +6,7 @@
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 54000 # mono - change to 15 hr
+  startingGear: ContractorStartingBalance
   canBeAntag: true
   icon: "JobIconMercenary"
   supervisors: job-supervisors-hire

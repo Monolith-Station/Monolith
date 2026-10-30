@@ -19,8 +19,8 @@
             </PanelContainer.PanelOverride>
         <GridContainer Margin ="0 2 0 4" Columns="2" HorizontalExpand="True">
             <BoxContainer Margin="4 0 2 0" Orientation="Horizontal" HorizontalExpand="True" HorizontalAlignment="Left">
-                <Label Text="{Loc 'bank-atm-menu-balance-label'}"
-                    StyleClasses="LabelKeyText" />
+            <!--   <Label Text="{Loc 'bank-atm-menu-balance-label'}"
+                    StyleClasses="LabelKeyText" /> Mono: remove persistent economy -->
                 <Label Name="BalanceLabel"
                     Text="{Loc 'bank-atm-menu-no-bank'}" />
             </BoxContainer>

@@ -72,7 +72,7 @@ public sealed partial class MarketMenu : FancyWindow
             CartEntitiesCount.FontColorOverride = Color.OrangeRed;
         else
             CartEntitiesCount.FontColorOverride = null;
-        BalanceLabel.Text = $" ${uiState.Balance}";
+        BalanceLabel.Visible = false; // mono
         CartBalanceLabel.Text = _loc.GetString("market-cart-balance", ("cost", uiState.CartBalance), ("cratecost", uiState.TransactionCost));
         PurchaseCart.Text = _loc.GetString("market-purchase-cart-button") +
                             (uiState.CartBalance + uiState.TransactionCost);

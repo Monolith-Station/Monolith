@@ -93,9 +93,11 @@ public sealed partial class LoadoutWindow : FancyWindow
         var accountBalance = _coins.GetLastKnownBalance();
         // Frontier - update bank balance label text - value should not change.
         Balance.Margin = new Thickness(5, 2, 5, 5);
-        Balance.Text = Loc.GetString("frontier-loadout-balance",
+        /*Balance.Text = Loc.GetString("frontier-loadout-balance",
             ("balance", BankSystemExtensions.ToSpesoString(Profile.BankBalance)),
-            ("savings", BankSystemExtensions.ToSpesoString(accountBalance)));
+            ("savings", BankSystemExtensions.ToSpesoString(accountBalance)));*/
+
+        Balance.Visible = false; // Mono: disable persistent economy
     }
 
     public void RefreshLoadouts(RoleLoadout loadout, ICommonSession session, IDependencyCollection collection)

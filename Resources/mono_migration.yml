@@ -107,3 +107,17 @@ BalorCarrierComputer: null
 # 25/09/2026 - Bounty rework
 ComputerPirateBountyRedemption: BaseComputer # no longer has a purpose
 ComputerPirateBountyRedemptionTabletop: ComputerTabletopFrame # ditto
+
+# 29/10/2026 - Persistence removal
+ComputerBankATMDeposit: null
+ComputerBankATMDepositFree: null
+ComputerBankATMWithdraw: null
+ComputerBankATM: null
+ComputerBankATMFree: null
+ComputerWithdrawBankATM: null
+ComputerWallmountBankATM: null
+ComputerWallmountBankATMFree: null
+ComputerWallmountWithdrawBankATM: null
+ComputerBlackMarketBankATM: null
+ComputerWallmountBlackMarketBankATM: null
+SafetyDepositConsole: null

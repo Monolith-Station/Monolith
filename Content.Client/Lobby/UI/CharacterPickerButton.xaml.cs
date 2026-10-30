@@ -58,7 +58,7 @@ public sealed partial class CharacterPickerButton : ContainerButton
                 var jobName = prototypeManager.Index(highPriorityJob).LocalizedName;
                 description = $"{description}\n{jobName}";
             }
-            description += $"\n{humanoid.BankBalanceText}"; // Frontier
+            // description += $"\n{humanoid.BankBalanceText}"; // Frontier // Mono: nuke.
         }
 
         Pressed = isSelected;

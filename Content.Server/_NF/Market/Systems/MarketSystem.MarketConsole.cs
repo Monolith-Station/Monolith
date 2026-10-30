@@ -13,13 +13,13 @@ using Content.Shared.Stacks;
 using Content.Shared.Storage;
 using Content.Shared.Materials;
 using Robust.Shared.Prototypes;
+using Content.Shared._Mono.Economy;
 
 
 namespace Content.Server._NF.Market.Systems;
 
 public sealed partial class MarketSystem
 {
-
     [Dependency] private SharedMaterialStorageSystem _sharedMaterialStorageSystem = default!;
     private void InitializeConsole()
     {
@@ -335,7 +335,7 @@ public sealed partial class MarketSystem
 
         RefreshState(
             consoleUid,
-            bank.Balance,
+            _creditReceiver.GetCashBalance(consoleUid),
             marketMultiplier,
             consoleComponent
         );
@@ -372,7 +372,7 @@ public sealed partial class MarketSystem
         }
 
         RefreshState(uid,
-            bank.Balance,
+            _creditReceiver.GetCashBalance(uid),
             marketMultiplier,
             component);
     }

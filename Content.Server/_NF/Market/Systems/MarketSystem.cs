@@ -2,6 +2,7 @@ using Content.Server._NF.Bank;
 using Content.Server.Cargo.Systems;
 using Content.Server.Stack;
 using Content.Server.Station.Systems;
+using Content.Shared._Mono.Economy;
 using Content.Shared._NF.Market;
 using Content.Shared.Popups;
 using Content.Shared.Whitelist;
@@ -22,6 +23,7 @@ public sealed partial class MarketSystem: SharedMarketSystem
     [Dependency] private StackSystem _stackSystem = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedCreditReceiverSystem _creditReceiver = default!;
     [Dependency] private StationSystem _station = default!;
 
     public override void Initialize()

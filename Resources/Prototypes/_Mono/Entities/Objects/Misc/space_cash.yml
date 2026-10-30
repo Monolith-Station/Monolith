@@ -19,3 +19,47 @@
     state: cash_50000
   - type: Stack
     count: 75000
+
+- type: entity
+  parent: SpaceCash
+  id: SpaceCash300000 # Starting balance of basic roles (Vagrant, Contractor, Worker, Marine/Engineer/Corpsman, Rahkshan, Employee, Infanteer/Lieutenant, Rifleman)
+  suffix: 300000
+  components:
+  - type: Icon
+    sprite: _NF/Objects/Economy/cash.rsi # Frontier: use Frontier sprite set
+    state: cash_50000
+  - type: Stack
+    count: 300000
+
+- type: entity
+  parent: SpaceCash
+  id: SpaceCash400000 # Starting balance of medium-status roles (Judge, Emergency Responder, Corporate Security, Fireteam Leader, Denasvar, Serzhant)
+  suffix: 400000
+  components:
+  - type: Icon
+    sprite: _NF/Objects/Economy/cash.rsi # Frontier: use Frontier sprite set
+    state: cash_50000
+  - type: Stack
+    count: 400000
+
+- type: entity
+  parent: SpaceCash
+  id: SpaceCash500000 # Starting balance of higher-status roles (Captain, Asvaran, Fugitive)
+  suffix: 500000
+  components:
+  - type: Icon
+    sprite: _NF/Objects/Economy/cash.rsi # Frontier: use Frontier sprite set
+    state: cash_50000
+  - type: Stack
+    count: 500000
+
+- type: entity
+  parent: SpaceCash
+  id: SpaceCash2000000 # Starting balance of leader roles (Colonel, Vizier, Overseer, Director of Care, Commander, Commissar, Corporate Liaison, Godfather)
+  suffix: 2000000
+  components:
+  - type: Icon
+    sprite: _NF/Objects/Economy/cash.rsi # Frontier: use Frontier sprite set
+    state: cash_50000
+  - type: Stack
+    count: 2000000

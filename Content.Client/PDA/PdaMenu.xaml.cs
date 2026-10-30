@@ -201,8 +201,12 @@ namespace Content.Client.PDA
             StationNameLabel.SetMarkup(Loc.GetString("comp-pda-ui-station",
                 ("station", _stationName)));
 
+            // Mono: nuke econ
+            /*
             _balance = BankSystemExtensions.ToSpesoString(state.Balance); // Frontier
             BalanceLabel.SetMarkup(Loc.GetString("comp-pda-ui-balance", ("balance", _balance))); // Frontier
+            */
+            BalanceLabel.Visible = false; // Mono
 
             _shuttleDeed = state.OwnedShipName ?? ""; // Frontier
             ShuttleDeedLabel.SetMarkup(Loc.GetString("comp-pda-ui-shuttle-deed", ("shipname", _shuttleDeed))); // Frontier

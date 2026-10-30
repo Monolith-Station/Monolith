@@ -34,7 +34,11 @@ using Content.Server.Preferences.Managers; // Frontier
 using System.Linq;
 using Content.Shared.NameIdentifier; // Frontier
 using Content.Server._EinsteinEngines.Silicon.IPC;
-using Content.Shared.Radio.Components; // Goobstation
+using Content.Shared.Radio.Components;
+using Content.Server.Stack;
+using Content.Shared.Storage;
+using Content.Shared.Stacks;
+using Content.Shared.Cargo.Components; // Goobstation
 
 namespace Content.Server.Station.Systems;
 
@@ -62,6 +66,7 @@ public sealed partial class StationSpawningSystem : SharedStationSpawningSystem
     [Dependency] private BankSystem _bank = default!; // Frontier
     [Dependency] private MonoCoinsManager _coins = default!; // Mono
     [Dependency] private PersistentProfileSystem _persistence = default!; // Mono
+    [Dependency] private StackSystem _stack = default!;
     private bool _randomizeCharacters;
 
     /// <inheritdoc/>
@@ -196,6 +201,8 @@ public sealed partial class StationSpawningSystem : SharedStationSpawningSystem
             var bankBalance = initialBankBalance; //Frontier
             bool hasBalance = false; // Frontier
 
+            var loadoutCost = 0; // Mono
+
             // Note: since this is stored per character, we don't have a cached
             //       reference for randomly generated characters.
             PlayerPreferences? prefs = null;
@@ -226,6 +233,7 @@ public sealed partial class StationSpawningSystem : SharedStationSpawningSystem
                     if (loadoutProto.Price <= bankBalance && (loadoutProto.Price <= 0 || hasBalance))
                     {
                         bankBalance -= int.Max(0, loadoutProto.Price); // Treat negatives as zero.
+                        loadoutCost += int.Max(0, loadoutProto.Price); // Treat negatives as zero.
                         EquipStartingGear(entity.Value, loadoutProto, raiseEvent: false);
                         equippedItems.Add(loadoutProto.ID);
 
@@ -292,13 +300,17 @@ public sealed partial class StationSpawningSystem : SharedStationSpawningSystem
             }
 
             var bankComp = EnsureComp<BankAccountComponent>(entity.Value);
-
+            /* // Mono: remove persistent economy
             if (hasBalance)
             {
                 // also spend long-term currency on this
                 _bank.TryBankWithdraw(session!, prefs!, profile!, (int)(initialBankBalance - bankBalance), out var newBalance, true);
             }
+            */
             /// End Frontier: overwriting EquipRoleLoadout
+
+            // Mono: deduct from starting costs
+            DeductFromWallet(entity.Value, loadoutCost);
         }
 
         // Mono start
@@ -385,6 +397,34 @@ public sealed partial class StationSpawningSystem : SharedStationSpawningSystem
             _pdaSystem.SetOwner(idUid.Value, pdaComponent, entity, characterName);
     }
 
+    /// <summary>
+    /// Mono: Deducts an amount of money from an entity's wallet. Should ideally be used during spawning after job startingGear is applied.
+    /// </summary>
+    /// <param name="uid">The entity to deduct money from</param>
+    /// <param name="price">The amount of money to deduct (maxes out at their wallet's entire balance)</param>
+    /// <param name="slot">The slot to check for money. Should almost always be "wallet".</param>
+    /// <returns>Whether or not the money could be deducted</returns>
+    public bool DeductFromWallet(EntityUid uid, int price, string slot = "wallet")
+    {
+        if (!InventorySystem.TryGetSlotContainer(uid, slot, out var slotContainer, out var slotDefinition))
+            return false;
+
+        var wallet = slotContainer.ContainedEntity;
+        if (!TryComp<StorageComponent>(wallet, out var storage))
+            return false;
+
+        foreach (var entity in storage.Container.ContainedEntities)
+        {
+            if (!TryComp<StackComponent>(entity, out var stack) ||
+                !HasComp<CashComponent>(entity))
+                continue;
+
+
+            _stack.SetCount(entity, Math.Max(_stack.GetCount(entity, stack) - price, 0), stack);
+            return true;
+        }
+        return false;
+    }
 
     #endregion Player spawning helpers
 }

@@ -582,18 +582,18 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
             }
             bill = int.Max(0, bill);
 
-            if (HasComp<IronmanComponent>(args.Actor)) // Mono start - Ironman players cannot access their bank, so they need physical money
-            {
-                //spawn the cash stack for Ironman players
-                _adminLogger.Add(LogType.ShipYardUsage, LogImpact.Low, $"{ToPrettyString(player):actor} withdrew {bill} from {ToPrettyString(uid)}");
-                var stackPrototype = _prototypeManager.Index<StackPrototype>(CreditPrototype);
-                _stackSystem.Spawn(bill, stackPrototype, uid.ToCoordinates());
-            }
-            else
+            //if (HasComp<IronmanComponent>(args.Actor)) // Mono start - Ironman players (actually, everyone) cannot access their bank, so they need physical money
+            //{
+            //spawn the cash stack for Ironman players
+            _adminLogger.Add(LogType.ShipYardUsage, LogImpact.Low, $"{ToPrettyString(player):actor} withdrew {bill} from {ToPrettyString(uid)}");
+            var stackPrototype = _prototypeManager.Index<StackPrototype>(CreditPrototype);
+            _stackSystem.Spawn(bill, stackPrototype, uid.ToCoordinates());
+            //}
+            /*else
             {
                 _bank.TryBankDeposit(player, bill);
                 PlayConfirmSound(player, uid, component);
-            } // Mono end
+            }*/ // Mono end
         }
 
         var name = GetFullName(deed);

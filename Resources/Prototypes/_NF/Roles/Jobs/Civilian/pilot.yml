@@ -6,6 +6,7 @@
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 28800 # mono - change to 8hrs
+  startingGear: ContractorStartingBalance
   icon: "JobIconPilot"
   supervisors: job-supervisors-hire
   weight: 2 # Prioritize station & department jobs

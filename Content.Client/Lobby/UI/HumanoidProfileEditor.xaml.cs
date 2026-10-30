@@ -2203,7 +2203,7 @@ namespace Content.Client.Lobby.UI
         private void RandomizeEverything()
         {
             var oldBank = Profile?.BankBalance ?? HumanoidCharacterProfile.DefaultBalance; // Frontier
-            Profile = HumanoidCharacterProfile.Random().WithBankBalance(oldBank); // Frontier: add WithBankBalance(oldBank)
+            Profile = HumanoidCharacterProfile.Random();//.WithBankBalance(oldBank); // Frontier: add WithBankBalance(oldBank) // Mono: remove it lol
             SetProfile(Profile, CharacterSlot);
             SetDirty();
         }

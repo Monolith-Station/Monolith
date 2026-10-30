@@ -6,6 +6,7 @@
 #  requirements: # If a new player decides the role named vagrant is better for guidance than employee/citizen it's their fault
 #  - !type:OverallPlaytimeRequirement
 #    time: 43200 # 12 hours
+  startingGear: ContractorStartingBalance # Mono
   icon: "JobIconContractor"
   supervisors: job-supervisors-nobody
   displayWeight: 40 # Top
@@ -15,3 +16,10 @@
   - !type:GiveItemOnHolidaySpecial
     holiday: FrontierBirthday
     prototype: FrontierBirthdayGift
+
+# MONO: persistent economy nuke
+- type: startingGear
+  id: ContractorStartingBalance
+  storage:
+    wallet:
+    - SpaceCash300000

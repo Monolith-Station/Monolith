@@ -12,10 +12,17 @@ using Content.Server.Cargo.Components;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Presets;
 using Content.Server.GameTicking.Rules;
+using Content.Server.Stack;
 using Content.Shared._NF.Bank;
+using Content.Shared._NF.Bank.Components;
 using Content.Shared._NF.CCVar;
+using Content.Shared.Cargo.Components;
 using Content.Shared.GameTicking;
 using Content.Shared.GameTicking.Components;
+using Content.Shared.Humanoid;
+using Content.Shared.Inventory;
+using Content.Shared.Stacks;
+using Content.Shared.Storage;
 using Robust.Server;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
@@ -41,6 +48,8 @@ public sealed partial class NFAdventureRuleSystem : GameRuleSystem<NFAdventureRu
     [Dependency] private IBaseServer _baseServer = default!;
     [Dependency] private IEntitySystemManager _entSys = default!;
     [Dependency] private HyperwarRuleSystem _hyperwar = default!;
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private StackSystem _stack = default!;
 
     private readonly HttpClient _httpClient = new();
 
@@ -92,6 +101,28 @@ public sealed partial class NFAdventureRuleSystem : GameRuleSystem<NFAdventureRu
         _player.PlayerStatusChanged += PlayerManagerOnPlayerStatusChanged;
     }
 
+    // Mono: gets the ending balance of someone when there is no persistent economy
+    private int GetEndingBalance(EntityUid uid, string slot = "wallet")
+    {
+        if (!_inventory.TryGetSlotContainer(uid, slot, out var slotContainer, out var slotDefinition))
+            return 0;
+
+        var wallet = slotContainer.ContainedEntity;
+        if (!TryComp<StorageComponent>(wallet, out var storage))
+            return 0;
+
+        foreach (var entity in storage.Container.ContainedEntities)
+        {
+            if (!TryComp<StackComponent>(entity, out var stack) ||
+                !HasComp<CashComponent>(entity))
+                continue;
+
+
+            return _stack.GetCount(entity, stack);
+        }
+        return 0;
+    }
+
     protected override void AppendRoundEndText(EntityUid uid, NFAdventureRuleComponent component, GameRuleComponent gameRule, ref RoundEndTextAppendEvent ev)
     {
         ev.AddLine(Loc.GetString("adventure-list-start"));
@@ -106,10 +137,13 @@ public sealed partial class NFAdventureRuleSystem : GameRuleSystem<NFAdventureRu
         ReportLedger();
     }
 
+    // Mono: rewrite this entire method to work with a lack of persistent economy
     private void GetBuiltRoundEndSummary(ref RoundEndTextAppendEvent ev, ref List<BankData> bankData)
     {
-        foreach (var (player, playerInfo) in _players)
+        var query = EntityQueryEnumerator<HumanoidAppearanceComponent, BankAccountComponent>();
+        while (query.MoveNext(out var uid, out _, out _))
         {
+            /*
             var endBalance = playerInfo.EndBalance;
 
             if (_bank.TryGetBalance(player, out var bankBalance))
@@ -129,6 +163,16 @@ public sealed partial class NFAdventureRuleSystem : GameRuleSystem<NFAdventureRu
             };
 
             bankData.Add(playerBankData);
+            */
+
+            var playerBankData = new BankData()
+            {
+                PlayerName = Name(uid),
+                Profit = GetEndingBalance(uid)
+            };
+
+            if (playerBankData.Profit > 0) // don't include the broke
+                bankData.Add(playerBankData);
         }
 
         var orderedData = bankData.OrderByDescending(data => data.Profit);

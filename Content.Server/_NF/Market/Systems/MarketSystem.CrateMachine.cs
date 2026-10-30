@@ -69,12 +69,15 @@ public sealed partial class MarketSystem
             return;
 
         var cartBalance = MarketDataExtensions.GetMarketValue(consoleComponent.CartDataList, marketMod);
-        if (playerBank.Balance < cartBalance)
+        // Mono: remove persistent economy
+        //if (playerBank.Balance < cartBalance)
+        //    return;
+        if (_creditReceiver.GetCashBalance(consoleUid) < cartBalance)
             return;
 
         // Withdraw spesos from player
         var spawnCost = int.Abs(MarketDataExtensions.GetMarketValue(consoleComponent.CartDataList, marketMod));
-        if (!_bankSystem.TryBankWithdraw(player, spawnCost))
+        if (!_creditReceiver.TryCashPayment(consoleUid, spawnCost, out _, false)) // Mono: remove persistent economy
         {
             _popup.PopupEntity(Loc.GetString("market-insufficient-funds"), consoleUid, player);
             _audio.PlayPredicted(consoleComponent.ErrorSound, consoleUid, null, AudioParams.Default.WithMaxDistance(5f));

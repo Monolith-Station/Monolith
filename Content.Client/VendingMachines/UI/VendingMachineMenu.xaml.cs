@@ -234,7 +234,8 @@ namespace Content.Client.VendingMachines.UI
         // Frontier
         public void UpdateBalance(int balance)
         {
-            BalanceLabel.Text = BankSystemExtensions.ToSpesoString(balance);
+            // BalanceLabel.Text = BankSystemExtensions.ToSpesoString(balance);
+            BalanceLabel.Visible = false; // Mono: nuke persistent econ
         }
 
         public void UpdateCashSlotBalance(int? balance)

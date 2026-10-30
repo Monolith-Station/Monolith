@@ -36,5 +36,7 @@
   storage:
     back:
     - EncryptionKeyService # Frontier
+    wallet:
+    - SpaceCash300000 # Mono
 #   - ShipVoucherFrontierService # Mono
 # End Frontier

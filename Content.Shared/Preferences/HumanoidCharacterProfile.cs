@@ -34,7 +34,7 @@ namespace Content.Shared.Preferences
         public const int MaxLoadoutNameLength = 32;
         public const int MaxDescLength = 2048; // Mono 512<2048
 
-        public const int DefaultBalance = 75000;
+        public const int DefaultBalance = 0; // Mono: Nuke persistent economy.
 
         //private readonly Dictionary<string, JobPriority> _jobPriorities; // Frontier: commented out during merge.
         //private readonly List<string> _antagPreferences; // Frontier: commented out during merge.
