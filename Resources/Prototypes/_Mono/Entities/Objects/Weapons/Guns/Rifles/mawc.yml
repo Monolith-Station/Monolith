@@ -5,13 +5,13 @@
   description: A rugged rifle with a slightly unusual design but dependable stopping power.
   components:
   - type: Sprite
-    sprite: _Mono/MAWC/Objects/Weapons/Guns/fulcrum.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Battery/fulcrum.rsi
     state: base
   - type: Item
     size: Huge
-    sprite: _Mono/MAWC/Objects/Weapons/Guns/fulcrum_inhands.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Battery/fulcrum_inhands.rsi
   - type: Clothing
-    sprite: _Mono/MAWC/Objects/Weapons/Guns/fulcrum_inhands.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Battery/fulcrum_inhands.rsi
     quickEquip: false
     slots:
     - Back

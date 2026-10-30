@@ -5,10 +5,10 @@
   description: A ubiquitous and cheap pistol issued to all MAWC forces with respectable stopping power, firerate and self recharge.
   components:
   - type: Sprite
-    sprite: _Mono/MAWC/Objects/Weapons/Guns/game.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Battery/game.rsi
     state: base
   - type: Item
-    sprite: _Mono/MAWC/Objects/Weapons/Guns/game_inhands.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Battery/game_inhands.rsi
     size: Small
     shape:
     - 0,0,1,0
@@ -17,7 +17,7 @@
     tags:
     - Sidearm
   - type: Clothing
-    sprite: _Mono/MAWC/Objects/Weapons/Guns/game_inhands.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Battery/game_inhands.rsi
     quickEquip: false
     slots:
     - Belt
@@ -54,10 +54,10 @@
   description: A heavy railgun revolver issued to the Seraph.
   components:
   - type: Sprite
-    sprite: _Mono/MAWC/Objects/Weapons/Guns/heartpiercer.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Battery/heartpiercer.rsi
     state: base
   - type: Item
-    sprite: _Mono/MAWC/Objects/Weapons/Guns/heartpiercer_inhands.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Battery/heartpiercer_inhands.rsi
     size: Small
     shape:
     - 0,0,1,0
@@ -66,7 +66,7 @@
     tags:
     - Sidearm
   - type: Clothing
-    sprite: _Mono/MAWC/Objects/Weapons/Guns/heartpiercer_inhands.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Battery/heartpiercer_inhands.rsi
     quickEquip: false
     slots:
     - Belt

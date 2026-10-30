@@ -2,7 +2,7 @@
   parent: JobIcon
   id: JobIconMAWCInitiate
   icon:
-    sprite: /Textures/_Mono/MAWC/Interface/job_icons.rsi
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
     state: initiate
   jobName: job-name-mawc-initiate
 
@@ -10,7 +10,7 @@
   parent: JobIcon
   id: JobIconMAWCCarpenter
   icon:
-    sprite: /Textures/_Mono/MAWC/Interface/job_icons.rsi
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
     state: carpenter
   jobName: job-name-mawc-carpenter
 
@@ -18,7 +18,7 @@
   parent: JobIcon
   id: JobIconMAWCAcolyte
   icon:
-    sprite: /Textures/_Mono/MAWC/Interface/job_icons.rsi
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
     state: acolyte
   jobName: job-name-mawc-acolyte
 
@@ -26,6 +26,6 @@
   parent: JobIcon
   id: JobIconMAWCSeraph
   icon:
-    sprite: /Textures/_Mono/MAWC/Interface/job_icons.rsi
+    sprite: /Textures/_Mono/Interface/Misc/job_icons.rsi
     state: seraph
   jobName: job-name-mawc-seraph

@@ -5,9 +5,9 @@
   description: Standard issue MAWC neckwear. Acts as a heartrate or stress monitor for quick viewing.
   components:
   - type: Sprite
-    sprite: _Mono/MAWC/Clothing/Neck/ring.rsi
+    sprite: _Mono/Clothing/Neck/ring.rsi
   - type: Clothing
-    sprite: _Mono/MAWC/Clothing/Neck/ring.rsi
+    sprite: _Mono/Clothing/Neck/ring.rsi
     clothingVisuals:
       neck:
       - state: equipped-NECK

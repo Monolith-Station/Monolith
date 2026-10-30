@@ -4,13 +4,13 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: _Mono/MAWC/Objects/id_cards.rsi
+    sprite: _Mono/Objects/Misc/id_cards.rsi
   - type: Item
     sprite: Objects/Misc/id_cards.rsi
   - type: Clothing
     clothingVisuals:
       idcard:
-      - sprite: _Mono/MAWC/Objects/id_cards.rsi
+      - sprite: _Mono/Objects/Misc/id_cards.rsi
         state: equipped
         shader: unshaded
 

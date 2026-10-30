@@ -5,9 +5,9 @@
   description: A hardlight PDA developed by MAWC for their employees.
   components:
   - type: Sprite
-    sprite: _Mono/MAWC/Objects/pda.rsi
+    sprite: _Mono/Objects/Devices/pda.rsi
   - type: Icon
-    sprite: _Mono/MAWC/Objects/pda.rsi
+    sprite: _Mono/Objects/Devices/pda.rsi
     state: initiate-off
   - type: Item
     sprite: _NF/Objects/Devices/pda.rsi
@@ -15,11 +15,11 @@
     sprite: _NF/Objects/Devices/pda.rsi
     clothingVisuals:
       idcard:
-      - sprite: _Mono/MAWC/Objects/pda.rsi
+      - sprite: _Mono/Objects/Devices/pda.rsi
         state: equipped
         shader: unshaded
       belt:
-      - sprite: _Mono/MAWC/Objects/pda.rsi
+      - sprite: _Mono/Objects/Devices/pda.rsi
         state: equipped
         shader: unshaded
   - type: PdaBorderColor

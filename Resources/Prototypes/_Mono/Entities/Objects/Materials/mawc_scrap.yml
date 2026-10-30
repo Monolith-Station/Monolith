@@ -6,7 +6,7 @@
   suffix: Full
   components:
   - type: Sprite
-    sprite: _Mono/MAWC/Objects/Materials/hq_scrap.rsi
+    sprite: _Mono/Objects/Materials/hq_scrap.rsi
     layers:
     - state: icon
     - state: warm
@@ -46,7 +46,7 @@
 - type: stack
   id: MAWCScrap
   name: high-quality scrap
-  icon: { sprite: /Textures/_Mono/MAWC/Objects/Materials/hq_scrap.rsi, state: icon }
+  icon: { sprite: /Textures/_Mono/Objects/Materials/hq_scrap.rsi, state: icon }
   spawn: MaterialMAWCScrap1
   maxCount: 300
 
@@ -55,6 +55,6 @@
   stackEntity: MaterialMAWCScrap1
   name: materials-mawc-scrap
   unit: materials-unit-chunk
-  icon: { sprite: /Textures/_Mono/MAWC/Objects/Materials/hq_scrap.rsi, state: icon }
+  icon: { sprite: /Textures/_Mono/Objects/Materials/hq_scrap.rsi, state: icon }
   color: "#8a7f7a"
   price: 0.5

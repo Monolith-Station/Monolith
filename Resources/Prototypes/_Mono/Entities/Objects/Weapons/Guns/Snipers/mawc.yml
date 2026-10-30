@@ -5,13 +5,13 @@
   description: A high caliber rifle classified under AT weapon specifications, yet deceptively light and ergonomic for its class. Rumored to have been designed to challenge or parallel appropriate heavy weapons from other factions.
   components:
   - type: Sprite
-    sprite: _Mono/MAWC/Objects/Weapons/Guns/stonehenge.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Battery/stonehenge.rsi
     state: base
   - type: Item
     size: Ginormous
-    sprite: _Mono/MAWC/Objects/Weapons/Guns/stonehenge_inhands.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Battery/stonehenge_inhands.rsi
   - type: Clothing
-    sprite: _Mono/MAWC/Objects/Weapons/Guns/stonehenge_inhands.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Battery/stonehenge_inhands.rsi
     quickEquip: false
     slots:
     - Back

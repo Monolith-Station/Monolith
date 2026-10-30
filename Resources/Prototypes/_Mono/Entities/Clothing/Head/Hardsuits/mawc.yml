@@ -6,9 +6,9 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _Mono/MAWC/Clothing/Head/Hardsuits/widowmaker.rsi
+    sprite: _Mono/Clothing/Head/Hardsuits/widowmaker.rsi
   - type: Clothing
-    sprite: _Mono/MAWC/Clothing/Head/Hardsuits/widowmaker.rsi
+    sprite: _Mono/Clothing/Head/Hardsuits/widowmaker.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -36,9 +36,9 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _Mono/MAWC/Clothing/Head/Hardsuits/weaver.rsi
+    sprite: _Mono/Clothing/Head/Hardsuits/weaver.rsi
   - type: Clothing
-    sprite: _Mono/MAWC/Clothing/Head/Hardsuits/weaver.rsi
+    sprite: _Mono/Clothing/Head/Hardsuits/weaver.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -57,9 +57,9 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _Mono/MAWC/Clothing/Head/Hardsuits/carpenter.rsi
+    sprite: _Mono/Clothing/Head/Hardsuits/carpenter.rsi
   - type: Clothing
-    sprite: _Mono/MAWC/Clothing/Head/Hardsuits/carpenter.rsi
+    sprite: _Mono/Clothing/Head/Hardsuits/carpenter.rsi
   - type: EyeProtection
   - type: FlashImmunity
   - type: ShowHealthBars
@@ -78,8 +78,8 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _Mono/MAWC/Clothing/Head/Hardsuits/termite.rsi
+    sprite: _Mono/Clothing/Head/Hardsuits/termite.rsi
   - type: Clothing
-    sprite: _Mono/MAWC/Clothing/Head/Hardsuits/termite.rsi
+    sprite: _Mono/Clothing/Head/Hardsuits/termite.rsi
   - type: SpeechSoundsReplacer
     speechSounds: Mawc

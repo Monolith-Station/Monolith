@@ -5,13 +5,13 @@
   description: A close-range SMG with a specially designed autoreloading mechanism that generates small caliber charges with similar capability to existing SMG platforms in sector. It is more reliable than its short figure and unusual ergonomics might imply.
   components:
   - type: Sprite
-    sprite: _Mono/MAWC/Objects/Weapons/Guns/flanker.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Battery/flanker.rsi
     state: base
   - type: Item
     size: Large
-    sprite: _Mono/MAWC/Objects/Weapons/Guns/flanker_inhands.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Battery/flanker_inhands.rsi
   - type: Clothing
-    sprite: _Mono/MAWC/Objects/Weapons/Guns/flanker_inhands.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Battery/flanker_inhands.rsi
     quickEquip: false
     slots:
     - Back

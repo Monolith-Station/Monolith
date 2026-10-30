@@ -5,13 +5,13 @@
   description: A respectable and hefty automatic shotgun. Programmed with special hardlight flechette shells, it rips through armor and walls like tissue paper.
   components:
   - type: Sprite
-    sprite: _Mono/MAWC/Objects/Weapons/Guns/intruder.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Battery/intruder.rsi
     state: base
   - type: Item
     size: Huge
-    sprite: _Mono/MAWC/Objects/Weapons/Guns/intruder_inhands.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Battery/intruder_inhands.rsi
   - type: Clothing
-    sprite: _Mono/MAWC/Objects/Weapons/Guns/intruder_inhands.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Battery/intruder_inhands.rsi
     quickEquip: false
     slots:
     - Back
