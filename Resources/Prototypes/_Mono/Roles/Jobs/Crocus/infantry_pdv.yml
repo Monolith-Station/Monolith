@@ -7,10 +7,9 @@
   - !type:TraitsRequirement
     inverted: true
     traits:
-    # Ironman gives you the LPC. The others are just free upgrades; Crocus has no bionics.
+    # Free upgrades; Crocus has no bionics.
     - PrybarProsthetics
     - BionicLegs
-    - Ironman
   startingGear: PDVInfantryGear
   alwaysUseSpawner: true # cuz like, planets are 1 mapgrid, u cant use latejoins bro!!
   icon: JobIconPirate
