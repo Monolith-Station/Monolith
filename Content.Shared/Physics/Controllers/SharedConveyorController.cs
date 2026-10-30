@@ -12,6 +12,9 @@ using Robust.Shared.Physics.Controllers;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Threading;
+using Robust.Shared.Network; // Mono
+using Robust.Shared.Timing; // Mono
+using Robust.Shared.Utility; // Mono
 
 namespace Content.Shared.Physics.Controllers;
 
@@ -23,7 +26,9 @@ public abstract partial class SharedConveyorController : VirtualController
     [Dependency] protected EntityLookupSystem Lookup = default!;
     [Dependency] private   FixtureSystem _fixtures = default!;
     [Dependency] private   SharedGravitySystem _gravity = default!;
-    [Dependency] private   SharedMoverController _mover = default!;
+    [Dependency] protected   SharedMoverController _mover = default!; // Mono: private -> protected
+    [Dependency] protected IGameTiming Timing = default!; // Mono
+    [Dependency] private INetManager _net = default!; // Mono
 
     protected const string ConveyorFixture = "conveyor";
 
@@ -35,6 +40,7 @@ public abstract partial class SharedConveyorController : VirtualController
     protected EntityQuery<TransformComponent> XformQuery;
 
     protected HashSet<EntityUid> Intersecting = new();
+    protected Dictionary<Entity<ConveyorComponent>, List<(Entity<ConveyedComponent>, float)>> ConveyedPerBelt = []; // Mono
 
     public override void Initialize()
     {
@@ -52,6 +58,7 @@ public abstract partial class SharedConveyorController : VirtualController
 
         SubscribeLocalEvent<ConveyorComponent, StartCollideEvent>(OnConveyorStartCollide);
         SubscribeLocalEvent<ConveyorComponent, ComponentStartup>(OnConveyorStartup);
+        SubscribeLocalEvent<ConveyorComponent, ComponentShutdown>(OnConveyorShutdown); // Mono
 
         base.Initialize();
     }
@@ -78,6 +85,13 @@ public abstract partial class SharedConveyorController : VirtualController
         AwakenConveyor(ent.Owner);
     }
 
+    // Mono start
+    protected virtual void OnConveyorShutdown(EntityUid uid, ConveyorComponent component, ComponentShutdown args)
+    {
+        ConveyedPerBelt.Remove((uid, component));
+    }
+    // Mono end
+
     /// <summary>
     /// Forcefully awakens all entities near the conveyor.
     /// </summary>
@@ -85,37 +99,19 @@ public abstract partial class SharedConveyorController : VirtualController
     {
     }
 
-    /// <summary>
-    /// Wakes all conveyed entities contacting this conveyor.
-    /// </summary>
-    protected void WakeConveyed(EntityUid conveyorUid)
-    {
-        var contacts = PhysicsSystem.GetContacts(conveyorUid);
-
-        while (contacts.MoveNext(out var contact))
-        {
-            var other = contact.OtherEnt(conveyorUid);
-
-            if (contact.OtherFixture(conveyorUid).Item2.Hard && contact.OtherBody(conveyorUid).BodyType != BodyType.Static)
-            {
-                EnsureComp<ConveyedComponent>(other);
-            }
-
-            if (_conveyedQuery.HasComp(other))
-            {
-                PhysicsSystem.WakeBody(other);
-            }
-        }
-    }
+    protected virtual void PrepAndSortQueue() {} // Mono
 
     private void OnConveyorStartCollide(Entity<ConveyorComponent> conveyor, ref StartCollideEvent args)
     {
+        if (!CanRun(conveyor.Comp)) return; // Mono
+
         var otherUid = args.OtherEntity;
 
         if (!args.OtherFixture.Hard || args.OtherBody.BodyType == BodyType.Static)
             return;
 
-        EnsureComp<ConveyedComponent>(otherUid);
+        var otherComp = EnsureComp<ConveyedComponent>(otherUid); // Mono
+        TryEnqueue(conveyor, (otherUid, otherComp)); // Mono
     }
 
     public override void UpdateBeforeSolve(bool prediction, float frameTime)
@@ -124,12 +120,29 @@ public abstract partial class SharedConveyorController : VirtualController
 
         _job.Prediction = prediction;
         _job.Conveyed.Clear();
+        PrepAndSortQueue(); // Mono
 
         var query = EntityQueryEnumerator<ConveyedComponent, FixturesComponent, PhysicsComponent, TransformComponent>();
 
         while (query.MoveNext(out var uid, out var comp, out var fixtures, out var physics, out var xform))
         {
-            _job.Conveyed.Add(((uid, comp, fixtures, physics, xform), Vector2.Zero, false));
+            // Mono start
+            if (_mover.UsedMobMovement.TryGetValue(uid, out var usedMob) && usedMob) // mobs with movement always go in no matter what
+            {
+                _job.Conveyed.Add(((uid, comp, fixtures, physics, xform), Vector2.Zero, true, false));
+                continue;
+            }
+
+            var claimedAndMatured = comp.Claimed() && comp.Matured(Timing.CurTime);
+
+            if (!physics.Awake && !claimedAndMatured) // not ready to process yet
+                continue;
+
+            if (claimedAndMatured && !physics.Awake) // ready to process but body isn't awake - wake it
+                PhysicsSystem.WakeBody(uid);
+            // Mono end
+
+            _job.Conveyed.Add(((uid, comp, fixtures, physics, xform), Vector2.Zero, false, false));
         }
 
         _parallel.ProcessNow(_job, _job.Conveyed.Count);
@@ -189,7 +202,7 @@ public abstract partial class SharedConveyorController : VirtualController
             return;
 
         conveyed.Conveying = value;
-        Dirty(uid, conveyed);
+        // Dirty(uid, conveyed); // Mono: Add back when pulling is actually predicted and the networked variable is actually needed
     }
 
     /// <summary>
@@ -197,7 +210,7 @@ public abstract partial class SharedConveyorController : VirtualController
     /// </summary>
     /// <returns>False if we should no longer be considered actively conveyed.</returns>
     private bool TryConvey(Entity<ConveyedComponent, FixturesComponent, PhysicsComponent, TransformComponent> entity,
-        bool prediction,
+        bool prediction, bool isMob, // Mono: added isMob
         out Vector2 direction)
     {
         direction = Vector2.Zero;
@@ -262,6 +275,9 @@ public abstract partial class SharedConveyorController : VirtualController
 
         if (bestSpeed == 0f || bestConveyor == default)
             return true;
+
+        if (Timing.CurTime < entity.Comp1.MoveReadyAt && !isMob) // Mono
+            return false; // Mono
 
         var comp = bestConveyor.Comp!;
         var conveyorXform = XformQuery.GetComponent(bestConveyor.Owner);
@@ -354,7 +370,7 @@ public abstract partial class SharedConveyorController : VirtualController
     {
         public int BatchSize => 16;
 
-        public List<(Entity<ConveyedComponent, FixturesComponent, PhysicsComponent, TransformComponent> Entity, Vector2 Direction, bool Result)> Conveyed = new();
+        public List<(Entity<ConveyedComponent, FixturesComponent, PhysicsComponent, TransformComponent> Entity, Vector2 Direction, bool IsMob, bool Result)> Conveyed = new(); // Mono: added IsMob
 
         public SharedConveyorController System;
 
@@ -371,9 +387,9 @@ public abstract partial class SharedConveyorController : VirtualController
 
             var result = System.TryConvey(
                 (convey.Entity.Owner, convey.Entity.Comp1, convey.Entity.Comp2, convey.Entity.Comp3, convey.Entity.Comp4),
-                Prediction, out var direction);
+                Prediction, convey.IsMob, out var direction); // Mono: added IsMob
 
-            Conveyed[index] = (convey.Entity, direction, result);
+            Conveyed[index] = (convey.Entity, direction, convey.IsMob, result); // Mono: added IsMob
         }
     }
 
@@ -400,4 +416,35 @@ public abstract partial class SharedConveyorController : VirtualController
 
         return false;
     }
+
+    // Mono start
+    /// <summary>
+    /// Tries to enqueue a passed conveyed entity into the passed conveyor's batch system
+    /// </summary>
+    /// <param name="conveyor"></param>
+    /// <param name="conveyed"></param>
+    /// <returns></returns>
+    protected bool TryEnqueue(Entity<ConveyorComponent> conveyor, Entity<ConveyedComponent> conveyed)
+    {
+        if (!_net.IsServer) // no need to run this on client
+            return false;
+
+        if (conveyor == conveyed.Comp.CurrentConveyor) // Skip entries already added for this conveyor
+            return false;
+
+        // Gets conveyor rotation, alongside angle and accounting for reverse...
+        var conveyorRot = TransformSystem.GetWorldRotation(conveyor.Owner);
+        conveyorRot += conveyor.Comp.Angle;
+        if (conveyor.Comp.State == ConveyorState.Reverse)
+            conveyorRot += MathF.PI;
+
+        var conveyorDirection = conveyorRot.ToWorldVec(); // And transform it into a direction.
+        ConveyedPerBelt.GetOrNew(conveyor).Add(( // Adds conveyor entry if it doesnt exist, along with the conveyed entry for it, and...
+            (conveyed.Owner, conveyed.Comp!),
+            Vector2.Dot(TransformSystem.GetWorldPosition(conveyed.Owner), conveyorDirection) // ...scalar projection for sorting.
+        ));
+
+        return true;
+    }
+    // Mono end
 }

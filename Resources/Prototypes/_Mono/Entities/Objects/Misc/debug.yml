@@ -1,0 +1,23 @@
+- type: entity
+  id: CrateDebugFiveHundredEntities
+  parent: CratePlasticBiodegradable
+  name: five hundred cigarrettes
+  suffix: DEBUG
+  description: Five. Hundred. Cigarrettes.
+  components:
+  - type: StorageFill
+    contents:
+      - id: Cigarette
+        amount: 500
+
+- type: entity
+  id: CrateDebugFiveThousandEntities
+  parent: CratePlasticBiodegradable
+  name: five thousand cigarrettes
+  suffix: DEBUG
+  description: Five. Thousand. Cigarrettes.
+  components:
+  - type: StorageFill
+    contents:
+      - id: Cigarette
+        amount: 5000
