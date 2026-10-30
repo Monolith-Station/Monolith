@@ -25,7 +25,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using PullableComponent = Content.Shared.Movement.Pulling.Components.PullableComponent;
-using Content.Shared.StepTrigger.Components; // Delta V-NoShoesSilentFootstepsComponent
+using Content.Shared.StepTrigger.Components;
+using Content.Shared.Throwing; // Delta V-NoShoesSilentFootstepsComponent
 
 namespace Content.Shared.Movement.Systems;
 
@@ -217,7 +218,7 @@ public abstract partial class SharedMoverController : VirtualController
         var weightless = _gravity.IsWeightless(uid);
         var inAirHelpless = false;
 
-        if (physicsComponent.BodyStatus != BodyStatus.OnGround && !CanMoveInAirQuery.HasComponent(uid))
+        if (physicsComponent.BodyStatus != BodyStatus.OnGround && (!CanMoveInAirQuery.HasComponent(uid) || HasComp<ThrownItemComponent>(uid)))
         {
             if (!weightless)
             {
