@@ -26487,3 +26487,64 @@ Entries:
   id: 2853
   time: '2026-10-27T17:53:21.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4879
+- author: EckoAurum
+  changes:
+    - type: Tweak
+      message: >-
+        Space Animals hearts and lungs will disintegrate if touched by anybody
+        not pure of heart. Dragon lungs remain for the wicked.
+  id: 2854
+  time: '2026-10-28T23:10:52.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4929
+- author: EckoAurum
+  changes:
+    - type: Fix
+      message: Self harvest dead for real
+  id: 2855
+  time: '2026-10-29T00:52:12.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4930
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Concussive gauntlets now require wearing to use, but no longer stunlock
+        you when you get shocked. You still take some shock damage.
+    - type: Tweak
+      message: >-
+        Gloves of the north star damage 8 >> 11. Received partial shockproofing
+        as well.
+  id: 2856
+  time: '2026-10-29T01:55:23.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4926
+- author: EckoAurum
+  changes:
+    - type: Tweak
+      message: Fentanyl now alerts for every sale.
+    - type: Tweak
+      message: Selling an abundance of contraband at once will now reject the sale.
+  id: 2857
+  time: '2026-10-29T04:30:23.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4931
+- author: mikusssssss
+  changes:
+    - type: Tweak
+      message: >-
+        You can now have a outer description up to 2048 characters. (Not
+        Sponsored by the creators of the 2048 Game)
+  id: 2858
+  time: '2026-10-29T15:14:19.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4932
+- author: EckoAurum
+  changes:
+    - type: Fix
+      message: Sushi now slices into the correct food.
+  id: 2859
+  time: '2026-10-30T01:27:33.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4935
+- author: mikusssssss
+  changes:
+    - type: Remove
+      message: Removed Hew juice from borers.
+  id: 2860
+  time: '2026-10-30T01:50:05.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4933

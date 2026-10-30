@@ -26,6 +26,7 @@ using Content.Shared._Mono.Company;
 using Content.Server._Mono.Store; // Mono
 using Content.Server._Mono.Cargo; // Mono
 using Content.Server.Radio.EntitySystems; // Mono
+using Content.Shared.Popups; // Mono
 
 
 namespace Content.Server.Cargo.Systems;
@@ -303,8 +304,9 @@ public sealed partial class CargoSystem
         if (toSell.Count == 0)
             return false;
 
-        var ev = new EntitySoldEvent(toSell, gridUid); // Frontier: add gridUid
-        RaiseLocalEvent(ref ev);
+        // Mono comment out to move above sold event
+        //var ev = new EntitySoldEvent(toSell, gridUid); // Frontier: add gridUid
+        //RaiseLocalEvent(ref ev);
 
         // Collect all container entities and their contained entities recursively
         var allEntsToDelete = new HashSet<EntityUid>(toSell);
@@ -321,7 +323,11 @@ public sealed partial class CargoSystem
             }
         }
 
-        SendSoldAlert(consoleUid, allEntsToDelete); // Mono: sell snitching
+        if (!SendSoldAlert(consoleUid, allEntsToDelete)) // Mono: sell snitching
+            return false;
+
+        var ev = new EntitySoldEvent(toSell, gridUid); // Mono: moved here so refused sales dont count as sold
+        RaiseLocalEvent(ref ev);
 
         foreach (var ent in allEntsToDelete)
         {
@@ -332,9 +338,9 @@ public sealed partial class CargoSystem
     }
     /// <summary>
     /// Mono: Sold stuff that have <see cref="SoldAlertComponent"/> sends a radio
-    /// message if it meets its Threshold.
+    /// message if it meets its Threshold. Sends nothing if over MaxPerSale.
     /// </summary>
-    private void SendSoldAlert(EntityUid console, HashSet<EntityUid> sold)
+    private bool SendSoldAlert(EntityUid console, HashSet<EntityUid> sold)
     {
         Dictionary<string, (int Count, SoldAlertComponent Alert, string Name)>? groups = null;
 
@@ -359,7 +365,16 @@ public sealed partial class CargoSystem
         }
 
         if (groups == null)
-            return;
+            return true;
+
+        foreach (var (count, alert, _) in groups.Values)
+        {
+            if (alert.MaxPerSale > 0 && count > alert.MaxPerSale)
+            {
+                _popup.PopupEntity(Loc.GetString("cargo-sold-alert-console"), console, PopupType.MediumCaution);
+                return false;
+            }
+        }
 
         string? location = null;
 
@@ -377,6 +392,8 @@ public sealed partial class CargoSystem
                 _radio.SendRadioMessage(speaker, message, channel, console);
             }
         }
+
+        return true;
     }
 
     /// <summary>
