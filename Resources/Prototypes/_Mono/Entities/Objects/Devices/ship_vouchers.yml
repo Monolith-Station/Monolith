@@ -84,9 +84,10 @@
     - Xiphos
 
 - type: entity
-  parent: ShipVoucherTsfT0
+  parent: BaseShipLPCRenewable
   id: ShipVoucherTsfT1
   name: TSF T1 ship voucher
+  description: Allows for one free medium TSFMC ship purchase.
   components:
   - type: Sprite
     sprite: _Mono/Objects/Misc/lpcnew.rsi
@@ -108,7 +109,7 @@
     - Fracture
 
 - type: entity
-  parent: ShipVoucherTsfT0
+  parent: ShipVoucherTsfT1
   id: ShipVoucherTsfT2
   name: TSF T2 ship voucher
   components:
@@ -243,10 +244,10 @@
     - Tethys
 
 - type: entity
-  parent: ShipVoucherPdvT0
+  parent: BaseShipLPCRenewable
   id: ShipVoucherPdvT1
   name: PDV T1 ship voucher
-  description: Allows for one medium PDV ship purchase. Destroyed on sale.
+  description: Allows for one medium PDV ship purchase.
   components:
   - type: Sprite
     sprite: _Mono/Objects/Misc/lpcnew.rsi
@@ -268,10 +269,9 @@
     - Osa
 
 - type: entity
-  parent: ShipVoucherPdvT0
+  parent: ShipVoucherPdvT1
   id: ShipVoucherPdvT2
   name: PDV T2 ship voucher
-  description: Allows for one medium to large PDV ship purchase. Destroyed on sale.
   components:
   - type: Sprite
     sprite: _Mono/Objects/Misc/lpcnew.rsi
@@ -292,10 +292,10 @@
     - Neptune
 
 - type: entity
-  parent: ShipVoucherPdvT0
+  parent: ShipVoucherPdvT1
   id: ShipVoucherPdvT3
   name: PDV T3 ship voucher
-  description: Allows for one large PDV ship purchase. Destroyed on sale.
+  description: Allows for one large PDV ship purchase.
   components:
   - type: Sprite
     sprite: _Mono/Objects/Misc/lpcnew.rsi
