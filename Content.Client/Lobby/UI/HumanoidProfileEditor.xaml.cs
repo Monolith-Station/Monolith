@@ -200,6 +200,8 @@ namespace Content.Client.Lobby.UI
 
             #endregion Name
 
+            CCustomSpeciesNameEdit.OnTextChanged += args => { SetCustomSpeciesName(args.Text); };
+
             #region Appearance
 
             TabContainer.SetTabTitle(0, Loc.GetString("humanoid-profile-editor-appearance-tab"));
@@ -249,6 +251,7 @@ namespace Content.Client.Lobby.UI
                 SetSpecies(_species[args.Id].ID);
                 UpdateHairPickers();
                 OnSkinColorOnValueChanged();
+                UpdateCustomSpeciesNameEdit(); // Starlight
             };
 
             #region Skin
@@ -1207,6 +1210,7 @@ namespace Content.Client.Lobby.UI
             JobOverride = null;
 
             UpdateNameEdit();
+            UpdateCustomSpeciesNameEdit(); // Starlight
             UpdateFlavorTextEdit();
             UpdateSexControls();
             UpdateGenderControls();
@@ -1826,6 +1830,12 @@ namespace Content.Client.Lobby.UI
             _entManager.System<MetaDataSystem>().SetEntityName(PreviewDummy, newName);
         }
 
+        private void SetCustomSpeciesName(string name)
+        {
+            Profile = Profile?.WithCustomSpeciesName(name);
+            SetDirty();
+        }
+
         private void SetSpawnPriority(SpawnPriorityPreference newSpawnPriority)
         {
             Profile = Profile?.WithSpawnPriorityPreference(newSpawnPriority);
@@ -1874,6 +1884,12 @@ namespace Content.Client.Lobby.UI
         private void UpdateNameEdit()
         {
             NameEdit.Text = Profile?.Name ?? "";
+        }
+
+        private void UpdateCustomSpeciesNameEdit()
+        {
+            var species = _species.Find(x => x.ID == Profile?.Species) ?? _species.First();
+            CCustomSpeciesNameEdit.Text = string.IsNullOrEmpty(Profile?.CustomSpeciesName) ? Loc.GetString(species.Name) : Profile.CustomSpeciesName;
         }
 
         private void UpdateFlavorTextEdit()

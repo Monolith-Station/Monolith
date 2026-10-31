@@ -110,7 +110,7 @@ public abstract partial class SharedHumanoidAppearanceSystem : EntitySystem
     private void OnExamined(EntityUid uid, HumanoidAppearanceComponent component, ExaminedEvent args)
     {
         var identity = Identity.Entity(uid, EntityManager);
-        var species = GetSpeciesRepresentation(component.Species).ToLower();
+        var species = GetSpeciesRepresentation(component.Species, component.CustomSpeciesName).ToLower();
         var age = GetAgeRepresentation(component.Species, component.Age);
 
         // WWDP EDIT
@@ -462,6 +462,7 @@ public abstract partial class SharedHumanoidAppearanceSystem : EntitySystem
         }
 
         humanoid.Age = profile.Age;
+        humanoid.CustomSpeciesName = profile.CustomSpeciesName;
         humanoid.Height = profile.Appearance.Height;
         humanoid.Width = profile.Appearance.Width;
 
@@ -547,10 +548,13 @@ public abstract partial class SharedHumanoidAppearanceSystem : EntitySystem
     /// <summary>
     /// Takes ID of the species prototype, returns UI-friendly name of the species.
     /// </summary>
-    public string GetSpeciesRepresentation(string speciesId)
+    public string GetSpeciesRepresentation(string speciesId, string? customSpeciesName) // Starlight - Edit
     {
         if (_proto.TryIndex<SpeciesPrototype>(speciesId, out var species))
         {
+            if (!string.IsNullOrEmpty(customSpeciesName)) // Starlight
+                return Loc.GetString(customSpeciesName) + " (" + Loc.GetString(species.Name) + ")"; // Starlight
+
             return Loc.GetString(species.Name);
         }
 
