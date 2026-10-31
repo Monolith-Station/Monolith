@@ -90,7 +90,7 @@
     partType: Head
     toolName: "a head" # Shitmed Change
     vital: true
-    severIntegrity: 400 # Mono
+    severIntegrity: 4000 # Mono
     organs: # Shitmed Change
       brain:
         id: brain
@@ -106,19 +106,19 @@
     - trigger:
         !type:DamageTypeTrigger
         damageType: Blunt
-        damage: 500 # 110->500
+        damage: 5000 # 110->5000
       behaviors:
       - !type:GibPartBehavior { }
     - trigger:
         !type:DamageTypeTrigger
         damageType: Slash
-        damage: 600 # 150->600
+        damage: 6000 # 150->6000
       behaviors:
       - !type:GibPartBehavior { }
     - trigger:
         !type:DamageTypeTrigger
         damageType: Heat
-        damage: 700 # 200->700
+        damage: 7000 # 200->7000
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawnInContainer: true
@@ -168,7 +168,7 @@
       right hand:
         id: right hand
         type: Hand
-    severIntegrity: 160 # Mono
+    severIntegrity: 4000 # Mono
 
 - type: entity
   abstract: true
@@ -275,25 +275,25 @@
   id: MajorLimb
   components:
   - type: BodyPart
-    severIntegrity: 160
+    severIntegrity: 3000 # Mono: 160 -> 3000
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTypeTrigger
         damageType: Blunt
-        damage: 190 # 110->190
+        damage: 10000 # 110->10000
       behaviors:
       - !type:GibPartBehavior { }
     - trigger:
         !type:DamageTypeTrigger
         damageType: Slash
-        damage: 210 # 150->210
+        damage: 10000 # 150->10000
       behaviors:
       - !type:GibPartBehavior { }
     - trigger:
         !type:DamageTypeTrigger
         damageType: Heat
-        damage: 250 # 200->250
+        damage: 10000 # 200->10000
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawnInContainer: true
@@ -316,19 +316,19 @@
     - trigger:
         !type:DamageTypeTrigger
         damageType: Blunt
-        damage: 150 # 110->150
+        damage: 7500 # 110->7500
       behaviors:
       - !type:GibPartBehavior { }
     - trigger:
         !type:DamageTypeTrigger
         damageType: Slash
-        damage: 180 # 150->180
+        damage: 7500 # 150->7500
       behaviors:
       - !type:GibPartBehavior { }
     - trigger:
         !type:DamageTypeTrigger
         damageType: Heat
-        damage: 230 # 200->230
+        damage: 7500 # 200->7500
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawnInContainer: true
