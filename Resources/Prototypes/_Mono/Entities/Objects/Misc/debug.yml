@@ -1,23 +1,11 @@
 - type: entity
-  id: CrateDebugFiveHundredEntities
+  id: CrateDebugFiveHundredEntities # CrateDebugFiveHundredEntities
   parent: CratePlasticBiodegradable
-  name: five hundred cigarrettes
+  name: one hundred cigarrettes # five hundred cigarrettes
   suffix: DEBUG
-  description: Five. Hundred. Cigarrettes.
+  description: One. Hundred. Cigarrettes. # Five. Hundred. Cigarrettes.
   components:
   - type: StorageFill
     contents:
       - id: Cigarette
-        amount: 500
-
-- type: entity
-  id: CrateDebugFiveThousandEntities
-  parent: CratePlasticBiodegradable
-  name: five thousand cigarrettes
-  suffix: DEBUG
-  description: Five. Thousand. Cigarrettes.
-  components:
-  - type: StorageFill
-    contents:
-      - id: Cigarette
-        amount: 5000
+        amount: 100 # integration tests limit me.
