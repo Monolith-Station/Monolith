@@ -174,6 +174,20 @@
 
 - type: entity
   parent: BaseNFFlatpack
+  id: RDServerCaelestinusFlatpack
+  name: caelestinus research and development server flatpack
+  description: A flatpack used for constructing a Caelestinus research and development server.
+  components:
+  - type: Flatpack
+    entity: ResearchAndDevelopmentServerCaelestinus
+  - type: StaticPrice
+    price: 1500
+  - type: Sprite
+    layers:
+    - state: science_server
+
+- type: entity
+  parent: BaseNFFlatpack
   id: FactionLatheFlatpack
   name: military multipurpose assembler flatpack
   description: A flatpack used for constructing a techfab for manufacturing faction-specific recipes.

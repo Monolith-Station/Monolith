@@ -5,3 +5,20 @@
   - ShipVoucherCaelestinusT0RecipeAlternative
   - ShipVoucherCaelestinusT1Recipe
   - ShipVoucherCaelestinusT1RecipeAlternative
+
+- type: latheRecipePack
+  id: MonoCaelestinusWeaponsDynamic
+  recipes: 
+  - WeaponShotgunHelepolis
+  - WeaponRifleIrohCaelestinus
+  - WeaponSubMachineGunFirestarter
+  - WeaponPistolCaelestinusGalactica
+  - WeaponShotgunEnforcerMerc
+
+- type: latheRecipePack
+  id: MonoCaelestinusGearDynamic
+  recipes:
+  - ClothingModsuitSecurityCaelestinus
+  - ClothingOuterHardsuitSecurityCaelestinus
+  - ClothingOuterHardsuitWardenCaelestinus
+

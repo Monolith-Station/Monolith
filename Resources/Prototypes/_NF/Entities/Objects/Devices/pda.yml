@@ -86,8 +86,8 @@
 - type: entity
   parent: BaseSecurityPDA
   id: SecurityGuardPDA
-  name: security guard PDA
-  description: Red to hide the stains of passenger blood.
+  name: caelestinus judge PDA # Mono
+  description: A symbol of independence. # Mono
   components:
   - type: Pda
     id: SecurityGuardIDCard
@@ -288,7 +288,7 @@
   parent: BaseSecurityPDA
   id: SrPDA
   name: overseer PDA
-  description: Looks like it's been clawed on.
+  description: The TSFMC insignia has been scraped off and covered in tape. # Mono
   components:
   - type: Pda
     id: SrIDCard
