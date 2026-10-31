@@ -85,3 +85,4 @@ trait-category-speech = Accents
 trait-category-quirks = Quirks
 # Mono
 trait-category-physical = Physical
+humanoid-profile-editor-custom-species-label = Custom Species Name:
