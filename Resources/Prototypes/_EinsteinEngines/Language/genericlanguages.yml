@@ -11,6 +11,7 @@
 # TODO: Replace this with much better languages. Yes, robots can have languages.
 - type: language
   id: RobotTalk
+  chatPrefix: rob
   isVisibleLanguage: true
   speech:
     fontId: Monospace
@@ -25,6 +26,7 @@
 # Insanely long.
 - type: language
   id: DroneTalk
+  chatPrefix: drn
   isVisibleLanguage: true
   speech:
     fontId: Monospace
@@ -293,6 +295,7 @@
 # Example of a sign language. Used by the Sign Language trait.
 - type: language
   id: Sign
+  chatPrefix: sig
   speech:
     allowRadio: false
     requireSpeech: false

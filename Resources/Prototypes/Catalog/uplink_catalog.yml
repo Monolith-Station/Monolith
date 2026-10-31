@@ -144,19 +144,20 @@
 #      tags:
 #      - NukeOpsUplink
 
-- type: listing
-  id: UplinkSniperBundle
-  name: uplink-sniper-bundle-name
-  description: uplink-sniper-bundle-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Snipers/hristov.rsi, state: base }
-  productEntity: BriefcaseSyndieSniperBundleFilled
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 50 # Mono #7->10 Mono Edit
-  cost:
-    Telecrystal: 80 # Mono #12->16 Mono Edit
-  categories:
-  - UplinkWeaponry
+# Mono
+#- type: listing
+#  id: UplinkSniperBundle
+#  name: uplink-sniper-bundle-name
+#  description: uplink-sniper-bundle-desc
+#  icon: { sprite: /Textures/Objects/Weapons/Guns/Snipers/hristov.rsi, state: base }
+#  productEntity: BriefcaseSyndieSniperBundleFilled
+#  discountCategory: usualDiscounts
+#  discountDownTo:
+#    Telecrystal: 50 # Mono #7->10 Mono Edit
+#  cost:
+#    Telecrystal: 80 # Mono #12->16 Mono Edit
+#  categories:
+#  - UplinkWeaponry
 
 # Mono: remove PDV guns from uplink
 #- type: listing
@@ -188,19 +189,19 @@
 #  categories:
 #  - UplinkWeaponry
 
-- type: listing # Mono revert, re-adds China Lake
-  id: UplinkGrenadeLauncherBundle
-  name: uplink-grenade-launcher-bundle-name
-  description: uplink-grenade-launcher-bundle-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Launchers/china_lake.rsi, state: icon }
-  productEntity: ClothingBackpackDuffelSyndicateFilledGrenadeLauncher
-  discountCategory: veryRareDiscounts
-  discountDownTo:
-    Telecrystal: 100 # Mono #20->16 Mono Edit
-  cost:
-    Telecrystal: 125 # Mono #25 Mono Edit
-  categories:
-  - UplinkWeaponry
+# - type: listing # Mono revert, re-adds China Lake ## Mono re-revert: With the addition of the UBM, this is removed
+#   id: UplinkGrenadeLauncherBundle
+#   name: uplink-grenade-launcher-bundle-name
+#   description: uplink-grenade-launcher-bundle-desc
+#   icon: { sprite: /Textures/Objects/Weapons/Guns/Launchers/china_lake.rsi, state: icon }
+#   productEntity: ClothingBackpackDuffelSyndicateFilledGrenadeLauncher
+#   discountCategory: veryRareDiscounts
+#   discountDownTo:
+#     Telecrystal: 100 # Mono #20->16 Mono Edit
+#   cost:
+#     Telecrystal: 125 # Mono #25 Mono Edit
+#   categories:
+#   - UplinkWeaponry
 
 - type: listing
   id: UplinkL6SawBundle

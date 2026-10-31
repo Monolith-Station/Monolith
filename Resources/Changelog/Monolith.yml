@@ -26148,3 +26148,403 @@ Entries:
   id: 2820
   time: '2026-10-10T05:00:43.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4847
+- author: Mrrpip
+  changes:
+    - type: Fix
+      message: Fixed a fridge on the Talon
+    - type: Tweak
+      message: >-
+        Tweaks the QJ-490s armaments, now with two Vanyks and an Equinox in
+        addition to 2 of it's AKs.
+  id: 2821
+  time: '2026-10-10T22:20:34.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4851
+- author: DoubleHypercube
+  changes:
+    - type: Fix
+      message: Suit shields not have a proper icon.
+  id: 2822
+  time: '2026-10-10T22:22:59.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4848
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        CROCUS - RMC/CM style loadout vendors have replaced kit selectors & the
+        base vendors. Build your own loadout now instead of whining about the
+        kits, stop littering my floors. You get 2 special points for special
+        gear (like surgery gear/breaching hammers) to work with. More fun toys
+        have been added now that I have this restriction, like UBGLs for
+        Lecter/Vympel, LAWs, and bringing back the GPMGs. The vendors also have
+        Kammerers (for both sides) now and sidearms (from normal loadouts), and
+        the option of Enforcer/MlA-73 for 1 loadout point (for their respective
+        side, of course). Some other minor additions too like blood packs to
+        those vendors, breaching shotguns, etc.
+    - type: Tweak
+      message: >-
+        CROCUS - More map changes to Jianghui, mostly minor. Added a station
+        radio setup to the docks (and radios all around), added more food/drink
+        vendors w/ money littered around. I think I did some other stuff but I
+        forgot.
+    - type: Tweak
+      message: >-
+        CROCUS - Switched the armor vests from medium bulletproof vest stats to
+        light bulletproof vest stats.
+    - type: Fix
+      message: CROCUS - Fixed laser turrets at bases not shooting through glass.
+  id: 2823
+  time: '2026-10-11T19:38:22.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4853
+- author: SuperGDPWYL
+  changes:
+    - type: Fix
+      message: Fixed a specific gun having an unintended FMC value.
+  id: 2824
+  time: '2026-10-11T19:39:51.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4856
+- author: EckoAurum
+  changes:
+    - type: Add
+      message: >-
+        TSFMC and CC are looking to crack down on the Fentanyl trade. Large
+        sales will now alert them.
+  id: 2825
+  time: '2026-10-12T05:37:48.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4859
+- author: DoubleHypercube
+  changes:
+    - type: Tweak
+      message: Saved around ~270MB of VRAM.
+  id: 2826
+  time: '2026-10-13T02:23:21.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4866
+- author: EckoAurum
+  changes: []
+  id: 2827
+  time: '2026-10-15T16:48:54.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4872
+- author: kasature90
+  changes:
+    - type: Remove
+      message: >-
+        Shenzhen/Hristov disabled for now. For now they don't work in this game.
+        It's just there for the sake of being there.
+    - type: Remove
+      message: >-
+        CV-82/PDV SCAF/M82 suits disabled. Replaced with CV-32/M86 where
+        applicable. Maybe they'll come back when someone figures out how to make
+        suit niches that aren't useless.
+    - type: Tweak
+      message: >-
+        Minor rebalance to CV-32/M86 to make them more in-line with eachother
+        and reduce M86 slowdown.
+    - type: Tweak
+      message: Unfucked stealthsuit stealth, buffed pierce by 5%.
+    - type: Tweak
+      message: >-
+        Suit shields & armor plates disabled. Not pending rework, they just
+        don't add to the balance in ways other than "they're cool". CV-53/M-92X
+        have been rebalanced to roles similar to how they were before suit
+        shields, the other shieldsuits have been disabled.
+  id: 2828
+  time: '2026-10-15T23:16:44.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4845
+- author: kasature90
+  changes:
+    - type: Fix
+      message: Fixed Helios/UGBM making ships have IFF off permanently.
+  id: 2829
+  time: '2026-10-16T20:18:24.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4878
+- author: SuperGDPWYL
+  changes:
+    - type: Tweak
+      message: >-
+        You can now play Godfather without playing Fugitive if you have 60 hours
+        overall.
+  id: 2830
+  time: '2026-10-16T20:19:46.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4843
+- author: DoubleHypercube
+  changes:
+    - type: Add
+      message: New languages "Felyaic" and "Classical"
+    - type: Add
+      message: Ported chat prefixes from Starlight.
+    - type: Add
+      message: Canilunzt is now a selectable language.
+    - type: Remove
+      message: Gary has been taken out back.
+  id: 2831
+  time: '2026-10-16T20:22:09.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4849
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: Pulsar damage buff rescinded.
+  id: 2832
+  time: '2026-10-16T20:23:35.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4860
+- author: Mrrpip
+  changes:
+    - type: Fix
+      message: Fixes blunt names.
+    - type: Fix
+      message: Fixes Shulilian's right sided main large thruster.
+    - type: Fix
+      message: Links Camelot's nuclear reactor monitor to the reactor.
+    - type: Fix
+      message: >-
+        Fixes a  shipyard descriptions having old calibers. (Send any others to
+        the #bugs channel, I only did the ones I was aware of.)
+    - type: Fix
+      message: Adds directional fans to the CSEC Hornet.
+    - type: Fix
+      message: Charon APHE explodes when it's stopped, rather than on it's first hit.
+  id: 2833
+  time: '2026-10-16T20:26:59.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4873
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: >-
+        Driving and Cruise mode now affect thruster power and max velocity
+        differently.
+    - type: Tweak
+      message: Driving mode has received 3.5x thruster power buff
+    - type: Tweak
+      message: Cruise mode has received 4x max velocity buff.
+  id: 2834
+  time: '2026-10-19T17:43:53.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4881
+- author: NazrinNya
+  changes:
+    - type: Fix
+      message: Fix some lathes not being linkable to the silo
+  id: 2835
+  time: '2026-10-22T14:47:27.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4900
+- author: tonotom1
+  changes:
+    - type: Add
+      message: UW Sandbox, A ship intended to do what the Framework did.
+  id: 2836
+  time: '2026-10-22T17:54:32.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4794
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Caelestinus radio room had a comfy grenade thrown into it + a bunch of
+        small fixes and adjustments
+  id: 2837
+  time: '2026-10-22T19:19:16.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4858
+- author: SuperGDPWYL
+  changes:
+    - type: Add
+      message: >-
+        The Godfather and Fugitives now speak Underground Codespeak, an
+        overcomplicated system of code phrases used to hide the true nature of
+        their conversations from the uninitiated. It generally requires an
+        implant to learn, which the Godfather can purchase for 10TC. Underground
+        deathrattles speak it now too.
+    - type: Tweak
+      message: >-
+        Corrected the name of the Underground pAI. It understands and speaks
+        Underground Codespeak now too.
+  id: 2838
+  time: '2026-10-22T20:59:51.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4854
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: SRD now repairs multiple entities at once.
+  id: 2839
+  time: '2026-10-23T19:46:48.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4904
+- author: NazrinNya
+  changes:
+    - type: Add
+      message: Steel recipe for crystallizer
+    - type: Tweak
+      message: Buffed engineer and chief engineer hardsuits
+    - type: Tweak
+      message: Wood and Coal can now burn, producing extremely high temperatures.
+  id: 2840
+  time: '2026-10-23T19:48:38.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4902
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: Janicart and Chemmaster now drain puddles into their buffers.
+    - type: Tweak
+      message: Chemmaster has received a buffer limit - 250 000u
+  id: 2841
+  time: '2026-10-23T19:49:07.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4901
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: Placing tiles with RCD is now instant!
+    - type: Fix
+      message: Mieyo SRD is now actually 2x faster than normal one.
+  id: 2842
+  time: '2026-10-23T19:49:28.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4905
+- author: DoubleHypercube
+  changes:
+    - type: Fix
+      message: >-
+        All TSF marines can now buy omnizine jugs, medkits, hyposprays, and
+        other such.
+  id: 2843
+  time: '2026-10-23T20:38:48.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4903
+- author: DoubleHypercube
+  changes:
+    - type: Fix
+      message: Non-screwdriverable lathes are now upgradeable via the RPED.
+  id: 2844
+  time: '2026-10-23T20:54:18.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4906
+- author: SuperGDPWYL
+  changes:
+    - type: Add
+      message: Added a guidebook page for Monolith's various gamemodes.
+    - type: Tweak
+      message: Made some gamemode names in the vote clearer.
+  id: 2845
+  time: '2026-10-23T21:04:58.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4894
+- author: NazrinNya
+  changes:
+    - type: Fix
+      message: Reagents no longer mix in chemmaster buffer
+  id: 2846
+  time: '2026-10-23T22:11:40.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4907
+- author: NazrinNya
+  changes:
+    - type: Add
+      message: Salvage mode to industrial mining laser.
+    - type: Add
+      message: >-
+        Bolted techfabs that come with packed research. Mapped on
+        department-related ships.
+    - type: Tweak
+      message: Blue wrecks now have lithium and copper in the crates
+  id: 2847
+  time: '2026-10-24T18:57:57.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4912
+- author: EckoAurum
+  changes:
+    - type: Fix
+      message: >-
+        Fixed plungers, arrows, bolts, stakes, syringe gun and similar acting
+        crazy.
+  id: 2848
+  time: '2026-10-26T02:49:06.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4910
+- author: SuperGDPWYL
+  changes:
+    - type: Add
+      message: Added more variety to Underground Codespeak's codephrases.
+    - type: Fix
+      message: >-
+        There should no longer be spaces between Codespeak phrases and
+        punctuation in most circumstances.
+  id: 2849
+  time: '2026-10-26T02:51:45.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4919
+- author: DoubleHypercube
+  changes:
+    - type: Remove
+      message: Clakes are no longer in stock at the UndergroundVend.
+  id: 2850
+  time: '2026-10-27T17:07:04.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4863
+- author: DoubleHypercube
+  changes:
+    - type: Add
+      message: Mech hardpoints are now backwards compatible.
+  id: 2851
+  time: '2026-10-27T17:08:22.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4865
+- author: SuperGDPWYL
+  changes:
+    - type: Add
+      message: >-
+        The Underground shipyard has received the Bluefin, an illegally modified
+        Caracara now with an AK820 where the mining laser used to be. Have fun.
+  id: 2852
+  time: '2026-10-27T17:36:03.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4876
+- author: Mrrpip
+  changes:
+    - type: Tweak
+      message: The Argenti now deals 50% more damage per bullet.
+  id: 2853
+  time: '2026-10-27T17:53:21.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4879
+- author: EckoAurum
+  changes:
+    - type: Tweak
+      message: >-
+        Space Animals hearts and lungs will disintegrate if touched by anybody
+        not pure of heart. Dragon lungs remain for the wicked.
+  id: 2854
+  time: '2026-10-28T23:10:52.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4929
+- author: EckoAurum
+  changes:
+    - type: Fix
+      message: Self harvest dead for real
+  id: 2855
+  time: '2026-10-29T00:52:12.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4930
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Concussive gauntlets now require wearing to use, but no longer stunlock
+        you when you get shocked. You still take some shock damage.
+    - type: Tweak
+      message: >-
+        Gloves of the north star damage 8 >> 11. Received partial shockproofing
+        as well.
+  id: 2856
+  time: '2026-10-29T01:55:23.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4926
+- author: EckoAurum
+  changes:
+    - type: Tweak
+      message: Fentanyl now alerts for every sale.
+    - type: Tweak
+      message: Selling an abundance of contraband at once will now reject the sale.
+  id: 2857
+  time: '2026-10-29T04:30:23.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4931
+- author: mikusssssss
+  changes:
+    - type: Tweak
+      message: >-
+        You can now have a outer description up to 2048 characters. (Not
+        Sponsored by the creators of the 2048 Game)
+  id: 2858
+  time: '2026-10-29T15:14:19.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4932
+- author: EckoAurum
+  changes:
+    - type: Fix
+      message: Sushi now slices into the correct food.
+  id: 2859
+  time: '2026-10-30T01:27:33.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4935
+- author: mikusssssss
+  changes:
+    - type: Remove
+      message: Removed Hew juice from borers.
+  id: 2860
+  time: '2026-10-30T01:50:05.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4933
