@@ -26548,3 +26548,54 @@ Entries:
   id: 2860
   time: '2026-10-30T01:50:05.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4933
+- author: AthrunZala33092
+  changes:
+    - type: Add
+      message: 'Crocus: more sidearm options for TSF, melee options for both sides'
+  id: 2861
+  time: '2026-10-31T17:43:35.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4887
+- author: DoubleHypercube
+  changes:
+    - type: Add
+      message: The Anubis is now in the TSF uplink.
+  id: 2862
+  time: '2026-10-31T17:53:18.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4908
+- author: SuperGDPWYL
+  changes:
+    - type: Tweak
+      message: >-
+        Reverts all changes made to the CV-32 since July 22nd, 2026. It is now a
+        general-purpose suit with 50% resistance to common damage types. It now
+        also has 90% radiation, 75% explosion and 75% stamina resistance.
+    - type: Tweak
+      message: Removed the CV-53's slowdown.
+  id: 2863
+  time: '2026-10-31T18:00:48.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4883
+- author: SuperGDPWYL
+  changes:
+    - type: Tweak
+      message: Stealth suit users become visible again when damaged now.
+  id: 2864
+  time: '2026-10-31T18:08:56.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4927
+- author: Mrrpip
+  changes:
+    - type: Tweak
+      message: >-
+        Tweaks the Skalpel to have rechargers, 2 at the entrances, 1 below the
+        surgical duffelbag.
+    - type: Tweak
+      message: Gives the Luda directional fans.
+  id: 2865
+  time: '2026-10-31T18:14:09.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4940
+- author: EckoAurum
+  changes:
+    - type: Fix
+      message: Fixed thrown based movement, such as Dashes, Jumps, and Throws.
+  id: 2866
+  time: '2026-10-31T18:37:00.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4936
