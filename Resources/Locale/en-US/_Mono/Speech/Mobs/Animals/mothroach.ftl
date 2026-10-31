@@ -43,3 +43,17 @@ mothroach-examined-2 = Why are you staring?
 mothroach-examined-3 = Mothroach sees you...
 mothroach-examined-4 = Do you like mothroach?
 mothroach-examined-5 = Mothroach has been observed!
+
+mothroach-ghost-examined-1 = Mothroach sees dead people... sometimes.
+mothroach-ghost-examined-2 = Ghost friend! Hello!
+mothroach-ghost-examined-3 = Mothroach is being haunted! How exciting!
+mothroach-ghost-examined-4 = Mothroach cannot be possessed! Too fluffy!
+mothroach-ghost-examined-5 = Boo! Mothroach scared you first!
+mothroach-ghost-examined-6 = Mothroach has six legs. How many do ghosts have?
+mothroach-ghost-examined-7 = Mothroach offers hug, but you are noncorporeal.
+
+mothroach-dash-1 = Wheeee! So fast!
+mothroach-dash-2 = Squeak! Emergency zoom!
+mothroach-dash-3 = Mothroach is a fluffy rocket!
+mothroach-dash-4 = Chitters?! cant stop, wont stop!
+mothroach-dash-5 = Mothroach coming for hugs!
