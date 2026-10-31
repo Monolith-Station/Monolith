@@ -88,7 +88,12 @@ public abstract partial class SharedConveyorController : VirtualController
     // Mono start
     protected virtual void OnConveyorShutdown(EntityUid uid, ConveyorComponent component, ComponentShutdown args)
     {
-        ConveyedPerBelt.Remove((uid, component));
+        var conveyorEnt = (uid, component);
+        if (!ConveyedPerBelt.TryGetValue(conveyorEnt, out var conveyorContents))
+            return;
+
+        conveyorContents.Clear();
+        ConveyedPerBelt.Remove(conveyorEnt);
     }
     // Mono end
 
@@ -127,6 +132,11 @@ public abstract partial class SharedConveyorController : VirtualController
         while (query.MoveNext(out var uid, out var comp, out var fixtures, out var physics, out var xform))
         {
             // Mono start
+            // TODO: We really could axe out the EntityQueryEnumerator + query.MoveNext calls here,
+            // and instead use our ConveyorPerBelt list instead of querying whatever's the number of currently conveyed entities
+            // (that could either be moving or waiting to be moved). Or make ConveyorPerBelt be a PriorityQueue and work from there.
+            // But my brain is tired. I feel like at this point it's better to just rework belts to be factorio style.
+            // (see https://www.factorio.com/blog/post/fff-176)
             if (_mover.UsedMobMovement.TryGetValue(uid, out var usedMob) && usedMob) // mobs with movement always go in no matter what
             {
                 _job.Conveyed.Add(((uid, comp, fixtures, physics, xform), Vector2.Zero, true, false));

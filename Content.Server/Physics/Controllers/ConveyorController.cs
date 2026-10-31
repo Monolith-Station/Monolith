@@ -68,6 +68,9 @@ public sealed partial class ConveyorController : SharedConveyorController
     {
         foreach (var belt in ConveyedPerBelt)
         {
+            if (belt.Value.Count == 0)
+                continue; // nothing to do for belts with no entities
+
             // sort descending by scalar projection onto belt direction, to get who's in front; can be removed if that's unnecessary
             if (belt.Value.Count > belt.Key.Comp.BatchSize) // sorts only if we're above batch size to avoid unnecessary calls; if we're below or equal, all items will be moved anyway (hopefully)
                 belt.Value.Sort((a, b) => b.Item2.CompareTo(a.Item2));
