@@ -25,7 +25,8 @@ public sealed partial class HitscanRadarSystem : EntitySystem
         var radarComponent = EnsureComp<HitscanRadarComponent>(radarEntity);
         var startPos = _transform.ToMapCoordinates(ev.FromCoordinates).Position;
         var endPos = startPos + ev.ShotDirection.Normalized() * ev.DistanceTried;
-        InheritShooterSettings(shooter, radarComponent); // Grab visual fields from hitscan entity and imbue radarComponent with em
+        InheritSignatureSettings(ent.Comp, radarComponent); // Grab visual fields from hitscan entity and imbue radarComponent with em
+        InheritShooterSettings(shooter, radarComponent); // This Doesn't Do What It's Supposed To but sure i guess let's keep it
 
         radarComponent.StartPosition = startPos;
         radarComponent.EndPosition = endPos;
@@ -42,6 +43,13 @@ public sealed partial class HitscanRadarSystem : EntitySystem
         radarComponent.LineThickness = shooterComponent.LineThickness;
         radarComponent.Enabled = shooterComponent.Enabled;
         radarComponent.LifeTime = shooterComponent.LifeTime;
+    }
+    private void InheritSignatureSettings(HitscanRadarSignatureComponent hitscanComponent, HitscanRadarComponent radarComponent)
+    {
+        radarComponent.RadarColor = hitscanComponent.RadarColor;
+        radarComponent.LineThickness = hitscanComponent.LineThickness;
+        radarComponent.Enabled = hitscanComponent.Enabled;
+        radarComponent.LifeTime = hitscanComponent.LifeTime;
     }
     private void ScheduleEntityDespawn(EntityUid entity, float lifetime)
     {
