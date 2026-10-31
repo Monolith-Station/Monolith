@@ -24,6 +24,8 @@
   parent: [WeaponLoadoutRegisteredBase, WeaponPistolAnaconda]
   id: WeaponPistolAnacondaRegistered
   suffix: Registered
+  components:
+  - type: LightWeapon
 
 - type: entity
   parent: [WeaponLoadoutRegisteredBase, WeaponEnergyRevolver]

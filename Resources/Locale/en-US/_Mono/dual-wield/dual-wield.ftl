@@ -1,0 +1,2 @@
+dual-wield-cannot-wield = You can't get both hands on { THE($item) } while dual-wielding.
+dual-wield-examine = It's [color=lightblue]light[/color] and can be used along with another light weapon in your other hand.
