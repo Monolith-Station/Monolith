@@ -199,6 +199,7 @@
     - FullAuto
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/bigshotgun_fire.ogg
+    drawTime: 1.0
   - type: GunSpreadModifier
     spread: 1.5
   - type: LaserPointer

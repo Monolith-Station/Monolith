@@ -103,6 +103,7 @@
     fireRate: 0.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/mateba.ogg
+    drawTime: 0.75
   - type: BallisticAmmoProvider
     proto: PanzeroRocket
     capacity: 1
@@ -166,6 +167,7 @@
     fireRate: 0.5
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/Gunshots/launcher.ogg
+    drawTime: 0.5 # Faster to wield than the MANPAT.
   - type: BallisticAmmoProvider
     proto: MyokoRocket
     capacity: 1
@@ -288,6 +290,7 @@
       path: /Audio/_Harmony/Weapons/Guns/Gunshots/hristov_fire_alt.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/empty.ogg
+    drawTime: 0.75
   - type: ChamberMagazineAmmoProvider
     soundRack:
       path: /Audio/Weapons/Guns/Cock/batrifle_cock.ogg

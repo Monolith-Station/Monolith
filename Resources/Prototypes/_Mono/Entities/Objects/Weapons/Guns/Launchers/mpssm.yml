@@ -21,6 +21,7 @@
     fireRate: 0.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/rpgfire.ogg
+    drawTime: 1.0
   - type: BallisticAmmoProvider
     whitelist:
       tags:
