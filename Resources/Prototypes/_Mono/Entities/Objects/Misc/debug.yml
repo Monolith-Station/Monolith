@@ -1,0 +1,11 @@
+- type: entity
+  id: CrateDebugFiveHundredEntities # CrateDebugFiveHundredEntities
+  parent: CratePlasticBiodegradable
+  name: one hundred cigarrettes # five hundred cigarrettes
+  suffix: DEBUG
+  description: One. Hundred. Cigarrettes. # Five. Hundred. Cigarrettes.
+  components:
+  - type: StorageFill
+    contents:
+      - id: Cigarette
+        amount: 100 # integration tests limit me.
