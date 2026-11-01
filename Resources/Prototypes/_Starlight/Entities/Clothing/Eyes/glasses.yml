@@ -1,6 +1,6 @@
 - type: entity
   parent: ClothingEyesHudMedical
-  id: ClothingEyeGlassesMedicalPrescription
+  id: ClothingEyesGlassesMedicalPrescription
   name: prescription medical glasses
   description: A set of prescription glasses with an integrated medical scanner heads-up display. Not covered under insurance.
   components:
@@ -16,7 +16,7 @@
 
 - type: entity
   parent: ClothingEyesHudSecurity
-  id: ClothingEyeGlassesSecurityPrescription
+  id: ClothingEyesGlassesSecurityPrescription
   name: prescription security glasses
   description: A set of unshielded prescription glasses with an integrated humanoid infoscanner heads-up display.
   components:
@@ -32,7 +32,7 @@
 
 - type: entity
   parent: ClothingEyesGlassesChemical
-  id: ClothingEyeGlassesChemicalPrescription
+  id: ClothingEyesGlassesChemicalPrescription
   name: prescription chemical analysis glasses
   description: A set of prescription glasses for chemists.
   components:
