@@ -1,0 +1,15 @@
+# fallback action
+- type: entity
+  id: ActionArmorAltInject
+  name: Activate internal hypodermic needle
+  description: injects from an armor's reserve
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 0.5
+    itemIconStyle: BigAction
+    priority: -20
+    icon:
+      sprite: Objects/Specific/Medical/medipen.rsi
+      state: medipen_empty
+    event: !type:HypoSelfInjectEvent
