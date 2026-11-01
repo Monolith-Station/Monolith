@@ -86,6 +86,8 @@
           tags:
             - PowerCell
         blacklist:
+          tags:
+            - PowerCage # balance
           components:
             - BatterySelfRecharger # Mono end
   - type: ExplosionResistance
