@@ -57,7 +57,7 @@
   id: ClothingOuterHardsuitCybersunStealth
   suffix: stealth
   name: stealth hardsuit
-  description: A hardsuit with stealth plating for operations, the shielding doesn't work while you're moving though! # Mono - no longer needs helmet
+  description: A hardsuit with stealth plating for operations, the shielding doesn't work while you're moving though! Requires a power cell to use and won't fit cages or self-recharging batteries. # Mono - no longer needs helmet, also needs power
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/cybersunstealth.rsi
