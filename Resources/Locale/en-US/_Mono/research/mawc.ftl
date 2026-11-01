@@ -1,6 +1,6 @@
 research-discipline-mawc = Malo-Avaliite Weapons Corporation
 
-# NOTE: voucher & talon research currently unimplemented
+# NOTE: voucher & talon research currently unimplemented. Good news, done that. -Skye
 # T1
 research-technology-mawc-vouchers-t1 = MAWC Light Nanoforge Access
 
