@@ -1,0 +1,31 @@
+- type: vessel
+  id: fluyt
+  parent: BaseVessel
+  name: KSP fluyt
+  description: A Reliably uninspired cargo hauler. The Fluyt embodies the motto 'Anything, Anywhere.' owing to a gargantuan cargo bay with 90 slots of free space. Business is all about sacrifice though, and the Fluyt chose to sacrifice almost all weaponry.
+  price: 55000
+  category: Large
+  group: Shipyard
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Civilian/fluyt.yml
+  class:
+  - Cargo
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: Fluyt
+  mapName: 'KSP Fluyt'
+  mapPath: /SharedMaps/_Mono/Shuttles/Civilian/fluyt.yml
+  minPlayers: 0
+  stations:
+    Fluyt:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Fluyt CIV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: 'KSP'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
