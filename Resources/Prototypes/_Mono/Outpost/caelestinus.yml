@@ -51,7 +51,8 @@
             DirectorOfCare: [ 1, 1 ]
             MdMedic: [ 4, 4 ]
           tags:
-          - CentralCommand # no changing these slots
+          - HeadOfPersonnel # Overseer
+          - ChiefMedicalOfficer # DoC
         - type: Announcer
         - type: StationCargoBountyDatabase
           maxBounties: 20
