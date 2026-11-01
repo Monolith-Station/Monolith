@@ -29,4 +29,10 @@ public sealed partial class SoldAlertComponent : Component
     /// </summary>
     [DataField]
     public string? GroupId;
+
+    /// <summary>
+    /// Whether or not the sell alert can be jammed.
+    /// </summary>
+    [DataField]
+    public bool Jammable = false;
 }

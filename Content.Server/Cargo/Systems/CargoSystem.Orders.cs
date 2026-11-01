@@ -254,8 +254,8 @@ namespace Content.Server.Cargo.Systems
                      ("orderAmount", order.OrderQuantity),
                      ("approver", order.Approver ?? string.Empty)//,
                 /*   ("cost", cost)*/); // Mono: remove unnecessary arguments in rewritten locale string
-                var speaker = Transform(uid).GridUid ?? uid; // Mono: make the GRID send the message (jam prevention)
-                _radio.SendRadioMessage(speaker, message, component.AnnouncementChannel, speaker, escapeMarkup: false);
+                var speaker = Transform(uid).GridUid ?? uid; // Mono: make the GRID send the message
+                _radio.SendRadioMessage(speaker, message, component.AnnouncementChannel, speaker, escapeMarkup: false, jammable: false); // Mono: unjammable
             }
 
             ConsolePopup(args.Actor, Loc.GetString("cargo-console-trade-station", ("destination", MetaData(uid).EntityName))); // ev.FulfillmentEntity.Value<uid

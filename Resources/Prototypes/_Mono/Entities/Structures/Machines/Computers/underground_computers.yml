@@ -21,6 +21,9 @@
     - TSF
     - PDV
     inverted: true
+  - type: AccessReader
+    access: [["Underground"]]
+    breakOnAccessBreaker: false
 
 - type: entity
   parent: [ComputerTabletopCargoOrders, ComputerCargoOrdersUnderground]
