@@ -119,7 +119,7 @@
     size: Tiny
 
 - type: entity
-  name:  fresh fish sushi
+  name: fresh fish sushi
   parent: [FoodBaseSushi, FoodMealBase]
   id: CuredCarpSushi
   description: Less risky, still delicious. You're still not sure where the seaweed came from.
@@ -145,7 +145,7 @@
           Quantity: 3
   - type: SliceableFood
     count: 6
-    slice: FoodMealCarpSushiSlice
+    slice: FoodMealCuredCarpSushiSlice
 
 - type: entity
   name: fresh fish sushi

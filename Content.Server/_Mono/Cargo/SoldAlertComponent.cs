@@ -35,4 +35,11 @@ public sealed partial class SoldAlertComponent : Component
     /// </summary>
     [DataField]
     public bool Jammable = false;
+    
+    /// <summary>
+    /// Just deny the whole sale if theres more than this. 
+    /// 0 is no limit.
+    /// </summary>
+    [DataField]
+    public int MaxPerSale = 0;
 }
