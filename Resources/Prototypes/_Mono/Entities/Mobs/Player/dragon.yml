@@ -1,10 +1,24 @@
 - type: entity
+  id: ActionDragonsBreathWeak
+  name: "[color=orange]Dragon's Breath[/color]"
+  description: Shoot a fireball out of your mouth like a real dragon!
+  components:
+  - type: WorldTargetAction
+    icon: { sprite : Objects/Weapons/Guns/Projectiles/magic.rsi, state: fireball }
+    event: !type:ActionGunShootEvent
+    priority: 2
+    checkCanAccess: false
+    range: 0
+    itemIconStyle: BigAction
+    useDelay: 25
+
+- type: entity
   categories: [ HideSpawnMenu ]
   id: DragonsBreathGunWeak
   name: dragon's lung
   components:
   - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 20
+    rechargeCooldown: 25
     rechargeSound:
       path: /Audio/Animals/space_dragon_roar.ogg
   - type: BasicEntityAmmoProvider
