@@ -150,7 +150,6 @@
         - id: ClothingOuterCoatHoSTrench
         - id: ClothingOuterWinterHoS
         - id: ClothingShoesBootsWinterHoS
-        - id: UndeterminedVoidsuitSecurity
       - !type:GroupSelector
         weight: 0.05
         children:
@@ -160,7 +159,6 @@
         - id: ClothingOuterBioSecurity
         - id: ClothingNeckSecuritymedal
         - id: SecurityWhistle
-        - id: UndeterminedVoidsuitHeadOfSecurity
 
 - type: entityTable
   id: NTLootClothingT2Trunk
@@ -200,7 +198,6 @@
       - !type:GroupSelector
         weight: 0.05
         children:
-        - id: ClothingOuterHardsuitWarden
         - id: ClothingShoesBootsMagAdv
         - id: ClothingShoesBootsMagGaloshes
         - id: ClothingShoesBootsWinterWarden

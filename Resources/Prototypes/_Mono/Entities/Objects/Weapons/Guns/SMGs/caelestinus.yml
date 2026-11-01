@@ -1,0 +1,51 @@
+#old drozd sprite SMG
+- type: entity
+  name: HWM CAW-20 "Firestarter" (4.6x30mm)
+  parent: [BaseWeaponSubMachineGun, BaseGunWieldable]
+  id: WeaponSubMachineGunFirestarter
+  description: An excellent fully-automatic SMG wielded by Caelestinus. Flings a hailstorm of bullets in the name of justice.
+  components:
+  - type: Sprite
+    sprite: _NF/Objects/Weapons/Guns/SMGs/drozd.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: GunWieldBonus
+    minAngle: -5
+    maxAngle: -5
+  - type: Clothing
+    sprite: _NF/Objects/Weapons/Guns/SMGs/drozd.rsi
+  - type: Gun
+    fireRate: 12 # 192 DPS, equivalent to C-20r
+    selectedMode: FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/ltrifle.ogg
+    angleIncrease: 1 # Firing 12 rounds per second...
+    availableModes:
+    - SemiAuto
+    - FullAuto
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: Magazine46x30mmSubMachineGunFMJ
+        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - Magazine46x30mmSubMachineGunFMJ
+      gun_chamber:
+        name: Chamber
+        startingItem: Cartridge46x30mmFMJ
+        priority: 1
+        whitelist:
+          tags:
+            - Cartridge46x30mmFMJ
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance

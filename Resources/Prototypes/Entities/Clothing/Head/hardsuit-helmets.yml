@@ -220,10 +220,10 @@
 
 #Security Hardsuit
 - type: entity
-  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase, ShowSecurityIcons ] # Mono
   id: ClothingHeadHelmetHardsuitSecurity
-  name: judge's hardsuit helmet
-  description: Armored hardsuit helmet for security needs.
+  name: MP-EVA CSW-15 "Constable" hardsuit helmet # Mono
+  description: Armored hardsuit helmet for Caelestinus. # Mono
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/security.rsi
@@ -270,9 +270,9 @@
 
 #Warden's Hardsuit
 - type: entity
-  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase, ShowSecurityIcons, ShowMedicalIcons ] # Mono
   id: ClothingHeadHelmetHardsuitWarden
-  name: warden's hardsuit helmet
+  name: MP-EVA CSW-25 "Adjudicator" hardsuit helmet # Mono
   description: A modified riot helmet. Oddly comfortable.
   components:
   - type: Sprite
@@ -291,6 +291,15 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: NightVision # Gen 1 dualtube, Mono
+    relayOverlay: true
+    goggleEffect: true
+    action: ActionToggleNightVision
+    viewCircleRadius: 400
+    viewCircleCount: 2
+    viewCircleSpacing: 280
+    phosphorColor: "#00AACC"
+    lightingColor: "#FFFFFF32"
 
 #Captain's Hardsuit
 - type: entity
@@ -381,9 +390,9 @@
 
 #Head of Security's hardsuit
 - type: entity
-  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase, ShowSecurityIcons, ShowMedicalIcons ]
   id: ClothingHeadHelmetHardsuitSecurityRed
-  name: overseer's hardsuit helmet
+  name: MP-EVA CSW-30 "Marshal" hardsuit helmet
   description: A specially armoured hardsuit helmet belonging to the Overseer. The TSF markings have been defaced.
   components:
   - type: Sprite
@@ -402,6 +411,16 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: NightVision # Gen 4 quadtube-wide, Mono
+    relayOverlay: true
+    goggleEffect: true
+    viewCircleRadius: 450
+    viewCircleCount: 4
+    viewCircleSpacing: 280
+    action: ActionToggleNightVision
+    phosphorColor: "#41D7D9"
+    lightingColor: "#FFFFFF32"
+  
 
 #Luxury Mining Hardsuit
 - type: entity
