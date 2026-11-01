@@ -3,6 +3,11 @@
   equipment:
     eyes: ClothingEyesHudSecurity
 
+- type: loadout
+  id: MMCClothingEyesPGlassesSecurity
+  equipment:
+    eyes: ClothingEyeGlassesSecurityPrescription
+
 - type: loadoutGroup
   id: MMCHud
   name: loadout-group-contractor-glasses
@@ -10,3 +15,4 @@
   maxLimit: 1
   loadouts:
   - MMCClothingEyesHudSecurity
+  - MMCClothingEyesPGlassesSecurity

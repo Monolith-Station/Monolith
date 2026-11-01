@@ -1,0 +1,43 @@
+- type: entity
+  parent: ClothingEyesHudMedical
+  id: ClothingEyeGlassesMedicalPrescription
+  name: prescription medical glasses
+  description: A set of prescription glasses with an integrated medical scanner heads-up display. Not covered under insurance.
+  components:
+  - type: Sprite
+    sprite: _Starlight/Clothing/Eyes/Glasses/prescriptionmedical.rsi
+  - type: Clothing
+    sprite: _Starlight/Clothing/Eyes/Glasses/prescriptionmedical.rsi
+  - type: VisionCorrection
+  - type: Tag
+    tags:
+    - HudMedical
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingEyesHudSecurity
+  id: ClothingEyeGlassesSecurityPrescription
+  name: prescription security glasses
+  description: A set of unshielded prescription glasses with an integrated humanoid infoscanner heads-up display.
+  components:
+  - type: Sprite
+    sprite: _Starlight/Clothing/Eyes/Glasses/prescriptionsecglasses.rsi
+  - type: Clothing
+    sprite: _Starlight/Clothing/Eyes/Glasses/prescriptionsecglasses.rsi
+  - type: VisionCorrection
+  - type: Tag
+    tags:
+    - HudSecurity
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingEyesGlassesChemical
+  id: ClothingEyeGlassesChemicalPrescription
+  name: prescription chemical analysis glasses
+  description: A set of prescription glasses for chemists.
+  components:
+  - type: Sprite
+    sprite: _Starlight/Clothing/Eyes/Glasses/prescriptionscience.rsi
+  - type: Clothing
+    sprite: _Starlight/Clothing/Eyes/Glasses/prescriptionscience.rsi
+  - type: VisionCorrection

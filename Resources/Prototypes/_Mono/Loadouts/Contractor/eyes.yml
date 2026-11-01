@@ -1,0 +1,8 @@
+- type: loadout
+  id: ContractorClothingEyesPGlassesMedical
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 0
+  equipment:
+    eyes: ClothingEyesGlassesMedicalPrescription

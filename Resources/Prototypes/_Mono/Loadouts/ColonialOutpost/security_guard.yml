@@ -74,7 +74,6 @@
 - type: loadoutGroup
   id: MonoSecurityGuardHud
   name: loadout-group-contractor-glasses
-  hidden: true # No point in showing this, it gets auto-selected.
   loadouts:
   - MonoSecHUD
   fallbacks:
@@ -84,6 +83,11 @@
   id: MonoSecHUD
   equipment:
     eyes: ClothingEyesHudSecurity
+
+- type: loadout
+  id: MonoSecPGlasses
+  equipment:
+    eyes: ClothingEyesGlassesSecurityPrescription
 
 - type: loadoutGroup
   id: MonoSecurityGuardShoes
