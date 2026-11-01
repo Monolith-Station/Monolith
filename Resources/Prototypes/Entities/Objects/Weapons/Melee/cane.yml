@@ -32,6 +32,7 @@
   id: CaneBlade
   description: A sharp blade with a cane shaped hilt.
   components:
+  - type: LightWeapon # Mono - dual wielding
   - type: Sharp
   - type: Sprite
     sprite: Objects/Weapons/Melee/cane_blade.rsi

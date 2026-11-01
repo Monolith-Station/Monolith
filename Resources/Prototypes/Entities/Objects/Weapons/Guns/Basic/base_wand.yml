@@ -1,8 +1,9 @@
-﻿- type: entity
+- type: entity
   id: WeaponWandBase
   abstract: true
   parent: BaseItem
   components:
+  - type: LightWeapon # Mono - dual wielding
   - type: Sprite
     sprite: Objects/Weapons/Guns/Basic/wands.rsi
   - type: Item
