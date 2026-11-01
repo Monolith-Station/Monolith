@@ -161,3 +161,74 @@
         whitelist:
           tags:
           - MonoOptic8x
+
+- type: entity
+  name: CS CAWS-25 "Jackdaw" (6.35x40mm)
+  parent: BaseWeaponSubMachineGun # while this is a rifle, BaseWeaponRifle comes with being wieldable which we don't want; it's already two handed.
+  id: WeaponRifleJackdaw
+  description: For anything standing in the way of Caelestinus' hopes and dreams, the beginning of the end is heralded by the song of a Jackdaw. Unloads an entire magazine of 6.35x40mm caseless at an alarming rate when the trigger is even as much as lightly tapped. Don't drop it.
+  components:
+  - type: Item
+    size: Large
+  - type: MultiHandedItem # being able to have a free hand with this gun lets you pull out its magazine to negate the entire gimmick.
+  - type: HeldSpeedModifier # this thing might as well be an LMG lol
+    sprintModifier: 0.9
+    walkModifier: 0.9
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Rifles/jackdaw.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: WieldedCrosshair
+    rsi:
+      sprite: _RMC14/Interface/MousePointer/rifle_mouse.rsi # rifle crosshair
+      state: all
+  - type: Gun
+    minAngle: 1
+    maxAngle: 8
+    angleIncrease: 1
+    angleDecay: 8
+    fireRate: 13 # 286 DPS, but don't pull the trigger too early
+    burstFireRate: 13
+    projectileSpeed: 55 # Mono
+    shotsPerBurst: 100 # you WILL fire the entire mag.
+    selectedMode: Burst
+    availableModes:
+    - Burst
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/silenced.ogg
+      params:
+        volume: -1
+  - type: ChamberMagazineAmmoProvider
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: Magazine635x40mmCaseless
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - Magazine635x40mmCaseless
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: Cartridge635x40mmCaseless
+        priority: 1
+        whitelist:
+          tags:
+            - Cartridge635x40mmCaseless
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: Clothing
+    sprite: _DV/Objects/Weapons/Guns/Rifles/jackdaw.rsi

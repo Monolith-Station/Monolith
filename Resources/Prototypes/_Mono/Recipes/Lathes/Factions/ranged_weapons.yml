@@ -702,3 +702,18 @@
     Steel: 400
     Plasteel: 100
     Plastic: 400
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponRifleJackdawCaelestinus
+  result: WeaponRifleJackdaw
+  categories:
+  - Rifles
+  - Ballistic
+  - Weapons
+  materials:
+    Steel: 1500
+    Plasteel: 1200
+    Plastic: 900
+  entities:
+    MonolithicCrystalSmall: 2 # T3.

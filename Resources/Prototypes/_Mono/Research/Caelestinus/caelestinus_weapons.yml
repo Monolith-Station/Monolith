@@ -14,3 +14,31 @@
   technologyPrerequisites:
   - UniversalMaterialResearchT1
   position: 2, -12
+
+- type: technology
+  id: CaelestinusSuperGuns
+  name: research-technology-caelestinus-super-weaponry
+  entityIcon: WeaponRifleJackdaw
+  discipline: Caelestinus
+  tier: 3
+  cost: 35000
+  recipeUnlocks:
+  - WeaponRifleJackdawCaelestinus
+  - Magazine635x40mmCaseless
+  technologyPrerequisites:
+  - CaelestinusBasicGuns
+  - UniversalMaterialResearchT3
+  position: 2, -30
+
+- type: technology
+  id: CaelestinusJackdawBoxMagazine
+  name: research-technology-caelestinus-jackdaw-box-magazine
+  entityIcon: Magazine635x40mmCaselessBig
+  discipline: Caelestinus
+  tier: 3
+  cost: 25000
+  recipeUnlocks:
+  - Magazine635x40mmCaselessBigCaelestinus
+  technologyPrerequisites:
+  - CaelestinusSuperGuns
+  position: 3, -30
