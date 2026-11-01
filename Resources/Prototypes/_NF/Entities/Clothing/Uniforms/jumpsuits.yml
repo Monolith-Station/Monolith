@@ -46,8 +46,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSecGuard
-  name: security guard's uniform
-  description: A specialized uniform for Colonial Outpost's station guard. Crisp and official to let dock loiterers know you mean business.
+  name: military guard's uniform # Mono - Rename/redesc
+  description: A specialized uniform for military guardsmen. # Mono - Rename/redesc
   components:
   - type: Sprite
     sprite: _NF/Clothing/Uniforms/Jumpsuit/security_guard.rsi
@@ -79,8 +79,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitNfsd
-  name: TSFMC jumpsuit
-  description: A long sleeved jumpsuit produced for deputy colonels. Designed to reduce chaffing between the legs for the comfort of skin, slime, scales, fluff, and wood.
+  name: military jumpsuit # Mono - Rename/redesc
+  description: A long sleeved jumpsuit produced for military officers. Designed to reduce chaffing between the legs for the comfort of skin, slime, scales, fluff, and wood. # Mono - Rename/redesc
   components:
   - type: Sprite
     sprite: _NF/Clothing/Uniforms/Jumpsuit/nfsd_jump.rsi
@@ -90,8 +90,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitNfsdShort
-  name: TSFMC jumpsuit
-  description: A short sleeved jumpsuit produced for deputy colonels. Designed to reduce chaffing between the legs for the comfort of skin, slime, scales, fluff, and wood.
+  name: military short-sleeved jumpsuit # Mono - Rename/redesc
+  description: A short sleeved jumpsuit produced for military soldiers. Designed to reduce chaffing between the legs for the comfort of skin, slime, scales, fluff, and wood. # Mono - Rename/redesc
   components:
   - type: Sprite
     sprite: _NF/Clothing/Uniforms/Jumpsuit/nfsd_jump_short.rsi
@@ -101,8 +101,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitNfsdTacBlack
-  name: TSFMC tactical jumpsuit
-  description: A tactical jumpsuit for deputies in the field.
+  name: military tactical jumpsuit (black)
+  description: A tactical jumpsuit for field operations. # Mono - Rename/redesc
   components:
   - type: Sprite
     sprite: _NF/Clothing/Uniforms/Jumpsuit/nfsd_tac_black.rsi
@@ -112,8 +112,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitNfsdTacGray
-  name: TSFMC tactical jumpsuit
-  description: A tactical jumpsuit for deputies in the field.
+  name: military tactical jumpsuit (gray)
+  description: A tactical jumpsuit for field operations. # Mono - Rename/redesc
   components:
   - type: Sprite
     sprite: _NF/Clothing/Uniforms/Jumpsuit/nfsd_tac_gray.rsi
@@ -123,8 +123,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitNfsdTacCamo
-  name: TSFMC tactical jumpsuit
-  description: A tactical jumpsuit for deputies in the field.
+  name: military tactical jumpsuit (camo) # Mono - Rename/redesc
+  description: A tactical jumpsuit for field operations. # Mono - Rename/redesc
   components:
   - type: Sprite
     sprite: _NF/Clothing/Uniforms/Jumpsuit/nfsd_tac_camo.rsi
@@ -148,8 +148,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitPublicAffairsLiaison
-  name: public affairs liaison jumpsuit
-  description: A starched and pressed suit for the public affairs liaison.
+  name: military clerk jumpsuit # Mono - Rename/redesc
+  description: A starched and pressed suit for a military clerk. # Mono - Rename/redesc
   components:
   - type: Sprite
     sprite: _NF/Clothing/Uniforms/Jumpsuit/public_affairs.rsi

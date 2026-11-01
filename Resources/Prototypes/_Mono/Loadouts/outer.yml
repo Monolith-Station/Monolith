@@ -47,3 +47,28 @@
   price: 5000
   equipment:
     back: ClothingModsuitEngineerPowerCell
+
+#region Civilian jackets
+- type: loadout
+  id: ContractorClothingOuterMilBomber
+  price: 0
+  equipment:
+    outerClothing: ClothingOuterCoatNfsdBomber
+
+- type: loadout
+  id: ContractorClothingOuterMilBomberCorpsman
+  price: 0
+  equipment:
+    outerClothing: ClothingOuterCoatNfsdBomberBrigmed
+
+- type: loadout
+  id: ContractorClothingOuterMilFormal
+  price: 0
+  equipment:
+    outerClothing: ClothingOuterCoatNfsdFormal
+
+- type: loadout
+  id: ContractorClothingOuterMilLongcoat
+  price: 0
+  equipment:
+    outerClothing: ClothingOuterCoatNfsdLongCoat
