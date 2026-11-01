@@ -36,6 +36,7 @@
   parent: OrganAnimalLungs
   id: OrganDragonLungs
   name: dragon lungs
+  description: The dragons first pair of lungs, these disintegrate on contact as it utilizes space magic and such isnt for the unworthy.
   components:
   - type: Organ
     onAdd:
@@ -43,6 +44,7 @@
     - type: ActionGun
       action: ActionDragonsBreath
       gunProto: DragonsBreathGun
+  - type: DestroyItemOnPickup #Mono
 
 - type: entity
   parent: OrganHumanEyes

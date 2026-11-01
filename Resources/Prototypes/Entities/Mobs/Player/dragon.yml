@@ -138,6 +138,8 @@
     spawned:
     - id: FoodMeatDragon
       amount: 2
+    - id: OrganDragonLungsWeak #Mono
+      amount: 1
   - type: InteractionPopup
     successChance: 0.25 # It's no goose, but you better smell like carp.
     interactSuccessString: petting-success-dragon
@@ -254,6 +256,8 @@
     - id: DragonEgg #Frontier
       amount: 1 #Frontier
       prob: 0.3 #Frontier
+    - id: OrganDragonLungsWeak
+      amount: 1
   # half damage, spread evenly
   - type: MeleeWeapon
     damage:
