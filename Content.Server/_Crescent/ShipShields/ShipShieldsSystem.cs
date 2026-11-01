@@ -214,7 +214,7 @@ public sealed partial class ShipShieldsSystem : EntitySystem
 
         _fixtureSystem.TryCreateFixture(shield, internalPoly, "internalShield",
             hard: true,
-            collisionLayer: (int)CollisionGroup.BulletImpassable, // Mono - Only try to block bullets
+            collisionLayer: (int)CollisionGroup.BulletImpassable + (int)CollisionGroup.Opaque, // Mono - Only try to block bullets AND LASERS
             body: shieldPhysics);
 
         _physicsSystem.WakeBody(shield, body: shieldPhysics);
