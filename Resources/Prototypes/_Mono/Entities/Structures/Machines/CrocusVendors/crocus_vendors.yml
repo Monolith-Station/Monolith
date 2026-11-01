@@ -64,18 +64,14 @@
       entries:
       - id: WeaponPistolMk58
         name: Mk-58 (.45 ACP)
-      - id: WeaponRevolverMateba
-        name: Mateba (.357 magnum)
-      - id: WeaponPistolViper
-        name: PT-45A Viper (9x19mm)
+      - id: WeaponRevolverInspector
+        name: Garter (.357 magnum)
     - name: Sidearm Ammo
       choices: { SidearmAmmo: 4 }
       entries:
       # NO AMMO BOX FOR THE SIDEARM!! It gets it from primary ammo anyways.
       - id: Magazine45_ACPPistolFMJ
         name: 17-round magazine (.45 ACP)
-      - id: Magazine9x19mmPistolFMJ
-        name: 19-round magazine (9x19mm)
       - id: SpeedLoader357_magnumFMJ
         name: 6-round speedloader (.357 magnum)
       - id: AmmoBox357_magnumFMJ
@@ -132,9 +128,6 @@
         points: 1
       - id: SecBreachingHammer
         name: breaching hammer
-        points: 1
-      - id: CaptainSabre
-        name: captain sabre
         points: 1
       - id: WeaponShotgunHelepolis
         name: UW12-B Helepolis breaching shotgun
@@ -316,9 +309,6 @@
         points: 1
       - id: SecBreachingHammer
         name: breaching hammer
-        points: 1
-      - id: Machete
-        name: machete
         points: 1
       - id: WeaponShotgunHelepolis
         name: UW12-B Helepolis breaching shotgun
