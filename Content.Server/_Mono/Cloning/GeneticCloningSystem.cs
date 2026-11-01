@@ -196,6 +196,8 @@ public sealed partial class GeneticCloningSystem : EntitySystem
         if (record.HasBankAccount)
             EnsureComp<BankAccountComponent>(mob);
 
+        _metaSystem.SetEntityName(mob, record.Name);
+
         foreach (var comp in record.TransferredComponents)
         {
             var copy = _serialization.CreateCopy(comp, notNullableOverride: true);
@@ -211,8 +213,6 @@ public sealed partial class GeneticCloningSystem : EntitySystem
                     EntityManager.AddComponents(mob, trait.Components, removeExisting: false);
             }
         }
-
-        _metaSystem.SetEntityName(mob, record.Name);
 
         var cloneMindReturn = AddComp<BeingClonedComponent>(mob);
         cloneMindReturn.Mind = mind;

@@ -154,9 +154,22 @@ public sealed partial class GeneticDatabaseSystem : EntitySystem
         return db.Comp.Records.Remove(record.Mind);
     }
 
+    /// <summary>
+    /// Mark all records of the mind, in every database, as uncloneable. Used when a character is removed for the round.
+    /// </summary>
+    public void MarkUncloneable(EntityUid mind)
+    {
+        var query = EntityQueryEnumerator<GeneticDatabaseComponent>();
+        while (query.MoveNext(out var db))
+        {
+            if (db.Records.TryGetValue(mind, out var record))
+                record.Uncloneable = true;
+        }
+    }
+
     public GeneticRecordStatus GetStatus(GeneticRecord record)
     {
-        if (!TryComp<MindComponent>(record.Mind, out var mind))
+        if (record.Uncloneable || !TryComp<MindComponent>(record.Mind, out var mind))
             return GeneticRecordStatus.Lost;
 
         if ((mind.UserId ?? mind.OriginalOwnerUserId) is { } user && _cryoSleep.HasCryosleepingBody(user))
