@@ -1,0 +1,12 @@
+- type: entity
+  parent: OrganAnimalLungs
+  id: OrganDragonLungsWeak
+  name: lesser dragon lungs
+  description: The dragons second lesser pair of lungs, this one doesnt disintegrate upon contact as its 100% all natural and utilizes no space magic!
+  components:
+  - type: Organ
+    onAdd:
+    - type: BreathingImmunity
+    - type: ActionGun
+      action: ActionDragonsBreathWeak
+      gunProto: DragonsBreathGunWeak
