@@ -11,10 +11,10 @@
     sprite: _NF/Objects/Weapons/Melee/brassknuckles.rsi
   - type: MeleeWeapon
     autoAttack: true
-    attackRate: 2 # ~12 dps
+    attackRate: 2.5 # ~40 dps
     damage:
       types:
-       Blunt: 6
+       Blunt: 16
     soundHit:
       collection: Punch
     animation: WeaponArcFist
