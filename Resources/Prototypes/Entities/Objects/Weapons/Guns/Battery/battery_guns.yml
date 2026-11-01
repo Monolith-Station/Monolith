@@ -21,6 +21,7 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+    drawTime: 0.5 # On par with ARs
   - type: Battery
     maxCharge: 1500 # Mono: 1k >> 1.5k
     startingCharge: 1500 # Mono: 1k >> 1.5k
@@ -60,6 +61,7 @@
     animation: WeaponArcThrust
     soundHit:
       collection: MetalThud
+    resetOnHandSelected: false
   - type: AltFireMelee
     attackType: Light
   # Mono end
@@ -133,6 +135,8 @@
     shape:
     - 0,0,1,0
     - 0,1,0,1
+  - type: Gun
+    drawTime: 0.05 # Mono, basically on par with handguns
   - type: Tag
     tags:
     - Sidearm
@@ -156,6 +160,7 @@
     animation: WeaponArcThrust
     soundHit:
       collection: MetalThud
+    resetOnHandSelected: false
   - type: AltFireMelee
     attackType: Light
   # Mono end
