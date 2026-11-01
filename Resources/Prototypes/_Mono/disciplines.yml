@@ -172,8 +172,8 @@
   name: research-discipline-mawc
   color: "#ff9500"
   icon:
-    sprite: _Mono/Interface/Misc/research_disciplines_mieyo.rsi # TODO: ADD ACTUAL MAWC SPRITE
-    state: tech_tree
+    sprite: _Mono/Interface/Misc/job_icons.rsi # TODO: ADD ACTUAL MAWC SPRITE
+    state: carpenter
   tierPrerequisites:
     1: 0
     2: 0.5
