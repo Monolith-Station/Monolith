@@ -26548,3 +26548,101 @@ Entries:
   id: 2860
   time: '2026-10-30T01:50:05.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4933
+- author: AthrunZala33092
+  changes:
+    - type: Add
+      message: 'Crocus: more sidearm options for TSF, melee options for both sides'
+  id: 2861
+  time: '2026-10-31T17:43:35.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4887
+- author: DoubleHypercube
+  changes:
+    - type: Add
+      message: The Anubis is now in the TSF uplink.
+  id: 2862
+  time: '2026-10-31T17:53:18.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4908
+- author: SuperGDPWYL
+  changes:
+    - type: Tweak
+      message: >-
+        Reverts all changes made to the CV-32 since July 22nd, 2026. It is now a
+        general-purpose suit with 50% resistance to common damage types. It now
+        also has 90% radiation, 75% explosion and 75% stamina resistance.
+    - type: Tweak
+      message: Removed the CV-53's slowdown.
+  id: 2863
+  time: '2026-10-31T18:00:48.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4883
+- author: SuperGDPWYL
+  changes:
+    - type: Tweak
+      message: Stealth suit users become visible again when damaged now.
+  id: 2864
+  time: '2026-10-31T18:08:56.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4927
+- author: Mrrpip
+  changes:
+    - type: Tweak
+      message: >-
+        Tweaks the Skalpel to have rechargers, 2 at the entrances, 1 below the
+        surgical duffelbag.
+    - type: Tweak
+      message: Gives the Luda directional fans.
+  id: 2865
+  time: '2026-10-31T18:14:09.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4940
+- author: EckoAurum
+  changes:
+    - type: Fix
+      message: Fixed thrown based movement, such as Dashes, Jumps, and Throws.
+  id: 2866
+  time: '2026-10-31T18:37:00.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4936
+- author: DoubleHypercube
+  changes:
+    - type: Add
+      message: Ported heels from Starlight.
+    - type: Add
+      message: Ported colour-changing hairflowers from Moffstation.
+    - type: Tweak
+      message: The hard-worn & noir suitskirts are now actually suitskirts.
+    - type: Add
+      message: MMC employees now get a skirt uniform option.
+    - type: Tweak
+      message: All vestigal Head of Security references have been renamed to Overseer.
+    - type: Add
+      message: >-
+        Judges, MMC employees, and civilians now get military-issue jackets and
+        coats - with some decent armour.
+    - type: Add
+      message: Judges now get several additional uniform options.
+    - type: Add
+      message: 'Semiported Frontier PR 4299: adds red, green, and blue wallets.'
+    - type: Add
+      message: Added leather satchels to civilian and MMC loadouts.
+  id: 2867
+  time: '2026-10-31T19:01:38.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4891
+- author: SuperGDPWYL
+  changes:
+    - type: Remove
+      message: You can no longer produce telecrystals via the crystalliser.
+  id: 2868
+  time: '2026-11-01T05:08:33.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4882
+- author: EckoAurum
+  changes:
+    - type: Add
+      message: >-
+        The closely guarded patent over cloning technology and gene storage has
+        expired. Cloning and genetic-backups are now avaliable.
+    - type: Add
+      message: >-
+        Director of Care now receives a Genetic Database Flatpack in their
+        Locker.
+    - type: Fix
+      message: Traits and bank accounts now properly apply after cloning.
+  id: 2869
+  time: '2026-11-01T05:10:49.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4868
