@@ -41,3 +41,9 @@ mouse-examined-2 = Mouse sees you too...
 mouse-examined-3 = Hi!
 mouse-examined-4 = Is something wrong?
 mouse-examined-5 = Mouse is just a mouse...
+
+mouse-ghost-examined-1 = Mouse feels like someone is watching...
+mouse-ghost-examined-2 = Mouse sees you... sort of.
+mouse-ghost-examined-3 = Mouse cannot see you, but mouse can judge you.
+mouse-ghost-examined-4 = Mouse is not scared of spooky! Mouse is just... shaking.
+mouse-ghost-examined-5 = Mouse knows what you did. Mouse won't tell.

@@ -1,0 +1,53 @@
+- type: localizedDataset
+  id: CatEating
+  values:
+    prefix: cat-eating-
+    count: 5
+
+- type: localizedDataset
+  id: CatPickedUp
+  values:
+    prefix: cat-picked-up-
+    count: 5
+
+- type: localizedDataset
+  id: CatThrown
+  values:
+    prefix: cat-thrown-
+    count: 6
+
+- type: localizedDataset
+  id: CatDrinking
+  values:
+    prefix: cat-drinking-
+    count: 5
+
+- type: localizedDataset
+  id: CatCritical
+  values:
+    prefix: cat-critical-
+    count: 5
+
+- type: localizedDataset
+  id: CatDeath
+  values:
+    prefix: cat-dead-
+    count: 6
+
+- type: localizedDataset
+  id: CatRevived
+  values:
+    prefix: cat-revived-
+    count: 5
+
+- type: localizedDataset
+  id: CatExamined
+  values:
+    prefix: cat-examined-
+    count: 5
+
+- type: localizedDataset
+  id: CatGhostExamined
+  values:
+    prefix: cat-ghost-examined-
+    count: 6

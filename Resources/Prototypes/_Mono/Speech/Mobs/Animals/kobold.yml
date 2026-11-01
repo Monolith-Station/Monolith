@@ -1,0 +1,53 @@
+- type: localizedDataset
+  id: KoboldEating
+  values:
+    prefix: kobold-eating-
+    count: 5
+
+- type: localizedDataset
+  id: KoboldPickedUp
+  values:
+    prefix: kobold-picked-up-
+    count: 5
+
+- type: localizedDataset
+  id: KoboldThrown
+  values:
+    prefix: kobold-thrown-
+    count: 5
+
+- type: localizedDataset
+  id: KoboldDrinking
+  values:
+    prefix: kobold-drinking-
+    count: 5
+
+- type: localizedDataset
+  id: KoboldCritical
+  values:
+    prefix: kobold-critical-
+    count: 5
+
+- type: localizedDataset
+  id: KoboldDeath
+  values:
+    prefix: kobold-dead-
+    count: 5
+
+- type: localizedDataset
+  id: KoboldRevived
+  values:
+    prefix: kobold-revived-
+    count: 5
+
+- type: localizedDataset
+  id: KoboldExamined
+  values:
+    prefix: kobold-examined-
+    count: 5
+
+- type: localizedDataset
+  id: KoboldGhostExamined
+  values:
+    prefix: kobold-ghost-examined-
+    count: 5
