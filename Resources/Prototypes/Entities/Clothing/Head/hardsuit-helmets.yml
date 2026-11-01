@@ -412,6 +412,12 @@
   - type: PointLight
     radius: 8 # 7->8 - Mono
     energy: 4 # 3->4 - Mono
+  - type: ClothingAutoInject
+    reagents:
+      Epinephrine: 12
+      TranexamicAcid: 3
+    autoInjectOnAbility: false
+    autoInjectInterval: 180
 
 #ANTAG HARDSUITS
 #Blood-red Hardsuit
