@@ -1,0 +1,2375 @@
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformColouredDressExquisite
+  name: exquisite dress
+  abstract: true
+  description: An exquisite dress. Uses artificial nanocrystals grown in the Colossus sector, woven into the fabric to allow itself to change the wavelengths of light it reflects.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Exquisite/blue.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Exquisite/blue.rsi
+  - type: ChameleonClothing
+    slot: INNERCLOTHING
+    requireTag: DressExquisite
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+    - DressExquisite
+
+- type: entity
+  parent: ClothingUniformColouredDressExquisite
+  id: ClothingUniformColouredDressExquisiteBlue
+  name: exquisite blue dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Exquisite/blue.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Exquisite/blue.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressExquisiteBlue
+
+- type: entity
+  parent: ClothingUniformColouredDressExquisite
+  id: ClothingUniformColouredDressExquisiteCyan
+  name: exquisite cyan dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Exquisite/cyan.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Exquisite/cyan.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressExquisiteCyan
+
+- type: entity
+  parent: ClothingUniformColouredDressExquisite
+  id: ClothingUniformColouredDressExquisiteGreen
+  name: exquisite green dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Exquisite/green.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Exquisite/green.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressExquisiteGreen
+
+- type: entity
+  parent: ClothingUniformColouredDressExquisite
+  id: ClothingUniformColouredDressExquisiteOrange
+  name: exquisite orange dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Exquisite/orange.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Exquisite/orange.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressExquisiteOrange
+
+- type: entity
+  parent: ClothingUniformColouredDressExquisite
+  id: ClothingUniformColouredDressExquisitePurple
+  name: exquisite purple dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Exquisite/purple.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Exquisite/purple.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressExquisitePurple
+
+- type: entity
+  parent: ClothingUniformColouredDressExquisite
+  id: ClothingUniformColouredDressExquisiteRed
+  name: exquisite red dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Exquisite/red.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Exquisite/red.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressExquisiteRed
+
+- type: entity
+  parent: ClothingUniformColouredDressExquisite
+  id: ClothingUniformColouredDressExquisiteYellow
+  name: exquisite yellow dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Exquisite/yellow.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Exquisite/yellow.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressExquisiteYellow
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformColouredDressFancy
+  name: fancy dress
+  abstract: true
+  description: A fancy dress. Uses artificial nanocrystals grown in the Colossus sector, woven into the fabric to allow itself to change the wavelengths of light it reflects.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Fancy/blue.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Fancy/blue.rsi
+  - type: ChameleonClothing
+    slot: INNERCLOTHING
+    requireTag: DressFancy
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+    - DressFancy
+
+- type: entity
+  parent: ClothingUniformColouredDressFancy
+  id: ClothingUniformColouredDressFancyBlue
+  name: fancy blue dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Fancy/blue.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Fancy/blue.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressFancyBlue
+
+- type: entity
+  parent: ClothingUniformColouredDressFancy
+  id: ClothingUniformColouredDressFancyCyan
+  name: fancy cyan dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Fancy/cyan.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Fancy/cyan.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressFancyCyan
+
+- type: entity
+  parent: ClothingUniformColouredDressFancy
+  id: ClothingUniformColouredDressFancyGreen
+  name: fancy green dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Fancy/green.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Fancy/green.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressFancyGreen
+
+- type: entity
+  parent: ClothingUniformColouredDressFancy
+  id: ClothingUniformColouredDressFancyOrange
+  name: fancy orange dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Fancy/orange.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Fancy/orange.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressFancyOrange
+
+- type: entity
+  parent: ClothingUniformColouredDressFancy
+  id: ClothingUniformColouredDressFancyPurple
+  name: fancy purple dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Fancy/purple.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Fancy/purple.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressFancyPurple
+
+- type: entity
+  parent: ClothingUniformColouredDressFancy
+  id: ClothingUniformColouredDressFancyRed
+  name: fancy red dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Fancy/red.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Fancy/red.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressFancyRed
+
+- type: entity
+  parent: ClothingUniformColouredDressFancy
+  id: ClothingUniformColouredDressFancyYellow
+  name: fancy yellow dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Fancy/yellow.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Fancy/yellow.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressFancyYellow
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformColouredDressFlowy
+  name: flowy dress
+  abstract: true
+  description: A flowy dress. Uses artificial nanocrystals grown in the Colossus sector, woven into the fabric to allow itself to change the wavelengths of light it reflects.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Flowy/blue.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Flowy/blue.rsi
+  - type: ChameleonClothing
+    slot: INNERCLOTHING
+    requireTag: DressFlowy
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+    - DressFlowy
+
+- type: entity
+  parent: ClothingUniformColouredDressFlowy
+  id: ClothingUniformColouredDressFlowyBlue
+  name: flowy blue dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Flowy/blue.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Flowy/blue.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressFlowyBlue
+
+- type: entity
+  parent: ClothingUniformColouredDressFlowy
+  id: ClothingUniformColouredDressFlowyCyan
+  name: flowy cyan dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Flowy/cyan.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Flowy/cyan.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressFlowyCyan
+
+- type: entity
+  parent: ClothingUniformColouredDressFlowy
+  id: ClothingUniformColouredDressFlowyGreen
+  name: flowy green dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Flowy/green.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Flowy/green.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressFlowyGreen
+
+- type: entity
+  parent: ClothingUniformColouredDressFlowy
+  id: ClothingUniformColouredDressFlowyOrange
+  name: flowy orange dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Flowy/orange.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Flowy/orange.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressFlowyOrange
+
+- type: entity
+  parent: ClothingUniformColouredDressFlowy
+  id: ClothingUniformColouredDressFlowyPurple
+  name: flowy purple dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Flowy/purple.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Flowy/purple.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressFlowyPurple
+
+- type: entity
+  parent: ClothingUniformColouredDressFlowy
+  id: ClothingUniformColouredDressFlowyRed
+  name: flowy red dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Flowy/red.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Flowy/red.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressFlowyRed
+
+- type: entity
+  parent: ClothingUniformColouredDressFlowy
+  id: ClothingUniformColouredDressFlowyYellow
+  name: flowy yellow dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Flowy/yellow.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Flowy/yellow.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressFlowyYellow
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformColouredDressFormal
+  name: formal dress
+  abstract: true
+  description: A formal dress. Uses artificial nanocrystals grown in the Colossus sector, woven into the fabric to allow itself to change the wavelengths of light it reflects.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Formal/blue.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Formal/blue.rsi
+  - type: ChameleonClothing
+    slot: INNERCLOTHING
+    requireTag: DressFormal
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+    - DressFormal
+
+- type: entity
+  parent: ClothingUniformColouredDressFormal
+  id: ClothingUniformColouredDressFormalBlue
+  name: formal blue dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Formal/blue.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Formal/blue.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressFormalBlue
+
+- type: entity
+  parent: ClothingUniformColouredDressFormal
+  id: ClothingUniformColouredDressFormalCyan
+  name: formal cyan dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Formal/cyan.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Formal/cyan.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressFormalCyan
+
+- type: entity
+  parent: ClothingUniformColouredDressFormal
+  id: ClothingUniformColouredDressFormalGreen
+  name: formal green dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Formal/green.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Formal/green.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressFormalGreen
+
+- type: entity
+  parent: ClothingUniformColouredDressFormal
+  id: ClothingUniformColouredDressFormalOrange
+  name: formal orange dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Formal/orange.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Formal/orange.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressFormalOrange
+
+- type: entity
+  parent: ClothingUniformColouredDressFormal
+  id: ClothingUniformColouredDressFormalPurple
+  name: formal purple dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Formal/purple.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Formal/purple.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressFormalPurple
+
+- type: entity
+  parent: ClothingUniformColouredDressFormal
+  id: ClothingUniformColouredDressFormalRed
+  name: formal red dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Formal/red.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Formal/red.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressFormalRed
+
+- type: entity
+  parent: ClothingUniformColouredDressFormal
+  id: ClothingUniformColouredDressFormalYellow
+  name: formal yellow dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Formal/yellow.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Formal/yellow.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressFormalYellow
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformColouredDressFrilly
+  name: frilly dress
+  abstract: true
+  description: A frilly dress. Uses artificial nanocrystals grown in the Colossus sector, woven into the fabric to allow itself to change the wavelengths of light it reflects.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Frilly/blue.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Frilly/blue.rsi
+  - type: ChameleonClothing
+    slot: INNERCLOTHING
+    requireTag: DressFrilly
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+    - DressFrilly
+
+- type: entity
+  parent: ClothingUniformColouredDressFrilly
+  id: ClothingUniformColouredDressFrillyBlue
+  name: frilly blue dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Frilly/blue.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Frilly/blue.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressFrillyBlue
+
+- type: entity
+  parent: ClothingUniformColouredDressFrilly
+  id: ClothingUniformColouredDressFrillyCyan
+  name: frilly cyan dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Frilly/cyan.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Frilly/cyan.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressFrillyCyan
+
+- type: entity
+  parent: ClothingUniformColouredDressFrilly
+  id: ClothingUniformColouredDressFrillyGreen
+  name: frilly green dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Frilly/green.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Frilly/green.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressFrillyGreen
+
+- type: entity
+  parent: ClothingUniformColouredDressFrilly
+  id: ClothingUniformColouredDressFrillyOrange
+  name: frilly orange dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Frilly/orange.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Frilly/orange.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressFrillyOrange
+
+- type: entity
+  parent: ClothingUniformColouredDressFrilly
+  id: ClothingUniformColouredDressFrillyPurple
+  name: frilly purple dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Frilly/purple.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Frilly/purple.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressFrillyPurple
+
+- type: entity
+  parent: ClothingUniformColouredDressFrilly
+  id: ClothingUniformColouredDressFrillyRed
+  name: frilly red dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Frilly/red.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Frilly/red.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressFrillyRed
+
+- type: entity
+  parent: ClothingUniformColouredDressFrilly
+  id: ClothingUniformColouredDressFrillyYellow
+  name: frilly yellow dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Frilly/yellow.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Frilly/yellow.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressFrillyYellow
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformColouredDressProfessional
+  name: professional dress
+  abstract: true
+  description: A professional dress. Uses artificial nanocrystals grown in the Colossus sector, woven into the fabric to allow itself to change the wavelengths of light it reflects.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Professional/blue.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Professional/blue.rsi
+  - type: ChameleonClothing
+    slot: INNERCLOTHING
+    requireTag: DressProfessional
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+    - DressProfessional
+
+- type: entity
+  parent: ClothingUniformColouredDressProfessional
+  id: ClothingUniformColouredDressProfessionalBlue
+  name: professional blue dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Professional/blue.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Professional/blue.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressProfessionalBlue
+
+- type: entity
+  parent: ClothingUniformColouredDressProfessional
+  id: ClothingUniformColouredDressProfessionalCyan
+  name: professional cyan dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Professional/cyan.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Professional/cyan.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressProfessionalCyan
+
+- type: entity
+  parent: ClothingUniformColouredDressProfessional
+  id: ClothingUniformColouredDressProfessionalGreen
+  name: professional green dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Professional/green.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Professional/green.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressProfessionalGreen
+
+- type: entity
+  parent: ClothingUniformColouredDressProfessional
+  id: ClothingUniformColouredDressProfessionalOrange
+  name: professional orange dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Professional/orange.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Professional/orange.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressProfessionalOrange
+
+- type: entity
+  parent: ClothingUniformColouredDressProfessional
+  id: ClothingUniformColouredDressProfessionalPurple
+  name: professional purple dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Professional/purple.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Professional/purple.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressProfessionalPurple
+
+- type: entity
+  parent: ClothingUniformColouredDressProfessional
+  id: ClothingUniformColouredDressProfessionalRed
+  name: professional red dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Professional/red.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Professional/red.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressProfessionalRed
+
+- type: entity
+  parent: ClothingUniformColouredDressProfessional
+  id: ClothingUniformColouredDressProfessionalYellow
+  name: professional yellow dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Professional/yellow.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Professional/yellow.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressProfessionalYellow
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformColouredDressSleek
+  name: sleek dress
+  abstract: true
+  description: A sleek dress. Uses artificial nanocrystals grown in the Colossus sector, woven into the fabric to allow itself to change the wavelengths of light it reflects.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Sleek/blue.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Sleek/blue.rsi
+  - type: ChameleonClothing
+    slot: INNERCLOTHING
+    requireTag: DressSleek
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+    - DressSleek
+
+- type: entity
+  parent: ClothingUniformColouredDressSleek
+  id: ClothingUniformColouredDressSleekBlue
+  name: sleek blue dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Sleek/blue.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Sleek/blue.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressSleekBlue
+
+- type: entity
+  parent: ClothingUniformColouredDressSleek
+  id: ClothingUniformColouredDressSleekCyan
+  name: sleek cyan dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Sleek/cyan.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Sleek/cyan.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressSleekCyan
+
+- type: entity
+  parent: ClothingUniformColouredDressSleek
+  id: ClothingUniformColouredDressSleekGreen
+  name: sleek green dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Sleek/green.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Sleek/green.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressSleekGreen
+
+- type: entity
+  parent: ClothingUniformColouredDressSleek
+  id: ClothingUniformColouredDressSleekOrange
+  name: sleek orange dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Sleek/orange.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Sleek/orange.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressSleekOrange
+
+- type: entity
+  parent: ClothingUniformColouredDressSleek
+  id: ClothingUniformColouredDressSleekPurple
+  name: sleek purple dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Sleek/purple.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Sleek/purple.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressSleekPurple
+
+- type: entity
+  parent: ClothingUniformColouredDressSleek
+  id: ClothingUniformColouredDressSleekRed
+  name: sleek red dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Sleek/red.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Sleek/red.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressSleekRed
+
+- type: entity
+  parent: ClothingUniformColouredDressSleek
+  id: ClothingUniformColouredDressSleekYellow
+  name: sleek yellow dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Sleek/yellow.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Sleek/yellow.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressSleekYellow
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformColouredDressStylish
+  name: stylish dress
+  abstract: true
+  description: A stylish dress. Uses artificial nanocrystals grown in the Colossus sector, woven into the fabric to allow itself to change the wavelengths of light it reflects.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Stylish/blue.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Stylish/blue.rsi
+  - type: ChameleonClothing
+    slot: INNERCLOTHING
+    requireTag: DressStylish
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+    - DressStylish
+
+- type: entity
+  parent: ClothingUniformColouredDressStylish
+  id: ClothingUniformColouredDressStylishBlue
+  name: stylish blue dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Stylish/blue.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Stylish/blue.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressStylishBlue
+
+- type: entity
+  parent: ClothingUniformColouredDressStylish
+  id: ClothingUniformColouredDressStylishCyan
+  name: stylish cyan dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Stylish/cyan.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Stylish/cyan.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressStylishCyan
+
+- type: entity
+  parent: ClothingUniformColouredDressStylish
+  id: ClothingUniformColouredDressStylishGreen
+  name: stylish green dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Stylish/green.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Stylish/green.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressStylishGreen
+
+- type: entity
+  parent: ClothingUniformColouredDressStylish
+  id: ClothingUniformColouredDressStylishOrange
+  name: stylish orange dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Stylish/orange.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Stylish/orange.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressStylishOrange
+
+- type: entity
+  parent: ClothingUniformColouredDressStylish
+  id: ClothingUniformColouredDressStylishPurple
+  name: stylish purple dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Stylish/purple.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Stylish/purple.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressStylishPurple
+
+- type: entity
+  parent: ClothingUniformColouredDressStylish
+  id: ClothingUniformColouredDressStylishRed
+  name: stylish red dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Stylish/red.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Stylish/red.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressStylishRed
+
+- type: entity
+  parent: ClothingUniformColouredDressStylish
+  id: ClothingUniformColouredDressStylishYellow
+  name: stylish yellow dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Stylish/yellow.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Stylish/yellow.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressStylishYellow
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformColouredDressSuave
+  name: suave dress
+  abstract: true
+  description: A suave dress. Uses artificial nanocrystals grown in the Colossus sector, woven into the fabric to allow itself to change the wavelengths of light it reflects.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Suave/blue.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Suave/blue.rsi
+  - type: ChameleonClothing
+    slot: INNERCLOTHING
+    requireTag: DressSuave
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+    - DressSuave
+
+- type: entity
+  parent: ClothingUniformColouredDressSuave
+  id: ClothingUniformColouredDressSuaveBlue
+  name: suave blue dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Suave/blue.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Suave/blue.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressSuaveBlue
+
+- type: entity
+  parent: ClothingUniformColouredDressSuave
+  id: ClothingUniformColouredDressSuaveCyan
+  name: suave cyan dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Suave/cyan.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Suave/cyan.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressSuaveCyan
+
+- type: entity
+  parent: ClothingUniformColouredDressSuave
+  id: ClothingUniformColouredDressSuaveGreen
+  name: suave green dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Suave/green.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Suave/green.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressSuaveGreen
+
+- type: entity
+  parent: ClothingUniformColouredDressSuave
+  id: ClothingUniformColouredDressSuaveOrange
+  name: suave orange dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Suave/orange.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Suave/orange.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressSuaveOrange
+
+- type: entity
+  parent: ClothingUniformColouredDressSuave
+  id: ClothingUniformColouredDressSuavePurple
+  name: suave purple dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Suave/purple.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Suave/purple.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressSuavePurple
+
+- type: entity
+  parent: ClothingUniformColouredDressSuave
+  id: ClothingUniformColouredDressSuaveRed
+  name: suave red dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Suave/red.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Suave/red.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressSuaveRed
+
+- type: entity
+  parent: ClothingUniformColouredDressSuave
+  id: ClothingUniformColouredDressSuaveYellow
+  name: suave yellow dress
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Dress/Suave/yellow.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Dress/Suave/yellow.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredDressSuaveYellow
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformColouredSuitExquisite
+  name: exquisite suit
+  abstract: true
+  description: An exquisite suit. Uses artificial nanocrystals grown in the Colossus sector, woven into the fabric to allow itself to change the wavelengths of light it reflects.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Suit/Exquisite/blue.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Suit/Exquisite/blue.rsi
+  - type: ChameleonClothing
+    slot: INNERCLOTHING
+    requireTag: SuitExquisite
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+    - SuitExquisite
+
+- type: entity
+  parent: ClothingUniformColouredSuitExquisite
+  id: ClothingUniformColouredSuitExquisiteBlue
+  name: exquisite blue suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Suit/Exquisite/blue.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Suit/Exquisite/blue.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredSuitExquisiteBlue
+
+- type: entity
+  parent: ClothingUniformColouredSuitExquisite
+  id: ClothingUniformColouredSuitExquisiteCyan
+  name: exquisite cyan suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Suit/Exquisite/cyan.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Suit/Exquisite/cyan.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredSuitExquisiteCyan
+
+- type: entity
+  parent: ClothingUniformColouredSuitExquisite
+  id: ClothingUniformColouredSuitExquisiteGreen
+  name: exquisite green suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Suit/Exquisite/green.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Suit/Exquisite/green.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredSuitExquisiteGreen
+
+- type: entity
+  parent: ClothingUniformColouredSuitExquisite
+  id: ClothingUniformColouredSuitExquisiteOrange
+  name: exquisite orange suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Suit/Exquisite/orange.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Suit/Exquisite/orange.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredSuitExquisiteOrange
+
+- type: entity
+  parent: ClothingUniformColouredSuitExquisite
+  id: ClothingUniformColouredSuitExquisitePurple
+  name: exquisite purple suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Suit/Exquisite/purple.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Suit/Exquisite/purple.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredSuitExquisitePurple
+
+- type: entity
+  parent: ClothingUniformColouredSuitExquisite
+  id: ClothingUniformColouredSuitExquisiteRed
+  name: exquisite red suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Suit/Exquisite/red.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Suit/Exquisite/red.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredSuitExquisiteRed
+
+- type: entity
+  parent: ClothingUniformColouredSuitExquisite
+  id: ClothingUniformColouredSuitExquisiteYellow
+  name: exquisite yellow suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Suit/Exquisite/yellow.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Suit/Exquisite/yellow.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredSuitExquisiteYellow
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformColouredSuitFancy
+  name: fancy suit
+  abstract: true
+  description: A fancy suit. Uses artificial nanocrystals grown in the Colossus sector, woven into the fabric to allow itself to change the wavelengths of light it reflects.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Suit/Fancy/blue.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Suit/Fancy/blue.rsi
+  - type: ChameleonClothing
+    slot: INNERCLOTHING
+    requireTag: SuitFancy
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+    - SuitFancy
+
+- type: entity
+  parent: ClothingUniformColouredSuitFancy
+  id: ClothingUniformColouredSuitFancyBlue
+  name: fancy blue suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Suit/Fancy/blue.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Suit/Fancy/blue.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredSuitFancyBlue
+
+- type: entity
+  parent: ClothingUniformColouredSuitFancy
+  id: ClothingUniformColouredSuitFancyCyan
+  name: fancy cyan suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Suit/Fancy/cyan.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Suit/Fancy/cyan.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredSuitFancyCyan
+
+- type: entity
+  parent: ClothingUniformColouredSuitFancy
+  id: ClothingUniformColouredSuitFancyGreen
+  name: fancy green suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Suit/Fancy/green.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Suit/Fancy/green.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredSuitFancyGreen
+
+- type: entity
+  parent: ClothingUniformColouredSuitFancy
+  id: ClothingUniformColouredSuitFancyOrange
+  name: fancy orange suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Suit/Fancy/orange.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Suit/Fancy/orange.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredSuitFancyOrange
+
+- type: entity
+  parent: ClothingUniformColouredSuitFancy
+  id: ClothingUniformColouredSuitFancyPurple
+  name: fancy purple suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Suit/Fancy/purple.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Suit/Fancy/purple.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredSuitFancyPurple
+
+- type: entity
+  parent: ClothingUniformColouredSuitFancy
+  id: ClothingUniformColouredSuitFancyRed
+  name: fancy red suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Suit/Fancy/red.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Suit/Fancy/red.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredSuitFancyRed
+
+- type: entity
+  parent: ClothingUniformColouredSuitFancy
+  id: ClothingUniformColouredSuitFancyYellow
+  name: fancy yellow suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Suit/Fancy/yellow.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Suit/Fancy/yellow.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredSuitFancyYellow
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformColouredSuitFlowy
+  name: flowy suit
+  abstract: true
+  description: A flowy suit. Uses artificial nanocrystals grown in the Colossus sector, woven into the fabric to allow itself to change the wavelengths of light it reflects.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Suit/Flowy/blue.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Suit/Flowy/blue.rsi
+  - type: ChameleonClothing
+    slot: INNERCLOTHING
+    requireTag: SuitFlowy
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+    - SuitFlowy
+
+- type: entity
+  parent: ClothingUniformColouredSuitFlowy
+  id: ClothingUniformColouredSuitFlowyBlue
+  name: flowy blue suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Suit/Flowy/blue.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Suit/Flowy/blue.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredSuitFlowyBlue
+
+- type: entity
+  parent: ClothingUniformColouredSuitFlowy
+  id: ClothingUniformColouredSuitFlowyCyan
+  name: flowy cyan suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Suit/Flowy/cyan.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Suit/Flowy/cyan.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredSuitFlowyCyan
+
+- type: entity
+  parent: ClothingUniformColouredSuitFlowy
+  id: ClothingUniformColouredSuitFlowyGreen
+  name: flowy green suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Suit/Flowy/green.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Suit/Flowy/green.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredSuitFlowyGreen
+
+- type: entity
+  parent: ClothingUniformColouredSuitFlowy
+  id: ClothingUniformColouredSuitFlowyOrange
+  name: flowy orange suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Suit/Flowy/orange.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Suit/Flowy/orange.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredSuitFlowyOrange
+
+- type: entity
+  parent: ClothingUniformColouredSuitFlowy
+  id: ClothingUniformColouredSuitFlowyPurple
+  name: flowy purple suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Suit/Flowy/purple.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Suit/Flowy/purple.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredSuitFlowyPurple
+
+- type: entity
+  parent: ClothingUniformColouredSuitFlowy
+  id: ClothingUniformColouredSuitFlowyRed
+  name: flowy red suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Suit/Flowy/red.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Suit/Flowy/red.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredSuitFlowyRed
+
+- type: entity
+  parent: ClothingUniformColouredSuitFlowy
+  id: ClothingUniformColouredSuitFlowyYellow
+  name: flowy yellow suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Suit/Flowy/yellow.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Suit/Flowy/yellow.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredSuitFlowyYellow
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformColouredSuitFormal
+  name: formal suit
+  abstract: true
+  description: A formal suit. Uses artificial nanocrystals grown in the Colossus sector, woven into the fabric to allow itself to change the wavelengths of light it reflects.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Suit/Formal/blue.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Suit/Formal/blue.rsi
+  - type: ChameleonClothing
+    slot: INNERCLOTHING
+    requireTag: SuitFormal
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+    - SuitFormal
+
+- type: entity
+  parent: ClothingUniformColouredSuitFormal
+  id: ClothingUniformColouredSuitFormalBlue
+  name: formal blue suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Suit/Formal/blue.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Suit/Formal/blue.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredSuitFormalBlue
+
+- type: entity
+  parent: ClothingUniformColouredSuitFormal
+  id: ClothingUniformColouredSuitFormalCyan
+  name: formal cyan suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Suit/Formal/cyan.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Suit/Formal/cyan.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredSuitFormalCyan
+
+- type: entity
+  parent: ClothingUniformColouredSuitFormal
+  id: ClothingUniformColouredSuitFormalGreen
+  name: formal green suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Suit/Formal/green.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Suit/Formal/green.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredSuitFormalGreen
+
+- type: entity
+  parent: ClothingUniformColouredSuitFormal
+  id: ClothingUniformColouredSuitFormalOrange
+  name: formal orange suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Suit/Formal/orange.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Suit/Formal/orange.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredSuitFormalOrange
+
+- type: entity
+  parent: ClothingUniformColouredSuitFormal
+  id: ClothingUniformColouredSuitFormalPurple
+  name: formal purple suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Suit/Formal/purple.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Suit/Formal/purple.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredSuitFormalPurple
+
+- type: entity
+  parent: ClothingUniformColouredSuitFormal
+  id: ClothingUniformColouredSuitFormalRed
+  name: formal red suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Suit/Formal/red.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Suit/Formal/red.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredSuitFormalRed
+
+- type: entity
+  parent: ClothingUniformColouredSuitFormal
+  id: ClothingUniformColouredSuitFormalYellow
+  name: formal yellow suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Suit/Formal/yellow.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Suit/Formal/yellow.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredSuitFormalYellow
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformColouredSuitStylish
+  name: stylish suit
+  abstract: true
+  description: A stylish suit. Uses artificial nanocrystals grown in the Colossus sector, woven into the fabric to allow itself to change the wavelengths of light it reflects.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Suit/Stylish/blue.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Suit/Stylish/blue.rsi
+  - type: ChameleonClothing
+    slot: INNERCLOTHING
+    requireTag: SuitStylish
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+    - SuitStylish
+
+- type: entity
+  parent: ClothingUniformColouredSuitStylish
+  id: ClothingUniformColouredSuitStylishBlue
+  name: stylish blue suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Suit/Stylish/blue.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Suit/Stylish/blue.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredSuitStylishBlue
+
+- type: entity
+  parent: ClothingUniformColouredSuitStylish
+  id: ClothingUniformColouredSuitStylishCyan
+  name: stylish cyan suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Suit/Stylish/cyan.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Suit/Stylish/cyan.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredSuitStylishCyan
+
+- type: entity
+  parent: ClothingUniformColouredSuitStylish
+  id: ClothingUniformColouredSuitStylishGreen
+  name: stylish green suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Suit/Stylish/green.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Suit/Stylish/green.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredSuitStylishGreen
+
+- type: entity
+  parent: ClothingUniformColouredSuitStylish
+  id: ClothingUniformColouredSuitStylishOrange
+  name: stylish orange suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Suit/Stylish/orange.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Suit/Stylish/orange.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredSuitStylishOrange
+
+- type: entity
+  parent: ClothingUniformColouredSuitStylish
+  id: ClothingUniformColouredSuitStylishPurple
+  name: stylish purple suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Suit/Stylish/purple.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Suit/Stylish/purple.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredSuitStylishPurple
+
+- type: entity
+  parent: ClothingUniformColouredSuitStylish
+  id: ClothingUniformColouredSuitStylishRed
+  name: stylish red suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Suit/Stylish/red.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Suit/Stylish/red.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredSuitStylishRed
+
+- type: entity
+  parent: ClothingUniformColouredSuitStylish
+  id: ClothingUniformColouredSuitStylishYellow
+  name: stylish yellow suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Suit/Stylish/yellow.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Suit/Stylish/yellow.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredSuitStylishYellow
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformColouredSuitSuave
+  name: suave suit
+  abstract: true
+  description: A suave suit. Uses artificial nanocrystals grown in the Colossus sector, woven into the fabric to allow itself to change the wavelengths of light it reflects.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Suit/Suave/blue.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Suit/Suave/blue.rsi
+  - type: ChameleonClothing
+    slot: INNERCLOTHING
+    requireTag: SuitSuave
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+    - SuitSuave
+
+- type: entity
+  parent: ClothingUniformColouredSuitSuave
+  id: ClothingUniformColouredSuitSuaveBlue
+  name: suave blue suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Suit/Suave/blue.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Suit/Suave/blue.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredSuitSuaveBlue
+
+- type: entity
+  parent: ClothingUniformColouredSuitSuave
+  id: ClothingUniformColouredSuitSuaveCyan
+  name: suave cyan suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Suit/Suave/cyan.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Suit/Suave/cyan.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredSuitSuaveCyan
+
+- type: entity
+  parent: ClothingUniformColouredSuitSuave
+  id: ClothingUniformColouredSuitSuaveGreen
+  name: suave green suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Suit/Suave/green.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Suit/Suave/green.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredSuitSuaveGreen
+
+- type: entity
+  parent: ClothingUniformColouredSuitSuave
+  id: ClothingUniformColouredSuitSuaveOrange
+  name: suave orange suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Suit/Suave/orange.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Suit/Suave/orange.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredSuitSuaveOrange
+
+- type: entity
+  parent: ClothingUniformColouredSuitSuave
+  id: ClothingUniformColouredSuitSuavePurple
+  name: suave purple suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Suit/Suave/purple.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Suit/Suave/purple.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredSuitSuavePurple
+
+- type: entity
+  parent: ClothingUniformColouredSuitSuave
+  id: ClothingUniformColouredSuitSuaveRed
+  name: suave red suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Suit/Suave/red.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Suit/Suave/red.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredSuitSuaveRed
+
+- type: entity
+  parent: ClothingUniformColouredSuitSuave
+  id: ClothingUniformColouredSuitSuaveYellow
+  name: suave yellow suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Suit/Suave/yellow.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Suit/Suave/yellow.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredSuitSuaveYellow
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformColouredTurtleneckSkirtFancy
+  name: fancy turtleneck skirt
+  abstract: true
+  description: A fancy turtleneck skirt. Uses artificial nanocrystals grown in the Colossus sector, woven into the fabric to allow itself to change the wavelengths of light it reflects.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Fancy/blue.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Fancy/blue.rsi
+  - type: ChameleonClothing
+    slot: INNERCLOTHING
+    requireTag: TurtleneckSkirtFancy
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+    - TurtleneckSkirtFancy
+
+- type: entity
+  parent: ClothingUniformColouredTurtleneckSkirtFancy
+  id: ClothingUniformColouredTurtleneckSkirtFancyBlue
+  name: fancy blue turtleneck skirt
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Fancy/blue.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Fancy/blue.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredTurtleneckSkirtFancyBlue
+
+- type: entity
+  parent: ClothingUniformColouredTurtleneckSkirtFancy
+  id: ClothingUniformColouredTurtleneckSkirtFancyCyan
+  name: fancy cyan turtleneck skirt
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Fancy/cyan.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Fancy/cyan.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredTurtleneckSkirtFancyCyan
+
+- type: entity
+  parent: ClothingUniformColouredTurtleneckSkirtFancy
+  id: ClothingUniformColouredTurtleneckSkirtFancyGreen
+  name: fancy green turtleneck skirt
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Fancy/green.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Fancy/green.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredTurtleneckSkirtFancyGreen
+
+- type: entity
+  parent: ClothingUniformColouredTurtleneckSkirtFancy
+  id: ClothingUniformColouredTurtleneckSkirtFancyOrange
+  name: fancy orange turtleneck skirt
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Fancy/orange.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Fancy/orange.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredTurtleneckSkirtFancyOrange
+
+- type: entity
+  parent: ClothingUniformColouredTurtleneckSkirtFancy
+  id: ClothingUniformColouredTurtleneckSkirtFancyPurple
+  name: fancy purple turtleneck skirt
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Fancy/purple.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Fancy/purple.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredTurtleneckSkirtFancyPurple
+
+- type: entity
+  parent: ClothingUniformColouredTurtleneckSkirtFancy
+  id: ClothingUniformColouredTurtleneckSkirtFancyRed
+  name: fancy red turtleneck skirt
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Fancy/red.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Fancy/red.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredTurtleneckSkirtFancyRed
+
+- type: entity
+  parent: ClothingUniformColouredTurtleneckSkirtFancy
+  id: ClothingUniformColouredTurtleneckSkirtFancyYellow
+  name: fancy yellow turtleneck skirt
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Fancy/yellow.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Fancy/yellow.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredTurtleneckSkirtFancyYellow
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformColouredTurtleneckSkirtPlain
+  name: plain turtleneck skirt
+  abstract: true
+  description: A plain turtleneck skirt. Uses artificial nanocrystals grown in the Colossus sector, woven into the fabric to allow itself to change the wavelengths of light it reflects.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Plain/blue.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Plain/blue.rsi
+  - type: ChameleonClothing
+    slot: INNERCLOTHING
+    requireTag: TurtleneckSkirtPlain
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+    - TurtleneckSkirtPlain
+
+- type: entity
+  parent: ClothingUniformColouredTurtleneckSkirtPlain
+  id: ClothingUniformColouredTurtleneckSkirtPlainBlue
+  name: plain blue turtleneck skirt
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Plain/blue.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Plain/blue.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredTurtleneckSkirtPlainBlue
+
+- type: entity
+  parent: ClothingUniformColouredTurtleneckSkirtPlain
+  id: ClothingUniformColouredTurtleneckSkirtPlainCyan
+  name: plain cyan turtleneck skirt
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Plain/cyan.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Plain/cyan.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredTurtleneckSkirtPlainCyan
+
+- type: entity
+  parent: ClothingUniformColouredTurtleneckSkirtPlain
+  id: ClothingUniformColouredTurtleneckSkirtPlainGreen
+  name: plain green turtleneck skirt
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Plain/green.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Plain/green.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredTurtleneckSkirtPlainGreen
+
+- type: entity
+  parent: ClothingUniformColouredTurtleneckSkirtPlain
+  id: ClothingUniformColouredTurtleneckSkirtPlainOrange
+  name: plain orange turtleneck skirt
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Plain/orange.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Plain/orange.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredTurtleneckSkirtPlainOrange
+
+- type: entity
+  parent: ClothingUniformColouredTurtleneckSkirtPlain
+  id: ClothingUniformColouredTurtleneckSkirtPlainPurple
+  name: plain purple turtleneck skirt
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Plain/purple.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Plain/purple.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredTurtleneckSkirtPlainPurple
+
+- type: entity
+  parent: ClothingUniformColouredTurtleneckSkirtPlain
+  id: ClothingUniformColouredTurtleneckSkirtPlainRed
+  name: plain red turtleneck skirt
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Plain/red.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Plain/red.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredTurtleneckSkirtPlainRed
+
+- type: entity
+  parent: ClothingUniformColouredTurtleneckSkirtPlain
+  id: ClothingUniformColouredTurtleneckSkirtPlainYellow
+  name: plain yellow turtleneck skirt
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Plain/yellow.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Plain/yellow.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredTurtleneckSkirtPlainYellow
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformColouredTurtleneckSkirtStylish
+  name: stylish turtleneck skirt
+  abstract: true
+  description: A stylish turtleneck skirt. Uses artificial nanocrystals grown in the Colossus sector, woven into the fabric to allow itself to change the wavelengths of light it reflects.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Stylish/blue.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Stylish/blue.rsi
+  - type: ChameleonClothing
+    slot: INNERCLOTHING
+    requireTag: TurtleneckSkirtStylish
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+    - TurtleneckSkirtStylish
+
+- type: entity
+  parent: ClothingUniformColouredTurtleneckSkirtStylish
+  id: ClothingUniformColouredTurtleneckSkirtStylishBlue
+  name: stylish blue turtleneck skirt
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Stylish/blue.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Stylish/blue.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredTurtleneckSkirtStylishBlue
+
+- type: entity
+  parent: ClothingUniformColouredTurtleneckSkirtStylish
+  id: ClothingUniformColouredTurtleneckSkirtStylishCyan
+  name: stylish cyan turtleneck skirt
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Stylish/cyan.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Stylish/cyan.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredTurtleneckSkirtStylishCyan
+
+- type: entity
+  parent: ClothingUniformColouredTurtleneckSkirtStylish
+  id: ClothingUniformColouredTurtleneckSkirtStylishGreen
+  name: stylish green turtleneck skirt
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Stylish/green.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Stylish/green.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredTurtleneckSkirtStylishGreen
+
+- type: entity
+  parent: ClothingUniformColouredTurtleneckSkirtStylish
+  id: ClothingUniformColouredTurtleneckSkirtStylishOrange
+  name: stylish orange turtleneck skirt
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Stylish/orange.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Stylish/orange.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredTurtleneckSkirtStylishOrange
+
+- type: entity
+  parent: ClothingUniformColouredTurtleneckSkirtStylish
+  id: ClothingUniformColouredTurtleneckSkirtStylishPurple
+  name: stylish purple turtleneck skirt
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Stylish/purple.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Stylish/purple.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredTurtleneckSkirtStylishPurple
+
+- type: entity
+  parent: ClothingUniformColouredTurtleneckSkirtStylish
+  id: ClothingUniformColouredTurtleneckSkirtStylishRed
+  name: stylish red turtleneck skirt
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Stylish/red.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Stylish/red.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredTurtleneckSkirtStylishRed
+
+- type: entity
+  parent: ClothingUniformColouredTurtleneckSkirtStylish
+  id: ClothingUniformColouredTurtleneckSkirtStylishYellow
+  name: stylish yellow turtleneck skirt
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Stylish/yellow.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Stylish/yellow.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredTurtleneckSkirtStylishYellow
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformColouredTurtleneckSkirtClassical
+  name: classical turtleneck skirt
+  abstract: true
+  description: A classical turtleneck skirt. Uses artificial nanocrystals grown in the Colossus sector, woven into the fabric to allow itself to change the wavelengths of light it reflects.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Classical/blue.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Classical/blue.rsi
+  - type: ChameleonClothing
+    slot: INNERCLOTHING
+    requireTag: TurtleneckSkirtClassical
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+    - TurtleneckSkirtClassical
+
+- type: entity
+  parent: ClothingUniformColouredTurtleneckSkirtClassical
+  id: ClothingUniformColouredTurtleneckSkirtClassicalBlue
+  name: classical blue turtleneck skirt
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Classical/blue.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Classical/blue.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredTurtleneckSkirtClassicalBlue
+
+- type: entity
+  parent: ClothingUniformColouredTurtleneckSkirtClassical
+  id: ClothingUniformColouredTurtleneckSkirtClassicalCyan
+  name: classical cyan turtleneck skirt
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Classical/cyan.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Classical/cyan.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredTurtleneckSkirtClassicalCyan
+
+- type: entity
+  parent: ClothingUniformColouredTurtleneckSkirtClassical
+  id: ClothingUniformColouredTurtleneckSkirtClassicalGreen
+  name: classical green turtleneck skirt
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Classical/green.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Classical/green.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredTurtleneckSkirtClassicalGreen
+
+- type: entity
+  parent: ClothingUniformColouredTurtleneckSkirtClassical
+  id: ClothingUniformColouredTurtleneckSkirtClassicalOrange
+  name: classical orange turtleneck skirt
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Classical/orange.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Classical/orange.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredTurtleneckSkirtClassicalOrange
+
+- type: entity
+  parent: ClothingUniformColouredTurtleneckSkirtClassical
+  id: ClothingUniformColouredTurtleneckSkirtClassicalPurple
+  name: classical purple turtleneck skirt
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Classical/purple.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Classical/purple.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredTurtleneckSkirtClassicalPurple
+
+- type: entity
+  parent: ClothingUniformColouredTurtleneckSkirtClassical
+  id: ClothingUniformColouredTurtleneckSkirtClassicalRed
+  name: classical red turtleneck skirt
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Classical/red.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Classical/red.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredTurtleneckSkirtClassicalRed
+
+- type: entity
+  parent: ClothingUniformColouredTurtleneckSkirtClassical
+  id: ClothingUniformColouredTurtleneckSkirtClassicalYellow
+  name: classical yellow turtleneck skirt
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Classical/yellow.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Skirt/Classical/yellow.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredTurtleneckSkirtClassicalYellow
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformColouredTurtleneckSuitFancy
+  name: fancy turtleneck suit
+  abstract: true
+  description: A fancy turtleneck suit. Uses artificial nanocrystals grown in the Colossus sector, woven into the fabric to allow itself to change the wavelengths of light it reflects.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Suit/Fancy/blue.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Suit/Fancy/blue.rsi
+  - type: ChameleonClothing
+    slot: INNERCLOTHING
+    requireTag: TurtleneckSuitFancy
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+    - TurtleneckSuitFancy
+
+- type: entity
+  parent: ClothingUniformColouredTurtleneckSuitFancy
+  id: ClothingUniformColouredTurtleneckSuitFancyBlue
+  name: fancy blue turtleneck suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Suit/Fancy/blue.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Suit/Fancy/blue.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredTurtleneckSuitFancyBlue
+
+- type: entity
+  parent: ClothingUniformColouredTurtleneckSuitFancy
+  id: ClothingUniformColouredTurtleneckSuitFancyCyan
+  name: fancy cyan turtleneck suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Suit/Fancy/cyan.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Suit/Fancy/cyan.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredTurtleneckSuitFancyCyan
+
+- type: entity
+  parent: ClothingUniformColouredTurtleneckSuitFancy
+  id: ClothingUniformColouredTurtleneckSuitFancyGreen
+  name: fancy green turtleneck suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Suit/Fancy/green.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Suit/Fancy/green.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredTurtleneckSuitFancyGreen
+
+- type: entity
+  parent: ClothingUniformColouredTurtleneckSuitFancy
+  id: ClothingUniformColouredTurtleneckSuitFancyOrange
+  name: fancy orange turtleneck suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Suit/Fancy/orange.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Suit/Fancy/orange.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredTurtleneckSuitFancyOrange
+
+- type: entity
+  parent: ClothingUniformColouredTurtleneckSuitFancy
+  id: ClothingUniformColouredTurtleneckSuitFancyPurple
+  name: fancy purple turtleneck suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Suit/Fancy/purple.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Suit/Fancy/purple.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredTurtleneckSuitFancyPurple
+
+- type: entity
+  parent: ClothingUniformColouredTurtleneckSuitFancy
+  id: ClothingUniformColouredTurtleneckSuitFancyRed
+  name: fancy red turtleneck suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Suit/Fancy/red.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Suit/Fancy/red.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredTurtleneckSuitFancyRed
+
+- type: entity
+  parent: ClothingUniformColouredTurtleneckSuitFancy
+  id: ClothingUniformColouredTurtleneckSuitFancyYellow
+  name: fancy yellow turtleneck suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Suit/Fancy/yellow.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Suit/Fancy/yellow.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredTurtleneckSuitFancyYellow
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformColouredTurtleneckSuitStylish
+  name: stylish turtleneck suit
+  abstract: true
+  description: A stylish turtleneck suit. Uses artificial nanocrystals grown in the Colossus sector, woven into the fabric to allow itself to change the wavelengths of light it reflects.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Suit/Stylish/blue.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Suit/Stylish/blue.rsi
+  - type: ChameleonClothing
+    slot: INNERCLOTHING
+    requireTag: TurtleneckSuitStylish
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+    - TurtleneckSuitStylish
+
+- type: entity
+  parent: ClothingUniformColouredTurtleneckSuitStylish
+  id: ClothingUniformColouredTurtleneckSuitStylishBlue
+  name: stylish blue turtleneck suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Suit/Stylish/blue.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Suit/Stylish/blue.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredTurtleneckSuitStylishBlue
+
+- type: entity
+  parent: ClothingUniformColouredTurtleneckSuitStylish
+  id: ClothingUniformColouredTurtleneckSuitStylishCyan
+  name: stylish cyan turtleneck suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Suit/Stylish/cyan.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Suit/Stylish/cyan.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredTurtleneckSuitStylishCyan
+
+- type: entity
+  parent: ClothingUniformColouredTurtleneckSuitStylish
+  id: ClothingUniformColouredTurtleneckSuitStylishGreen
+  name: stylish green turtleneck suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Suit/Stylish/green.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Suit/Stylish/green.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredTurtleneckSuitStylishGreen
+
+- type: entity
+  parent: ClothingUniformColouredTurtleneckSuitStylish
+  id: ClothingUniformColouredTurtleneckSuitStylishOrange
+  name: stylish orange turtleneck suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Suit/Stylish/orange.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Suit/Stylish/orange.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredTurtleneckSuitStylishOrange
+
+- type: entity
+  parent: ClothingUniformColouredTurtleneckSuitStylish
+  id: ClothingUniformColouredTurtleneckSuitStylishPurple
+  name: stylish purple turtleneck suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Suit/Stylish/purple.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Suit/Stylish/purple.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredTurtleneckSuitStylishPurple
+
+- type: entity
+  parent: ClothingUniformColouredTurtleneckSuitStylish
+  id: ClothingUniformColouredTurtleneckSuitStylishRed
+  name: stylish red turtleneck suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Suit/Stylish/red.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Suit/Stylish/red.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredTurtleneckSuitStylishRed
+
+- type: entity
+  parent: ClothingUniformColouredTurtleneckSuitStylish
+  id: ClothingUniformColouredTurtleneckSuitStylishYellow
+  name: stylish yellow turtleneck suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Suit/Stylish/yellow.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Suit/Stylish/yellow.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredTurtleneckSuitStylishYellow
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformColouredTurtleneckSuitClassical
+  name: classical turtleneck suit
+  abstract: true
+  description: A classical turtleneck suit. Uses artificial nanocrystals grown in the Colossus sector, woven into the fabric to allow itself to change the wavelengths of light it reflects.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Suit/Classical/blue.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Suit/Classical/blue.rsi
+  - type: ChameleonClothing
+    slot: INNERCLOTHING
+    requireTag: TurtleneckSuitClassical
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+    - TurtleneckSuitClassical
+
+- type: entity
+  parent: ClothingUniformColouredTurtleneckSuitClassical
+  id: ClothingUniformColouredTurtleneckSuitClassicalBlue
+  name: classical blue turtleneck suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Suit/Classical/blue.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Suit/Classical/blue.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredTurtleneckSuitClassicalBlue
+
+- type: entity
+  parent: ClothingUniformColouredTurtleneckSuitClassical
+  id: ClothingUniformColouredTurtleneckSuitClassicalCyan
+  name: classical cyan turtleneck suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Suit/Classical/cyan.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Suit/Classical/cyan.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredTurtleneckSuitClassicalCyan
+
+- type: entity
+  parent: ClothingUniformColouredTurtleneckSuitClassical
+  id: ClothingUniformColouredTurtleneckSuitClassicalGreen
+  name: classical green turtleneck suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Suit/Classical/green.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Suit/Classical/green.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredTurtleneckSuitClassicalGreen
+
+- type: entity
+  parent: ClothingUniformColouredTurtleneckSuitClassical
+  id: ClothingUniformColouredTurtleneckSuitClassicalOrange
+  name: classical orange turtleneck suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Suit/Classical/orange.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Suit/Classical/orange.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredTurtleneckSuitClassicalOrange
+
+- type: entity
+  parent: ClothingUniformColouredTurtleneckSuitClassical
+  id: ClothingUniformColouredTurtleneckSuitClassicalPurple
+  name: classical purple turtleneck suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Suit/Classical/purple.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Suit/Classical/purple.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredTurtleneckSuitClassicalPurple
+
+- type: entity
+  parent: ClothingUniformColouredTurtleneckSuitClassical
+  id: ClothingUniformColouredTurtleneckSuitClassicalRed
+  name: classical red turtleneck suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Suit/Classical/red.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Suit/Classical/red.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredTurtleneckSuitClassicalRed
+
+- type: entity
+  parent: ClothingUniformColouredTurtleneckSuitClassical
+  id: ClothingUniformColouredTurtleneckSuitClassicalYellow
+  name: classical yellow turtleneck suit
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Colours/Turtleneck/Suit/Classical/yellow.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Colours/Turtleneck/Suit/Classical/yellow.rsi
+  - type: ChameleonClothing
+    default: ClothingUniformColouredTurtleneckSuitClassicalYellow
