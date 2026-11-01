@@ -95,7 +95,7 @@
       sprite: _Mono/Objects/Weapons/Melee/shields.rsi
       state: heavy-icon
     - type: Item
-      size: Ginormous
+      size: Huge
       sprite: _Mono/Objects/Weapons/Melee/shields.rsi
       heldPrefix: heavy
     - type: Damageable
@@ -106,18 +106,19 @@
           Blunt: 0.35
           Slash: 0.35
           Piercing: 0.20
-          Heat: 0.35
+          Heat: 0.45
           Shock: 0.35
       passiveBlockFraction: 1
+      blockingArc: 135
     - type: ClothingSpeedModifier
-      sprintModifier: 0.3
-      walkModifier: 0.5
+      sprintModifier: 0.55
+      walkModifier: 0.8
     - type: HeldSpeedModifier
     - type: Destructible
       thresholds:
         - trigger:
             !type:DamageTrigger
-            damage: 200
+            damage: 180
           behaviors:
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
