@@ -2,6 +2,7 @@ using System.Globalization;
 using System.Linq;
 using System.Numerics;
 using Content.Server._Battlefield14.FactionTracking;
+using Content.Server._Mono.GameRule.Components;
 using Content.Server.Administration.Managers;
 using Content.Server.Administration.Systems;
 using Content.Server.GameTicking.Events;
@@ -23,7 +24,8 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
-using Content.Server._Corvax.Respawn; // Frontier
+using Content.Server._Corvax.Respawn;
+using Content.Shared.CCVar; // Frontier
 
 namespace Content.Server.GameTicking
 {
@@ -319,6 +321,31 @@ namespace Content.Server.GameTicking
                 station,
                 character);
             RaiseLocalEvent(mob, aev, true);
+
+            // Mono start: prevent same-name respawns
+            var rules = GetActiveGameRules();
+            foreach (var rule in rules)
+            {
+                if (CCVars.GameLobbyEnabled.Equals(false)) // they literally can't change their character so don't bother
+                    break;
+                if (!TryComp<NoRespawningWithSameNameRuleComponent>(rule, out var respawnRule))
+                    continue;
+
+                if (!respawnRule.SpawnedCharacters.TryGetValue(player.UserId, out var list))
+                {
+                    respawnRule.SpawnedCharacters.Add(player.UserId, new List<string>() { character.Name });
+                    continue;
+                }
+
+                if (list.Contains(character.Name))
+                {
+                    _chatManager.DispatchServerMessage(player, Loc.GetString("no-respawning-with-same-name"));
+                    return;
+                }
+
+                list.Add(character.Name);
+            }
+            // Mono end
         }
 
         public void Respawn(ICommonSession player)
