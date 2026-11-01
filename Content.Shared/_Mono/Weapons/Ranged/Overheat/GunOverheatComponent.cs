@@ -1,6 +1,8 @@
+using Robust.Shared.GameStates;
+
 namespace Content.Shared._Mono.Weapons.Ranged.Overheat;
 
-[RegisterComponent]
+[RegisterComponent , NetworkedComponent]
 public sealed partial class GunOverheatComponent : Component
 {
     /// <summary>
