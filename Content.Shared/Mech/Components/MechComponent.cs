@@ -165,6 +165,12 @@ public sealed partial class MechComponent : Component
     public bool Airtight;
 
     /// <summary>
+    /// Mono: Whether damage applied by MechToPilotDamageMultiplier ignores armour or not.
+    /// </summary>
+    [DataField]
+    public bool PilotDamageIgnoresResistances = true;
+
+    /// <summary>
     /// The equipment that the mech initially has when it spawns.
     /// Good for things like nukie mechs that start with guns.
     /// </summary>
