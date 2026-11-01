@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/01/2026 20:24:29
-  entityCount: 1790
+  time: 10/31/2026 07:44:33
+  entityCount: 1796
 maps: []
 grids:
 - 1
@@ -596,9 +596,10 @@ entities:
     - type: SpreaderGrid
       spreadQueues:
         MetalFoam: []
-        Puddle: []
         Kudzu: []
         Smoke: []
+        ESTileFire: []
+        Puddle: []
     - type: GridAtmosphere
       version: 2
       data:
@@ -1249,6 +1250,42 @@ entities:
     components:
     - type: Transform
       pos: 7.5,3.5
+      parent: 1
+  - uid: 1791
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -5.5,24.5
+      parent: 1
+  - uid: 1792
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -5.5,25.5
+      parent: 1
+  - uid: 1793
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -5.5,26.5
+      parent: 1
+  - uid: 1794
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 5.5,24.5
+      parent: 1
+  - uid: 1795
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 5.5,25.5
+      parent: 1
+  - uid: 1796
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 5.5,26.5
       parent: 1
 - proto: AtmosFixBlockerMarker
   entities:
@@ -7151,16 +7188,12 @@ entities:
       rot: 3.141592653589793 rad
       pos: -5.5,16.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 1057
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 5.5,16.5
       parent: 1
-    - type: Physics
-      canCollide: False
 - proto: HardpointEnergyLight
   entities:
   - uid: 1058
@@ -7168,31 +7201,23 @@ entities:
     - type: Transform
       pos: 1.5,-10.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 1059
     components:
     - type: Transform
       pos: -1.5,-10.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 1060
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 6.5,35.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 1061
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -6.5,35.5
       parent: 1
-    - type: Physics
-      canCollide: False
 - proto: HardpointEnergyMedium
   entities:
   - uid: 1062
@@ -7201,16 +7226,12 @@ entities:
       rot: 3.141592653589793 rad
       pos: 6.5,14.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 1063
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -6.5,14.5
       parent: 1
-    - type: Physics
-      canCollide: False
 - proto: KitchenMicrowave
   entities:
   - uid: 1064

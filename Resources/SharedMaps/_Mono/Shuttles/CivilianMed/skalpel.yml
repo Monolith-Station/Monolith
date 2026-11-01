@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/21/2026 19:49:29
-  entityCount: 788
+  time: 10/31/2026 07:39:22
+  entityCount: 791
 maps: []
 grids:
 - 1
@@ -526,6 +526,7 @@ entities:
         MetalFoam: []
         Kudzu: []
         Smoke: []
+        ESTileFire: []
         Puddle: []
     - type: GridAtmosphere
       version: 2
@@ -4074,6 +4075,13 @@ entities:
     - type: Transform
       pos: 1.5,-15.5
       parent: 1
+- proto: PowerCellRecharger
+  entities:
+  - uid: 790
+    components:
+    - type: Transform
+      pos: 4.5,-5.5
+      parent: 1
 - proto: PoweredLEDLightPostSmall
   entities:
   - uid: 520
@@ -5317,6 +5325,20 @@ entities:
     components:
     - type: Transform
       pos: 0.5,-9.5
+      parent: 1
+- proto: WallWeaponCapacitorRecharger
+  entities:
+  - uid: 789
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 7.5,-12.5
+      parent: 1
+  - uid: 791
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -7.5,-12.5
       parent: 1
 - proto: WarningN2
   entities:
