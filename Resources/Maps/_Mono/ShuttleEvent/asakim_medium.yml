@@ -1512,14 +1512,7 @@ entities:
       powerLoad: 5
     - type: DeviceLinkSource
       linkedPorts:
-        312:
-        - - MedicalScannerSender
-          - MedicalScannerReceiver
-        - - CloningPodSender
-          - MedicalScannerReceiver
         225:
-        - - MedicalScannerSender
-          - CloningPodReceiver
         - - CloningPodSender
           - CloningPodReceiver
     - type: Battery
