@@ -594,6 +594,7 @@
     - Trash
     - CannotSuicide
     - VimPilot
+    - Mothroach
   - type: MovementAlwaysTouching
   - type: PressureImmunity
   - type: CanEscapeInventory
@@ -684,7 +685,20 @@
       Examined:
         dataset: MothroachExamined
         speechChance: 0.15
-
+  - type: ActionGrant
+    actions:
+    - ActionMothroachSwarm
+    - ActionMothroachCall
+  - type: MouseSwarm
+    sprite: /Textures/Mobs/Animals/mothroach/mothroach.rsi
+    state: mothroach
+  - type: MobCallSource
+    range: 20
+    maxRespondingMobs: 5
+    whitelist:
+      tags:
+      - Mothroach
+  - type: MobCallable
 # Note that the mallard duck is actually a male drake mallard, with the brown duck being the female variant of the same species, however ss14 lacks sex specific textures
 # The white duck is more akin to a pekin or call duck.
 
@@ -2016,6 +2030,18 @@
       Examined:
         dataset: MouseExamined
         speechChance: 0.15
+  - type: ActionGrant
+    actions:
+    - ActionMouseSwarm
+    - ActionMouseCall
+  - type: MouseSwarm
+  - type: MobCallSource
+    range: 20
+    maxRespondingMobs: 5
+    whitelist:
+      tags:
+      - Mouse
+  - type: MobCallable
 
 - type: entity
   parent: MobMouse
@@ -2077,6 +2103,8 @@
   - type: Item
     size: Tiny
     heldPrefix: 1
+  - type: MouseSwarm # Goobstation
+    state: mouse-1
 
 - type: entity
   parent: MobMouse
@@ -2106,6 +2134,8 @@
   - type: Item
     size: Tiny
     heldPrefix: 2
+  - type: MouseSwarm # Goobstation
+    state: mouse-2
 
 - type: entity
   name: cancer mouse
