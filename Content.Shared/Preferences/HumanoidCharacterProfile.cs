@@ -89,6 +89,8 @@ namespace Content.Shared.Preferences
         [DataField]
         public int Age { get; set; } = 18;
 
+        [DataField] public string CustomSpeciesName { get; set; } = ""; // Starlight
+
         [DataField]
         public Sex Sex { get; private set; } = Sex.Male;
 
@@ -172,11 +174,13 @@ namespace Content.Shared.Preferences
             string company = "None",
             IEnumerable<string>? flags = null, // Mono
             IEnumerable<PersistentProfileComponent>? components = null, // Mono
-            IEnumerable<PersistentProfileItem>? items = null) // Mono
+            IEnumerable<PersistentProfileItem>? items = null,
+            string customSpeciesName = "") // Mono
         {
             Name = name;
             FlavorText = flavortext;
             Species = species;
+            CustomSpeciesName = customSpeciesName;
             Age = age;
             Sex = sex;
             Gender = gender;
@@ -205,7 +209,7 @@ namespace Content.Shared.Preferences
             Dictionary<string, RoleLoadout> loadouts)
             : this(other.Name, other.FlavorText, other.Species, other.Age, other.Sex, other.Gender, other.BankBalance, other.Appearance, other.SpawnPriority,
                 jobPriorities, other.PreferenceUnavailable, antagPreferences, traitPreferences, loadouts, other.Company,
-                other.Flags, other.Components, other.Items) // Mono
+                other.Flags, other.Components, other.Items, other.CustomSpeciesName) // Mono
         {
         }
 
@@ -228,7 +232,8 @@ namespace Content.Shared.Preferences
                 other.Company,
                 other.Flags, // Mono
                 other.Components, // Mono
-                other.Items) // Mono
+                other.Items,
+                other.CustomSpeciesName) // Mono
         {
         }
 
@@ -343,6 +348,10 @@ namespace Content.Shared.Preferences
             return new(this) { Species = species };
         }
 
+        public HumanoidCharacterProfile WithCustomSpeciesName(string name) // Starlight
+        {
+            return new(this) { CustomSpeciesName = name };
+        }
 
         public HumanoidCharacterProfile WithCharacterAppearance(HumanoidCharacterAppearance appearance)
         {
@@ -547,6 +556,7 @@ namespace Content.Shared.Preferences
             if (PreferenceUnavailable != other.PreferenceUnavailable) return false;
             if (SpawnPriority != other.SpawnPriority) return false;
             if (Species != other.Species) return false;
+            if (CustomSpeciesName != other.CustomSpeciesName) return false; // Starlight
             if (Company != other.Company) return false;
             if (!Flags.SequenceEqual(other.Flags)) return false; // Mono
             if (!Components.SequenceEqual(other.Components)) return false; // Mono
@@ -623,18 +633,18 @@ namespace Content.Shared.Preferences
 
             name = name.Trim();
 
-            if (configManager.GetCVar(CCVars.RestrictedNames) && Species != "IPC")
-            {
-                name = Regex.Replace(name, @"[^\u0041-\u005A,\u0061-\u007A,\u00C0-\u00D6,\u00D8-\u00F6,\u00F8-\u00FF,\u0100-\u017F, -]", string.Empty);
-                /*
-                 * 0041-005A  Basic Latin: Uppercase Latin Alphabet
-                 * 0061-007A  Basic Latin: Lowercase Latin Alphabet
-                 * 00C0-00D6  Latin-1 Supplement: Letters I
-                 * 00D8-00F6  Latin-1 Supplement: Letters II
-                 * 00F8-00FF  Latin-1 Supplement: Letters III
-                 * 0100-017F  Latin Extended A: European Latin
-                 */
-            }
+            // if (configManager.GetCVar(CCVars.RestrictedNames) && Species != "IPC") // Mono: This is fucking stupid
+            // {
+            //     name = Regex.Replace(name, @"[^\u0041-\u005A,\u0061-\u007A,\u00C0-\u00D6,\u00D8-\u00F6,\u00F8-\u00FF,\u0100-\u017F, -]", string.Empty);
+            //     /*
+            //      * 0041-005A  Basic Latin: Uppercase Latin Alphabet
+            //      * 0061-007A  Basic Latin: Lowercase Latin Alphabet
+            //      * 00C0-00D6  Latin-1 Supplement: Letters I
+            //      * 00D8-00F6  Latin-1 Supplement: Letters II
+            //      * 00F8-00FF  Latin-1 Supplement: Letters III
+            //      * 0100-017F  Latin Extended A: European Latin
+            //      */
+            // }
 
             if (configManager.GetCVar(CCVars.ICNameCase))
             {
