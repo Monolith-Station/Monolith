@@ -1,0 +1,44 @@
+- type: entity
+  abstract: true
+  parent: [ CrateTradeBaseSecureContraband, BaseC3PirateContraband ]
+  id: CrateTradeBaseSecurePDV
+  name: phaethon dynasty supply crate
+  description: Contains a small batch of supplies for the Phaethon Dynasty Vanguard, which will be shipped to them upon sale at a cargo depot. The courier will be paid handsomely. A tamper-lock will acidify the crate's contents upon its destruction.
+  components:
+  - type: CurrencyInjectionOnSell
+    company: PDV
+    amount:
+      Doubloon: 10
+  - type: ExtendDescription
+    descriptionList:
+    - description: Selling this item will fund the PDV and notify the TSFMC.
+      color: "#4f94ad"
+      requireDetailRange: true
+  - type: RadarBlip
+    radarColor: "#D2B48C"
+
+- type: entity
+  abstract: true
+  parent: [ CrateTradeBaseSecureContraband, BaseC3SyndicateContraband ]
+  id: CrateTradeBaseSecureUnderground
+  name: underground black market supply crate
+  description: Contains a small batch of deactivated telecrystals for the Underground Black Market, which will be activated and sent to them upon sale at a cargo depot. The courier will be paid handsomely. A tamper-lock will acidify the crate's already-useless contents upon its destruction.
+  components:
+  - type: CurrencyInjectionOnSell
+    company: Underground
+    amount:
+      Telecrystal: 10
+  - type: ExtendDescription
+    descriptionList:
+    - description: Selling this item will fund the Underground and notify the TSFMC.
+      color: "#4f94ad"
+      requireDetailRange: true
+    - description: "Warning: The contents of this crate emit a passive thermal signature which will make you easier to detect on radar. Be wary with how many you put onto one vessel."
+      color: "#bb3535"
+      requireDetailRange: true
+  - type: Contraband
+    turnInValues:
+      FederationMilitaryCredit: 10 # less, because it's purchaseable for money.
+      Doubloon: 10
+  - type: PassiveThermalSignature # I'd apply this to PDV too, but that gives dead drops and Jupiter muuuch bigger thermsigs.
+    signature: 1000000 # i think this is around 1km or so

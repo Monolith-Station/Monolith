@@ -12,4 +12,10 @@ public sealed partial class CurrencyInjectionOnSellComponent : Component
 
     [DataField(required: true)]
     public Dictionary<string, FixedPoint2> Amount;
+
+    /// <summary>
+    /// If the object in question has a determined destination (such as a Cargo Depot), does this only happpen if the sell destination is correct?
+    /// </summary>
+    [DataField]
+    public bool RequireCorrectDestination = true;
 }

@@ -295,7 +295,7 @@ public sealed partial class CargoSystem
 
     #region Station
 
-    private bool SellPallets(Entity<CargoPalletConsoleComponent> consoleUid, EntityUid gridUid, out double amount, out double noMultiplierAmount, out double blackMarketTaxAmount, out double frontierTaxAmount, out double nfsdTaxAmount, out double medicalTaxAmount, out Dictionary<string, FixedPoint2>? currencyInjections, out ProtoId<CompanyPrototype>? injectionCompany) // Frontier: first arg to Entity, add noMultiplierAmount
+    private bool SellPallets(Entity<CargoPalletConsoleComponent> consoleUid, EntityUid gridUid, out double amount, out double noMultiplierAmount, out double blackMarketTaxAmount, out double frontierTaxAmount, out double nfsdTaxAmount, out double medicalTaxAmount, out Dictionary<string, FixedPoint2>? currencyInjections, out Dictionary<string, ProtoId<CompanyPrototype>>? injectionCompany) // Frontier: first arg to Entity, add noMultiplierAmount
     {
         GetPalletGoods(consoleUid, gridUid, out var toSell, out amount, out noMultiplierAmount, out blackMarketTaxAmount, out frontierTaxAmount, out nfsdTaxAmount, out medicalTaxAmount, out currencyInjections, out injectionCompany); // Frontier: add noMultiplierAmount
 
@@ -389,7 +389,7 @@ public sealed partial class CargoSystem
             var speaker = Transform(console).GridUid ?? console;
             foreach (var channel in alert.Channels)
             {
-                _radio.SendRadioMessage(speaker, message, channel, console);
+                _radio.SendRadioMessage(speaker, message, channel, console, jammable: alert.Jammable);
             }
         }
 
@@ -438,7 +438,7 @@ public sealed partial class CargoSystem
         }
     }
 
-    private void GetPalletGoods(Entity<CargoPalletConsoleComponent> consoleUid, EntityUid gridUid, out HashSet<EntityUid> toSell, out double amount, out double noMultiplierAmount, out double blackMarketTaxAmount, out double frontierTaxAmount, out double nfsdTaxAmount, out double medicalTaxAmount, out Dictionary<string, FixedPoint2>? currencyInjections, out ProtoId<CompanyPrototype>? injectionCompany) // Frontier: first arg to Entity, add noMultiplierAmount // Mono: add currencyInjections
+    private void GetPalletGoods(Entity<CargoPalletConsoleComponent> consoleUid, EntityUid gridUid, out HashSet<EntityUid> toSell, out double amount, out double noMultiplierAmount, out double blackMarketTaxAmount, out double frontierTaxAmount, out double nfsdTaxAmount, out double medicalTaxAmount, out Dictionary<string, FixedPoint2>? currencyInjections, out Dictionary<string, ProtoId<CompanyPrototype>>? injectionCompany) // Frontier: first arg to Entity, add noMultiplierAmount // Mono: add currencyInjections
     {
         amount = 0;
         noMultiplierAmount = 0;
@@ -538,9 +538,11 @@ public sealed partial class CargoSystem
                     }
                 }
                 // Mono: Calculate if any factions need to receive currency
-                if (TryComp<CurrencyInjectionOnSellComponent>(ent, out var injection))
+                if (TryComp<CurrencyInjectionOnSellComponent>(ent, out var injection) && (!injection.RequireCorrectDestination || !TryComp<TradeCrateComponent>(ent, out var tradeCrate) || _station.GetOwningStation(ent) == tradeCrate.DestinationStation))
                 {
-                    injectionCompany = injection.Company;
+                    if (injectionCompany == null)
+                        injectionCompany = new Dictionary<string, ProtoId<CompanyPrototype>>();
+
                     if (currencyInjections == null)
                         currencyInjections = injection.Amount;
                     else
@@ -551,6 +553,8 @@ public sealed partial class CargoSystem
                                 currencyInjections[key] += injection.Amount[key];
                             else
                                 currencyInjections[key] = injection.Amount[key];
+
+                            injectionCompany[key] = injection.Company;
                         }
                     }
                 }
@@ -635,7 +639,12 @@ public sealed partial class CargoSystem
 
         // Faction currency injections
         if (injectionCompany != null && currencyInjections != null)
-            _currencyInjection.InjectCurrency(injectionCompany ?? "PDV", currencyInjections); // the "if null" case should never actually be used here, but my IDE apparently thinks an explicit check of "is this not null" isn't good enough
+        {
+            foreach (var company in injectionCompany.Values)
+            {
+                _currencyInjection.InjectCurrency(company, currencyInjections);
+            }
+        }
         // Mono End
         var stackPrototype = _protoMan.Index<StackPrototype>(component.CashType);
         _stack.Spawn((int)price, stackPrototype, xform.Coordinates);
