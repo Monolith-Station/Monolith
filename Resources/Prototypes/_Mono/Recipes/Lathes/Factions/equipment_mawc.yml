@@ -19,22 +19,6 @@
     Iridite: 300 # 75 scrap
 
 - type: latheRecipe
-  id: IriditeMAWC
-  materialResult:
-    Iridite: 100
-  completetime: 5
-  materials:
-    MAWCScrap: 2500
-
-- type: latheRecipe
-  id: PlastitaniumMAWC
-  materialResult:
-    Plastitanium: 100
-  completetime: 5
-  materials:
-    MAWCScrap: 2500 
-
-- type: latheRecipe
   parent: MonoHardsuitT1Recipe
   id: ClothingOuterHardsuitMAWCTermiteMAWC
   result: ClothingOuterHardsuitMAWCTermite

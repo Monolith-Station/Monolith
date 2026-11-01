@@ -19,6 +19,7 @@
     productValueModifier: null
     staticPacks:
     - MAWCScrapFurnaceStatic
+    - MonoMAWCMaterialsStatic # Added to allow it to make Iri/Plastit
   - type: MaterialStorage
     ignoreColor: true
     whitelist:

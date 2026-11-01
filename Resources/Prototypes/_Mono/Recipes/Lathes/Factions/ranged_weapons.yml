@@ -717,6 +717,8 @@
     Steel: 700
     Plasteel: 1000
     Plastic: 4500
+    MAWCScrap: 500
+    Plastitanium: 150 # 37.5 , but much cheaper if brass wrecks/drones are hit
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
@@ -731,6 +733,9 @@
     Plasteel: 750
     Plastic: 500
     Wood: 500
+    MAWCScrap: 2500
+    Iridite: 100 # 25
+    Plastitanium: 150 # 37.5
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
@@ -744,6 +749,9 @@
     Steel: 1500
     Plasteel: 1200
     Plastic: 900
+    MAWCScrap: 2500
+    Iridite: 200 # 50
+    Plastitanium: 100 # 25
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
@@ -756,9 +764,10 @@
   materials:
     Steel: 7000
     Plasteel: 6000
-    Plastitanium: 1500
+    Plastitanium: 750 # 187, but again, brass wrecks
     Copper: 2000
     Lithium: 2000
     Gold: 500
     Silver: 500
     MAWCScrap: 7500
+    Iridite: 300 # 75 scrap

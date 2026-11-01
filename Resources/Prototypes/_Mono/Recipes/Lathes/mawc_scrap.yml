@@ -1,35 +1,32 @@
-- type: latheRecipePack
-  id: MAWCScrapFurnaceStatic
-  recipes:
-  - MAWCScrapSmelt
-  - MAWCScrapShipRepairDeviceAmmo
-  - MAWCScrapPartRodMetal1
-  - MAWCScrapSheetSteel1
-  - MAWCScrapSheetGlass1
-  - MAWCScrapSheetBrass1
-  - MAWCScrapSheetRGlass1
-  - MAWCScrapSheetPlasteel1
-  - MAWCScrapSheetPlastic1
-  - MAWCScrapSheetPlasma1
-  - MAWCScrapSheetUranium1
-  - MAWCScrapSheetUraniumFissile1
-  - MAWCScrapIngotSilver1
-  - MAWCScrapIngotGold1
-  - MAWCScrapMaterialBananium1
-  - MAWCScrapMaterialCloth1
-  - MAWCScrapMaterialDurathread1
-  - MAWCScrapSheetUGlass1
-  - MAWCScrapSheetPGlass1
-  - MAWCScrapSheetRUGlass1
-  - MAWCScrapSheetRPGlass1
-  - MAWCScrapSheetClockworkGlass1
-  - MAWCScrapMaterialBluespace1
-  - MAWCScrapMaterialDiamond1
-  - MAWCScrapCableHVStack1
-  - MAWCScrapCableMVStack1
-  - MAWCScrapCableApcStack1
-  - MAWCScrapMaterialLithium1
-  - MAWCScrapMaterialCopper1
+- type: latheRecipe
+  id: IriditeMAWC
+  name: materials-iridite
+  description: A complex alloy synthesized from atmospheric gases, commonly used outside of the sector for heavy industrial machinery, nanofibers, and high-grade computers.
+  icon:
+    sprite: _Mono/Objects/Materials/iridite.rsi
+    state: iridite
+  categories:
+  - Materials
+  materialResult:
+    Iridite: 100
+  completetime: 5
+  materials:
+    MAWCScrap: 2500
+
+- type: latheRecipe
+  id: PlastitaniumMAWC
+  name: materials-plastitanium
+  description: An advanced, high-strength alloy. Even if it's extremely abundant in core sectors, it is hard to find in the Colossus region.
+  icon:
+    sprite: _Mono/Objects/Materials/plastitanium.rsi
+    state: plastitanium
+  categories:
+  - Materials
+  materialResult:
+    Plastitanium: 100
+  completetime: 5
+  materials:
+    MAWCScrap: 2500
 
 - type: latheRecipe
   id: MAWCScrapSmelt

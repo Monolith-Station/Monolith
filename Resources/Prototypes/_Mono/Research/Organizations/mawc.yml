@@ -4,13 +4,54 @@
   entityIcon: ClothingOuterHardsuitMAWCWidowmaker
   discipline: MAWC
   tier: 2
-  cost: 35000
+  cost: 65000
   recipeUnlocks:
   - ClothingOuterHardsuitMAWCWeaverMAWC
   - ClothingOuterHardsuitMAWCWidowmakerMAWC
   technologyPrerequisites:
   - UniversalMaterialResearchT2
-  position: 2, -23
+  position: 13, -16
+
+- type: technology
+  id: MAWCTierOneVouchers
+  name: research-technology-tsfmc-tier-one-vouchers
+  entityIcon: ShipVoucherMAWCT1
+  discipline: MAWC
+  tier: 1
+  cost: 40000
+  recipeUnlocks:
+  - ShipVoucherMAWCT1Recipe
+  technologyPrerequisites:
+  - UniversalMaterialResearchT1
+  position: 11, -8
+
+- type: technology
+  id: MAWCTierTwoVouchers
+  name: research-technology-tsfmc-tier-two-vouchers
+  entityIcon: ShipVoucherMAWCT2
+  discipline: MAWC
+  tier: 2
+  cost: 60000
+  recipeUnlocks:
+  - ShipVoucherMAWCT2Recipe
+  technologyPrerequisites:
+  - MAWCTierOneVouchers
+  - UniversalMaterialResearchT2
+  position: 11, -16
+
+- type: technology
+  id: MAWCTierThreeVouchers
+  name: research-technology-tsfmc-tier-three-vouchers
+  entityIcon: ShipVoucherMAWCT3
+  discipline: MAWC
+  tier: 3
+  cost: 150000
+  recipeUnlocks:
+  - ShipVoucherMAWCT3Recipe
+  technologyPrerequisites:
+  - MAWCTierTwoVouchers
+  - UniversalMaterialResearchT3
+  position: 11, -26
 
 - type: technology
   id: MAWCWeaponsBasic
@@ -25,7 +66,7 @@
   - WeaponShotgunMAWCIntruderMAWC
   technologyPrerequisites:
   - UniversalMaterialResearchT2
-  position: 2, -22
+  position: 12, -16
 
 - type: technology
   id: MAWCWeaponsAdvanced
@@ -36,7 +77,8 @@
   cost: 30000
   recipeUnlocks:
   - WeaponRifleMAWCStonehengeMAWC
+  - WeaponMawcTalonMAWC
   technologyPrerequisites:
   - MAWCWeaponsBasic
   - UniversalMaterialResearchT3
-  position: 2, -30
+  position: 12, -26
