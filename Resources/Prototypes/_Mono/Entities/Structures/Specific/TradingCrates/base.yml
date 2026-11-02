@@ -6,9 +6,10 @@
   description: Contains a small batch of supplies for the Phaethon Dynasty Vanguard, which will be shipped to them upon sale at a cargo depot. The courier will be paid handsomely. A tamper-lock will acidify the crate's contents upon its destruction.
   components:
   - type: CurrencyInjectionOnSell
-    company: PDV
-    amount:
-      Doubloon: 10
+    injection: 
+      company: PDV
+      amount:
+        Doubloon: 10
   - type: ExtendDescription
     descriptionList:
     - description: Selling this item will fund the PDV and notify the TSFMC.
@@ -25,9 +26,10 @@
   description: Contains a small batch of deactivated telecrystals for the Underground Black Market, which will be activated and sent to them upon sale at a cargo depot. The courier will be paid handsomely. A tamper-lock will acidify the crate's already-useless contents upon its destruction.
   components:
   - type: CurrencyInjectionOnSell
-    company: Underground
-    amount:
-      Telecrystal: 10
+    injection: 
+      company: Underground
+      amount:
+        Telecrystal: 10
   - type: ExtendDescription
     descriptionList:
     - description: Selling this item will fund the Underground and notify the TSFMC.
