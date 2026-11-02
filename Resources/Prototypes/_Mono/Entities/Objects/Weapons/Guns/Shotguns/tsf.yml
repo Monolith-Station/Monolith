@@ -1,0 +1,78 @@
+- type: entity
+  name: Enforcer MkII (12 gauge)
+  parent: [BaseItem, BaseGunWieldable]
+  id: WeaponShotgunEnforcerMkII
+  description: An improved version of the Enforcer, comes with significant range and spread improvements, a scope, a solid stock for bashing, and enhanced rifling.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Shotguns/enforcermkII.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    sprite: _Mono/Objects/Weapons/Guns/Shotguns/enforcermkII_inhands.rsi
+    shape:
+    - 0,0,4,1
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/Shotguns/enforcermkII.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: AmmoCounter
+  - type: GunRequiresWield
+  - type: Gun
+    fireRate: 2.6
+    damageModifier: 1.4
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: Magazine12_gaugeBuckshot
+        priority: 2
+        whitelist:
+          tags:
+          - Magazine12_gaugeBuckshot
+        whitelistFailPopup: gun-magazine-whitelist-fail
+        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineAmmoProvider
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: StaticPrice
+    price: 500
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 3
+    pvsIncrease: 0.7
+  - type: MeleeRequiresWield
+  - type: MeleeWeapon
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 16
+    angle: 0
+    wideAnimationRotation: 45
+    animation: WeaponArcThrust
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee
+    attackType: Light
+  - type: GunSpreadModifier
+    spread: 0.5

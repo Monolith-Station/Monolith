@@ -171,3 +171,17 @@
       - state: base
         map: ["enum.GunVisualLayers.Base"]
       - state: flechette
+
+#misc:
+- type: entity
+  name: shotgun shell box (4 gauge smart)
+  parent: AmmoProvider23x75mmShotgunShell
+  id: AmmoBox23x75mmSmart
+  components:
+    - type: BallisticAmmoProvider
+      proto: ShellShotgun4_gaugeSmart
+    - type: Sprite
+      layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: lethal

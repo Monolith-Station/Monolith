@@ -223,3 +223,20 @@
     proto: Pellet23x75mmFlechetteSpread
   - type: SpentAmmoVisuals
     state: "slug"
+
+#Misc
+- type: entity
+  id: ShellShotgun4_gaugeSmart
+  name: shotgun shell (4 gauge smart)
+  parent: BaseShellShotgun23x75mm
+  components:
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: CartridgeAmmo
+    proto: Pellet4_gaugeSmartSpread
+    deleteOnSpawn: true
+  - type: Tag
+    tags:
+      - ShellShotgun4_gaugeSmart
