@@ -325,6 +325,10 @@ namespace Content.Server.Cloning
         {
             cloningPod.Status = status;
             _appearance.SetData(podUid, CloningPodVisuals.Status, cloningPod.Status);
+            // Mono
+            if (cloningPod.ConnectedConsole is { } console && TryComp<CloningConsoleComponent>(console, out var consoleComp))
+                _cloningConsoleSystem.UpdateUserInterface(console, consoleComp);
+            // End Mono
         }
 
         public override void Update(float frameTime)

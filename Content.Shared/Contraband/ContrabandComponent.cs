@@ -2,6 +2,7 @@ using Content.Shared.Roles;
 using Content.Shared.Store; // Frontier: turn-in features
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Content.Shared._NF.Cloning; // Mono
 
 namespace Content.Shared.Contraband;
 
@@ -9,7 +10,7 @@ namespace Content.Shared.Contraband;
 /// This is used for marking entities that are considered 'contraband' IC and showing it clearly in examine.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState] // Frontier: removed Access(typeof(ContrabandSystem))
-public sealed partial class ContrabandComponent : Component
+public sealed partial class ContrabandComponent : Component, ITransferredByCloning // Mono add ITransferredByCloning
 {
     /// <summary>
     ///     The degree of contraband severity this item is considered to have.
