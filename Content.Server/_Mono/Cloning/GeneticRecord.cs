@@ -28,4 +28,6 @@ public sealed class GeneticRecord
     public List<IComponent> TransferredComponents = new();
 
     public TimeSpan ScannedAt;
+
+    public bool Uncloneable;
 }
