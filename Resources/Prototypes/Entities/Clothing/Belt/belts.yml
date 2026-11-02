@@ -622,11 +622,16 @@
     # - 0,0,3,1 # Frontier: commented out
 
 - type: entity
-  parent: [NFClothingBeltStorageBase, BaseFactionGearOtherFactionT1]
+  parent: NFClothingBeltStorageBase # Monolith: It's not faction gear.
   id: ClothingBeltSyndieHolster
-  name: syndicate shoulder holster
+  name: large shoulder holster # Monolith: What the fuck is a syndicate
   description: A deep shoulder holster capable of holding many types of ballistics.
   components:
+  - type: Storage # Mono: embiggening
+    grid:
+    - 0,0,11,1
+  - type: ClothingSpeedModifier # Mono: same as large chest rig
+    sprintModifier: 0.95
   - type: Sprite
     sprite: Clothing/Belt/syndieholster.rsi
   - type: Clothing
