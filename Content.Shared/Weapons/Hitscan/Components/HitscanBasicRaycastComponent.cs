@@ -20,4 +20,10 @@ public sealed partial class HitscanBasicRaycastComponent : Component
     /// </summary>
     [DataField]
     public CollisionGroup CollisionMask = CollisionGroup.Opaque;
+
+    /// <summary>
+    /// Mono: Whether or not this hitscan ignores ship shields. Should be true for any hitscan that isn't a shipgun.
+    /// </summary>
+    [DataField]
+    public bool IgnoreShields = true;
 }
