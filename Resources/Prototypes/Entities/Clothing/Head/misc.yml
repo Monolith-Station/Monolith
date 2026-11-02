@@ -25,7 +25,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatChickenhead
@@ -41,7 +41,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatFlowerWreath
@@ -61,7 +61,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: ClothingHeadLightBase
   id: ClothingHeadHatPumpkin
@@ -89,7 +89,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatPwig
@@ -103,7 +103,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadMirror
@@ -117,7 +117,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatRichard
@@ -133,7 +133,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatSkub
@@ -149,7 +149,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatShrineMaidenWig
@@ -204,7 +204,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatCatEars
@@ -268,7 +268,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatSquid
@@ -284,7 +284,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatRedRacoon
@@ -298,7 +298,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: Clothing
   id: WaterDropletHat
@@ -371,3 +371,61 @@
   - type: Tag
     tags:
     - PetWearable
+
+- type: entity
+  parent: [ShowMedicalIcons, ShowSecurityIcons]
+  id: ClothingHeadHelmetVoidsuitColonel
+  name: Colonel's Force-Field Helmet
+  suffix: Chameleon
+  description: A highly advanced force field projector for the Colonel, has the ability to transform its appearance into other helmets or hats.
+  components:
+  - type: BreathMask
+  - type: Sprite
+    sprite: _Mono/Clothing/Head/Misc/colonel.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Mono/Clothing/Head/Misc/colonel.rsi
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    quickEquip: false
+    slots: [ HEAD ]
+  - type: Clickable
+  - type: InteractionOutline
+  - type: PointLight
+    color: "#ffeead"
+  - type: PressureProtection
+    highPressureMultiplier: 0.525
+    lowPressureMultiplier: 10000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
+  - type: ChameleonClothing
+    slot: [HEAD]
+    default: ClothingHeadHelmetVoidsuitColonel
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 5
+  - type: NightVision # Gen 4 quadtube-wide
+    relayOverlay: true
+    goggleEffect: true
+    viewCircleRadius: 450
+    viewCircleCount: 4
+    viewCircleSpacing: 280
+    action: ActionToggleNightVision
+    phosphorColor: "#41D7D9"
+    lightingColor: "#FFFFFF32"
+  - type: GroupExamine
+  - type: TemperatureProtection
+    heatingCoefficient: 0.1
+    coolingCoefficient: 0.1
+  - type: Tag
+    tags:
+    - WhitelistChameleon

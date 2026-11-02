@@ -59,3 +59,47 @@
   - type: ToggleableClothing
     clothingPrototypes:
       head:  ClothingHeadEVAHelmetDME
+
+# TSF
+- type: entity
+  parent: NFClothingOuterEVASuitBase
+  id: ClothingOuterVoidsuitTSFColonel
+  name: Colonel's Ceramonal Voidsuit
+  description: A highly advanced voidsuit made to look like a ceremonial outfit of the Colonel, features a state-of-the-art force field projector around the neck not just letting you show your face but it can also visually transform into a wide range of helmets or hats.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/OuterClothing/Suits/colonel.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/OuterClothing/Suits/colonel.rsi
+  - type: Armor
+    modifiers:
+      coefficients: #Most protections are 10% worse than the hardsuit, lose some protection for the drip
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Shock: 0.8
+        Heat: 0.6
+        Radiation: 0.5
+        Caustic: 0.6
+  - type: PressureProtection
+    highPressureMultiplier: 0.03
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.6
+  - type: ToggleableClothing
+    requiredSlot: outerclothing
+    blockUnequipWhenAttached: false
+    replaceCurrentClothing: true
+    clothingPrototypes:
+      head:  ClothingHeadHelmetVoidsuitColonel
+      helmetcover: ClothingHeadHelmetCoverBlock
+      helmetattachment: ClothingHeadHelmetAttachmentBlock
+  - type: StaminaDamageResistance
+    coefficient: 0.4
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
