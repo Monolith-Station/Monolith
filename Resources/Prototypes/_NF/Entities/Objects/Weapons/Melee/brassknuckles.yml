@@ -11,10 +11,10 @@
     sprite: _NF/Objects/Weapons/Melee/brassknuckles.rsi
   - type: MeleeWeapon
     autoAttack: true
-    attackRate: 2.5 # ~40 dps
+    attackRate: 2 # ~30 dps compared to Combat Knife's 28.6 and throwing knife's 32.
     damage:
       types:
-       Blunt: 16
+       Blunt: 15
     soundHit:
       collection: Punch
     animation: WeaponArcFist
