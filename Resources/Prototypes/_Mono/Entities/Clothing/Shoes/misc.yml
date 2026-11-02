@@ -8,3 +8,14 @@
     sprite: _Mono/Clothing/Shoes/Misc/clothwrapblack.rsi
   - type: Clothing
     sprite: _Mono/Clothing/Shoes/Misc/clothwrapblack.rsi
+
+- type: entity
+  parent: ClothingShoesBootsJackFilled
+  id: ClothingShoesClothwrapTSF
+  name: TSF footwraps
+  description: A roll of tough durathread used for wrapping feet or paws. Somehow its able to store a combat knife.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Shoes/Misc/clothwraptsf.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Shoes/Misc/clothwraptsf.rsi
