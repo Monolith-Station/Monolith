@@ -630,6 +630,8 @@
   - type: Storage # Mono: embiggening
     grid:
     - 0,0,11,1
+  - type: ClothingSpeedModifier # Mono: same as large chest rig
+    sprintModifier: 0.95
   - type: Sprite
     sprite: Clothing/Belt/syndieholster.rsi
   - type: Clothing
