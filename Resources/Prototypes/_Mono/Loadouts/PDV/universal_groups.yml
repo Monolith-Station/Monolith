@@ -73,10 +73,10 @@
 - type: loadoutGroup
   id: PDVHud
   name: loadout-group-contractor-glasses
-  hidden: true
   minLimit: 1
   loadouts:
   - PDVClothingEyesHudSecurity
+  - PDVClothingEyesPGlassesSecurity
   fallbacks:
   - PDVClothingEyesHudSecurity
 
