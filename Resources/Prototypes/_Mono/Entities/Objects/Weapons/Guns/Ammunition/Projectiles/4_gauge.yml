@@ -316,3 +316,37 @@
     proto: Pellet23x75mmFlechette
     count: 6
     spread: 12
+
+- type: entity
+  id: Pellet4_gaugeSmart
+  name: Pellet4_gauge (4 gauge smart)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/smartgun.rsi
+    layers:
+    - state: smartgun
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 14.16666667 #This times six is the same damage as the slug
+  - type: Tracer
+    color: "#2897c9ff"
+    length: 3
+  - type: HomingProjectile
+    homingSpeed: 1280
+  - type: ProjectileThrowOnHit
+    distance: 10
+    speed: 10
+
+- type: entity
+  id: Pellet4_gaugeSmartSpread
+  parent: Pellet4_gaugeSmart
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ProjectileSpread
+    proto: Pellet4_gaugeSmart
+    count: 6
+    spread: 30
