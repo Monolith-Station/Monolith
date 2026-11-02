@@ -13,10 +13,33 @@
   # - type: Carriable # ShibaStation - disabled because broken, for now.
   - type: Inventory
     speciesId: feroxi
+    femaleDisplacements: # Goob-Feroxi-Resprite-Start
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: jumpsuit-female
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: shoes
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: jumpsuit
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: shoes
+    # Goob-Feroxi-Resprite-End
   - type: Thirst
     baseDecayRate: 0.2
   - type: Icon
-    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi # Mono: Digitigrade
     state: full
   - type: Body
     prototype: Feroxi
@@ -115,6 +138,31 @@
   categories: [ HideSpawnMenu ]
   description: A dummy feroxi meant to be used in character setup.
   components:
+  - type: Inventory # Goob-Feroxi-Resprite-Start
+    speciesId: feroxi
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: jumpsuit-female
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: shoes
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: jumpsuit
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: shoes
+    # Goob-Feroxi-Resprite-End
   - type: HumanoidAppearance
     species: Feroxi
     hideLayersOnEquip:

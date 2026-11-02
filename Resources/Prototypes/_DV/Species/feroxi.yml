@@ -70,83 +70,83 @@
 - type: humanoidBaseSprite
   id: MobFeroxiHead
   baseSprite:
-    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi # Mono: Digitigrade
     state: head_m
 
 - type: humanoidBaseSprite
   id: MobFeroxiHeadMale
   baseSprite:
-    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi # Mono: Digitigrade
     state: head_m
 
 - type: humanoidBaseSprite
   id: MobFeroxiHeadFemale
   baseSprite:
-    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi # Mono: Digitigrade
     state: head_f
 
 - type: humanoidBaseSprite
   id: MobFeroxiTorso
   baseSprite:
-    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
-    state: torso_m
+    sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi # Mono: Digitigrade
+    state: chest_m # Mono: different name
 
 - type: humanoidBaseSprite
   id: MobFeroxiTorsoMale
   baseSprite:
-    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
-    state: torso_m
+    sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi # Mono: Digitigrade
+    state: chest_m # Mono: different name
 
 - type: humanoidBaseSprite
   id: MobFeroxiTorsoFemale
   baseSprite:
-    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
-    state: torso_f
+    sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi # Mono: Digitigrade
+    state: chest_f # Mono: different name
 
 - type: humanoidBaseSprite
   id: MobFeroxiLLeg
   baseSprite:
-    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi # Mono: Digitigrade
     state: l_leg
 
 - type: humanoidBaseSprite
   id: MobFeroxiLHand
   baseSprite:
-    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi # Mono: Digitigrade
     state: l_hand
 
 - type: humanoidBaseSprite
   id: MobFeroxiLArm
   baseSprite:
-    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi # Mono: Digitigrade
     state: l_arm
 
 - type: humanoidBaseSprite
   id: MobFeroxiLFoot
   baseSprite:
-    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi # Mono: Digitigrade
     state: l_foot
 
 - type: humanoidBaseSprite
   id: MobFeroxiRLeg
   baseSprite:
-    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi # Mono: Digitigrade
     state: r_leg
 
 - type: humanoidBaseSprite
   id: MobFeroxiRHand
   baseSprite:
-    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi # Mono: Digitigrade
     state: r_hand
 
 - type: humanoidBaseSprite
   id: MobFeroxiRArm
   baseSprite:
-    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi # Mono: Digitigrade
     state: r_arm
 
 - type: humanoidBaseSprite
   id: MobFeroxiRFoot
   baseSprite:
-    sprite: _DV/Mobs/Species/Feroxi/parts.rsi
+    sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi # Mono: Digitigrade
     state: r_foot
