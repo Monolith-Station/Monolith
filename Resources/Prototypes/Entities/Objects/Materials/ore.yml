@@ -344,6 +344,22 @@
       Coal: 100
   - type: Item
     heldPrefix: coal
+  - type: Flammable # Monolith
+    fireSpread: true
+    alwaysCombustible: true
+    firestacksOnIgnite: 5
+    firestackFade: 0
+    fireStacks: 0
+    minimumFireStacks: 0
+    maximumFireStacks: 5
+    firestackVisualDivisor: 5
+    fireEnergyMultiplier: 12500
+    maxFireTemperature: 2100
+  - type: MaterialFuel # Monolith
+  - type: FireVisuals # Monolith
+    sprite: Effects/fire.rsi
+    normalState: fire
+  - type: Appearance # Monolith
 
 - type: entity
   parent: Coal

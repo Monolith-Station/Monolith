@@ -433,7 +433,7 @@ public sealed partial class MoverController : SharedMoverController
         {
             var velLenSq = localVel.LengthSquared();
             var dirCompVel = localVel * dot / velLenSq;
-            var velRatio = localVel.Length() / shuttle.BaseMaxLinearVelocity;
+            var velRatio = localVel.Length() / (shuttle.BaseMaxLinearVelocity * shuttle.MaxLinearVelocityMultiplier); // mono
             // less effect at lower velocities
             var exponent = velRatio * MathF.Pow(velRatio / (1f + velRatio), 3f);
             var scaledComp = dirCompVel / MathF.Pow(2f, exponent);
@@ -533,6 +533,10 @@ public sealed partial class MoverController : SharedMoverController
 
             angularMul /= count;
             accelMul /= count;
+
+            angularMul *= shuttle.BaseThrusterMultiplier; // Mono
+            accelMul *= shuttle.BaseThrusterMultiplier; // Mono
+
             if (setMaxVel != null)
                 setMaxVel /= count;
             shuttle.AngularMultiplier = angularMul;

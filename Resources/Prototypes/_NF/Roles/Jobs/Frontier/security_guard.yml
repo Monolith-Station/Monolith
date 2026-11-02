@@ -12,7 +12,7 @@
   supervisors: job-supervisors-sr
   assignedCompany: Colonial
   weight: 80
-  displayWeight: 20 # Second from the bottom
+  displayWeight: 55 # Second from the top
   canBeAntag: false
   access:
   - Security
@@ -30,6 +30,8 @@
     components:
     - type: ChatRank
       rank: cc-judge
+    - type: RadioOnCryosleep
+      radioChannel: Service # service = caelestinus
 # - !type:AddImplantSpecial
 #   implants: [ MindShieldImplant ] # Mono - remove TSFMC implants
   - !type:GiveItemOnHolidaySpecial

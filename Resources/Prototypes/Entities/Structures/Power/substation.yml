@@ -67,6 +67,7 @@
         !type:DamageTrigger
         damage: 200
       behaviors:
+        - !type:TriggerBehavior # Mono
         - !type:DoActsBehavior
           acts: [ "Destruction" ]
     - trigger:
@@ -84,6 +85,12 @@
           MachineFrameDestroyed:
             min: 1
             max: 1
+      - !type:TriggerBehavior # Mono
+      - !type:SpawnEntitiesBehavior # Mono
+        spawn:
+          ESTileFire:
+            min: 1
+            max: 1
       - !type:SpawnGasBehavior
         gasMixture:
           volume: 1000
@@ -91,10 +98,10 @@
             CarbonDioxide: 340.5701689 # carbon dioxide
           temperature: 373.15
   - type: Explosive
-    explosionType: Default
-    maxIntensity: 100
+    explosionType: ESWelderBomb # Mono
+    maxIntensity: 10 # Mono
     intensitySlope: 2
-    totalIntensity: 200
+    totalIntensity: 200 # Mono
   - type: WiresPanel
   - type: Machine
     board: SubstationMachineCircuitboard
@@ -116,6 +123,33 @@
     guides:
     - VoltageNetworks
     - Power
+  # ES/Mono Start
+  - type: Appearance
+  - type: ESSparkOnHit
+    prob: 0.25
+    tileFireChance: 0.4
+    count: 2
+  - type: Flammable
+    fireSpread: true
+    firestackFade: 0.1
+    alwaysCombustible: true
+    damage:
+      types:
+        Heat: 10
+        Structural: 10
+  - type: FireVisuals
+    sprite: Mobs/Effects/onfire.rsi
+    normalState: Generic_mob_burning
+  - type: ProjectileGrenade # funny
+    randomAngle: true
+    fillPrototype: PelletClusterIncendiary
+    capacity: 4
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      cluster-payload: !type:Container
+  # ES/Mono End
 
   # Interface
   - type: BatteryInterface
@@ -161,6 +195,7 @@
   - type: ContainerContainer
     containers:
       board: !type:Container
+      cluster-payload: !type:Container # Mono
   - type: InteractionOutline
   - type: Physics
     bodyType: Static
@@ -215,6 +250,7 @@
       behaviors:
         - !type:DoActsBehavior
           acts: [ "Destruction" ]
+        - !type:TriggerBehavior # Mono
     - trigger:
         !type:DamageTrigger
         damage: 100
@@ -222,6 +258,7 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
       - !type:ExplodeBehavior
+      - !type:TriggerBehavior # Mono
       - !type:PlaySoundBehavior
         sound:
           collection: MetalGlassBreak
@@ -229,8 +266,8 @@
     graph: WallmountSubstation
     node: substation
   - type: Explosive
-    explosionType: Default
-    maxIntensity: 50
+    explosionType: ESWelderBomb # Mono
+    maxIntensity: 10 # Mono
     intensitySlope: 2
     totalIntensity: 100
   - type: StationInfiniteBatteryTarget
@@ -239,6 +276,28 @@
     guides:
     - VoltageNetworks
     - Power
+  # ES/Mono Start
+  - type: ProjectileGrenade # funny
+    randomAngle: true
+    fillPrototype: PelletClusterIncendiary
+    capacity: 4
+  - type: Appearance
+  - type: ESSparkOnHit
+    prob: 0.25
+    tileFireChance: 0.5
+    count: 2
+  - type: Flammable
+    fireSpread: true
+    firestackFade: 0.1
+    alwaysCombustible: true
+    damage:
+      types:
+        Heat: 1
+        Structural: 2
+  - type: FireVisuals
+    sprite: Mobs/Effects/onfire.rsi
+    normalState: Generic_mob_burning
+  # ES/Mono End
 
   # Interface
   - type: BatteryInterface
@@ -294,6 +353,7 @@
       board: !type:Container
       capacitor: !type:Container
       powercell: !type:Container
+      cluster-payload: !type:Container # Mono
   # Mono
   - type: ShipRepairable
     repairTime: 5

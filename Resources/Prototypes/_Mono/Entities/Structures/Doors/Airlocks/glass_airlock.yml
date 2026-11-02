@@ -92,3 +92,23 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsMieyoLiason ]
+
+# Underground
+
+- type: entity
+  parent: AirlockSyndicateGlass
+  id: AirlockUndergroundGlass
+  suffix: Underground, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsUnderground ]
+
+- type: entity
+  parent: AirlockSyndicateGlass
+  id: AirlockGodfatherGlass
+  suffix: Godfather, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsGodfather ]

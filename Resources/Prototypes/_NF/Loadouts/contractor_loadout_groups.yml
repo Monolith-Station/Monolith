@@ -165,6 +165,34 @@
   - ContractorClothingUniformJumpsuitMilitarySalvageSpecialist
   - ContractorClothingUniformJumpsuitMilitaryCargo
   - ContractorClothingUniformJumpsuitMilitaryQM
+  - MonoSecJumpsuitMilitary # Mono start
+  - MonoSecJumpsuitMilitaryShort
+  - MonoSecJumpsuitMilitaryGuard
+  - MonoSecJumpskirtMilitary
+  - MonoSecJumpskirtMilitaryShort
+  - MonoSecJumpskirtMilitaryGuard
+  - ContractorClothingUniformDressExquisiteBlue
+  - ContractorClothingUniformDressFancyBlue
+  - ContractorClothingUniformDressFlowyBlue
+  - ContractorClothingUniformDressFormalBlue
+  - ContractorClothingUniformDressFrillyBlue
+  - ContractorClothingUniformDressProfessionalBlue
+  - ContractorClothingUniformDressSleekBlue
+  - ContractorClothingUniformDressStylishBlue
+  - ContractorClothingUniformDressSuaveBlue
+  - ContractorClothingUniformSuitExquisiteBlue
+  - ContractorClothingUniformSuitFancyBlue
+  - ContractorClothingUniformSuitFlowyBlue
+  - ContractorClothingUniformSuitFormalBlue
+  - ContractorClothingUniformSuitStylishBlue
+  - ContractorClothingUniformSuitSuaveBlue
+  - ContractorClothingUniformTurtleneckSkirtFancyBlue
+  - ContractorClothingUniformTurtleneckSkirtPlainBlue
+  - ContractorClothingUniformTurtleneckSkirtStylishBlue
+  - ContractorClothingUniformTurtleneckSkirtClassicalBlue
+  - ContractorClothingUniformTurtleneckSuitFancyBlue
+  - ContractorClothingUniformTurtleneckSuitStylishBlue
+  # - ContractorClothingUniformTurtleneckSuitClassicalBlue # Mono end
   - ContractorClothingUniformDrakeIndustriesHauler
   - ContractorClothingUniformJumpsuitMilitaryMedicalDoctor
   - ContractorClothingUniformJumpsuitMilitaryParamedic
@@ -218,13 +246,13 @@
   loadouts:
   ## Mono start
   - ContractorClothingModsuitAtmostechPowerCell
-  - ContractorClothingModsuitCaptainPowerCell
   - ContractorClothingModsuitEngineerPowerCell
   ## Mono end
   - ContractorClothingBackpack
   - ContractorClothingBackpackDuffel
   - ContractorClothingBackpackSatchel
   - ContractorClothingBackpackMessenger
+  - ContractorClothingBackpackSatchelLeather
   - ContractorClothingBackpackCaptain
   - ContractorClothingBackpackDuffelCaptain
   - ContractorClothingBackpackSatchelCaptain
@@ -303,11 +331,8 @@
   - ContractorClothingOuterHardsuitEVA
   - ContractorClothingOuterHardsuitBasic
   - ContractorClothingOuterHardsuitVoidParamed
-  - ContractorClothingOuterHardsuitUIEngineer
-  - ContractorClothingOuterHardsuitUIPilot
   ## Mono start
   - ContractorClothingOuterHardsuitAtmos
-  - ContractorClothingOuterHardsuitCap
   - ContractorClothingOuterHardsuitEngineering
   - ContractorClothingOuterHardsuitSalvage
   - ContractorClothingOuterHardsuitSpatio
@@ -337,7 +362,7 @@
   - ContractorClothingOuterWinterHydro
   - ContractorClothingOuterWinterBar
   - ContractorClothingOuterWinterChef
-  - ContractorClothingOuterWinterCap
+# - ContractorClothingOuterWinterCap # Mono: remove captain gear from contractor
   - ContractorClothingOuterWinterMusician
   - ContractorClothingOuterWinterCargo
   - ContractorClothingOuterWinterMiner
@@ -368,6 +393,10 @@
   - ContractorClothingOuterCoatTrench
   - ContractorClothingOuterDameDane
   - ContractorClothingOuterWinterCoatPlaid
+  - ContractorClothingOuterMilBomber # Mono start
+  - ContractorClothingOuterMilBomberCorpsman
+  - ContractorClothingOuterMilFormal
+  - ContractorClothingOuterMilLongcoat # Mono end
   - ContractorClothingOuterCoatBomber
   - ContractorClothingOuterCoatBomberPunkRed # Punkish (Static visuals)
   - ContractorClothingOuterCoatJacketLeather # Punkish (Static visuals)
@@ -477,6 +506,7 @@
   - ContractorClothingShoesBootsCowboyWhite
   - ContractorClothingShoesSnakeskinBoots
   - ContractorClothingShoesHighheelBoots
+  - ContractorClothingShoesHighheelShoes # Mono
   - ContractorClothingShoesBootsCowboyFancy
   - ContractorClothingShoesBootsWinterChiefEngineer
 #  - ContractorClothingShoesBootsWinterCMO # Temp removed for MOM. Will return if replaced.
@@ -536,8 +566,8 @@
   - ContractorClothingHeadHatSurgcapPurple
   - ContractorClothingHeadHatFedoraGrey
   - ContractorClothingHeadHatFedoraBrown
-  - ContractorClothingHeadHatCapcap
-  - ContractorClothingHeadHatCaptain
+# - ContractorClothingHeadHatCapcap # Mono: remove captain gear from contractor
+# - ContractorClothingHeadHatCaptain
   - ContractorClothingHeadTinfoil
   - ContractorClothingHeadHatBeretRND
   - ContractorClothingHeadHatBeretEngineering
@@ -629,7 +659,7 @@
   - ContractorClothingHandsGlovesBoxingBlue
   - ContractorClothingHandsGlovesBoxingRed
   - ContractorClothingHandsGlovesBoxingYellow
-  - ContractorClothingHandsGlovesCaptain
+# - ContractorClothingHandsGlovesCaptain
   - ContractorClothingHandsGlovesColorWhite
 
 - type: loadoutGroup
@@ -726,7 +756,7 @@
   - ContractorZookeeperPDA
   - ContractorEngineerPDA
   - ContractorAtmosPDA
-  - ContractorCaptainPDA
+# - ContractorCaptainPDA
   - ContractorQuartermasterPDA
   - ContractorSeniorResearcherPDA
   - ContractorRnDPDA
@@ -824,7 +854,7 @@
   - ContractorClothingMaskGas
   - ContractorClothingMaskPunkHalf # Punkish (Randomized visuals)
   - ContractorClothingMaskGasExplorer
-  - ContractorClothingMaskGasCaptain
+# - ContractorClothingMaskGasCaptain
   - ContractorClothingMaskGasAtmos
   - ContractorClothingMaskDrakeIndustries
   - ContractorClothingMaskPlague
@@ -937,6 +967,9 @@
   loadouts:
   - ContractorClothingWalletLeatherBrown
   - ContractorClothingWalletLeatherBlack
+  - ContractorClothingWalletLeatherRed
+  - ContractorClothingWalletLeatherBlue
+  - ContractorClothingWalletLeatherGreen
   fallbacks:
   - ContractorClothingWalletLeatherBrown
 

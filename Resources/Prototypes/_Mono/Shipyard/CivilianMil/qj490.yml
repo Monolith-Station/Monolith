@@ -3,9 +3,9 @@
 - type: vessel
   id: QJ490
   parent: BaseVessel
-  name: GS QJ-490/B
-  description: Comes with 4 AK-570s and a Dravon autocannon. Rather fast to accelerate but lacking in missile countermeasures. After it's decomissioning from the TSFMC fleet, GS purchased and retrofitted the design, the old energy weapons and logistically demanding bomb bay having been swapped out for more conventional arms.
-  price: 25200
+  name: GS QJ-490/C
+  description: Comes with 2 AK-570s, 2 Vanyks and an Equinox autocannon. Rather fast to accelerate but lacking in missile countermeasures. After it's decomissioning from the TSFMC fleet, GS purchased and retrofitted the design, the old energy weapons and logistically demanding bomb bay having been swapped out for more conventional arms.
+  price: 43000
   category: Small
   shuttlePath: /SharedMaps/_Mono/Shuttles/CivilianMil/qj490.yml
   guidebookPage: Null
@@ -18,7 +18,7 @@
 
 - type: gameMap
   id: QJ490
-  mapName: 'QJ-490/B'
+  mapName: 'QJ-490/C'
   mapPath: /SharedMaps/_Mono/Shuttles/CivilianMil/qj490.yml
   minPlayers: 0
   stations:
@@ -26,7 +26,7 @@
       stationProto: StandardFrontierVessel
       components:
       - type: StationNameSetup
-        mapNameTemplate: 'QJ-490/B MIL{1}'
+        mapNameTemplate: 'QJ-490/C MIL{1}'
         nameGenerator:
           !type:NanotrasenNameGenerator
           prefixCreator: '14'

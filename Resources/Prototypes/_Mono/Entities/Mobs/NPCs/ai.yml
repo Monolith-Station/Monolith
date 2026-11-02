@@ -276,6 +276,17 @@
   - type: StaticPrice
     price: 20000
 
+- type: entity
+  id: NpcDroneAiGust
+  name: attacker core
+  parent: [NpcStationAiAttacker, BaseFactionGearOtherFactionT2]
+  description: Shoots at you. Diminished dodging ability.
+  suffix: AI, Drone-Gust
+  components:
+  - type: HTN
+    rootTask:
+      task: DroneCompoundGust
+
 #region Spawners
 
 - type: entity
@@ -394,6 +405,16 @@
   - type: ConditionalSpawner
     prototypes:
     - NpcStationAiApproacher
+
+#the gust is so problematic it needed its own little special cage
+- type: entity
+  name: lobotomized static attacker core spawner
+  id: SpawnMobAttackerCoreStaticLobotomized
+  parent: SpawnMobAttackerCore
+  components:
+  - type: ConditionalSpawner
+    prototypes:
+    - NpcDroneAiGust
 
 #region Drone AI spawners
 

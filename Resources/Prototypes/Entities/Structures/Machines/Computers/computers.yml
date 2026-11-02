@@ -757,6 +757,28 @@
   - type: ShipRepairable
     repairTime: 4
     repairCost: 8
+  - type: BodyScannerConsole
+  - type: GeneticDatabaseClient
+  - type: DeviceList
+  - type: DeviceNetwork
+    deviceNetId: Wired
+  - type: DeviceLinkSource
+    range: 4
+    ports:
+      - MedicalScannerSender
+  - type: ActivatableUI
+    key: enum.BodyScannerConsoleUiKey.Key
+  - type: UserInterface
+    interfaces:
+        enum.BodyScannerConsoleUiKey.Key:
+          type: BodyScannerConsoleBoundUserInterface
+        enum.GeneticDatabaseSelectUiKey.Key: # Mono
+          type: GeneticDatabaseSelectBoundUserInterface
+        enum.WiresUiKey.Key:
+          type: WiresBoundUserInterface
+  - type: Speech
+    speechVerb: Robotic
+  # End Mono
 
 - type: entity
   parent: BaseComputerAiAccess
@@ -1157,17 +1179,21 @@
     radius: 1.5
     energy: 1.6
     color: "#1f8c28"
+  - type: GeneticCloningConsole # Mono
+  - type: GeneticDatabaseClient # Mono
   - type: DeviceLinkSource
     range: 4
     ports:
-      - MedicalScannerSender
+      # - MedicalScannerSender # Mono, body scanner now
       - CloningPodSender
   - type: ActivatableUI
-    key: enum.CloningConsoleUiKey.Key
+    key: enum.GeneticCloningConsoleUiKey.Key # Mono > key: enum.CloningConsoleUiKey.Key
   - type: UserInterface
     interfaces:
-        enum.CloningConsoleUiKey.Key:
-          type: CloningConsoleBoundUserInterface
+        enum.GeneticCloningConsoleUiKey.Key: # Mono > enum.CloningConsoleUiKey.Key
+          type: GeneticCloningConsoleBoundUserInterface # Mono > CloningConsoleBoundUserInterface
+        enum.GeneticDatabaseSelectUiKey.Key: # Mono
+          type: GeneticDatabaseSelectBoundUserInterface # Mono
         enum.WiresUiKey.Key:
           type: WiresBoundUserInterface
   - type: Speech

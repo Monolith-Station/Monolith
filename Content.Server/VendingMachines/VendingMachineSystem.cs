@@ -104,13 +104,14 @@ namespace Content.Server.VendingMachines
             //args.Price += price; Frontier - This is used to price the worth of a vending machine with the inventory it has.
         }
 
-        protected override void OnMapInit(EntityUid uid, VendingMachineComponent component, MapInitEvent args)
+        protected override void OnMapInit(EntityUid uid, VendingMachineComponent component, MapInitEvent args) // Mono
         {
             base.OnMapInit(uid, component, args);
 
             if (HasComp<ApcPowerReceiverComponent>(uid))
             {
-                TryUpdateVisualState(uid, component);
+                if (TryComp<VendingMachineComponent>(uid, out var vendingMachine)) // Mono
+                    TryUpdateVisualState(uid, vendingMachine); // Mono
             }
         }
 

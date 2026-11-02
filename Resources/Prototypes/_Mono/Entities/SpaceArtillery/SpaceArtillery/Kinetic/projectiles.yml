@@ -1077,7 +1077,7 @@
 - type: entity
   id: ShipRailgunProjectileAphe
   name: M381 CHARON 280mm 26.5kg APHE slug
-  parent: BaseBulletTrigger
+  parent: BaseBulletTriggerSpent
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile

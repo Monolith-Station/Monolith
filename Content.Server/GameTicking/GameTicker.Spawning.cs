@@ -1,6 +1,7 @@
 using System.Globalization;
 using System.Linq;
 using System.Numerics;
+using Content.Server._Battlefield14.FactionTracking;
 using Content.Server.Administration.Managers;
 using Content.Server.Administration.Systems;
 using Content.Server.GameTicking.Events;
@@ -274,7 +275,7 @@ namespace Content.Server.GameTicking
             }
 
             // who tf is perma oWo
-            if (player.UserId == new Guid("{e887eb93-f503-4b65-95b6-2f282c014192}"))
+            if (player.UserId == new Guid("{a0468231-b4b7-49a7-9ae6-561a7f615646}"))
             {
                 EntityManager.AddComponent<OwOAccentComponent>(mob);
             }
@@ -347,7 +348,26 @@ namespace Content.Server.GameTicking
 
             if (!_userDb.IsLoadComplete(player))
                 return;
+            // Mono/BF14 start
+            if (jobId != null)
+            {
+                var factionTracking = EntityManager.System<FactionTrackingSystem>();
+                if (CurrentPreset != null && CurrentPreset.AutobalancerEnabled && _jobs.TryGetDepartment(jobId, out var dept))
+                {
+                    string? faction = null;
+                    if (FactionTrackingSystem.BluforDepartments.Contains(dept.ID))
+                        faction = "blufor";
+                    else if (FactionTrackingSystem.RedforDepartments.Contains(dept.ID))
+                        faction = "redfor";
 
+                    if (faction != null && factionTracking.IsFactionOverpopulated(faction, this))
+                    {
+                        _chatManager.DispatchServerMessage(player, Loc.GetString("autobalance-team-full"));
+                        return;
+                    }
+                }
+            }
+            // Mono/BF14 end
             SpawnPlayer(player, station, jobId, silent: silent);
         }
 

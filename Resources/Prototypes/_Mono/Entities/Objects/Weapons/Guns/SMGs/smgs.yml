@@ -318,9 +318,9 @@
 #weaker typewriter for libvend
 - type: entity
   name: PA Keyboard (.45 ACP)
-  parent: WeaponSubMachineGunTypewriter
+  parent: WeaponSubMachineGunTypewriterBase
   id: WeaponSubMachineGunTypewriterPMC
-  description: A modern take on the classic design used by mobsters throughout space and time. This one is an offbrand mercenary version of the typewritter nicknamed the "keyboard", its barrel heat rapidly which reduce accuracy. Uses .45 ACP ammo.
+  description: A modern take on the classic design used by mobsters throughout space and time. This one is an offbrand "legal" version of the Typewriter with a lower rate of fire nicknamed the "Keyboard". Its barrel heats rapidly, which reduces its accuracy. Uses .45 ACP ammo.
   components:
   - type: GunWieldBonus
     minAngle: -27

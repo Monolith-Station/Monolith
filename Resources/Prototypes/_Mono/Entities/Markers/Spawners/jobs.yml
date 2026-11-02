@@ -272,3 +272,29 @@
     sprite: _NF/Markers/jobs.rsi
     layers:
     - state: green
+
+# Underground
+
+- type: entity
+  id: SpawnPointFugitive
+  parent: SpawnPointJobBase
+  name: Fugitive
+  components:
+  - type: SpawnPoint
+    job_id: Fugitive
+  - type: Sprite
+    sprite: _NF/Markers/jobs.rsi
+    layers:
+    - state: green
+
+- type: entity
+  id: SpawnPointGodfather
+  parent: SpawnPointJobBase
+  name: Godfather
+  components:
+  - type: SpawnPoint
+    job_id: Godfather
+  - type: Sprite
+    sprite: _NF/Markers/jobs.rsi
+    layers:
+    - state: green

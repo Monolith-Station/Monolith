@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "sprites provided by @_miket. not_enough_nitro edited from not_enough_oxy by kasature90.",
+    "copyright": "sprites provided by @_miket. not_enough_nitro & smoke_inhalation edited from not_enough_oxy by kasature90.",
     "size": { "x": 32, "y": 32 },
   "states": [
     {
@@ -42,6 +42,15 @@
     },
     {
       "name": "too_much_tox",
+      "delays": [
+        [
+          0.5,
+          0.5
+        ]
+      ]
+    },
+    {
+      "name": "smoke_inhalation",
       "delays": [
         [
           0.5,

@@ -521,6 +521,10 @@
   id: FoodMothCottonSoup
   description: A soup made from raw cotton in a flavourful vegetable broth. Enjoyed only by moths and the criminally tasteless.
   components:
+  - type: Tag # Mono
+    tags:
+    - Soup
+    - BountyCottonSoup
   - type: FlavorProfile
     flavors:
       - cotton
@@ -1104,6 +1108,11 @@
   id: FoodMothPizzaCotton
   description: A crime to some, a delicious pizza to others. Cotton and cheese.
   components:
+  - type: Tag # Mono
+    tags:
+    - Pizza
+    - ReptilianFood
+    - BountyCheeseCottonPizza
   - type: FlavorProfile
     flavors:
       - bread
@@ -1172,6 +1181,9 @@
   id: FoodMothMothmallow
   description: A light and fluffy vegan marshmallow flavoured with vanilla and rum. These are known to the moths as cloud squares.
   components:
+  - type: Tag # Mono
+    tags:
+    - BountyMothmallowTray
   - type: FlavorProfile
     flavors:
       - vanilla
@@ -1235,6 +1247,9 @@
   id: FoodMothMoffin
   description: A delicious, spongy and dusty little cake.
   components:
+  - type: Tag # Mono
+    tags:
+    - BountyMoffin
   - type: Sprite
     sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
     layers:

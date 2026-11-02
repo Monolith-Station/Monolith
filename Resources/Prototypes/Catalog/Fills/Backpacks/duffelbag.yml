@@ -18,7 +18,7 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateMedicalBundle
   id: ClothingBackpackDuffelSyndicateFilledMedical
-  name: syndicate surgical duffel bag
+  name: advanced surgical duffel bag
   description: A large duffel bag containing a full suite of surgical tools.
   components:
   - type: StorageFill
@@ -65,7 +65,7 @@
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateFilledAtreides
   name: Atreides bundle
-  description: "Sleek and deadly: A compact, one-handed Submachine Gun favored by the old Syndicate hands, bundled with three magazines." #, and a Suppressor.
+  description: "Sleek and deadly: A compact, one-handed Submachine Gun favored by insurgents, bundled with three magazines." # Mono: remove syndicate references
   components:
   - type: StorageFill
     contents:
@@ -161,8 +161,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicatePyjamaBundle
-  name: syndicate pyjama duffel bag
-  description: Contains 3 pairs of syndicate pyjamas and 4 plushies for the ultimate sleepover.
+  name: pyjama duffel bag  # Mono: remove syndicate references
+  description: Contains 3 pairs of pyjamas and 4 plushies for the ultimate sleepover.  # Mono: remove syndicate references
   components:
   - type: Storage
     grid:
@@ -187,7 +187,7 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateC4tBundle
-  name: syndicate C-4 bundle
+  name: C-4 bundle  # Mono: remove syndicate references
   description: "Contains a lot of C-4 charges."
   components:
     - type: StorageFill
@@ -217,8 +217,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateEVABundle
-  name: syndicate EVA bundle
-  description: "Contains the Syndicate approved EVA suit."
+  name: EVA bundle  # Mono: remove syndicate references
+  description: "Contains a red EVA suit."  # Mono: remove syndicate references
   components:
   - type: StorageFill
     contents:
@@ -232,8 +232,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateRaidBundle
-  name: syndicate raid suit bundle
-  description: "Contains the Syndicate's durable raid armor suit."
+  name: raid suit bundle  # Mono: remove syndicate references
+  description: "Contains a durable raid armor suit." # Mono: remove syndicate references
   components:
   - type: StorageFill
     contents:
@@ -245,8 +245,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateHardsuitBundle
-  name: syndicate hardsuit bundle
-  description: "Contains the Syndicate's signature blood red hardsuit."
+  name: bloody hardsuit bundle # Mono: remove syndicate references
+  description: "Contains a blood red hardsuit." # Mono: remove syndicate references
   components:
   - type: StorageFill
     contents:
@@ -259,8 +259,8 @@
 - type: entity # Mono
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateMedicHardsuitBundle
-  name: syndicate medic hardsuit bundle
-  description: "Contains the Syndicate's blood red medical hardsuit."
+  name: bloody medic hardsuit bundle # Mono: remove syndicate references
+  description: "Contains a blood red medical hardsuit." # Mono: remove syndicate references
   components:
   - type: StorageFill
     contents:
@@ -273,8 +273,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateEliteHardsuitBundle
-  name: syndicate elite hardsuit bundle
-  description: "Contains the Syndicate's elite hardsuit, which comes with some more stuff in it."
+  name: elite hardsuit bundle # Mono: remove syndicate references
+  description: "Contains an elite hardsuit, which comes with some more stuff in it." # Mono: remove syndicate references
   components:
   - type: StorageFill
     contents:
@@ -287,7 +287,7 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateHardsuitExtrasBundle
-  name: syndicate hardsuit extras bundle
+  name: hardsuit extras bundle # Mono: remove syndicate references
   description: "Contains stuff that you will absolutely want to have when purchasing a hardsuit."
   components:
   - type: StorageFill
@@ -300,8 +300,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelZombieBundle
-  name: syndicate zombie bundle
-  description: "An all-in-one kit for unleashing the undead upon a station."
+  name: romerol zombie bundle # Mono: remove syndicate references
+  description: "An antiquated bioterrorism kit." # Mono: remove syndicate references
   components:
   - type: StorageFill
     contents:

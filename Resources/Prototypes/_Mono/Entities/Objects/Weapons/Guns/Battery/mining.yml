@@ -44,16 +44,15 @@
     autoRechargePauseTime: 60
     autoRecharge: true
     autoRechargeRate: 200
-  - type: HitscanBatteryAmmoProvider
+  - type: ProjectileBatteryAmmoProvider
     proto: HMLLaser
     fireCost: 50
-  # Commented out since firemodes aren't existent yet for hitscans.
-  #- type: BatteryWeaponFireModes
-  #  fireModes:
-  #  - proto: HMLLaser
-  #    fireCost: 50
-  #  - proto: HMLLaserSalvage
-  #    fireCost: 200
+  - type: BatteryWeaponFireModes
+    fireModes:
+    - proto: HMLLaser
+      fireCost: 50
+    - proto: HMLLaserSalvage
+      fireCost: 200
   - type: HeldSpeedModifier
     walkModifier: 0.75
     sprintModifier: 0.75
@@ -67,6 +66,7 @@
 - type: entity
   parent: BasicHitscan
   id: HMLLaser
+  name: mining
   categories: [ HideSpawnMenu ]
   components:
   - type: HitscanBasicVisuals
@@ -88,11 +88,10 @@
     maxDistance: 8
   - type: HitscanGathering
 
-# For when hitscan firemodes are finished. I could've done it now, but naz said they're working on it already.
-
 - type: entity
   parent: BasicHitscan
   id: HMLLaserSalvage
+  name: salvage
   categories: [ HideSpawnMenu ]
   components:
   - type: HitscanBasicVisuals
@@ -111,4 +110,4 @@
         Heat: 15
         Structural: 150
   - type: HitscanBasicRaycast
-    maxDistance: 1
+    maxDistance: 3

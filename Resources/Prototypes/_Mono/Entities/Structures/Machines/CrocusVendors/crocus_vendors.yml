@@ -1,0 +1,357 @@
+- type: entity
+  parent: ColMarTechBase
+  id: ColMarTechEquipmentTSF
+  name: TSF automated infantry equipment rack
+  description: An automated rack hooked up to a colossal storage of standard-issue equipment.
+  suffix: Crocus
+  components:
+  - type: Sprite
+    sprite: _Crescent/Structures/armoryPF.rsi
+    layers:
+    - state: off
+    - state: normal-unshaded
+      shader: unshaded
+  - type: CMAutomatedVendor
+    pointsType: CrocusPoints
+    sections:
+    - name: Longarm
+      choices: { Longarm: 1 }
+      entries:
+      - id: WeaponRifleLecter
+        name: QBZ-410 Lecter (6.8x52mm caseless)
+        recommended: true
+        points: 1
+      - id: WeaponSubMachineGunDrozd
+        name: CS/LR-8 Drozd (.45 ACP)
+        recommended: true
+      - id: WeaponLMGGrizzly
+        name: QJY-68 Grizzly (6.8x52mm caseless)
+        points: 2
+      - id: WeaponShotgunKammerer
+        name: Kammerer (12 gauge)
+      - id: WeaponShotgunEnforcer
+        name: Enforcer (12 gauge)
+        points: 1
+    - name: Longarm Ammo
+      choices: { LongarmAmmo: 8 }
+      entries:
+      - id: Magazine68x52mmCaseless
+        name: 30-round magazine (6.8x52mm caseless)
+      - id: AmmoBox68x52mmCaseless
+        name: 80-round ammo box (6.8x52mm caseless)
+      - id: Magazine45_ACPSubMachineGunFMJ
+        name: 30-round magazine (.45 ACP)
+      - id: AmmoBox45_ACPFMJ
+        name: 80-round ammo box (.45 ACP)
+      - id: AmmoBox12_gaugeBuckshot
+        name: 32-round shell box (12 gauge buckshot)
+      - id: AmmoBox12_gaugeSlug
+        name: 32-round shell box (12 gauge slug)
+      - id: AmmoBox12_gaugeFlare
+        name: 32-round shell box (12 gauge flare)
+      - id: 40mmGrenadeFragmentation
+        name: 40mm fragmentation grenade
+        recommended: true
+      - id: 40mmGrenadeThermobaric
+        name: 40mm thermobaric grenade
+        recommended: true
+      - id: 40mmGrenadeBaton
+        name: 40mm baton grenade
+      - id: 40mmGrenadeFlash
+        name: 40mm flash grenade
+    - name: Sidearm
+      choices: { Sidearm: 1 }
+      entries:
+      - id: WeaponPistolMk58
+        name: Mk-58 (.45 ACP)
+      - id: WeaponRevolverInspector
+        name: Garter (.357 magnum)
+    - name: Sidearm Ammo
+      choices: { SidearmAmmo: 4 }
+      entries:
+      # NO AMMO BOX FOR THE SIDEARM!! It gets it from primary ammo anyways.
+      - id: Magazine45_ACPPistolFMJ
+        name: 17-round magazine (.45 ACP)
+      - id: SpeedLoader357_magnumFMJ
+        name: 6-round speedloader (.357 magnum)
+      - id: AmmoBox357_magnumFMJ
+        name: 32-round ammo box (.357 magnum)
+    - name: Attachments
+      choices: { Attachments: 1 }
+      entries:
+      - id: GunAttachmentSuppressorMulticalRifle
+        name: MULTI-CAL rifle suppressor
+        points: 1
+      - id: GunAttachmentSuppressorMulticalPistol
+        name: MULTI-CAL pistol suppressor
+      - id: GunAttachmentGripErebusLAM
+        name: Zenit-PRL LAM
+      - id: GunAttachmentGripPistolLAM
+        name: Soyuz-PRL LAM
+      - id: GunAttachmentGripErebusLight
+        name: LM-300 Light
+      - id: GunAttachmentQLG20
+        name: QLG-20 UBGL (Lecter only)
+        points: 1
+    - name: Utilities
+      choices: { Utilities: 3 }
+      entries:
+      - id: CMVendorBundleNightvision
+        name: NODs kit
+        points: 1
+        recommended: true
+      - id: ExGrenade
+        name: explosive grenade
+        recommended: true
+        points: 1
+      - id: GrenadeFlashBang
+        name: flashbang
+        recommended: true
+      - id: SmokeGrenade
+        name: smoke grenade
+        recommended: true
+      - id: BreachingCharge
+        name: breaching charge
+      - id: Floodlight
+        name: floodlight
+      - id: PinpointerSyndicateCrocusBeacon
+        name: radio-uplink beacon pinpointer
+      - id: RemoteSignallerAdvanced
+        name: remote signaller
+      - id: DefibrillatorCompact
+        name: compact defibrillator
+        points: 1
+      - id: HandheldHealthAnalyzer
+        name: handheld health analyzer
+      - id: CMVendorBundleSurgery
+        name: surgical kit
+        points: 1
+      - id: SecBreachingHammer
+        name: breaching hammer
+        points: 1
+      - id: WeaponShotgunHelepolis
+        name: UW12-B Helepolis breaching shotgun
+        points: 1
+      - id: WeaponLauncherMyoko
+        name: F/87 "Myoko" LAW
+        points: 2
+    - name: Eyewear
+      choices: { Eyewear: 1 }
+      entries:
+      - id: ClothingEyesHudMedSec
+        name: med-sec HUD
+        recommended: true
+        points: 1
+      - id: ClothingEyesHudSecurity
+        name: security HUD
+        recommended: true
+      - id: ClothingEyesHudMedical
+        name: medical HUD
+      - id: ClothingEyesHudDiagnostic
+        name: diagnostic HUD
+      - id: ClothingEyesBallisticGogglesRedCrocus
+        name: anti-flash goggles
+    - name: Medical Supplies
+      choices: { Meds: 4 }
+      entries:
+      - id: Tourniquet
+        name: tourniquet
+        recommended: true
+      - id: Gauze
+        name: gauze
+        recommended: true
+        points: 1
+      - id: Brutepack
+        name: bruise pack
+      - id: Bloodpack
+        name: blood pack
+      - id: Ointment
+        name: ointment
+    - name: Species Specific
+      choices: { SpeciesSpecific: 2 }
+      entries:
+      - id: ExtendedEmergencyNitrogenTankFilled
+        name: nitrogen air tank
+      - id: PowerCellMedium
+        name: power cell
+
+- type: entity
+  parent: ColMarTechBase
+  id: ColMarTechEquipmentPDV
+  name: PDV automated infantry equipment rack
+  description: An automated rack hooked up to a colossal storage of standard-issue equipment.
+  suffix: Crocus
+  components:
+  - type: Sprite
+    sprite: _Crescent/Structures/armoryPF.rsi
+    layers:
+    - state: off
+    - state: normal-unshaded
+      shader: unshaded
+  - type: CMAutomatedVendor
+    pointsType: CrocusPoints
+    sections:
+    - name: Longarm
+      choices: { Longarm: 1 }
+      entries:
+      - id: WeaponRifleVympel
+        name: M-32 Vympel (5.56x45mm)
+        recommended: true
+        points: 1
+      - id: WeaponSubMachineGunC20r
+        name: C-20r (9x19mm)
+        recommended: true
+      - id: WeaponSubMachineGunMla73
+        name: MlA-73 (6.35x40mm caseless)
+        points: 2
+      - id: WeaponLMGPKMS
+        name: PKMS (5.56x45mm)
+        points: 2
+      - id: WeaponShotgunKammerer
+        name: Kammerer (12 gauge)
+    - name: Longarm Ammo
+      choices: { LongarmAmmo: 8 }
+      entries:
+      - id: Magazine556x45mmFMJ
+        name: 30-round magazine (5.56x45mm)
+      - id: AmmoBox556x45mmFMJ
+        name: 80-round ammo box (5.56x45mm)
+      - id: Magazine9x19mmSubMachineGunFMJ
+        name: 30-round magazine (9x19mm)
+      - id: AmmoBox9x19mmFMJ
+        name: 80-round ammo box (9x19mm)
+      - id: Magazine635x40mmCaseless
+        name: 30-round magazine (6.35x40mm caseless)
+      - id: AmmoBox635x40mmCaseless
+        name: 80-round magazine (6.35x40mm caseless)
+      - id: AmmoBox12_gaugeBuckshot
+        name: 32-round shell box (12 gauge buckshot)
+      - id: AmmoBox12_gaugeSlug
+        name: 32-round shell box (12 gauge slug)
+      - id: AmmoBox12_gaugeFlare
+        name: 32-round shell box (12 gauge flare)
+      - id: 40mmGrenadeFragmentation
+        name: 40mm fragmentation grenade
+        recommended: true
+      - id: 40mmGrenadeThermobaric
+        name: 40mm thermobaric grenade
+        recommended: true
+      - id: 40mmGrenadeBaton
+        name: 40mm baton grenade
+      - id: 40mmGrenadeFlash
+        name: 40mm flash grenade
+    - name: Sidearm
+      choices: { Sidearm: 1 }
+      entries:
+      - id: WeaponPistolViper
+        name: PT-45A Viper (9x19mm)
+      - id: WeaponRevolverPython
+        name: Python (.357 magnum)
+    - name: Sidearm Ammo
+      choices: { SidearmAmmo: 4 }
+      entries:
+      # NO AMMO BOX FOR THE SIDEARM!! It gets it from primary ammo anyways.
+      - id: Magazine9x19mmPistolFMJ
+        name: 19-round magazine (9x19mm)
+      - id: SpeedLoader357_magnumFMJ
+        name: 6-round speedloader (.357 magnum)
+      - id: AmmoBox357_magnumFMJ
+        name: 32-round ammo box (.357 magnum)
+    - name: Attachments
+      choices: { Attachments: 1 }
+      entries:
+      - id: GunAttachmentSuppressorMulticalRifle
+        name: MULTI-CAL rifle suppressor
+        points: 1
+      - id: GunAttachmentSuppressorMulticalPistol
+        name: MULTI-CAL pistol suppressor
+      - id: GunAttachmentGripErebusLAM
+        name: Zenit-PRL LAM
+      - id: GunAttachmentGripPistolLAM
+        name: Soyuz-PRL LAM
+      - id: GunAttachmentGripErebusLight
+        name: LM-300 Light
+      - id: GunAttachmentRKR40
+        name: RKR/40 UBGL (Vympel only)
+        points: 1
+    - name: Utilities
+      choices: { Utilities: 3 }
+      entries:
+      - id: CMVendorBundleNightvision
+        name: NODs kit
+        points: 1
+        recommended: true
+      - id: ExGrenade
+        name: explosive grenade
+        recommended: true
+        points: 1
+      - id: GrenadeFlashBang
+        name: flashbang
+        recommended: true
+      - id: SmokeGrenade
+        name: smoke grenade
+        recommended: true
+      - id: BreachingCharge
+        name: breaching charge
+      - id: Floodlight
+        name: floodlight
+      - id: PinpointerSyndicateCrocusBeacon
+        name: radio-uplink beacon pinpointer
+      - id: RemoteSignallerAdvanced
+        name: remote signaller
+      - id: DefibrillatorCompact
+        name: compact defibrillator
+        points: 1
+      - id: HandheldHealthAnalyzer
+        name: handheld health analyzer
+      - id: CMVendorBundleSurgery
+        name: surgical kit
+        points: 1
+      - id: SecBreachingHammer
+        name: breaching hammer
+        points: 1
+      - id: WeaponShotgunHelepolis
+        name: UW12-B Helepolis breaching shotgun
+        points: 1
+      - id: WeaponLauncherMyoko
+        name: F/87 "Myoko" LAW
+        points: 2
+    - name: Eyewear
+      choices: { Eyewear: 1 }
+      entries:
+      - id: ClothingEyesHudMedSec
+        name: med-sec HUD
+        recommended: true
+        points: 1
+      - id: ClothingEyesHudSecurity
+        name: security HUD
+        recommended: true
+      - id: ClothingEyesHudMedical
+        name: medical HUD
+      - id: ClothingEyesHudDiagnostic
+        name: diagnostic HUD
+      - id: ClothingEyesBallisticGogglesRedCrocus
+        name: anti-flash goggles
+    - name: Medical Supplies
+      choices: { Meds: 4 }
+      entries:
+      - id: Tourniquet
+        name: tourniquet
+        recommended: true
+      - id: Gauze
+        name: gauze
+        recommended: true
+        points: 1
+      - id: Brutepack
+        name: bruise pack
+      - id: Bloodpack
+        name: blood pack
+      - id: Ointment
+        name: ointment
+    - name: Species Specific
+      choices: { SpeciesSpecific: 2 }
+      entries:
+      - id: ExtendedEmergencyNitrogenTankFilled
+        name: nitrogen air tank
+      - id: PowerCellMedium
+        name: power cell

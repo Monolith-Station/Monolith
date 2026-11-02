@@ -76,13 +76,13 @@
 - type: entity
   id: SuitStorageEVAPirate
   parent: SuitStorageBase
-  suffix: PDV SCAF # Mono
+  suffix: PDV CV-32 # Mono
   components:
   - type: StorageFill
     contents:
         - id: OxygenTankFilled
         - id: NitrogenTankFilled
-        - id: ClothingOuterHardsuitPirateScaf # Mono
+        - id: ClothingOuterHardsuitAshen # Mono
 #        - id: ClothingMaskGas # Mono
         - id: JetpackBlackFilled # Frontier
         - id: ClothingShoesBootsMagAshen # Mono

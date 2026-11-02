@@ -82,6 +82,7 @@
       collection: MetalThud
   - type: AltFireMelee
     attackType: Light
+  - type: CanShootWithShield # Mono: only sidearms can be used with shields
   # Mono end
 
 - type: entity

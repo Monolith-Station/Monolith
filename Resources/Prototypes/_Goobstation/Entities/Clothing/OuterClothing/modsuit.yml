@@ -3,7 +3,7 @@
 
 - type: entity
   abstract: true
-  parent: [ ClothingOuterBase, AllowSuitStorageClothing, GeigerCounterClothing, ClothingArmorPlate ] # Mono - add geiger, armor plates
+  parent: [ ClothingOuterBase, AllowSuitStorageClothing, GeigerCounterClothing ] # Mono - add geiger
   id: ClothingModsuitChestplateBase
   name: modsuit chestplate
   description: A special modular suit spaceproof cover designed for compact folding inside modular suit control.

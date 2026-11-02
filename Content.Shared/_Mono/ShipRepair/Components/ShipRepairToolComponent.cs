@@ -33,6 +33,9 @@ public sealed partial class ShipRepairToolComponent : Component
     [DataField, AutoNetworkedField]
     public float TileRepairTime = 0.5f;
 
+    [DataField, AutoNetworkedField]
+    public float MultiRepairPower = 0.8f;
+
     /// <summary>
     /// Charges to take from <see cref="LimitedChargesComponent"> when repairing tiles.
     /// </summary>

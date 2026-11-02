@@ -32,6 +32,14 @@
     - type: NpcFactionMember
       factions:
       - TSFMC
+    # It doesn't need to be a implant, because it's not meant to be removed.
+    - type: MindShield
+      mindShieldStatusIcon: MindShieldIcon
+    - type: CMVendorUser
+      id: TsfInfantry
+      points: 4
+      extraPoints:
+        CrocusPoints: 2
   - !type:AddLanguageSpecial
     languagesSpoken:
     - SolCommon
@@ -43,9 +51,6 @@
   id: TSFInfantryGear
   equipment:
     neck: ClothingNeckIFFCyan
-    eyes: ClothingEyesHudNfsd
   storage:
     belt:
     - RadioHandheldNF
-  inhand:
-  - UndeterminedTSFCrocusKit

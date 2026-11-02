@@ -363,7 +363,7 @@
   - MobStepTriggerImmune
   - BaseMobSpecies
   - MobHumanoidHostileAIComplex
-  - BaseC3MobHuman
+# - BaseC3MobHuman # Mono: I don't think we need to have a big magenta sign TELLING ME that i'll probably get into deep shit if I keep a chimera alive. also what the fuck even is "class 3 contraband"
   id: MobHumanoidHostileBase
   components:
   - type: NPCRetaliation
@@ -419,7 +419,7 @@
   - MobEnhancedMovement
   - MobPrying
   - MobHumanoidHostileAIComplex
-  - BaseC3MobCreature
+# - BaseC3MobCreature  # Mono: I don't think we need to have a big magenta sign TELLING ME that i'll probably get into deep shit if I keep a chimera alive. also what the fuck even is "class 3 contraband"
   id: MobNonHumanHostileBase
   components:
   - type: NPCRetaliation
@@ -486,7 +486,7 @@
   - MobEnhancedMovement
   - MobPrying
   - MobHumanoidHostileAISimpleMelee
-  - BaseC3MobCreature
+# - BaseC3MobCreature  # Mono: I don't think we need to have a big magenta sign TELLING ME that i'll probably get into deep shit if I keep a chimera alive. also what the fuck even is "class 3 contraband"
   id: NFMobFactionlessBase
   components:
   - type: NPCRetaliation

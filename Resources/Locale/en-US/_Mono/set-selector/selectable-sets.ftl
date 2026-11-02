@@ -103,7 +103,7 @@ selectable-set-crocus-infantry-tsf-kit-desc =
 
 selectable-set-crocus-infantry-pdv-kit-desc =
     Contains:
-      - M-90
+      - M-32 Vympel
       - NVGs
       - 4 mags
       - 1 box of ammo
@@ -124,6 +124,8 @@ selectable-set-crocus-medic-tsf-kit-desc =
       - a medical scanner
       - a set of surgical tools
       - a sterile mask
+      - a medical HUD
+      - a portable AED
 
 selectable-set-crocus-medic-pdv-kit-desc =
     Contains:
@@ -134,7 +136,8 @@ selectable-set-crocus-medic-pdv-kit-desc =
       - a medical scanner
       - a set of surgical tools
       - a sterile mask
-
+      - a medical HUD
+      - a portable AED
 
 selectable-set-crocus-sapper-kit-name = Sapper Kit
 

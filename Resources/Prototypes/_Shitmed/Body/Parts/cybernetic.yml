@@ -15,7 +15,7 @@
 
 - type: entity
   abstract: true
-  parent: [ CyberneticPartBase, BaseLeftArm ]
+  parent: [ CyberneticPartBase, BaseEdibleCyberneticLimb, BaseLeftArm ]
   id: LeftArmCyberneticBase
   components:
   - type: Sprite
@@ -29,7 +29,7 @@
 
 - type: entity
   abstract: true
-  parent: [ CyberneticPartBase, BaseRightArm ]
+  parent: [ CyberneticPartBase, BaseEdibleCyberneticLimb, BaseRightArm ]
   id: RightArmCyberneticBase
   components:
   - type: Sprite
@@ -43,7 +43,7 @@
 
 - type: entity
   abstract: true
-  parent: [ CyberneticPartBase, BaseLeftLeg ]
+  parent: [ CyberneticPartBase, BaseEdibleCyberneticLimb, BaseLeftLeg ]
   id: LeftLegCyberneticBase
   components:
   - type: Sprite
@@ -57,7 +57,7 @@
 
 - type: entity
   abstract: true
-  parent: [ CyberneticPartBase, BaseRightLeg ]
+  parent: [ CyberneticPartBase, BaseEdibleCyberneticLimb, BaseRightLeg ]
   id: RightLegCyberneticBase
   components:
   - type: Sprite
@@ -70,7 +70,7 @@
     id: RightFootCybernetic
 
 - type: entity
-  parent: [ CyberneticPartBase, BaseLeftHand ]
+  parent: [ CyberneticPartBase, BaseEdibleCyberneticLimb, BaseLeftHand ]
   id: LeftHandCybernetic
   name: cybernetic left hand
   components:
@@ -78,7 +78,7 @@
     baseLayerId: MobCyberneticBishopLHand
 
 - type: entity
-  parent: [ CyberneticPartBase, BaseRightHand ]
+  parent: [ CyberneticPartBase, BaseEdibleCyberneticLimb, BaseRightHand ]
   id: RightHandCybernetic
   name: cybernetic right hand
   components:
@@ -86,7 +86,7 @@
     baseLayerId: MobCyberneticBishopRHand
 
 - type: entity
-  parent: [ CyberneticPartBase, BaseLeftFoot ]
+  parent: [ CyberneticPartBase, BaseEdibleCyberneticLimb, BaseLeftFoot ]
   id: LeftFootCybernetic
   name: cybernetic left foot
   components:
@@ -94,7 +94,7 @@
     baseLayerId: MobCyberneticBishopLFoot
 
 - type: entity
-  parent: [ CyberneticPartBase, BaseRightFoot ]
+  parent: [ CyberneticPartBase, BaseEdibleCyberneticLimb, BaseRightFoot ]
   id: RightFootCybernetic
   name: cybernetic right foot
   components:
@@ -174,3 +174,29 @@
   components:
   - type: DoAfterDelayMultiplier
     multiplier: 0.8
+
+- type: entity
+  id: BaseEdibleCyberneticLimb
+  abstract: true
+  components:
+  - type: Food
+  - type: Extractable
+    grindableSolutionName: limb
+  - type: SolutionContainerManager
+    solutions:
+      limb:
+        maxVol: 10
+        reagents:
+        - ReagentId: Iron
+          Quantity: 10
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+  - type: FlavorProfile
+    flavors:
+      - metallic
+  - type: Tag
+    tags:
+    - Meat

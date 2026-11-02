@@ -4,43 +4,45 @@ using Content.Server.Interaction;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
-using Content.Server.Radio.Components;
 using Content.Server.Speech;
 using Content.Server.Speech.Components;
+using Content.Server._EinsteinEngines.Language;
+using Content.Shared.Access.Systems; // Frontier
+using Content.Shared.Chat;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
-using Content.Server._EinsteinEngines.Language;
 using Content.Shared.Power;
+using Content.Shared.Power.EntitySystems;
 using Content.Shared.Radio;
-using Content.Shared.Chat;
 using Content.Shared.Radio.Components;
+using Content.Shared.Radio.EntitySystems; // Нужно для SharedRadioDeviceSystem
 using Content.Shared.UserInterface; // Nuclear-14
+using Content.Shared.Verbs; // Frontier
 using Content.Shared._NC.Radio; // Nuclear-14
 using Robust.Server.GameObjects; // Nuclear-14
 using Robust.Shared.Prototypes;
-using Content.Shared.Access.Systems; // Frontier
-using Content.Shared.Verbs; //Frontier
-using Robust.Shared.Utility; //Frontier
+using Robust.Shared.Utility; // Frontier
 
 namespace Content.Server.Radio.EntitySystems;
 
 /// <summary>
 ///     This system handles radio speakers and microphones (which together form a hand-held radio).
 /// </summary>
-public sealed partial class RadioDeviceSystem : EntitySystem
+public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
 {
-    [Dependency] private IPrototypeManager _protoMan = default!;
-    [Dependency] private PopupSystem _popup = default!;
-    [Dependency] private ChatSystem _chat = default!;
-    [Dependency] private RadioSystem _radio = default!;
-    [Dependency] private InteractionSystem _interaction = default!;
-    [Dependency] private SharedAppearanceSystem _appearance = default!;
-    [Dependency] private UserInterfaceSystem _ui = default!;
-    [Dependency] private AccessReaderSystem _access = default!; // Frontier: access
-    [Dependency] private LanguageSystem _language = default!;
+    [Dependency] private readonly IPrototypeManager _protoMan = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly RadioSystem _radio = default!;
+    [Dependency] private readonly InteractionSystem _interaction = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private readonly AccessReaderSystem _access = default!; // Frontier: access
+    [Dependency] private readonly LanguageSystem _language = default!;
+    [Dependency] private readonly SharedPowerReceiverSystem _power = default!; // Goob
 
     // Used to prevent a shitter from using a bunch of radios to spam chat.
-    private HashSet<(string, EntityUid, RadioChannelPrototype)> _recentlySent = new();
+    private readonly HashSet<(string, EntityUid, RadioChannelPrototype)> _recentlySent = new();
 
     // Frontier: minimum, maximum radio frequencies
     private const int MinRadioFrequency = 1000;
@@ -81,7 +83,6 @@ public sealed partial class RadioDeviceSystem : EntitySystem
         base.Update(frameTime);
         _recentlySent.Clear();
     }
-
 
     #region Component Init
     private void OnMicrophoneInit(EntityUid uid, RadioMicrophoneComponent component, ComponentInit args)
@@ -141,7 +142,7 @@ public sealed partial class RadioDeviceSystem : EntitySystem
         SetMicrophoneEnabled(uid, null, false, true, component);
     }
 
-    public void SetMicrophoneEnabled(EntityUid uid, EntityUid? user, bool enabled, bool quiet = false, RadioMicrophoneComponent? component = null)
+    public override void SetMicrophoneEnabled(EntityUid uid, EntityUid? user, bool enabled, bool quiet = false, RadioMicrophoneComponent? component = null)
     {
         if (!Resolve(uid, ref component, false))
             return;
@@ -204,7 +205,7 @@ public sealed partial class RadioDeviceSystem : EntitySystem
 
         using (args.PushGroup(nameof(RadioMicrophoneComponent)))
         {
-            args.PushMarkup(Loc.GetString("handheld-radio-component-on-examine", ("frequency", /*Nuclear-14-start*/ component.Frequency /*Nuclear-14-end*/)));
+            args.PushMarkup(Loc.GetString("handheld-radio-component-on-examine", ("frequency", component.Frequency)));
             args.PushMarkup(Loc.GetString("handheld-radio-component-chennel-examine",
                 ("channel", proto.LocalizedName)));
         }
@@ -217,7 +218,7 @@ public sealed partial class RadioDeviceSystem : EntitySystem
 
         var channel = _protoMan.Index<RadioChannelPrototype>(component.BroadcastChannel)!;
         if (_recentlySent.Add((args.Message, args.Source, channel)))
-            _radio.SendRadioMessage(args.Source, args.Message, channel, uid, /*Nuclear-14-start*/ frequency: component.Frequency /*Nuclear-14-end*/);
+            _radio.SendRadioMessage(args.Source, args.Message, channel, uid, frequency: component.Frequency);
     }
 
     private void OnAttemptListen(EntityUid uid, RadioMicrophoneComponent component, ListenAttemptEvent args)
@@ -231,7 +232,7 @@ public sealed partial class RadioDeviceSystem : EntitySystem
 
     private void OnReceiveRadio(EntityUid uid, RadioSpeakerComponent component, ref RadioReceiveEvent args)
     {
-        if (uid == args.RadioSource)
+        if (uid == args.RadioSource || component.PowerRequired && !_power.IsPowered(uid)) // Goobstation, powered required
             return;
 
         var nameEv = new TransformSpeakerNameEvent(args.MessageSource, Name(args.MessageSource));
@@ -241,10 +242,14 @@ public sealed partial class RadioDeviceSystem : EntitySystem
             ("speaker", Name(uid)),
             ("originalName", nameEv.VoiceName));
 
-        // log to chat so people can identity the speaker/source, but avoid clogging ghost chat if there are many radios
-        var message = args.OriginalChatMsg.Message; // The chat system will handle the rest and re-obfuscate if needed.
-        _chat.TrySendInGameICMessage(uid, message, component.OutputChatType, ChatTransmitRange.GhostRangeLimitNoAdminCheck,
-            nameOverride: name, checkRadioPrefix: false, languageOverride: args.Language); // Einstein Engines - Languages  / Frontier: GhostRangeLimit<GhostRangeLimitNoAdminCheck, InGameICChatType.Whisper<component.OutputChatType
+        var message = args.OriginalChatMsg.Message;
+        _chat.TrySendInGameICMessage(uid,
+            message,
+            component.SpeakNormally ? InGameICChatType.Speak : InGameICChatType.Whisper, // Goobstation - radio host
+            ChatTransmitRange.GhostRangeLimit,
+            nameOverride: name,
+            checkRadioPrefix: component.SpeakNormally,
+            languageOverride: args.Language); // Einstein Engines - Languages
     }
 
     private void OnIntercomEncryptionChannelsChanged(Entity<IntercomComponent> ent, ref EncryptionChannelsChangedEvent args)
@@ -311,12 +316,12 @@ public sealed partial class RadioDeviceSystem : EntitySystem
 
         if (TryComp<RadioMicrophoneComponent>(ent, out var mic))
         {
-            mic.BroadcastChannel = channel;
-            if(_protoMan.TryIndex<RadioChannelPrototype>(channel, out var channelProto)) // Frontier
+            mic.BroadcastChannel = channel.Value;
+            if (_protoMan.TryIndex<RadioChannelPrototype>(channel.Value, out var channelProto)) // Frontier
                 mic.Frequency = _radio.GetFrequency(ent, channelProto); // Frontier
         }
         if (TryComp<RadioSpeakerComponent>(ent, out var speaker))
-            speaker.Channels = new() { channel };
+            speaker.Channels = new() { channel.Value };
         Dirty(ent);
     }
 
@@ -367,7 +372,7 @@ public sealed partial class RadioDeviceSystem : EntitySystem
         var speakerEnabled = speakerComp?.Enabled ?? false;
         var state = new HandheldRadioBoundUIState(micEnabled, speakerEnabled, frequency);
         if (TryComp<UserInterfaceComponent>(radio, out var uiComp))
-            _ui.SetUiState((radio.Owner, uiComp), HandheldRadioUiKey.Key, state); // Frontier: TrySetUiState<SetUiState
+            _ui.SetUiState((radio.Owner, uiComp), HandheldRadioUiKey.Key, state); // Frontier
     }
 
     #endregion
@@ -410,14 +415,13 @@ public sealed partial class RadioDeviceSystem : EntitySystem
     }
     // Frontier End
 
-
     // Frontier: init intercom with map
     private void OnMapInit(EntityUid uid, IntercomComponent ent, MapInitEvent args)
     {
         // Set initial frequency (must be done regardless of power/enabled)
         if (ent.CurrentChannel != null &&
-                _protoMan.TryIndex(ent.CurrentChannel, out var channel) &&
-                TryComp(uid, out RadioMicrophoneComponent? mic))
+            _protoMan.TryIndex(ent.CurrentChannel.Value, out var channel) &&
+            TryComp(uid, out RadioMicrophoneComponent? mic))
         {
             mic.Frequency = channel.Frequency;
         }

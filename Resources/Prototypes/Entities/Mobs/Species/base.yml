@@ -274,7 +274,10 @@
         Cold: 0.1 #per second, scales with temperature & other constants
     heatDamage:
       types:
-        Heat: 1.5 #per second, scales with temperature & other constants
+        # ES START
+        # less heat damage holy shit this game loves fuckin you up in 5 different ways
+        Heat: 0.3 #per second, scales with temperature & other constants
+        # ES END
   - type: TemperatureSpeed
     thresholds:
       293: 0.8

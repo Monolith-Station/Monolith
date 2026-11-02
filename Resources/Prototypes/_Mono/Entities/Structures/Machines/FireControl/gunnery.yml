@@ -43,6 +43,21 @@
     id: GunneryServer
   - type: StaticPrice
     price: 200
+  - type: ESSparkOnHit
+    prob: 0.25
+    tileFireChance: 0.2
+    count: 2
+  - type: Flammable
+    fireSpread: true
+    firestackFade: -0.1
+    alwaysCombustible: true
+    damage:
+      types:
+        Heat: 1
+        Structural: 2
+  - type: FireVisuals
+    sprite: Mobs/Effects/onfire.rsi
+    normalState: Generic_mob_burning
 
 - type: entity
   id: GunneryServerLow

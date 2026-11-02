@@ -207,6 +207,10 @@
   id: FoodSnackPopcorn
   description: Grown on an unknown planet, by an unknown farmer, popped by some jerk on a space station.
   components:
+  - type: Tag # Mono
+    tags:
+    - FoodSnack
+    - BountyPopcorn
   - type: FlavorProfile
     flavors:
       - corn

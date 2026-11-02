@@ -8,6 +8,7 @@
   - ContractorClothingBackpackSatchel
   - ContractorClothingBackpackMessenger
   - ContractorClothingBackpackMessengerContractor
+  - ContractorClothingBackpackSatchelLeather
   - MonoSecurityGuardBackpack
   - MonoSecurityGuardSatchel
   - MonoSecurityGuardDuffel
@@ -21,6 +22,8 @@
   loadouts:
   - MMCOfficeSuit
   - MMCOfficeSuitBlack
+  - MMCOfficeSkirt
+  - MMCOfficeSkirtBlack
   - MMCWorkSuit
   fallbacks:
   - MMCOfficeSuit
@@ -40,6 +43,9 @@
   - MercenaryVestSlim
   - MercenaryVestNormal
   - MercenaryClothingOuterArmorBPVestLight
+  - ContractorClothingOuterMilBomber
+  - ContractorClothingOuterMilBomberCorpsman
+  - ContractorClothingOuterMilLongcoat
   - MMCClothingOuterHardsuitMieyoMining
 
 - type: loadoutGroup
@@ -50,6 +56,7 @@
   - ContractorClothingShoesBootsLaceup
   - ContractorClothingShoesColorBlack
   - ContractorClothingShoesBootsSalvage
+  - ContractorClothingShoesHighheelShoes # for the larp
   fallbacks:
   - ContractorClothingShoesBootsLaceup
 
@@ -84,6 +91,9 @@
   - MercenaryVestSlim
   - MercenaryVestNormal
   - MercenaryClothingOuterArmorBPVestLight
+  - ContractorClothingOuterMilBomber
+  - ContractorClothingOuterMilBomberCorpsman
+  - ContractorClothingOuterMilLongcoat
   - MMCClothingOuterHardsuitMieyoMining
   - MMCClothingOuterHardsuitMieyoCombat
   fallbacks:

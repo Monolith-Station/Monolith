@@ -1,0 +1,55 @@
+- type: entity
+  parent: BaseNFFlatpack
+  id: StationRadioServerFlatpack
+  name: station radio server flatpack
+  description: Packaging containing a station radio server.
+  components:
+  - type: Flatpack
+    entity: StationRadioServer
+  - type: StaticPrice
+    price: 1600
+  - type: Sprite
+    layers:
+    - state: command_airlock
+
+- type: entity
+  parent: BaseNFFlatpack
+  id: StationRadioRigFlatpack
+  name: station radio rig flatpack
+  description: Packaging containing a station radio rig.
+  components:
+  - type: Flatpack
+    entity: StationRadioRig
+  - type: StaticPrice
+    price: 2400
+  - type: Sprite
+    layers:
+    - state: command_airlock
+
+- type: entity
+  parent: BaseNFFlatpack
+  id: VinylPlayerFlatpack
+  name: vinyl player flatpack
+  description: Packaging containing a vinyl player.
+  components:
+  - type: Flatpack
+    entity: VinylPlayer
+  - type: StaticPrice
+    price: 200
+  - type: Sprite
+    layers:
+    - state: command_airlock
+
+- type: entity
+  parent: BaseNFFlatpack
+  id: StationRadioReceiverFlatpack
+  name: station radio flatpack
+  description: Packaging containing a station radio.
+  components:
+  - type: Flatpack
+    entity: StationRadioReceiver
+  - type: StaticPrice
+    price: 40
+  - type: Sprite
+    layers:
+    - state: command_airlock

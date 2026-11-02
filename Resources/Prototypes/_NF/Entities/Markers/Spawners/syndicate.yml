@@ -17,21 +17,21 @@
         - CrateTradeContrabandSecure2
         - CrateTradeContrabandSecure1
         - CrateTradeContrabandSecure1
-        - LandMineExplosive
+      # - LandMineExplosive # Mono: why would PDV put landmines on supply drops they WANT people to take the gear out of to smuggle?
         - Telecrystal5 # Mono
         - Telecrystal5 # Mono
         - Telecrystal5 # Mono
-        - MonolithicCrystalSmall
-        - MonolithicCrystalSmall
-        - MonolithicCrystalSmall
+      # - MonolithicCrystalSmall # Mono: small monolithic crystals are worth the exact same as PDV crates to TSF/PDV but are worthless to vagrants. kind of just slop to have in the pool?
+      # - MonolithicCrystalSmall
+      # - MonolithicCrystalSmall
       rarePrototypes:
         - Telecrystal25 # Mono
         - Telecrystal25 # Mono
         - Telecrystal25 # Mono
+        - MonolithicCrystalMedium # Mono: keeping medium crystals due to their increased worth to TSF/PDV
         - MonolithicCrystalMedium
-        - MonolithicCrystalMedium
-        - SpawnMobWeaponTurretLaserSyndicateNF # Mono
-        - SpawnMobWeaponTurretSyndicate # Mono
+      # - SpawnMobWeaponTurretLaserSyndicateNF # Mono: why would PDV put turrets on supply drops they WANT people to take the gear out of to smuggle?
+      # - SpawnMobWeaponTurretSyndicate # Mono: why would PDV put turrets on supply drops they WANT people to take the gear out of to smuggle?
         - CrateSyndicateSurplusBundle # Mono
         - CrateNanotrasenLootFilledT1 # Mono
       rareChance: 0.1 # Mono
@@ -83,7 +83,7 @@
         - ClothingBackpackDuffelSyndicateEVABundle
         - ClothingBackpackSyndicate
         - ClothingMaskGasSyndicate
-        - SyndieHandyFlag
+        - SyndieHandyFlag # glory to the sultan
         - SyndicatePersonalAI
         - ClothingBeltSyndieHolster
         - ClothingEyesHudSyndicate
@@ -92,15 +92,15 @@
         - EncryptionKeySyndie
         - ClothingShoesBootsMagSyndie
         - ClothingHeadsetAltSyndicate
-        - ToyFigurineNukieElite
-        - ToyNuke
-        - PlushieNuke
+    #   - ToyFigurineNukieElite # Mono: these are blatantly nukie references.
+    #   - ToyNuke
+    #   - PlushieNuke
         - Telecrystal25 # Mono
         - Telecrystal25 # Mono
       rarePrototypes:
         - ClothingBackpackDuffelSyndicateHardsuitBundle
         - ClothingBackpackDuffelSyndicateMedicHardsuitBundle
-        - PinpointerSyndicatePOI
-        - PinpointerSyndicatePOI
+        - PinpointerSyndicatePOI # make rarer
+    #   - PinpointerSyndicatePOI
       rareChance: 0.2 # Mono
       offset: 0

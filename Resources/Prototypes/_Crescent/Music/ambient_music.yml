@@ -181,6 +181,7 @@
 - type: soundCollection
   id: BiomeMiddleRing
   files:
+   - /Audio/_Crescent/Ambient/MiddleRing/monolith_01.ogg
    - /Audio/_Crescent/Ambient/MiddleRing/middle_ring_1.ogg
    - /Audio/_Crescent/Ambient/MiddleRing/middle_ring_2.ogg
    - /Audio/_Crescent/Ambient/MiddleRing/middle_ring_3.ogg
@@ -205,7 +206,27 @@
    - /Audio/_Crescent/Ambient/InnerRing/inner_ring_5.ogg
    - /Audio/_Crescent/Ambient/InnerRing/inner_ring_6.ogg
 
-# clusters
+# crocus
+
+- type: ambientMusic
+  id: CrocusBiomeUnderground
+  sound:
+    collection: CrocusBiomeUnderground
+
+- type: soundCollection
+  id: CrocusBiomeUnderground
+  files:
+  - /Audio/_Crescent/Ambient/Wilds/wilds_1.ogg
+  - /Audio/_Crescent/Ambient/Wilds/wilds_2.ogg
+  - /Audio/_Crescent/Ambient/Wilds/wilds_3.ogg
+  - /Audio/_Crescent/Ambient/Wilds/wilds_4.ogg
+  - /Audio/_Crescent/Ambient/Wilds/wilds_5.ogg
+  - /Audio/_Crescent/Ambient/Wilds/wilds_6.ogg
+  - /Audio/_Crescent/Ambient/Wilds/wilds_7.ogg
+  - /Audio/_Crescent/Ambient/Wilds/wilds_8.ogg
+  - /Audio/_Crescent/Ambient/Wilds/wilds_9.ogg
+  - /Audio/_Crescent/Ambient/Wilds/wilds_10.ogg
+
 - type: ambientMusic
   id: CrocusBiomeJianghuiIndustrial
   sound:
@@ -281,6 +302,8 @@
   - /Audio/_Crescent/Ambient/Wilds/wilds_8.ogg
   - /Audio/_Crescent/Ambient/Wilds/wilds_9.ogg
   - /Audio/_Crescent/Ambient/Wilds/wilds_10.ogg
+
+# clusters
 
 - type: ambientMusic
   id: BiomeClusterA

@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/14/2026 00:15:14
-  entityCount: 740
+  time: 10/15/2026 17:27:34
+  entityCount: 744
 maps: []
 grids:
 - 1
@@ -511,10 +511,11 @@ entities:
             84: -1,-2
     - type: SpreaderGrid
       spreadQueues:
+        ESTileFire: []
+        Kudzu: []
         MetalFoam: []
         Smoke: []
         Puddle: []
-        Kudzu: []
     - type: GridAtmosphere
       version: 2
       data:
@@ -910,6 +911,29 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 5.5,-8.5
+      parent: 1
+  - uid: 741
+    components:
+    - type: Transform
+      pos: 0.5,-20.5
+      parent: 1
+  - uid: 742
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -0.5,18.5
+      parent: 1
+  - uid: 743
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 0.5,18.5
+      parent: 1
+  - uid: 744
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 1.5,18.5
       parent: 1
 - proto: AtmosFixBlockerMarker
   entities:

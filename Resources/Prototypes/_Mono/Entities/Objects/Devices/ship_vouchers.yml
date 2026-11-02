@@ -32,7 +32,7 @@
   parent: BaseShipLPCOneUse
   id: ShipVoucherFrontierIronMan
   name: Ironman LPC
-  description: Allows purchase of one free Guppy from the Shipyard. Destroyed on sale.
+  description: Allows purchase of one free Guppy or Sandbox from the Shipyard. Destroyed on sale.
   components:
   - type: Sprite
     sprite: _Mono/Objects/Misc/lpcnew.rsi
@@ -46,6 +46,7 @@
   - type: ShipyardVoucher
     vessels:
     - Guppy
+    - Sandbox
     consoleType: Shipyard
     destroyOnEmpty: true
 

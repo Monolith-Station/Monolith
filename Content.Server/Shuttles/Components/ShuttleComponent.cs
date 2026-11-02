@@ -18,11 +18,17 @@ namespace Content.Server.Shuttles.Components
 
         /// <summary>
         /// Mono - velocity that 2x slowdown will be applied at. (4x at 2x this, 8x at 3x this, etc.)
+        /// Not advised to exceed 30 when manually setting this for a shuttle.
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
-        public float BaseMaxLinearVelocity = 50f;
+        public float BaseMaxLinearVelocity = 20f;
 
         public const float MaxAngularVelocity = 4f;
+
+        /// Mono start
+        public float MaxLinearVelocityMultiplier = 1f;
+        public float BaseThrusterMultiplier = 3.5f;
+        /// Mono end
 
         /// <summary>
         /// The cached thrust available for each cardinal direction

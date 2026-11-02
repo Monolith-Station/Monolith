@@ -31,7 +31,7 @@
     maxCharges: 300
     charges: 100
   - type: ShipRepairTool
-    repairTimeMultiplier: 2
+    repairTimeMultiplier: 0.5
   - type: Sprite
     scale: 0.8, 0.8
     sprite: _Mono/Objects/Tools/mieyo_srd.rsi

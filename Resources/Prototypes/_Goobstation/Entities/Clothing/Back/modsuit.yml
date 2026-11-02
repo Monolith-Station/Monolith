@@ -110,8 +110,8 @@
 - type: entity
   parent: ClothingModsuitBase
   id: ClothingModsuitSecurity
-  name: security soldat hardsuit control unit
-  description: A robust modular hardsuit control module unit for thrashing commies in spess.
+  name: judge's soldat hardsuit control unit
+  description: A robust modular hardsuit control module unit for thrashing pirates in spess.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Back/Modsuits/security.rsi
@@ -176,8 +176,8 @@
 - type: entity
   parent: ClothingModsuitBase
   id: ClothingModsuitHeadOfSecurity
-  name: head of security's bulwark hardsuit control unit
-  description: A robust modular HARDERsuit control module unit for the head of security.
+  name: overseer's bulwark hardsuit control unit
+  description: A robust modular HARDERsuit control module unit for the overseer.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Back/Modsuits/headofsecurity.rsi

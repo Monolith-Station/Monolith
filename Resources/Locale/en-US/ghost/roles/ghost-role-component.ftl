@@ -224,9 +224,9 @@ ghost-role-information-Death-Squad-name = Death Squad Operative
 ghost-role-information-Death-Squad-description = One of the TSF's finest agents. Await orders from a Central Government official.
 ghost-role-information-Death-Squad-rules = You are required to obey orders given by your superior, you are effectively their [color=#6495ed][bold]Familiar[/bold][/color].
 
-ghost-role-information-SyndiCat-name = SyndiCat
-ghost-role-information-SyndiCat-description = You're the faithful trained pet of nuclear operatives with a microbomb. Serve your master to the death!
-ghost-role-information-SyndiCat-rules = You are a [color=red][bold]Team Antagonist[/bold][/color] with the agent who summoned you.
+ghost-role-information-SyndiCat-name = KamiCat
+ghost-role-information-SyndiCat-description = You're a highly trained cat implanted with a bomb. Serve your master to the death!
+ghost-role-information-SyndiCat-rules = You are a [color=red][bold]Team Antagonist[/bold][/color] with the first person you see, usually the agent who summoned you.
 
 ghost-role-information-Cak-name = Cak
 ghost-role-information-Cak-description = You are the chef's favorite child. You're a living cake cat.

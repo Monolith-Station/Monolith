@@ -72,8 +72,10 @@
   molarMass: 44
   gasOverlaySprite: /Textures/_DV/Effects/atmospherics.rsi # Mono/DV Sprites
   gasOverlayState: miasma
-  gasMolesVisible: 2
-  gasVisbilityFactor: 3.5
+  # ES START
+  gasMolesVisible: 1
+  gasMolesVisibleMax: 5
+  # ES END
   color: 56941E
   reagent: Ammonia
   pricePerMole: 1 # Mono 0.15<1

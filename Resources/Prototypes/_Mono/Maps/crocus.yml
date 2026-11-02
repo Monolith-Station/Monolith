@@ -20,6 +20,8 @@
         stationSubtext: 'frontier-lobby-crocus-subtext'
         stationDescription: 'frontier-lobby-crocus-description'
       - type: CEStationZLevels
+        mapsBelow:
+        - /Maps/_Mono/Crocus/jianghui_industrial_0.yml
         mapsAbove:
         - /Maps/_Mono/Crocus/jianghui_industrial_2.yml
         - /Maps/_Mono/Crocus/jianghui_industrial_3.yml

@@ -299,7 +299,7 @@
     account: Medical
   - type: CompanyAccessReader
     requiredCompanies:
-    - MD
+    - Colonial # Mono
   - type: AccessReader
     access: [["ChiefMedicalOfficer"]]
 

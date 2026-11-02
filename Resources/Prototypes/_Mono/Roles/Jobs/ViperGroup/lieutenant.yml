@@ -28,6 +28,8 @@
       - VG
     - type: ChatRank
       rank: vg-lieutenant
+    - type: RadioOnCryosleep
+      radioChannel: Viper
   - !type:AddLanguageSpecial
     languagesSpoken:
     - NovaCygniBasic

@@ -1,0 +1,33 @@
+- type: entity
+  id: CMVendorBundleNightvision
+  name: NODs kit
+  description: Helmet-attached night vision goggles and their mount.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/HelmetAttachment/basic_optoelectronics_nvgs.rsi
+    state: icon
+  - type: CMVendorBundle
+    bundle:
+    - ClothingHelmetAttachmentNVGsBasic
+    - ClothingHelmetCoverHelmetMount
+
+- type: entity
+  id: CMVendorBundleSurgery
+  name: surgical kit
+  description: A full set of surgical tools & a sterile mask.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi
+    state: hemostat
+  - type: CMVendorBundle
+    bundle:
+    - Hemostat
+    - SawElectric
+    - Drill
+    - Cautery
+    - Retractor
+    - Scalpel
+    - BoneGel
+    - ClothingMaskSterile

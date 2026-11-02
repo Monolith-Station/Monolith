@@ -92,6 +92,21 @@
           - SecurityUplink
 
 - type: listing
+  id: UplinkSecurityAnubis
+  name:  uplink-security-anubis-name
+  description: uplink-security-anubis-desc
+  productEntity: ClothingBackpackDuffelAnubisBundle
+  cost:
+    FederationMilitaryCredit: 100
+  categories:
+    - UplinkSecurityWeapons
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - SecurityUplink
+
+- type: listing
   id: UplinkSecuritySurgeryDuffel
   name:  uplink-security-surgery-duffel-name
   description: uplink-security-surgery-duffel-desc
@@ -129,10 +144,10 @@
       - SecurityUplink
 
 - type: listing
-  id: UplinkSecurityCash75000
-  name: uplink-security-cash75000-name
-  description: uplink-security-cash75000-desc
-  productEntity: SpaceCash75000
+  id: UplinkSecurityCash100000
+  name: uplink-security-cash100000-name
+  description: uplink-security-cash100000-desc
+  productEntity: SpaceCash100000
   icon: { sprite: _NF/Objects/Economy/cash.rsi, state: cash_100000 }
   cost:
     FederationMilitaryCredit: 50

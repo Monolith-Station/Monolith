@@ -22,6 +22,9 @@ uplink-security-compact-defibrillator-desc = A portable defibrillator made for f
 uplink-security-cash7500-name = 7,500 Credits
 uplink-security-cash7500-desc = Cold, hard cash.
 
+uplink-security-cash10000-name = 10,000 Credits
+uplink-security-cash10000-desc = Cold, hard cash.
+
 uplink-security-thrusterkit-name = Thruster Upgrade Kit
 uplink-security-thrusterkit-desc = Contains 32 super capaciters. Perfect for upgrading eight thrusters.
 
@@ -61,6 +64,9 @@ uplink-security-portable-recharger-desc = An experimental portable recharger equ
 uplink-security-cash75000-name = 75,000 Credits
 uplink-security-cash75000-desc = Cold, hard cash, in bulk.
 
+uplink-security-cash100000-name = 100,000 Credits
+uplink-security-cash100000-desc = Cold, hard cash, in bulk.
+
 uplink-security-surgery-duffel-name = Advanced Surgery Kit
 uplink-security-surgery-duffel-desc = A duffel filled with advanced surgery tools, perfect for re-attaching some heads.
 
@@ -81,6 +87,9 @@ uplink-security-ashstorm-desc = The TSF-EM72 Ashstorm is a directed-energy light
 
 uplink-security-smilodon-name = QBH-50-C Smilodon
 uplink-security-smilodon-desc = The QBH-50-C Smilodon is a directed-energy light machine gun used by the TSF. Devastating.
+
+uplink-security-anubis-name = QLU-907 Anubis
+uplink-security-anubis-desc = The QLU-907 Anubis, a magazine-fed six-shot 35mm grenade launcher as the TSF's answer to the PDV's China Lake.
 
 uplink-security-t0-voucher-name = TSFMC Tier 0 Ship Voucher
 uplink-security-t0-voucher-desc = A single-use voucher for any small ship.

@@ -53,3 +53,9 @@
     - description: Selling this item will fund the PDV.
       color: "#4f94ad"
       requireDetailRange: true
+  - type: SoldAlert
+    threshold: 0
+    maxPerSale: 100
+    channels:
+    - Command
+    - Security

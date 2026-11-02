@@ -19,3 +19,15 @@ objective-condition-steal-description-faction = Ensure atleast one person in you
 objective-condition-steal-description-faction-beacon-crocus = Ensure atleast one person in your company/faction or you are in possesion of {$itemName}, or it is in range of an extraction beacon.
 objective-condition-steal-multiply-description-faction = Ensure atleast one person in your company/faction or you are in possesion of {$count}x {MAKEPLURAL($itemName)} (any).
 objective-condition-steal-multiply-description-faction-crocus = Ensure atleast one person in your company/faction or you are in possesion of {$count}x {MAKEPLURAL($itemName)} (any), or it is in range of an extraction beacon.
+
+objective-condition-steal-title-repair = Repair {$itemName}.
+objective-condition-steal-description-faction-beacon-crocus-repair = Ensure that {$itemName} is repaired, and it is in range of an extraction beacon.
+objective-condition-steal-multiply-description-faction-beacon-crocus-repair = Ensure that atleast {$count}x {MAKEPLURAL($itemName)} (any) are repaired, and they are in range of an extraction beacon.
+
+objective-condition-steal-title-destroy = Destroy {$itemName}.
+objective-condition-steal-description-faction-beacon-crocus-destroy = Ensure that {$itemName} is inoperable, and it is in range of an extraction beacon.
+objective-condition-steal-multiply-description-faction-beacon-crocus-destroy = Ensure that atleast {$count}x {MAKEPLURAL($itemName)} (any) are inoperable, and they are in range of an extraction beacon.
+
+steal-target-groups-federal-nanites = federation nanite canister
+steal-target-groups-federal-pdas = military PDA
+steal-target-groups-beacon-repairs = beacon

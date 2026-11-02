@@ -42,6 +42,11 @@
       ShipyardConsole-targetId: !type:ContainerSlot
   - type: Computer
     board: Null
+  - type: CreditReceiver # Mono - Ironman players and whoever else can use cash money for their ships.
+    cashSlot:
+      whitelist:
+        components:
+        - Cash
 
 # Concrete consoles
 - type: entity
@@ -112,7 +117,7 @@
 - type: entity
   id: ComputerShipyardSyndicate
   parent: [BaseStructureDisableToolUse, BaseStructureDestructible, ComputerShipyardBase]
-  name: syndicate shipyard console
+  name: underground shipyard console # Mono
   description: Used to buy ships not available through other means.
   components:
   - type: ActivatableUI

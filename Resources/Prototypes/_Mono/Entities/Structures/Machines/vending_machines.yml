@@ -81,9 +81,7 @@
 - type: entity
   parent: [BaseStructureDisableToolUse, VendingMachineSyndieContraband]
   id: VendingMachineSyndieContrabandPOI
-  name: ContraVend
   suffix: POI
-  description: Wanted across multiple sectors!
 
 - type: entity
   parent: VendingMachineCredit

@@ -119,7 +119,7 @@ public sealed partial class SpaceArtillerySystem : EntitySystem
             return;
         }
 
-        if (!_gun.TryGetGun(uid, out var gunUid, out var gun))
+        if (!_gun.TryGetGun(uid, out var gunUid))
         {
             OnMalfunction(uid, component);
             return;
@@ -136,11 +136,11 @@ public sealed partial class SpaceArtillerySystem : EntitySystem
 
         // We need to set the ShootCoordinates for the gun component
         // This is important to ensure it uses the proper calculations in SharedGunSystem
-        gun.ShootCoordinates = targetCoordinates;
+        gunUid.Comp.ShootCoordinates = targetCoordinates;
 
         // Call AttemptShoot with the correct signature that includes target coordinates
         // This will eventually call GunSystem.Shoot which correctly handles grid velocity
-        _gun.AttemptShoot(uid, gunUid, gun, targetCoordinates);
+        _gun.AttemptShoot(uid, gunUid, gunUid.Comp, targetCoordinates);
     }
 
     private void OnShotEvent(EntityUid uid, SpaceArtilleryComponent component, AmmoShotEvent args)

@@ -1,0 +1,66 @@
+- type: loadoutGroup
+  id: FugitiveEars
+  name: loadout-group-contractor-ears
+  hidden: true # No point in showing this, it gets auto-selected.
+  minLimit: 1
+  loadouts:
+  - FugitiveHeadset
+  fallbacks:
+  - FugitiveHeadset
+
+# todo: add slightly higher quality but illegal firearms, rn this is just Merc but with Iroh removed
+- type: loadoutGroup
+  id: FugitiveFirearm
+  name: loadout-group-weapon
+  minLimit: 0
+  loadouts:
+  - MercenaryAk220Loadout
+  - FugitiveTypewriterLoadout
+  - MercenaryLeeEnfieldLoadout
+  - MercenaryVulcanCLoadout
+  - MercenaryMosinLoadout
+
+- type: loadoutGroup
+  id: GodfatherOuterClothing
+  name: loadout-group-contractor-outerclothing
+  minLimit: 1
+  loadouts:
+  - GodfatherHardsuit
+
+- type: loadoutGroup
+  id: GodfatherPDA
+  name: loadout-group-contractor-id
+  minLimit: 1
+  loadouts:
+  - GodfatherPDA
+
+- type: loadoutGroup
+  id: FugitivePDA
+  name: loadout-group-contractor-id
+  minLimit: 1
+  loadouts:
+  - FugitivePDA
+
+- type: loadoutGroup
+  id: GodfatherJumpsuit
+  name: loadout-group-contractor-jumpsuit
+  minLimit: 1
+  loadouts:
+  - GodfatherClothingJumpsuitLawyerBlack
+  - GodfatherClothingJumpsuitLawyerBlue
+  - GodfatherClothingJumpsuitLawyerGood
+  - GodfatherClothingJumpsuitLawyerPurple
+  - GodfatherClothingJumpsuitLawyerRed
+
+- type: loadoutGroup
+  id: FugitiveOuterClothing
+  name: loadout-group-contractor-outerclothing
+  minLimit: 0
+  loadouts:
+  - ContractorClothingOuterHardsuitUIEngineer
+  - ContractorClothingOuterHardsuitUIPilot
+  - MercenaryClothingOuterHardsuitMercenaryWarlord
+  subgroups:
+  - MercenaryOuterClothing
+  - MonoMercenaryOuterClothing
+  - ContractorOuterClothing

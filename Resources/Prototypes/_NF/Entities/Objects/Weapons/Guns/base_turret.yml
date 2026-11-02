@@ -181,5 +181,13 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 5
+  - type: HTN # Mono
+    rootTask:
+      task: LaserTurretCompound
+    blackboard:
+      RotateSpeed: !type:Single
+        3
+      SoundTargetInLOS: !type:SoundPathSpecifier
+        path: /Audio/Effects/double_beep.ogg
   # - type: StaticPrice # for arbitrage tests
   #   price: 50

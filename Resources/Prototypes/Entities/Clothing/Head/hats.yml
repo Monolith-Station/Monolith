@@ -162,7 +162,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBeretHoS
-  name: head of security's beret
+  name: overseer's beret # Mono - Overseer
   description: A black beret with a commander's rank emblem. For officers that are more inclined towards style than safety.
   components:
   - type: Sprite
@@ -392,8 +392,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatHoshat
-  name: head of security cap
-  description: The robust standard-issue cap of the Head of Security. For showing the officers who's in charge.
+  name: overseer cap # Mono - Overseer
+  description: The robust standard-issue cap of the Overseer. For showing the judges who's in charge. # Mono - Overseer
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/hoshat.rsi

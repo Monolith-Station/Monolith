@@ -1,9 +1,15 @@
 using Content.Shared._Mono.Blocking;
 using Content.Shared.Damage;
 using Content.Shared.Item.ItemToggle.Components;
+using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Content.Shared.Blocking.Components;
+using Content.Shared.Weapons.Ranged.Events;
+using Content.Shared._Mono.Blocking.Components;
+using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Hands.Components;
+using System.Linq;
 
 namespace Content.Shared.Blocking;
 
@@ -21,6 +27,8 @@ public sealed partial class BlockingSystem : SharedBlockingSystem // Mono
         SubscribeLocalEvent<BlockingUserComponent, ContainerGettingInsertedAttemptEvent>(OnInsertAttempt);
         SubscribeLocalEvent<BlockingUserComponent, AnchorStateChangedEvent>(OnAnchorChanged);
         SubscribeLocalEvent<BlockingUserComponent, EntityTerminatingEvent>(OnEntityTerminating);
+
+        SubscribeLocalEvent<HandsComponent, ShotAttemptedEvent>(OnBeforeGunShot);
     }
 
     private void OnParentChanged(EntityUid uid, BlockingUserComponent component, ref EntParentChangedMessage args)
@@ -39,6 +47,26 @@ public sealed partial class BlockingSystem : SharedBlockingSystem // Mono
             return;
 
         UserStopBlocking(uid, component);
+    }
+
+    /// <summary>
+    /// Mono: can't shoot with shield
+    /// </summary>
+    private void OnBeforeGunShot(Entity<HandsComponent> ent, ref ShotAttemptedEvent args)
+    {
+        if (HasComp<CanShootWithShieldComponent>(args.Used)) // don't bother if this gun will always be allowed to be used
+            return;
+
+        var heldItems = _handsSystem.EnumerateHeld(ent, ent.Comp).ToArray();
+        foreach (var item in heldItems)
+        {
+            if (HasComp<BlockingComponent>(item))
+            {
+                _popupSystem.PopupClient(Loc.GetString("shield-user-attempt-shoot"), ent);
+                args.Cancel();
+                break;
+            }
+        }
     }
 
     private void OnUserDamageModified(EntityUid uid, BlockingUserComponent component, DamageModifyEvent args)

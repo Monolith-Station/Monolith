@@ -1,0 +1,21 @@
+- type: entity
+  parent: ColMarTechBase
+  id: ColMarTechEquipment
+  name: ColMarTech automated marine equipment rack
+  description: An automated rack hooked up to a colossal storage of Marine Rifleman standard-issue equipment.
+  suffix: DEBUG, DO NOT MAP
+  components:
+  - type: Sprite
+    sprite: _Crescent/Structures/armoryPF.rsi
+  - type: CMAutomatedVendor
+    sections:
+    - name: Class Kit
+      choices: { CMArmour: 1 }
+      entries:
+      - id: CMVendorBundleRiflemanApparel
+        name: cat captain furry
+        recommended: true
+      - id: CMVendorBundleRiflemanApparelNoFurry
+        name: cat captain but not a furry
+
+

@@ -435,8 +435,8 @@
 - type: entity
   parent: ClothingHeadHelmetBase
   id: ClothingHeadHelmetRaid
-  name: syndicate raid helmet
-  description: An armored helmet for use with the syndicate raid suit. Very stylish.
+  name: raid helmet # Mono: remove syndicate references
+  description: An armored helmet for use with the raid suit. Very stylish. # Mono: remove syndicate references
   components:
   - type: Sprite
     sprite: Clothing/Head/Helmets/syndie-raid.rsi

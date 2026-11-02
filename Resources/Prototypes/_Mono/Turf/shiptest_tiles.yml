@@ -9,6 +9,9 @@
     collection: FootstepHull
   itemDrop: FloorTileItemTechmaintSterile
   heatCapacity: 10000
+  # ES START
+  flammability: 2
+  # ES END
 
 - type: tile
   id: FloorMaintSterile
@@ -21,6 +24,9 @@
     collection: FootstepHull
   itemDrop: FloorTileItemMaintSterile
   heatCapacity: 10000
+  # ES START
+  flammability: 2
+  # ES END
 
 - type: tile
   id: FloorMaintMonoSterile
@@ -33,6 +39,9 @@
     collection: FootstepHull
   itemDrop: FloorTileItemMaintMonoSterile
   heatCapacity: 10000
+  # ES START
+  flammability: 2
+  # ES END
 
 - type: tile
   id: FloorMaintGrid
@@ -45,6 +54,9 @@
     collection: FootstepHull
   itemDrop: FloorTileItemGrid
   heatCapacity: 10000
+  # ES START
+  flammability: 2
+  # ES END
 
 - type: tile
   id: FloorMaintGridDark
@@ -57,3 +69,6 @@
     collection: FootstepHull
   itemDrop: FloorTileItemGridDark
   heatCapacity: 10000
+  # ES START
+  flammability: 2
+  # ES END

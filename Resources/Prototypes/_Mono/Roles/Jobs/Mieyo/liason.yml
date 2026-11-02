@@ -40,11 +40,17 @@
       - MMC
     - type: ChatRank
       rank: mmc-liason
-#  - !type:AddLanguageSpecial
-#    languagesSpoken:
-#    - Tradeband
-#    languagesUnderstood:
-#    - Tradeband
+    - type: RadioOnCryosleep
+      radioChannel: Mieyo
+  - !type:AddLanguageSpecial
+    languagesSpoken:
+    - Nekomimetic
+    - Tradeband
+    - NovuNederic
+    languagesUnderstood:
+    - Nekomimetic
+    - Tradeband
+    - NovuNederic
 
 - type: startingGear
   id: MMCLiasonGear

@@ -45,8 +45,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckMantleHOS
-  name: head of security's mantle
-  description: Shootouts with syndicate agents are just another Tuesday for this HoS. This mantle is a symbol of commitment to the station.
+  name: overseer's mantle # Mono - Overseer
+  description: Shootouts with syndicate agents are just another Tuesday for this Overseer. This mantle is a symbol of commitment to the station. # Mono - Overseer
   components:
   - type: Sprite
     sprite: Clothing/Neck/mantles/hosmantle.rsi
