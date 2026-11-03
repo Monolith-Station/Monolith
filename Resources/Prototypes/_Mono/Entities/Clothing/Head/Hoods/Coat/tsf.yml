@@ -3,8 +3,16 @@
   id: ClothingHeadHatHoodWinterTSF
   categories: [ HideSpawnMenu ]
   name: TSF winter coat hood
+  description: A thick hood made of durathread with some metal sewn within for added protection.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Head/Hoods/Coat/wintertsf.rsi
   - type: Clothing
     sprite: _Mono/Clothing/Head/Hoods/Coat/wintertsf.rsi
+  - type: Armor #Same as the helmet
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
