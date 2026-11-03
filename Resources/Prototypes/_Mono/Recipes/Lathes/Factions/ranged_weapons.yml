@@ -261,6 +261,20 @@
     Gold: 500
     Plasma: 1000
 
+# TSF Enforcer MkII
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponShotgunEnforcerMkIITSF
+  result: WeaponShotgunEnforcerMkII
+  categories:
+  - Shotguns
+  - Ballistic
+  - Weapons
+  materials:
+    Steel: 3500
+    Plasteel: 2000
+    Plastic: 1200
+
 # PDV energy
 
 - type: latheRecipe
