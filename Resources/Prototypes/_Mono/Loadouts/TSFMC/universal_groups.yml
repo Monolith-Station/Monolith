@@ -314,13 +314,13 @@
   - TsfmcClothingOuterArmorBPVestLight
 
 - type: loadoutGroup
-  id: TsfmcOuterClothingPrivate
+  id: TsfmcOuterClothingMarine
   name: loadout-group-contractor-outerclothing
   minLimit: 1
   loadouts:
   - TsfmcClothingOuterArmorBPVestLight
   - TsfmcClothingOuterArmorBPVestMedium
-  - TsfmcClothingOuterWintercoatPrivate
+  - TsfmcClothingOuterWintercoatMarine
   fallbacks:
   - TsfmcClothingOuterArmorBPVestLight
 

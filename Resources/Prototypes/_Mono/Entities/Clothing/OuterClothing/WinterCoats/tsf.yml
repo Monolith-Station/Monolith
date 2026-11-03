@@ -83,11 +83,11 @@
 
 - type: entity
   parent: ClothingOuterWinterTSF
-  id: ClothingOuterWinterTSFPrivate
-  name: Private's Armored Winter Coat
-  description: A thick durathread coat with an armor vest sewn into its chest, provides protection from the elements and combat. This one has the ranking of a Private.
+  id: ClothingOuterWinterTSFMarine
+  name: Marine's Armored Winter Coat
+  description: A thick durathread coat with an armor vest sewn into its chest, provides protection from the elements and combat. This one has the ranking of a Marine.
   components:
   - type: Sprite
-    sprite: _Mono/Clothing/OuterClothing/WinterCoats/wintertsfprivate.rsi
+    sprite: _Mono/Clothing/OuterClothing/WinterCoats/wintertsfmarine.rsi
   - type: Clothing
-    sprite: _Mono/Clothing/OuterClothing/WinterCoats/wintertsfprivate.rsi
+    sprite: _Mono/Clothing/OuterClothing/WinterCoats/wintertsfmarine.rsi
