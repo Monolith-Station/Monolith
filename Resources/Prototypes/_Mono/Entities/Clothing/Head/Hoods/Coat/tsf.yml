@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingHeadHatHoodWinterBase
+  id: ClothingHeadHatHoodWinterTSF
+  categories: [ HideSpawnMenu ]
+  name: TSF winter coat hood
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Head/Hoods/Coat/wintertsf.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Head/Hoods/Coat/wintertsf.rsi
