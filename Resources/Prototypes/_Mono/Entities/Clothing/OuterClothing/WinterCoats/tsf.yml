@@ -2,7 +2,7 @@
   parent: [ClothingOuterArmorHoS, ClothingOuterWinterCoatToggleable]
   id: ClothingOuterWinterTSF
   name: TSF Armored Winter Coat
-  description: A sturdy, utilitarian winter coat designed to protect a TSF worker from any PDV threats and hypothermic events.
+  description: A thick durathread coat with an armor vest sewn into its chest, provides protection from the elements and combat. This one has the ranking of a TSF worker.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/OuterClothing/WinterCoats/wintertsf.rsi
@@ -13,23 +13,57 @@
       head: ClothingHeadHatHoodWinterTSF
   - type: StaticPrice
     price: 0
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.7
+        Piercing: 0.35
+        Heat: 0.75
+        Caustic: 0.9
+  - type: Tag
+    tags:
+    - Kevlar
+  - type: StaminaDamageResistance
+    coefficient: 0.65
+  - type: ClothingSpeedModifier
+    sprintModifier: 0.95
+  - type: ExplosionResistance
+    damageCoefficient: 0.80
 
 - type: entity
   parent: ClothingOuterWinterTSF
   id: ClothingOuterWinterTSFColonel
   name: Colonel's Armored Winter Coat
-  description: A sturdy, utilitarian winter coat designed to protect a Colonel from any PDV threats and hypothermic events.
+  description: A thick winter coat for the Colonel, made from the silk of darwin bark spiders to provide a flexible cloth thats ten times stronger than kevlar, this is accompanied by a plastitium alloy plate.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/OuterClothing/WinterCoats/wintertsfcolonel.rsi
   - type: Clothing
     sprite: _Mono/Clothing/OuterClothing/WinterCoats/wintertsfcolonel.rsi
+  - type: Armor
+    modifiers:
+      coefficients: #5% better than the hardsuit at armor in turn for not being spaceproof
+        Blunt: 0.35
+        Slash: 0.35
+        Piercing: 0.35
+        Heat: 0.40
+        Radiation: 0.35
+        Caustic: 0.45
+  - type: StaminaDamageResistance
+    coefficient: 0.35
+  - type: ClothingSpeedModifier
+    sprintModifier: 1
+  - type: FireProtection # Mono
+    reduction: 0.5
+  - type: ExplosionResistance
+    damageCoefficient: 0.3
 
 - type: entity
   parent: ClothingOuterWinterTSF
   id: ClothingOuterWinterTSFCaptain
   name: Captain's Armored Winter Coat
-  description: A sturdy, utilitarian winter coat designed to protect a Captain from any PDV threats and hypothermic events.
+  description: A thick durathread coat with an armor vest sewn into its chest, provides protection from the elements and combat. This one has the ranking of a Captain.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/OuterClothing/WinterCoats/wintertsfcaptain.rsi
@@ -40,7 +74,7 @@
   parent: ClothingOuterWinterTSF
   id: ClothingOuterWinterTSFLeader
   name: Leader's Armored Winter Coat
-  description: A sturdy, utilitarian winter coat designed to protect a Leader from any PDV threats and hypothermic events.
+  description: A thick durathread coat with an armor vest sewn into its chest, provides protection from the elements and combat. This one has the ranking of a Leader.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/OuterClothing/WinterCoats/wintertsfleader.rsi
@@ -51,7 +85,7 @@
   parent: ClothingOuterWinterTSF
   id: ClothingOuterWinterTSFPrivate
   name: Private's Armored Winter Coat
-  description: A sturdy, utilitarian winter coat designed to protect a Private from any PDV threats and hypothermic events.
+  description: A thick durathread coat with an armor vest sewn into its chest, provides protection from the elements and combat. This one has the ranking of a Private.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/OuterClothing/WinterCoats/wintertsfprivate.rsi
