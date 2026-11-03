@@ -24,8 +24,8 @@
     flags: Anchorable
 
 - type: entity
-  name: ejector seat
-  id: ChairEjectorSeat
+  name: ejection seat
+  id: ChairEjectionSeat
   parent: ChairBase
   description: A pilot's seat with an advanced ejection mechanism, and storage for an emergency jetpack.
   components:
