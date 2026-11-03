@@ -166,7 +166,7 @@
         Blunt: 0.67
         Slash: 0.34
         Piercing: 0.67
-        Heat: 0.34
+        Heat: 0.54
         Radiation: 0.34
         Caustic: 0.25
   - type: StaminaDamageResistance # Mono - Stamres
@@ -184,7 +184,7 @@
       color: "#eb772a"
       scale: 1.6
     shield:
-      maxCharge: 125
+      maxCharge: 100
       regenRate: 5
       spinupTime: 1
       breakCooldown: 20
@@ -192,7 +192,7 @@
       blockModifier:
         coefficients:
           Slash: 2.5
-          Piercing: 0.5
+          Piercing: 0.6
           Heat: 1.5
           Radiation: 2.5
           Shock: 2.5
