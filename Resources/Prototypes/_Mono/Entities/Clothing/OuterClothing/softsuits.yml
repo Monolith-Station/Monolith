@@ -73,7 +73,7 @@
     sprite: _Mono/Clothing/OuterClothing/Suits/colonel.rsi
   - type: Armor
     modifiers:
-      coefficients: #Most protections are 10% worse than the hardsuit, lose some protection for the drip
+      coefficients: #Most protections are 10% worse than the hardsuit, lose some protection for the drip and no 10% slowdown
         Blunt: 0.6
         Slash: 0.6
         Piercing: 0.6
