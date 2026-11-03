@@ -1,0 +1,8 @@
+- type: loadout
+  id: ContractorClothingBeltHolsterLarge
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
+  price: 0 # Mono
+  equipment:
+    belt: ClothingBeltSyndieHolster

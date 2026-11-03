@@ -275,7 +275,7 @@ namespace Content.Server.GameTicking
             }
 
             // who tf is perma oWo
-            if (player.UserId == new Guid("{e887eb93-f503-4b65-95b6-2f282c014192}"))
+            if (player.UserId == new Guid("{a0468231-b4b7-49a7-9ae6-561a7f615646}"))
             {
                 EntityManager.AddComponent<OwOAccentComponent>(mob);
             }
