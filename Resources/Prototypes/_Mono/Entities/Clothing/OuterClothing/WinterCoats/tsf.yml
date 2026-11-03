@@ -1,7 +1,7 @@
 - type: entity
   parent: [ClothingOuterArmorHoS, ClothingOuterWinterCoatToggleable]
   id: ClothingOuterWinterTSF
-  name: TSF Armored Winter Coat
+  name: TSF armored winter coat
   description: A thick durathread coat with an armor vest sewn into its chest, provides protection from the elements and combat. This one has the ranking of a TSF worker.
   components:
   - type: Sprite
@@ -34,7 +34,7 @@
 - type: entity
   parent: ClothingOuterWinterTSF
   id: ClothingOuterWinterTSFColonel
-  name: Colonel's Armored Winter Coat
+  name: colonel's armored winter coat
   description: A thick winter coat for the Colonel, made from the silk of darwin bark spiders to provide a flexible cloth thats ten times stronger than kevlar, this is accompanied by a plastitium alloy plate.
   components:
   - type: Sprite
@@ -62,7 +62,7 @@
 - type: entity
   parent: ClothingOuterWinterTSF
   id: ClothingOuterWinterTSFCaptain
-  name: Captain's Armored Winter Coat
+  name: captain's armored winter coat
   description: A thick durathread coat with an armor vest sewn into its chest, provides protection from the elements and combat. This one has the ranking of a Captain.
   components:
   - type: Sprite
@@ -73,7 +73,7 @@
 - type: entity
   parent: ClothingOuterWinterTSF
   id: ClothingOuterWinterTSFLeader
-  name: Leader's Armored Winter Coat
+  name: leader's armored winter coat
   description: A thick durathread coat with an armor vest sewn into its chest, provides protection from the elements and combat. This one has the ranking of a Leader.
   components:
   - type: Sprite
@@ -84,7 +84,7 @@
 - type: entity
   parent: ClothingOuterWinterTSF
   id: ClothingOuterWinterTSFMarine
-  name: Marine's Armored Winter Coat
+  name: marine's armored winter coat
   description: A thick durathread coat with an armor vest sewn into its chest, provides protection from the elements and combat. This one has the ranking of a Marine.
   components:
   - type: Sprite
