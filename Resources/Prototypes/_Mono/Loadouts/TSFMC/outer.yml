@@ -9,6 +9,11 @@
     outerClothing: ClothingOuterArmorBPVestMedium
 
 - type: loadout
+  id: TsfmcClothingOuterArmorBPVestHeavy #Unused but add it for if needed
+  equipment:
+    outerClothing: ClothingOuterArmorBPVestHeavy
+
+- type: loadout
   id: TsfmcClothingOuterHardsuitColonel
   equipment:
     outerClothing: ClothingOuterHardsuitNfsdSheriff
@@ -17,3 +22,28 @@
   id: TsfmcClothingOuterVoidsuitColonel
   equipment:
     outerClothing: ClothingOuterVoidsuitTSFColonel
+
+- type: loadout
+  id: TsfmcClothingOuterWintercoatUnranked
+  equipment:
+    outerClothing: ClothingOuterWinterTSF
+
+- type: loadout
+  id: TsfmcClothingOuterWintercoatPrivate
+  equipment:
+    outerClothing: ClothingOuterWinterTSFPrivate
+
+- type: loadout
+  id: TsfmcClothingOuterWintercoatLeader
+  equipment:
+    outerClothing: ClothingOuterWinterTSFLeader
+
+- type: loadout
+  id: TsfmcClothingOuterWintercoatCaptain
+  equipment:
+    outerClothing: ClothingOuterWinterTSFCaptain
+
+- type: loadout
+  id: TsfmcClothingOuterWintercoatColonel
+  equipment:
+    outerClothing: ClothingOuterWinterTSFColonel
