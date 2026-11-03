@@ -1,0 +1,40 @@
+#Author: Hverabrao on Github and Discord.
+
+- type: vessel
+  id: Remontik
+  parent: BaseVesselIFFDisabled
+  name: Remontik
+  description: USSP armored drilling vessel, capable of processing entire asteroids within seconds.
+  price: 100000
+  category: Medium
+  group: Ussp
+  access: USSP
+  shuttlePath: /SharedMaps/_Mono/Shuttles/USSP/remontik.yml
+  guidebookPage: ShipyardNFROperation
+  class:
+  - Frigate
+  - Salvage
+  engine:
+  - AME
+
+- type: gameMap
+  id: Remontik
+  mapName: 'Remontik'
+  mapPath: /SharedMaps/_Mono/Shuttles/USSP/remontik.yml
+  minPlayers: 0
+  stations:
+    Remontik:
+      stationProto: StandardFrontierVessel
+      gridComponents:
+      - type: VesselInfo
+        description: "Outdated, yet still reliable."
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Remontik USSP{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+           USSPSergeant: [ 0, 0 ]
+           USSPRifleman: [ 0, 0 ]
