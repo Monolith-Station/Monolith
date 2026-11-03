@@ -1,0 +1,59 @@
+- type: entity
+  parent: [ClothingOuterArmorHoS, ClothingOuterWinterCoatToggleable]
+  id: ClothingOuterWinterTSF
+  name: TSF Armored Winter Coat
+  description: A sturdy, utilitarian winter coat designed to protect a TSF worker from any PDV threats and hypothermic events.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/OuterClothing/WinterCoats/wintertsf.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/OuterClothing/WinterCoats/wintertsf.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHatHoodWinterTSF
+  - type: StaticPrice
+    price: 0
+
+- type: entity
+  parent: ClothingOuterWinterTSF
+  id: ClothingOuterWinterTSFColonel
+  name: Colonel's Armored Winter Coat
+  description: A sturdy, utilitarian winter coat designed to protect a Colonel from any PDV threats and hypothermic events.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/OuterClothing/WinterCoats/wintertsfcolonel.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/OuterClothing/WinterCoats/wintertsfcolonel.rsi
+
+- type: entity
+  parent: ClothingOuterWinterTSF
+  id: ClothingOuterWinterTSFCaptain
+  name: Captain's Armored Winter Coat
+  description: A sturdy, utilitarian winter coat designed to protect a Captain from any PDV threats and hypothermic events.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/OuterClothing/WinterCoats/wintertsfcaptain.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/OuterClothing/WinterCoats/wintertsfcaptain.rsi
+
+- type: entity
+  parent: ClothingOuterWinterTSF
+  id: ClothingOuterWinterTSFLeader
+  name: Leader's Armored Winter Coat
+  description: A sturdy, utilitarian winter coat designed to protect a Leader from any PDV threats and hypothermic events.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/OuterClothing/WinterCoats/wintertsfleader.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/OuterClothing/WinterCoats/wintertsfleader.rsi
+
+- type: entity
+  parent: ClothingOuterWinterTSF
+  id: ClothingOuterWinterTSFPrivate
+  name: Private's Armored Winter Coat
+  description: A sturdy, utilitarian winter coat designed to protect a Private from any PDV threats and hypothermic events.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/OuterClothing/WinterCoats/wintertsfprivate.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/OuterClothing/WinterCoats/wintertsfprivate.rsi
