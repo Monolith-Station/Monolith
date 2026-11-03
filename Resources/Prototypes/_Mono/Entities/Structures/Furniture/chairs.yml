@@ -47,4 +47,6 @@
       minRadiusFraction: 1 #ONLY teleport you in the specified radius (like a ring)
       teleportRadius: 25
       avoidSpace: false
-  - type: Anchorable #should be exclusive to certain shuttles
+      forceSpace: true #avoid boarding via ejection
+  - type: Anchorable
+    flags: None #should be exclusive to certain shuttles
