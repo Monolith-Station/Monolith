@@ -191,11 +191,11 @@
       powerDraw: 0.5
       blockModifier:
         coefficients:
-          Slash: 1
+          Slash: 1.5
           Piercing: 1
-          Heat: 1
-          Radiation: 1
-          Shock: 1
+          Heat: 1.25
+          Radiation: 1.5
+          Shock: 1.5
   - type: Battery
     maxCharge: 100
     startingCharge: 100
