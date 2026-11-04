@@ -37,9 +37,6 @@ uplink-underground-codespeak-translator-implanter-desc = An implant that allows 
 uplink-organ-nosske-eien-nvgeyes-name = Nosske-Eien Night Vision Cybereyes
 uplink-organ-nosske-eien-nvgeyes-desc = A pair of eyes with night vision capabilities similar to gen-3 wide-quadtube goggles. Uploaded to the blackmarket after a cyberattack on Nosske-Eien's servers.
 
-uplink-organ-nosske-eien-thermaleyes-name = Nosske-Eien Thermal Vision Cybereyes
-uplink-organ-nosske-eien-thermaleyes-desc = A pair of eyes with thermal vision capabilites similar to most other gear of it's type. Uploaded to the blackmarket after a databreach on Nosske-Eien's servers.
-
 # ullman stuff
 
 uplink-ullman-pilot-name = U.I. Pilot Voidsuit
