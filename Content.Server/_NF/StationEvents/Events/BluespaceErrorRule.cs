@@ -265,7 +265,12 @@ public sealed partial class BluespaceErrorRule : StationEventSystem<BluespaceErr
                     _transform.DetachEntity(mob.Entity.Owner, mob.Entity.Comp);
                 }
 
-                var gridValue = _pricing.AppraiseGrid(gridUid, null);
+                // Skip appraisal if there's no reward account. Appraisal eats up too much
+                // frame time for very large grids (e.g. vgroids).
+                var gridValue = component.RewardAccounts.Count > 0
+                    ? _pricing.AppraiseGrid(gridUid, null)
+                    : 0;
+
                 // Mono: currency injections
                 if (TryComp<CurrencyInjectionOnBluespaceErrorComponent>(uid, out var comp))
                 {
