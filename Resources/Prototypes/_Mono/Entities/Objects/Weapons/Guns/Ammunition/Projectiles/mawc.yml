@@ -19,7 +19,6 @@
 
 - type: entity
   id: BaseBulletMawc
-  name: MAWC Sprite + Muzzle effect for projectiles
   parent: BaseBullet
   categories: [HideSpawnMenu]
   components:

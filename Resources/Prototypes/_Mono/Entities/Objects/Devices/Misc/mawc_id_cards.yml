@@ -17,7 +17,7 @@
 - type: entity
   parent: BaseMAWCIDCard
   id: MAWCInitiateIDCard
-  name: MAWC Initiate ID card
+  name: MAWC initiate ID card
   components:
   - type: PresetIdCard
     job: MAWCInitiate
@@ -30,7 +30,7 @@
 - type: entity
   parent: BaseMAWCIDCard
   id: MAWCAcolyteIDCard
-  name: MAWC Acolyte ID card
+  name: MAWC acolyte ID card
   components:
   - type: PresetIdCard
     job: MAWCAcolyte
@@ -43,7 +43,7 @@
 - type: entity
   parent: BaseMAWCIDCard
   id: MAWCSeraphIDCard
-  name: MAWC Seraph ID card
+  name: MAWC seraph ID card
   components:
   - type: PresetIdCard
     job: MAWCSeraph
@@ -56,7 +56,7 @@
 - type: entity
   parent: BaseMAWCIDCard
   id: MAWCCarpenterIDCard
-  name: MAWC Carpenter ID card
+  name: MAWC carpenter ID card
   components:
   - type: PresetIdCard
     job: MAWCCarpenter

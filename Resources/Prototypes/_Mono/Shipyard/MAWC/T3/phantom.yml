@@ -2,7 +2,7 @@
   id: Phantom
   parent: BaseVessel
   name: MAWC Phantom
-  description: The ultimatum to all combat needs, and the number one lineship. Armed with four AK800's, and two longbows, the Phantom is the Hammer of War upon which Aurora's enemy's will be broken by.
+  description: The ultimatum to all combat needs, and the number one lineship. Armed with four AK800's, and two longbows, the Phantom is the hammer of war upon which Aurora's enemies will be broken by.
   price: 316800 # 264K * 1.2~
   purchasable: false # T3 - voucher only
   category: Small
@@ -25,7 +25,7 @@
       stationProto: StandardFrontierVessel
       gridComponents:
       - type: VesselInfo
-        description: "You were beautiful, Outstretched. Like antennas to heaven. Samsara of cut sinew and bone."
+        description: "You were beautiful, outstretched like antennas to heaven. Samsara of cut sinew and bone."
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Phantom MAWC{1}'
