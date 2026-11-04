@@ -51,6 +51,8 @@
     offset: 0
     table: !type:NestedSelector
       tableId: MonoPlanetmapOreSandRich
+  - type: PlanetMapColor
+    colorFrom: WallRockSand
 
 # Less rocky, more ore rich variant of deserts
 
