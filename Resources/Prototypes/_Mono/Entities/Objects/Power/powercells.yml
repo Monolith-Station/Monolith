@@ -13,8 +13,11 @@
     - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
       state: o2
       shader: unshaded
+  - type: Battery
+    maxCharge: 1800
+    startingCharge: 1800
   - type: EmpResistance
-    coefficient: 0.00001
+    coefficient: 0.0001
 
 
 - type: entity
