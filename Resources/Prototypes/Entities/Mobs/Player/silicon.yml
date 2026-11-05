@@ -480,7 +480,7 @@
         enum.HolopadUiKey.AiRequestWindow:
           type: HolopadBoundUserInterface
         enum.HolopadUiKey.AiActionWindow:
-          type: HolopadBoundUserInterface   
+          type: HolopadBoundUserInterface
 
 # Xenoborg
 - type: entity
@@ -712,6 +712,9 @@
       cell_slot:
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellMedium
+        blacklist: #Mono
+          tags:
+          - PowerCage
   - type: StartingMindRole
     mindRole: "MindRoleSiliconBrain"
     silent: true
@@ -735,6 +738,9 @@
       cell_slot:
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellHyper
+        blacklist: #Mono
+          tags:
+          - PowerCage
 
 - type: entity
   id: PlayerBorgSyndicateAssaultGhostRole
@@ -768,6 +774,9 @@
       cell_slot:
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellHyper
+        blacklist: #Mono
+          tags:
+          - PowerCage
 
 - type: entity
   id: PlayerBorgSyndicateSaboteurGhostRole
@@ -817,6 +826,9 @@
       cell_slot:
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellHigh
+        blacklist: #Mono
+          tags:
+          - PowerCage
   - type: RandomMetadata
     nameSegments: [NFNamesBorgUnlocalized] # Frontier: names_borg<NFNamesBorgUnlocalized
 
