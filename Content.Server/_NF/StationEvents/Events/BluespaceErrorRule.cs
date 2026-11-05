@@ -128,8 +128,10 @@ public sealed partial class BluespaceErrorRule : StationEventSystem<BluespaceErr
                 EntityManager.AddComponents(spawned, group.AddComponents);
 
                 component.GridsUid.Add(spawned);
-                component.StartingValue += _pricing.AppraiseGrid(spawned);
-
+                component.StartingValue += component.RewardAccounts.Count > 0
+                    ? _pricing.AppraiseGrid(gridUid, null)
+                    : 0;
+                    
                 if (component.ExtendIfPopulated)
                     _autoExtend.AutoExtend(uid, spawned);
             }
