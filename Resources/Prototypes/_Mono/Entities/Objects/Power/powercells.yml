@@ -3,7 +3,7 @@
   description: A rechargeable standardized power cell. This combat brand is equipped with partial protection from power spikes.
   id: PowerCellCombat
   suffix: Full
-  parent: PowerCellHigh
+  parent: PowerCellHyper
   components:
   - type: Sprite
     sprite: _Mono/Objects/Power/power_cells.rsi
@@ -31,5 +31,5 @@
         shader: unshaded
         visible: false
   - type: Battery
-    maxCharge: 1080
+    maxCharge: 1800
     startingCharge: 0
