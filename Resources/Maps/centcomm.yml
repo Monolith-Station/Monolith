@@ -22897,8 +22897,6 @@ entities:
       parent: 1668
     - type: DeviceLinkSource
       linkedPorts:
-        734:
-        - MedicalScannerSender: MedicalScannerReceiver
         733:
         - CloningPodSender: CloningPodReceiver
 - proto: ComputerComms

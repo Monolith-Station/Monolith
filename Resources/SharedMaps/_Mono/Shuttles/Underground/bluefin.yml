@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 10/10/2026 14:10:26
-  entityCount: 527
+  time: 11/02/2026 09:40:12
+  entityCount: 529
 maps: []
 grids:
 - 1
@@ -91,11 +91,11 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        ESTileFire: []
         Puddle: []
-        Kudzu: []
+        ESTileFire: []
         MetalFoam: []
         Smoke: []
+        Kudzu: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -2235,6 +2235,20 @@ entities:
       containers:
         solution@drink: !type:ContainerSlot
           ent: 18
+- proto: ExtinguisherCabinetFilled
+  entities:
+  - uid: 482
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 3.5,9.5
+      parent: 1
+  - uid: 483
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 2.5,12.5
+      parent: 1
 - proto: FireAlarm
   entities:
   - uid: 546
