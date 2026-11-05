@@ -332,8 +332,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitHoS
-  name: head of security's jumpsuit
-  description: It's bright red and rather crisp, much like security's victims tend to be.
+  name: overseer's jumpsuit # Mono - Overseer
+  description: It's bright red and rather crisp, much like the Overseer's victims tend to be. # Mono - Overseer
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/hos.rsi
@@ -355,8 +355,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitHoSAlt
-  name: head of security's turtleneck
-  description: It's a turtleneck worn by those strong and disciplined enough to achieve the position of Head of Security.
+  name: overseer's turtleneck # Mono - Overseer
+  description: It's a turtleneck worn by those strong and disciplined enough to achieve the position of Overseer.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/hos_alt.rsi
@@ -366,8 +366,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitHoSBlue
-  name: head of security's blue jumpsuit
-  description: A blue jumpsuit of Head of Security.
+  name: overseer's blue jumpsuit # Mono - Overseer
+  description: An overseer's blue jumpsuit. # Mono - Overseer
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/hos_blue.rsi
@@ -377,8 +377,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitHoSGrey
-  name: head of security's grey jumpsuit
-  description: A grey jumpsuit of Head of Security, which make him look somewhat like a passenger.
+  name: overseer's grey jumpsuit # Mono - Overseer
+  description: An Overseer's grey jumpsuit, which make them look somewhat like a vagrant. # Mono - Overseer
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/hos_grey.rsi
@@ -388,8 +388,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitHoSParadeMale
-  name: head of security's parade uniform
-  description: A male head of security's luxury-wear, for special occasions.
+  name: overseer's parade uniform # Mono - Overseer
+  description: An overseer's luxury-wear, for special occasions. # Mono - Overseer
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/hos_parade.rsi

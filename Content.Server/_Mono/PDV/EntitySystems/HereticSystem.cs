@@ -4,6 +4,7 @@ using Content.Shared._Mono.PDV.Components;
 using Content.Shared.Contraband;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
+using Content.Shared.Mind;
 
 namespace Content.Server._Mono.PDV.EntitySystems;
 
@@ -12,6 +13,7 @@ public sealed partial class HereticSystem : EntitySystem
     [Dependency] private IPrototypeManager _proto = default!;
     [Dependency] private RadioSystem _radio = default!;
     [Dependency] private SharedUserInterfaceSystem _uiSystem = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
 
     public override void Initialize()
     {
@@ -46,6 +48,8 @@ public sealed partial class HereticSystem : EntitySystem
         var heretics = new List<Heretic>();
         while (query.MoveNext(out var uid, out _))
         {
+            if (!_mind.TryGetMind(uid, out _, out _))
+                continue;
             var reward = 0;
             if (TryComp<ContrabandComponent>(uid, out var contra) && contra.TurnInValues.Keys.Contains("Doubloon"))
                 reward = contra.TurnInValues["Doubloon"];

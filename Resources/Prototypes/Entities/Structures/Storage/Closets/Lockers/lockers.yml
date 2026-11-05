@@ -301,7 +301,7 @@
 - type: entity
   id: LockerHeadOfSecurity
   parent: [LockerBaseSecure]
-  name: head of security's locker
+  name: overseer's locker # Mono
   components:
   - type: Appearance
   - type: EntityStorageVisuals

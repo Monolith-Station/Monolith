@@ -862,7 +862,7 @@
 - type: entity
   parent: BaseSecurityPDA
   id: HoSPDA
-  name: head of security PDA
+  name: overseer PDA # Mono - Overseer
   description: Whosoever bears this PDA is the law.
   components:
   - type: Pda

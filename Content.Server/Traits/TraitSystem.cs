@@ -6,6 +6,7 @@ using Content.Shared.Roles;
 using Content.Shared.Traits;
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
+using Content.Server._Mono.Traits; // Mono
 
 namespace Content.Server.Traits;
 
@@ -47,6 +48,7 @@ public sealed partial class TraitSystem : EntitySystem
 
             // Add all components required by the prototype
             EntityManager.AddComponents(args.Mob, traitPrototype.Components, false);
+            EnsureComp<AppliedTraitsComponent>(args.Mob).Traits.Add(traitPrototype.ID); // Mono cloning trait reapply
 
             // Einstein Engines - Language begin (remove this if trait system refactor)
             // Remove/Add Languages required by the prototype

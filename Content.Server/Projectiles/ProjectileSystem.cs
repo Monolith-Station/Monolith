@@ -132,10 +132,14 @@ public sealed partial class ProjectileSystem : SharedProjectileSystem
         while (query.MoveNext(out var uid, out var projectileComp, out var physicsComp))
         {
             if (projectileComp.ProjectileSpent || TerminatingOrDeleted(uid))
+            {
+                projectileComp.RaycastResetVelocity = null; // Mono
                 continue;
+            }
 
             var xform = Transform(uid);
-            var currentVelocity = projectileComp.RaycastResetVelocity ?? _physics.GetMapLinearVelocity(uid, physicsComp, xform);
+            var parentVel = _physics.GetMapLinearVelocity(uid, physicsComp, xform) - physicsComp.LinearVelocity; // Mono
+            var currentVelocity = projectileComp.RaycastResetVelocity - parentVel ?? physicsComp.LinearVelocity;
             var velLen = currentVelocity.Length();
             if (!ShouldRaycastProjectile(velLen) && projectileComp.RaycastResetVelocity == null)
                 continue;
@@ -158,11 +162,9 @@ public sealed partial class ProjectileSystem : SharedProjectileSystem
                 false); // IncludeNonHard = false
 
             // do not process other grid velocity if we are gridded
-            if (!ProcessHits(hits) && projectileComp.RaycastResetVelocity is { } resetVel)
+            if (!ProcessHits(hits) && projectileComp.RaycastResetVelocity != null)
             {
-                var parentVel = _physics.GetMapLinearVelocity(xform.ParentUid);
-                var resetTo = resetVel - parentVel;
-                _physics.SetLinearVelocity(uid, resetTo, body: physicsComp);
+                _physics.SetLinearVelocity(uid, currentVelocity, body: physicsComp);
                 projectileComp.RaycastResetVelocity = null;
             }
 
@@ -216,7 +218,6 @@ public sealed partial class ProjectileSystem : SharedProjectileSystem
 
                 if (projectileComp.RaycastResetVelocity == null)
                 {
-                    var parentVel = _physics.GetMapLinearVelocity(xform.ParentUid);
                     projectileComp.RaycastResetVelocity = currentVelocity + parentVel; // record specifically world velocity
                     var curVel = physicsComp.LinearVelocity;
                     curVel.Normalize();

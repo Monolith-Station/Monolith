@@ -20,15 +20,15 @@ selectable-set-security-modsuit-desc =
     A modular modsuit with ceramic inserts to provide more protection
     than the hardsuit counterpart, but with less mobility.
 
-selectable-set-headofsecurity-voidsuit-name = Head of Security's Hardsuit
+selectable-set-headofsecurity-voidsuit-name = Overseer's Hardsuit
 selectable-set-headofsecurity-voidsuit-desc =
     A light hardsuit with material cut from non-vital areas to slightly increase
     the armour value of the vital organs and increase mobility
     compared to the standard security hardsut.
 
-selectable-set-headofsecurity-modsuit-name = Head of Security's 'Bulwark' Modsuit
+selectable-set-headofsecurity-modsuit-name = Overseer's 'Bulwark' Modsuit
 selectable-set-headofsecurity-modsuit-desc =
-    A modsuit with expensive plastitanium armour for the head of security's use.
+    A modsuit with expensive plastitanium armour for the overseer's use.
 
 selectable-set-engineering-voidsuit-name = Engineering Hardsuit
 selectable-set-engineering-voidsuit-desc =

@@ -54,7 +54,8 @@
       color: "#4f94ad"
       requireDetailRange: true
   - type: SoldAlert
-    threshold: 3
+    threshold: 0
+    maxPerSale: 100
     channels:
     - Command
     - Security
