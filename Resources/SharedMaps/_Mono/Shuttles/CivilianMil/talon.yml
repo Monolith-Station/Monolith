@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 10/10/2026 14:42:51
-  entityCount: 356
+  time: 11/02/2026 09:44:12
+  entityCount: 359
 maps: []
 grids:
 - 1
@@ -66,10 +66,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
+        Smoke: []
         MetalFoam: []
         Kudzu: []
         ESTileFire: []
-        Smoke: []
         Puddle: []
     - type: Shuttle
       dampingModifier: 0.25
@@ -1336,6 +1336,26 @@ entities:
       parent: 175
     - type: Physics
       canCollide: False
+- proto: ExtinguisherCabinetFilled
+  entities:
+  - uid: 184
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -3.5,-1.5
+      parent: 1
+  - uid: 185
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 1.5,-6.5
+      parent: 1
+  - uid: 186
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 1.5,0.5
+      parent: 1
 - proto: GasPassiveVent
   entities:
   - uid: 187
