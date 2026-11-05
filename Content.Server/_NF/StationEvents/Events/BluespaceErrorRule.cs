@@ -129,7 +129,7 @@ public sealed partial class BluespaceErrorRule : StationEventSystem<BluespaceErr
 
                 component.GridsUid.Add(spawned);
                 component.StartingValue += component.RewardAccounts.Count > 0
-                    ? _pricing.AppraiseGrid(gridUid, null)
+                    ? _pricing.AppraiseGrid(spawned, null)
                     : 0;
                     
                 if (component.ExtendIfPopulated)
