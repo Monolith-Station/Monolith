@@ -229,9 +229,9 @@
         whitelist:
           components:
             - PowerCell
-      blacklist: #Mono
-        tags:
-        - PowerCage
+        blacklist: #Mono
+          tags:
+          - PowerCage
 
 - type: entity
   parent: ClothingModsuitBase
