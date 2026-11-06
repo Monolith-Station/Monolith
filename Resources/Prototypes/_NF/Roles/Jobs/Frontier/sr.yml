@@ -8,20 +8,7 @@
       time: 360000 # 100 hrs
     - !type:RoleTimeRequirement
       role: JobSecurityGuard
-      time: 18000
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 36000 # 10 hours
-  alternateRequirementSets: # Monolith: TSF -or- PDV
-    PDV:
-      - !type:OverallPlaytimeRequirement
-        time: 360000 # 100 hrs
-      - !type:RoleTimeRequirement
-        role: JobSecurityGuard
-        time: 18000
-      - !type:RoleTimeRequirement
-        role: JobPirate
-        time: 36000 # 10 hours
+      time: 18000 # 5 hours
   whitelisted: false
   startingGear: SrGear
   alwaysUseSpawner: true
