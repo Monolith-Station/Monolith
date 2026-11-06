@@ -72,7 +72,7 @@ public sealed partial class MaterialFuelSystem : EntitySystem
         int multiplier,
         int volume)
     {
-        if (!Resolve(uid, ref fuel) ||
+        if (!Resolve(uid, ref fuel, false) ||
             fuel.Material != mat)
             return multiplier * volume;
 

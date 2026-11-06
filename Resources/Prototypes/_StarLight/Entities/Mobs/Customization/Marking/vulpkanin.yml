@@ -1,0 +1,35 @@
+- type: marking
+  id: PawSocksFeet
+  bodyPart: RFoot
+  markingCategory: Overlay
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: _Starlight/Mobs/Customization/Vulpkanin/vulpkanin.rsi
+      state: pawsocks_feet
+
+- type: marking
+  id: PawSocksLegs
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: _Starlight/Mobs/Customization/Vulpkanin/vulpkanin.rsi
+      state: pawsocks_legs
+
+- type: marking
+  id: PawSocksHands
+  bodyPart: RHand
+  markingCategory: Overlay
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: _Starlight/Mobs/Customization/Vulpkanin/vulpkanin.rsi
+      state: pawsocks_hands
+
+- type: marking
+  id: PawSocksArms
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: _Starlight/Mobs/Customization/Vulpkanin/vulpkanin.rsi
+      state: pawsocks_arms

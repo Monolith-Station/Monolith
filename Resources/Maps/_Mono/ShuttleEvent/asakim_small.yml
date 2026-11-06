@@ -1113,9 +1113,6 @@ entities:
         163:
         - - CloningPodSender
           - CloningPodReceiver
-        165:
-        - - MedicalScannerSender
-          - MedicalScannerReceiver
     - type: Battery
       startingCharge: 0
 - proto: ComputerIFFSyndicate
