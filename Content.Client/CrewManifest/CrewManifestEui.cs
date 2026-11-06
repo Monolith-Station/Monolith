@@ -43,6 +43,6 @@ public sealed class CrewManifestEui : BaseEui
             return;
         }
 
-        _window.Populate(cast.StationName, cast.Entries);
+        _window.Populate(cast.Entries); // Monolith: Remove name
     }
 }
