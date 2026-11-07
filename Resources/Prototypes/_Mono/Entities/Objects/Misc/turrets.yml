@@ -21,6 +21,10 @@
   - type: NpcFactionMember
     factions:
     - TSFMCTurret
+  - type: Construction
+    deconstructionTarget: null
+    graph: WeaponTurretLaserTSFMCPackedGraph
+    node: WeaponTurretLaserTSFMCPacked
 
 - type: entity
   id: WeaponTurretLaserSilicon
@@ -230,3 +234,38 @@
     shape:
     - 0,0,3,3
     sprite: _Mono/Objects/Weapons/Sentries/sentry.rsi
+
+# TSFMC Laser Turret
+
+- type: entity # folded turret
+  parent: WeaponTurretMk290Packed
+  id: WeaponTurretLaserTSFMCPacked
+  name: packed laser turret
+  description: A disassembled and packed TSFMC laser turret.
+  suffix: TSFMC, Packed
+  components:
+  - type: SpawnAfterInteract
+    prototype: WeaponTurretLaserTSFMC
+  - type: Sprite
+    sprite: _NF/Objects/Weapons/Guns/Turrets/laser.rsi
+    state: packed
+  - type: Item
+    sprite: _NF/Objects/Weapons/Guns/Turrets/laser.rsi
+
+- type: constructionGraph # deconstruction graph
+  id: WeaponTurretLaserTSFMCPackedGraph
+  start: WeaponTurretLaserTSFMCPacked
+  graph:
+  - node: WeaponTurretLaserTSFMCPacked
+    entity: WeaponTurretLaserTSFMC
+    edges:
+    - to: WeaponTurretLaserTSFMCPacked
+      completed:
+      - !type:SpawnPrototype
+            prototype: WeaponTurretLaserTSFMCPacked
+            amount: 1
+      - !type:EmptyAllContainers
+      - !type:DeleteEntity {}
+      steps:
+        - tool: Screwing
+          doAfter: 14
