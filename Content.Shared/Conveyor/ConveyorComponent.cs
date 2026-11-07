@@ -22,6 +22,20 @@ public sealed partial class ConveyorComponent : Component
     [DataField, AutoNetworkedField]
     public float Speed = 2f;
 
+    // Mono start
+    /// <summary>
+    ///     Amount of entities moved per departure.
+    /// </summary>
+    [DataField]
+    public int BatchSize = 15;
+
+    /// <summary>
+    /// Interval between each batch departure.
+    /// </summary>
+    [DataField]
+    public float DepartureInterval = 1f;
+    // Mono end
+
     /// <summary>
     ///     The current state of this conveyor
     /// </summary>
@@ -39,6 +53,34 @@ public sealed partial class ConveyorComponent : Component
 
     [DataField]
     public ProtoId<SinkPortPrototype> OffPort = "Off";
+
+    // Mono start
+    [ViewVariables(VVAccess.ReadOnly)]
+    public int BatchRemaining = 0;
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public TimeSpan NextDeparture = TimeSpan.Zero;
+
+    /// <summary>
+    /// Checks if this batch's limit has been reached, and prepares departure timespan for next batch if it has.
+    /// </summary>
+    /// <param name="curTime">IGameTiming.CurrentTime - current game time.</param>
+    public void TryNextBatch(TimeSpan curTime)
+    {
+        if (BatchRemaining > 0) // do not reset if we still have a batch ongoing
+            return;
+
+        var nextDepartureWithInterval = NextDeparture + TimeSpan.FromSeconds(DepartureInterval); // departure for next batch is current next departure + interval in seconds
+        NextDeparture = nextDepartureWithInterval > curTime ? nextDepartureWithInterval : curTime; // max(nextDepartureWithInterval, _timing.CurTime)
+        BatchRemaining = BatchSize;
+    }
+
+    public void Reset()
+    {
+        NextDeparture = TimeSpan.Zero;
+        BatchRemaining = 0;
+    }
+    // Mono end
 }
 
 [Serializable, NetSerializable]

@@ -35,6 +35,8 @@
         - DoorPassable
         hard: False
   - type: Conveyor
+    batchSize: 3 # Mono
+    departureInterval: 0.2 # Mono
   - type: DeviceNetwork
     deviceNetId: Wireless
     receiveFrequencyId: BasicDevice
