@@ -408,6 +408,21 @@
       - PirateUplink
 
 - type: listing
+  id: UplinkPirateComputerIFFFlatpack
+  name: uplink-pirate-computer-iff-flatpack-name
+  description: uplink-pirate-computer-iff-flatpack-desc
+  productEntity: ComputerIFFFlatpack
+  cost:
+    Doubloon: 10
+  categories:
+    - UplinkPirateUtility
+  conditions:
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - PirateUplink
+
+- type: listing
   id: UplinkPirateHoverbikeFlatpack
   name: uplink-pirate-hoverbike-name
   description: uplink-pirate-hoverbike-desc

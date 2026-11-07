@@ -1,3 +1,4 @@
+using Content.Server._Mono.Detection;
 using Content.Server.Shuttles.Components;
 using Content.Shared.CCVar;
 using Content.Shared.Shuttles.BUIStates;
@@ -115,6 +116,11 @@ public sealed partial class ShuttleSystem
                 AllowedFlags = component.AllowedFlags,
                 Flags = IFFFlags.None,
             });
+
+            // Mono: lose the IFF console, lose the IFF
+            var gridUid = Transform(uid).GridUid;
+            if (TryComp<RequireIFFConsoleComponent>(Transform(uid).GridUid, out var requireConsoleComp) && gridUid != null)
+                RemoveIFFFlag(gridUid.Value, requireConsoleComp.RemoveFlags);
         }
         else
         {
