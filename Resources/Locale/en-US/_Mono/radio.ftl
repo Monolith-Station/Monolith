@@ -7,3 +7,5 @@ chat-radio-monolithic = Monolith Connection
 chat-radio-viper = Viper Group
 chat-radio-mieyo = Mieyo Corporate Network
 chat-radio-mieyo-command = Mieyo Command Network
+chat-radio-mawc = M.A. Lower Nexus Comm.
+chat-radio-mawc-command = M.A. Upper Nexus Comm.

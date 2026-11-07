@@ -6,6 +6,9 @@ namespace Content.Client.PDA;
 [RegisterComponent]
 public sealed partial class PdaVisualsComponent : Component
 {
+    [DataField]
+    public string? StateWithIdCard;
+
     public string? BorderColor;
 
     public string? AccentHColor;

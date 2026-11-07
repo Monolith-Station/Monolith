@@ -1,0 +1,39 @@
+- type: vessel
+  id: Wisp
+  parent: BaseVessel
+  name: MAWC Wisp
+  description: A dependable vessel. Armed with two AK800 120mm's and two DRAVON 90mm's, it packs a greater punch than its size may lead you to believe. Works best in groups.
+  price: 100800 # 84K * 1.2~
+  purchasable: false # T1 - voucher only
+  category: Small
+  group: Mawc
+  access: MAWC
+  shuttlePath: /SharedMaps/_Mono/Shuttles/MAWC/wisp.yml
+  guidebookPage: Null
+  class:
+  - Brawler
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Wisp
+  mapName: 'MAWC Wisp'
+  mapPath: /SharedMaps/_Mono/Shuttles/MAWC/wisp.yml
+  minPlayers: 0
+  stations:
+    Wisp:
+      stationProto: StandardFrontierVessel
+      gridComponents:
+      - type: VesselInfo
+        description: "The little boy cried wolf, but the townspeople ignored him. And the wolf ate all his sheep, as the little boy cried more."
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Wisp MAWC{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            MAWCInitiate: [ 0, 0 ]
+            MAWCCarpenter: [ 0, 0 ]
+            MAWCAcolyte: [ 0, 0 ]

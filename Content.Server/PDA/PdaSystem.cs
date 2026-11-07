@@ -56,7 +56,6 @@ namespace Content.Server.PDA
             SubscribeLocalEvent<PdaComponent, LightToggleEvent>(OnLightToggle);
 
             // UI Events:
-            SubscribeLocalEvent<PdaComponent, BoundUIOpenedEvent>(OnPdaOpen);
             SubscribeLocalEvent<PdaComponent, PdaRequestUpdateInterfaceMessage>(OnUiMessage);
             SubscribeLocalEvent<PdaComponent, PdaToggleFlashlightMessage>(OnUiMessage);
             SubscribeLocalEvent<PdaComponent, PdaShowRingtoneMessage>(OnUiMessage);
@@ -286,8 +285,9 @@ namespace Content.Server.PDA
             _ui.SetUiState(uid, PdaUiKey.Key, state);
         }
 
-        private void OnPdaOpen(Entity<PdaComponent> ent, ref BoundUIOpenedEvent args)
+        protected override void OnPdaOpen(Entity<PdaComponent> ent, ref BoundUIOpenedEvent args)
         {
+            base.OnPdaOpen(ent, ref args);
             if (!PdaUiKey.Key.Equals(args.UiKey))
                 return;
 

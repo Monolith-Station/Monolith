@@ -397,3 +397,61 @@
   completetime: 30 # faster for your trouble
   entities:
     MonolithicCrystalSmall: 4
+
+# MAWC
+
+- type: latheRecipe
+  parent: BaseVoucherRecipe
+  id: ShipVoucherMAWCT1Recipe
+  result: ShipVoucherMAWCT1
+  completetime: 50
+  materialDiscountScale: 0.2
+  materials:
+    Steel: 5000
+    Copper: 5000
+    Plasteel: 2500
+    Lithium: 2500
+    Glass: 2500
+    Plasma: 2500
+    Gold: 2500
+    Silver: 2500
+
+- type: latheRecipe
+  parent: BaseVoucherRecipe
+  id: ShipVoucherMAWCT2Recipe
+  result: ShipVoucherMAWCT2
+  completetime: 100
+  materialDiscountScale: 0.2
+  materials:
+    Steel: 10000
+    Copper: 10000
+    Plasteel: 5000
+    Lithium: 10000
+    Glass: 5000
+    Plasma: 5000
+    Gold: 5000
+    Silver: 5000
+    MAWCScrap: 2500
+    Iridite: 150 # 37.5
+    Plastitanium: 1500 # 37.5
+
+- type: latheRecipe
+  parent: BaseVoucherRecipe
+  id: ShipVoucherMAWCT3Recipe
+  result: ShipVoucherMAWCT3
+  completetime: 100
+  materialDiscountScale: 0.2
+  materials:
+    Steel: 15000
+    Copper: 15000
+    Plasteel: 12000
+    Lithium: 15000
+    Glass: 5000
+    Plasma: 5000
+    Gold: 5000
+    Silver: 5000
+    UraniumDepleted: 1000
+    UraniumFissile: 250
+    MAWCScrap: 2500
+    Iridite: 500 # 125
+    Plastitanium: 2000 # 500

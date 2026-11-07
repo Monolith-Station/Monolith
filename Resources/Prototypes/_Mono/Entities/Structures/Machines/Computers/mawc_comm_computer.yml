@@ -1,0 +1,27 @@
+- type: entity
+  parent: ComputerComms
+  id: MawcComputerComms
+  name: MAWC communications computer
+  description: An inter-ship communications array console that delivers sector-wide messages to its inhabitants. The name "RUBICOMM" Is written on its side.
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Machines/computers.rsi
+    layers:
+    - map: [ "computerLayerBody" ]
+      state: computer_not_rot
+    - map: [ "computerLayerKeyboard" ]
+      state: gunnery_keyboard
+    - map: [ "computerLayerScreen" ]
+      state: shipyard_MAWC
+    - map: [ "computerLayerKeys" ]
+      state: gunnery_keys
+  - type: AccessReader
+    access: [[ "MAWCAcolyte" ]]
+  - type: CommunicationsConsole
+    title: comms-console-announcement-title-mawc
+    color: "#ff9310"
+    canShuttle: false
+    global: true
+    sound: /Audio/Announcements/announce.ogg
+  - type: Computer
+    board: MawcCommsComputerCircuitboard

@@ -101,3 +101,19 @@
   components:
   - type: AccessReader
     access: [["Godfather"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsMawcHigh
+  suffix: MAWC upper nexus, Locked
+  components:
+  - type: AccessReader
+    access: [["MAWCAcolyte"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsMawcLow
+  suffix: MAWC lower nexus, Locked
+  components:
+  - type: AccessReader
+    access: [["MAWC"]]

@@ -1,0 +1,84 @@
+- type: technology
+  id: MAWCSuits
+  name: research-technology-mawc-suits
+  entityIcon: ClothingOuterHardsuitMAWCWidowmaker
+  discipline: MAWC
+  tier: 2
+  cost: 65000
+  recipeUnlocks:
+  - ClothingOuterHardsuitMAWCWeaverMAWC
+  - ClothingOuterHardsuitMAWCWidowmakerMAWC
+  technologyPrerequisites:
+  - UniversalMaterialResearchT2
+  position: 13, -16
+
+- type: technology
+  id: MAWCTierOneVouchers
+  name: research-technology-mawc-vouchers-t1
+  entityIcon: ShipVoucherMAWCT1
+  discipline: MAWC
+  tier: 1
+  cost: 40000
+  recipeUnlocks:
+  - ShipVoucherMAWCT1Recipe
+  technologyPrerequisites:
+  - UniversalMaterialResearchT1
+  position: 11, -8
+
+- type: technology
+  id: MAWCTierTwoVouchers
+  name: research-technology-mawc-vouchers-t2
+  entityIcon: ShipVoucherMAWCT2
+  discipline: MAWC
+  tier: 2
+  cost: 60000
+  recipeUnlocks:
+  - ShipVoucherMAWCT2Recipe
+  technologyPrerequisites:
+  - MAWCTierOneVouchers
+  - UniversalMaterialResearchT2
+  position: 11, -16
+
+- type: technology
+  id: MAWCTierThreeVouchers
+  name: research-technology-mawc-vouchers-t3
+  entityIcon: ShipVoucherMAWCT3
+  discipline: MAWC
+  tier: 3
+  cost: 150000
+  recipeUnlocks:
+  - ShipVoucherMAWCT3Recipe
+  technologyPrerequisites:
+  - MAWCTierTwoVouchers
+  - UniversalMaterialResearchT3
+  position: 11, -26
+
+- type: technology
+  id: MAWCWeaponsBasic
+  name: research-technology-mawc-weapons-basic
+  entityIcon: WeaponSubMachineGunMAWCFlanker
+  discipline: MAWC
+  tier: 2
+  cost: 30000
+  recipeUnlocks:
+  - WeaponRifleMAWCFulcrumMAWC
+  - WeaponSubMachineGunMAWCFlankerMAWC
+  - WeaponShotgunMAWCIntruderMAWC
+  technologyPrerequisites:
+  - UniversalMaterialResearchT2
+  position: 12, -16
+
+- type: technology
+  id: MAWCWeaponsAdvanced
+  name: research-technology-mawc-weapons-advanced
+  entityIcon: WeaponRifleMAWCStonehenge
+  discipline: MAWC
+  tier: 3
+  cost: 30000
+  recipeUnlocks:
+  - WeaponRifleMAWCStonehengeMAWC
+  - WeaponMawcTalonMAWC
+  technologyPrerequisites:
+  - MAWCWeaponsBasic
+  - UniversalMaterialResearchT3
+  position: 12, -26

@@ -1,0 +1,43 @@
+- type: loadout
+  id: MAWCHeadset
+  price: 0
+  equipment:
+    ears: ClothingHeadsetMawcLow
+
+- type: loadout
+  id: MAWCHeadsetAlt
+  price: 0
+  equipment:
+    ears: ClothingHeadsetMawcLowAlt
+
+- type: loadoutGroup
+  id: MAWCHeadset
+  name: loadout-group-contractor-ears
+  minLimit: 1
+  loadouts:
+  - MAWCHeadset
+  - MAWCHeadsetAlt
+  fallbacks:
+  - MAWCHeadset
+
+- type: loadout
+  id: MAWCCommandHeadset
+  price: 0
+  equipment:
+    ears: ClothingHeadsetMawcHigh
+
+- type: loadout
+  id: MAWCCommandHeadsetAlt
+  price: 0
+  equipment:
+    ears: ClothingHeadsetMawcHighAlt
+
+- type: loadoutGroup
+  id: MAWCCommandHeadset
+  name: loadout-group-contractor-ears
+  minLimit: 1
+  loadouts:
+  - MAWCCommandHeadset
+  - MAWCCommandHeadsetAlt
+  fallbacks:
+  - MAWCCommandHeadset

@@ -53,7 +53,8 @@ public sealed partial class RechargeBasicEntityAmmoSystem : EntitySystem
                 continue;
             }
 
-            recharge.NextCharge = recharge.NextCharge.Value + TimeSpan.FromSeconds(recharge.RechargeCooldown);
+            recharge.NextCharge = recharge.NextCharge.Value + TimeSpan.FromSeconds(recharge.ModifiedRechargeCooldown); // Mono: .RechargeCooldown -> ModifiedRechargeCooldown
+            recharge.ModifiedRechargeCooldown = Math.Min(recharge.RechargeCooldown + recharge.AdditionalRechargeCooldownPerBullet * ammo.Count.Value, recharge.MaximumRechargeCooldown ?? recharge.RechargeCooldown); // Mono
             Dirty(uid, recharge);
         }
     }
@@ -61,6 +62,7 @@ public sealed partial class RechargeBasicEntityAmmoSystem : EntitySystem
     private void OnInit(EntityUid uid, RechargeBasicEntityAmmoComponent component, MapInitEvent args)
     {
         component.NextCharge = _timing.CurTime;
+        component.ModifiedRechargeCooldown = component.RechargeCooldown; // Mono
         Dirty(uid, component);
     }
 
