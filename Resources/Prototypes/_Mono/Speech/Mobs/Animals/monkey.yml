@@ -1,0 +1,53 @@
+- type: localizedDataset
+  id: MonkeyEating
+  values:
+    prefix: monkey-eating-
+    count: 5
+
+- type: localizedDataset
+  id: MonkeyPickedUp
+  values:
+    prefix: monkey-picked-up-
+    count: 5
+
+- type: localizedDataset
+  id: MonkeyThrown
+  values:
+    prefix: monkey-thrown-
+    count: 5
+
+- type: localizedDataset
+  id: MonkeyDrinking
+  values:
+    prefix: monkey-drinking-
+    count: 5
+
+- type: localizedDataset
+  id: MonkeyCritical
+  values:
+    prefix: monkey-critical-
+    count: 5
+
+- type: localizedDataset
+  id: MonkeyDeath
+  values:
+    prefix: monkey-dead-
+    count: 5
+
+- type: localizedDataset
+  id: MonkeyRevived
+  values:
+    prefix: monkey-revived-
+    count: 5
+
+- type: localizedDataset
+  id: MonkeyExamined
+  values:
+    prefix: monkey-examined-
+    count: 5
+
+- type: localizedDataset
+  id: MonkeyGhostExamined
+  values:
+    prefix: monkey-ghost-examined-
+    count: 5
