@@ -1,0 +1,80 @@
+- type: entity
+  abstract: true
+  parent: BaseBullet
+  id: BaseBulletShip
+  components:
+  - type: RadarBlip
+    maxDistance: 4096
+
+- type: entity
+  abstract: true
+  parent: [ BaseBulletTrigger, BaseBulletShip ]
+  id: BaseBulletTriggerShip
+
+- type: entity
+  abstract: true
+  parent: [ BaseBulletTriggerSpent, BaseBulletShip ]
+  id: BaseBulletTriggerSpentShip
+
+- type: entity
+  abstract: true
+  id: BaseProjectileHitmarkerLight
+  components:
+  - type: SpawnEntityOnTrigger
+    prototype: ExplosionRadarBlipLight
+    
+- type: entity
+  abstract: true
+  id: BaseProjectileHitmarkerMedium
+  components:
+  - type: SpawnEntityOnTrigger
+    prototype: ExplosionRadarBlipMedium
+    
+- type: entity
+  abstract: true
+  id: BaseProjectileHitmarkerHeavy
+  components:
+  - type: SpawnEntityOnTrigger
+    prototype: ExplosionRadarBlipHeavy
+
+- type: entity
+  abstract: true
+  id: BaseProjectileHitmarkerSuperheavy
+  components:
+  - type: SpawnEntityOnTrigger
+    prototype: ExplosionRadarBlipSuperheavy
+
+- type: entity
+  abstract: true
+  id: BaseProjectileHitmarkerSubnuclear
+  components:
+  - type: SpawnEntityOnTrigger
+    prototype: ExplosionRadarBlipSubnuclear
+
+- type: entity
+  abstract: true
+  id: BaseProjectileHitmarkerNuclear
+  components:
+  - type: SpawnEntityOnTrigger
+    prototype: ExplosionRadarBlipNuclear
+
+- type: entity
+  abstract: true
+  id: BaseProjectileHitmarkerMediumBlue
+  components:
+  - type: SpawnEntityOnTrigger
+    prototype: ExplosionRadarBlipMediumBlue
+
+- type: entity
+  abstract: true
+  id: BaseProjectileHitmarkerHeavyBlue
+  components:
+  - type: SpawnEntityOnTrigger
+    prototype: ExplosionRadarBlipHeavyBlue
+
+- type: entity
+  abstract: true
+  id: BaseProjectileHitmarkerSuperheavyBlue
+  components:
+  - type: SpawnEntityOnTrigger
+    prototype: ExplosionRadarBlipSuperheavyBlue

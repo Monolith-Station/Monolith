@@ -3,7 +3,7 @@
 - type: entity
   id: ShipMediumPlasmaProjectile
   name: plasma projectile
-  parent: BaseBulletTrigger
+  parent: [ BaseBulletTriggerShip, BaseProjectileHitmarkerHeavy ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -40,7 +40,7 @@
 - type: entity
   id: ShipCerberusPlasma
   name: plasma projectile
-  parent: BaseBulletTrigger
+  parent: [ BaseBulletTriggerShip, BaseProjectileHitmarkerMedium ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -87,7 +87,7 @@
 - type: entity
   id: ShipAutopulserPlasmaProjectile
   name: plasma projectile
-  parent: BaseBulletTrigger
+  parent: [ BaseBulletTriggerShip, BaseProjectileHitmarkerLight ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -125,7 +125,7 @@
 - type: entity
   id: ShipPlasmaProjectileScylla
   name: plasma projectile
-  parent: BaseBulletTrigger
+  parent: [ BaseBulletTriggerShip, BaseProjectileHitmarkerLight ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -161,7 +161,7 @@
 - type: entity
   id: ShipGlassingBeamPlasmaProjectile
   name: plasma projectile
-  parent: BaseBulletTrigger
+  parent: [ BaseBulletTriggerShip, BaseProjectileHitmarkerLight ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -199,7 +199,7 @@
 - type: entity
   id: ShipM25Projectile
   name: M25 projectile
-  parent: BaseBulletTrigger
+  parent: BaseBulletTriggerShip
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -232,7 +232,7 @@
 - type: entity
   id: ShipRubiconProjectile
   name: EMP projectile
-  parent: BaseBulletTrigger
+  parent: [ BaseBulletTriggerShip, BaseProjectileHitmarkerMediumBlue ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -265,7 +265,7 @@
 - type: entity
   id: ShipDymereProjectile
   name: Ionized Gas Projectile
-  parent: BaseBulletTrigger
+  parent: [ BaseBulletTriggerShip, BaseProjectileHitmarkerSuperheavy ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -304,7 +304,7 @@
 - type: entity
   id: ShipNeutronProjectile
   name: neutron projectile
-  parent: BaseBulletTrigger
+  parent: [ BaseBulletTriggerShip, BaseProjectileHitmarkerMedium ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -342,7 +342,7 @@
 - type: entity
   id: ShipIonProjectile
   name: ion shot
-  parent: BaseBulletTrigger
+  parent: BaseBulletTriggerShip
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -381,7 +381,7 @@
 - type: entity
   id: ShipAntiMatterProjectile
   name: antimatter projectile
-  parent: BaseBulletTrigger
+  parent: [ BaseBulletTriggerShip, BaseProjectileHitmarkerHeavy ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -441,6 +441,9 @@
       Structural: 35
   - type: HitscanBasicRaycast
     maxDistance: 512
+  - type: HitscanSpawnEntity
+    spawnedEntity: HitmarkerRadarBlipLight
+
 
 # Apollo
 
@@ -580,6 +583,7 @@
 
 - type: entity
   id: TachyonExplosion
+  parent: BaseProjectileHitmarkerSubnuclear
   categories: [ HideSpawnMenu ]
   components:
   - type: TriggerOnSpawn
@@ -593,6 +597,7 @@
 
 - type: entity
   id: SunderExplosion
+  parent: BaseProjectileHitmarkerMedium
   categories: [ HideSpawnMenu ]
   components:
   - type: TriggerOnSpawn
@@ -606,6 +611,7 @@
 
 - type: entity
   id: PrometheusExplosion
+  parent: BaseProjectileHitmarkerMedium
   categories: [ HideSpawnMenu ]
   components:
   - type: TriggerOnSpawn

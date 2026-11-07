@@ -1,0 +1,100 @@
+- type: entity
+  abstract: true
+  id: BaseExplosionRadarBlipOrange
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RadarBlip
+    shape: star
+    radarColor: "#FCBA03"
+    visibleFromOtherGrids: true
+    maxDistance: 8192
+  - type: TimedDespawn
+    lifetime: 0.4
+  - type: Physics
+    bodyType: Static
+    fixedRotation: true
+    canCollide: false
+
+- type: entity
+  abstract: true
+  parent: BaseExplosionRadarBlipOrange
+  id: BaseExplosionRadarBlipGreen # nuclear
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RadarBlip
+    radarColor: "#268500"
+
+- type: entity
+  abstract: true 
+  parent: BaseExplosionRadarBlipOrange
+  id: BaseExplosionRadarBlipBlue # EMP
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RadarBlip
+    radarColor: "#035EFC"
+
+- type: entity
+  parent: BaseExplosionRadarBlipOrange
+  id: ExplosionRadarBlipLight
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RadarBlip
+    scale: 3
+
+- type: entity
+  parent: BaseExplosionRadarBlipOrange
+  id: ExplosionRadarBlipMedium
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RadarBlip
+    scale: 5
+
+- type: entity
+  parent: BaseExplosionRadarBlipOrange
+  id: ExplosionRadarBlipHeavy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RadarBlip
+    scale: 7.5
+
+- type: entity
+  parent: BaseExplosionRadarBlipOrange
+  id: ExplosionRadarBlipSuperheavy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RadarBlip
+    scale: 11
+    lifetime: 0.65
+
+- type: entity
+  parent: [ BaseExplosionRadarBlipGreen, ExplosionRadarBlipSuperheavy ]
+  categories: [ HideSpawnMenu ]
+  id: ExplosionRadarBlipSubnuclear # charon subnuclear rounds
+  components:
+  - type: TimedDespawn
+    lifetime: 1 # let that sink in
+
+- type: entity
+  parent: ExplosionRadarBlipSubnuclear
+  id: ExplosionRadarBlipNuclear # sandbox nuclear missiles
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RadarBlip
+    scale: 20
+  - type: TimedDespawn
+    lifetime: 1.5 # let that REALLY sink in
+
+- type: entity
+  parent: [ BaseExplosionRadarBlipBlue, ExplosionRadarBlipMedium ]
+  categories: [ HideSpawnMenu ]
+  id: ExplosionRadarBlipMediumBlue
+
+- type: entity
+  parent: [ BaseExplosionRadarBlipBlue, ExplosionRadarBlipHeavy ]
+  categories: [ HideSpawnMenu ]
+  id: ExplosionRadarBlipHeavyBlue
+
+- type: entity
+  parent: [ BaseExplosionRadarBlipBlue, ExplosionRadarBlipSuperheavy ]
+  categories: [ HideSpawnMenu ]
+  id: ExplosionRadarBlipSuperheavyBlue

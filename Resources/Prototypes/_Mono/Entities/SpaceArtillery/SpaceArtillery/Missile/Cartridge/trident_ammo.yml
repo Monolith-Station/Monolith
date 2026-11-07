@@ -3,7 +3,7 @@
 - type: entity
   id: ShipMissileASM220HE
   name: ASM-220 torpedo (HE)
-  parent: ShipMissileBase
+  parent: [ ShipMissileBase, BaseProjectileHitmarkerSuperheavy ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile

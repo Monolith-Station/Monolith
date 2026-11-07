@@ -2,7 +2,7 @@
   id: LightFighterOrdinanceGPOProjectile
   name: GPO-L 50kg Unguided Bomb
   description: Just passing by.
-  parent: ShipMissileBase
+  parent: [ ShipMissileBase, BaseProjectileHitmarkerHeavy ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
