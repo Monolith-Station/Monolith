@@ -55,3 +55,89 @@
     armorPenetration: 0
   - type: StaminaDamageOnHit
     damage: 60
+
+- type: entity
+  id: Bullet35mmGrenadeFlash
+  name: flash grenade
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: grenade
+  - type: FlashOnTrigger
+    range: 5
+  - type: SoundOnTrigger
+    sound:
+      path: "/Audio/_Mono/Weapons/Grenades/flashbang_explode_1.ogg" # Mono
+  - type: DeleteOnTrigger
+  - type: SpawnOnTrigger
+    proto: GrenadeFlashEffect
+  - type: Projectile
+    damage:
+      types:
+        Structural: 50
+        Blunt: 10
+    armorPenetration: 0
+  - type: StaminaDamageOnHit
+    damage: 10
+
+- type: entity
+  id: Bullet35mmGrenadeBaton
+  name: baton grenade
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: grenade
+  - type: Projectile
+    deleteOnCollide: false
+    damage:
+      types:
+        Blunt: 30
+    soundHit:
+      path: /Audio/Effects/gen_hit.ogg
+  - type: StaminaDamageOnCollide
+    damage: 200
+
+- type: entity
+  id: Bullet35mmGrenadeEMP
+  name: EMP grenade
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: grenade
+  - type: EmpOnTrigger
+    range: 5
+    energyConsumption: 2700000
+    disableDuration: 10
+
+- type: entity
+  id: Bullet35mmGrenadeHEDP
+  name: HEDP grenade
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: grenade
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: DemolitionCharge
+    maxIntensity: 30
+    intensitySlope: 20
+    totalIntensity: 110
+    maxTileBreak: 1
+  - type: Projectile
+    damage:
+      types:
+        Structural: 100
+        Blunt: 20
+    armorPenetration: 0
