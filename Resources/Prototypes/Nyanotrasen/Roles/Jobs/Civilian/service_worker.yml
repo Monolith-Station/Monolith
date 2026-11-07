@@ -14,11 +14,14 @@
   displayWeight: 10 # Frontier
   assignedCompany: Colonial
   canBeAntag: false
+  guides:
+  - Caelestinus
   access:
   - Maintenance
   - External # Frontier
   - Service
   - Frontier # Frontier
+  - Mercenary # Mono
   special:
 # - !type:AddImplantSpecial # Mono: remove TSFMC implant
 #   implants: [ MindShieldImplant ]

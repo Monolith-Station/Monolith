@@ -26,8 +26,8 @@
 - type: entity
   parent: BasePDA
   id: CCServiceWorkerPDA
-  name: colossus sector service PDA
-  description: A personal digital assistant belonging to a service worker in the Colossus Sector.
+  name: caelestinus PDA # Mono
+  description: A personal digital assistant belonging to a member of Caelestinus. # Mono
   components:
   - type: Pda
     id: CCServiceWorkerNFIDCard # Frontier: CCServiceWorkerIDCard<CCServiceWorkerNFIDCard

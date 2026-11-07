@@ -5,3 +5,22 @@
   - ShipVoucherCaelestinusT0RecipeAlternative
   - ShipVoucherCaelestinusT1Recipe
   - ShipVoucherCaelestinusT1RecipeAlternative
+
+- type: latheRecipePack
+  id: MonoCaelestinusWeaponsDynamic
+  recipes: 
+  - WeaponRifleIrohCaelestinus
+  - WeaponSubMachineGunFirestarter
+  - WeaponPistolCaelestinusGalactica
+  - WeaponShotgunEnforcerMerc
+  - WeaponRifleJackdawCaelestinus
+  - Magazine635x40mmCaseless
+  - Magazine635x40mmCaselessBigCaelestinus
+
+- type: latheRecipePack
+  id: MonoCaelestinusGearDynamic
+  recipes:
+  - ClothingModsuitSecurityCaelestinus
+  - ClothingOuterHardsuitSecurityCaelestinus
+  - ClothingOuterHardsuitWardenCaelestinus
+
