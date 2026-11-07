@@ -77,6 +77,27 @@
   id: SpeedLoader556x45mmUranium
   result: SpeedLoader556x45mmUranium
 
+ #Jill backpack + belts
+- type: latheRecipe
+  parent: BaseAmmoFMJIntermediateBigAmmoBoxRecipe
+  id: ClothingBackpackJill # Wasn't sure where to put this. It's a magazine and a backpack.
+  result: ClothingBackpackJill
+  materials:
+    Steel: 17200 #You get 4 big boxes of 5.56.
+    Plasteel: 2000
+
+- type: latheRecipe
+  parent: BaseAmmoFMJIntermediateBigAmmoBoxRecipe
+  id: Magazine556x45JillFMJ
+  result: Magazine556x45JillFMJ
+  materials:
+    Steel: 17200 #You get 4 big boxes of 5.56.
+
+- type: latheRecipe
+  parent: BaseAmmoFMJIntermediateAmmoBoxRecipe
+  id: Magazine556x45JillEmpty
+  result: Magazine556x45JillEmpty
+
 #Boxes
 
 - type: latheRecipe
