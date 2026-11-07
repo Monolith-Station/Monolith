@@ -171,7 +171,10 @@ public partial class ChatSystem
     {
         var actionTrimmedLower = TrimPunctuation(textInput.ToLower());
         if (!_wordEmoteDict.TryGetValue(actionTrimmedLower, out var emotes)) // DeltaV, renames to emotes
+        {
+            InvokeEmoteEventChatOnly(uid, textInput); //Mono: No matching emotes, evoke a different overload for chat-only emotes (for holopads)
             return;
+        }
 
         bool validEmote = false; // DeltaV - Multiple emotes for the same trigger
         foreach (var emote in emotes)
@@ -240,6 +243,13 @@ public partial class ChatSystem
         var ev = new EmoteEvent(proto);
         RaiseLocalEvent(uid, ref ev);
     }
+
+    //Mono: Chat-only overload
+    private void InvokeEmoteEventChatOnly(EntityUid uid, string textInput)
+    {
+        var ev = new EmoteEventChatOnly(textInput);
+        RaiseLocalEvent(uid, ref ev, true);
+    }
 }
 
 /// <summary>
@@ -253,6 +263,23 @@ public struct EmoteEvent
     public readonly EmotePrototype Emote;
 
     public EmoteEvent(EmotePrototype emote)
+    {
+        Emote = emote;
+        Handled = false;
+    }
+}
+
+/// <summary>
+///     MONO: Raised by chat system if emote does not match any usable emote
+///     Invoked as holopads are "deaf" to chat-only emote events otherwise
+/// </summary>
+[ByRefEvent]
+public struct EmoteEventChatOnly
+{
+    public bool Handled;
+    public readonly string Emote;
+
+    public EmoteEventChatOnly(string emote)
     {
         Emote = emote;
         Handled = false;
