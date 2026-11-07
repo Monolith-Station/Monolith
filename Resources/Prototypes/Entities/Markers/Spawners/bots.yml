@@ -26,3 +26,16 @@
     prototypes:
       - MobCleanBot
 
+- type: entity # Mono, placed here because the entity is from vanilla SS14.
+  name: firebot spawner
+  id: SpawnMobFireBot
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Silicon/Bots/firebot.rsi
+      state: firebot
+  - type: ConditionalSpawner
+    prototypes:
+    - MobFireBot

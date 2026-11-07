@@ -138,7 +138,7 @@
   - PortableGeneratorDK
   id: PortableGeneratorDKShuttle
   suffix: Bananium, Rad+, 60 kW, Ship
-  categories: [ HideSpawnMenu ] # Mm, start-on rad source
+  # We've already got start-on rad sources. categories: [ HideSpawnMenu ] # Mm, start-on rad source
   components:
     - type: MaterialStorage
       storage:
