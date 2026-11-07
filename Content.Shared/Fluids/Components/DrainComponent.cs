@@ -15,8 +15,7 @@ namespace Content.Shared.Fluids.Components;
 [RegisterComponent, Access(typeof(SharedDrainSystem))]
 public sealed partial class DrainComponent : Component
 {
-    [DataField]
-    public string SolutionName = "drainBuffer"; // Monolith
+    public const string SolutionName = "drainBuffer";
 
     [ValidatePrototypeId<TagPrototype>]
     public const string PlungerTag = "Plunger";
