@@ -315,3 +315,42 @@
   components:
   - type: VendingMachine
     pack: CrocusPDVArmory
+
+- type: entity
+  parent: [VendingMachineCredit, BaseStructureDisableToolUse, BaseStructureIndestructible, BaseStructureAccessReaderImmuneToEmag]
+  id: VendingMachineTelecrystalExchange
+  name: TelecrystalExchange
+  description: Converts credits into telecrystals. Requires the Godfather's ID to use.
+  suffix: Godfather, Locked
+  components:
+  - type: VendingMachine
+    pack: TelecrystalExchange
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    requiresCash: true
+  - type: AccessReader
+    access: [["Godfather"]]
+  - type: ExtendDescription
+    descriptionList:
+    - description: This vending machine automatically restocks itself to full capacity every 30 minutes. It will not go over.
+      color: "#4f94ad"
+  - type: VendingMachineAutomaticRestock
+    replace: true
+  - type: Sprite
+    sprite: _Mono/Structures/Machines/VendingMachines/telecrystalexchange.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#ad4b4b"
+  - type: Advertise
+    pack: FactionUplinkAds
+      

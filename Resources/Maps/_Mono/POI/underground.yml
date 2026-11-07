@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 10/05/2026 22:32:39
-  entityCount: 4636
+  time: 10/12/2026 21:51:43
+  entityCount: 4637
 maps: []
 grids:
 - 1
@@ -168,10 +168,11 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        MetalFoam: []
-        Smoke: []
         Puddle: []
+        Smoke: []
+        ESTileFire: []
         Kudzu: []
+        MetalFoam: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -2780,7 +2781,7 @@ entities:
       pos: -9.5,-0.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -9359.552
+      secondsUntilStateChange: -9414.523
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -2821,7 +2822,7 @@ entities:
       pos: -4.5,14.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -8909.452
+      secondsUntilStateChange: -8964.424
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -21237,6 +21238,13 @@ entities:
     components:
     - type: Transform
       pos: 1.5,19.5
+      parent: 1
+- proto: VendingMachineTelecrystalExchange
+  entities:
+  - uid: 1546
+    components:
+    - type: Transform
+      pos: -10.5,1.5
       parent: 1
 - proto: VendingMachineYouTool
   entities:
