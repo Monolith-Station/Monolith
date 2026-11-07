@@ -271,9 +271,10 @@ namespace Content.Server.Explosion.EntitySystems
             if (TryComp<HumanoidAppearanceComponent>(implanted.ImplantedEntity, out var species))
                 speciesText = $" ({species.Species})";
 
-            var critMessage = Loc.GetString(component.CritMessage, ("user", implanted.ImplantedEntity.Value), ("specie", speciesText), ("grid", gridText), ("position", posText));
-            var reviveMessage = Loc.GetString(component.ReviveMessage, ("user", implanted.ImplantedEntity.Value), ("specie", speciesText), ("grid", gridText), ("position", posText)); // Mono
-            var deathMessage = Loc.GetString(component.DeathMessage, ("user", implanted.ImplantedEntity.Value), ("specie", speciesText), ("grid", gridText), ("position", posText));
+            // Mono: Fix typo
+            var critMessage = Loc.GetString(component.CritMessage, ("user", implanted.ImplantedEntity.Value), ("species", speciesText), ("grid", gridText), ("position", posText));
+            var reviveMessage = Loc.GetString(component.ReviveMessage, ("user", implanted.ImplantedEntity.Value), ("species", speciesText), ("grid", gridText), ("position", posText)); // Mono
+            var deathMessage = Loc.GetString(component.DeathMessage, ("user", implanted.ImplantedEntity.Value), ("species", speciesText), ("grid", gridText), ("position", posText));
 
             if (!TryComp<MobStateComponent>(implanted.ImplantedEntity, out var mobstate))
                 return;
