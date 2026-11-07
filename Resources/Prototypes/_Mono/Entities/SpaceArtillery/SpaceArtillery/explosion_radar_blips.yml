@@ -64,6 +64,8 @@
   components:
   - type: RadarBlip
     scale: 11
+    maxDistance: 16384 # I NEED to see my orbital strike hitmarkers.
+  - type: TimedDespawn
     lifetime: 0.65
 
 - type: entity
