@@ -219,6 +219,8 @@ public sealed partial class SharedExecutionSystem : EntitySystem
         else
         {
             _melee.AttemptLightAttack(attacker, weapon, meleeWeaponComp, victim);
+            var exEvent = new MeleeExecutionCompletedEvent(victim, attacker); // Mono: raise event on weapon
+            RaiseLocalEvent(weapon, ref exEvent);
         }
 
         _combat.SetInCombatMode(attacker, prev);

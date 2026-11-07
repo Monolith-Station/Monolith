@@ -314,7 +314,7 @@
 
 - type: entity
   name: officer's shamshir
-  parent: CaptainSabre
+  parent: [ CaptainSabre, BaseDecapitationTool ]
   id: WeaponVizierShamshir
   description: A uniquely curved sword, a sharp weapon styled after weapons of old, made of pale plastitanium. Primed to strike and sever.
   components:
@@ -364,3 +364,5 @@
     tags:
     - Shamshir
     - SafetyDepositBlacklist
+  - type: Execution
+    doAfterDuration: 30 # it should take a while to behead someone
