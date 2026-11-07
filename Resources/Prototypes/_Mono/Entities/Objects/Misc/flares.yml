@@ -116,6 +116,12 @@
   components:
   - type: ExpendableLight
     activateOnSpawn: true
+  - type: Tag
+    tags:
+    - Flare
+    - Trash
+    - SignalFlareLaunchable
+    - SignalFlareLaunched
 
 # Signal Flares
 
@@ -243,6 +249,11 @@
     shape: star
   - type: TimedDespawn
     lifetime: 60
+  - type: Tag
+    tags:
+    - Flare
+    - Trash
+    - SignalFlareLaunched
 
 # green
 
