@@ -50,6 +50,32 @@
   - type: PointLight
     color: "#80C0FF"
 
+# Petrusite Tesla cannon
+
+- type: entity
+  id: InstantEffectEMPPetrusite
+  name: instant EMP effect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TriggerOnSpawn
+  - type: DeleteOnTrigger
+  - type: EmpOnTrigger
+    range: 3
+    energyConsumption: 100000 # 100 kJ
+    disableDuration: 5.5 # Should be fine as it can't stack.
+
+- type: entity
+  name: ionised lightning
+  id: LightningEMPPetrusite
+  parent: BaseLightning
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Lightning
+    canArc: true
+    spawnOnHit: InstantEffectEMPPetrusite
+  - type: PointLight
+    color: "#80C0FF"
+
 #example usage: add this to projectile parenting from BaseBulletTrigger
 # - type: LightningOnTrigger
 #  chance: 0.08

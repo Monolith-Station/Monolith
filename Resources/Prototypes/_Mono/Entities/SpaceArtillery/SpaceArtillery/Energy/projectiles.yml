@@ -489,6 +489,37 @@
   - type: HitscanBasicRaycast
     maxDistance: 1000
 
+# Petrusite
+
+- type: entity
+  parent: BasicHitscan
+  id: PetrusiteLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+      state: muzzle_xray
+    travelFlash:
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+      state: xray
+    impactFlash:
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+      state: impact_xray
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 80
+        Shock: 40
+        Structural: 35
+  - type: HitscanBasicRaycast
+    maxDistance: 1800
+  - type: HitscanSpawnEntity
+    spawnedEntity: PetrusiteExplosion
+  - type: HitscanRadarSignature
+    radarColor: "#5d46e2"
+
+
 # Reaper
 
 - type: entity
@@ -616,3 +647,19 @@
     intensitySlope: 8
     maxIntensity: 8
     tileBreakScale: 3
+
+- type: entity
+  id: PetrusiteExplosion
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TriggerOnSpawn
+  - type: EmpOnTrigger
+    range: 6
+    energyConsumption: 200000 #200 KJ, adds up to a Tarnyx shell with the lightning arcs
+    disableDuration: 5.5
+  - type: LightningOnTrigger
+    chance: 1
+    count: 3
+    range: 24
+    lightningProto: LightningEMPPetrusite
+    lightningEffects: false
