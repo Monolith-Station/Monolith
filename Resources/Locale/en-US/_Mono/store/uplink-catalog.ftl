@@ -34,6 +34,9 @@ uplink-iff-console-flatpack-desc = A flatpack for a computer that will obfuscate
 uplink-underground-codespeak-translator-implanter-name = Codespeak Implanter
 uplink-underground-codespeak-translator-implanter-desc = An implant that allows the user to understand and speak Underground Codespeak. For initiating new members into the black market.
 
+uplink-organ-nosske-eien-nvgeyes-name = Nosske-Eien Night Vision Cybereyes
+uplink-organ-nosske-eien-nvgeyes-desc = A pair of eyes with night vision capabilities similar to gen-3 wide-quadtube goggles. Uploaded to the blackmarket after a cyberattack on Nosske-Eien's servers.
+
 # ullman stuff
 
 uplink-ullman-pilot-name = U.I. Pilot Voidsuit
