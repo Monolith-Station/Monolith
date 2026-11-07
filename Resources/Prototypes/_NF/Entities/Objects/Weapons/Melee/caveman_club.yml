@@ -4,6 +4,7 @@
   id: CavemanClub
   description: Big stick make big hurt. # Frontier: changed description
   components:
+  - type: LightWeapon # Mono - dual wielding
   - type: Sprite
     sprite: _NF/Objects/Weapons/Melee/caveman_club.rsi
     state: icon

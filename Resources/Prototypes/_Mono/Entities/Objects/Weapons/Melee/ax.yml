@@ -4,6 +4,7 @@
   name: axium
   description: A one handed ax with an ampable uranium blade, favored by IPC soldiers the galaxy round.
   components:
+  - type: LightWeapon
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Melee/radax.rsi
     layers:

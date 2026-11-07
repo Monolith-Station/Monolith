@@ -4,6 +4,7 @@
   id: ArmBlade
   description: A grotesque blade made out of bone and flesh that cleaves through people as a hot knife through butter.
   components:
+  - type: LightWeapon # Mono - dual wielding
   - type: Sharp
   - type: Execution
     doAfterDuration: 4.0
