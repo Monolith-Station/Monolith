@@ -29,4 +29,10 @@ public sealed partial class TeleportSpecifier
     /// </summary>
     [DataField]
     public bool ForceSafe = true;
+
+    /// <summmary>
+    /// Try teleport until you find space. Set AvoidSpace to false if this is set to true.
+    /// </summary>
+    [DataField]
+    public bool ForceSpace = false;
 }
