@@ -39,9 +39,9 @@
         exclusions:
         - DeathRattleImplant
       - type: JamOverwatch
-      - type: ApplyIFFFlagsToDockedShips
-        flags:
-        - HideLabelAlways # hide all docked ships
+    # - type: ApplyIFFFlagsToDockedShips # This causes bugs with ships occasionally keeping their flags even after undocking, and is completely unnecessary now that the POI itself is in the Outer Cloud, which inherently adds HideLabelAlways to anything inside it.
+    #   flags:
+    #   - HideLabelAlways # hide all docked ships
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Underground Black Market'
