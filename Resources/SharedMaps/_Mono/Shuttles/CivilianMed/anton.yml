@@ -4,7 +4,7 @@ meta:
   engineVersion: 277.0.5
   forkId: ""
   forkVersion: ""
-  time: 11/07/2026 18:33:31
+  time: 11/07/2026 20:00:29
   entityCount: 382
 maps: []
 grids:
@@ -86,10 +86,10 @@ entities:
     - type: ThermalSignature
     - type: SpreaderGrid
       spreadQueues:
-        Smoke: []
-        MetalFoam: []
-        Kudzu: []
         Puddle: []
+        Smoke: []
+        Kudzu: []
+        MetalFoam: []
         ESTileFire: []
     - type: Shuttle
       dampingModifier: 0.25
@@ -669,6 +669,12 @@ entities:
       rot: 3.141592653589793 rad
       pos: 10.5,11.5
       parent: 1
+    - type: DeviceList
+      devices:
+      - 167
+      - 169
+      - 168
+      - 166
 - proto: AirGrenade
   entities:
   - uid: 5
@@ -1760,6 +1766,9 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 13.5,8.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 4
     - type: AtmosPipeColor
       color: '#0055CCFF'
   - uid: 167
@@ -1768,6 +1777,9 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 9.5,13.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 4
     - type: AtmosPipeColor
       color: '#0055CCFF'
 - proto: GasVentScrubber
@@ -1778,6 +1790,9 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 12.5,9.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 4
     - type: AtmosPipeLayers
       pipeLayer: Secondary
     - type: AtmosPipeColor
@@ -1787,6 +1802,9 @@ entities:
     - type: Transform
       pos: 11.5,13.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 4
     - type: Construction
       step: 1
       edge: 0
