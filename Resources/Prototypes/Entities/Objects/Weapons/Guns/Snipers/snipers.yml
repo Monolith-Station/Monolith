@@ -27,6 +27,7 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
     projectileSpeed: 65 # Mono
+    drawTime: 0.75 #Mono Fairly slow, but still faster than what a default 1 gun-bash would set it to.
   - type: BallisticAmmoProvider
     capacity: 10
     proto: Cartridge762x39mmFMJ
@@ -69,6 +70,7 @@
     animation: WeaponArcThrust
     soundHit:
       collection: MetalThud
+    resetOnHandSelected: false
   - type: AltFireMelee
     attackType: Light
   - type: UseDelay
