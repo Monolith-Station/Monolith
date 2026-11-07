@@ -198,6 +198,9 @@
       cell_slot:
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellCombat
+        blacklist: #Mono
+          tags:
+          - PowerCage
 
 - type: entity
   id: XenoborgChassisEngineer

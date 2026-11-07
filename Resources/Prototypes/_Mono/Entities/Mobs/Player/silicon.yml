@@ -319,6 +319,9 @@
       cell_slot:
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellAntiqueProto
+        blacklist: #Mono
+          tags:
+          - PowerCage
   - type: RandomMetadata
     nameSegments:
     - MonoRemnantBorgTitle
@@ -715,6 +718,9 @@
       cell_slot:
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellCombat
+        blacklist: #Mono
+          tags:
+          - PowerCage
   - type: RandomMetadata
     nameSegments: [MonoPDVBorgNameset]
 
@@ -734,6 +740,9 @@
       cell_slot:
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellCombat
+        blacklist: #Mono
+          tags:
+          - PowerCage
   - type: RandomMetadata
     nameSegments: [MonoTSFBorgNameset]
 
@@ -781,7 +790,7 @@
 
 - type: entity
   id: MothershipCore
-  parent: PlayerStationXenoborgAiEmpty 
+  parent: PlayerStationXenoborgAiEmpty
   suffix: Ghost Role, Xenoborg
   components:
   - type: ContainerFill
@@ -997,6 +1006,9 @@
       cell_slot:
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellCombat
+        blacklist: #Mono
+          tags:
+          - PowerCage
   - type: RandomMetadata
     nameSegments: [MonoXenoBorgNameset]
   - type: GhostTakeoverAvailable

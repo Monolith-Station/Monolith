@@ -26,6 +26,9 @@
         whitelist:
           components:
             - PowerCell
+        blacklist: #Mono
+          tags:
+          - PowerCage
 
 - type: entity
   parent: ClothingModsuitBase
@@ -55,6 +58,9 @@
         whitelist:
           components:
             - PowerCell
+        blacklist: #Mono
+          tags:
+          - PowerCage
 
 - type: entity
   parent: ClothingModsuitBase
@@ -94,6 +100,9 @@
         whitelist:
           components:
             - PowerCell
+        blacklist: #Mono
+          tags:
+          - PowerCage
 
 # Volta
 - type: entity
@@ -138,6 +147,9 @@
         whitelist:
           components:
             - PowerCell
+        blacklist: #Mono
+          tags:
+          - PowerCage
 
 # Gallóglach
 
@@ -183,3 +195,6 @@
         whitelist:
           components:
             - PowerCell
+        blacklist: #Mono
+          tags:
+          - PowerCage
