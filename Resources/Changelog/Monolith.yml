@@ -26740,3 +26740,21 @@ Entries:
   id: 2881
   time: '2026-11-05T03:51:12.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4939
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: CROCUS - Removed revolvers from sidearms, replaced Viper w/ Pollock.
+    - type: Tweak
+      message: >-
+        CROCUS - UBGLs downgraded to 35x53mm. Uses separate rounds from normal
+        mono so they're balanced Just For Crocus. Adds EMP grenade rounds to the
+        vendors. HEDP grenades are limited to 2 max now.
+    - type: Tweak
+      message: >-
+        CROCUS - Added bluespace fire extinguishers to utility section for 1
+        point.
+    - type: Fix
+      message: CROCUS - Fixed PDV having an old infantry gear vendor still.
+  id: 2882
+  time: '2026-11-07T07:29:50.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4985
