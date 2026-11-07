@@ -20,6 +20,8 @@ public sealed partial class ShuttleSystem
 
     public readonly float CruiseModeLinearAccelerationMultiplier = 4f;
     public readonly float DriveModeThrusterMultiplier = 3.5f;
+    public readonly float DriveModeGyroscopeMultiplier = 1.125f;
+    public readonly float CruiseModeGyroscopeMultiplier = 0.35f;
     private void NfInitialize()
     {
         SubscribeLocalEvent<ShuttleConsoleComponent, SetInertiaDampeningRequest>(OnSetInertiaDampening);
@@ -52,6 +54,7 @@ public sealed partial class ShuttleSystem
                 shuttleComponent.BodyModifier = SpaceFrictionStrength;
                 shuttleComponent.BaseThrusterMultiplier = 1f;
                 shuttleComponent.MaxLinearVelocityMultiplier = CruiseModeLinearAccelerationMultiplier;
+                shuttleComponent.BaseGyroscopeMultiplier = CruiseModeGyroscopeMultiplier;
                 break;
             }
             case InertiaDampeningMode.Dampen:
@@ -59,6 +62,7 @@ public sealed partial class ShuttleSystem
                 shuttleComponent.BodyModifier = DampenDampingStrength;
                 shuttleComponent.BaseThrusterMultiplier = DriveModeThrusterMultiplier;
                 shuttleComponent.MaxLinearVelocityMultiplier = 1f;
+                shuttleComponent.BaseGyroscopeMultiplier = DriveModeGyroscopeMultiplier;
                 break;
             }
             case InertiaDampeningMode.Anchor:
@@ -66,6 +70,7 @@ public sealed partial class ShuttleSystem
                 shuttleComponent.BodyModifier = AnchorDampingStrength;
                 shuttleComponent.BaseThrusterMultiplier = 1f;
                 shuttleComponent.MaxLinearVelocityMultiplier = 1f;
+                shuttleComponent.BaseGyroscopeMultiplier = 1f;
                 break;
             }
         }

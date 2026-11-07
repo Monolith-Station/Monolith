@@ -534,7 +534,7 @@ public sealed partial class MoverController : SharedMoverController
             angularMul /= count;
             accelMul /= count;
 
-            angularMul *= shuttle.BaseThrusterMultiplier; // Mono
+            angularMul *= shuttle.BaseGyroscopeMultiplier; // Mono
             accelMul *= shuttle.BaseThrusterMultiplier; // Mono
 
             if (setMaxVel != null)
