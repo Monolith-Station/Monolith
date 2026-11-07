@@ -16,4 +16,4 @@ thermobath-menu-temperature-adjust = ADJUSTMENT
 
 ## Footer
 thermobath-menu-footer-warning = DANGER: HOT!
-thermobath-menu-footer-manufacturer = NanoTrasen Laboratory Equipment
+thermobath-menu-footer-manufacturer = Erebus Laboratory Equipment

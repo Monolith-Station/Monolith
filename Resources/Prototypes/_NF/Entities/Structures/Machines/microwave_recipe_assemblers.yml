@@ -122,9 +122,9 @@
   - type: EmptyOnMachineDeconstruct
     containers:
     - microwave_entity_container
-  - type: GuideHelp
-    guides:
-    - Chef
+  #- type: GuideHelp
+  #  guides:
+  #  - Chef
   - type: EntityHeater
     passivePower: 1000 # Base oven power.
   - type: PlaceableSurface

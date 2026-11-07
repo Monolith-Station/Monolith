@@ -27,7 +27,7 @@ device-frequency-prototype-name-surveillance-camera-general = General Cameras
 device-frequency-prototype-name-surveillance-camera-entertainment = Entertainment Cameras
 device-frequency-prototype-name-surveillance-camera-tsf = TSFMC Cameras
 device-frequency-prototype-name-surveillance-camera-Rogue = PDV Cameras
-device-frequency-prototype-name-surveillance-camera-USSP = USSP Cameras
+device-frequency-prototype-name-surveillance-camera-USSP = Ancient Cameras
 device-frequency-prototype-name-surveillance-camera-xenoborgs = Xenoborg camera
 
 

@@ -648,8 +648,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitWarden
-  name: warden's uniform
-  description: A formal security suit for officers complete with Nanotrasen belt buckle.
+  name: old warden's uniform
+  description: A formal security suit for experienced officers, complete with a belt buckle.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/warden.rsi
@@ -792,8 +792,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitNanotrasen
-  name: nanotrasen jumpsuit
-  description: A stately blue jumpsuit to represent the NT.
+  name: old jumpsuit
+  description: A stately blue jumpsuit, dampened by the stains of time.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/nanotrasen.rsi

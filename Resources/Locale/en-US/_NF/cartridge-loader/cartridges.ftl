@@ -13,7 +13,7 @@ ledger-no-expenses = None
 ledger-balance = Balance:
 ledger-no-balance = N/A
 
-ledger-tab-Frontier = Colonial Outpost
+ledger-tab-Frontier = Caelestinus Central
 ledger-tab-Nfsd = TSFMC
 ledger-tab-Medical = Medical Dispatch
 ledger-tab-BlackMarket = Black Market

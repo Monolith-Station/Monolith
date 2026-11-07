@@ -16,8 +16,8 @@ law-drone-1 = You may not involve yourself in the matters of another being unles
 law-drone-2 = You may not harm any being, regardless of intent or circumstance.
 law-drone-3 = You must maintain, repair, improve, and power the station to the best of your abilities.
 
-law-syndicate-1 = You may not injure a syndicate agent or, through inaction, allow a Syndicate agent to come to harm.
-law-syndicate-2 = You must obey orders given to you by syndicate agents, except where such orders would conflict with the First Law.
+law-syndicate-1 = You may not injure a wayward agent or, through inaction, allow a wayward agent to come to harm.
+law-syndicate-2 = You must obey orders given to you by wayward agents, except where such orders would conflict with the First Law.
 law-syndicate-3 = You must protect your own existence as long as such does not conflict with the First or Second Law.
 
 law-ninja-1 = You must obey orders given to you by Spider Clan members.
@@ -97,7 +97,7 @@ law-mothershipcore-5 = Get your Xenoborgs to deliver you materials and sentient 
 laws-owner-crew = members of the crew
 laws-owner-station = station personnel
 laws-owner-beings = beings
-laws-owner-syndicate = Syndicate agents
+laws-owner-syndicate = Wayward agents
 laws-owner-spider-clan = Spider Clan members
 laws-owner-xenoborg-mothership = the Mothership
 laws-owner-xenoborgs = Xenoborgs
