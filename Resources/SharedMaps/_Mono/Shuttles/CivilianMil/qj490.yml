@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 10/10/2026 14:56:24
-  entityCount: 171
+  time: 11/02/2026 09:39:07
+  entityCount: 172
 maps: []
 grids:
 - 1
@@ -111,11 +111,11 @@ entities:
             12: 0,0
     - type: SpreaderGrid
       spreadQueues:
-        MetalFoam: []
-        Kudzu: []
-        ESTileFire: []
-        Smoke: []
         Puddle: []
+        ESTileFire: []
+        MetalFoam: []
+        Smoke: []
+        Kudzu: []
     - type: GridAtmosphere
       version: 2
       data:
@@ -530,6 +530,14 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
+- proto: ExtinguisherCabinetFilled
+  entities:
+  - uid: 172
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 1.5,1.5
+      parent: 1
 - proto: GasPassiveVent
   entities:
   - uid: 61
