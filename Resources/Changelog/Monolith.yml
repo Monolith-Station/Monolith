@@ -26796,3 +26796,12 @@ Entries:
   id: 2887
   time: '2026-11-08T22:41:20.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4895
+- author: SuperGDPWYL
+  changes:
+    - type: Fix
+      message: >-
+        Vouchers that are not holding deeds now show their remaining redemptions
+        and cooldown when examined.
+  id: 2888
+  time: '2026-11-08T22:41:57.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4996
