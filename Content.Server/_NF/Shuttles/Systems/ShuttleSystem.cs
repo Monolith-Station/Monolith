@@ -21,7 +21,7 @@ public sealed partial class ShuttleSystem
     public readonly float CruiseModeLinearAccelerationMultiplier = 4f;
     public readonly float DriveModeThrusterMultiplier = 3.5f;
     public readonly float DriveModeGyroscopeMultiplier = 1.125f;
-    public readonly float CruiseModeGyroscopeMultiplier = 0.35f;
+    public readonly float CruiseModeGyroscopeMultiplier = 1f;
     private void NfInitialize()
     {
         SubscribeLocalEvent<ShuttleConsoleComponent, SetInertiaDampeningRequest>(OnSetInertiaDampening);
