@@ -698,6 +698,7 @@
     sprite:  _Mono/Objects/ShuttleWeapons/tartarus.rsi # reusing ADS sprites. it'd be a shame for them to rot.
     layers:
     - state: space_artillery
+    scale: 1.5, 1.5
   - type: Appearance
   - type: AmmoCounter
   - type: Battery
@@ -740,7 +741,7 @@
       shape: Square
       respectZoom: true
       rotate: true
-      bounds: "-1.5,-2.5,1.5,2.5"
+      bounds: "-2.5,-4.5,2.5,4.5"
   - type: Fixtures
     fixtures:
       fix1:
