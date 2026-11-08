@@ -33,9 +33,8 @@ public sealed partial class EjectionSeatSystem : EntitySystem
 
     private void OnEject(Entity<SeatEjectionComponent> seat, ref SeatEjectionEjectEvent args)
     {
-        if(seat.Comp.Enabled){ //shitcode solution to make it one time use cause the action charges system doesn't work for me
+            _actionsSystem.RemoveAction(args.Performer, seat.Comp.ActionUid);
             _teleportSys.RandomTeleport(seat, seat.Comp.Specifier); //Teleport the WHOLE seat with you cause its funny
-            seat.Comp.Enabled = false;
-        }
+            RemComp<SeatEjectionComponent>(seat);
     }
 }
