@@ -26779,3 +26779,13 @@ Entries:
   id: 2885
   time: '2026-11-08T10:25:16.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4987
+- author: SuperGDPWYL
+  changes:
+    - type: Fix
+      message: >-
+        Fixed a whitelist-bypass exploit with the safety deposit box. Please
+        note that this also blacklists anything that can hold items within it,
+        including any guns that can hold magazines or attachments.
+  id: 2886
+  time: '2026-11-08T15:33:02.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4997
