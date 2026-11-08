@@ -26703,3 +26703,79 @@ Entries:
   id: 2876
   time: '2026-11-02T22:48:32.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4934
+- author: Gamebeast699
+  changes:
+    - type: Fix
+      message: Ironman LPCs can now be redeemed with the Zvezda shipyard
+  id: 2877
+  time: '2026-11-05T01:03:00.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4924
+- author: DoubleHypercube
+  changes:
+    - type: Fix
+      message: Most modsuits will no longer show an ERROR sprite for Vulpkanins.
+  id: 2878
+  time: '2026-11-05T01:34:50.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4961
+- author: tonotom1
+  changes:
+    - type: Fix
+      message: Killed Vroid lagspikes (Credit to Arimah at Frontier)
+  id: 2879
+  time: '2026-11-05T02:22:11.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4971
+- author: Mrrpip
+  changes:
+    - type: Tweak
+      message: >-
+        Tweaks the GS ships and the UGR Bluefin to have fire suppression methods
+        onboard.
+  id: 2880
+  time: '2026-11-05T03:19:27.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4954
+- author: DoubleHypercube
+  changes:
+    - type: Tweak
+      message: Vulpkanins are now digitgrade. Pawlovers rejoice!
+  id: 2881
+  time: '2026-11-05T03:51:12.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4939
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: CROCUS - Removed revolvers from sidearms, replaced Viper w/ Pollock.
+    - type: Tweak
+      message: >-
+        CROCUS - UBGLs downgraded to 35x53mm. Uses separate rounds from normal
+        mono so they're balanced Just For Crocus. Adds EMP grenade rounds to the
+        vendors. HEDP grenades are limited to 2 max now.
+    - type: Tweak
+      message: >-
+        CROCUS - Added bluespace fire extinguishers to utility section for 1
+        point.
+    - type: Fix
+      message: CROCUS - Fixed PDV having an old infantry gear vendor still.
+  id: 2882
+  time: '2026-11-07T07:29:50.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4985
+- author: Mrrpip
+  changes:
+    - type: Fix
+      message: Fixes the defib cabinet on the QJ-271
+  id: 2883
+  time: '2026-11-08T10:18:07.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4986
+- author: DoubleHypercube
+  changes:
+    - type: Tweak
+      message: The TSF comms console is now usable by Marines.
+  id: 2884
+  time: '2026-11-08T10:23:11.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4981
+- author: Mrrpip
+  changes:
+    - type: Fix
+      message: Fixes flareguns being able to chamber shot flares.
+  id: 2885
+  time: '2026-11-08T10:25:16.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4987
