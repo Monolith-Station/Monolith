@@ -1,0 +1,32 @@
+- type: vessel
+  id: Pail
+  parent: BaseVessel
+  name: JT Pail
+  description: The collapse always leaves behind the strangest oddities, but the Pail is the oddest of them all. Once a showcase ship used to sell vessels similar to it now claimed to clean a war torn sector.
+  price: 20000
+  category: Small
+  group: Shipyard
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Civilian/pail.yml
+  guidebookPage: Null
+  class:
+  - Civilian
+  engine:
+  - APU
+
+- type: gameMap
+  id: Pail
+  mapName: 'JT Pail'
+  mapPath: /SharedMaps/_Mono/Shuttles/Civilian/pail.yml
+  minPlayers: 0
+  stations:
+    Pail:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Pail CIV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
