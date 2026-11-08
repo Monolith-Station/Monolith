@@ -47,8 +47,6 @@
         type: LatheBoundUserInterface
       enum.ResearchClientUiKey.Key:
         type: ResearchClientBoundUserInterface
-      enum.ExecutorUiKey.Key: # KS14
-          type: ExecutorBoundUserInterface
   - type: Transform
     anchored: true
   - type: Pullable
@@ -61,18 +59,8 @@
       input: AutomationSlotMaterials
       output: null
   - type: TechnologyDatabase
-  - type: ApcPowerReceiver
-    powerLoad: 150
-  - type: PowerState
-    idlePowerDraw: 150
-    workingPowerDraw: 1000
   - type: PacketNetwork # KS14
     frequency: LatheFrequency
-  - type: PacketExecutor # KS14
-    modules:
-    - BasePacketModule
-    - NetworkPacketModule
-  - type: StationAiWhitelist #KS14: New items whitelisted for AI
   - type: MaterialStorageMagnetPickup # Frontier
     range: 1.50 # Mono
   # <Mono>

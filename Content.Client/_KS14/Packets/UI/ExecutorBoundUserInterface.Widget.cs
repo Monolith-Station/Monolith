@@ -53,7 +53,6 @@ namespace Content.Client._KS14.Packets.UI
                 _menu?.ExecutorTabs.RemoveChild(control);
 
             var container = new PanelContainer { Name = widget.Id };
-            container.StyleIdentifier = "executorBorderless";
             SetupChildren(widget, container);
             _menu?.ExecutorTabs.AddChild(container);
         }

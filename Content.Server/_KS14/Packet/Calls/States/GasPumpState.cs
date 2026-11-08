@@ -1,5 +1,6 @@
 using Content.Server._KS14.Packet.Attributes;
 using Content.Server._KS14.Packet.Components;
+using Content.Server.Atmos.Piping.Binary.Components;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Atmos.Piping.Binary.Components;
 using Robust.Shared.Prototypes;

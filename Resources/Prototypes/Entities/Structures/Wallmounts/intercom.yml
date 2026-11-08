@@ -124,12 +124,12 @@
         enum.RadioDeviceVisualLayers.Speaker:
           True: { visible: true }
           False: { visible: false }
+  - type: PacketNetwork # KS14
+    frequency: TransmissionFrequency
   placement:
     mode: SnapgridCenter
     snap:
     - Wallmount
-  - type: PacketNetwork # KS14
-    frequency: TransmissionFrequency
 
 - type: entity
   id: IntercomAssembly

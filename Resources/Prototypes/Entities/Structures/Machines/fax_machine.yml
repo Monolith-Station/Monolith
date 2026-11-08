@@ -34,8 +34,6 @@
     interfaces:
       enum.FaxUiKey.Key:
         type: FaxBoundUi
-      enum.ExecutorUiKey.Key: # KS14
-          type: ExecutorBoundUserInterface
   - type: StationAiWhitelist
   - type: ApcPowerReceiver
     powerLoad: 250
@@ -81,10 +79,6 @@
   - type: RequireProjectileTarget
   - type: PacketNetwork # KS14
     frequency: TransmissionFrequency
-  - type: PacketExecutor # KS14
-    modules:
-    - BasePacketModule
-    - NetworkPacketModule
   # Mono
   - type: ShipRepairable
     repairTime: 2

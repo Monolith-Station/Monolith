@@ -2,7 +2,6 @@ using System.Threading;
 using Content.Server._KS14.Packet.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.DeviceLinking;
-using Content.Shared.Trigger.Systems;
 using Jint;
 using Jint.Runtime.Interop;
 
