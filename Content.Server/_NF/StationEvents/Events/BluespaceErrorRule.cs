@@ -294,7 +294,7 @@ public sealed partial class BluespaceErrorRule : StationEventSystem<BluespaceErr
                             break;
                     }
                     if (gridValue / component.StartingValue > comp.IntegrityRequirement && requiredEntitiesFound) // good job!
-                        _currencyInjection.InjectCurrency(comp.Company, comp.Amount);
+                        _currencyInjection.InjectCurrency(comp.Injection);
                 }
                 // Mono end
 
