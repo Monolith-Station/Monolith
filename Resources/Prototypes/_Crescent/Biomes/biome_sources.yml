@@ -113,6 +113,13 @@
     id: BiomeFarReachesI
     swapDistance: 22000
     priority: 750
+  - type: ApplyIFFFlagInRadius
+    radius: 18000 # 18km is when the Outer Cloud starts
+    inverted: true
+    blacklist: 
+      components:
+      - HostileDroneGrid
+      - SpaceDebris
 
 - type: entity
   id: BiomeSourceOuterRing
