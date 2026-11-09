@@ -4,6 +4,8 @@
   chatPrefix: fel
   speech:
     color: "#8f40ff"
+    fontId: Cosmic
+    obfuscationFont: true
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 1

@@ -1,4 +1,5 @@
 using Content.Shared.Chat;
+using Content.Shared.StatusIcon;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._EinsteinEngines.Language;
@@ -14,6 +15,12 @@ public sealed partial class LanguagePrototype : IPrototype
     /// </summary>
     [DataField]
     public bool IsVisibleLanguage { get; set; }
+
+    /// <summary>
+    /// Icon of the language visible in chat/bubbles.
+    /// </summary>
+    [DataField("icon")]
+    public ProtoId<JobIconPrototype> Icon = "LanguageIconUnknown";
 
     /// <summary>
     ///     Obfuscation method used by this language. By default, uses <see cref="ObfuscationMethod.Default"/>.
@@ -57,6 +64,12 @@ public sealed partial class SpeechOverrideInfo
     /// </summary>
     [DataField]
     public Color? Color = null;
+
+    /// <summary>
+    /// Only show the font when we Obfuscate the message (if not understood)
+    /// </summary>
+    [DataField]
+    public bool? ObfuscationFont = false;
 
     [DataField]
     public string? FontId;
