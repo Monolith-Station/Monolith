@@ -287,3 +287,30 @@
   - type: Sprite
     layers:
     - state: medical_lathe
+
+# UGR
+
+- type: entity
+  parent: BaseAutosurgeon
+  id: AutosurgeonEienNvgEyesUnderground
+  name: UGR autosurgeon (Nosske-Eien NVG eyes)
+  description: Replaces the eyes with a NE prototype. Doesn't come with a rag to bite down on.
+  components:
+  - type: AutoSurgeon
+    targetBodyPart: Head
+    targetOrgan: Eyes
+    newPartProto: OrganNENvgEyes
+
+- type: entity
+  parent: BaseNFFlatpack
+  id: AutosurgeonEienNvgEyesUndergroundFlatpack
+  name: UGR autosurgeon (Nosske-Eien NVG eyes) flatpack
+  description: A flatpack used for constructing a TSF autosurgeon.
+  components:
+  - type: Flatpack
+    entity: AutosurgeonEienNvgEyesUnderground
+  - type: StaticPrice
+    price: 15000
+  - type: Sprite
+    layers:
+    - state: medical_lathe
