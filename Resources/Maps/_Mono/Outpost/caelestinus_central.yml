@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.5
   forkId: ""
   forkVersion: ""
-  time: 11/09/2026 01:19:32
-  entityCount: 10157
+  time: 11/09/2026 01:28:52
+  entityCount: 10158
 maps:
 - 1
 grids:
@@ -30500,10 +30500,10 @@ entities:
       parent: 2
 - proto: ExosuitFabricator
   entities:
-  - uid: 6132
+  - uid: 8237
     components:
     - type: Transform
-      pos: 2.5,36.5
+      pos: -12.5,37.5
       parent: 2
 - proto: ExtinguisherCabinetFilled
   entities:
@@ -45697,6 +45697,11 @@ entities:
       parent: 2
 - proto: MachineFrameDestroyed
   entities:
+  - uid: 6132
+    components:
+    - type: Transform
+      pos: 2.5,36.5
+      parent: 2
   - uid: 6133
     components:
     - type: Transform
