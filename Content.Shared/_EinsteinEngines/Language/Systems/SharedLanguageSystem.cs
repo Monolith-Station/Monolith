@@ -68,6 +68,19 @@ public abstract partial class SharedLanguageSystem : EntitySystem
         return builder.ToString();
     }
 
+    // Starlight
+    public bool GetLanguageIcon(LanguagePrototype language, bool obfuscated)
+    {
+        switch (obfuscated)
+        {
+            case false when language.IconVisibleIfUnderstood:
+            case true when language.IconVisibleIfNotUnderstood:
+                return true;
+            default:
+                return false;
+        }
+    }
+
     /// <summary>
     ///     Generates a stable pseudo-random number in the range (min, max) (inclusively) for the given seed.
     ///     One seed always corresponds to one number, however the resulting number also depends on the current round number.

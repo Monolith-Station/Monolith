@@ -12,7 +12,7 @@
 - type: language
   id: RobotTalk
   chatPrefix: rob
-  isVisibleLanguage: true
+  # isVisibleLanguage: true /* Monolith: This has been killed */
   speech:
     fontId: Monospace
   obfuscation:
@@ -27,7 +27,7 @@
 - type: language
   id: DroneTalk
   chatPrefix: drn
-  isVisibleLanguage: true
+  # isVisibleLanguage: true /* Monolith: This has been killed */
   speech:
     fontId: Monospace
   obfuscation:

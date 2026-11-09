@@ -2,8 +2,9 @@
 
 - type: language
   id: SolCommon
-  isVisibleLanguage: true
+  # isVisibleLanguage: true /* Monolith: This has been killed */
   chatPrefix: sol # Mono
+  icon: LanguageIconSolCom # Mono
   speech:
     color: "#8282fbaa"
     fontId: NotoSansSC # Goob Edit - Chinese Characters Font

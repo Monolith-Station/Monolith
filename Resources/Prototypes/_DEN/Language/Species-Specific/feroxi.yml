@@ -1,7 +1,9 @@
 # This is the language spoke by Feroxi
 - type: language
   id: Nehina
-  isVisibleLanguage: true
+  # isVisibleLanguage: true /* Monolith: This has been killed */
+  chatPrefix: fih # Mono
+  icon: LanguageIconFish # Mono
   speech:
     color: "#8DB9D6"
   obfuscation:

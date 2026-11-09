@@ -1114,7 +1114,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             color = Color.InterpolateBetween(color, colorOverride, colorOverride.A);
 
         var namestring = entityName; // Starlight: Language icons
-        if (language.IsVisibleLanguage)
+        if (_language.GetLanguageIcon(language, obfuscated ?? false))
             namestring = $"[icon src=\"{language.Icon}\" tooltip=\"{language.Name}\"] {entityName}";
 
         var fonttype = language.SpeechOverride.FontId ?? speech.FontId;

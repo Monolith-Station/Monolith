@@ -2,8 +2,9 @@
 # TODO: Replace this with a much better language.
 - type: language
   id: RootSpeak
-  isVisibleLanguage: true
+  # isVisibleLanguage: true /* Monolith: This has been killed */
   chatPrefix: rts # Mono
+  icon: LanguageIconPlant # Mono
   speech:
     color: "#a64e14dd" # Goob Edit - More uniqueness from Novu-Nederic
     # fontId: Noganas #* FONTS NOT ALREADY HERE ARE NOT BEING ADDED

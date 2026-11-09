@@ -2,7 +2,7 @@
 
 - type: language
   id: NovaCygniBasic
-  isVisibleLanguage: true
+  # isVisibleLanguage: true /* Monolith: This has been killed */
   chatPrefix: nov
   speech:
     color: "#a13a2ddd"

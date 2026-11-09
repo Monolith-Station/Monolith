@@ -1,11 +1,11 @@
 - type: language
   id: Felyaic
-  isVisibleLanguage: true
   chatPrefix: fel
   speech:
     color: "#8f40ff"
     fontId: Cosmic
     obfuscationFont: true
+  icon: LanguageIconFelyaic
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 1

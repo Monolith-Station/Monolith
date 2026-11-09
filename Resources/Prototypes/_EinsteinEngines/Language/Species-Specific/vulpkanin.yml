@@ -2,8 +2,9 @@
 # TODO: Replace this with a much better language.
 - type: language
   id: Canilunzt
-  isVisibleLanguage: true
+  # isVisibleLanguage: true /* Monolith: This has been killed */
   chatPrefix: can # Mono
+  icon: LanguageIconVulp # Mono
   speech:
     color: "#d69b3dcc"
   obfuscation:

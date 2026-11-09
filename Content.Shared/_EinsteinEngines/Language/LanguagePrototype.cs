@@ -11,16 +11,22 @@ public sealed partial class LanguagePrototype : IPrototype
     public string ID { get; private set; } = default!;
 
     /// <summary>
-    ///     Whether this language will display its name in chat behind a player's name.
-    /// </summary>
-    [DataField]
-    public bool IsVisibleLanguage { get; set; }
-
-    /// <summary>
     /// Icon of the language visible in chat/bubbles.
     /// </summary>
     [DataField("icon")]
     public ProtoId<JobIconPrototype> Icon = "LanguageIconUnknown";
+
+    /// <summary>
+    /// Show the Icon if understood.
+    /// </summary>
+    [DataField("iconUnderstood")]
+    public bool IconVisibleIfUnderstood = true;
+
+    /// <summary>
+    /// Show the Icon if not understood.
+    /// </summary>
+    [DataField("iconNotUnderstood")]
+    public bool IconVisibleIfNotUnderstood = true;
 
     /// <summary>
     ///     Obfuscation method used by this language. By default, uses <see cref="ObfuscationMethod.Default"/>.

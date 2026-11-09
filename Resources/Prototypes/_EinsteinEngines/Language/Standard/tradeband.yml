@@ -1,7 +1,7 @@
 # Spoken by noblemen and traders.
 - type: language
   id: Tradeband
-  isVisibleLanguage: true
+  # isVisibleLanguage: true /* Monolith: This has been killed */
   chatPrefix: trd # Mono
   speech:
     color: "#597d35"

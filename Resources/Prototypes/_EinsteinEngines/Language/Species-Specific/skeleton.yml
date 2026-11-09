@@ -1,6 +1,6 @@
 - type: language
   id: Calcic
-  isVisibleLanguage: true
+  # isVisibleLanguage: true /* Monolith: This has been killed */
   chatPrefix: cal # Mono
   speech:
     fontId: LDFComicSans

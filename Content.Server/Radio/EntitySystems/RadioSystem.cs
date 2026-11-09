@@ -285,7 +285,7 @@ public sealed partial class RadioSystem : EntitySystem
             languageColor = Color.InterpolateBetween(Color.White, colorOverride, colorOverride.A); // Changed first param to Color.White so it shows color correctly.
 
         var namestring = name; // Starlight: Language icons
-        if (language.IsVisibleLanguage)
+        if (_language.GetLanguageIcon(language, obfuscated))
             namestring = $"[icon src=\"{language.Icon}\" tooltip=\"{language.Name}\"] {name}";
 
         var fonttype = language.SpeechOverride.FontId ?? speech.FontId;
