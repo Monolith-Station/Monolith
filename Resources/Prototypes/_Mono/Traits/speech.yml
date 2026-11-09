@@ -127,3 +127,16 @@
   - Squeakish
   languagesUnderstood:
   - Squeakish
+
+- type: trait
+  id: MonoNovaCygniClassical
+  name: language-NovaCygniClassical-name
+  description: language-NovaCygniClassical-description
+  category: LanguageTraits
+  cost: 1
+  components:
+  - type: LanguageSpeaker
+  languagesSpoken:
+  - NovaCygniClassical
+  languagesUnderstood:
+  - NovaCygniClassical
