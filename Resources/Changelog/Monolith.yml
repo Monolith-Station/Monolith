@@ -26864,3 +26864,35 @@ Entries:
   id: 2895
   time: '2026-11-09T23:12:20.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/5002
+- author: SuperGDPWYL
+  changes:
+    - type: Add
+      message: >-
+        Added Underground Black Market supply crates! Purchaseable from the UBM
+        (this will notify the TSFMC, however), these give telecrystals to the
+        UndergroundVend if sold at the correct destination! However, they have
+        passive thermal signatures, so don't stock too many if you want to stay
+        unseen!
+    - type: Tweak
+      message: Selling contraband crates alerts the TSFMC now, similarly to fentanyl.
+    - type: Tweak
+      message: Contraband blips can now be seen from up to 8192m away (was 2048m).
+    - type: Tweak
+      message: PDV crate blips are now tan.
+    - type: Tweak
+      message: >-
+        Fentanyl's tooltip is now slightly more accurate, and warns about
+        alerting the TSFMC.
+    - type: Tweak
+      message: >-
+        Updated the tooltips of several objects, including contraband crates, to
+        be accurate.
+    - type: Fix
+      message: Selling PDV crates at the wrong destination no longer pays out in DC.
+    - type: Fix
+      message: >-
+        Caelestinus Central and Zvezda Orbital Habitation are now actually
+        functional destinations.
+  id: 2896
+  time: '2026-11-09T23:45:54.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4916
