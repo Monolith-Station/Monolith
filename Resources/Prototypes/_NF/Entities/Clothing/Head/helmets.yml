@@ -16,20 +16,6 @@
     tags:
     - PetWearable
 
-- type: entity
-  parent: ClothingHeadHelmetBasic
-  id: ClothingHeadHelmetNfsd
-  name: TSFMC helmet
-  description: An TSFMC issued helmet to protect your head.
-  components:
-  - type: Sprite
-    sprite: _NF/Clothing/Head/Helmets/nfsd.rsi
-  - type: Clothing
-    sprite: _NF/Clothing/Head/Helmets/nfsd.rsi
-  - type: Tag
-    tags:
-    - PetWearable
-
 #Mercenary Helmet
 - type: entity
   parent: ClothingHeadHelmetMercenary

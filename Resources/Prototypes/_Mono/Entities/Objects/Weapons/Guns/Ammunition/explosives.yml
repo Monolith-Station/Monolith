@@ -206,20 +206,6 @@
     energyConsumption: 4500000
     disableDuration: 25
 
-# Cannon Balls
-- type: entity
-  id: CannonBallEmp
-  name: shockshot
-  suffix: EMP
-  parent: BaseCannonBall
-  components:
-  - type: CartridgeAmmo
-    proto: BulletCannonBallEmp
-    deleteOnSpawn: true
-  - type: Sprite
-    sprite: _NF/Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-    state: ball-emp
-
 # MPSSM
 
 - type: entity
