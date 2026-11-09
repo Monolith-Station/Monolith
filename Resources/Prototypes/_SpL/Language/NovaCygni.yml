@@ -1,7 +1,9 @@
 ﻿- type: language
   id: NovaCygniClassical
   icon: LanguageIconNovaCygni
-  chatPrefix: ncc
+  chatPrefix: ncc # Mono
+  speech: # Mono
+    color: "#a13a2ddd"
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 1
