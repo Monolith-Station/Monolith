@@ -1317,31 +1317,6 @@
     energyConsumption: 2700000
     disableDuration: 30
 
-- type: entity
-  id: BulletCannonBallEmp
-  name: shockshot
-  parent: BaseBulletTrigger
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    sprite: _NF/Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-    layers:
-    - state: ball-emp
-    - state: ball-emp-unlit
-      shader: unshaded
-  - type: PointLight
-    radius: 1
-    color: cyan
-    energy: 0.5
-  - type: Projectile
-    damage:
-      types:
-        Shock: 0
-  - type: EmpOnTrigger
-    range: 4
-    energyConsumption: 50000
-    disableDuration: 60
-
 # DeltaV projectiles
 # For whatever magical reasons, I cannot put those in the DeltaV folders without having errors.
 
