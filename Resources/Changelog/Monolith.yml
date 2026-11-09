@@ -26844,3 +26844,14 @@ Entries:
   id: 2893
   time: '2026-11-09T22:27:22.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/5003
+- author: NazrinNya
+  changes:
+    - type: Fix
+      message: Chemmaster now makes pills properly
+    - type: Tweak
+      message: SRD charge capacity 300 - 350
+    - type: Fix
+      message: RTGs and other generators are now gravity affected
+  id: 2894
+  time: '2026-11-09T22:33:02.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4995
