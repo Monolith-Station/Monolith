@@ -19,5 +19,11 @@ public sealed partial class HitscanBasicRaycastComponent : Component
     /// The collision mask the hitscan ray uses to collide with other objects. See the enum for more information
     /// </summary>
     [DataField]
-    public CollisionGroup CollisionMask = CollisionGroup.Opaque;
+    public CollisionGroup CollisionMask = CollisionGroup.Opaque | CollisionGroup.LaserImpassable; // Mono: LaserImpassable
+
+    /// <summary>
+    /// Mono: Whether or not this hitscan ignores ship shields. Should be true for any hitscan that isn't a shipgun.
+    /// </summary>
+    [DataField]
+    public bool IgnoreShields = true;
 }
