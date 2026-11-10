@@ -26919,3 +26919,16 @@ Entries:
   id: 2899
   time: '2026-11-10T00:17:37.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4988
+- author: SuperGDPWYL
+  changes:
+    - type: Fix
+      message: >-
+        Laser weapons (i.e. Phalanx, Prometheus) no longer ignore ship shields
+        entirely.
+    - type: Fix
+      message: >-
+        Laser weapons now have their intended colours and appearance on the
+        radar and are no longer all magenta.
+  id: 2900
+  time: '2026-11-10T00:19:59.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4977
