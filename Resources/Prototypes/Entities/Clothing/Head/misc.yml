@@ -25,7 +25,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatChickenhead
@@ -41,7 +41,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatFlowerWreath
@@ -61,7 +61,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: ClothingHeadLightBase
   id: ClothingHeadHatPumpkin
@@ -86,10 +86,13 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
+        blacklist: #Mono
+          tags:
+          - PowerCage
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatPwig
@@ -103,7 +106,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadMirror
@@ -117,7 +120,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatRichard
@@ -133,7 +136,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatSkub
@@ -149,7 +152,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatShrineMaidenWig
@@ -204,7 +207,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatCatEars
@@ -268,7 +271,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatSquid
@@ -284,7 +287,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatRedRacoon
@@ -298,7 +301,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: Clothing
   id: WaterDropletHat

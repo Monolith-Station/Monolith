@@ -32,11 +32,11 @@
 
 - type: entity
   id: ShipRepairDevice
-  description: A Ship Repair Device that can reconstruct destroyed sections of ships. Holds 300 charges.
+  description: A Ship Repair Device that can reconstruct destroyed sections of ships. Holds 350 charges.
   parent: ShipRepairDeviceBase
   components:
   - type: LimitedCharges
-    maxCharges: 300
+    maxCharges: 350
     charges: 100
 
 - type: entity
@@ -49,12 +49,12 @@
 
 - type: entity
   id: ShipRepairDeviceRecharging
-  description: A Ship Repair Device that can reconstruct destroyed sections of ships. Holds 300 charges and slowly recharges.
+  description: A Ship Repair Device that can reconstruct destroyed sections of ships. Holds 350 charges and slowly recharges.
   parent: ShipRepairDeviceBase
   suffix: Recharging
   components:
   - type: LimitedCharges
-    maxCharges: 300
+    maxCharges: 350
     charges: 50
   - type: AutoRecharge
     rechargeDuration: 5
