@@ -1,0 +1,16 @@
+- type: entity
+  parent: [ClothingOuterArmorBPVestMedium, ClothingOuterWinterCoatToggleable]
+  id: ClothingOuterWinterTSF
+  name: TSF armored winter coat
+  description: A thick and heavy armored winter coat made from durathread sewn to a vest meant to protect you from both bullets and hypothermia.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/OuterClothing/WinterCoats/coattsfarmored.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/OuterClothing/WinterCoats/coattsfarmored.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHatHoodWinterTSF
+  - type: TemperatureProtection
+    heatingCoefficient: 1.1
+    coolingCoefficient: 0.1

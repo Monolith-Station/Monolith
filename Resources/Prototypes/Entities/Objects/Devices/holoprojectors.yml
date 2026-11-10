@@ -18,6 +18,9 @@
       cell_slot:
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellMedium
+        blacklist: #Mono
+          tags:
+          - PowerCage
   - type: Sprite
     sprite: Objects/Devices/Holoprojectors/custodial.rsi
     state: icon
@@ -34,6 +37,9 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
+        blacklist: #Mono
+          tags:
+          - PowerCage
 
 - type: entity
   parent: Holoprojector
@@ -82,6 +88,9 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
+        blacklist: #Mono
+          tags:
+          - PowerCage
 
 - type: entity
   parent: Holoprojector
@@ -128,6 +137,9 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
+        blacklist: #Mono
+          tags:
+          - PowerCage
 
 - type: entity
   parent: Holoprojector
@@ -157,3 +169,6 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
+        blacklist: #Mono
+          tags:
+          - PowerCage

@@ -53,9 +53,10 @@
     anchored: true
   - type: Pullable
   - type: CurrencyInjectionOnSell
-    company: PDV
-    amount:
-      Doubloon: 150 # less than 1/3rd of if it's brought to Helios
+    injection:
+      company: PDV
+      amount:
+        Doubloon: 150 # less than 1/3rd of if it's brought to Helios
   - type: StaticPrice
     price: 300000 # too significant a part of the vault for the TSF to try bring to Halcyon. also gives civilians more of a reason to raid the vault
   - type: Contraband

@@ -47,6 +47,9 @@
       cell_slot:
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellMedium
+        blacklist: #Mono
+          tags:
+          - PowerCage
   - type: Sprite
     sprite: Objects/Tools/flashlight.rsi
     layers:
@@ -90,6 +93,9 @@
       cell_slot:
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellMedium
+        blacklist: #Mono
+          tags:
+          - PowerCage
   - type: HandheldLight
     addPrefix: false
     wattage: 0.5
@@ -136,3 +142,6 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
+        blacklist: #Mono
+          tags:
+          - PowerCage

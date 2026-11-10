@@ -398,3 +398,27 @@
   - type: StaticPrice
     price: 1000
     vendPrice: 4000
+
+- type: entity
+  parent: BaseFlatpack
+  id: AmmoLoaderSmallFlatpack
+  name: small ammo loader flatpack
+  description: A flatpack used for constructing a two slot autoloader.
+  components:
+  - type: Flatpack
+    entity: AmmoLoaderSmall
+  - type: StaticPrice
+    price: 1000
+    vendPrice: 11000
+
+- type: entity
+  parent: BaseFlatpack
+  id: AmmoLoaderFlatpack
+  name: ammo loader flatpack
+  description: A flatpack used for constructing a high-capacity autoloader.
+  components:
+  - type: Flatpack
+    entity: AmmoLoader
+  - type: StaticPrice
+    price: 1500
+    vendPrice: 15000

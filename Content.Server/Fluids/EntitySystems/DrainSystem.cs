@@ -138,6 +138,8 @@ public sealed partial class DrainSystem : SharedDrainSystem
             if (!_solutionContainerSystem.ResolveSolution((uid, manager), drain.SolutionName, ref drain.Solution, out var drainSolution)) // Monolith
                 continue;
 
+            var initialVolume = drainSolution.Volume; // Mono
+
             if (drainSolution.Volume <= 0 && !drain.AutoDrain)
             {
                 _ambientSoundSystem.SetAmbience(uid, false);
@@ -145,7 +147,8 @@ public sealed partial class DrainSystem : SharedDrainSystem
             }
 
             // Remove a bit from the buffer
-            _solutionContainerSystem.SplitSolution(drain.Solution.Value, (drain.UnitsDestroyedPerSecond * _updateInterval));
+            if (drain.UnitsDestroyedPerSecond > 0) // Mono
+                _solutionContainerSystem.SplitSolution(drain.Solution.Value, (drain.UnitsDestroyedPerSecond * _updateInterval));
 
             // This will ensure that UnitsPerSecond is per second...
             var amount = drain.UnitsPerSecond * _updateInterval;
@@ -191,7 +194,8 @@ public sealed partial class DrainSystem : SharedDrainSystem
                 }
             }
 
-            _solutionContainerSystem.UpdateChemicals(drain.Solution.Value);
+            if (initialVolume != drain.Solution.Value.Comp.Solution.Volume) // Mono
+                _solutionContainerSystem.UpdateChemicals(drain.Solution.Value);
         }
     }
 

@@ -5,6 +5,7 @@ using Content.Shared._Mono.Speech;
 using Content.Shared._NF.Item;
 using Content.Shared.Chat;
 using Content.Shared.Dataset;
+using Content.Shared.Ghost;
 using Content.Shared.Mobs;
 using Content.Shared.Throwing;
 using Robust.Shared.Prototypes;
@@ -42,7 +43,11 @@ public sealed class ContextualSpeechSystem : EntitySystem
 
     private void OnThrown(EntityUid uid, ContextualSpeechComponent component, ref ThrownEvent args)
     {
-        var speechEvent = new SpeechTriggerEvent(SpeechTrigger.Thrown);
+        var trigger = args.User == null
+            ? SpeechTrigger.Dash
+            : SpeechTrigger.Thrown;
+
+        var speechEvent = new SpeechTriggerEvent(trigger);
         RaiseLocalEvent(uid, ref speechEvent);
     }
 
@@ -71,20 +76,25 @@ public sealed class ContextualSpeechSystem : EntitySystem
         if (!_random.Prob(trigger.SpeechChance))
             return;
 
-        if (!_cachedDatasets.TryGetValue(trigger.Dataset, out var dataset))
+        var datasetId = trigger.Dataset;
+        if (args.Trigger == SpeechTrigger.Examined && args.Source is { } source && HasComp<GhostComponent>(source) && trigger.GhostDataset is { } ghostDataset)
         {
-            if (!_prototypeManager.TryIndex(trigger.Dataset, out dataset))
-                return;
-
-            _cachedDatasets[trigger.Dataset] = dataset;
+            datasetId = ghostDataset;
         }
-
+        if (!_cachedDatasets.TryGetValue(datasetId, out var dataset))
+        {
+            if (!_prototypeManager.TryIndex(datasetId, out dataset))
+                return;
+            _cachedDatasets[datasetId] = dataset;
+        }
         if (dataset.Values.Count == 0)
             return;
 
         var message = Loc.GetString(_random.Pick(dataset.Values));
 
-        _chat.TrySendInGameICMessage(uid, message, InGameICChatType.Speak, hideChat: true, ignoreActionBlocker: true);
+        var ignoreActionBlocker = args.Trigger is SpeechTrigger.Critical or SpeechTrigger.Dead;
+
+        _chat.TrySendInGameICMessage( uid, message, InGameICChatType.Speak, hideChat: true, ignoreActionBlocker: ignoreActionBlocker);
     }
 
     private void OnProtoReload(PrototypesReloadedEventArgs args)

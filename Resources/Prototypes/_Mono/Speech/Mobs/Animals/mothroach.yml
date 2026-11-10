@@ -45,3 +45,15 @@
   values:
     prefix: mothroach-examined-
     count: 5
+
+- type: localizedDataset
+  id: MothroachGhostExamined
+  values:
+    prefix: mothroach-ghost-examined-
+    count: 7
+
+- type: localizedDataset
+  id: MothroachDash
+  values:
+    prefix: mothroach-dash-
+    count: 5

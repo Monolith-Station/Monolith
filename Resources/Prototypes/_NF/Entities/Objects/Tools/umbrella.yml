@@ -46,6 +46,9 @@
       cell_slot:
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellMedium
+        blacklist: #Mono
+          tags:
+          - PowerCage
   - type: Sprite
     sprite: _NF/Objects/Tools/umbrella.rsi
     layers:
