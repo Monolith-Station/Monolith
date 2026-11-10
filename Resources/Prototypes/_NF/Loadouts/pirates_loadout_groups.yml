@@ -1,16 +1,5 @@
 # Pirate loadouts
-
-- type: loadoutGroup
-  id: PirateJumpsuit
-  name: loadout-group-contractor-jumpsuit
-  loadouts:
-  - PirateJumpsuit
-  - PirateJumpskirt
-  - PirateClothingUniformJumpsuitPirateSlops
-  - PirateClothingUniformJumpsuitPirateLuffy
-  subgroups: # mono
-  - PirateMercenaryJumpsuit
-
+    
 - type: loadoutGroup
   id: RakhshanPDA
   name: loadout-group-contractor-id
@@ -33,31 +22,6 @@
   - PilotFace
 
 - type: loadoutGroup
-  id: PirateShoes
-  name: loadout-group-contractor-shoes
-  loadouts:
-  - PirateClothingShoesBootsLaceup
-  - PirateClothingShoesBootsPirateLuffy
-  subgroups: # mono
-  - MercenaryShoes
-  - ContractorShoes
-  - PilotShoes
-
-- type: loadoutGroup
-  id: PirateHead
-  name: loadout-group-contractor-head
-  minLimit: 0
-  loadouts:
-  - PirateClothingHeadBandBlack
-  - PirateClothingHeadBandBrown
-  - PirateClothingHeadBandGrey
-  - PirateClothingHeadBandRed
-  subgroups: # mono
-  - MercenaryHead
-  - ContractorHead
-  - PilotHead
-
-- type: loadoutGroup
   id: PirateTrinkets
   name: loadout-group-contractor-trinkets
   minLimit: 0
@@ -68,18 +32,6 @@
   - ContractorTrinkets
 
 # Pirate Captain loadouts
-
-- type: loadoutGroup
-  id: PirateCaptainHead
-  name: loadout-group-contractor-head
-  minLimit: 0
-  loadouts:
-  - PirateClothingHeadHatPirate
-  - PirateClothingHeadHatPirateLuffy
-  subgroups: # mono
-  - MercenaryHead
-  - ContractorHead
-  - PilotHead
 
 - type: loadoutGroup
   id: PirateCaptainOuterClothing
