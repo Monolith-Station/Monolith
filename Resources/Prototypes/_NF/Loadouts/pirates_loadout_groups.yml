@@ -76,18 +76,6 @@
 # Pirate First Mate loadouts
 
 - type: loadoutGroup
-  id: PirateFirstMateHead
-  name: loadout-group-contractor-head
-  minLimit: 0
-  loadouts:
-  - PirateClothingHeadHatPirateTricord
-  - PirateClothingHeadHatPirateLuffy
-  subgroups: # mono
-  - MercenaryHead
-  - ContractorHead
-  - PilotHead
-
-- type: loadoutGroup
   id: PirateFirstMateOuterClothing
   name: loadout-group-contractor-outerclothing
   minLimit: 0
