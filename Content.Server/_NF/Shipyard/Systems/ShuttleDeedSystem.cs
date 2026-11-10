@@ -10,9 +10,6 @@ namespace Content.Server._NF.Shipyard;
 
 public sealed partial class ShuttleDeedSystem : EntitySystem
 {
-
-    [Dependency] private IGameTiming _timing = default!;
-
     public override void Initialize()
     {
         base.Initialize();
@@ -27,9 +24,8 @@ public sealed partial class ShuttleDeedSystem : EntitySystem
     private void OnExamined(Entity<ShuttleDeedComponent> ent, ref ExaminedEvent args)
     {
         var comp = ent.Comp;
-		TryComp<ShipyardVoucherComponent>(ent, out var voucher);
 
-		if (!args.IsInDetailsRange)
+        if (!args.IsInDetailsRange)
             return;
 
         if (!string.IsNullOrEmpty(comp.ShuttleName))
@@ -37,21 +33,5 @@ public sealed partial class ShuttleDeedSystem : EntitySystem
             var fullName = ShipyardSystem.GetFullName(comp);
             args.PushMarkup(Loc.GetString("shuttle-deed-examine-text", ("shipname", fullName)));
         }
-
-        if (voucher != null)
-		{
-    		var remainingTime = voucher.NextBuyAt - _timing.CurTime;
-
-			if (voucher.DestroyOnEmpty == true)
-            	args.PushMarkup(Loc.GetString("voucher-current-redemptions", ("count", voucher.RedemptionsLeft)));
-			else
-            	args.PushMarkup(Loc.GetString("voucher-infinite-redemptions"));
-
-			if (remainingTime >= TimeSpan.FromSeconds(60))
-            	args.PushMarkup(Loc.GetString("voucher-current-cooldown-minutes", ("cooldown", remainingTime.TotalMinutes)));
-        	else if (remainingTime >= TimeSpan.FromSeconds(0))
-        		args.PushMarkup(Loc.GetString("voucher-current-cooldown-seconds", ("cooldown", remainingTime.TotalSeconds)));
-
-		}
     }
 }

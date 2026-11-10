@@ -29984,6 +29984,11 @@ entities:
       parent: 1
 - proto: ColMarTechEquipmentPDV
   entities:
+  - uid: 16898
+    components:
+    - type: Transform
+      pos: 157.5,56.5
+      parent: 1
   - uid: 16725
     components:
     - type: Transform
@@ -90989,13 +90994,6 @@ entities:
     components:
     - type: Transform
       pos: 25.5,47.5
-      parent: 1
-- proto: VendingMachinePDVGear
-  entities:
-  - uid: 16898
-    components:
-    - type: Transform
-      pos: 157.5,56.5
       parent: 1
 - proto: VinylDiskAlsoSprach
   entities:

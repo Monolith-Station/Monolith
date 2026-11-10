@@ -13,10 +13,6 @@
       - type: IFF
         color: "#37946e"
         readOnly: true # mono
-      - type: StationCargoOrderDatabase
-        capacity: 240 # has to be large to compensate for playerbase
-      - type: TradeCrateDestination
-        destinationProto: Trade
       - type: VesselMusic
         ambientMusicPrototype: ColossusCentralMusic
       - type: VesselInfo
@@ -28,6 +24,10 @@
           mapNameTemplate: 'Caelestinus Central'
         - type: StationDeadDrop
           maxDeadDrops: 2
+        - type: StationCargoOrderDatabase
+          capacity: 240 # has to be large to compensate for playerbase
+        - type: TradeCrateDestination
+          destinationProto: Trade
         - type: ExtraStationInformation
           icon: /Textures/_Mono/Logo/icon/icon-256x256.png # used the biggest one, looks better when downscaling than upscaling
           stationSubtext: 'frontier-lobby-frontier-subtext'

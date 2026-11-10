@@ -19,6 +19,7 @@ using Content.Shared.Power;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
+using Content.Server._Mono.Cloning; // Mono
 
 namespace Content.Server.Cloning
 {
@@ -33,6 +34,7 @@ namespace Content.Server.Cloning
         [Dependency] private MobStateSystem _mobStateSystem = default!;
         [Dependency] private PowerReceiverSystem _powerReceiverSystem = default!;
         [Dependency] private SharedMindSystem _mindSystem = default!;
+        [Dependency] private GeneticCloningConsoleSystem _geneticConsole = default!; //mono
 
         public override void Initialize()
         {
@@ -49,7 +51,7 @@ namespace Content.Server.Cloning
 
         private void OnInit(EntityUid uid, CloningConsoleComponent component, ComponentInit args)
         {
-            _signalSystem.EnsureSourcePorts(uid, CloningConsoleComponent.ScannerPort, CloningConsoleComponent.PodPort);
+            _signalSystem.EnsureSourcePorts(uid, CloningConsoleComponent.PodPort); // Mono, Removed CloningConsoleComponent.ScannerPort,
         }
         private void OnButtonPressed(EntityUid uid, CloningConsoleComponent consoleComponent, UiButtonPressedMessage args)
         {
@@ -136,6 +138,7 @@ namespace Content.Server.Cloning
 
         public void UpdateUserInterface(EntityUid consoleUid, CloningConsoleComponent consoleComponent)
         {
+            _geneticConsole.UpdateUserInterface(consoleUid, consoleComponent); // Mono
             if (!_uiSystem.HasUi(consoleUid, CloningConsoleUiKey.Key))
                 return;
 

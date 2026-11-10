@@ -26624,3 +26624,320 @@ Entries:
   id: 2867
   time: '2026-10-31T19:01:38.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4891
+- author: SuperGDPWYL
+  changes:
+    - type: Remove
+      message: You can no longer produce telecrystals via the crystalliser.
+  id: 2868
+  time: '2026-11-01T05:08:33.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4882
+- author: EckoAurum
+  changes:
+    - type: Add
+      message: >-
+        The closely guarded patent over cloning technology and gene storage has
+        expired. Cloning and genetic-backups are now avaliable.
+    - type: Add
+      message: >-
+        Director of Care now receives a Genetic Database Flatpack in their
+        Locker.
+    - type: Fix
+      message: Traits and bank accounts now properly apply after cloning.
+  id: 2869
+  time: '2026-11-01T05:10:49.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4868
+- author: DoubleHypercube
+  changes:
+    - type: Add
+      message: Fifty-two new Hydrakin names!
+  id: 2870
+  time: '2026-11-01T19:09:33.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4943
+- author: DoubleHypercube
+  changes:
+    - type: Add
+      message: 22 unique clothing sets, each with seven selectable colours!
+  id: 2871
+  time: '2026-11-01T19:18:29.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4941
+- author: DoubleHypercube
+  changes:
+    - type: Tweak
+      message: Uncloneable now gives points.
+  id: 2872
+  time: '2026-11-02T21:33:47.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4958
+- author: EckoAurum
+  changes:
+    - type: Fix
+      message: >-
+        Lesser life forms no longer have bird-based sight and can now see
+        through glass.
+  id: 2873
+  time: '2026-11-02T22:45:36.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4952
+- author: DoubleHypercube
+  changes:
+    - type: Add
+      message: Prescription medical and security glasses!
+  id: 2874
+  time: '2026-11-02T22:46:22.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4950
+- author: SuperGDPWYL
+  changes:
+    - type: Fix
+      message: >-
+        Laser weapons (i.e. Phalanx, Prometheus) no longer ignore ship shields
+        entirely.
+    - type: Fix
+      message: >-
+        Laser weapons now have their intended colours and appearance on the
+        radar and are no longer all magenta.
+  id: 2875
+  time: '2026-11-02T22:48:11.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4917
+- author: SuperGDPWYL
+  changes:
+    - type: Tweak
+      message: Drone cores can no longer be re-anchored.
+  id: 2876
+  time: '2026-11-02T22:48:32.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4934
+- author: Gamebeast699
+  changes:
+    - type: Fix
+      message: Ironman LPCs can now be redeemed with the Zvezda shipyard
+  id: 2877
+  time: '2026-11-05T01:03:00.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4924
+- author: DoubleHypercube
+  changes:
+    - type: Fix
+      message: Most modsuits will no longer show an ERROR sprite for Vulpkanins.
+  id: 2878
+  time: '2026-11-05T01:34:50.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4961
+- author: tonotom1
+  changes:
+    - type: Fix
+      message: Killed Vroid lagspikes (Credit to Arimah at Frontier)
+  id: 2879
+  time: '2026-11-05T02:22:11.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4971
+- author: Mrrpip
+  changes:
+    - type: Tweak
+      message: >-
+        Tweaks the GS ships and the UGR Bluefin to have fire suppression methods
+        onboard.
+  id: 2880
+  time: '2026-11-05T03:19:27.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4954
+- author: DoubleHypercube
+  changes:
+    - type: Tweak
+      message: Vulpkanins are now digitgrade. Pawlovers rejoice!
+  id: 2881
+  time: '2026-11-05T03:51:12.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4939
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: CROCUS - Removed revolvers from sidearms, replaced Viper w/ Pollock.
+    - type: Tweak
+      message: >-
+        CROCUS - UBGLs downgraded to 35x53mm. Uses separate rounds from normal
+        mono so they're balanced Just For Crocus. Adds EMP grenade rounds to the
+        vendors. HEDP grenades are limited to 2 max now.
+    - type: Tweak
+      message: >-
+        CROCUS - Added bluespace fire extinguishers to utility section for 1
+        point.
+    - type: Fix
+      message: CROCUS - Fixed PDV having an old infantry gear vendor still.
+  id: 2882
+  time: '2026-11-07T07:29:50.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4985
+- author: Mrrpip
+  changes:
+    - type: Fix
+      message: Fixes the defib cabinet on the QJ-271
+  id: 2883
+  time: '2026-11-08T10:18:07.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4986
+- author: DoubleHypercube
+  changes:
+    - type: Tweak
+      message: The TSF comms console is now usable by Marines.
+  id: 2884
+  time: '2026-11-08T10:23:11.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4981
+- author: Mrrpip
+  changes:
+    - type: Fix
+      message: Fixes flareguns being able to chamber shot flares.
+  id: 2885
+  time: '2026-11-08T10:25:16.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4987
+- author: SuperGDPWYL
+  changes:
+    - type: Fix
+      message: >-
+        Fixed a whitelist-bypass exploit with the safety deposit box. Please
+        note that this also blacklists anything that can hold items within it,
+        including any guns that can hold magazines or attachments.
+  id: 2886
+  time: '2026-11-08T15:33:02.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4997
+- author: DoubleHypercube
+  changes:
+    - type: Remove
+      message: Disabled gamemode voteweights.
+  id: 2887
+  time: '2026-11-08T22:41:20.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4895
+- author: SuperGDPWYL
+  changes:
+    - type: Fix
+      message: >-
+        Vouchers that are not holding deeds now show their remaining redemptions
+        and cooldown when examined.
+  id: 2888
+  time: '2026-11-08T22:41:57.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4996
+- author: SuperGDPWYL
+  changes:
+    - type: Fix
+      message: >-
+        The Underground Black Market's Mudskipper is no longer erroneously
+        purchaseable from Zvezda Orbital Habitation.
+  id: 2889
+  time: '2026-11-08T22:47:45.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4998
+- author: chaoticevilizardwizard
+  changes:
+    - type: Add
+      message: Wintercoats to TSF
+    - type: Tweak
+      message: Minor TSF drobe changes
+  id: 2890
+  time: '2026-11-09T00:01:12.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4980
+- author: DoubleHypercube
+  changes:
+    - type: Fix
+      message: Zephyr LPCs are now printable.
+  id: 2891
+  time: '2026-11-09T03:55:18.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5000
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: Fire extinguishers and sci to Caelestinus
+  id: 2892
+  time: '2026-11-09T08:09:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4999
+- author: Z3risk
+  changes:
+    - type: Tweak
+      message: The VT-7 High Frequency Blade now shows while wielded.
+  id: 2893
+  time: '2026-11-09T22:27:22.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5003
+- author: NazrinNya
+  changes:
+    - type: Fix
+      message: Chemmaster now makes pills properly
+    - type: Tweak
+      message: SRD charge capacity 300 - 350
+    - type: Fix
+      message: RTGs and other generators are now gravity affected
+  id: 2894
+  time: '2026-11-09T22:33:02.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4995
+- author: mikusssssss
+  changes:
+    - type: Add
+      message: >-
+        Ported IPC's and Borgs having a distorted accent when low on charge or
+        heavily damaged.
+  id: 2895
+  time: '2026-11-09T23:12:20.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5002
+- author: SuperGDPWYL
+  changes:
+    - type: Add
+      message: >-
+        Added Underground Black Market supply crates! Purchaseable from the UBM
+        (this will notify the TSFMC, however), these give telecrystals to the
+        UndergroundVend if sold at the correct destination! However, they have
+        passive thermal signatures, so don't stock too many if you want to stay
+        unseen!
+    - type: Tweak
+      message: Selling contraband crates alerts the TSFMC now, similarly to fentanyl.
+    - type: Tweak
+      message: Contraband blips can now be seen from up to 8192m away (was 2048m).
+    - type: Tweak
+      message: PDV crate blips are now tan.
+    - type: Tweak
+      message: >-
+        Fentanyl's tooltip is now slightly more accurate, and warns about
+        alerting the TSFMC.
+    - type: Tweak
+      message: >-
+        Updated the tooltips of several objects, including contraband crates, to
+        be accurate.
+    - type: Fix
+      message: Selling PDV crates at the wrong destination no longer pays out in DC.
+    - type: Fix
+      message: >-
+        Caelestinus Central and Zvezda Orbital Habitation are now actually
+        functional destinations.
+  id: 2896
+  time: '2026-11-09T23:45:54.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4916
+- author: DoubleHypercube
+  changes:
+    - type: Tweak
+      message: The Overseer no longer needs TSF or PDV hours.
+  id: 2897
+  time: '2026-11-10T00:12:59.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4978
+- author: Mrrpip
+  changes:
+    - type: Tweak
+      message: Tweaks the brass knuckles to pack more of a whallop.
+  id: 2898
+  time: '2026-11-10T00:14:38.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4946
+- author: Mrrpip
+  changes:
+    - type: Tweak
+      message: >-
+        Tweaks the punch range on S4 mechs. They can now generally punch
+        disposal bins that'd block their movement.
+  id: 2899
+  time: '2026-11-10T00:17:37.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4988
+- author: SuperGDPWYL
+  changes:
+    - type: Fix
+      message: >-
+        Laser weapons (i.e. Phalanx, Prometheus) no longer ignore ship shields
+        entirely.
+    - type: Fix
+      message: >-
+        Laser weapons now have their intended colours and appearance on the
+        radar and are no longer all magenta.
+  id: 2900
+  time: '2026-11-10T00:19:59.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4977
+- author: DoubleHypercube
+  changes:
+    - type: Add
+      message: TSF can now buy T1/T2 vouchers with FMC
+    - type: Fix
+      message: Infinite vouchers are now actually infinite
+  id: 2901
+  time: '2026-11-10T00:22:10.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4909

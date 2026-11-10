@@ -2,6 +2,7 @@ using Content.Server._Mono.Store.Components;
 using Content.Server.Radio.EntitySystems;
 using Content.Server.Store.Systems;
 using Content.Shared._Mono.Company;
+using Content.Shared._Mono.Store;
 using Content.Shared.FixedPoint;
 using Content.Shared.Store.Components;
 using Robust.Shared.Prototypes;
@@ -31,5 +32,10 @@ public sealed partial class CurrencyInjectionSystem : EntitySystem
                 _radio.SendRadioMessage(uid, Loc.GetString(comp.InjectionAlert, ("amount", currency.Value)), comp.RadioChannel, uid);
             }
         }
+    }
+
+    public void InjectCurrency(CurrencyInjection injection)
+    {
+        InjectCurrency(injection.Company, injection.Amount);
     }
 }

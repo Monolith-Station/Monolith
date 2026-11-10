@@ -37,10 +37,11 @@ public record struct RadioReceiveAttemptEvent(RadioChannelPrototype Channel, Ent
 /// Use this event to cancel sending message to every receiver
 /// </summary>
 [ByRefEvent]
-public record struct RadioSendAttemptEvent(RadioChannelPrototype Channel, EntityUid RadioSource, int Frequency)
+public record struct RadioSendAttemptEvent(RadioChannelPrototype Channel, EntityUid RadioSource, int Frequency, bool Jammable = true) // Mono: jammable?
 {
     public readonly RadioChannelPrototype Channel = Channel;
     public readonly EntityUid RadioSource = RadioSource;
     public readonly int Frequency = Frequency;
     public bool Cancelled = false;
+    public readonly bool Jammable = Jammable; // Mono
 }
