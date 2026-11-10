@@ -18,11 +18,62 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Console;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
 namespace Content.Server.CrewManifest;
 
 public sealed partial class CrewManifestSystem : EntitySystem
 {
+    // This fucking sucks, but there's no better way to do it.
+    public static readonly Dictionary<ProtoId<JobPrototype>, string> Jobs = new()
+    {
+        { "Bailiff", "TSFMC Captain" },
+        { "Brigmedic", "TSFMC Corpsman" },
+        { "CadetNf", "TSFMC Private" },
+        { "Contractor", "Vagrant" },
+        { "Deputy", "TSFMC Marine" },
+        { "NFDetective", "Detective" },
+        { "Mercenary", "Mercenary" },
+        { "Pilot", "Pilot" },
+        { "PDVInfiltrator", "PDV Spasaka" },
+        { "Pirate", "PDV Rahkshan" },
+        { "PirateCaptain", "PDV Grand Vizier" },
+        { "PirateFirstMate", "PDV Asvaran" },
+        { "PDVDenasvar", "PDV Denasvar" },
+        { "PDVTarkhan", "PDV Tarkhan" },
+        { "PDVInfantry", "PDV Infantry" },
+        { "TsfMarsoc", "TSFMC MARSOC Operative" },
+        { "TsfInfantry", "TSF Infantry" },
+        { "SecurityGuard", "Judge" },
+        { "Sheriff", "TSFMC Colonel" },
+        { "StationRepresentative", "Overseer" },
+        { "DirectorOfCare", "Director of Care" },
+        { "SeniorEngineer", "Senior Engineer" },
+        { "SeniorResearcher", "Senior Researcher" },
+        { "SeniorPhysician", "Senior Physician" },
+        { "SeniorOfficer", "TSFMC Fireteam Leader" },
+        { "USSPCommissar", "USSP Commissar" },
+        { "USSPSergeant", "USSP Serzhant" },
+        { "USSPRifleman", "USSP Rifleman" },
+        { "MdMedic", "Emergency Responder" },
+        { "CaelestinusWorker", "Caelestinus Worker" },
+        { "TsfEngineer", "TSFMC Engineer" },
+        { "TsfBorg", "TSFMC Cyborg" },
+        { "TsfCivilian", "TSF Contractor" },
+        { "PDVBorg", "PDV Cyborg" },
+        { "PDVCivilian", "PDV Freeman" },
+        { "PDVAmbassador", "Dynasty Ambassador" },
+        { "PDVPrince", "Dynasty Prince" },
+        { "VGInfanteer", "VG Infanteer" },
+        { "VGLieutenant", "VG Lieutenant" },
+        { "VGCommander", "VG Commander" },
+        { "MMCLiason", "MMC Corporate Liason" },
+        { "MMCSecurity", "MMC Corporate Security" },
+        { "MMCEmployee", "MMC Employee" },
+        { "Fugitive", "Fugitive" },
+        { "Godfather", "Godfather" },
+    };
+
     [Dependency] private StationSystem _stationSystem = default!;
     [Dependency] private StationRecordsSystem _recordsSystem = default!;
     [Dependency] private EuiManager _euiManager = default!;
@@ -231,8 +282,8 @@ public sealed partial class CrewManifestSystem : EntitySystem
         {
             var name = meta.EntityName;
             var jobTitle = "Unknown";
-            var jobIcon = "JobIconUnknown";
-            ProtoId<JobPrototype> jobProto = "Contractor";
+            var jobIcon = "JobIconContractor";
+            ProtoId<JobPrototype>? jobProto = null;
             if (_id.TryFindIdCard(uid, out var card))
             {
                 name = card.Comp.FullName ?? name;
@@ -240,11 +291,22 @@ public sealed partial class CrewManifestSystem : EntitySystem
                 jobIcon = card.Comp.JobIcon;
                 if (TryComp<PresetIdCardComponent>(card.Owner, out var preset))
                 {
-                    jobProto = preset.JobName.GetValueOrDefault("Contractor");
+                    // Skip agent IDs you can disguise properly.
+                    if (!HasComp<AgentIDCardComponent>(card.Owner))
+                        jobProto = preset.ManifestJob ?? preset.JobName;
+
+                    jobTitle = preset.TitleOverride ?? jobTitle;
+                    jobIcon = preset.IconOverride ?? jobIcon;
                 }
             }
 
-            var entry = new CrewManifestEntry(name, jobTitle, jobIcon, jobProto);
+            // We will need to do a reference lookup here
+            foreach (var kvp in Jobs.Where(kvp => kvp.Value == jobTitle))
+            {
+                jobProto = kvp.Key;
+            }
+
+            var entry = new CrewManifestEntry(name, jobTitle, jobIcon, jobProto ?? "Contractor");
             _prototypeManager.Resolve(jobProto, out var job);
             entriesSort.Add((job, entry));
         } // Monolith: Gridless end

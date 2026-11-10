@@ -683,6 +683,10 @@
   name: pirate ID card
   categories: [ HideSpawnMenu ] # Frontier
   components:
+  - type: PresetIdCard # Mono start
+    titleOverride: Vagrant
+    iconOverride: JobIconContractor
+    manifestJob: Contractor # Mono end
   - type: Sprite
     layers:
     - state: pirate
