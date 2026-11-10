@@ -142,7 +142,7 @@
     - RogueHardsuit
 
 - type: entity
-  parent: [ ClothingOuterHardsuitBase, MonoEnergyShieldClothing ]
+  parent: [ ClothingOuterHardsuitBase]
   id: ClothingOuterHardsuitViperGroupShield
   name: MEDUSA mk.VI viper hardsuit
   description: A heavy combat hardsuit adorned with signature markings of the Viper Group. The armor features a personal shield projector integrated into the suit.
@@ -163,59 +163,21 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.55
-        Heat: 0.55
-        Radiation: 0.6
-        Caustic: 0.8
+        Blunt: 0.67
+        Slash: 0.34
+        Piercing: 0.67
+        Heat: 0.34
+        Radiation: 0.34
+        Caustic: 0.25
   - type: StaminaDamageResistance # Mono - Stamres
     coefficient: 0.34
   - type: ClothingSpeedModifier
-    walkModifier: 0.75
-    sprintModifier: 0.75
+    walkModifier: 0.85
+    sprintModifier: 0.85
   - type: HeldSpeedModifier
-  # Mono - Shielding comps
-  - type: PersonalShield
-    visuals:
-      fillLevel: 0.2
-      hexDensity: 4
-      pixelGrid: 192
-      color: "#eb772a"
-      scale: 1.6
-    shield:
-      maxCharge: 90
-      regenRate: 5
-      spinupTime: 1
-      breakCooldown: 20
-      powerDraw: 0.5
-      blockModifier:
-        coefficients:
-          Slash: 1.5
-          Piercing: 1
-          Heat: 1.25
-          Radiation: 1.5
-          Shock: 1.5
-  - type: Battery
-    maxCharge: 100
-    startingCharge: 100
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 10
-    autoRechargePauseTime: 10
-  - type: UseDelay
-    delay: 10
   - type: FootstepModifier # Mono
     footstepSoundCollection:
       path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
-  - type: ExtendDescription
-    descriptionList:
-    - description: Alt-click or otherwise interact to toggle additional shielding.
-      color: "#4f94ad"
-      requireDetailRange: true
-    - description: The MEDUSA shield projector is designed to inhibit the velocity of incoming conventional firearms. However, it struggles against anything involving high-energy particles and close-range directed force.
-      color: "#94768c"
-      requireDetailRange: true
   - type: ToggleableClothing # Goobstation - Modsuits change - Mono - this is a solution for helmet attachment/cover to not fit on hardsuits
     requiredSlot: outerclothing
     blockUnequipWhenAttached: false

@@ -114,7 +114,7 @@
     - HeadSide
 
 - type: entity
-  parent: [ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase, ShowSecurityIcons]
+  parent: [ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase, ShowSecurityIcons, MonoEnergyShieldClothing]
   id: ClothingHeadHelmetHardsuitViperGroupShield
   name: MEDUSA mk.VI viper hardsuit helmet
   description: A hardsuit helmet with signature markings of the Viper Group. Has a built-in identity tracking HUD complemented by a night-vision system.
@@ -151,6 +151,39 @@
     - Snout
     - HeadTop
     - HeadSide
+ # Mono - Shielding comps
+  - type: PersonalShield
+    visuals:
+      fillLevel: 0.2
+      hexDensity: 4
+      pixelGrid: 192
+      color: "#eb772a"
+      scale: 1.6
+    shield:
+      requiredSlot: HEAD
+      maxCharge: 100
+      regenRate: 5
+      spinupTime: 1
+      breakCooldown: 20
+      powerDraw: 0.5
+      blockModifier:
+        coefficients:
+          Slash: 2.5
+          Piercing: 0.8
+          Heat: 1.5
+          Radiation: 2.5
+          Shock: 2.5
+  - type: ExtendDescription
+    descriptionList:
+    - description: Alt-click or otherwise interact to toggle additional shielding.
+      color: "#4f94ad"
+      requireDetailRange: true
+    - description: The MEDUSA shield projector is designed to inhibit the velocity of incoming conventional firearms. However, it struggles against anything involving high-energy particles and close-range directed force.
+      color: "#94768c"
+      requireDetailRange: true
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
 
 - type: entity
   parent: [ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase, ShowSecurityIcons]
