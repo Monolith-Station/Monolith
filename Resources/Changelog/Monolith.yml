@@ -26932,3 +26932,12 @@ Entries:
   id: 2900
   time: '2026-11-10T00:19:59.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4977
+- author: DoubleHypercube
+  changes:
+    - type: Add
+      message: TSF can now buy T1/T2 vouchers with FMC
+    - type: Fix
+      message: Infinite vouchers are now actually infinite
+  id: 2901
+  time: '2026-11-10T00:22:10.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4909
