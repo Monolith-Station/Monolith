@@ -197,10 +197,7 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellCombat
-        blacklist: #Mono
-          tags:
-          - PowerCage
+        startingItem: PowerCellCombat # I'm not sure they can even put powercages in without assistance from a human... Which they're enemies to.
 
 - type: entity
   id: XenoborgChassisEngineer

@@ -57,9 +57,6 @@
         whitelist:
           components:
             - PowerCell
-        blacklist: #Mono
-          tags:
-          - PowerCage
   - type: ItemSlotsRequirePanel
     slots:
       cell_slot: true
@@ -109,9 +106,6 @@
         whitelist:
           components:
             - PowerCell
-        blacklist: #Mono
-          tags:
-          - PowerCage
 
 - type: entity
   parent: ClothingModsuitBase
@@ -178,9 +172,6 @@
         whitelist:
           components:
             - PowerCell
-        blacklist: #Mono
-          tags:
-          - PowerCage
 
 - type: entity
   parent: ClothingModsuitBase
@@ -229,9 +220,6 @@
         whitelist:
           components:
             - PowerCell
-        blacklist: #Mono
-          tags:
-          - PowerCage
 
 - type: entity
   parent: ClothingModsuitBase
@@ -268,9 +256,6 @@
         whitelist:
           components:
             - PowerCell
-        blacklist: #Mono
-          tags:
-          - PowerCage
 
 - type: entity
   parent: ClothingModsuitBase
@@ -310,9 +295,6 @@
         whitelist:
           components:
             - PowerCell
-        blacklist: #Mono
-          tags:
-          - PowerCage
 
 - type: entity
   parent: ClothingModsuitBase
@@ -352,9 +334,6 @@
         whitelist:
           components:
             - PowerCell
-        blacklist: #Mono
-          tags:
-          - PowerCage
 
 - type: entity
   parent: ClothingModsuitBase
@@ -389,9 +368,6 @@
         whitelist:
           components:
             - PowerCell
-        blacklist: #Mono
-          tags:
-          - PowerCage
 
 - type: entity
   parent: ClothingModsuitBase
@@ -431,6 +407,3 @@
         whitelist:
           components:
             - PowerCell
-        blacklist: #Mono
-          tags:
-          - PowerCage
