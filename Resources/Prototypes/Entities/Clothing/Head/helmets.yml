@@ -103,7 +103,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 #Light Riot Helmet
 - type: entity
   parent: ClothingHeadBase
@@ -125,7 +125,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 #Bombsuit Helmet
 - type: entity
   parent: ClothingHeadBase
@@ -155,7 +155,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 #Janitorial Bombsuit Helmet
 - type: entity
   parent: ClothingHeadHelmetBombSuit
@@ -171,7 +171,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 #Cult Helmet
 - type: entity
   parent: [ClothingHeadBase]
@@ -194,7 +194,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 #Space Ninja Helmet
 - type: entity
   parent: [ClothingHeadEVAHelmetBase]
@@ -235,7 +235,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 #Thunderdome Helmet
 - type: entity
   parent: ClothingHeadBase
@@ -250,7 +250,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 #Wizard Helmet
 - type: entity
   parent: [ClothingHeadBase]
@@ -267,7 +267,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 #Fire Helmet
 - type: entity
   parent: ClothingHeadLightBase
@@ -371,7 +371,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 #ERT Security Helmet
 - type: entity
   parent: ClothingHeadHelmetBase
@@ -386,7 +386,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 #ERT Medic Helmet
 - type: entity
   parent: ClothingHeadHelmetBase
@@ -401,7 +401,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 #ERT Engineer Helmet
 - type: entity
   parent: ClothingHeadHelmetBase
@@ -416,7 +416,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 #ERT Janitor Helmet
 - type: entity
   parent: ClothingHeadHelmetBase
@@ -431,7 +431,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: ClothingHeadHelmetBase
   id: ClothingHeadHelmetRaid
@@ -452,7 +452,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 #Bone Helmet
 - type: entity
   parent: ClothingHeadHelmetBase
@@ -470,7 +470,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: ClothingHeadHelmetBase
   id: ClothingHeadHelmetPodWars
@@ -484,7 +484,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 #Justice Helmet
 - type: entity
   parent: ClothingHeadHelmetBase
@@ -549,6 +549,9 @@
       cell_slot:
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellSmall
+        blacklist: #Mono
+          tags:
+          - PowerCage
   - type: PowerCellDraw
     drawRate: 2
   - type: ToggleCellDraw
@@ -558,7 +561,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: ClothingHeadHelmetJustice
   id: ClothingHeadHelmetJusticeEmpty
@@ -568,10 +571,13 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
+        blacklist: #Mono
+          tags:
+          - PowerCage
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   id: ActionToggleJusticeHelm
   name: Toggle Justice Helm
