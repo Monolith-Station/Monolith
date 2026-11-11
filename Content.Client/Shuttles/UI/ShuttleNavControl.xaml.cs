@@ -841,12 +841,11 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
                         : _detection.HandleUnknownMassLabel(grid.Owner)
                     : _shuttles.GetIFFLabel(grid, self: false, component: iff);
 
-                var shouldDrawIFF = ShowIFF && labelName != null;
-                var shouldDrawDetailedIFF = ShowIFFDetailed && labelName != null; // Mono
-                if (shouldDrawIFF)
+                var shouldDrawOutline = labelName != null;
+                if (shouldDrawOutline)
                 {
                     if (IFFFilter != null)
-                        shouldDrawIFF &= IFFFilter(gUid, grid.Comp, iff, hideLabel, labelName!);
+                        shouldDrawOutline &= IFFFilter(gUid, grid.Comp, iff, hideLabel, labelName!);
                     //if (isPlayerShuttle) // Mono - comments this out, replaced elsewere
                     //    shouldDrawIFF &= ShowIFFShuttles;
                 }
@@ -856,13 +855,13 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
                 // Frontier: range checks // Mono
                 var gridMapPos = _transform.ToMapCoordinates(new EntityCoordinates(gUid, gridBody.LocalCenter)).Position;
                 if (!hideLabel) // Mono - show thermal signatures even at long range
-                    shouldDrawIFF = NfCheckShouldDrawIffRangeCondition(shouldDrawIFF, mapPos.Position - gridMapPos);
+                    shouldDrawOutline = NfCheckShouldDrawIffRangeCondition(shouldDrawOutline, mapPos.Position - gridMapPos);
                 // End Frontier
 
                 // Mono
                 var gridUiPosition = Vector2.Transform(gridBody.LocalCenter, curGridToView) / UIScale;
 
-                if (shouldDrawIFF || shouldDrawDetailedIFF) //Mono - added || shouldDrawDetailedIFF, so IFF and detailedIFF can render separately
+                if (shouldDrawOutline || ShowIFFDetailed) //Mono - added || shouldDrawDetailedIFF, so IFF and detailedIFF can render separately
                 {
                     //var gridCentre = Vector2.Transform(gridBody.LocalCenter, curGridToView);
                     //gridCentre.Y = -gridCentre.Y;
@@ -972,12 +971,12 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
                         var mainLabel = lines[0];
 
                         // Draw main ship label with company color if available
-                        if(shouldDrawIFF){ // Mono - to make IFF and D. IFF render separately
+                        if(ShowIFF){ // Mono - to make IFF and D. IFF render separately
                         handle.DrawString(Font, (uiPosition + labelOffset) * UIScale, mainLabel, UIScale * 0.9f, displayColor);
                         }
 
                         // Mono start - draw main stack of info
-                        if (shouldDrawDetailedIFF)
+                        if (ShowIFFDetailed)
                         {
                             // Get company label & draw
                             var companyLabel = !hideLabel ? lines[1] : Loc.GetString("shuttle-console-company-unknown");
