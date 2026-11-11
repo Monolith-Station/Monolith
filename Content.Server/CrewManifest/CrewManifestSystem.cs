@@ -10,6 +10,7 @@ using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.CrewManifest;
 using Content.Shared.GameTicking;
+using Content.Shared.Humanoid;
 using Content.Shared.Roles;
 using Content.Shared.SSDIndicator;
 using Content.Shared.Station.Components;
@@ -227,8 +228,9 @@ public sealed partial class CrewManifestSystem : EntitySystem
         var entries = new CrewManifestEntries();
         var entriesSort = new List<(JobPrototype? job, CrewManifestEntry entry)>();
 
-        var query = EntityQueryEnumerator<ActorComponent, MetaDataComponent, SSDIndicatorComponent>(); // Monolith: Gridless start
-        while (query.MoveNext(out var uid, out var actor, out var meta, out _))
+        // Those last three are just to filter it to only real player characters.
+        var query = EntityQueryEnumerator<MetaDataComponent, ActorComponent, HumanoidAppearanceComponent, SSDIndicatorComponent>(); // Monolith: Gridless start
+        while (query.MoveNext(out var uid, out var meta, out _, out _, out _))
         {
             var name = meta.EntityName;
             var jobTitle = "Unknown";
