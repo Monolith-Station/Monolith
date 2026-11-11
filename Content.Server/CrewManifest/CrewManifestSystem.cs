@@ -228,9 +228,9 @@ public sealed partial class CrewManifestSystem : EntitySystem
         var entries = new CrewManifestEntries();
         var entriesSort = new List<(JobPrototype? job, CrewManifestEntry entry)>();
 
-        // Those last three are just to filter it to only real player characters.
-        var query = EntityQueryEnumerator<MetaDataComponent, ActorComponent, HumanoidAppearanceComponent, SSDIndicatorComponent>(); // Monolith: Gridless start
-        while (query.MoveNext(out var uid, out var meta, out _, out _, out _))
+        // Those others are just to filter it to only real player characters.
+        var query = EntityQueryEnumerator<MetaDataComponent, ActorComponent, HumanoidAppearanceComponent>(); // Monolith: Gridless start
+        while (query.MoveNext(out var uid, out var meta, out _, out _))
         {
             var name = meta.EntityName;
             var jobTitle = "Unknown";
