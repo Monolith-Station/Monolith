@@ -1348,6 +1348,8 @@
 
 - type: listing
   id: UplinkPirateCv32
+  name: uplink-pirate-cv32-hardsuit-name
+  description: uplink-pirate-cv32-hardsuit-desc # DO NOT REMOVE THESE, YOU WILL BREAK THE SEARCH FEATURE
   productEntity: ClothingOuterHardsuitAshen
   cost:
     Doubloon: 45
@@ -1361,6 +1363,8 @@
 
 - type: listing
   id: UplinkPirateCv53
+  name: uplink-pirate-cv53-tacsuit-name
+  description: uplink-pirate-cv53-tacsuit-desc # DO NOT REMOVE THESE, YOU WILL BREAK THE SEARCH FEATURE
   productEntity: ClothingOuterHardsuitAshenElite
   cost:
     Doubloon: 45
@@ -1404,6 +1408,8 @@
 
 - type: listing
   id: UplinkPirateStealthSuit
+  name: uplink-pirate-stealth-hardsuit-name
+  description: uplink-pirate-stealth-hardsuit-desc # DO NOT REMOVE THESE, YOU WILL BREAK THE SEARCH FEATURE
   productEntity: ClothingOuterHardsuitCybersunStealth
   cost:
     Doubloon: 90

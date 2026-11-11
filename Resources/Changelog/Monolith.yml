@@ -26941,3 +26941,47 @@ Entries:
   id: 2901
   time: '2026-11-10T00:22:10.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4909
+- author: SuperGDPWYL
+  changes:
+    - type: Fix
+      message: Fixed an exploit.
+    - type: Fix
+      message: The search feature on the PDV uplink works again.
+  id: 2902
+  time: '2026-11-10T09:32:57.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4962
+- author: lordsej
+  changes:
+    - type: Add
+      message: Added more animals have voice lines
+    - type: Fix
+      message: dead animals should no longer speak voicelines
+  id: 2903
+  time: '2026-11-10T09:45:17.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4918
+- author: Mrrpip
+  changes:
+    - type: Fix
+      message: Power cages no longer fit in most small items or IPCs. Sorry.
+    - type: Fix
+      message: Prespawned combat cells are EMP resistant now.
+  id: 2904
+  time: '2026-11-10T11:01:31.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4976
+- author: Mrrpip
+  changes:
+    - type: Tweak
+      message: FlatpackvendPremiums now sell ammo loaders.
+  id: 2905
+  time: '2026-11-10T12:22:28.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5006
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: >-
+        Helepolis damage mult increased to 2.25, rof down 1.2 >> 0.5, slug
+        spread tightened, pellet spread worse by 300%, projectile speed reduced
+        40 >> 20, mag capacity 4 >> 3
+  id: 2906
+  time: '2026-11-10T12:48:02.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4892
