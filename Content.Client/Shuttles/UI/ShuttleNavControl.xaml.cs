@@ -842,7 +842,7 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
                     : _shuttles.GetIFFLabel(grid, self: false, component: iff);
 
                 var shouldDrawIFF = ShowIFF && labelName != null;
-                var shouldDrawDetailedIFF = ShowIFFDetailed && shouldDrawIFF; // Mono
+                var shouldDrawDetailedIFF = ShowIFFDetailed && labelName != null; // Mono
                 if (shouldDrawIFF)
                 {
                     if (IFFFilter != null)
@@ -862,7 +862,7 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
                 // Mono
                 var gridUiPosition = Vector2.Transform(gridBody.LocalCenter, curGridToView) / UIScale;
 
-                if (shouldDrawIFF)
+                if (shouldDrawIFF || shouldDrawDetailedIFF) //Mono - added || shouldDrawDetailedIFF, so IFF and detailedIFF can render separately
                 {
                     //var gridCentre = Vector2.Transform(gridBody.LocalCenter, curGridToView);
                     //gridCentre.Y = -gridCentre.Y;
@@ -932,7 +932,7 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
                         labelPosition + new Vector2(labelDimensions.X, 0),
                         labelPosition + new Vector2(0, labelDimensions.Y),
                         labelPosition + labelDimensions
-                    };
+                        };
 
                         // The radius and squared radius of the radar, in virtual pixels.
                         var radius = Width * 0.5f;
@@ -972,7 +972,9 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
                         var mainLabel = lines[0];
 
                         // Draw main ship label with company color if available
+                        if(shouldDrawIFF){ // Mono - to make IFF and D. IFF render separately
                         handle.DrawString(Font, (uiPosition + labelOffset) * UIScale, mainLabel, UIScale * 0.9f, displayColor);
+                        }
 
                         // Mono start - draw main stack of info
                         if (shouldDrawDetailedIFF)
