@@ -36,7 +36,17 @@
   - type: MachineBoard
     prototype: MAWCScrapFurnace
     requirements:
-      MatterBin: 3
-      Manipulator: 3
+      MatterBin: 5
+      Manipulator: 5
+    tagRequirements:
+      MicroprocessorEconomy1:
+        amount: 5
+        defaultPrototype: MicroprocessorEconomy1
+      RadioEconomy2:
+        amount: 1
+        defaultPrototype: RadioEconomy2
+      ElectromagnetEconomy3:
+        amount: 3
+        defaultPrototype: ElectromagnetEconomy3
     stackRequirements:
-      Glass: 1
+        Glass: 1
