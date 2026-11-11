@@ -67,6 +67,7 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
     public bool ShowIFF { get; set; } = true;
     public bool ShowIFFDetailed { get; set; } = true;
     public bool ShowDocks { get; set; } = true;
+    public bool ShowMarkers { get; set; } = false; // Mono
 
     public float MaximumIFFDistance { get; set; } = 3000f; // Frontier // Mono - 3000 by default to not gigaclutter
 
@@ -861,7 +862,7 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
                 // Mono
                 var gridUiPosition = Vector2.Transform(gridBody.LocalCenter, curGridToView) / UIScale;
 
-                if (shouldDrawOutline) //Mono - added || shouldDrawDetailedIFF, so IFF and detailedIFF can render separately
+                if (shouldDrawOutline) //Mono
                 {
                     //var gridCentre = Vector2.Transform(gridBody.LocalCenter, curGridToView);
                     //gridCentre.Y = -gridCentre.Y;
@@ -1005,12 +1006,11 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
                     }
 
                     NfAddBlipToList(_tempBlipDataList, isOutsideRadarCircle, uiPosition, uiXCentre, uiYCentre, labelColor, hideLabel ? default : gUid); // Frontier code
-                                                                                                                                                        // End Frontier: IFF drawing functions
                 }
-
-                // Frontier Don't skip drawing blips if they're out of range.
-                NfDrawBlips(handle, _tempBlipDataList);
-
+                if(ShowMarkers){ // Mono
+                    // Frontier Don't skip drawing blips if they're out of range.
+                    NfDrawBlips(handle, _tempBlipDataList);
+                }
                 // Detailed view
                 var gridAABB = curGridToWorld.TransformBox(grid.Comp.LocalAABB);
 
