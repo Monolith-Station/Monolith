@@ -861,7 +861,7 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
                 // Mono
                 var gridUiPosition = Vector2.Transform(gridBody.LocalCenter, curGridToView) / UIScale;
 
-                if (shouldDrawOutline || ShowIFFDetailed) //Mono - added || shouldDrawDetailedIFF, so IFF and detailedIFF can render separately
+                if (shouldDrawOutline) //Mono - added || shouldDrawDetailedIFF, so IFF and detailedIFF can render separately
                 {
                     //var gridCentre = Vector2.Transform(gridBody.LocalCenter, curGridToView);
                     //gridCentre.Y = -gridCentre.Y;
