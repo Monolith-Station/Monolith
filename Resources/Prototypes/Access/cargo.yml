@@ -1,14 +1,17 @@
 - type: accessLevel
   id: Quartermaster
   name: id-card-access-level-quartermaster
+  deprecated: true
 
 - type: accessLevel
   id: Cargo
   name: id-card-access-level-cargo
+  deprecated: true
 
 - type: accessLevel
   id: Salvage
   name: id-card-access-level-salvage
+  deprecated: true
 
 - type: accessGroup
   id: Cargo

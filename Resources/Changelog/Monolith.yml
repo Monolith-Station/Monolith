@@ -26985,3 +26985,61 @@ Entries:
   id: 2906
   time: '2026-11-10T12:48:02.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4892
+- author: Mrrpip
+  changes:
+    - type: Tweak
+      message: Underground pinpointers are unstashable.
+  id: 2907
+  time: '2026-11-11T17:42:22.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5012
+- author: SuperGDPWYL
+  changes:
+    - type: Fix
+      message: The TSFMC Colonel no longer has Caelestinus comms.
+  id: 2908
+  time: '2026-11-12T19:31:15.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5014
+- author: SuperGDPWYL
+  changes:
+    - type: Fix
+      message: TSFMC no longer have access to Caelestinus Security doors.
+    - type: Fix
+      message: All Caelestinus personnel now have access to all Caelestinus doors.
+    - type: Fix
+      message: Caelestinus Security no longer have access to TSFMC doors.
+    - type: Fix
+      message: TSFMC Colonel no longer has access to everything on Caelestinus Central.
+    - type: Fix
+      message: Overseer and TSFMC Colonel no longer have "all access".
+    - type: Fix
+      message: Fixed accesses lacking localisation strings.
+    - type: Fix
+      message: >-
+        Caelestinus' communications console can no longer call the monolithic
+        emission.
+    - type: Tweak
+      message: Overseer and Director of Care share an access now.
+    - type: Tweak
+      message: >-
+        All job presets and accesses are now available from the ID card
+        computer!
+    - type: Tweak
+      message: All accesses are now available from the access configurator!
+    - type: Tweak
+      message: Shipyard consoles no longer give the job title of "Captain".
+    - type: Tweak
+      message: >-
+        There are no longer items locked to "Captain" access, which was easily
+        obtainable by purchasing any ship. Purchasing a ship no longer gives
+        Captain access.
+    - type: Tweak
+      message: TSF and CSEC ships no longer show up on shuttle records.
+    - type: Tweak
+      message: >-
+        Clarified the names and descriptions of ambiguous stationfork objects
+        (comms console, criminal records console)
+    - type: Remove
+      message: Removed some accesses that did not originate from Monolith.
+  id: 2909
+  time: '2026-11-12T20:29:26.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5013
