@@ -783,8 +783,8 @@
 - type: entity
   parent: BaseComputerAiAccess
   id: ComputerComms
-  name: communications computer
-  description: A computer used to make station wide announcements via keyboard, set the appropriate alert level, and call the emergency shuttle.
+  name: caelestinus communications computer # Mono
+  description: A computer used by Caelestinus to set the sector-wide DEFCON level and to make announcements. # Mono
   components:
   - type: Sprite
     layers:
@@ -803,6 +803,7 @@
   - type: CommunicationsConsole
     title: comms-console-announcement-title-station
     global: true #SR WILL NOT BE IGNORED
+    canShuttle: false # Mono: lol, lmao even
   - type: DeviceNetwork
     deviceNetId: Wireless # Frontier
     transmitFrequencyId: ShuttleTimer
