@@ -414,6 +414,39 @@
   - type: StaticPrice
     price: 5000
 
+- type: entity
+  parent: BaseFlatpack
+  id: ShieldGeneratorSmallFlatpack
+  name: MS-100 shield generator flatpack
+  description: A flatpack used for constructing a MS-100 'Sentine' shield generator.
+  components:
+  - type: Flatpack
+    entity: ShieldGeneratorSmall
+  - type: StaticPrice
+    price: 5000
+
+- type: entity
+  parent: BaseFlatpack
+  id: ShieldGeneratorMediumFlatpack
+  name: MS-250 shield generator flatpack
+  description: A flatpack used for constructing a MS-250 'Aegis' shield generator.
+  components:
+  - type: Flatpack
+    entity: ShieldGeneratorMedium
+  - type: StaticPrice
+    price: 5000
+
+- type: entity
+  parent: BaseFlatpack
+  id: ShieldGeneratorFlatpack
+  name: MS-500 shield generator flatpack
+  description: A flatpack used for constructing a MS-500 'Titan' shield generator.
+  components:
+  - type: Flatpack
+    entity: ShieldGenerator
+  - type: StaticPrice
+    price: 5000
+
 # Other stuff
 
 - type: entity
