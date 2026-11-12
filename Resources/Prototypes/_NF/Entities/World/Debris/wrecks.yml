@@ -139,6 +139,9 @@
           prob: 0.15 # Mono
         - id: SalvagePartsT4Spawner
           prob: 0.06 # Mono
+        # Circuit boards
+        - id: SpawnDungeonLootCircuitBoardEngi
+          prob: 0.5
         # Big loot
         - id: SalvageBrassFurnitureSpawner
           prob: 0.03
@@ -152,7 +155,7 @@
         - id: WeaponMechChainSword
           prob: 0.04
         - id: SpawnBrassLootShipGunFlatpacks
-          prob: 0.08
+          prob: 0.05
         - id: FTLDrive50Flatpack
           prob: 0.01
         - id: GeneratorRTG
