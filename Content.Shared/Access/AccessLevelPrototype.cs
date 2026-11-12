@@ -31,5 +31,11 @@ namespace Content.Shared.Access
 
             return ID;
         }
+
+        /// <summary>
+        /// Mono: whether or not this access should appear in the door electronics configuration UI (all other UIs have their own whitelists).
+        /// </summary>
+        [DataField]
+        public bool Deprecated = false;
     }
 }

@@ -40,7 +40,7 @@
         ents: []
       ShuttleRecordsConsole-targetId: !type:ContainerSlot {}
   - type: AccessReader
-    access: [[ "HeadOfPersonnel" ]]
+    access: [[ "CaelestinusCommand" ]]
 
 # Concrete consoles
 - type: entity

@@ -22,7 +22,7 @@
   name: ATU wardrobe locker
   components:
   - type: AccessReader
-    access: [["Medical"]]
+    access: [["Caelestinus"]]
   - type: StorageFill
     contents:
     - id: ClothingUniformJumpsuitATU

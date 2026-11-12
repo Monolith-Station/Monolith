@@ -18,40 +18,29 @@
       slots:
         - Belt
     - type: AccessOverrider
-      accessLevels:
-      - Armory
-      - Atmospherics
-      - Bar
-      - Brig
-      - Detective
-      - Captain
-      - Cargo
-      - Chapel
-      - Chemistry
-      - ChiefEngineer
-      - ChiefMedicalOfficer
-      - Command
-      - Engineering
-      - External
-      - Frontier # Frontier
-      - HeadOfPersonnel
-      - HeadOfSecurity
-      - Hydroponics
-      - Janitor
-      - Kitchen
-      - Lawyer
-      - Mail # Frontier
+      accessLevels: # Mono: nuked the entire list of accesses and rewrote it.
       - Maintenance
-      - Medical
-      - Mercenary # Frontier
-      - Quartermaster
-      - Research
-      - ResearchDirector
-      - Salvage
-      - Security
-      - Service
-      - StationTrafficController # Frontier
-      - Theatre
+      - External
+      - Tsfmc
+      - TsfmcEngineering
+      - TsfmcArmory
+      - TsfmcCaptain
+      - TsfmcColonel
+      - PDV
+      - PDVCommand
+      - GrandVizier
+      - Caelestinus
+      - CaelestinusCommand
+      - USSP
+      - USSPHigh
+      - USSPCommand
+      - Mieyo
+      - MieyoSecurity
+      - MieyoLiason
+      - Viper
+      - ViperCommand
+      - Underground
+      - Godfather
       privilegedIdSlot:
         name: id-card-console-privileged-id
         ejectSound: /Audio/Machines/id_swipe.ogg
@@ -82,7 +71,7 @@
   parent: AccessConfigurator
   id: AccessConfiguratorUniversal
   name: universal access configurator
-  suffix: Admin
+  suffix: Admin, HAS DEPRECATED ACCESSES # Mono
   description: A modified access configurator used only by the mythical Administrator.
   components:
   - type: Sprite
@@ -134,9 +123,28 @@
     - NuclearOperative
     - SyndicateAgent
     - Wizard
-    - USSPCommand # Mono
-    - USSPHigh # Mono
-    - USSP # Mono
+    # Mono start
+    - Tsfmc
+    - TsfmcEngineering
+    - TsfmcArmory
+    - TsfmcCaptain
+    - TsfmcColonel
+    - PDV
+    - PDVCommand
+    - GrandVizier
+    - Caelestinus
+    - CaelestinusCommand
+    - USSP
+    - USSPHigh
+    - USSPCommand
+    - Mieyo
+    - MieyoSecurity
+    - MieyoLiason
+    - Viper
+    - ViperCommand
+    - Underground
+    - Godfather
+    # Mono end
     privilegedIdSlot:
       name: id-card-console-privileged-id
       ejectSound: /Audio/Machines/id_swipe.ogg

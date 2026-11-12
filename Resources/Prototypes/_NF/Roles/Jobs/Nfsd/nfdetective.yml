@@ -29,10 +29,8 @@
   assignedCompany: TSF
   canBeAntag: false
   setPreference: false # mono
-  access:
-  - Detective
   accessGroups:
-  - GeneralNfsdAccess
+  - GeneralTsfmcAccess
   special:
   - !type:AddComponentSpecial
     components:
