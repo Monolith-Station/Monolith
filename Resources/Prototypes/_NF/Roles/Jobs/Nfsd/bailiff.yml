@@ -24,14 +24,11 @@
   assignedCompany: TSF
   canBeAntag: false
   access:
-  - Armory
-  - Sergeant
-  - Bailiff
-  - Medical
-  - Chemistry
+  - TsfmcArmory
+  - TsfmcCaptain
   - TsfmcEngineering # Mono
   accessGroups:
-  - GeneralNfsdAccess
+  - GeneralTsfmcAccess
   guides:
   - TSFMC_Entry
   special:

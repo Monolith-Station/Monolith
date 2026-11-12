@@ -1,14 +1,17 @@
 - type: accessLevel
   id: ChiefEngineer
   name: id-card-access-level-chief-engineer
+  deprecated: true
 
 - type: accessLevel
   id: Engineering
   name: id-card-access-level-engineering
+  deprecated: true
 
 - type: accessLevel
   id: Atmospherics
   name: id-card-access-level-atmospherics
+  deprecated: true
 
 - type: accessGroup
   id: Engineering
