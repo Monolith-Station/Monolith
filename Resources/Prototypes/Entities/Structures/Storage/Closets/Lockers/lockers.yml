@@ -69,7 +69,7 @@
     stateDoorOpen: cap_open
     stateDoorClosed: cap_door
   - type: AccessReader
-    access: [["Captain"]]
+  #  access: [["Captain"]] # Mono
 
 - type: entity
   id: LockerHeadOfPersonnel
@@ -82,7 +82,7 @@
     stateDoorOpen: hop_open
     stateDoorClosed: hop_door
   - type: AccessReader
-    access: [["HeadOfPersonnel"]]
+    access: [["CaelestinusCommand"]] # Mono
 
 # CE
 - type: entity
@@ -268,7 +268,7 @@
     stateDoorOpen: cmo_open
     stateDoorClosed: cmo_door
   - type: AccessReader
-#    access: [ [ "ChiefMedicalOfficer" ] ] # Frontier
+    access: [ [ "CaelestinusCommand" ] ] # Mono
 
 # Science
 - type: entity
@@ -301,7 +301,7 @@
 - type: entity
   id: LockerHeadOfSecurity
   parent: [LockerBaseSecure]
-  name: head of security's locker
+  name: overseer's locker # Mono
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -309,7 +309,7 @@
     stateDoorOpen: hos_open
     stateDoorClosed: hos_door
   - type: AccessReader
-    access: [["Security"]]
+    access: [["CaelestinusCommand"]] # Mono
 
 # Warden
 - type: entity
@@ -323,13 +323,13 @@
     stateDoorOpen: warden_open
     stateDoorClosed: warden_door
   - type: AccessReader
-    access: [["Armory"]]
+    access: [["TsfmcArmory"]] # Mono
 
 # Brigmedic
 - type: entity
   id: LockerBrigmedic
   parent: LockerBaseSecure
-  name: brigmedic's locker
+  name: corpsman's locker
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -337,13 +337,13 @@
     stateDoorOpen: armory_open
     stateDoorClosed: brigmedic_door
   - type: AccessReader
-    access: [["Security"]]
+    access: [["Tsfmc"]] # Mono
 
 # Security Officer
 - type: entity
   id: LockerSecurity
   parent: LockerBaseSecure
-  name: security officer's locker
+  name: judge's locker
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -351,7 +351,7 @@
     stateDoorOpen: sec_open
     stateDoorClosed: sec_door
   - type: AccessReader
-    access: [["Security"]]
+    access: [["Caelestinus"]] # Mono
 
 - type: entity
   id: GunSafe
@@ -378,7 +378,7 @@
   suffix: Armory, Locked
   components:
   - type: AccessReader
-    access: [["Armory"]]
+    access: [["TsfmcArmory"]] # Mono
 
 # Detective
 - type: entity
@@ -388,7 +388,7 @@
   description: Usually cold and empty... like your heart.
   components:
   - type: AccessReader
-    access: [["Detective"]]
+    access: [["Tsfmc"]] # Mono
 
 - type: entity
   id: LockerEvidence
@@ -397,7 +397,7 @@
   description: To store bags of bullet casings and detainee belongings.
   components:
   - type: AccessReader
-    access: [["Security"]]
+    access: [["Caelestinus"]] # Mono
 
 # Syndicate
 - type: entity
@@ -476,7 +476,8 @@
   - type: Appearance
   - type: AccessReader
 #    access: [["Command"]]
-    access: [["HeadOfPersonnel"]] # Frontier
+#   access: [["HeadOfPersonnel"]] # Frontier
+    access: [["CaelestinusCommand"]] # Mono
   - type: EntityStorageVisuals
     stateBaseClosed: hop
     stateDoorOpen: hop_open

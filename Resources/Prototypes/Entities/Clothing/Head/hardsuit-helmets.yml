@@ -325,6 +325,15 @@
     lowPressureMultiplier: 1000
   - type: FireProtection
     reduction: 0.2
+  - type: NightVision #
+    relayOverlay: true
+    goggleEffect: true
+    viewCircleRadius: 500
+    viewCircleCount: 4
+    viewCircleSpacing: 280
+    action: ActionToggleNightVision
+    phosphorColor: "#FFE4B3"
+    lightingColor: "#FFFFFF32"
 
 #Chief Medical Officer's Hardsuit
 - type: entity

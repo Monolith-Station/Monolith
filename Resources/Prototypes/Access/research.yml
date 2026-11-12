@@ -1,10 +1,12 @@
 - type: accessLevel
   id: ResearchDirector
   name: id-card-access-level-research-director
+  deprecated: true
 
 - type: accessLevel
   id: Research
   name: id-card-access-level-research
+  deprecated: true
 
 - type: accessGroup
   id: Research

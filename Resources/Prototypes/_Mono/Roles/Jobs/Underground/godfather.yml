@@ -38,6 +38,11 @@
       radioChannel: Syndicate # Syndicate = Underground
   - !type:AddImplantSpecial
     implants: [ DeathRattleImplant, RadioImplant ]
+  - !type:AddLanguageSpecial
+    languagesSpoken:
+    - UndergroundCodespeak
+    languagesUnderstood:
+    - UndergroundCodespeak
 
 - type: startingGear
   id: GodfatherGear

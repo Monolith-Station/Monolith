@@ -3,25 +3,22 @@
   parent: DoorElectronics
   id: DoorElectronicsCaptain
   suffix: Captain, Locked
-  components:
-  - type: AccessReader
-    access: [["Captain"]]
 
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsHeadOfPersonnel
-  suffix: HeadOfPersonnel, Locked
+  suffix: Caelestinus Command, Locked # Mono
   components:
   - type: AccessReader
-    access: [["HeadOfPersonnel"]]
+    access: [["CaelestinusCommand"]] # Mono
 
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsCommand
-  suffix: Command, Locked
+  suffix: Caelestinus Command, Locked # Mono
   components:
   - type: AccessReader
-    access: [["Command"]]
+    access: [["CaelestinusCommand"]] # Mono
 
 # Service
 - type: entity
@@ -83,10 +80,10 @@
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsJanitor
-  suffix: Janitor, Locked
+  suffix: Caelestinus, Locked # Mono
   components:
   - type: AccessReader
-    access: [["Janitor"]]
+    access: [["Caelestinus"]] # Mono
 
 - type: entity
   parent: DoorElectronics
@@ -99,10 +96,10 @@
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsService
-  suffix: Service, Locked
+  suffix: Caelestinus, Locked # Mono
   components:
   - type: AccessReader
-    access: [["Service"]]
+    access: [["Caelestinus"]] # Mono
 
 # Cargo
 - type: entity
@@ -161,7 +158,7 @@
   suffix: Morgue, Locked
   components:
   - type: AccessReader
-    access: [["Medical"], ["Detective"], ["Chapel"]]
+    access: [["Caelestinus"]] # Mono
 
 - type: entity
   parent: DoorElectronics
@@ -174,10 +171,10 @@
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsMedicalResearch
-  suffix: Medical/Science, Locked
+  suffix: Caelestinus, Locked # Mono
   components:
   - type: AccessReader
-    access: [["Research"], ["Medical"]]
+    access: [["Caelestinus"]] # Mono
 
 - type: entity
   parent: DoorElectronics
@@ -191,75 +188,75 @@
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsHeadOfSecurity
-  suffix: HeadOfSecurity, Locked
+  suffix: Colonel, Locked # Mono
   components:
   - type: AccessReader
-    access: [["HeadOfSecurity"]]
+    access: [["TsfmcColonel"]] # Mono
 
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsArmory
-  suffix: Armory, Locked
+  suffix: TSF Armory, Locked # Mono
   components:
   - type: AccessReader
-    access: [["Armory"]]
+    access: [["TsfmcArmory"]] # Mono
 
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsDetective
-  suffix: Detective, Locked
+  suffix: Caelestinus, Locked # Mono
   components:
   - type: AccessReader
-    access: [["Detective"]]
+    access: [["Caelestinus"]] # Mono
 
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsSecurity
-  suffix: Security, Locked
+  suffix: Caelestinus, Locked # Mono
   components:
   - type: AccessReader
-    access: [["Security"]]
+    access: [["Caelestinus"]] # Mono
 
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsSecurityLawyer
-  suffix: Security/Lawyer, Locked
+  suffix: Caelestinus, Locked # Mono
   components:
   - type: AccessReader
-    access: [["Security"], ["Lawyer"]]
+    access: [["Caelestinus"]] # Mono
 
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsBrig
-  suffix: Brig, Locked
+  suffix: Caelestinus, Locked # Mono
   components:
   - type: AccessReader
-    access: [["Brig"]]
+    access: [["Caelestinus"]]
 
 # Medical
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsChiefMedicalOfficer
-  suffix: ChiefMedicalOfficer, Locked
+  suffix: Caelestinus Command, Locked # Mono
   components:
   - type: AccessReader
-    access: [["ChiefMedicalOfficer"]]
+    access: [["CaelestinusCommand"]] # Mono
 
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsChemistry
-  suffix: Chemistry, Locked
+  suffix: Caelestinus, Locked # Mono
   components:
   - type: AccessReader
-    access: [["Chemistry"]]
+    access: [["Caelestinus"]] # Mono
 
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsMedical
-  suffix: Medical, Locked
+  suffix: Caelestinus, Locked # Mono
   components:
   - type: AccessReader
-    access: [["Medical"]]
+    access: [["Caelestinus"]] # Mono
 
 # Syndicate
 - type: entity
@@ -306,10 +303,10 @@
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsVault
-  suffix: Vault, Locked
+  suffix: Vault, Locked (TSFMC) # Mono
   components:
   - type: AccessReader
-    access: [["Security"], ["Command"]]
+    access: [["Tsfmc"]]
 
 # Xenoborg Doors
 - type: entity

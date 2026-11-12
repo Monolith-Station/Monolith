@@ -631,8 +631,9 @@ public sealed partial class PlantHolderSystem : EntitySystem
 
         CheckHealth(uid, component);
 
-        if (component.Harvest && component.Seed.HarvestRepeat == HarvestType.SelfHarvest)
-            AutoHarvest(uid, component);
+        // Mono disable self-harvesting
+        //if (component.Harvest && component.Seed.HarvestRepeat == HarvestType.SelfHarvest)
+        //    AutoHarvest(uid, component);
 
         // If enough time has passed since the plant was harvested, we're ready to harvest again!
         if (!component.Dead && component.Seed.ProductPrototypes.Count > 0)

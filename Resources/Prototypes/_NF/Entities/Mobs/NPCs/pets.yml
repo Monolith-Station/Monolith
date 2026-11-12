@@ -168,7 +168,34 @@
     interfaces:
       enum.SurgeryUIKey.Key: # Shitmed
         type: SurgeryBui
-
+  - type: contextualSpeech
+    triggers:
+      Eating:
+        dataset: CappyEating
+        speechChance: 0.15
+      PickedUp:
+        dataset: CappyPickedUp
+        speechChance: 0.15
+      Thrown:
+        dataset: CappyThrown
+        speechChance: 0.5
+      Drinking:
+        dataset: CappyDrinking
+        speechChance: 0.15
+      Critical:
+        dataset: CappyCritical
+        speechChance: 1
+      Dead:
+        dataset: CappyDeath
+        speechChance: 1
+      Revived:
+        dataset: CappyRevived
+        speechChance: 1
+      Examined:
+        dataset: CappyExamined
+        ghostDataset: CappyGhostExamined
+        speechChance: 0.15
+        
 - type: entity
   name: El Capo
   parent: [NFMobPet, MobBingusGhost]

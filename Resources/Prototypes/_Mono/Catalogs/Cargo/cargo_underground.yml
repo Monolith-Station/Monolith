@@ -1,0 +1,10 @@
+- type: cargoProduct
+  id: CrateTradeSecureUnderground
+  icon:
+    sprite: _Mono/Structures/Storage/Crates/underground_crate.rsi
+    state: icon
+  description: Sell at the right destination to send telecrystals to the UndergroundVend. Don't get caught.
+  product: CrateTradeContrabandSecureUnderground
+  cost: 20000
+  category: cargoproduct-category-name-cargo
+  group: underground

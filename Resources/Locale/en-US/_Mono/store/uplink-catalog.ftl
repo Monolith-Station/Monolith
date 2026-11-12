@@ -31,6 +31,9 @@ uplink-data-chit-50-desc = Fifty data chits. An extremely valuable currency amon
 uplink-iff-console-flatpack-name = IFF Computer Flatpack
 uplink-iff-console-flatpack-desc = A flatpack for a computer that will obfuscate your shuttle's IFF signals.
 
+uplink-underground-codespeak-translator-implanter-name = Codespeak Implanter
+uplink-underground-codespeak-translator-implanter-desc = An implant that allows the user to understand and speak Underground Codespeak. For initiating new members into the black market.
+
 # ullman stuff
 
 uplink-ullman-pilot-name = U.I. Pilot Voidsuit

@@ -1,4 +1,5 @@
 using Content.Server._NF.Construction.Components;
+using Content.Server._NF.Tools.Components;
 using Content.Server.Construction;
 using Content.Server.Construction.Components;
 using Content.Server.Stack;
@@ -325,7 +326,7 @@ public sealed partial class PartExchangerSystem : EntitySystem
         if (!HasComp<MachineComponent>(args.Target) && !HasComp<MachineFrameComponent>(args.Target))
             return;
 
-        if (TryComp<WiresPanelComponent>(args.Target, out var panel) && !panel.Open)
+        if (!HasComp<DisableToolUseComponent>(args.Target) && TryComp<WiresPanelComponent>(args.Target, out var panel) && !panel.Open) // Mono: Check DisableToolUse
         {
             _popup.PopupEntity(Loc.GetString("construction-step-condition-wire-panel-open"),
                 args.Target.Value);

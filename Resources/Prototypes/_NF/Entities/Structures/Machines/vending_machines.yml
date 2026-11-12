@@ -412,7 +412,7 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: AccessReader
-    access: [["Security"]]
+    access: [["Tsfmc"]]
 
 - type: entity
   parent: [BaseStructureDisableAnchoring, VendingMachineCredit]
@@ -463,7 +463,7 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: AccessReader
-    access: [["Security"]]
+    access: [["Tsfmc"]]
 
 - type: entity
   parent: [BaseStructureIndestructible, VendingMachineCart] # Mono change: unhackable access-locked vending machines are stupid with very few exceptions
@@ -474,7 +474,7 @@
     pack: NFPTechInventory
     requiresCash: true
   - type: AccessReader
-    access: [["Command"]] #Monolith Change: Access change to allow DOC and Colonel to use it
+    access: [["CaelestinusCommand"]] #Monolith Change: Access change to allow DOC and Colonel to use it
   - type: MarketModifier
     mod: 5
 
@@ -486,7 +486,7 @@
   - type: VendingMachine
     pack: NFPTechNfsdInventory
   - type: AccessReader
-    access: [["HeadOfSecurity"]]
+    access: [["TsfmcColonel"]]
 
 # Mono
 - type: entity
