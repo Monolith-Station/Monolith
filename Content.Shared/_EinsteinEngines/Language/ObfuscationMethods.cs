@@ -37,12 +37,14 @@ public abstract partial class ObfuscationMethod
 /// </summary>
 public sealed partial class RandomObfuscation : ObfuscationMethod
 {
+    [DataField]
+    public string Chars = "abcdefghijklmnopqrstuvwxyz";
+
     internal override void Obfuscate(StringBuilder builder, string message, SharedLanguageSystem context)
     {
-        const string Chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         message = message.ToUpper();
 
-        for (int i = 0; i < Chars.Length; i++)
+        for (var i = 0; i < Chars.Length; i++)
         {
             message = message.Replace(Chars[i], Chars[context.PseudoRandomNumber(message.GetHashCode() + i, 0, Chars.Length - 1)]);
         }
