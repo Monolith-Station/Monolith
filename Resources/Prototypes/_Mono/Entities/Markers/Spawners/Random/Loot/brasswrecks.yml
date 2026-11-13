@@ -1,0 +1,121 @@
+
+- type: entity
+  name: random ship weapon
+  id: SpawnBrassLootShipGunFlatpacks
+  parent: MarkerBasePlaceFree
+  suffix: "Brass Wrecks, Shipguns, Superlight - Heavy"
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+      scale: 0.7, 0.7
+    - sprite: Objects/Weapons/Bombs/seismic.rsi
+      state: icon
+    - sprite: _NF/Markers/general.rsi
+      state: questionmark
+      color: red
+  - type: RandomSpawner
+    prototypes:
+    - SpawnBrassLootFlatpackShipGunsLight
+    chance: 1.0
+    offset: 0.0
+    rarePrototypes:
+    - SpawnBrassLootFlatpackShipGunsHeavy
+    rareChance: 0.1
+
+- type: entity
+  name: random light ship weapon
+  id: SpawnBrassLootFlatpackShipGunsLight
+  parent: MarkerBasePlaceFree
+  suffix: "Brass Wrecks, Light Hardpoints"
+  #categories: [ HideSpawnMenu ]
+  components:
+  - type: RandomSpawner
+    prototypes:
+    - L58Flatpack
+    - AK570Flatpack
+    - DraupnirFlatpack # AC-35's in the next tier
+    - M25Flatpack
+    # - M220Flatpack Unanchorable
+    - L1PhalanxFlatpack
+    - AdderScattercannonFlatpack
+    - LightMunitionsBayFlatpack
+    - VanykFlatpack
+    - TurretFlareFlatpack
+    chance: 1.0
+    offset: 0.0
+    rarePrototypes:
+    - SpawnBrassLootFlatpackShipGunsMedium
+    rareChance: 0.4
+
+- type: entity
+  name: random Medium ship weapon
+  id: SpawnBrassLootFlatpackShipGunsMedium
+  parent: MarkerBasePlaceFree
+  suffix: "Brass Wrecks, Medium Hardpoints"
+  #categories: [ HideSpawnMenu ]
+  components:
+  - type: RandomSpawner
+    prototypes:
+    - Type35Flatpack
+    - Type54Flatpack
+    - PrometheusFlatpack
+    - AC-35Flatpack
+    - DravonFlatpack
+    #- TarnyxFlatpack unanchorable
+    #- EquinoxFlatpack unanchorable
+    - SerpentFlatpack
+    - TovekFlatpack
+    - VesperaFlatpack
+    - FangFlatpack # It's essentially a 4 shot Dravon without the 4x damage mod.
+    chance: 1.0
+    offset: 0.0
+    rarePrototypes:
+    - SpawnBrassLootFlatpackShipGunsHeavy
+    rareChance: 0.1 # A second roll! :D
+
+- type: entity
+  name: random Heavy ship weapon
+  id: SpawnBrassLootFlatpackShipGunsHeavy
+  parent: MarkerBasePlaceFree
+  suffix: "Brass Wrecks, Heavy Hardpoints"
+  #categories: [ HideSpawnMenu ]
+  components:
+  - type: RandomSpawner
+    prototypes:
+    - CerberusFlatpack
+    - ApolloFlatpack
+    - CyrexaFlatpack
+    - Ak800Flatpack
+    - Ak820Flatpack
+    - BoforsFlatpack
+    - HydraFlatpack
+    - PaladinFlatpack
+    - TridentFlatpack
+    - VanquisherFlatpack
+    chance: 1.0
+    offset: 0.0
+
+- type: entity
+  name: random weapon
+  id: SpawnBrassLootCircuits
+  parent: MarkerBasePlaceFree
+  suffix: "Brass Wrecks, circuitboards"
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+      scale: 0.7, 0.7
+    - sprite: Objects/Weapons/Bombs/seismic.rsi
+      state: icon
+    - sprite: _NF/Markers/general.rsi
+      state: questionmark
+      color: red
+  - type: RandomSpawner
+    prototypes:
+    - SpawnBrassLootFlatpackShipGunsLight
+    chance: 1.0
+    offset: 0.0
+    rarePrototypes:
+    - SpawnBrassLootFlatpackShipGunsHeavy
+    rareChance: 0.1
