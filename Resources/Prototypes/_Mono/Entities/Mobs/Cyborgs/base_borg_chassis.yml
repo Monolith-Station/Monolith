@@ -71,7 +71,7 @@
     - Mercenary
     - Captain
   - type: AccessReader
-    access: [["Security"], ["Armory"], ["Sergeant"], ["Bailiff"], ["TsfmcEngineering"], ["Brig"]]
+    access: [["Tsfmc"]]
   - type: IntrinsicRadioTransmitter
     channels:
     - Common
@@ -128,7 +128,7 @@
     - GrandVizier
     - Mercenary
   - type: AccessReader
-    access: [["GrandVizier"]]
+    access: [["PDV"]]
   - type: IntrinsicRadioTransmitter
     channels:
     - Common
