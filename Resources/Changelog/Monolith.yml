@@ -27070,3 +27070,18 @@ Entries:
   id: 2912
   time: '2026-11-13T11:33:25.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/5011
+- author: SuperGDPWYL
+  changes:
+    - type: Fix
+      message: All MIL ships are purchaseable again.
+    - type: Fix
+      message: TSFMC Fireteam Leaders now have TSFMC access.
+    - type: Fix
+      message: The MailDrobe is now usable by Caelestinus
+    - type: Fix
+      message: Fixed some other access-related issues.
+    - type: Tweak
+      message: PDV and TSFMC cyborgs can be unlocked by all faction members now.
+  id: 2913
+  time: '2026-11-13T18:34:16.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5018
