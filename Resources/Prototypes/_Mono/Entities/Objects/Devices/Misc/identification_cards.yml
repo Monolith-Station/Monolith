@@ -102,6 +102,9 @@
   name: PDV rakhshan id card
   components:
   - type: PresetIdCard
+    titleOverride: Vagrant
+    iconOverride: JobIconContractor
+    manifestJob: Contractor
     job: Pirate
   - type: Sprite
     sprite: _Mono/Objects/Misc/id_cards.rsi
@@ -116,6 +119,9 @@
   description: An identification card of one of the veteran foot soldiers among the Dynasty's Vanguard.
   components:
   - type: PresetIdCard
+    titleOverride: Vagrant
+    iconOverride: JobIconContractor
+    manifestJob: Contractor
     job: PDVDenasvar
   - type: Sprite
     sprite: _Mono/Objects/Misc/id_cards.rsi
@@ -129,6 +135,9 @@
   name: PDV asvaran ID card
   components:
   - type: PresetIdCard
+    titleOverride: Vagrant
+    iconOverride: JobIconContractor
+    manifestJob: Contractor
     job: PirateFirstMate
   - type: Sprite
     sprite: _Mono/Objects/Misc/id_cards.rsi
@@ -181,6 +190,9 @@
   name: PDV tarkhan ID card
   components:
   - type: PresetIdCard
+    titleOverride: Vagrant
+    iconOverride: JobIconContractor
+    manifestJob: Contractor
     job: PirateCaptain
   - type: Sprite
     sprite: _Mono/Objects/Misc/id_cards.rsi
@@ -195,6 +207,9 @@
   suffix: Chameleon
   components:
   - type: PresetIdCard
+    titleOverride: Vagrant
+    iconOverride: JobIconContractor
+    manifestJob: Contractor
     job: PDVInfiltrator
   - type: Access
     tags:

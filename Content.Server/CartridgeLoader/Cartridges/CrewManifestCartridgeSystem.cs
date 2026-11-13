@@ -58,14 +58,9 @@ public sealed partial class CrewManifestCartridgeSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return;
 
-        var owningStation = _stationSystem.GetOwningStation(uid);
+        var entries = _crewManifest.GetCrewManifest(); // Monolith: Gridless
 
-        if (owningStation is null)
-            return;
-
-        var (stationName, entries) = _crewManifest.GetCrewManifest(owningStation.Value);
-
-        var state = new CrewManifestUiState(stationName, entries);
+        var state = new CrewManifestUiState(entries); // Monolith: Remove name
         _cartridgeLoader.UpdateCartridgeUiState(loaderUid, state);
     }
 

@@ -15,29 +15,53 @@
   weight: 130 # Mono
   primary: false
   roles:
-  # - Bartender # Frontier
-  # - Botanist # Frontier
-  # - Boxer # Frontier
-  # - Chaplain # Frontier
-  # - Chef # Frontier
-  # - Clown # Frontier
-  # - HeadOfPersonnel # Frontier
-  # - Lawyer # Frontier
-  # - Librarian # Frontier
-  # - Mime # Frontier
-  # - Musician # Frontier
-  # - Passenger # Frontier
-  # - Reporter # Frontier
-  # - Visitor # Frontier
-  # - Zookeeper # Frontier
-  # - ServiceWorker # Frontier
+  - Bartender # Frontier
+  - Botanist # Frontier
+  - Boxer # Frontier
+  - Chaplain # Frontier
+  - Chef # Frontier
+  - Clown # Frontier
+  - Lawyer # Frontier
+  - Librarian # Frontier
+  - Mime # Frontier
+  - Musician # Frontier
+  - Passenger # Frontier
+  - Reporter # Frontier
+  - Visitor # Frontier
+  - Zookeeper # Frontier
+  - ServiceWorker # Frontier
   - Contractor # Frontier
   - Mercenary # Frontier
-  # - Pilot # Frontier
+  - Pilot # Frontier
   - Borg # Frontier
-  - CrocusDockworker
-  - TsfCivilian
-  - PdvCivilian
+  - CrocusDockworker # Mono start
+  - TsfCivilian # Mono
+  - PdvCivilian # Mono
+  - CargoTechnician
+  - SalvageSpecialist
+  - Captain # Frontier
+  - ChiefEngineer # Frontier
+  - ChiefMedicalOfficer # Frontier
+  - HeadOfPersonnel # Frontier
+  - HeadOfSecurity # Frontier
+  - ResearchDirector # Frontier
+  - Quartermaster # Frontier
+  - StationEngineer
+  - AtmosphericTechnician
+  - TechnicalAssistant
+  - ResearchAssistant
+  - Scientist
+  - CentralCommandOfficial
+  - ERTLeader
+  - ERTChaplain
+  - ERTJanitor
+  - ERTMedical
+  - ERTSecurity
+  - ERTEngineer
+  - Detective # Frontier
+  - SecurityCadet # Frontier
+  - SecurityOfficer # Frontier
+  - Warden # Frontier
 
 - type: department
   id: CentralCommand
@@ -45,14 +69,7 @@
   description: department-NFCentralCommand-description # Frontier
   color: "#0c344d"
   roles:
-  - CentralCommandOfficial
 #  - CBURN # Frontier
-  - ERTLeader
-  - ERTChaplain
-  - ERTJanitor
-  - ERTMedical
-  - ERTSecurity
-  - ERTEngineer
 #  - DeathSquad # Frontier
   - ERTMailCarrier # Frontier
   editorHidden: true
@@ -63,14 +80,7 @@
   name: department-Command
   description: department-NFCommand-description # Frontier
   color: "#334E6D"
-# roles: # Mono
-  # - Captain # Frontier
-  # - ChiefEngineer # Frontier
-  # - ChiefMedicalOfficer # Frontier
-  # - HeadOfPersonnel # Frontier
-  # - HeadOfSecurity # Frontier
-  # - ResearchDirector # Frontier
-  # - Quartermaster # Frontier
+  # roles: # Mono
   # - CentralCommandOfficial # Frontier
   # - CBURN # Frontier
   # - ERTLeader # Frontier
@@ -103,9 +113,6 @@
   description: department-Medical-description
   color: "#52B4E9"
   weight: 0
-# roles: # Mono
-# - DirectorOfCare # Mono
-# - MdMedic # Mono
   editorHidden: true # Mono
 
 - type: department
@@ -115,11 +122,6 @@
   color: "#326DA8" # Mono
   weight: 120 # Mono
   roles:
-#  - Detective # Frontier
-#  - HeadOfSecurity # Frontier
-#  - SecurityCadet # Frontier
-#  - SecurityOfficer # Frontier
-#  - Warden # Frontier
   - PrisonGuard ##nyano
   - Brigmedic # Frontier
 #  - SecurityGuard # Frontier
