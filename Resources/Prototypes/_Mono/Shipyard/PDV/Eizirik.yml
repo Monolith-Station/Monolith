@@ -1,0 +1,35 @@
+- type: vessel
+  id: Eizirik
+  parent: BaseVesselIFFDisabled
+  name: PDV-IED Eizirik
+  description: A deathtrap of a side-winding brawler-- what it lacks in life support systems, gravity, and general safety procedure it makes up for in cost effectivity. It is equipped with a forward ballistic suite of 2 AK570 40mm, 2 DRAVON 57mm, and 2 VESPERA missile swarms.
+  price: 51000
+  category: Small
+  group: BlackMarket
+  access: PDV
+  shuttlePath: /SharedMaps/_Mono/Shuttles/PDV/eizirik.yml
+  guidebookPage: ShipyardEizirik
+  class:
+  - Escort
+  - Pursuit
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Eizirik
+  mapName: 'PDV-IED Eizirik'
+  mapPath: /SharedMaps/_Mono/Shuttles/PDV/eizirik.yml
+  minPlayers: 0
+  stations:
+    Eizirik:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Eizirik PDV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Pirate: [ 0, 0 ]
+            PdvBorg: [ 0, 0 ]

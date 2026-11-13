@@ -1,0 +1,55 @@
+<Document>
+  # FIGHTER-CORVETTE 'EIZIRIK'
+
+    [color=#a4885c]Ship Size:[/color] Small
+
+	[color=#a4885c]Recommended Crew:[/color] 1
+
+	[color=#a4885c]Power Gen Type:[/color] Uranium
+
+	[color=#a4885c]Expeditions:[/color] None
+
+	[color=#a4885c]IFF Console:[/color] Included
+
+  [color=#a4885c]Voucher:[/color] N/A
+
+
+"Capable of out-maneuvering any adversary in its weight class; Eizirik is the pride and joy of Ikarus's Economic Divisions. Boasting a reasonable firepower and speed at the small cost of luxury ammenities such as a breathable atmosphere and gravitational engineering. No combat vessel in product within the Dynasty can compete with its monetary expenditure."
+
+It is a well known fact that many pilots and valiant martyrs within the Dynasty have encountered their fair share of combat within an Eizirik. Make your ancestors proud by vanquishing the enemies of the Sultanate and bringing order to foreign space.
+
+  # PREFLIGHT CHECKLIST
+
+  ## 1. Power supply
+
+  <Box>
+  <GuideEntityEmbed Entity="SMESBasic"/>
+  <GuideEntityEmbed Entity="SubstationBasic"/>
+  <GuideEntityEmbed Entity="APCBasic"/>
+  </Box>
+
+  - Pack extra Uranium fuel. Pre-supplied fuel is not included with the Eizirik.
+  - Using your given radiation suit or other radioactivity insulation, ensure that the ships uranium generator is stocked and running.
+  - The Eizirik does not come equipped with an SMES unit as it could not pass cost evaluation tests.
+
+  ## 2. Atmospherics
+
+  <Box>
+  <GuideEntityEmbed Entity="OxygenCanister"/>
+  <GuideEntityEmbed Entity="NitrogenCanister"/>
+  <GuideEntityEmbed Entity="GasMixer"/>
+  <GuideEntityEmbed Entity="GasPressurePump"/>
+  </Box>
+
+  - The Eizirik does not contain an atmospheric system in light of its unnecessary value expenditure.
+  - Pack your own means of Air suppliment.
+
+  ## 3. Other checks
+  <Box>
+  <GuideEntityEmbed Entity="Gyroscope"/>
+  <GuideEntityEmbed Entity="GravityGeneratorMini"/>
+  </Box>
+
+  - Eizirik does not require a gravity generator due to the weight difference viewed at initial inspections.
+  - The vessel's gyroscope is tuned as a stock alternative to requiring manual interaction. Thank your loyal engineers!
+</Document>
