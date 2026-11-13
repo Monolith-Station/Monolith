@@ -172,8 +172,8 @@
   - type: StaminaDamageResistance # Mono - Stamres
     coefficient: 0.34
   - type: ClothingSpeedModifier
-    walkModifier: 0.85
-    sprintModifier: 0.85
+    walkModifier: 0.75
+    sprintModifier: 0.75
   - type: HeldSpeedModifier
   - type: FootstepModifier # Mono
     footstepSoundCollection:
