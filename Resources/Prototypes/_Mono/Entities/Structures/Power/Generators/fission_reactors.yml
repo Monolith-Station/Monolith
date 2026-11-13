@@ -8,7 +8,6 @@
   - type: NameIdentifier
     group: NuclearReactor
   - type: AccessReader
-    access: [["Captain"]]
 
 - type: entity
   id: NuclearReactorTSF
@@ -20,7 +19,7 @@
   - type: NameIdentifier
     group: NuclearReactorTSF
   - type: AccessReader
-    access: [["Security"]]
+    access: [["Tsfmc"]]
 
 - type: entity
   id: NuclearReactorPDV
@@ -32,7 +31,7 @@
   - type: NameIdentifier
     group: NuclearReactorPDV
   - type: AccessReader
-    access: [["Pirate"]]
+    access: [["PDV"]]
 
 # No use really, but just in case.
 - type: entity
@@ -51,14 +50,14 @@
 - type: entity
   id: NuclearReactorCC
   parent: NuclearReactorCrew
-  suffix: Overseer Locked
+  suffix: Overseer/Director of Care Locked
   components:
   - type: NuclearReactor
     prefab: ReactorPrefab7x7Normal
   - type: NameIdentifier
     group: NuclearReactorCC
   - type: AccessReader
-    access: [["HeadOfPersonnel"]]
+    access: [["CaelestinusCommand"]]
 
 # Small reactors
 # 5x5
@@ -74,7 +73,6 @@
   - type: NameIdentifier
     group: NuclearReactorSmall
   - type: AccessReader
-    access: [["Captain"]]
 
 - type: entity
   id: NuclearReactorTSFSmall
@@ -86,7 +84,7 @@
   - type: NameIdentifier
     group: NuclearReactorTSFSmall
   - type: AccessReader
-    access: [["Security"]]
+    access: [["Tsfmc"]]
 
 - type: entity
   id: NuclearReactorPDVSmall
@@ -98,7 +96,7 @@
   - type: NameIdentifier
     group: NuclearReactorPDVSmall
   - type: AccessReader
-    access: [["Pirate"]]
+    access: [["PDV"]]
 
 # No use really, but just in case.
 - type: entity
@@ -117,11 +115,11 @@
 - type: entity
   id: NuclearReactorCCSmall
   parent: NuclearReactorSmall
-  suffix: Overseer Locked
+  suffix: Caelestinus Command Locked
   components:
   - type: NuclearReactor
     prefab: ReactorPrefab5x5Normal
   - type: NameIdentifier
     group: NuclearReactorCCSmall
   - type: AccessReader
-    access: [["HeadOfPersonnel"]]
+    access: [["CaelestinusCommand"]]
