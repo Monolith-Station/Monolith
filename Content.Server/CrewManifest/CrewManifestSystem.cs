@@ -6,6 +6,7 @@ using Content.Server.EUI;
 using Content.Server.Station.Systems;
 using Content.Server.StationRecords;
 using Content.Server.StationRecords.Systems;
+using Content.Shared.Access.Components;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.CrewManifest;
@@ -220,6 +221,17 @@ public sealed partial class CrewManifestSystem : EntitySystem
         }
     }
 
+    // Monolith start: This is useful elsewhere
+    public ProtoId<JobPrototype>? GetJobFromID(IdCardComponent card)
+    {
+        ProtoId<JobPrototype>? job = null;
+
+        if (TryComp<PresetIdCardComponent>(card.Owner, out var preset) && HasComp<AgentIDCardComponent>(card.Owner))
+            job = preset.ManifestJob ?? preset.JobName;
+
+        return _prototypeManager.EnumeratePrototypes<JobPrototype>().Where(p => p.LocalizedName == card.LocalizedJobTitle).Aggregate(job, (current, proto) => current ?? proto.ID);
+    }
+
     /// <summary>
     ///     Builds the crew manifest for a station. Stores it in the cache afterwards.
     /// </summary>
@@ -252,9 +264,7 @@ public sealed partial class CrewManifestSystem : EntitySystem
                 }
             }
 
-            Log.Info($"Testing for jobs against {jobTitle}...");
             jobProto = _prototypeManager.EnumeratePrototypes<JobPrototype>().Where(p => p.LocalizedName == jobTitle).Aggregate(jobProto, (current, proto) => current ?? proto.ID);
-            Log.Info($"We are a {jobProto}");
 
             var entry = new CrewManifestEntry(name, jobTitle, jobIcon, jobProto ?? "Contractor");
             _prototypeManager.Resolve(jobProto, out var job);

@@ -59,8 +59,11 @@ using Content.Server.Stack; // Mono
 using Content.Shared.Tag;
 using Robust.Shared.Timing;
 using Content.Server._Mono.Detection;
+using Content.Server.Access.Components;
+using Content.Server.CrewManifest;
 using Content.Shared._Mono.Economy; // Mono
-using Content.Shared._Mono.Economy.Component; // Mono
+using Content.Shared._Mono.Economy.Component;
+using Content.Shared.Roles; // Mono
 
 namespace Content.Server._NF.Shipyard.Systems;
 
@@ -91,6 +94,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
     [Dependency] private GridModifierSystem _hullmods = default!;
     [Dependency] private StackSystem _stackSystem = default!; // Mono
     [Dependency] private SharedCreditReceiverSystem _cash = default!; // Mono
+    [Dependency] private CrewManifestSystem _manifest = default!; // Mono
 
     private static readonly ProtoId<TagPrototype> CrewedShuttleTag = "CrewedShuttle";
     private static readonly Regex DeedRegex = new(@"\s*\([^()]*\)");
@@ -363,32 +367,41 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
         // and not entirely dependent upon linking ID card entity to station records key lookups
         // its just bad
 
-        var stationList = EntityQueryEnumerator<StationRecordsComponent>();
-
+        // Monolith: It could be less fucking bad though
+        var stations = EntityQueryEnumerator<StationRecordsComponent>();
         if (TryComp<StationRecordKeyStorageComponent>(targetId, out var keyStorage)
                 && shuttleStation != null
                 && keyStorage.Key != null)
         {
-            bool recSuccess = false;
-            while (stationList.MoveNext(out var stationUid, out var stationRecComp))
+            var success = false;
+            while (stations.MoveNext(out _, out _))
             {
                 if (!_records.TryGetRecord<GeneralStationRecord>(keyStorage.Key.Value, out var record))
                     continue;
 
                 //_records.RemoveRecord(keyStorage.Key.Value);
                 _records.AddRecordEntry(shuttleStation.Value, record);
-                recSuccess = true;
+                success = true;
                 break;
             }
 
-            if (!recSuccess &&
-                _mind.TryGetMind(player, out var mindUid, out var mindComp)
-                && _prefManager.GetPreferencesOrNull(mindComp.UserId)?.SelectedCharacter is HumanoidCharacterProfile profile)
+            if (!success &&
+                _mind.TryGetMind(player, out _, out var mind)
+                && _prefManager.GetPreferencesOrNull(mind.UserId)?.SelectedCharacter is HumanoidCharacterProfile profile)
             {
-                TryComp<FingerprintComponent>(player, out var fingerprintComponent);
-                TryComp<DnaComponent>(player, out var dnaComponent);
-                TryComp<StationRecordsComponent>(shuttleStation, out var stationRec);
-                _records.CreateGeneralRecord(shuttleStation.Value, targetId, profile.Name, profile.Age, profile.Species, profile.Gender, $"Captain", fingerprintComponent!.Fingerprint, dnaComponent!.DNA, profile, stationRec!);
+                // Monolith start: WHY USE TRYCOMP IF YOU'RE GONNA ! IT ANYWAY
+                if (TryComp<FingerprintComponent>(player, out var fingerprint)
+                    && TryComp<DnaComponent>(player, out var dna)
+                    && TryComp<StationRecordsComponent>(shuttleStation, out var records)
+                )
+                {
+                    ProtoId<JobPrototype>? job = "Contractor";
+                    if (_idSystem.TryFindIdCard(player, out var card))
+                        job = _manifest.GetJobFromID(card);
+
+                    _records.CreateGeneralRecord(shuttleStation.Value, targetId, profile.Name, profile.Age, profile.Species, profile.Gender, job ?? "Contractor", fingerprint!.Fingerprint, dna!.DNA, profile, records!);
+                }
+                // Monolith end. Agony.
             }
         }
         _records.Synchronize(shuttleStation!.Value);
