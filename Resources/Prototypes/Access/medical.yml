@@ -1,18 +1,22 @@
 - type: accessLevel
   id: ChiefMedicalOfficer
   name: id-card-access-level-chief-medical-officer
+  deprecated: true
 
 - type: accessLevel
   id: Medical
   name: id-card-access-level-medical
+  deprecated: true
 
 - type: accessLevel
   id: Chemistry
   name: id-card-access-level-chemistry
+  deprecated: true
   
 - type: accessLevel
   id: Paramedic
   name: id-card-access-level-paramedic
+  deprecated: true
 
 - type: accessGroup
   id: Medical

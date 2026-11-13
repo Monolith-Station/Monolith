@@ -24,7 +24,6 @@
     pack: WeaponryWorksVendPOIMercInventory
     requiresCash: true
   - type: AccessReader
-    access: [["Mercenary"], ["Security"]]
 
 - type: entity
   parent: [VendingMachineAstroVend, BaseStructureDisableAnchoring]
@@ -82,6 +81,11 @@
   parent: [BaseStructureDisableToolUse, VendingMachineSyndieContraband]
   id: VendingMachineSyndieContrabandPOI
   suffix: POI
+  components:
+  - type: CurrencyInjectionTarget
+    company: Underground
+    radioChannel: Syndicate
+    injectionAlert: underground-currency-injection-alert 
 
 - type: entity
   parent: VendingMachineCredit
@@ -169,7 +173,6 @@
     - state: panel
       map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
   - type: AccessReader
-    access: [["Mercenary"], ["Security"]]
 
 - type: entity
   parent: [VendingMachineAstroVend, BaseStructureDisableAnchoring]

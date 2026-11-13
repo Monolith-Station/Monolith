@@ -1,9 +1,9 @@
 - type: entity
   parent: AccessConfigurator
   id: AccessConfiguratorAntag
-  name: Black market access configurator
+  name: PDV access configurator # Mono
   suffix: Antag
-  description: A modified access configurator sold on the black market.
+  description: A modified access configurator developed by the PDV. # Mono
   components:
   - type: Sprite
     sprite: _NF/Objects/Tools/antag_access_configurator.rsi
@@ -13,7 +13,7 @@
     accessLevels:
     - Maintenance
     - External
-    - Pirate # Frontier
+    - PDV # Mono
     privilegedIdSlot:
       name: id-card-console-privileged-id
       ejectSound: /Audio/Machines/id_swipe.ogg

@@ -19,11 +19,10 @@
   displayWeight: 50 # Second from the top
   setPreference: false
   access:
-  - Service
   - Maintenance
   - External
-  - Frontier
-  - StationTrafficController
+  - Caelestinus
+  - CaelestinusCommand
   special:
   - !type:AddComponentSpecial
     components:

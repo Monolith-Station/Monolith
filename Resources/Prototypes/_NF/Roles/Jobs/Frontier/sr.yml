@@ -8,14 +8,7 @@
       time: 360000 # 100 hrs
     - !type:RoleTimeRequirement
       role: JobSecurityGuard
-      time: 18000 # 5 hrs as security guard - mono
-    # Factions are required here because Overseer needs to actually understand how both factions work.
-    - !type:RoleTimeRequirement
-      role: JobPirate
-      time: 36000 # 10 hours
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 36000 # 10 hours
+      time: 18000 # 5 hours
   whitelisted: false
   startingGear: SrGear
   alwaysUseSpawner: true
@@ -27,9 +20,10 @@
   displayWeight: 60 # Top
   canBeAntag: false
   accessGroups:
-  - AllAccessMono #Mono
+  - GeneralAccess
   access:
-  - HeadOfPersonnel #Mono
+  - Caelestinus
+  - CaelestinusCommand #Mono
   guides:
   - Caelestinus
   special:

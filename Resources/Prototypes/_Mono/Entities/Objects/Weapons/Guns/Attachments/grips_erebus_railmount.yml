@@ -141,7 +141,7 @@
   parent: BaseGunAttachmentGrip
   id: GunAttachmentQLG20
   name: TCA QLG-20 under-barrel grenade launcher (TSF UBGL mount)
-  description: A UBGL designed to be mounted to TSF longarms to provide a lightweight option for fire-support and utility.
+  description: A UBGL designed to be mounted to TSF longarms to provide a lightweight option for fire-support and utility. Fires 35x53mm grenades.
   suffix: Grip, TSF mount
   components:
   - type: Sprite
@@ -156,8 +156,7 @@
       ejectSound: /Audio/_FinalHorizon/Weapons/Guns/MagOut/m203_openbarrel.ogg
       whitelist:
         tags:
-        - Grenade
-        - LessLethalGrenade
+        - Cartridge35mmGrenade
   - type: ESGunComponentAttachment
     component:
     - type: AlternateGun
@@ -191,7 +190,7 @@
   parent: GunAttachmentQLG20
   id: GunAttachmentRKR40
   name: PD-VI RKR/40 under-barrel grenade launcher (Vympel UBGL mount)
-  description: A properitary UBGL designed for the M-32 Vympel and anything else that shares it's unique trigger assembly (which is nothing).
+  description: A properitary UBGL designed for the M-32 Vympel and anything else that shares it's unique trigger assembly (which is nothing). Fires 35x53mm grenades.
   suffix: Grip, Vympel mount
   components:
   - type: Sprite
@@ -205,8 +204,7 @@
       ejectSound: /Audio/_FinalHorizon/Weapons/Guns/MagOut/gp25_openbarrel.ogg
       whitelist:
         tags:
-        - Grenade
-        - LessLethalGrenade
+        - Cartridge35mmGrenade
   - type: ESGunComponentAttachment
     component:
     - type: AlternateGun

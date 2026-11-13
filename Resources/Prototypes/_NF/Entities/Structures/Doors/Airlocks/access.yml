@@ -2,7 +2,7 @@
 - type: entity
   parent: AirlockCommandLocked
   id: AirlockFrontierLocked
-  suffix: Frontier, Locked
+  suffix: Caelestinus, Locked
   components:
   - type: ContainerFill
     containers:
@@ -11,7 +11,7 @@
 - type: entity
   parent: AirlockServiceLocked
   id: AirlockSeviceFrontierLocked
-  suffix: Frontier, Locked
+  suffix: Caelestinus, Locked
   components:
   - type: ContainerFill
     containers:
@@ -20,7 +20,7 @@
 - type: entity
   parent: AirlockCommandLocked
   id: AirlockFrontierBridgeLocked
-  suffix: Frontier Bridge, Locked
+  suffix: Caelestinus Command, Locked
   components:
   - type: ContainerFill
     containers:
@@ -29,7 +29,7 @@
 - type: entity
   parent: AirlockMaintCommandLocked
   id: AirlockMaintFrontierBridgeLocked
-  suffix: Frontier Bridge, Locked
+  suffix: Caelestinus Command, Locked
   components:
   - type: ContainerFill
     containers:
@@ -38,7 +38,7 @@
 - type: entity
   parent: AirlockCommandLocked
   id: AirlockFrontierCommandLocked
-  suffix: Frontier Command, Locked
+  suffix: Caelestinus Command, Locked
   components:
   - type: ContainerFill
     containers:
@@ -47,7 +47,7 @@
 - type: entity
   parent: [ AirlockEngineering, AirlockFrontierCommandLocked]
   id: AirlockFrontierCommandEngineeringLocked
-  suffix: Frontier Command, Locked
+  suffix: Caelestinus Command, Locked
   components:
   - type: ContainerFill
     containers:
@@ -56,7 +56,7 @@
 - type: entity
   parent: HighSecDoor
   id: HighSecFrontierCommandLocked
-  suffix: Frontier Command, Locked
+  suffix: Caelestinus Command, Locked
   components:
   - type: ContainerFill
     containers:
@@ -65,7 +65,7 @@
 - type: entity
   parent: AirlockServiceLocked
   id: AirlockMailCarrierLocked
-  suffix: Mail, Locked
+  suffix: Caelestinus, Locked
   components:
   - type: Sprite # Mono - swapped to cargo sprite... why did this not exist...
     sprite: Structures/Doors/Airlocks/Standard/cargo-base.rsi
@@ -89,7 +89,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsSecurity ]
+      board: [ DoorElectronicsTsfmc ]
 
 - type: entity
   parent: AirlockNfsd
@@ -98,7 +98,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsSecurity ]
+      board: [ DoorElectronicsTsfmc ]
 
 - type: entity
   parent: AirlockNfsd
@@ -107,7 +107,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsBrig ]
+      board: [ DoorElectronicsTsfmc ]
 
 - type: entity
   parent: AirlockNfsdGlass
@@ -116,7 +116,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsBrig ]
+      board: [ DoorElectronicsTsfmc ]
 
 - type: entity
   parent: AirlockNfsd
@@ -125,7 +125,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsDetective ]
+      board: [ DoorElectronicsTsfmc ]
 
 - type: entity
   parent: AirlockNfsdGlass
@@ -134,7 +134,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsDetective ]
+      board: [ DoorElectronicsTsfmc ]
 
 - type: entity
   parent: AirlockNfsd
@@ -143,7 +143,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsSecurityLawyer ]
+      board: [ DoorElectronicsTsfmc ]
 
 - type: entity
   parent: AirlockNfsdGlass
@@ -152,7 +152,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsSecurityLawyer ]
+      board: [ DoorElectronicsTsfmc ]
 
 - type: entity
   parent: AirlockNfsd
@@ -240,10 +240,6 @@
   parent: AirlockMercenaryGlass
   id: AirlockMercenaryGlassLocked
   suffix: Mercenary, Locked
-  components:
-  - type: ContainerFill
-    containers:
-      board: [ DoorElectronicsMercenary ]
 
 - type: entity
   parent: AirlockExternalGlass
@@ -261,7 +257,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsSecurity ]
+      board: [ DoorElectronicsTsfmc ]
 
 - type: entity
   parent: AirlockShuttleNfsd
@@ -270,7 +266,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsSecurity ]
+      board: [ DoorElectronicsTsfmc ]
 
 - type: entity
   parent: AirlockGlassShuttleNfsd
@@ -279,7 +275,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsSecurity ]
+      board: [ DoorElectronicsTsfmc ]
 
 - type: entity
   parent: AirlockGlass

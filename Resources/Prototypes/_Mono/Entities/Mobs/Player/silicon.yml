@@ -579,6 +579,13 @@
     - TauCetiBasic
     - RobotTalk
     - SolCommon
+  - type: Access
+    tags:
+    - Tsfmc
+    - TsfmcArmory
+    - TsfmcEngineering
+    - TsfmcCaptain
+    - TsfmcColonel
 
 - type: entity
   id: AiHeldTSFMC
@@ -667,7 +674,7 @@
     - Freespeak
   - type: Access
     tags:
-    - Pirate
+    - PDV
     - GrandVizier
     - PDVCommand
 
@@ -781,7 +788,7 @@
 
 - type: entity
   id: MothershipCore
-  parent: PlayerStationXenoborgAiEmpty 
+  parent: PlayerStationXenoborgAiEmpty
   suffix: Ghost Role, Xenoborg
   components:
   - type: ContainerFill

@@ -49,33 +49,27 @@
         name: 32-round shell box (12 gauge slug)
       - id: AmmoBox12_gaugeFlare
         name: 32-round shell box (12 gauge flare)
-      - id: 40mmGrenadeFragmentation
-        name: 40mm fragmentation grenade
+      - id: Cartridge35mmGrenadeHEDP
+        max: 2
         recommended: true
-      - id: 40mmGrenadeThermobaric
-        name: 40mm thermobaric grenade
-        recommended: true
-      - id: 40mmGrenadeBaton
-        name: 40mm baton grenade
-      - id: 40mmGrenadeFlash
-        name: 40mm flash grenade
+        name: 35mm HEDP grenade (UBGL)
+      - id: Cartridge35mmGrenadeFlash
+        name: 35mm flash grenade (UBGL)
+      - id: Cartridge35mmGrenadeBaton
+        name: 35mm baton grenade (UBGL)
+      - id: Cartridge35mmGrenadeEMP
+        name: 35mm EMP grenade (UBGL)
     - name: Sidearm
       choices: { Sidearm: 1 }
       entries:
       - id: WeaponPistolMk58
         name: Mk-58 (.45 ACP)
-      - id: WeaponRevolverInspector
-        name: Garter (.357 magnum)
     - name: Sidearm Ammo
       choices: { SidearmAmmo: 4 }
       entries:
       # NO AMMO BOX FOR THE SIDEARM!! It gets it from primary ammo anyways.
       - id: Magazine45_ACPPistolFMJ
         name: 17-round magazine (.45 ACP)
-      - id: SpeedLoader357_magnumFMJ
-        name: 6-round speedloader (.357 magnum)
-      - id: AmmoBox357_magnumFMJ
-        name: 32-round ammo box (.357 magnum)
     - name: Attachments
       choices: { Attachments: 1 }
       entries:
@@ -110,6 +104,9 @@
       - id: SmokeGrenade
         name: smoke grenade
         recommended: true
+      - id: FireExtinguisherBluespace
+        name: bluespace fire extinguisher
+        points: 1
       - id: BreachingCharge
         name: breaching charge
       - id: Floodlight
@@ -230,33 +227,27 @@
         name: 32-round shell box (12 gauge slug)
       - id: AmmoBox12_gaugeFlare
         name: 32-round shell box (12 gauge flare)
-      - id: 40mmGrenadeFragmentation
-        name: 40mm fragmentation grenade
+      - id: Cartridge35mmGrenadeHEDP
+        max: 2
         recommended: true
-      - id: 40mmGrenadeThermobaric
-        name: 40mm thermobaric grenade
-        recommended: true
-      - id: 40mmGrenadeBaton
-        name: 40mm baton grenade
-      - id: 40mmGrenadeFlash
-        name: 40mm flash grenade
+        name: 35mm HEDP grenade (UBGL)
+      - id: Cartridge35mmGrenadeFlash
+        name: 35mm flash grenade (UBGL)
+      - id: Cartridge35mmGrenadeBaton
+        name: 35mm baton grenade (UBGL)
+      - id: Cartridge35mmGrenadeEMP
+        name: 35mm EMP grenade (UBGL)
     - name: Sidearm
       choices: { Sidearm: 1 }
       entries:
-      - id: WeaponPistolViper
-        name: PT-45A Viper (9x19mm)
-      - id: WeaponRevolverPython
-        name: Python (.357 magnum)
+      - id: WeaponPistolPollock
+        name: C17 Pollock (9x19mm)
     - name: Sidearm Ammo
       choices: { SidearmAmmo: 4 }
       entries:
       # NO AMMO BOX FOR THE SIDEARM!! It gets it from primary ammo anyways.
       - id: Magazine9x19mmPistolFMJ
         name: 19-round magazine (9x19mm)
-      - id: SpeedLoader357_magnumFMJ
-        name: 6-round speedloader (.357 magnum)
-      - id: AmmoBox357_magnumFMJ
-        name: 32-round ammo box (.357 magnum)
     - name: Attachments
       choices: { Attachments: 1 }
       entries:
@@ -291,6 +282,9 @@
       - id: SmokeGrenade
         name: smoke grenade
         recommended: true
+      - id: FireExtinguisherBluespace
+        name: bluespace fire extinguisher
+        points: 1
       - id: BreachingCharge
         name: breaching charge
       - id: Floodlight
