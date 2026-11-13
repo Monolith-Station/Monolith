@@ -27043,3 +27043,14 @@ Entries:
   id: 2909
   time: '2026-11-12T20:29:26.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/5013
+- author: SuperGDPWYL
+  changes:
+    - type: Fix
+      message: Fugitives and the Godfather can no longer be cloned once sold.
+    - type: Fix
+      message: >-
+        Chat rank, company biometrics, NPC faction, medic surgery bonuses and
+        faction affiliation are now transferred by cloning.
+  id: 2910
+  time: '2026-11-13T09:07:34.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5016
