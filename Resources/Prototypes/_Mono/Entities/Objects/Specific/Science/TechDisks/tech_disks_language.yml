@@ -20,17 +20,23 @@
     - BasicGalaticCommonTranslatorImplanter
     - CanilunztTranslator # Vulps
     - BubblishTranslator # Slimes
-    - NekomimeticTranslator # Oni/Felinids
+    # - NekomimeticTranslator # Oni/Felinids # faction language now
     - DraconicTranslator # Lizards
     - RootSpeakTranslator # Dionae
     - MofficTranslator # Moths
     - ValyrianStandardTranslator # Harpies
     - ChittinTranslator # Chitinids and arachnids
-    - GaryTranslator # Trait language
-    - NovaCygniTranslator # Trait language
-    #- SiikMaasTranslator # No tajara here
+    # - GaryTranslator # Trait language ## LOUD INCORRECT BUZZER
+    # - NovaCygniTranslator # Trait language ## LOUD INCORRECT BUZZER
+    - SiikMaasTranslator # No tajara here ## LOUD INCORRECT BUZZER
     #- MarishTranslator # No shadowkin here
     - NewKinPidginTranslator # Vox
+    - AzazibaTranslator # Fuck your lore. It ain't ours.
+    - HydraspeakTranslator # Mono start
+    - ScratchTranslator
+    - SqueakishTranslator
+    - NovaCygniClassicalTranslator
+    - FelyaicTranslator # Mono end
 
 - type: entity
   parent: TechDiskBase
@@ -59,9 +65,9 @@
     - MofficTranslator
     - ValyrianStandardTranslator
     - ChittinTranslator
-    - GaryTranslator # Trait language
-    - NovaCygniTranslator # Trait language
-    #- SiikMaasTranslator # No tajara here
+    # - GaryTranslator # Trait language ## LOUD INCORRECT BUZZER
+    # - NovaCygniTranslator # Trait language ## LOUD INCORRECT BUZZER
+    - SiikMaasTranslator # No tajara here ## LOUD INCORRECT BUZZER
     #- MarishTranslator # No shadowkin here
     - AdvancedGalaticCommonTranslatorImplanter
     - CanilunztTranslatorImplanter
@@ -73,11 +79,23 @@
     - MofficTranslatorImplanter
     - ValyrianStandardTranslatorImplanter
     - ChittinTranslatorImplanter
-    - GaryTranslatorImplanter # Trait language
-    - NovaCygniTranslatorImplanter # Trait language
-    #- SiikMaasTranslatorImplanter # No tajara here
+    # - GaryTranslatorImplanter # Trait language ## LOUD INCORRECT BUZZER
+    # - NovaCygniTranslatorImplanter # Trait language ## LOUD INCORRECT BUZZER
+    - SiikMaasTranslatorImplanter # No tajara here ## LOUD INCORRECT BUZZER
     #- MarishTranslatorImplanter # No shadowkin here
     - AnimalTranslator
     - XenoTranslator
     - NewKinPidginTranslator # Vox
     - NewKinPidginTranslatorImplanter # Vox
+    - AzazibaTranslator # Mono start
+    - AzazibaTranslatorImplanter
+    - HydraspeakTranslatorImplanter
+    - ScratchTranslatorImplanter
+    - SqueakishTranslatorImplanter
+    - NovaCygniClassicalTranslatorImplanter
+    - FelyaicTranslatorImplanter
+    - HydraspeakTranslator
+    - ScratchTranslator
+    - SqueakishTranslator
+    - NovaCygniClassicalTranslator
+    - FelyaicTranslator # Mono end

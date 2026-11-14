@@ -27,3 +27,73 @@
     - NovaCygniBasic
     requires:
     - TauCetiBasic
+
+- type: entity
+  id: HydraspeakTranslatorImplant
+  parent: BaseSubdermalImplant
+  name: hydraspeak translator implant
+  description: An implant that helps you speak and understand the language of Hydrakin.
+  components:
+  - type: TranslatorImplant
+    spoken:
+    - Hydraspeak
+    understood:
+    - Hydraspeak
+    requires:
+    - Hydraspeak
+
+- type: entity
+  id: ScratchTranslatorImplant
+  parent: BaseSubdermalImplant
+  name: scratch translator implant
+  description: An implant that helps you speak and understand the language of Resomi.
+  components:
+  - type: TranslatorImplant
+    spoken:
+    - Scratch
+    understood:
+    - Scratch
+    requires:
+    - Scratch
+
+- type: entity
+  id: SqueakishTranslatorImplant
+  parent: BaseSubdermalImplant
+  name: squeakish translator implant
+  description: An implant that helps you speak and understand the language of Rodentia.
+  components:
+  - type: TranslatorImplant
+    spoken:
+    - Squeakish
+    understood:
+    - Squeakish
+    requires:
+    - Squeakish
+
+- type: entity
+  id: NovaCygniClassicalTranslatorImplant
+  parent: BaseSubdermalImplant
+  name: nova cygni classical translator implant
+  description: An implant that helps you speak and understand the classical language of the USSP.
+  components:
+  - type: TranslatorImplant
+    spoken:
+    - NovaCygniClassical
+    understood:
+    - NovaCygniClassical
+    requires:
+    - NovaCygniClassical
+
+- type: entity
+  id: FelyaicTranslatorImplant
+  parent: BaseSubdermalImplant
+  name: felyaic translator implant
+  description: An implant that helps you speak and understand a long forgotten language.
+  components:
+  - type: TranslatorImplant
+    spoken:
+    - Felyaic
+    understood:
+    - Felyaic
+    requires:
+    - Felyaic

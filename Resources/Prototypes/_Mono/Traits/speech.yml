@@ -140,3 +140,29 @@
   - NovaCygniClassical
   languagesUnderstood:
   - NovaCygniClassical
+
+- type: trait
+  id: MonoDraconic
+  name: language-Draconic-name
+  description: language-Draconic-description
+  category: LanguageTraits
+  cost: 1
+  components:
+  - type: LanguageSpeaker
+  languagesSpoken:
+  - Draconic
+  languagesUnderstood:
+  - Draconic
+
+- type: trait
+  id: MonoAzaziba
+  name: language-Azaziba-name
+  description: language-Azaziba-description
+  category: LanguageTraits
+  cost: 1
+  components:
+  - type: LanguageSpeaker
+  languagesSpoken:
+  - Azaziba
+  languagesUnderstood:
+  - Azaziba

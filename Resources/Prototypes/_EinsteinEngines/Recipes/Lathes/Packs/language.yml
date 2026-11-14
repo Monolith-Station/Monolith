@@ -3,20 +3,24 @@
   recipes:
   - CanilunztTranslator
   - BubblishTranslator
-  - NekomimeticTranslator
+  # - NekomimeticTranslator # Mono
   - DraconicTranslator
-  # - SolCommonTranslator
+  # - SolCommonTranslator # Mono
   - RootSpeakTranslator
   - MofficTranslator
   - XenoTranslator
   - AnimalTranslator
   - ValyrianStandardTranslator
   - ChittinTranslator
-  - GaryTranslator # Mono
-  - NovaCygniTranslator # Mono
-  # - SiikMaasTranslator
-  # - MarishTranslator
-  - NewKinPidginTranslator
+  - SiikMaasTranslator
+  # - MarishTranslator # Mono
+  - NewKinPidginTranslator # Mono start
+  - HydraspeakTranslator
+  - ScratchTranslator
+  - SqueakishTranslator
+  - NovaCygniClassicalTranslator
+  - FelyaicTranslator
+  - AzazibaTranslator # Mono end
 
 - type: latheRecipePack
   id: TranslatorImplanters
@@ -25,15 +29,19 @@
   - AdvancedGalaticCommonTranslatorImplanter
   - CanilunztTranslatorImplanter
   - BubblishTranslatorImplanter
-  - NekomimeticTranslatorImplanter
+  # - NekomimeticTranslatorImplanter # Mono
   - DraconicTranslatorImplanter
-#  - SolCommonTranslatorImplanter
+#  - SolCommonTranslatorImplanter # Mono
   - RootSpeakTranslatorImplanter
   - MofficTranslatorImplanter
   - ValyrianStandardTranslatorImplanter
   - ChittinTranslatorImplanter
-  - GaryTranslatorImplanter # Mono
-  - NovaCygniTranslatorImplanter # Mono
-#  - SiikMaasTranslatorImplanter
-#  - MarishTranslatorImplanter
+  - SiikMaasTranslatorImplanter
+#  - MarishTranslatorImplanter # Mono
   - NewKinPidginTranslatorImplanter
+  - HydraspeakTranslatorImplanter # Mono start
+  - ScratchTranslatorImplanter
+  - SqueakishTranslatorImplanter
+  - NovaCygniClassicalTranslatorImplanter
+  - FelyaicTranslatorImplanter
+  - AzazibaTranslatorImplanter # Mono end

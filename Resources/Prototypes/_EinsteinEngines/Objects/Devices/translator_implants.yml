@@ -2,7 +2,7 @@
   parent: BaseSubdermalImplant
   id: BasicTauCetiBasicTranslatorImplant
   name: basic common translator implant
-  description: Provides your illiterate friends the ability to understand the common galactic tongue.
+  description: Lets you understand (but not speak) Andromeda Standard. # Mono
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
@@ -13,7 +13,7 @@
   parent: BaseSubdermalImplant
   id: TauCetiBasicTranslatorImplant
   name: advanced common translator implant
-  description: A more advanced version of the translator implant, teaches your illiterate friends the ability to both speak and understand the galactic tongue!
+  description: A more advanced version of the translator implant. Lets you speak Andromeda Standard. # Mono
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
@@ -26,7 +26,7 @@
   parent: BaseSubdermalImplant
   id: BubblishTranslatorImplant
   name: bubblish translator implant
-  description: An implant that helps you speak and understand the language of slimes! Special vocal chords not included.
+  description: Lets the user speak and understand Bubblish. # Mono
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
@@ -41,7 +41,7 @@
   parent: BaseSubdermalImplant
   id: NekomimeticTranslatorImplant
   name: nekomimetic translator implant
-  description: A translator implant intially designed to help domestic cat owners understand their pets, now granting the ability to understand and speak to Felinids!
+  description: Developed in secret by MMC, allows the user to speak and understand Nekomimetic. # Mono
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
@@ -56,7 +56,7 @@
   parent: BaseSubdermalImplant
   id: DraconicTranslatorImplant
   name: draconic translator implant
-  description: A translator implant giving the ability to speak to dragons! Subsequently, also allows to communicate with the Unathi.
+  description: Lets the user speak and understand Draconic. # Mono
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
@@ -71,7 +71,7 @@
   parent: BaseSubdermalImplant
   id: CanilunztTranslatorImplant
   name: canilunzt translator implant
-  description: A translator implant that helps you communicate with your local yeepers. Yeep!
+  description: Lets the user speak and understand Canilunzt. # Mono
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
@@ -86,7 +86,7 @@
   parent: BaseSubdermalImplant
   id: SolCommonTranslatorImplant
   name: sol-common translator implant
-  description: An implant giving the ability to understand and speak SolCommon. Raaagh!
+  description: Developed in secret by the TSF Marine Corps, allows the user to speak and understand Sol Common. # Mono
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
@@ -101,7 +101,7 @@
   parent: BaseSubdermalImplant
   id: NovuNedericTranslatorImplant
   name: novu-nederic translator implant
-  description: An implant giving the ability to understand and speak Novu-Nederic. Hoezee!
+  description: Lets the user speak and understand Novu-Nedric. # Mono
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
@@ -115,8 +115,8 @@
 - type: entity
   parent: BaseSubdermalImplant
   id: RootSpeakTranslatorImplant
-  name: root-speak translator implant
-  description: An implant that lets you speak for the trees. Or to the trees.
+  name: rootspeak translator implant
+  description: Lets the user speak and understand Rootspeak. # Mono
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
@@ -131,7 +131,7 @@
   parent: BaseSubdermalImplant
   id: MofficTranslatorImplant
   name: Moffic translator implant
-  description: An implant designed to help domesticate mothroaches. Subsequently, allows you to communicate with the moth people.
+  description: Lets the user speak and understand Moffic. # Mono
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
@@ -146,7 +146,7 @@
   parent: BaseSubdermalImplant
   id: ValyrianStandardTranslatorImplant
   name: valyrian standard translator implant
-  description: An implant giving the ability to understand and speak Valyrian Standard. Chirp!
+  description: Lets the user speak and understand Moffic. # Mono
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
@@ -161,7 +161,7 @@
   parent: BaseSubdermalImplant
   id: AzazibaTranslatorImplant
   name: azaziba translator implant
-  description: An implant giving the ability to understand and speak Azaziba. # Intended for Admins Only, this item is for lore reasons not obtainable.
+  description: Lets the user speak and understand an archaic form of Draconic. # Mono
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
@@ -170,13 +170,13 @@
     spoken:
     - Azaziba
     requires:
-    - Draconic
+    - TauCetiBasic # Mono
 
 - type: entity
   parent: BaseSubdermalImplant
   id: ChittinTranslatorImplant
   name: chittin translator implant
-  description: An implant giving the ability to understand and speak Chittin.
+  description: Lets the user speak and understand Chittin. # Mono
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
@@ -191,7 +191,7 @@
   parent: BaseSubdermalImplant
   id: SiikMaasTranslatorImplant
   name: siik'maas translator implant
-  description: An implant giving the ability to understand and speak Siik'maas.
+  description: Lets the user speak and understand Siik'maas. # Mono
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
@@ -206,7 +206,7 @@
   parent: BaseSubdermalImplant
   id: MarishTranslatorImplant
   name: marish translator implant
-  description: An implant giving the ability to understand and speak Marish.
+  description: Lets the user speak and understand Marish. # Mono
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
@@ -221,7 +221,7 @@
   parent: BaseSubdermalImplant
   id: NewKinPidginTranslatorImplant
   name: ka'rakk translator implant
-  description: An implant giving the ability to understand and speak Ka'rakk.
+  description: Lets the user speak and understand New Kin Pidgin. # Mono
   categories: [ HideSpawnMenu ]
   components:
   - type: TranslatorImplant
