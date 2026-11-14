@@ -682,6 +682,92 @@
     class: Energy
     size: Heavy
 
+# Retribution
+- type: entity
+  id: WeaponLaserTurretRetribution # This thing is DISGUSTINGLY powerful. It's basically a Glaive Beam from FTL. It's intended as the spinal mount of Caelestinus' supercapital. If you wish to use it elsewhere, please exercise extreme caution.
+  parent:
+  - BallisticArtilleryUnanchorable
+  - BallisticArtilleryTier5HP
+  suffix: Supercapital, T5
+  name: CWZS-2048 "Retribution"
+  description: The culmination of Caelestinus' militarisation and reverse-engineering efforts which have been ongoing since the moment of their independence, "Retribution" is the most terrifying laser weapon this sector has ever seen. This weapon of mass destruction has been purpose-built to ensure they are not "reclaimed" by anyone who seeks to take that freedom away from them. If you find it pointed anywhere near you, may God have mercy on you, because it certainly won't.
+  components:
+  - type: StaticPrice
+    price: 125000
+  - type: Sprite
+    sprite:  _Mono/Objects/ShuttleWeapons/tartarus.rsi # reusing ADS sprites. it'd be a shame for them to rot.
+    layers:
+    - state: space_artillery
+    scale: 1.5, 1.5
+  - type: Appearance
+  - type: AmmoCounter
+  - type: Battery
+    maxCharge: 112500 # a full burst lasts 30 seconds.
+    startingCharge: 112500
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 112500
+    autoRechargePause: true
+    autoRechargePauseTime: 275 # extremely long cooldown
+  - type: FireControlRotate
+  - type: ExaminableBattery
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: Gun
+    fireRate: 25
+    burstFireRate: 25
+    recoil: 0
+    minAngle: 0
+    maxAngle: 0
+    shootThermalSignature: 24000000 # ~12km
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/ship_perforator.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
+    selectedMode: Burst
+    availableModes:
+    - Burst
+    shotsPerBurst: 750 # the entire magazine
+  - type: ShipGunClass
+    shipClass: Superheavy
+  - type: HitscanBatteryAmmoProvider
+    proto: RetributionLaser
+    fireCost: 150
+  - type: RadarBlip
+    radarColor: "#ab0707"
+    scale: 3
+    visibleFromOtherGrids: true
+    gridConfig:
+      color: "#ab0707"
+      shape: Square
+      respectZoom: true
+      rotate: true
+      bounds: "-2.5,-4.5,2.5,4.5"
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.75,-0.75,0.75,0.75"
+        density: 1500
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: ShipGunType
+    shipType: Energy
+  - type: ShipRepairable
+    repairTime: 25
+    repairCost: 100
+  - type: SpaceArtillery
+    powerChargeRate: 500
+    powerUsePassive: 600
+    powerUseActive: 0
+  - type: HardpointAnchorableOnly
+    class: Energy
+    size: Superheavy
+
+
 # PRE- FRACTURE
 
 
