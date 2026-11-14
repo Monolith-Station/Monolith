@@ -183,7 +183,7 @@ uplink-pirate-anaconda-name = Anaconda
 uplink-pirate-anaconda-desc = A handheld, compact, self-recharging ballistic firearm.
 
 uplink-pirate-wspr-name = WSPR
-uplink-pirate-wspr-desc = A counter to the TSFMC's Annie. Uses the same 7.62x39mm ammo.
+uplink-pirate-wspr-desc = A counter to the TSFMC's Xian. Uses 7.62x39mm ammo.
 
 uplink-pirate-burner-name = Burner Heavy Rifle
 uplink-pirate-burner-desc = A destructive 12.7x99mm rifle. Supports HE ammo. Horribly destructive.
@@ -199,6 +199,9 @@ uplink-pirate-blueprint-launcher-rocket-desc = A blueprint for RPG-7 and the amm
 
 uplink-pirate-grenade-launcher-bundle-name = China Lake Bundle
 uplink-pirate-grenade-launcher-bundle-desc = PLOOP!
+
+uplink-pirate-PKMS-name = PD-VI PKMS
+uplink-pirate-PKMS-desc = Big Dakka: An LMG designed for ground deployments.
 
 # MARK: Ammo
 

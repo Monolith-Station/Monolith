@@ -1213,12 +1213,28 @@
       tags:
       - PirateUplink
 
+#- type: listing
+#  id: UplinkPirateL6SawBundle
+#  name: uplink-l6-saw-bundle-name
+#  description: uplink-l6-saw-bundle-desc
+#  icon: { sprite: /Textures/Objects/Weapons/Guns/LMGs/l6.rsi, state: icon }
+#  productEntity: ClothingBackpackDuffelPDVFilledLMG
+#  cost:
+#    Doubloon: 90
+#  categories:
+#  - UplinkPirateWeapons
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    whitelist:
+#      tags:
+#      - PirateUplink
+
 - type: listing
-  id: UplinkPirateL6SawBundle
-  name: uplink-l6-saw-bundle-name
-  description: uplink-l6-saw-bundle-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/LMGs/l6.rsi, state: icon }
-  productEntity: ClothingBackpackDuffelPDVFilledLMG
+  id: UplinkPiratePDVILMG
+  name: uplink-pirate-PKMS-name
+  description: uplink-pirate-PKMS-desc
+  icon: { sprite: _Mono/Objects/Weapons/Guns/LMGs/pkms/pkms-icon.rsi, state: icon }
+  productEntity: WeaponLMGPKMS
   cost:
     Doubloon: 90
   categories:
