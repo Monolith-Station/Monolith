@@ -1,7 +1,7 @@
-# Translators
+# Misc
 - type: latheRecipe
-  id: GaryTranslator
-  result: GaryTranslator
+  abstract: true
+  id: BaseTranslatorRecipe
   completetime: 2
   materials:
     Steel: 500
@@ -10,34 +10,72 @@
     Gold: 50
 
 - type: latheRecipe
-  id: NovaCygniTranslator
-  result: NovaCygniTranslator
+  abstract: true
+  id: BaseTranslatorImplanterRecipe
   completetime: 2
   materials:
     Steel: 500
-    Glass: 100
-    Plastic: 50
+    Glass: 500
+    Plastic: 100
     Gold: 50
+    Silver: 50
+
+# Translators
+- type: latheRecipe
+  id: HydraspeakTranslator
+  parent: BaseTranslatorRecipe
+
+- type: latheRecipe
+  id: ScratchTranslator
+  parent: BaseTranslatorRecipe
+
+- type: latheRecipe
+  id: SqueakishTranslator
+  parent: BaseTranslatorRecipe
+
+- type: latheRecipe
+  id: NovaCygniClassicalTranslator
+  parent: BaseTranslatorRecipe
+
+- type: latheRecipe
+  id: FelyaicTranslator
+  parent: BaseTranslatorRecipe
+
+- type: latheRecipe
+  id: AzazibaTranslator
+  parent: BaseTranslatorRecipe
 
 # Implanters
 - type: latheRecipe
   id: GaryTranslatorImplanter
   result: GaryTranslatorImplanter
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 500
-    Plastic: 100
-    Gold: 50
-    Silver: 50
+  parent: BaseTranslatorImplanterRecipe
 
 - type: latheRecipe
   id: NovaCygniTranslatorImplanter
   result: NovaCygniTranslatorImplanter
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 500
-    Plastic: 100
-    Gold: 50
-    Silver: 50
+  parent: BaseTranslatorImplanterRecipe
+
+- type: latheRecipe
+  id: HydraspeakTranslatorImplanter
+  parent: BaseTranslatorImplanterRecipe
+
+- type: latheRecipe
+  id: ScratchTranslatorImplanter
+  parent: BaseTranslatorImplanterRecipe
+
+- type: latheRecipe
+  id: SqueakishTranslatorImplanter
+  parent: BaseTranslatorImplanterRecipe
+
+- type: latheRecipe
+  id: NovaCygniClassicalTranslatorImplanter
+  parent: BaseTranslatorImplanterRecipe
+
+- type: latheRecipe
+  id: FelyaicTranslatorImplanter
+  parent: BaseTranslatorImplanterRecipe
+
+- type: latheRecipe
+  id: AzazibaTranslatorImplanter
+  parent: BaseTranslatorImplanterRecipe

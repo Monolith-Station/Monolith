@@ -24,7 +24,7 @@ language-Draconic-description =
 
 language-Azaziba-name = Azaziba
 language-Azaziba-description =
-    A native language of Asakims consisting of a combination of spoken word and gesticulation.
+    An archaic form of Draconic, now spoken by... you're not entirely sure, actually?
 
 language-SolCommon-name = Sol common
 language-SolCommon-description =
