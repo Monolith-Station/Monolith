@@ -17,7 +17,7 @@
   - ServiceSelectiveDropper # Mono
   - KitchenAssemblerMachineCircuitboard # Mono
   - ElectricRangeMachineCircuitboard # Mono
-  technologyPrerequisites: 
+  technologyPrerequisites:
   - BasicParts
   position: 3, -2
 
@@ -47,6 +47,8 @@
   - NFPouchMime
   - NFPouchCaptain
   - NFPouchCargo
+  - ClothingBeltRook #Mono
+  - ClothingBeltMule #Mono
   technologyPrerequisites:
   - BasicParts
   position: 3, -3
@@ -83,7 +85,7 @@
   - ChemDispenserMachineCircuitboard
   - FatExtractorMachineCircuitboard
   - BiogeneratorMachineCircuitboard
-  - BiofabricatorMachineCircuitboard 
+  - BiofabricatorMachineCircuitboard
   - BiomassReclaimerMachineCircuitboard
   technologyPrerequisites:
   - AdvancedParts
