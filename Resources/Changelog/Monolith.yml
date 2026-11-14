@@ -27121,3 +27121,30 @@ Entries:
   id: 2917
   time: '2026-11-14T14:21:04.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/5022
+- author: DoubleHypercube
+  changes:
+    - type: Add
+      message: Languages can now have icons, which display before the speaker's name.
+    - type: Add
+      message: >-
+        Added icons for most common languages. Some are still missing them,
+        though.
+    - type: Add
+      message: Languages may now have their font only display when obfuscated.
+    - type: Add
+      message: Rodentia get a proper language, Squeakish (ported from Starlight).
+    - type: Add
+      message: >-
+        The USSP has received a second language, the antiquated Nova Cygni
+        Classical.
+    - type: Add
+      message: >-
+        Resomi _also_ get a proper language, Scratch (_also_ ported from
+        Starlight).
+    - type: Add
+      message: Felyaic has its custom obfuscation-only font back.
+    - type: Remove
+      message: Nekomimetic is no longer a selectable trait.
+  id: 2918
+  time: '2026-11-14T14:23:04.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5001
