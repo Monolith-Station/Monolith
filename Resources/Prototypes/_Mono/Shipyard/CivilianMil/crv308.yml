@@ -1,0 +1,36 @@
+- type: vessel
+  id: CRV-308
+  parent: BaseVessel
+  name: GS CRV-308
+  description: A modified variant of the Noble mining craft, the mining tools replaced with HE Toveks and AK-570s, along with added hardpoints along the side and additional plating. For the drone hunter that wants a bit of extra leg room.
+  price: 118009 #Appraise at 99K * 1.2
+  category: Small
+  group: Shipyard
+  shuttlePath: /SharedMaps/_Mono/Shuttles/CivilianMil/crv308.yml
+  guidebookPage: Null
+  class:
+  - Cargo
+  - Corvette
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: CRV-308
+  mapName: 'GS CRV-308'
+  mapPath: /SharedMaps/_Mono/Shuttles/CivilianMil/crv308.yml
+  minPlayers: 0
+  stations:
+    CRV-308:
+      stationProto: StandardFrontierVessel
+      gridComponents:
+      - type: VesselInfo
+        description: "The constant electrical hum from the additional armor plating fills the air."
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'CRV-308 MIL{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
