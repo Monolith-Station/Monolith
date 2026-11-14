@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 277.0.0
+  engineVersion: 277.0.5
   forkId: ""
   forkVersion: ""
-  time: 08/31/2026 21:52:23
-  entityCount: 617
+  time: 11/14/2026 11:19:15
+  entityCount: 618
 maps: []
 grids:
 - 1
@@ -421,10 +421,11 @@ entities:
             66: -1,-5
     - type: SpreaderGrid
       spreadQueues:
-        Puddle: []
         Smoke: []
-        Kudzu: []
         MetalFoam: []
+        ESTileFire: []
+        Kudzu: []
+        Puddle: []
     - type: GridAtmosphere
       version: 2
       data:
@@ -614,11 +615,13 @@ entities:
   - uid: 9
     components:
     - type: Transform
+      rot: -1.5707963267948966 rad
       pos: 1.5,-25.5
       parent: 1
   - uid: 10
     components:
     - type: Transform
+      rot: -1.5707963267948966 rad
       pos: -2.5,-25.5
       parent: 1
 - proto: AirlockExternalGlass
@@ -628,17 +631,19 @@ entities:
     - type: Transform
       pos: -1.5,-23.5
       parent: 1
-- proto: AirlockHatch
+- proto: AirlockHatchMaintenance
   entities:
   - uid: 12
     components:
     - type: Transform
-      pos: -3.5,-19.5
+      rot: -1.5707963267948966 rad
+      pos: 1.5,-18.5
       parent: 1
   - uid: 13
     components:
     - type: Transform
-      pos: 1.5,-18.5
+      rot: -1.5707963267948966 rad
+      pos: -3.5,-19.5
       parent: 1
 - proto: AirlockShuttle
   entities:
@@ -1970,13 +1975,25 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
-- proto: ComputerTabletopStationRecords
+- proto: ComputerTabletopIFF
   entities:
-  - uid: 270
+  - uid: 618
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 0.5,-15.5
+      parent: 1
+    - type: ApcPowerReceiver
+      powerLoad: 5
+    - type: Battery
+      startingCharge: 0
+- proto: ComputerWallmountStationRecords
+  entities:
+  - uid: 270
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 2.5,-15.5
       parent: 1
     - type: ApcPowerReceiver
       powerLoad: 5
@@ -3030,62 +3047,46 @@ entities:
       rot: 3.141592653589793 rad
       pos: -3.5,-4.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 611
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 2.5,-4.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 612
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 4.5,-14.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 613
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 8.5,-18.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 614
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -5.5,-14.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 615
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -9.5,-18.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 616
     components:
     - type: Transform
       pos: -2.5,-27.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 617
     components:
     - type: Transform
       pos: 1.5,-27.5
       parent: 1
-    - type: Physics
-      canCollide: False
 - proto: KitchenElectricRange
   entities:
   - uid: 395
