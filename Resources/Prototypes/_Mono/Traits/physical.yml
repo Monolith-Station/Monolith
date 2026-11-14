@@ -7,19 +7,19 @@
   components:
   - type: PrybarProsthetics
 
-- type: trait
-  id: Vigor
-  name: trait-vigor-name
-  description: trait-vigor-desc
-  category: Physical
-  cost: 6
-  mutuallyExclusiveTraits:
-  - Lethargy
-  speciesBlacklist:
-  - Oni
-  - IPC
-  components:
-  - type: Vigor
+#- type: trait
+#  id: Vigor
+#  name: trait-vigor-name
+#  description: trait-vigor-desc
+#  category: Physical
+#  cost: 6
+#  mutuallyExclusiveTraits:
+#  - Lethargy
+#  speciesBlacklist:
+#  - Oni
+#  - IPC
+#  components:
+#  - type: Vigor
 
 - type: trait
   id: Lethargy
@@ -27,8 +27,6 @@
   description: trait-lethargy-desc
   category: Physical
   cost: -4
-  mutuallyExclusiveTraits:
-  - Vigor
   speciesBlacklist:
   - Felinid
   - Tajaran
@@ -44,26 +42,24 @@
   description: trait-glass-jaw-desc
   category: Physical
   cost: -2
-  mutuallyExclusiveTraits:
-  - Tenacity
   speciesBlacklist:
   - IPC
   components:
   - type: GlassJaw
 
-- type: trait
-  id: Tenacity
-  name: trait-tenacity-name
-  description: trait-tenacity-desc
-  category: Physical
-  cost: 1
-  mutuallyExclusiveTraits:
-  - GlassJaw
-  - OsteogenesisImperfecta
-  speciesBlacklist:
-  - IPC
-  components:
-  - type: Tenacity
+#- type: trait
+#  id: Tenacity
+#  name: trait-tenacity-name
+#  description: trait-tenacity-desc
+#  category: Physical
+#  cost: 1
+#  mutuallyExclusiveTraits:
+#  - GlassJaw
+#  - OsteogenesisImperfecta
+#  speciesBlacklist:
+#  - IPC
+#  components:
+#  - type: Tenacity
 
 - type: trait
   id: WillToLive
@@ -127,8 +123,6 @@
   description: trait-osteogenesis-imperfecta-desc
   category: Physical
   cost: -6
-  mutuallyExclusiveTraits:
-  - Tenacity
   speciesBlacklist:
   - IPC
   blacklist:
@@ -203,18 +197,18 @@
         "45": 0.70
         "65": 0.46
 
-- type: trait
-  id: TrapAvoider
-  name: trait-trap-avoider-name
-  description: trait-trap-avoider-desc
-  category: Physical
-  cost: 3
-  speciesBlacklist:
-    - Felinid
-    - Tajaran
-    - Harpy
-  components:
-    - type: TrapAvoider
+#- type: trait
+#  id: TrapAvoider
+#  name: trait-trap-avoider-name
+#  description: trait-trap-avoider-desc
+#  category: Physical
+#  cost: 3
+#  speciesBlacklist:
+#    - Felinid
+#    - Tajaran
+#    - Harpy
+#  components:
+#    - type: TrapAvoider
 
 - type: trait
   id: SelfAware
@@ -247,7 +241,7 @@
   name: trait-redshirt-name
   description: trait-redshirt-desc
   category: Physical
-  cost: -8
+  cost: -3
   mutuallyExclusiveTraits:
   - WillToLive
   speciesBlacklist:
@@ -291,23 +285,23 @@
       "70": 0.83
       "90": 0.70
 
-- type: trait
-  id: DermalArmor
-  name: trait-dermal-armor-name
-  description: trait-dermal-armor-desc
-  category: Physical
-  cost: 6
-  components:
-  - type: DamageProtectionBuff
-    modifiers:
-      dermal:
-        id: DermalArmorTrait
-        coefficients:
-          Shock: 1.25
-        flatReductions:
-          Blunt: 3.5
-          Slash: 3.5
-          Piercing: 3.5
+#- type: trait
+#  id: DermalArmor
+#  name: trait-dermal-armor-name
+#  description: trait-dermal-armor-desc
+#  category: Physical
+#  cost: 6
+#  components:
+#  - type: DamageProtectionBuff
+#    modifiers:
+#      dermal:
+#        id: DermalArmorTrait
+#        coefficients:
+#          Shock: 1.25
+#        flatReductions:
+#          Blunt: 3.5
+#          Slash: 3.5
+#          Piercing: 3.5
 
 - type: trait
   id: HardenedLymphocytes
@@ -333,7 +327,7 @@
   name: trait-ironman-name
   description: trait-ironman-desc
   category: Physical
-  cost: -5 # This shit was FREE for factions practically
+  cost: -2 # This shit was FREE for factions practically
   components:
   - type: Ironman
   traitGear: ShipVoucherFrontierIronMan
@@ -445,7 +439,7 @@
   name: trait-heretic-name
   description: trait-heretic-desc
   category: Physical
-  cost: 0 # no points because it's free points for members of the PDV and arguably TSF too.
+  cost: 0 # no points because it's free points during TSFthreat
   blacklist:
     components:
     - BorgChassis
