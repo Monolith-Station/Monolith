@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Numerics;
+using Content.Client._Mono.PlanetMap; // Mono
 using Content.Client._Mono.Radar;
 using Content.Client.Station; // Frontier
 using Content.Shared._Crescent.ShipShields;
@@ -37,6 +38,7 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
     private readonly SharedShuttleSystem _shuttles;
     private readonly SharedTransformSystem _transform;
     private readonly RadarBlipsSystem _blips;
+    private readonly PlanetTerrainSystem _planetTerrain; // Mono
 
     /// <summary>
     /// Used to transform all of the radar objects. Typically is a shuttle console parented to a grid.
@@ -71,6 +73,14 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
     public float MaximumIFFDistance { get; set; } = 3000f; // Frontier // Mono - 3000 by default to not gigaclutter
 
     private static Color _dockLabelColor = Color.White; // Frontier
+
+    // Mono - dimming again, left but unused
+    private static readonly PlanetDrawOptions RadarPlanetOptions = new(
+        PixelsPerTexel: 3f,
+        TerrainModulate: new Color(1.0f, 1.0f, 1.0f),
+        DrawStructures: true,
+        StructureColor: IFFComponent.IFFColor,
+        BorderColor: Color.Red.WithAlpha(0.6f));
 
     /// <summary>
     ///   If present, called for every IFF. Must determine if it should or should not be shown.
@@ -130,6 +140,7 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
         _transform = EntManager.System<SharedTransformSystem>();
         _station = EntManager.System<StationSystem>(); // Frontier
         _blips = EntManager.System<RadarBlipsSystem>();
+        _planetTerrain = EntManager.System<PlanetTerrainSystem>(); // Mono
 
         OnMouseEntered += HandleMouseEntered;
         OnMouseExited += HandleMouseExited;
@@ -597,6 +608,14 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
 
         DrawStarSystem(handle, worldToShuttle, shuttleToView, xform.MapUid); // Far Horizons
 
+        // Mono planet map terrain, including structures built on the planet grid, hopefully under everything else
+        var radarViewBox = PlanetTerrainSystem.GetViewBox(worldToView, PixelSize);
+        if (xform.MapUid is { } radarMapUid)
+        {
+            _planetTerrain.DrawUnderlay(handle, radarMapUid, worldToView, radarViewBox, mapPos.Position, MinimapScale,
+                RadarPlanetOptions, BackingColor);
+        }
+
         _grids.Clear();
         _mapManager.FindGridsIntersecting(xform.MapID, new Box2(mapPos.Position - MaxRadarRangeVector, mapPos.Position + MaxRadarRangeVector), ref _grids, approx: true, includeMap: false);
 
@@ -669,6 +688,8 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
         _visibleGridsSet.Clear();
 
         DrawGrids(_grids, handle, (ourGrid != null && ourGridId.HasValue) ? (ourGridId.Value, ourGrid) : null, false);
+
+        _planetTerrain.DrawMarkers(handle, xform.MapID, radarViewBox, worldToView, Font, UIScale); // Mono
 
         #region Mono
         // Draw radar line
