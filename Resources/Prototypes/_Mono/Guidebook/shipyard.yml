@@ -7,6 +7,7 @@
   - ShipyardNFROperation
   - ShipyardTakeaway
   - ShipyardMotleyAnne
+  - ShipyardEizirik
 
 - type: guideEntry
   id: ShipyardTakeaway
@@ -22,3 +23,8 @@
   id: ShipyardNFROperation
   name: guide-entry-shipyard-nfr
   text: "/ServerInfo/_Mono/Guidebook/Shipyard/NFRManual.xml"
+
+- type: guideEntry
+  id: ShipyardEizirik
+  name: guide-entry-shipyard-eizirik
+  text: "/ServerInfo/_Mono/Guidebook/Shipyard/Eizirik.xml"

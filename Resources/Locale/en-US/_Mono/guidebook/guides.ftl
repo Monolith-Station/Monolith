@@ -5,6 +5,7 @@ guide-entry-shipyard-sabine = Sabine
 guide-entry-shipyard-takeaway = Takeaway
 guide-entry-shipyard-ruby = Ruby
 guide-entry-shipyard-motley-anne = Motley Anne
+guide-entry-shipyard-eizirik = Eizirik
 guide-entry-shipyard-fenrir = Fenrir
 guide-entry-shipyard-nfr = INSFC NFR Operation Manual
 
