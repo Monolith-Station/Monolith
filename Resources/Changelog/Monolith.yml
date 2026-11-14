@@ -27155,3 +27155,12 @@ Entries:
   id: 2919
   time: '2026-11-14T23:34:44.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/5026
+- author: SuperGDPWYL
+  changes:
+    - type: Fix
+      message: Fixed TSF/PDV borg accesses.
+    - type: Fix
+      message: TSF borgs now have access to the TSFMil radio channel.
+  id: 2920
+  time: '2026-11-14T23:35:00.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5024
