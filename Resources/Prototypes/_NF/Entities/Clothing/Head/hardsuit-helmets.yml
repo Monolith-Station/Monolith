@@ -47,7 +47,25 @@
   - type: Tag
     tags:
     - PetWearable
-    
+  - type: ActionGrant
+    actions:
+    - ActionArmorAltInject
+  - type: ItemActionGrant
+    actions:
+    - ActionArmorAltInject
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 30
+  - type: RefillableSolution
+    solution: hypospray
+  - type: ExaminableSolution
+    solution: hypospray
+  - type: Hypospray
+    onlyAffectsMobs: false
+  - type: UseDelay
+    delay: 0.5
+
 #Pilot Hardsuit
 - type: entity
   parent: NFClothingHeadHardsuitWithLightBase
@@ -69,7 +87,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 #ERT Mail Carrier Hardsuit
 - type: entity
   parent: ClothingHeadHelmetHardsuitSyndie
@@ -87,7 +105,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 # MAXIM helmet, but with light
 - type: entity
   parent: [ ClothingHeadHelmetHardsuitMaxim, NFClothingHeadHardsuitWithLightBase ]
@@ -107,7 +125,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 #Tactical hardsuit Helmet
 - type: entity
   parent: NFClothingHeadHardsuitWithLightBase
@@ -133,7 +151,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: NFClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitPirateElite
@@ -160,4 +178,3 @@
   - type: Tag
     tags:
     - PetWearable
-    
