@@ -12,19 +12,20 @@
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.65
+    damageCoefficient: 0.40
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.45
+        Blunt: 0.40
+        Slash: 0.40
         Piercing: 0.40
-        Heat: 0.65
-        Radiation: 0.65
-        Caustic: 0.65
+        Heat: 0.40
+        Radiation: 0.40
+        Caustic: 0.40
+        Shock: 0.80
   - type: ClothingSpeedModifier
-    walkModifier: 0.85
-    sprintModifier: 0.825
+    walkModifier: 0.90
+    sprintModifier: 0.80
   - type: HeldSpeedModifier
   - type: ToggleableClothing # Goobstation - Modsuits change - Mono - this is a solution for helmet attachment/cover to not fit on hardsuits
     requiredSlot: outerclothing
@@ -35,7 +36,7 @@
       helmetcover: ClothingHeadHelmetCoverBlock
       helmetattachment: ClothingHeadHelmetAttachmentBlock
   - type: StaminaDamageResistance
-    coefficient: 0.55
+    coefficient: 0.40
 
 - type: entity
   parent: [ ClothingOuterHardsuitBaseNoPlateholder, MonoEnergyShieldClothing, BaseC3SyndicateContrabandT3 ]
