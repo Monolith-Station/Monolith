@@ -2,8 +2,8 @@
   id: Eizirik
   parent: BaseVesselIFFDisabled
   name: PDV-IED Eizirik
-  description: A deathtrap of a side-winding brawler-- what it lacks in life support systems, gravity, and general safety procedure it makes up for in cost effectivity. It is equipped with a forward ballistic suite of 2 AK570 40mm, 2 DRAVON 57mm, and 2 VESPERA missile swarms.
-  price: 51000
+  description: A deathtrap of a side-winding brawler-- what it lacks in life support systems and general safety procedure it makes up for in cost effectivity. It is equipped with a forward ballistic suite of 2 AK570 40mm, 2 DRAVON 57mm, and 2 VESPERA missile swarms.
+  price: 55000
   category: Small
   group: BlackMarket
   access: PDV
@@ -32,4 +32,3 @@
         - type: StationJobs
           availableJobs:
             Pirate: [ 0, 0 ]
-            PdvBorg: [ 0, 0 ]
