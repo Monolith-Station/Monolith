@@ -238,3 +238,30 @@
     Steel: 3000
     Plasteel: 2500
     Plastic: 700
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponRifleIchordT1
+  result: WeaponRifleIchordT1
+  categories:
+  - Rifles
+  - Ballistic
+  - Weapons
+  materials:
+    Steel: 3500
+    Plasteel: 2000
+    Plastic: 1200
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponRifleIchordT2
+  result: WeaponRifleIchordT2
+  categories:
+  - Rifles
+  - Ballistic
+  - Explosive
+  - Weapons
+  materials:
+    Steel: 1000
+    Plasteel: 3500
+    Plastic: 1200
