@@ -25,4 +25,4 @@ frontier-lobby-crocus-description = This is a map for the Crocus mode. You may h
 frontier-lobby-underground-subtext = A hideout harboring enemies of the Trans-Solarian Federation.
 frontier-lobby-underground-description = A hideout with its IFF disabled in the Outer Cloud, containing a medbay, manufactory and four UndergroundVends that serve as a direct link to a distant Persean black market.
 
-   - [color=red][bold]All roles on this station are actively wanted by the TSFMC and should expect to be killed on sight if discovered.[/bold][/color] That said, you get some pretty neat benefits from it.
+   - [color=red][bold]All roles on this station are actively wanted by the TSFMC and should expect to be killed on sight if discovered. Additionally, they have a chance (50%) to be marked as heretics by the Phaethon Dynasty Sultanate.[/bold][/color] That said, you get some pretty neat benefits from it.

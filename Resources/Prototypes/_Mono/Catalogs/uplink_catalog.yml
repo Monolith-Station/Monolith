@@ -118,15 +118,16 @@
   categories:
   - UplinkWearables
 
-- type: listing
-  id: UplinkDataChit50
-  name: uplink-data-chit-50-name
-  description: uplink-data-chit-50-desc
-  productEntity: Doubloon50
-  cost:
-    Telecrystal: 25
-  categories:
-  - UplinkDisruption
+# Removed as the Underground Black Market is no longer reliant on the PDV. Please do not re-add without a good reason.
+#- type: listing
+#  id: UplinkDataChit50
+#  name: uplink-data-chit-50-name
+#  description: uplink-data-chit-50-desc
+#  productEntity: Doubloon50
+#  cost:
+#    Telecrystal: 25
+#  categories:
+#  - UplinkDisruption
 
 - type: listing
   id: UplinkIffConsoleFlatpack
