@@ -68,10 +68,11 @@ public sealed partial class TeleportSystem : EntitySystem
                        specifier.TeleportSound,
                        specifier.TeleportAttempts,
                        specifier.AvoidSpace,
-                       specifier.ForceSafe);
+                       specifier.ForceSafe,
+                       specifier.ForceSpace); // Mono
     }
 
-    public void RandomTeleport(EntityUid uid, float minRadius, float radius, SoundSpecifier sound, int attempts, bool avoidSpace, bool forceSafe)
+    public void RandomTeleport(EntityUid uid, float minRadius, float radius, SoundSpecifier sound, int attempts, bool avoidSpace, bool forceSafe, bool ForceSpace) //bool ForceSpace - mono
     {
         // We need stop the user from being pulled so they don't just get "attached" with whoever is pulling them.
         // This can for example happen when the user is cuffed and being pulled.
@@ -102,6 +103,10 @@ public sealed partial class TeleportSystem : EntitySystem
                     continue;
                 break; // Mono - just go there if we aren't avoiding space
             }
+            else if (ForceSpace) //Mono Start
+            {
+                continue; // reroll to find space instead, we don't want to land on a grid if ForceSpace = true
+            } //Mono End
 
             // If attempts is specified, whatever's being teleported probably does not want to be in your walls
             var valid = true;

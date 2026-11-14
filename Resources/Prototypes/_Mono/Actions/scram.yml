@@ -28,3 +28,17 @@
       sprite: Structures/Specific/anomaly.rsi
       state: anom4
     event: !type:ScrammerScramEvent
+
+- type: entity
+  id: ActionSeatEject
+  name: Eject!
+  description: Activate your seat's ejection mechanism, randomly teleports you within a moderate distance.
+  components:
+  - type: InstantAction
+    useDelay: 60
+    itemIconStyle: BigAction
+    priority: -20
+    icon:
+      sprite: Structures/Specific/anomaly.rsi
+      state: anom4
+    event: !type:SeatEjectionEjectEvent
