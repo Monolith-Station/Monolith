@@ -181,32 +181,6 @@
     sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
     state: ball
 
-- type: entity
-  id: CannonBallGrapeshot
-  name: grapeshot
-  suffix: Rogue
-  parent: BaseCannonBall
-  components:
-  - type: CartridgeAmmo
-    proto: Pellet12_gaugeGrapeshotSpread
-    deleteOnSpawn: true
-  - type: Sprite
-    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
-    state: grapeshot
-
-- type: entity
-  id: CannonBallGlassshot
-  name: glassshot
-  suffix: Rogue
-  parent: BaseCannonBall
-  components:
-  - type: CartridgeAmmo
-    proto: Pellet12_gaugeGlassSpread
-    deleteOnSpawn: true
-  - type: Sprite
-    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
-    state: glassshot
-
 # Rockets
 
 - type: entity
@@ -231,20 +205,6 @@
     range: 6
     energyConsumption: 4500000
     disableDuration: 25
-
-# Cannon Balls
-- type: entity
-  id: CannonBallEmp
-  name: shockshot
-  suffix: EMP
-  parent: BaseCannonBall
-  components:
-  - type: CartridgeAmmo
-    proto: BulletCannonBallEmp
-    deleteOnSpawn: true
-  - type: Sprite
-    sprite: _NF/Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-    state: ball-emp
 
 # MPSSM
 

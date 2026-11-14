@@ -1439,76 +1439,6 @@
 ## PLAYER FACTIONS
 - type: entity
   parent: NFClothingOuterEVASuitBase
-  id: ClothingOuterEVASuitLvhi
-  name: LVHI EVA suit
-  description: An EVA suit with a built-in helmet commonly issued to Langstad-Voigt Heavy Industries (LVHI) personnel.
-  components:
-  - type: Sprite
-    sprite: _NF/Clothing/OuterClothing/Suits/eva_color.rsi
-    layers:
-      - state: equipped-base
-        color: "#283846"
-      - state: equipped-decals-01
-        color: "#e48545"
-      - state: equipped-reinforced-points
-        color: "#3e3e48"
-      - sprite: _NF/Clothing/OuterClothing/Armor/bulletproof_vest_procedural.rsi
-        state: decor_base_OuterClothing_armor_06
-        color: "#e48545"
-      - state: equipped-breathing-gear
-      - state: equipped-unshaded
-        shader: unshaded
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left-base
-        color: "#283846"
-      - state: inhand-left-decals-01
-        color: "#e48545"
-      - state: inhand-left-reinforced-points
-        color: "#3e3e48"
-      - state: inhand-left-breathing-gear
-      - state: inhand-left-unshaded
-        shader: unshaded
-      right:
-      - state: inhand-right-base
-        color: "#283846"
-      - state: inhand-right-decals-01
-        color: "#e48545"
-      - state: inhand-right-reinforced-points
-        color: "#3e3e48"
-      - state: inhand-right-breathing-gear
-      - state: inhand-right-unshaded
-        shader: unshaded
-  - type: Clothing
-    sprite: _NF/Clothing/OuterClothing/Suits/eva_color.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-base
-        color: "#283846"
-      - state: equipped-decals-01
-        color: "#e48545"
-      - state: equipped-reinforced-points
-        color: "#3e3e48"
-      - sprite: _NF/Clothing/OuterClothing/Armor/bulletproof_vest_procedural.rsi
-        state: decor_base_OuterClothing_armor_06
-        color: "#e48545"
-      - state: equipped-breathing-gear
-      - state: equipped-unshaded
-        shader: unshaded
-  - type: ToggleableClothing
-    clothingPrototypes:
-      head:  ClothingHeadEVAHelmetLvhi
-  - type: Armor
-    modifiers:
-      coefficients: # Mono
-        Blunt: 0.95
-        Slash: 0.95
-        Piercing: 0.95
-
-
-- type: entity
-  parent: NFClothingOuterEVASuitBase
   id: ClothingOuterEVASuitArcadia
   name: arcadia EVA suit
   description: An EVA suit with a built-in helmet commonly issued to Arcadia Industries personnel.
@@ -1581,31 +1511,4 @@
         Blunt: 0.95
         Slash: 0.95
         Piercing: 0.95
-
-
-#FSB suit
-
-- type: entity
-  parent: NFClothingOuterEVASuitBase
-  id: ClothingOuterEVASuitFsb
-  name: FSB EVA suit
-  description: The standard issue EVA suit for Far Star Biotech corporation vessels. It comes with two cupholders.
-  components:
-  - type: Tag
-    tags:
-    - SuitEVA
-    - WhitelistChameleon
-  - type: Sprite
-    sprite: _NF/Clothing/OuterClothing/Suits/fsb_voidsuit.rsi
-  - type: Clothing
-    sprite: _NF/Clothing/OuterClothing/Suits/fsb_voidsuit.rsi
-  - type: Armor
-    modifiers:
-      coefficients: # Mono
-        Blunt: 0.95
-        Slash: 0.95
-        Piercing: 0.95
-  - type: ToggleableClothing
-    clothingPrototypes:
-      head:  ClothingHeadHelmetHardsuitFSB
-    slot: head
+        
