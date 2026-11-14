@@ -261,3 +261,13 @@
   - !type:BuyerJobCondition
       whitelist:
       - Godfather
+
+- type: listing
+  id: UplinkOrganNENvgEyes
+  name: uplink-organ-nosske-eien-nvgeyes-name
+  description: uplink-organ-nosske-eien-nvgeyes-desc
+  productEntity: AutosurgeonEienNvgEyesUndergroundFlatpack
+  cost:
+    Telecrystal: 25 # I'm basing this off of the fact that while improved compared to standard NVGs, well, nearly every hardsuit has them + EMP vulnerability. Also the extremely good EMP implant is 10 or so TCs.
+  categories:
+  - UplinkImplants # close enough.
