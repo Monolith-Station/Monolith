@@ -142,6 +142,16 @@
   - type: Appearance
   - type: PirateBountyItem # Frontier
     id: AKM # Frontier
+  - type: MeleeWeapon # Mono , used as a workaround to the fact bayonets are not yet possible with the attachment system
+    attackRate: 1.15 # A bit slower than just using a combat knife.
+    damage:
+      types:
+        Slash: 22
+    angle: 20
+    wideAnimationRotation: -80
+    animation: WeaponArcSlash
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
 
 # Mono - moved Lecter to _Mono
 
