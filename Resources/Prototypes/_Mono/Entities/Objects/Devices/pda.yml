@@ -1,7 +1,7 @@
 - type: entity
   parent: BasePDA
   id: BaseUSSPPDA
-  description: A basic personal computer for access restriction and organization, manufactured in the USSP.
+  description: An ancient and basic personal computer for access restriction and organization. Somehow still operational.
   abstract: true
   components:
   - type: Pda
@@ -32,7 +32,7 @@
 - type: entity
   parent: BaseUSSPPDA
   id: USSPRiflemanPDA
-  name: USSP rifleman PDA
+  name: ancient PDA
   components:
   - type: Pda
     id: USSPRiflemanIDCard

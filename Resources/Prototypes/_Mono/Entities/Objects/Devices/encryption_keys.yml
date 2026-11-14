@@ -1,8 +1,8 @@
 - type: entity
   parent: EncryptionKey
   id: EncryptionKeyUssp
-  name: USSP encryption key
-  description: An encryption key for the USSP tactical-level communications channel.
+  name: ancient encryption key
+  description: An encryption key for an old tactical-level communications channel.
   components:
   - type: EncryptionKey
     channels:
@@ -14,24 +14,6 @@
     sprite: Objects/Devices/encryption_keys.rsi
     layers:
     - state: crypt_rusted
-    - state: sec_label
-
-- type: entity
-  parent: EncryptionKey
-  id: EncryptionKeyUsspCommand
-  name: USSP command encryption key
-  description: An encryption key for the USSP command channel. Due to USSP higher-level networking being defunct, it instead provides access to tactical command.
-  components:
-  - type: EncryptionKey
-    channels:
-    - Ussp
-    defaultChannel: Ussp
-  - type: Item
-    sprite: Objects/Devices/encryption_keys.rsi
-  - type: Sprite
-    sprite: Objects/Devices/encryption_keys.rsi
-    layers:
-    - state: crypt_blue
     - state: sec_label
 
 - type: entity

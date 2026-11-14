@@ -1,5 +1,5 @@
-marking-TattooNanotrasenChest-tattoo_nanotrasen_chest = Chest Tattoo (Nanotrasen)
-marking-TattooNanotrasenChest = Chest Tattoo (Nanotrasen)
+marking-TattooNanotrasenChest-tattoo_nanotrasen_chest = Chest Tattoo (Ancient)
+marking-TattooNanotrasenChest = Chest Tattoo (Ancient)
 
 marking-ArmDollJointsTattooLeft-l_arm_doll = Doll Joints Arm Tattoo (Left)
 marking-ArmDollJointsTattooLeft = Doll Joints Arm Tattoo (Left)

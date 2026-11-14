@@ -56,7 +56,7 @@
   name: minigun
   id: WeaponMinigun
   parent: BaseWeaponHeavyMachineGun
-  description: Vzzzzzt! Rahrahrahrah! Vrrrrr! Uses .10 rifle ammo. Illegal for use in the Frontier sector. # Frontier: edit description
+  description: Vzzzzzt! Rahrahrahrah! Vrrrrr! Uses .10 rifle ammo. # Frontier: edit description
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/HMGs/minigun.rsi

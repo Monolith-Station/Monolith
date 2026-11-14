@@ -1,7 +1,7 @@
 <Document>
   # Ship Warfare
 
-Warfare on the frontier is usually done via the means of [color=orange]ship gunnery[/color].
+Naval warfare in the Colossus Sector is usually done via the means of [color=orange]ship gunnery[/color].
 
   <Box>
     <GuideEntityEmbed Entity="WeaponTurretL85Autocannon"/>
@@ -14,10 +14,10 @@ There are 3 types of ship weaponry available:
  - [color=GreenYellow]Missiles[/color], which are all guided munitions. It explains itself.
 
 Ship weapons all need a [color=orange]gunnery control console[/color] and a [color=slateblue]gunnery control server[/color] to function. They will be abbreviated to [color=orange]GCC[/color] and [color=slateblue]GCS[/color] in most instances.
- - [color=gold]Ballistics[/color] and [color=GreenYellow]Missiles[/color] also require ammunition.
+ - [color=GreenYellow]Missiles[/color] also require ammunition.
  - Ammunition can be [color=red]very volatile[/color] if damaged.
 
-Ship weapons only fire if they are selected and if your cursor on the [color=orange]GCC[/color] is in the FOV of the turret.
+Ship weapons only fire if they are selected and if your cursor on the [color=orange]GCC[/color] is in the FOV of the turret. [bold][color=red]If you are controlling the gunnery of a station, such as TSFMC Halcyon, PDV Helios or MMC Hokkaido, your gunnery WILL fire at and destroy docked ships. Exercise extreme caution.[/bold][/color]
 
   <Box>
     <GuideEntityEmbed Entity="ShipMissileASM150"/>

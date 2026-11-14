@@ -2,7 +2,7 @@
   id: GaryTranslator
   parent: [ TranslatorPoweredBase ]
   name: gary translator
-  description: Translates speech between Gary and Andromeda Standard. Haha, Gary!
+  description: Translates speech between Gary and Orion Standard. Haha, Gary!
   components:
   - type: HandheldTranslator
     spoken:
@@ -19,7 +19,7 @@
   id: NovaCygniTranslator
   parent: [ TranslatorPoweredBase ]
   name: Nova Cygni translator
-  description: Translates speech between Nova Cygni and Andromeda Standard. You probably already know the word for comrade.
+  description: Translates speech between Sputnik Basic and Orion Standard. You probably already know the word for comrade.
   components:
   - type: HandheldTranslator
     spoken:

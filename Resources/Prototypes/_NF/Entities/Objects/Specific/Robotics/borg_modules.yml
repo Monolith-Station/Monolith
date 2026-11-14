@@ -71,7 +71,7 @@
 - type: entity # Mono
   id: BorgModuleJetpackADM
   parent: BorgModuleJetpack
-  name: pre-fracture jetpack cyborg module
+  name: advanced jetpack cyborg module
   components:
   - type: DroppableBorgModule
     moduleId: NFJetpack
