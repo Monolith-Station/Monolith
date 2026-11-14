@@ -1,0 +1,47 @@
+- type: loadout
+  id: MAWCInitiatePDA
+  equipment:
+    id: MAWCInitiatePDA
+
+- type: loadoutGroup
+  id: MAWCInitiatePDA
+  name: loadout-group-contractor-id
+  hidden: true
+  loadouts: [MAWCInitiatePDA]
+  fallbacks: [MAWCInitiatePDA]
+
+- type: loadout
+  id: MAWCCarpenterPDA
+  equipment:
+    id: MAWCCarpenterPDA
+
+- type: loadoutGroup
+  id: MAWCCarpenterPDA
+  name: loadout-group-contractor-id
+  hidden: true
+  loadouts: [MAWCCarpenterPDA]
+  fallbacks: [MAWCCarpenterPDA]
+
+- type: loadout
+  id: MAWCAcolytePDA
+  equipment:
+    id: MAWCAcolytePDA
+
+- type: loadoutGroup
+  id: MAWCAcolytePDA
+  name: loadout-group-contractor-id
+  hidden: true
+  loadouts: [MAWCAcolytePDA]
+  fallbacks: [MAWCAcolytePDA]
+
+- type: loadout
+  id: MAWCSeraphPDA
+  equipment:
+    id: MAWCSeraphPDA
+
+- type: loadoutGroup
+  id: MAWCSeraphPDA
+  name: loadout-group-contractor-id
+  hidden: true
+  loadouts: [MAWCSeraphPDA]
+  fallbacks: [MAWCSeraphPDA]

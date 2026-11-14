@@ -112,3 +112,14 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsGodfather ]
+
+# MAWC
+
+- type: entity
+  parent: AirlockGlass
+  id: AirlockGlassMawc
+  suffix: MAWC lower nexus, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMawcLow ]

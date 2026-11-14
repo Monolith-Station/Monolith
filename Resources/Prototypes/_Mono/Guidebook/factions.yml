@@ -10,6 +10,7 @@
   - USSP_Entry
   - Viper_Group
   - MMC
+  - MAWC_Entry
 
 - type: guideEntry
   id: TSFMC_Entry
@@ -111,3 +112,80 @@
   name: Caelestinus
   text: "/ServerInfo/_Mono/Guidebook/Factions/caelestinus.xml"
   priority: 4
+
+# MAWC stuff
+
+- type: guideEntry
+  id: MAWC_Entry
+  name: MAWC
+  text: "/ServerInfo/_Mono/Guidebook/Factions/MAWC.xml"
+  priority: 13 # In 2125, I was on a mining colony...
+  children:
+  - MAWC_Org
+  - MAWC_Economy
+  - MAWC_Promotion_Ceremony
+  - MAWC_Aerumna
+
+- type: guideEntry
+  id: MAWC_Economy
+  name: Economy
+  text: "/ServerInfo/_Mono/Guidebook/Factions/MAWC_Economy.xml"
+  priority: 1
+
+- type: guideEntry
+  id: MAWC_Org
+  name: Organisation
+  text: "/ServerInfo/_Mono/Guidebook/Factions/MAWC_Org.xml"
+  priority: 2
+
+- type: guideEntry
+  id: MAWC_Promotion_Ceremony
+  name: Promotion Ceremony
+  text: "/ServerInfo/_Mono/Guidebook/Factions/MAWC_Promotion_Ceremony.xml"
+  priority: 3
+
+- type: guideEntry
+  id: MAWC_Aerumna
+  name: ERROR
+  text: "/ServerInfo/_Mono/Guidebook/Factions/MAWC_Aerumna.xml"
+  priority: 4
+
+- type: entity
+  parent: PosterBase
+  id: GuidebookMawcInitiate
+  name: Initiate
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Mono/Guidebook/small_icons/MAWC/30x34.rsi
+    state: guidebook_init
+
+- type: entity
+  parent: PosterBase
+  id: GuidebookMawcCarpenter
+  name: Carpenter
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Mono/Guidebook/small_icons/MAWC/30x34.rsi
+    state: guidebook_carp
+
+- type: entity
+  parent: PosterBase
+  id: GuidebookMawcAcolyte
+  name: Acolyte
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Mono/Guidebook/small_icons/MAWC/28x34.rsi
+    state: guidebook_acolyte
+
+- type: entity
+  parent: PosterBase
+  id: GuidebookMawcSeraph
+  name: Seraph
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Mono/Guidebook/small_icons/MAWC/28x34.rsi
+    state: guidebook_seraph

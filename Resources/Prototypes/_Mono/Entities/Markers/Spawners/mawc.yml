@@ -1,0 +1,47 @@
+- type: entity
+  id: SpawnPointMAWCInitiate
+  parent: SpawnPointJobBase
+  name: MAWC Initiate
+  components:
+  - type: SpawnPoint
+    job_id: MAWCInitiate
+  - type: Sprite
+    sprite: _NF/Markers/jobs.rsi
+    layers:
+    - state: green
+
+- type: entity
+  id: SpawnPointMAWCCarpenter
+  parent: SpawnPointJobBase
+  name: MAWC Carpenter
+  components:
+  - type: SpawnPoint
+    job_id: MAWCCarpenter
+  - type: Sprite
+    sprite: _NF/Markers/jobs.rsi
+    layers:
+    - state: green
+
+- type: entity
+  id: SpawnPointMAWCAcolyte
+  parent: SpawnPointJobBase
+  name: MAWC Acolyte
+  components:
+  - type: SpawnPoint
+    job_id: MAWCAcolyte
+  - type: Sprite
+    sprite: _NF/Markers/jobs.rsi
+    layers:
+    - state: green
+
+- type: entity
+  id: SpawnPointMAWCSeraph
+  parent: SpawnPointJobBase
+  name: MAWC Seraph
+  components:
+  - type: SpawnPoint
+    job_id: MAWCSeraph
+  - type: Sprite
+    sprite: _NF/Markers/jobs.rsi
+    layers:
+    - state: green

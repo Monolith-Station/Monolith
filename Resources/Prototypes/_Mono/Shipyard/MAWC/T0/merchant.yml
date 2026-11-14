@@ -1,0 +1,39 @@
+- type: vessel
+  id: Merchant
+  parent: BaseVessel
+  name: MAWC Merchant
+  description: A De-militarized merchant, with much of its heavy armor, advanced systems and complicated machines gutted in favor of being cheaply mass producible and having a large cargo capacity. Comes with some engineering accommodations, and a store on its leftside!
+  price: 248600 # 226K * 1.1~
+#  purchasable: false # T0
+  category: Small
+  group: Mawc
+  access: MAWC
+  shuttlePath: /SharedMaps/_Mono/Shuttles/MAWC/merchant.yml
+  guidebookPage: Null
+  class:
+  - Cargo
+  engine:
+  - AME
+
+- type: gameMap
+  id: Merchant
+  mapName: 'MAWC Merchant'
+  mapPath: /SharedMaps/_Mono/Shuttles/MAWC/merchant.yml
+  minPlayers: 0
+  stations:
+    Merchant:
+      stationProto: StandardFrontierVessel
+      gridComponents:
+      - type: VesselInfo
+        description: "The shopkeeper looked down at the aspiring paladin, smiling. ''I was once a great warrior like you! Until an arrow hit me in the knee! Now I run a lonely little store.''"
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Merchant MAWC{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            MAWCInitiate: [ 0, 0 ]
+            MAWCCarpenter: [ 0, 0 ]
+            MAWCAcolyte: [ 0, 0 ]

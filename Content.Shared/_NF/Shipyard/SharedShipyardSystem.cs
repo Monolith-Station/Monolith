@@ -21,6 +21,7 @@ public enum ShipyardConsoleUiKey : byte
     Medical,
     // Mono start
     Ussp,
+    Mawc,
     SHM,
     Mieyo,
     DrakeIndustries,
