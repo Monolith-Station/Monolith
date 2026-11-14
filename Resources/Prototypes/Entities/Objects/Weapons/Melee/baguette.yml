@@ -3,6 +3,7 @@
   id: WeaponBaguette
   suffix: Weapon
   components:
+  - type: LightWeapon # Mono - dual wielding
   - type: MeleeWeapon
     attackRate: 1.4
     wideAnimationRotation: -120

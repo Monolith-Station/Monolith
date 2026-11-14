@@ -205,6 +205,22 @@ public abstract partial class SharedHandsSystem
         }
     }
 
+    // Mono - dual wielding
+    /// <summary>
+    ///     Enumerate over hand names in stable index order, ignoring which one is currently active.
+    /// </summary>
+    public IEnumerable<string> EnumerateSortedHands(EntityUid uid, HandsComponent? handsComp = null)
+    {
+        if (!Resolve(uid, ref handsComp, false))
+            yield break;
+
+        foreach (var name in handsComp.SortedHands)
+        {
+            yield return name;
+        }
+    }
+    // End Mono
+
     /// <summary>
     ///     Enumerate over held items, starting with the item in the currently active hand (if there is one).
     /// </summary>

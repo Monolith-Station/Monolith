@@ -1,5 +1,7 @@
+using System.Diagnostics.CodeAnalysis; // Mono - dual wielding
 using System.Linq;
 using Content.Client.Gameplay;
+using Content.Shared._Mono.DualWield; // Mono - dual wielding
 using Content.Shared._White.Blink;
 using Content.Shared.CombatMode;
 using Content.Shared.Effects;
@@ -33,6 +35,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
     [Dependency] private SharedColorFlashEffectSystem _color = default!;
     [Dependency] private MapSystem _map = default!;
     [Dependency] private TransformSystem _transform = default!; // Goobstation
+    [Dependency] private SharedDualWieldSystem _dualWield = default!; // Mono - dual wielding
 
     private EntityQuery<TransformComponent> _xformQuery;
 
@@ -65,6 +68,14 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
             return;
 
         var entity = entityNull.Value;
+
+        // Mono - dual wielding
+        if (TryComp<DualWieldComponent>(entity, out var dualWield))
+        {
+            UpdateDualWield((entity, dualWield));
+            return;
+        }
+        // End Mono
 
         // Mono - add user override
         if (!TryGetWeapon(entity, out var weaponUid, out var weapon, out var userOverride))
@@ -253,6 +264,86 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
     /// Raises a heavy attack event with the relevant attacked entities.
     /// This is to avoid lag effecting the client's perspective too much.
     /// </summary>
+    // Mono - dual wielding
+    /// <summary>
+    /// While dual-wielding, each hand gets its own mouse button and only ever does the wide swing.
+    /// Guns in either hand are left to GunSystem.
+    /// </summary>
+    private void UpdateDualWield(Entity<DualWieldComponent> entity)
+    {
+        if (!CombatMode.IsInCombatMode(entity))
+        {
+            StopDualAttack(entity, true);
+            StopDualAttack(entity, false);
+            return;
+        }
+
+        var mousePos = _eyeManager.PixelToMap(_inputManager.MouseScreenPosition);
+
+        if (mousePos.MapId == MapId.Nullspace)
+            return;
+
+        EntityCoordinates coordinates;
+
+        if (MapManager.TryFindGridAt(mousePos, out var gridUid, out _))
+            coordinates = TransformSystem.ToCoordinates(gridUid, mousePos);
+        else
+            coordinates = TransformSystem.ToCoordinates(_map.GetMap(mousePos.MapId), mousePos);
+
+        TryDualAttack(entity, true, coordinates);
+        TryDualAttack(entity, false, coordinates);
+    }
+
+    private void TryDualAttack(Entity<DualWieldComponent> entity, bool left, EntityCoordinates coordinates)
+    {
+        if (!TryGetDualMelee(entity, left, out var weaponUid, out var weapon))
+            return;
+
+        var key = left ? EngineKeyFunctions.Use : EngineKeyFunctions.UseSecondary;
+        var down = _inputSystem.CmdStates.GetState(key) == BoundKeyState.Down;
+
+        if (weapon.AutoAttack || !down)
+        {
+            if (weapon.Attacking)
+                RaisePredictiveEvent(new StopAttackEvent(GetNetEntity(weaponUid)));
+        }
+
+        if (!down || weapon.Attacking || weapon.NextAttack > Timing.CurTime)
+            return;
+
+        if (!Blocker.CanAttack(entity, weapon: (weaponUid, weapon)))
+            return;
+
+        ClientHeavyAttack(entity, coordinates, weaponUid, weapon);
+    }
+
+    private void StopDualAttack(Entity<DualWieldComponent> entity, bool left)
+    {
+        if (TryGetDualMelee(entity, left, out _, out var weapon))
+            weapon.Attacking = false;
+    }
+
+    private bool TryGetDualMelee(Entity<DualWieldComponent> entity, bool left, out EntityUid weaponUid, [NotNullWhen(true)] out MeleeWeaponComponent? weapon)
+    {
+        weaponUid = default;
+        weapon = null;
+
+        if (!_dualWield.TryGetDualWeapon((entity.Owner, entity.Comp), left, out var held))
+            return false;
+
+        // Guns are driven by GunSystem, even ones that also have a melee component.
+        if (HasComp<GunComponent>(held))
+            return false;
+
+        // The server rejects wide swings from weapons that can't do them, so don't bother asking.
+        if (!TryComp(held, out weapon) || weapon.MustBeEquippedToUse || !weapon.CanWideSwing)
+            return false;
+
+        weaponUid = held;
+        return true;
+    }
+    // End Mono
+
     private void ClientHeavyAttack(EntityUid user, EntityCoordinates coordinates, EntityUid meleeUid, MeleeWeaponComponent component)
     {
         // Only run on first prediction to avoid the potential raycast entities changing.
