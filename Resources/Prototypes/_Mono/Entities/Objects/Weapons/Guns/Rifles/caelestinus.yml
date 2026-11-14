@@ -1,0 +1,251 @@
+- type: entity
+  name: HWL FG.J "Iroh" (5.56x45mm)
+  parent: BaseWeaponRifle
+  id: WeaponRifleIroh
+  description: A premium, finely-tuned rifle. Accurate and fast-firing, this bastion of independence is the pride and joy of Caelestinus. Outfitted with Erebus rails on the handguard and carryhandle, and a threaded barrel for attachments.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/prometheus_a3.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+    - map: ["gripAttachment"]
+    - map: ["barrelAttachment"]
+      offset: 0.21870, 0 # Reduce by 0.0005 to prevent gaps
+    - map: ["opticAttachment"]
+  - type: GunWieldBonus
+    minAngle: -21
+    maxAngle: -47
+  - type: Gun
+    minAngle: 21
+    maxAngle: 58
+    angleIncrease: 1.5
+    angleDecay: 20
+    fireRate: 8.4
+    selectedMode: FullAuto
+    damageModifier: 1.1 # Brings it up to 212DPS. Meant to be equivalent to M-90 and Dragonfang faction-wise, and I'm not interested in introducing another Battle Rifle That Makes The T2 AR Obsolete. Nerf this to Annie/WSPR level if M-90/Dragonfang get nerfed.
+    availableModes:
+    - SemiAuto
+    - FullAuto
+    - Burst
+    burstCooldown: 0.35 # equivalent to 8.5rps on full-auto.
+    burstFireRate: 12
+    shotsPerBurst: 3
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/vector_fire.ogg
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: Magazine556x45mmFMJ
+        insertSound: /Audio/_Mono/Weapons/Guns/SmallArms/MagIn/m16_magin.ogg
+        ejectSound: /Audio/_Mono/Weapons/Guns/SmallArms/MagOut/skm_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - Magazine556x45mmFMJ
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: Cartridge556x45mmFMJ
+        priority: 1
+        whitelist:
+          tags:
+          - Cartridge556x45mmFMJ
+      attachment_grip:
+        priority: 0
+        insertSound: /Audio/Items/screwdriver2.ogg
+        ejectSound: /Audio/Items/screwdriver2.ogg
+        whitelist:
+          tags:
+          - MonoGripErebusRailmount
+      attachment_barrel:
+        insertSound: /Audio/Items/screwdriver.ogg
+        ejectSound: /Audio/Items/screwdriver.ogg
+        priority: 0
+        whitelist:
+          tags:
+          - MonoSuppressorMulticalRifle
+      attachment_optic:
+        insertSound: /Audio/Items/screwdriver2.ogg
+        ejectSound: /Audio/Items/screwdriver2.ogg
+        priority: 0
+        whitelist:
+          tags:
+          - MonoOpticErebusRailmount
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      attachment_grip: !type:ContainerSlot
+      attachment_barrel: !type:ContainerSlot
+      attachment_optic: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/prometheus_a3_inhands_32x.rsi
+  - type: Item
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/prometheus_a3_inhands_32x.rsi
+  - type: StaticPrice
+    price: 2400
+  - type: ESAttachableGun
+    slots:
+    - name: es-gun-attachments-slot-name-barrel
+      containerId: attachment_barrel
+      whitelist:
+        tags:
+        - MonoSuppressorMulticalRifle
+    - name: es-gun-attachments-slot-name-grip
+      containerId: attachment_grip
+      whitelist:
+        tags:
+        - MonoGripErebusRailmount
+    - name: es-gun-attachments-slot-name-optic
+      containerId: attachment_optic
+      whitelist:
+        tags:
+        - MonoOpticErebusRailmount
+  - type: ActivatableUI
+    key: enum.ESAttachableGunUiKey.Key
+    verbOnly: true
+    verbText: es-gun-attachments-verb-text
+  - type: UserInterface
+    interfaces:
+      enum.ESAttachableGunUiKey.Key:
+        type: ESGunAttachmentBui
+  - type: ESItemMapper
+    mappings:
+      gripAttachment:
+      - containerId: attachment_grip
+        state: grip
+        whitelist:
+          tags:
+          - MonoGripVFG
+      - containerId: attachment_grip
+        state: lam
+        whitelist:
+          tags:
+          - MonoGripLAM
+      - containerId: attachment_grip
+        state: light
+        whitelist:
+          tags:
+          - MonoGripLight
+      barrelAttachment:
+      - containerId: attachment_barrel
+        state: suppressed
+        whitelist:
+          tags:
+          - MonoSuppressor
+      opticAttachment:
+      - containerId: attachment_optic
+        state: optic2x
+        whitelist:
+          tags:
+          - MonoOptic2x
+      - containerId: attachment_optic
+        state: optic4x
+        whitelist:
+          tags:
+          - MonoOptic4x
+      - containerId: attachment_optic
+        state: optic8x
+        whitelist:
+          tags:
+          - MonoOptic8x
+
+- type: entity
+  name: CS CAWS-25 "Jackdaw" (6.35x40mm)
+  parent: [BaseWeaponRifle, BaseGunWieldable]
+  id: WeaponRifleJackdaw
+  description: For anything standing in the way of Caelestinus' hopes and dreams, the beginning of the end is heralded by the song of a Jackdaw. Unloads an entire magazine of 6.35x40mm caseless at an alarming rate when the trigger is even as much as lightly tapped. Crystalline-looking iron sights provide heavy magnification when aiming down sights. Don't drop it.
+  components:
+  - type: Item
+    size: Large
+  - type: HeldSpeedModifier # balancing reasons more than anything
+    sprintModifier: 0.9
+    walkModifier: 0.9
+  - type: WieldDelay # adds a notable downside to running out of ammo with this gun. we need something to counteract the 286dps.
+    baseDelay: 2.2
+    modifiedDelay: 2.2
+    preventFiring: true
+  - type: Sprite
+    sprite: _DV/Objects/Weapons/Guns/Rifles/jackdaw.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: WieldedCrosshair
+    rsi:
+      sprite: _RMC14/Interface/MousePointer/rifle_mouse.rsi # rifle crosshair
+      state: all
+  - type: Gun
+    minAngle: 22
+    maxAngle: 36
+    angleIncrease: 1
+    angleDecay: 8
+    fireRate: 13 # 286 DPS, but don't pull the trigger too early
+    burstFireRate: 13
+    projectileSpeed: 55 # Mono
+    shotsPerBurst: 100 # you WILL fire the entire mag.
+    selectedMode: Burst
+    availableModes:
+    - Burst
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/silenced.ogg
+      params:
+        volume: -1
+  - type: ChamberMagazineAmmoProvider
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: Magazine635x40mmCaseless
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - Magazine635x40mmCaseless
+        whitelistFailPopup: gun-magazine-whitelist-fail
+        lockedFailPopup: gun-magazine-locked-burst
+      gun_chamber:
+        name: Chamber
+        startingItem: Cartridge635x40mmCaseless
+        priority: 1
+        whitelist:
+          tags:
+            - Cartridge635x40mmCaseless
+        lockedFailPopup: gun-chamber-locked-burst
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: Clothing
+    sprite: _DV/Objects/Weapons/Guns/Rifles/jackdaw.rsi
+  - type: CursorOffsetRequiresWield # give it an inbuilt scope as it's the caelestinus specops gun
+  - type: EyeCursorOffset
+    maxOffset: 8
+    pvsIncrease: 1.2
+  - type: GunLockMagazineDuringBurst # would let you avert the entire gimmick.
+  - type: GunDropOnUnwieldDuringBurst # probably some way to abuse unwielding it to shoot two guns at once
+  - type: GunToggleClothingDuringBurst # DEFINITELY a way to abuse wearing it to shoot two guns at once
+  - type: ExtendDescription
+    descriptionList: 
+    - description: Having this gun unwielded while it is firing will cause it to fly out of your hands uncontrollably. Exercise extreme caution.
+      color: "#b81d1d"
+      requireDetailRange: true

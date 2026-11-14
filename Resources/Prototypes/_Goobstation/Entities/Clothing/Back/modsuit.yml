@@ -110,8 +110,8 @@
 - type: entity
   parent: ClothingModsuitBase
   id: ClothingModsuitSecurity
-  name: judge's soldat hardsuit control unit
-  description: A robust modular hardsuit control module unit for thrashing pirates in spess.
+  name: MD-MOD CDW-20 "Soldat" hardsuit control unit # Mono
+  description: A robust MODsuit worn by the judges of Caelestinus, equipped with 12 gauge knuckle-dusters. # Mono
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Back/Modsuits/security.rsi
@@ -176,8 +176,8 @@
 - type: entity
   parent: ClothingModsuitBase
   id: ClothingModsuitHeadOfSecurity
-  name: overseer's bulwark hardsuit control unit
-  description: A robust modular HARDERsuit control module unit for the overseer.
+  name: MD-MOD CDW-50 "Bulwark" hardsuit control unit # Mono
+  description: The pinnacle of Caelestinus' MODsuit development program, the Bulwark is equipped with 4 gauge knuckle-dusters for blowing a hole right through whatever stands between Caelestinus and independence. # Mono
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Back/Modsuits/headofsecurity.rsi
