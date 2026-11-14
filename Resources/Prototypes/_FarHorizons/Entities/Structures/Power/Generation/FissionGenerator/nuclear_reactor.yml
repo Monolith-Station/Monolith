@@ -164,6 +164,9 @@
     - NuclearReactor
     - Power
 
+  - type: PacketNetwork # KS14
+    frequency: PowerFrequency
+
 - type: entity
   id: NuclearReactorNormal
   parent: NuclearReactorCrew

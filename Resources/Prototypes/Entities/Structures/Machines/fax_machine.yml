@@ -77,6 +77,8 @@
     receiveFrequencyId: Fax
     transmitFrequencyId: Fax
   - type: RequireProjectileTarget
+  - type: PacketNetwork # KS14
+    frequency: TransmissionFrequency
   # Mono
   - type: ShipRepairable
     repairTime: 2

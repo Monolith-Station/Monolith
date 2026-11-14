@@ -72,6 +72,8 @@
   - type: ShipRepairable # Mono
     repairTime: 1
     repairCost: 10
+  - type: PacketNetwork # KS14
+    frequency: ConveyorFrequency
 
 - type: entity
   id: ConveyorBeltAssembly
