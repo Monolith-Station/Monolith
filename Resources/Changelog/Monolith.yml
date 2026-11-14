@@ -27099,3 +27099,16 @@ Entries:
   id: 2915
   time: '2026-11-14T12:06:48.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/5021
+- author: SuperGDPWYL
+  changes:
+    - type: Remove
+      message: >-
+        Removed combat traits, including Trap Avoider, Dermal Armor, Tenacity
+        and Vigor.
+    - type: Tweak
+      message: Redshirt now gives 3 points (was 8). Ironman now gives 2 points (was 5).
+    - type: Tweak
+      message: Added a warning about EMPs to Bionic Legs and Prybar Prosthetics
+  id: 2916
+  time: '2026-11-14T14:19:39.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5023
