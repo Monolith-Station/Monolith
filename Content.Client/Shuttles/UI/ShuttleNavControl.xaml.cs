@@ -67,6 +67,7 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
     public bool ShowIFF { get; set; } = true;
     public bool ShowIFFDetailed { get; set; } = true;
     public bool ShowDocks { get; set; } = true;
+    public bool ShowMarkers { get; set; } = false; // Mono
 
     public float MaximumIFFDistance { get; set; } = 3000f; // Frontier // Mono - 3000 by default to not gigaclutter
 
@@ -841,12 +842,11 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
                         : _detection.HandleUnknownMassLabel(grid.Owner)
                     : _shuttles.GetIFFLabel(grid, self: false, component: iff);
 
-                var shouldDrawIFF = ShowIFF && labelName != null;
-                var shouldDrawDetailedIFF = ShowIFFDetailed && shouldDrawIFF; // Mono
-                if (shouldDrawIFF)
+                var shouldDrawOutline = labelName != null;
+                if (shouldDrawOutline)
                 {
                     if (IFFFilter != null)
-                        shouldDrawIFF &= IFFFilter(gUid, grid.Comp, iff, hideLabel, labelName!);
+                        shouldDrawOutline &= IFFFilter(gUid, grid.Comp, iff, hideLabel, labelName!);
                     //if (isPlayerShuttle) // Mono - comments this out, replaced elsewere
                     //    shouldDrawIFF &= ShowIFFShuttles;
                 }
@@ -856,13 +856,13 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
                 // Frontier: range checks // Mono
                 var gridMapPos = _transform.ToMapCoordinates(new EntityCoordinates(gUid, gridBody.LocalCenter)).Position;
                 if (!hideLabel) // Mono - show thermal signatures even at long range
-                    shouldDrawIFF = NfCheckShouldDrawIffRangeCondition(shouldDrawIFF, mapPos.Position - gridMapPos);
+                    shouldDrawOutline = NfCheckShouldDrawIffRangeCondition(shouldDrawOutline, mapPos.Position - gridMapPos);
                 // End Frontier
 
                 // Mono
                 var gridUiPosition = Vector2.Transform(gridBody.LocalCenter, curGridToView) / UIScale;
 
-                if (shouldDrawIFF)
+                if (shouldDrawOutline) //Mono
                 {
                     //var gridCentre = Vector2.Transform(gridBody.LocalCenter, curGridToView);
                     //gridCentre.Y = -gridCentre.Y;
@@ -932,7 +932,7 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
                         labelPosition + new Vector2(labelDimensions.X, 0),
                         labelPosition + new Vector2(0, labelDimensions.Y),
                         labelPosition + labelDimensions
-                    };
+                        };
 
                         // The radius and squared radius of the radar, in virtual pixels.
                         var radius = Width * 0.5f;
@@ -972,10 +972,12 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
                         var mainLabel = lines[0];
 
                         // Draw main ship label with company color if available
+                        if(ShowIFF){ // Mono - to make IFF and D. IFF render separately
                         handle.DrawString(Font, (uiPosition + labelOffset) * UIScale, mainLabel, UIScale * 0.9f, displayColor);
+                        }
 
                         // Mono start - draw main stack of info
-                        if (shouldDrawDetailedIFF)
+                        if (ShowIFFDetailed)
                         {
                             // Get company label & draw
                             var companyLabel = !hideLabel ? lines[1] : Loc.GetString("shuttle-console-company-unknown");
@@ -1004,12 +1006,11 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
                     }
 
                     NfAddBlipToList(_tempBlipDataList, isOutsideRadarCircle, uiPosition, uiXCentre, uiYCentre, labelColor, hideLabel ? default : gUid); // Frontier code
-                                                                                                                                                        // End Frontier: IFF drawing functions
                 }
-
-                // Frontier Don't skip drawing blips if they're out of range.
-                NfDrawBlips(handle, _tempBlipDataList);
-
+                if(ShowMarkers){ // Mono
+                    // Frontier Don't skip drawing blips if they're out of range.
+                    NfDrawBlips(handle, _tempBlipDataList);
+                }
                 // Detailed view
                 var gridAABB = curGridToWorld.TransformBox(grid.Comp.LocalAABB);
 

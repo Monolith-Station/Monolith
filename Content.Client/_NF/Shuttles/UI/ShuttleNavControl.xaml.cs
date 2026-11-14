@@ -110,8 +110,8 @@ namespace Content.Client.Shuttles.UI
                 var triangleShapeVectorPoints = new[]
                 {
                 new Vector2(0, 0),
-                new Vector2(RadarBlipSize, 0),
-                new Vector2(RadarBlipSize * 0.5f, RadarBlipSize)
+                new Vector2(RadarBlipSize * 0.75f, 0), // Mono - multiplied everything by 0.75
+                new Vector2(RadarBlipSize * 0.375f, RadarBlipSize * 0.75f) //Mono - multiplied everything by 0.75
             };
 
                 if (blipData.IsOutsideRadarCircle)
