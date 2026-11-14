@@ -36,7 +36,7 @@ namespace Content.Client.Nuke
             // clear button
             var clearBtn = new Button()
             {
-                Text = "C"
+                Text = "X",
             };
             clearBtn.OnPressed += _ => OnClearButtonPressed?.Invoke();
             KeypadGrid.AddChild(clearBtn);
@@ -47,7 +47,7 @@ namespace Content.Client.Nuke
             // enter button
             var enterBtn = new Button()
             {
-                Text = "E"
+                Text = "✓",
             };
             enterBtn.OnPressed += _ => OnEnterButtonPressed?.Invoke();
             KeypadGrid.AddChild(enterBtn);
