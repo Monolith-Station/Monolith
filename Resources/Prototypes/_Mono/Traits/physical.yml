@@ -27,8 +27,6 @@
   description: trait-lethargy-desc
   category: Physical
   cost: -4
-  mutuallyExclusiveTraits:
-  - Vigor
   speciesBlacklist:
   - Felinid
   - Tajaran
@@ -44,8 +42,6 @@
   description: trait-glass-jaw-desc
   category: Physical
   cost: -2
-  mutuallyExclusiveTraits:
-  - Tenacity
   speciesBlacklist:
   - IPC
   components:
@@ -127,8 +123,6 @@
   description: trait-osteogenesis-imperfecta-desc
   category: Physical
   cost: -6
-  mutuallyExclusiveTraits:
-  - Tenacity
   speciesBlacklist:
   - IPC
   blacklist:
