@@ -23,22 +23,27 @@
 # Translators
 - type: latheRecipe
   id: HydraspeakTranslator
+  result: HydraspeakTranslator
   parent: BaseTranslatorRecipe
 
 - type: latheRecipe
   id: ScratchTranslator
+  result: ScratchTranslator
   parent: BaseTranslatorRecipe
 
 - type: latheRecipe
   id: SqueakishTranslator
+  result: SqueakishTranslator
   parent: BaseTranslatorRecipe
 
 - type: latheRecipe
   id: NovaCygniClassicalTranslator
+  result: NovaCygniClassicalTranslator
   parent: BaseTranslatorRecipe
 
 - type: latheRecipe
   id: FelyaicTranslator
+  result: FelyaicTranslator
   parent: BaseTranslatorRecipe
 
 - type: latheRecipe
@@ -58,24 +63,30 @@
 
 - type: latheRecipe
   id: HydraspeakTranslatorImplanter
+  result: HydraspeakTranslatorImplanter
   parent: BaseTranslatorImplanterRecipe
 
 - type: latheRecipe
   id: ScratchTranslatorImplanter
+  result: ScratchTranslatorImplanter
   parent: BaseTranslatorImplanterRecipe
 
 - type: latheRecipe
   id: SqueakishTranslatorImplanter
+  result: SqueakishTranslatorImplanter
   parent: BaseTranslatorImplanterRecipe
 
 - type: latheRecipe
   id: NovaCygniClassicalTranslatorImplanter
+  result: NovaCygniClassicalTranslatorImplanter
   parent: BaseTranslatorImplanterRecipe
 
 - type: latheRecipe
   id: FelyaicTranslatorImplanter
+  result: FelyaicTranslatorImplanter
   parent: BaseTranslatorImplanterRecipe
 
 - type: latheRecipe
   id: AzazibaTranslatorImplanter
+  result: AzazibaTranslatorImplanter
   parent: BaseTranslatorImplanterRecipe
