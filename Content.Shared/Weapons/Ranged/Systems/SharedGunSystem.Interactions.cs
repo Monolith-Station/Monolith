@@ -123,7 +123,7 @@ public abstract partial class SharedGunSystem
         if (component.FireRateModified <= 0)
             return;
 
-        var fireDelay = 1f / component.FireRateModified;
+        var fireDelay = component.DrawTime;
         if (fireDelay.Equals(0f))
             return;
 
