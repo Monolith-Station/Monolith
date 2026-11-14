@@ -1,0 +1,33 @@
+- type: language
+  id: Squeakish
+  icon: LanguageIconSqueakish
+  chatPrefix: rat
+  speech:
+    color: "#B09286"
+  obfuscation:
+    !type:SyllableObfuscation
+    minSyllables: 1
+    maxSyllables: 2
+    replacement:
+      - skrit
+      - chit
+      - skreek
+      - pip
+      - peep
+      - nib
+      - snik
+      - chee
+      - titch
+      - skik
+      - kik
+      - tik
+      - skik
+      - snik
+      - chit
+      - skit
+      - skik
+      - pip
+      - peep
+      - chii
+      - chuu
+      - skree

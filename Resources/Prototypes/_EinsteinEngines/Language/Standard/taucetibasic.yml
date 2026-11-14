@@ -3,6 +3,8 @@
 - type: language
   id: TauCetiBasic
   chatPrefix: and # Mono
+  icon: LanguageIconGalCom # Mono
+  iconUnderstood: false # Mono
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 1

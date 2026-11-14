@@ -177,7 +177,7 @@ public sealed partial class RadioSystem : EntitySystem
         //     ("channel", channelText), // Frontier: $"\\[{channel.LocalizedName}\\]"<channelText
         //     ("name", name),
         //     ("message", content));
-        var wrappedMessage = WrapRadioMessage(messageSource, channel, name, content, language); // Einstein Engines - Language
+        var wrappedMessage = WrapRadioMessage(messageSource, channel, name, content, language, false); // Einstein Engines - Language
 
         // most radios are relayed to chat, so lets parse the chat message beforehand
         // var chat = new ChatMessage(
@@ -193,7 +193,7 @@ public sealed partial class RadioSystem : EntitySystem
 
         // Einstein Engines - Language begin
         var obfuscated = _language.ObfuscateSpeech(content, language);
-        var obfuscatedWrapped = WrapRadioMessage(messageSource, channel, name, obfuscated, language);
+        var obfuscatedWrapped = WrapRadioMessage(messageSource, channel, name, obfuscated, language, true);
         var notUdsMsg = new ChatMessage(ChatChannel.Radio, obfuscated, obfuscatedWrapped, NetEntity.Invalid, null);
         var ev = new RadioReceiveEvent(messageSource, channel, msg, notUdsMsg, language, radioSource);
         // Einstein Engines - Language end
@@ -277,7 +277,8 @@ public sealed partial class RadioSystem : EntitySystem
         RadioChannelPrototype channel,
         string name,
         string message,
-        LanguagePrototype language)
+        LanguagePrototype language,
+        bool obfuscated)
     {
         // TODO: code duplication with ChatSystem.WrapMessage
         var speech = _chat.GetSpeechVerb(source, message);
@@ -286,20 +287,23 @@ public sealed partial class RadioSystem : EntitySystem
         if (language.SpeechOverride.Color is { } colorOverride)
             languageColor = Color.InterpolateBetween(Color.White, colorOverride, colorOverride.A); // Changed first param to Color.White so it shows color correctly.
 
-        var languageDisplay = language.IsVisibleLanguage
-            ? Loc.GetString("chat-manager-language-prefix", ("language", language.ChatName))
-            : "";
+        var namestring = name; // Starlight: Language icons
+        if (_language.GetLanguageIcon(language, obfuscated))
+            namestring = $"[icon src=\"{language.Icon}\" tooltip=\"{language.Name}\"] {name}";
+
+        var fonttype = language.SpeechOverride.FontId ?? speech.FontId;
+        if ((language.SpeechOverride.ObfuscationFont ?? false) && !obfuscated)
+            fonttype = speech.FontId;
 
         return Loc.GetString(speech.Bold ? "chat-radio-message-wrap-bold" : "chat-radio-message-wrap",
             ("color", channel.Color),
             ("languageColor", languageColor),
-            ("fontType", language.SpeechOverride.FontId ?? speech.FontId),
+            ("fontType", fonttype),
             ("fontSize", language.SpeechOverride.FontSize ?? speech.FontSize),
             ("verb", Loc.GetString(_random.Pick(speech.SpeechVerbStrings))),
             ("channel", $"\\[{channel.LocalizedName}\\]"),
-            ("name", name),
-            ("message", message),
-            ("language", languageDisplay));
+            ("name", namestring),
+            ("message", message));
     }
     // Einstein Engines - Language end
 

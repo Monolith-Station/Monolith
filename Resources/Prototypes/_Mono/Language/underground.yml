@@ -1,6 +1,6 @@
 - type: language
   id: UndergroundCodespeak
-  isVisibleLanguage: true
+  iconNotUnderstood: false
   chatPrefix: cds
   obfuscation:
     !type:PhraseObfuscation

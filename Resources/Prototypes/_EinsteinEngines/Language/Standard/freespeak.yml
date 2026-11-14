@@ -1,7 +1,7 @@
 # Spoken by renegades, and frontiermen.
 - type: language
   id: Freespeak
-  isVisibleLanguage: true
+  # isVisibleLanguage: true /* Monolith: This has been killed */
   chatPrefix: ash # Mono
   speech:
     color: "#91c756" # Goob Edit - Unique from Tradeband
