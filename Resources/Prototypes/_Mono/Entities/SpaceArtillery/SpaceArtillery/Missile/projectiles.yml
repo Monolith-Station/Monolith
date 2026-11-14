@@ -49,6 +49,8 @@
     range: 20
     sound:
       path: /Audio/_Mono/Weapons/Guns/Missiles/engine_rocket_01.ogg
+  - type: RadarBlip
+    maxDistance: 8192
 
 - type: damageModifierSet
   id: Missile
@@ -67,7 +69,7 @@
 - type: entity
   id: MissileProjectile50mmHE
   name: ASM-50 50mm Mini Missile
-  parent: ShipMissileBase
+  parent: [ ShipMissileBase, BaseProjectileHitmarkerLight ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -127,7 +129,7 @@
 - type: entity
   id: ShipMissileASM150
   name: ASM-150 150mm missile
-  parent: ShipMissileBase
+  parent: [ ShipMissileBase, BaseProjectileHitmarkerMedium ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -195,7 +197,7 @@
 - type: entity
   id: ShipMissileASM250HEAT
   name: 250mm HEAT missile
-  parent: ShipMissileBase
+  parent: [ ShipMissileBase, BaseProjectileHitmarkerHeavy ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -241,7 +243,7 @@
 - type: entity
   id: ShipMissileASM250HV
   name: 250mm HV missile
-  parent: ShipMissileBase
+  parent: [ ShipMissileBase, BaseProjectileHitmarkerHeavy ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -288,7 +290,7 @@
 - type: entity
   id: ShipMissileASM250
   name: ASM-250 Hybrid EMP Missile
-  parent: ShipMissileBase
+  parent: [ ShipMissileBase, BaseProjectileHitmarkerHeavyBlue ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -339,7 +341,7 @@
 - type: entity
   id: ShipMissileSerpent
   name: serpent torpedo
-  parent: ShipMissileBase
+  parent: [ ShipMissileBase, BaseProjectileHitmarkerHeavy ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -401,7 +403,7 @@
 - type: entity
   id: ShipMissileEntropy
   name: electron torpedo
-  parent: ShipMissileBase
+  parent: [ ShipMissileBase, BaseProjectileHitmarkerSuperheavy ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
