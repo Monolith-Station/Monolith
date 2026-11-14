@@ -1,20 +1,26 @@
 using System.Linq;
+using Content.Server.Access.Components;
+using Content.Server.Access.Systems;
 using Content.Server.Administration;
 using Content.Server.EUI;
 using Content.Server.Station.Systems;
 using Content.Server.StationRecords;
 using Content.Server.StationRecords.Systems;
+using Content.Shared.Access.Components;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.CrewManifest;
 using Content.Shared.GameTicking;
+using Content.Shared.Humanoid;
 using Content.Shared.Roles;
+using Content.Shared.SSDIndicator;
 using Content.Shared.Station.Components;
 using Content.Shared.StationRecords;
 using Robust.Shared.Configuration;
 using Robust.Shared.Console;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
 namespace Content.Server.CrewManifest;
 
@@ -25,6 +31,7 @@ public sealed partial class CrewManifestSystem : EntitySystem
     [Dependency] private EuiManager _euiManager = default!;
     [Dependency] private IConfigurationManager _configManager = default!;
     [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IdCardSystem _id = default!; // Monolith: Gridless
 
     /// <summary>
     ///     Cached crew manifest entries. The alternative is to outright
@@ -77,19 +84,19 @@ public sealed partial class CrewManifestSystem : EntitySystem
     // wrt the amount of players readied up.
     private void AfterGeneralRecordCreated(AfterGeneralRecordCreatedEvent ev)
     {
-        BuildCrewManifest(ev.Key.OriginStation);
+        BuildCrewManifest(); // Monolith: Gridless
         UpdateEuis(ev.Key.OriginStation);
     }
 
     private void OnRecordModified(RecordModifiedEvent ev)
     {
-        BuildCrewManifest(ev.Key.OriginStation);
+        BuildCrewManifest(); // Monolith: Gridless
         UpdateEuis(ev.Key.OriginStation);
     }
 
     private void OnRecordRemoved(RecordRemovedEvent ev)
     {
-        BuildCrewManifest(ev.Key.OriginStation);
+        BuildCrewManifest(); // Monolith: Gridless
         UpdateEuis(ev.Key.OriginStation);
     }
 
@@ -112,10 +119,9 @@ public sealed partial class CrewManifestSystem : EntitySystem
     /// </summary>
     /// <param name="station">Entity uid of the station.</param>
     /// <returns>The name and crew manifest entries (unordered) of the station.</returns>
-    public (string name, CrewManifestEntries? entries) GetCrewManifest(EntityUid station)
+    public CrewManifestEntries? GetCrewManifest()
     {
-        var valid = _cachedEntries.TryGetValue(station, out var manifest);
-        return (valid ? MetaData(station).EntityName : string.Empty, valid ? manifest : null);
+        return BuildCrewManifest(); // Monolith: Gridless Crew Manifest
     }
 
     private void UpdateEuis(EntityUid station)
@@ -215,25 +221,55 @@ public sealed partial class CrewManifestSystem : EntitySystem
         }
     }
 
+    // Monolith start: This is useful elsewhere
+    public ProtoId<JobPrototype>? GetJobFromID(IdCardComponent card)
+    {
+        ProtoId<JobPrototype>? job = null;
+
+        if (TryComp<PresetIdCardComponent>(card.Owner, out var preset) && HasComp<AgentIDCardComponent>(card.Owner))
+            job = preset.ManifestJob ?? preset.JobName;
+
+        return _prototypeManager.EnumeratePrototypes<JobPrototype>().Where(p => p.LocalizedName == card.LocalizedJobTitle).Aggregate(job, (current, proto) => current ?? proto.ID);
+    }
+
     /// <summary>
     ///     Builds the crew manifest for a station. Stores it in the cache afterwards.
     /// </summary>
-    /// <param name="station"></param>
-    private void BuildCrewManifest(EntityUid station)
+    private CrewManifestEntries BuildCrewManifest() // Monolith: Gridless Crew Manifest
     {
-        var iter = _recordsSystem.GetRecordsOfType<GeneralStationRecord>(station);
-
         var entries = new CrewManifestEntries();
-
         var entriesSort = new List<(JobPrototype? job, CrewManifestEntry entry)>();
-        foreach (var recordObject in iter)
-        {
-            var record = recordObject.Item2;
-            var entry = new CrewManifestEntry(record.Name, record.JobTitle, record.JobIcon, record.JobPrototype);
 
-            _prototypeManager.TryIndex(record.JobPrototype, out JobPrototype? job);
+        // Those others are just to filter it to only real player characters.
+        var query = EntityQueryEnumerator<MetaDataComponent, ActorComponent, HumanoidAppearanceComponent>(); // Monolith: Gridless start
+        while (query.MoveNext(out var uid, out var meta, out _, out _))
+        {
+            var name = meta.EntityName;
+            var jobTitle = "Unknown";
+            var jobIcon = "JobIconContractor";
+            ProtoId<JobPrototype>? jobProto = null;
+            if (_id.TryFindIdCard(uid, out var card))
+            {
+                name = card.Comp.FullName ?? name;
+                jobTitle = card.Comp.LocalizedJobTitle ?? jobTitle;
+                jobIcon = card.Comp.JobIcon;
+                if (TryComp<PresetIdCardComponent>(card.Owner, out var preset))
+                {
+                    // Skip agent IDs you can disguise properly.
+                    if (!HasComp<AgentIDCardComponent>(card.Owner))
+                        jobProto = preset.ManifestJob ?? preset.JobName;
+
+                    jobTitle = preset.TitleOverride ?? jobTitle;
+                    jobIcon = preset.IconOverride ?? jobIcon;
+                }
+            }
+
+            jobProto = _prototypeManager.EnumeratePrototypes<JobPrototype>().Where(p => p.LocalizedName == jobTitle).Aggregate(jobProto, (current, proto) => current ?? proto.ID);
+
+            var entry = new CrewManifestEntry(name, jobTitle, jobIcon, jobProto ?? "Contractor");
+            _prototypeManager.Resolve(jobProto, out var job);
             entriesSort.Add((job, entry));
-        }
+        } // Monolith: Gridless end
 
         entriesSort.Sort((a, b) =>
         {
@@ -245,7 +281,7 @@ public sealed partial class CrewManifestSystem : EntitySystem
         });
 
         entries.Entries = entriesSort.Select(x => x.entry).ToArray();
-        _cachedEntries[station] = entries;
+        return entries;
     }
 }
 

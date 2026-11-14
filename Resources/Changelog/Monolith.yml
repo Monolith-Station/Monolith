@@ -27043,3 +27043,45 @@ Entries:
   id: 2909
   time: '2026-11-12T20:29:26.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/5013
+- author: SuperGDPWYL
+  changes:
+    - type: Fix
+      message: Fugitives and the Godfather can no longer be cloned once sold.
+    - type: Fix
+      message: >-
+        Chat rank, company biometrics, NPC faction, medic surgery bonuses and
+        faction affiliation are now transferred by cloning.
+  id: 2910
+  time: '2026-11-13T09:07:34.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5016
+- author: DoubleHypercube
+  changes:
+    - type: Tweak
+      message: The Crew Manifest is now entirely gridless
+  id: 2911
+  time: '2026-11-13T09:42:36.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4982
+- author: Mrrpip
+  changes:
+    - type: Add
+      message: Adds circuitboards to the brass wreck loot pool.
+    - type: Tweak
+      message: The selection of ship guns at brass wrecks have been expanded.
+  id: 2912
+  time: '2026-11-13T11:33:25.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5011
+- author: SuperGDPWYL
+  changes:
+    - type: Fix
+      message: All MIL ships are purchaseable again.
+    - type: Fix
+      message: TSFMC Fireteam Leaders now have TSFMC access.
+    - type: Fix
+      message: The MailDrobe is now usable by Caelestinus
+    - type: Fix
+      message: Fixed some other access-related issues.
+    - type: Tweak
+      message: PDV and TSFMC cyborgs can be unlocked by all faction members now.
+  id: 2913
+  time: '2026-11-13T18:34:16.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5018

@@ -26,7 +26,7 @@
   - type: Openable
   - type: Lock
   - type: AccessReader
-    access: [["Atmospherics"], ["Command"]]
+ #  access: [["Atmospherics"], ["Command"]]
   - type: ItemSlots
     slots:
       ItemCabinet:

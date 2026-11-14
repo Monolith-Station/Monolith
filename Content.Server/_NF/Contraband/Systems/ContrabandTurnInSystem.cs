@@ -128,7 +128,7 @@ public sealed partial class ContrabandTurnInSystem : SharedContrabandTurnInSyste
 
         foreach (var ent in toSell)
         {
-            if (HasComp<HereticComponent>(ent) && _mind.TryGetMind(ent, out var mind, out _))
+            if (_mind.TryGetMind(ent, out var mind, out _)) // Mono: mark turned-in heretics or fugitives as uncloneable
             {
                 _geneticDatabase.MarkUncloneable(mind);
             }
