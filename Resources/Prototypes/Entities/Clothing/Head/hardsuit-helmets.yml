@@ -226,9 +226,9 @@
   description: Armored hardsuit helmet for Caelestinus. # Mono
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/security.rsi
+    sprite: _Mono/Clothing/Head/Hardsuits/caelestinus_constable.rsi # Mono
   - type: Clothing
-    sprite: Clothing/Head/Hardsuits/security.rsi
+    sprite: _Mono/Clothing/Head/Hardsuits/caelestinus_constable.rsi # Mono
   - type: PointLight
     color: "#ffeead"
   - type: PressureProtection
@@ -276,9 +276,9 @@
   description: A modified riot helmet. Oddly comfortable.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/security-warden.rsi
+    sprite: _Mono/Clothing/Head/Hardsuits/caelestinus_adjudicator.rsi # Mono
   - type: Clothing
-    sprite: Clothing/Head/Hardsuits/security-warden.rsi
+    sprite: _Mono/Clothing/Head/Hardsuits/caelestinus_adjudicator.rsi # Mono
   - type: PointLight
     color: "#ffeead"
   - type: PressureProtection
@@ -396,9 +396,9 @@
   description: A specially armoured hardsuit helmet belonging to the Overseer. The TSF markings have been defaced.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/security-red.rsi
+    sprite: _Mono/Clothing/Head/Hardsuits/caelestinus_marshal.rsi # Mono
   - type: Clothing
-    sprite: Clothing/Head/Hardsuits/security-red.rsi
+    sprite: _Mono/Clothing/Head/Hardsuits/caelestinus_marshal.rsi # Mono
   - type: PointLight
     color: "#ffeead"
   - type: PressureProtection

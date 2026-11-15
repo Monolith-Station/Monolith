@@ -309,9 +309,9 @@
   description: A voidsuit up-armoured by Caelestinus to serve as the backbone of their operations. # Mono
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/security.rsi
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/caelestinus_constable.rsi # Mono
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/security.rsi
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/caelestinus_constable.rsi # Mono
   - type: PressureProtection
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
@@ -340,6 +340,12 @@
       head: ClothingHeadHelmetHardsuitSecurity
       helmetcover: ClothingHeadHelmetCoverBlock
       helmetattachment: ClothingHeadHelmetAttachmentBlock
+  - type: HideLayerClothing # Mono: new sprite hides hair
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide
 
 #Brigmedic Hardsuit
 - type: entity
@@ -383,12 +389,12 @@
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitWarden
   name: MP-EVA CSW-25 "Adjudicator" hardsuit # Mono
-  description: The Adjudicator is Caelestinus' attempt to reverse-engineer the heavier suits of armour that have landed in their possession. It can withstand an impressive amount of punishment, but drastically impedes the user's mobility. # Mono
+  description: The Adjudicator is a result of monotonous reverse engineering and delicate blueprinting. While simple and slow at its core it is capable of sustaining the user through rigorous levels of trauma. It is also equipped with a high-grade optics solution and medical assessment HUD. # Mono
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/security-warden.rsi
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/caelestinus_adjudicator.rsi # Mono
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/security-warden.rsi
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/caelestinus_adjudicator.rsi # Mono
   - type: PressureProtection
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
@@ -417,6 +423,12 @@
       head: ClothingHeadHelmetHardsuitWarden
       helmetcover: ClothingHeadHelmetCoverBlock
       helmetattachment: ClothingHeadHelmetAttachmentBlock
+  - type: HideLayerClothing # Mono: new sprite hides hair
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide
 
 #Captain's Hardsuit
 - type: entity
@@ -611,9 +623,9 @@
   description: The Overseer's personal suit, the Marshal is effectively a suit of power armour adorned with several mismatching armour plates salvaged from seized TSFMC and PDV suits. # Mono
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/security-red.rsi
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/caelestinus_marshal.rsi # Mono
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/security-red.rsi
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/caelestinus_marshal.rsi # Mono
   - type: PressureProtection
     highPressureMultiplier: 0.45
     lowPressureMultiplier: 1000

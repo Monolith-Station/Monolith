@@ -10089,22 +10089,18 @@ entities:
     - type: Transform
       pos: -11.5,35.5
       parent: 2
-- proto: BannerEngineering
+- proto: BannerCaelestinus
   entities:
   - uid: 402
     components:
     - type: Transform
       pos: -39.5,19.5
       parent: 2
-- proto: BannerMedical
-  entities:
   - uid: 403
     components:
     - type: Transform
       pos: -6.5,45.5
       parent: 2
-- proto: BannerSecurity
-  entities:
   - uid: 404
     components:
     - type: Transform
