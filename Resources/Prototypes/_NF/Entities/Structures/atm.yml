@@ -273,7 +273,7 @@
     requiredCompanies:
     - Colonial
   - type: AccessReader
-    access: [["HeadOfPersonnel"]]
+    access: [["CaelestinusCommand"]]
 
 - type: entity
   parent: BaseStationAdminBankATM
@@ -287,7 +287,7 @@
     requiredCompanies:
     - TSF
   - type: AccessReader
-    access: [["Bailiff"]]
+    access: [["TsfmcCaptain"]]
 
 - type: entity
   parent: BaseStationAdminBankATM
@@ -301,7 +301,7 @@
     requiredCompanies:
     - Colonial # Mono
   - type: AccessReader
-    access: [["ChiefMedicalOfficer"]]
+    access: [["CaelestinusCommand"]]
 
 - type: entity
   parent: BaseStationAdminBankATM

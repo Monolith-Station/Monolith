@@ -579,6 +579,13 @@
     - TauCetiBasic
     - RobotTalk
     - SolCommon
+  - type: Access
+    tags:
+    - Tsfmc
+    - TsfmcArmory
+    - TsfmcEngineering
+    - TsfmcCaptain
+    - TsfmcColonel
 
 - type: entity
   id: AiHeldTSFMC
@@ -667,7 +674,7 @@
     - Freespeak
   - type: Access
     tags:
-    - Pirate
+    - PDV
     - GrandVizier
     - PDVCommand
 

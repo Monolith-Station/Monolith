@@ -26,7 +26,7 @@
   suffix: EVA, Overseer
   components:
   - type: AccessReader
-    access: [["HeadOfPersonnel"]]
+    access: [["CaelestinusCommand"]]
 
 - type: entity
   parent: [ SuitStorageBase, StorageFillEVASuitCaptain ]
@@ -174,7 +174,7 @@
   suffix: EVA, TSFMC
   components:
   - type: AccessReader
-    access: [["Security"]]
+    access: [["Tsfmc"]]
 
 #HARDSUITS
 #Quartermaster hardsuit
@@ -224,7 +224,7 @@
         - id: JetpackMiniFilled
         - id: ClothingShoesBootsMagMercenaryFilled
   - type: AccessReader
-    access: [["Captain"], ["Mercenary"]]
+  # access: [["Captain"], ["Mercenary"]]
 
 - type: entity
   id: SuitStoragePrivateSecurity
@@ -240,7 +240,7 @@
         - id: JetpackMiniFilled
         - id: ClothingShoesBootsMagSecurity
   - type: AccessReader
-    access: [["Captain"], ["Mercenary"]]
+  # access: [["Captain"], ["Mercenary"]]
 
 #SCAF hardsuit
 - type: entity
@@ -257,7 +257,7 @@
         - id: JetpackMiniFilled
         - id: ClothingShoesBootsMagMercenaryFilled
   - type: AccessReader
-    access: [["Captain"], ["Mercenary"]]
+  # access: [["Captain"], ["Mercenary"]]
 
 #Pilot hardsuit
 - type: entity
