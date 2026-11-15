@@ -32,11 +32,11 @@
     #- MarishTranslator # No shadowkin here
     - NewKinPidginTranslator # Vox
     - AzazibaTranslator # Fuck your lore. It ain't ours.
-    - HydraspeakTranslator # Mono start
+    - HydraspeakTranslator
     - ScratchTranslator
     - SqueakishTranslator
     - NovaCygniClassicalTranslator
-    - FelyaicTranslator # Mono end
+    - FelyaicTranslator
 
 - type: entity
   parent: TechDiskBase
@@ -87,7 +87,7 @@
     - XenoTranslator
     - NewKinPidginTranslator # Vox
     - NewKinPidginTranslatorImplanter # Vox
-    - AzazibaTranslator # Mono start
+    - AzazibaTranslator
     - AzazibaTranslatorImplanter
     - HydraspeakTranslatorImplanter
     - ScratchTranslatorImplanter
@@ -98,4 +98,4 @@
     - ScratchTranslator
     - SqueakishTranslator
     - NovaCygniClassicalTranslator
-    - FelyaicTranslator # Mono end
+    - FelyaicTranslator
