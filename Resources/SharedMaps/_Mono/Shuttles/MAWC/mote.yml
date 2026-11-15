@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 277.0.0
+  engineVersion: 277.0.5
   forkId: ""
   forkVersion: ""
-  time: 10/23/2026 00:22:43
-  entityCount: 299
+  time: 11/13/2026 19:13:50
+  entityCount: 300
 maps: []
 grids:
 - 1
@@ -75,10 +75,10 @@ entities:
     - type: SpreaderGrid
       spreadQueues:
         Kudzu: []
-        Puddle: []
+        ESTileFire: []
         Smoke: []
         MetalFoam: []
-        ESTileFire: []
+        Puddle: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: ImplicitRoof
@@ -837,6 +837,19 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 2.5,1.5
       parent: 1
+- proto: ComputerCrewMonitoring
+  entities:
+  - uid: 105
+    components:
+    - type: Transform
+      pos: -0.5,3.5
+      parent: 1
+    - type: ApcPowerReceiver
+      powerLoad: 5
+    - type: Battery
+      startingCharge: 77.5
+    - type: ApcPowerReceiverBattery
+      enabled: True
 - proto: ComputerGunneryConsole
   entities:
   - uid: 103
@@ -848,7 +861,7 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
-- proto: ComputerIFF
+- proto: ComputerCrewMonitoring
   entities:
   - uid: 104
     components:
@@ -859,66 +872,14 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
-- proto: ComputerShuttle
+- proto: ExtinguisherCabinetFilled
   entities:
-  - uid: 105
+  - uid: 300
     components:
     - type: Transform
-      pos: -0.5,3.5
+      rot: -1.5707963267948966 rad
+      pos: 2.5,3.5
       parent: 1
-    - type: DeviceLinkSource
-      linkedPorts:
-        8:
-        - - device-button-1
-          - DoorBolt
-        - - device-button-2
-          - Close
-        9:
-        - - device-button-1
-          - DoorBolt
-        - - device-button-2
-          - Close
-        4:
-        - - device-button-1
-          - DoorBolt
-        - - device-button-2
-          - Close
-        5:
-        - - device-button-1
-          - DoorBolt
-        - - device-button-2
-          - Close
-        146:
-        - - device-button-3
-          - Toggle
-        217:
-        - - device-button-3
-          - Toggle
-        216:
-        - - device-button-3
-          - Toggle
-        206:
-        - - device-button-3
-          - Toggle
-        214:
-        - - device-button-3
-          - Toggle
-        210:
-        - - device-button-3
-          - Toggle
-        212:
-        - - device-button-3
-          - Toggle
-        215:
-        - - device-button-3
-          - Toggle
-        211:
-        - - device-button-3
-          - Toggle
-    - type: ApcPowerReceiver
-      powerLoad: 5
-    - type: Battery
-      startingCharge: 0
 - proto: FaxMachineShip
   entities:
   - uid: 106

@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 277.0.0
+  engineVersion: 277.0.5
   forkId: ""
   forkVersion: ""
-  time: 10/23/2026 00:27:13
-  entityCount: 688
+  time: 11/13/2026 19:20:24
+  entityCount: 692
 maps: []
 grids:
 - 1
@@ -80,10 +80,10 @@ entities:
     - type: SpreaderGrid
       spreadQueues:
         Kudzu: []
-        Puddle: []
+        ESTileFire: []
         Smoke: []
         MetalFoam: []
-        ESTileFire: []
+        Puddle: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: ImplicitRoof
@@ -1780,7 +1780,7 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
-- proto: ComputerTabletopIFF
+- proto: ComputerTabletopCrewMonitoring
   entities:
   - uid: 256
     components:
@@ -1828,6 +1828,32 @@ entities:
     components:
     - type: Transform
       pos: 2.7611694,3.7684445
+      parent: 1
+- proto: ExtinguisherCabinetFilled
+  entities:
+  - uid: 689
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 6.5,-2.5
+      parent: 1
+  - uid: 690
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -4.5,-1.5
+      parent: 1
+  - uid: 691
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -0.5,5.5
+      parent: 1
+  - uid: 692
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 0.5,1.5
       parent: 1
 - proto: FaxMachineShip
   entities:

@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 277.0.0
+  engineVersion: 277.0.5
   forkId: ""
   forkVersion: ""
-  time: 10/23/2026 00:20:07
-  entityCount: 822
+  time: 11/13/2026 19:06:54
+  entityCount: 825
 maps: []
 grids:
 - 1
@@ -109,10 +109,10 @@ entities:
     - type: SpreaderGrid
       spreadQueues:
         Kudzu: []
-        Puddle: []
+        ESTileFire: []
         Smoke: []
         MetalFoam: []
-        ESTileFire: []
+        Puddle: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: ImplicitRoof
@@ -566,7 +566,7 @@ entities:
       pos: 0.5,9.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -156.49995
+      secondsUntilStateChange: -211.8107
       state: Opening
     - type: DeviceLinkSource
       linkedPorts:
@@ -2170,6 +2170,24 @@ entities:
     components:
     - type: Transform
       pos: -0.654933,-6.2392826
+      parent: 1
+- proto: ExtinguisherCabinetFilled
+  entities:
+  - uid: 823
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -3.5,-5.5
+      parent: 1
+  - uid: 824
+    components:
+    - type: Transform
+      pos: -0.5,-0.5
+      parent: 1
+  - uid: 825
+    components:
+    - type: Transform
+      pos: 1.5,-0.5
       parent: 1
 - proto: FaxMachineShip
   entities:

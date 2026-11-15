@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 277.0.0
+  engineVersion: 277.0.5
   forkId: ""
   forkVersion: ""
-  time: 10/23/2026 00:26:31
-  entityCount: 286
+  time: 11/13/2026 19:18:14
+  entityCount: 289
 maps: []
 grids:
 - 1
@@ -72,10 +72,10 @@ entities:
     - type: SpreaderGrid
       spreadQueues:
         Kudzu: []
-        Puddle: []
+        ESTileFire: []
         Smoke: []
         MetalFoam: []
-        ESTileFire: []
+        Puddle: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: ImplicitRoof
@@ -950,6 +950,24 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
+- proto: ExtinguisherCabinetFilled
+  entities:
+  - uid: 287
+    components:
+    - type: Transform
+      pos: -3.5,0.5
+      parent: 1
+  - uid: 288
+    components:
+    - type: Transform
+      pos: 2.5,0.5
+      parent: 1
+  - uid: 289
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -2.5,-2.5
+      parent: 1
 - proto: FaxMachineShip
   entities:
   - uid: 103

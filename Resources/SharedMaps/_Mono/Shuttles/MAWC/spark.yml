@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 277.0.0
+  engineVersion: 277.0.5
   forkId: ""
   forkVersion: ""
-  time: 10/23/2026 00:24:42
-  entityCount: 368
+  time: 11/13/2026 19:15:54
+  entityCount: 370
 maps: []
 grids:
 - 1
@@ -81,10 +81,10 @@ entities:
     - type: SpreaderGrid
       spreadQueues:
         Kudzu: []
-        Puddle: []
+        ESTileFire: []
         Smoke: []
         MetalFoam: []
-        ESTileFire: []
+        Puddle: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: ImplicitRoof
@@ -1275,6 +1275,19 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
+- proto: ExtinguisherCabinetFilled
+  entities:
+  - uid: 369
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 4.5,1.5
+      parent: 1
+  - uid: 370
+    components:
+    - type: Transform
+      pos: -2.5,2.5
+      parent: 1
 - proto: Firelock
   entities:
   - uid: 158
@@ -1709,7 +1722,7 @@ entities:
   - uid: 209
     components:
     - type: Transform
-      pos: 3.3922882,7.45133
+      pos: 3.5292969,7.500451
       parent: 1
     - type: Paper
       content: >-
@@ -1765,11 +1778,6 @@ entities:
 
 
         ///Carpenter Shipyard Division
-    - type: UserInterface
-      actors:
-        enum.PaperUiKey.Key:
-        - invalid
-    - type: ActiveUserInterface
 - proto: PortableGeneratorSuperPacmanShuttle
   entities:
   - uid: 210
