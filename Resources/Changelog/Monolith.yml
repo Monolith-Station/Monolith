@@ -27164,3 +27164,24 @@ Entries:
   id: 2920
   time: '2026-11-14T23:35:00.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/5024
+- author: DoubleHypercube
+  changes:
+    - type: Remove
+      message: All player-facing references to "Unathi" and "Asakim" have been killed.
+    - type: Add
+      message: >-
+        Added translators & their implants for Hydraspeak, Felyaic, Nova-Cygni
+        Classic, Scratch, and Squeakish.
+    - type: Add
+      message: Draconic and Azaziba are now trait-selectable languages.
+    - type: Tweak
+      message: Azaziba is no longer unobtainable "for lore reasons". Who's lore?
+    - type: Tweak
+      message: Standardized translator & implant names and descriptions.
+    - type: Remove
+      message: Nekomimetic, Gary, and Nova-Cygni translators are no longer obtainable.
+    - type: Fix
+      message: Siik'maas translators are now properly obtainable again.
+  id: 2921
+  time: '2026-11-15T10:44:58.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5025
