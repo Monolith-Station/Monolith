@@ -70,7 +70,7 @@
         Slash: 0.5
         Piercing: 0.5
         Heat: 0.5
-        Radiation: 0.1 # same as CV-53 to allow dirty bomb usage
+        Radiation: 0.4 # same as M86
         Caustic: 0.5
   - type: ClothingSpeedModifier
     walkModifier: 0.9
@@ -190,7 +190,7 @@
         Slash: 0.6
         Piercing: 0.55
         Heat: 0.2
-        Radiation: 0.1
+        Radiation: 0.4 # same as M86
         Caustic: 0.5
   - type: Item
     size: Huge
