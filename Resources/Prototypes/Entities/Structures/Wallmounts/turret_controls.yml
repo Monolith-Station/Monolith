@@ -104,18 +104,18 @@
     - USSP
     - PDV
     - Viper
-    - CC
+    - Caelestinus
     - Civilian
     - Silicon
     - Mieyo
+    - Underground
     accessLevels:
     ## TSF
-    - HeadOfSecurity
-    - Armory
-    - Bailiff
-    - Sergeant
-    - Security
+    - TsfmcColonel
+    - TsfmcCaptain
+    - TsfmcArmory
     - TsfmcEngineering
+    - Tsfmc
     ## USSP
     - USSPCommand
     - USSPHigh
@@ -123,27 +123,22 @@
     ## PDV
     - GrandVizier
     - PDVCommand
-    - Pirate
+    - PDV
     ## VG
     - ViperCommand
     - Viper
     ## CC
-    - HeadOfPersonnel
-    - ChiefMedicalOfficer
-    - StationTrafficController
-    - Command
-    - Brig
-    - Mail
-    - Janitor
-    - Medical
-    - Chemistry
+    - CaelestinusCommand
+    - Caelestinus
     ## Mieyo
     - Mieyo
     - MieyoSecurity
     - MieyoLiason
+    ## Underground
+    - Underground
+    - Godfather
     ## Civ
-    - Mercenary
-    - Pilot
+    - Maintenance # atp just turn the turret off :sob:
     ## Silicon
     - StationAi
     - Borg

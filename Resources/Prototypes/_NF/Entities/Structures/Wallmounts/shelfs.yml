@@ -82,15 +82,15 @@
 - type: entity
   parent: ShelfRMetal
   id: ShelfRMetalSecurity
-  suffix: Security, Locked
+  suffix: Caelestinus, Locked
   components:
   - type: AccessReader
-    access: [["Security"]]
+    access: [["Caelestinus"]]
 
 - type: entity
   parent: ShelfRWood
   id: ShelfRWoodSecurity
-  suffix: Security, Locked
+  suffix: Caelestinus, Locked
   components:
   - type: AccessReader
-    access: [["Security"]]
+    access: [["Caelestinus"]]

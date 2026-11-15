@@ -1,14 +1,14 @@
-id-card-access-level-command = Command
-id-card-access-level-captain = Captain
+id-card-access-level-command = Command (DEPRECATED)
+id-card-access-level-captain = Captain (DEPRECATED)
 id-card-access-level-cryogenics = Cryogenics
 id-card-access-level-emergency-shuttle-repeal = E.Shuttle Repeal All
 
-id-card-access-level-head-of-personnel = Station Representative
-id-card-access-level-head-of-security = Colonel
-id-card-access-level-security = Security
-id-card-access-level-armory = Armory
-id-card-access-level-brig = Brig
-id-card-access-level-detective = Detective
+id-card-access-level-head-of-personnel = Station Representative (DEPRECATED)
+id-card-access-level-head-of-security = Colonel (DEPRECATED)
+id-card-access-level-security = Security (DEPRECATED)
+id-card-access-level-armory = Armory (DEPRECATED)
+id-card-access-level-brig = Brig (DEPRECATED)
+id-card-access-level-detective = Detective (DEPRECATED)
 
 id-card-access-level-chief-engineer = Chief Engineer
 id-card-access-level-engineering = Engineering
@@ -17,8 +17,8 @@ id-card-access-level-atmospherics = Atmospherics
 id-card-access-level-research-director = Research Director
 id-card-access-level-research = Research
 
-id-card-access-level-chief-medical-officer = Chief Medical Officer
-id-card-access-level-medical = Medical
+id-card-access-level-chief-medical-officer = Chief Medical Officer (DEPRECATED)
+id-card-access-level-medical = Medical (DEPRECATED)
 id-card-access-level-chemistry = Chemistry
 id-card-access-level-paramedic = Paramedic
 

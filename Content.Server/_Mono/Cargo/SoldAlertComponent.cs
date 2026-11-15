@@ -31,6 +31,12 @@ public sealed partial class SoldAlertComponent : Component
     public string? GroupId;
 
     /// <summary>
+    /// Whether or not the sell alert can be jammed.
+    /// </summary>
+    [DataField]
+    public bool Jammable = false;
+    
+    /// <summary>
     /// Just deny the whole sale if theres more than this. 
     /// 0 is no limit.
     /// </summary>

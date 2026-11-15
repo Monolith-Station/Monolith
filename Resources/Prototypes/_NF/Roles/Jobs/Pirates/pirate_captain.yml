@@ -17,7 +17,7 @@
   whitelisted: true
   startingGear: PirateCaptainNFGear
   alwaysUseSpawner: true
-  hideConsoleVisibility: true
+# hideConsoleVisibility: true
   canBeAntag: true
   icon: "JobIconPirateCaptain"
   supervisors: job-supervisors-nobody
@@ -26,7 +26,7 @@
   assignedCompany: PDV
   setPreference: true
   access:
-  - Pirate
+  - PDV
   - GrandVizier
   - PDVCommand
   - Mercenary

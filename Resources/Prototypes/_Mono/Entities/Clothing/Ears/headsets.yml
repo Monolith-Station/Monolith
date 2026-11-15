@@ -38,7 +38,9 @@
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyStationMaster
+      - EncryptionKeyCommon
+      - EncryptionKeyNfsd
+      - EncryptionKeyCommand
   - type: Sprite
     sprite: _Mono/Clothing/Ears/Headsets/tsf.rsi
   - type: Clothing

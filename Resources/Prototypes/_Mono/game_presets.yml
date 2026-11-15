@@ -91,7 +91,7 @@
 
 - type: gamePreset
   id: MonoChimera
-  weight: 0.75 # mono: needs 25% of votes
+  # weight: 0.75 # mono: needs 25% of votes
   name: mono-chimera-title
   description: mono-chimera-description
   showInVote: false # replaced by new-Biothreat. this old gamemode was just Standard with chimera spawns anyways.
@@ -110,7 +110,7 @@
 
 - type: gamePreset
   id: MonoChimeraTsf
-  weight: 0.5
+  # weight: 0.5
   name: mono-chimera-tsf-title
   description: mono-chimera-tsf-description
   showInVote: true
@@ -132,7 +132,7 @@
 
 - type: gamePreset
   id: MonoChimeraPdv
-  weight: 0.5
+  # weight: 0.5
   name: mono-chimera-pdv-title
   description: mono-chimera-pdv-description
   showInVote: true
@@ -179,7 +179,7 @@
   name: mono-allatonce-title
   description: mono-allatonce-description
   showInVote: true # we ball
-  weight: 0.25 # requires 80% votes
+  # weight: 0.25 # requires 80% votes
   minPlayers: 30
   rules:
   - NFAdventure
@@ -202,7 +202,7 @@
   name: mono-roguetsf-hyperwar-title
   description: mono-roguetsf-hyperwar-description
   showInVote: true # we ball
-  weight: 0.15 # Giant majority needed
+  # weight: 0.15 # Giant majority needed
   autobalancerEnabled: true
   supportedMaps: HyperwarMapPool
   minPlayers: 30
@@ -221,7 +221,7 @@
   name: mono-crocus-title
   description: mono-crocus-description
   showInVote: true
-  weight: 0.25 # 80% majority needed
+  # weight: 0.25 # 80% majority needed
   respawnMultiplier: 0.25
   autobalancerEnabled: true
   supportedMaps: CrocusMapPool

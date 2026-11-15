@@ -460,8 +460,8 @@
 - type: entity
   parent: [BaseStructureIndestructible, BaseComputerAiAccess] # Frontier: added BaseStructureIndestructible
   id: ComputerCriminalRecords
-  name: criminal records computer
-  description: This can be used to check criminal records. Only security can modify them.
+  name: TSFMC criminal records computer # Mono
+  description: This can be used to check criminal records, at least according to the Trans-Solarian Federation. # Mono
   components:
   - type: CriminalRecordsConsole
   - type: UserInterface
@@ -491,7 +491,7 @@
   - type: Computer
     board: CriminalRecordsComputerCircuitboard
   - type: AccessReader
-    access: [["Security"]]
+    access: [["Tsfmc"]] # Mono
   # Mono
   - type: ShipRepairable
     repairTime: 4
@@ -783,8 +783,8 @@
 - type: entity
   parent: BaseComputerAiAccess
   id: ComputerComms
-  name: communications computer
-  description: A computer used to make station wide announcements via keyboard, set the appropriate alert level, and call the emergency shuttle.
+  name: caelestinus communications computer # Mono
+  description: A computer used by Caelestinus to set the sector-wide DEFCON level and to make announcements. # Mono
   components:
   - type: Sprite
     layers:
@@ -799,10 +799,11 @@
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
   - type: AccessReader
-    access: [["HeadOfPersonnel"], ["HeadOfSecurity"], ["ChiefMedicalOfficer"]]
+    access: [["CaelestinusCommand"]] # Mono
   - type: CommunicationsConsole
     title: comms-console-announcement-title-station
     global: true #SR WILL NOT BE IGNORED
+    canShuttle: false # Mono: lol, lmao even
   - type: DeviceNetwork
     deviceNetId: Wireless # Frontier
     transmitFrequencyId: ShuttleTimer

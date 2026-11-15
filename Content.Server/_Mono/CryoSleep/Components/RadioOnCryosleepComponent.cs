@@ -1,3 +1,4 @@
+using Content.Shared._NF.Cloning;
 using Content.Shared.Radio;
 using Robust.Shared.Prototypes;
 
@@ -7,7 +8,7 @@ namespace Content.Server._Mono.CryoSleep.Components;
 /// Changes the radio channel that the cryosleep pod speaks to when this player enters cryosleep.
 /// </summary>
 [RegisterComponent]
-public sealed partial class RadioOnCryosleepComponent : Component
+public sealed partial class RadioOnCryosleepComponent : Component, ITransferredByCloning
 {
     [DataField]
     public ProtoId<RadioChannelPrototype> RadioChannel = "Common";

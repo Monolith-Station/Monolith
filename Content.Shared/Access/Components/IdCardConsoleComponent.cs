@@ -44,7 +44,8 @@ public sealed partial class IdCardConsoleComponent : Component
 
     [DataField, AutoNetworkedField]
     public List<ProtoId<AccessLevelPrototype>> AccessLevels = new()
-    {
+    { // Mono: rewrite the entire list
+    /*
     "Armory", //Used by TSF, unknown purpose
     //"Atmospherics",
     //"Bar",
@@ -54,7 +55,7 @@ public sealed partial class IdCardConsoleComponent : Component
     //"Cargo",
     //"Chapel",
     //"Chemistry",
-    "Chemistry", // DO NOT HIDE, it prevents all cards with chemistry from getting additional access (Ex: TSF Captain)
+    "Chemistry", // DO NOT HIDE, it prevents all cards with chemistry from getting additional access (Ex: TSF Captain) // have we considered just nuking chemistry as an access? no?
     //"ChiefEngineer",
     //"ChiefMedicalOfficer",
     "ChiefMedicalOfficer", //DO NOT HIDE, required for DOC
@@ -93,6 +94,29 @@ public sealed partial class IdCardConsoleComponent : Component
     "Mieyo", // Mono
     "MieyoSecurity", // Mono
     "MieyoLiason", // Mono
+    */
+    "Maintenance",
+    "External",
+    "Tsfmc",
+    "TsfmcEngineering",
+    "TsfmcArmory",
+    "TsfmcCaptain",
+    "TsfmcColonel",
+    "PDV",
+    "PDVCommand",
+    "GrandVizier",
+    "Caelestinus",
+    "CaelestinusCommand",
+    "USSP",
+    "USSPHigh",
+    "USSPCommand",
+    "Mieyo",
+    "MieyoSecurity",
+    "MieyoLiason",
+    "Viper",
+    "ViperCommand",
+    "Underground",
+    "Godfather"
     };
 
     [Serializable, NetSerializable]
