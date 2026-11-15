@@ -46,7 +46,7 @@
     - RogueHardsuit
 
 - type: entity
-  parent: [ ClothingOuterHardsuitSyndie, BaseFactionGearPDVT2 ]
+  parent: [ BaseFactionGearPDVT2, ClothingOuterHardsuitSyndie ]
   id: ClothingOuterHardsuitAshen
   name: PDV CV-32 combat hardsuit
   description: A combat hardsuit designed by the Phaethon Dynasty. Opts for general-purpose protective armour plating.
@@ -153,10 +153,10 @@
     - RogueHardsuit
 
 - type: entity
-  parent: [ ClothingOuterHardsuitSyndie, BaseFactionGearPDVT2 ]
+  parent: [ BaseFactionGearPDVT2, ClothingOuterHardsuitSyndie ]
   id: ClothingOuterHardsuitAshenElite
   name: PDV CV-53 combat tacsuit
-  description: Originally based off of the CV-32 hardsuit, the CV-53 tacsuit sacrifices some of the generalist armor plating for special heat-absorbent pads and manoeuvrability.
+  description: Originally based off of the  hardsuit, the CV-53 tacsuit sacrifices some of the generalist armor plating for special heat-absorbent pads and manoeuvrability.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/OuterClothing/Hardsuits/syndieelite.rsi
