@@ -258,7 +258,7 @@ public sealed partial class TargetSeekingSystem : EntitySystem
                 }
             }
             if(component.Tag != null && !_tag.HasTag(actualTarget, component.Tag.Value) || component.Tag == null && signatureComp.RequireSeekerWhitelist)
-                break;
+                continue;
 
             // If this is closer than our previous best target, update
             if (closestDistance > distance)
