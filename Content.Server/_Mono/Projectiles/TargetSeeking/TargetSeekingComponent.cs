@@ -1,3 +1,6 @@
+using Content.Shared.Tag;
+using Robust.Shared.Prototypes;
+
 namespace Content.Server._Mono.Projectiles.TargetSeeking;
 
 /// <summary>
@@ -88,6 +91,12 @@ public sealed partial class TargetSeekingComponent : Component
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public bool ArcLines = true;
+
+    /// <summary>
+    /// Targets must have this tag to be valid.
+    /// </summary>
+    [DataField]
+    public ProtoId<TagPrototype>? Tag;
 }
 
 /// <summary>
