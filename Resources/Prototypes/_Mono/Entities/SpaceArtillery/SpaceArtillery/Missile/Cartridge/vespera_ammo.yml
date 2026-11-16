@@ -120,7 +120,7 @@
   id: MissileCartridge50mmAAM
   name: 50mm anti-munition missile
   description: An individual ADMP-50 AAM missile for a 50mm missile launcher.
-  parent: MissileCartridge50mm
+  parent: MissileCartridge50mmHE
   components:
   - type: CartridgeAmmo
     proto: MissileProjectile50mmAAM
