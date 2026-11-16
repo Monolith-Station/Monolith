@@ -27246,3 +27246,12 @@ Entries:
   id: 2926
   time: '2026-11-16T04:36:45.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/5008
+- author: pizzay30tyd
+  changes:
+    - type: Tweak
+      message: >-
+        Gyroscopes now only have a 1.125x power multiplier instead of a 3.5x
+        power multiplier in Drive Mode
+  id: 2927
+  time: '2026-11-16T04:47:54.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4970
