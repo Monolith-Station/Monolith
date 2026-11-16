@@ -1,7 +1,7 @@
 - type: entity
   id: Magazine35mm
-  name: "35mm solid ammo loader"
-  description: "An ammunition loader containing infinite 35mm solid rounds. Usable by vessel-mounted artillery pieces."
+  name: "25x170mm solid ammo loader"
+  description: "An ammunition loader containing infinite 25x170mm solid rounds. Usable by vessel-mounted artillery pieces."
   parent: [BaseItem, RecyclableItemSteelTiny]
   components:
   - type: Tag
@@ -73,12 +73,12 @@
     damageContainer: Inorganic
     damageModifierSet: Metallic
 
-# 35mm HE
+# 25x170mm HE
 
 - type: entity
   id: Magazine35mmHE
-  name: "35mm HE ammo loader"
-  description: "An ammunition loader containing 2000 35mm HE rounds. Usable by vessel-mounted artillery pieces."
+  name: "25x170mm HE ammo loader"
+  description: "An ammunition loader containing 2000 25x170mm HE rounds. Usable by vessel-mounted artillery pieces."
   parent: [BaseItem, RecyclableItemSteelTiny]
   components:
   - type: Tag

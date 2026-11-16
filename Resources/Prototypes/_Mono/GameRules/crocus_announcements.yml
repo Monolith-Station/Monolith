@@ -1,0 +1,28 @@
+- type: entity
+  id: CrocusAnnouncementMinuteRoundStart
+  parent: BaseGameRule
+  components:
+  - type: GameRule
+    delay:
+      min: 0
+      max: 60
+  - type: BlankRule
+  - type: StationEvent
+    earliestStart: 0
+    endAnnouncement: gamerule-crocus-announce-start-announcement
+    announceSender: gamerule-crocus-announce-sender
+    endAudio:
+      path: /Audio/_Mono/Effects/Alerts/crocus.ogg
+      params:
+        volume: -2
+
+- type: entity
+  id: CrocusAnnouncementMinute10m
+  parent: CrocusAnnouncementMinuteRoundStart
+  components:
+  - type: GameRule
+    delay:
+      min: 600
+      max: 620
+  - type: StationEvent
+    endAnnouncement: gamerule-crocus-announce-10min-announcement

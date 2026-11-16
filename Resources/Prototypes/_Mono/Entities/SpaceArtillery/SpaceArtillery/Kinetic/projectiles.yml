@@ -1,4 +1,4 @@
-# 20mm - L85
+# 14x97mm - L85
 
 - type: entity
   id: 20mmBulletBase
@@ -36,7 +36,7 @@
 
 - type: entity
   id: 20mmBullet
-  name: 20mm bullet
+  name: 14x97mm bullet
   parent: 20mmBulletBase
   categories: [ HideSpawnMenu ]
   components:
@@ -53,7 +53,7 @@
 
 - type: entity
   id: 20mmBulletAS # Antishield
-  name: 20mm bullet (AS)
+  name: 14x97mm bullet (AS)
   parent: 20mmBulletBase
   categories: [ HideSpawnMenu ]
   components:
@@ -70,7 +70,7 @@
     color: orange
 
 
-# 30mm - Draupnir
+# 20x141mm - Draupnir
 
 - type: entity
   id: 30mmBullet
@@ -119,7 +119,7 @@
     maxIntensity: 1
     tileBreakScale: 3
 
-# 35mm - AC-35
+# 25x170mm - AC-35
 
 - type: entity
   id: 35mmBulletAP
@@ -168,7 +168,7 @@
     maxIntensity: 1
     tileBreakScale: 3
 
-# 57mm
+# 40x360mm
 
 - type: entity
   id: 57mmBulletHE
@@ -290,7 +290,7 @@
     maxLifetime: 7
     fallbackTime: 5
 
-# 90mm
+# 57x460mm
 
 - type: entity
   id: 90mmBulletBase
@@ -432,7 +432,7 @@
 
 - type: entity
   id: 90mmBulletMinelayer
-  name: 90mm mine-laying projectile
+  name: 57x460mm mine-laying projectile
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -534,12 +534,31 @@
     scanArc: 0
     launchSpeed: 0
     maxSpeed: 3
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Missile
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: TargetSeekingTarget
+    requireSeekerWhitelist: true
+  - type: Tag
+    tags:
+    - AMMTarget
 
-# 140mm
+# 85x680mm
 
 - type: entity
   id: 140mmBulletAPHE
-  name: 140mm APHE projectile
+  name: 85x680mm APHE projectile
   parent: BaseBulletTriggerSpent
   categories: [ HideSpawnMenu ]
   components:
@@ -579,7 +598,7 @@
 
 - type: entity
   id: 140mmBulletSACLOS
-  name: 140mm SACLOS projectile
+  name: 85x680mm SACLOS projectile
   parent: BaseBulletTriggerSpent
   categories: [ HideSpawnMenu ]
   components:
@@ -624,11 +643,11 @@
     maxLifetime: 8
     fallbackTime: 5
 
-# 220mm
+# 130x820mm
 
 - type: entity
   id: 220mmBulletAPHE
-  name: 220mm APHE projectile
+  name: 130x820mm APHE projectile
   parent: BaseBulletTriggerSpent
   categories: [ HideSpawnMenu ]
   components:
@@ -668,7 +687,7 @@
 
 - type: entity
   id: 220mmBulletHE
-  name: 220mm HE projectile
+  name: 130x820mm HE projectile
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -707,7 +726,7 @@
 
 - type: entity
   id: 220mmPelletHE
-  name: 220mm HE cluster-projectile
+  name: 130x820mm HE cluster-projectile
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -755,7 +774,7 @@
 
 - type: entity
   id: 220mmPelletSmart
-  name: 220mm HMNG cluster-projectile
+  name: 130x820mm HMNG cluster-projectile
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -809,11 +828,11 @@
     count: 6
     spread: 6
 
-# 255mm
+# 203x940mm
 
 - type: entity
   id: 255mmBulletAPHE
-  name: 255mm APHE projectile
+  name: 203x940mm APHE projectile
   parent: BaseBulletTriggerSpent
   categories: [ HideSpawnMenu ]
   components:
@@ -852,7 +871,7 @@
 
 - type: entity
   id: 255mmBulletEMP
-  name: 255mm EMP projectile
+  name: 203x940mm EMP projectile
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -893,7 +912,7 @@
 
 - type: entity
   id: 255mmBulletMinelayer
-  name: 255mm mine-laying projectile
+  name: 203x940mm mine-laying projectile
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -994,6 +1013,25 @@
     scanArc: 0
     launchSpeed: 0
     maxSpeed: 3
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Missile
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: TargetSeekingTarget
+    requireSeekerWhitelist: true
+  - type: Tag
+    tags:
+    - AMMTarget
 
 # CHARON
 
@@ -1077,7 +1115,7 @@
 - type: entity
   id: ShipRailgunProjectileAphe
   name: M381 CHARON 280mm 26.5kg APHE slug
-  parent: BaseBulletTrigger
+  parent: BaseBulletTriggerSpent
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -1182,11 +1220,11 @@
     count: 6
     spread: 5
 
-# 520mm LEVIATHAN Shells
+# 380x1120mm LEVIATHAN Shells
 
 - type: entity
   id: ShipLeviathanProjectile
-  name: LEVIATHAN 520mm projectile
+  name: LEVIATHAN 380x1120mm projectile
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -1208,7 +1246,7 @@
     shape: circle
     radarColor: "#FFFFFF"
   - type: TimedDespawn
-    lifetime: 7.2 #3.2km - Its 520mm after all.
+    lifetime: 7.2 #3.2km - Its 380x1120mm after all.
   - type: PointLight
     color: "#fc5a03"
   - type: ExplodeOnTrigger

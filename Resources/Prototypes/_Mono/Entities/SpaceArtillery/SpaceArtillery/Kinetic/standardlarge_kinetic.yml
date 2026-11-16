@@ -1,14 +1,14 @@
 
-# Cyrexa 220mm
+# Cyrexa 130x820mm
 
 - type: entity
   id: WeaponTurretCyrexa
-  name: CYREXA 220mm cannon
+  name: CYREXA 130mm cannon
   parent:
   - BallisticArtilleryCartridge
   - BallisticArtilleryTier4HP
   suffix: Large, T4
-  description: A main battery with dual barrels, delivering rapid, punishing salvos at extreme range. Fires 220mm auto shells with slightly reduced brute strength. Can be remotely activated or linked up to a GCS.
+  description: A main battery with dual barrels, delivering rapid, punishing salvos at extreme range. Fires 130x820mm auto shells with slightly reduced brute strength. Can be remotely activated or linked up to a GCS.
   components:
   - type: StaticPrice
     price: 15000
@@ -90,7 +90,6 @@
 
 - type: entity
   id: WeaponTurretCyrexaHomingCluster
-  name: CYREXA 220mm cannon
   parent: WeaponTurretCyrexa
   suffix: Large, T4, Infinite HMNG-CLST
   components:
@@ -106,7 +105,6 @@
 
 - type: entity
   id: WeaponTurretCyrexaHECluster
-  name: CYREXA 220mm cannon
   parent: WeaponTurretCyrexa
   suffix: Large, T4, Infinite HE-CLST
   components:
@@ -120,11 +118,11 @@
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
 
-# AK820 120mm
+# AK820/AK800 100x650mm
 
 - type: entity
   id: WeaponTurretAk820
-  name: AK820 120mm autocannon
+  name: AK820 100mm autocannon
   parent:
   - BallisticArtilleryCartridge
   - BallisticArtilleryTier4HP
@@ -166,6 +164,7 @@
     selectedMode: FullAuto
     availableModes: FullAuto
     shootThermalSignature: 12000000
+    muzzleFlash: MuzzleFlashEffect120mmAK820
     soundGunshot:
       collection: 120mmAutocannonAK820
     soundEmpty:
@@ -202,11 +201,29 @@
     class: Ballistic
     size: Heavy # doesnt match who cares
 
-# Bofors 255mm
+- type: entity
+  id: WeaponTurretAk800
+  name: AK800 100mm autocannon
+  parent:
+  - WeaponTurretAk820
+  suffix: Large, T4
+  description: A single-barreled variant of the AK820 autocannon, with less GCS strain but lower firerate. Large hard hitting naval gun for steady damage. Fires APHEDS rounds, allowing for enhanced penetration, but not as much explosive power as full-sized APHE rounds. Feeds from an 96 round internal magazine.
+  components:
+  - type: StaticPrice
+    price: 8000
+  - type: Sprite
+    sprite: _Mono/Objects/ShuttleWeapons/ak800.rsi
+  - type: Gun
+    fireRate: 1.75
+    muzzleFlash: MuzzleFlashEffect120mmAK800
+  - type: ShipGunClass
+    shipClass: Heavy
+
+# Bofors 203x940mm
 
 - type: entity
   id: WeaponTurretBofors
-  name: Bofors 255mm cannon
+  name: Bofors 203mm cannon
   parent:
   - BallisticArtilleryCartridge
   - BallisticArtilleryTier4HP
@@ -283,16 +300,16 @@
     class: Ballistic
     size: Heavy # doesnt match who cares
 
-# HADES 255mm
+# HADES 203x940mm
 
 - type: entity
   id: WeaponTurretHades
-  name: HADES 255mm cannon
+  name: HADES 203mm cannon
   parent:
   - BallisticArtilleryUnanchorable
   - BallisticArtilleryTier5HP
   suffix: Capital/Station, T4
-  description: One of the largest chemical-based kinetic weapons in the sector. Its power is only rivaled by mass drivers such as the M381. Automatically reloads full-power 255mm shells.
+  description: One of the largest chemical-based kinetic weapons in the sector. Its power is only rivaled by mass drivers such as the M381. Automatically reloads full-power 203x940mm shells.
   components:
   - type: StaticPrice
     price: 30000
@@ -371,12 +388,12 @@
     class: Ballistic
     size: Superheavy
 
-# R-300 430mm
+# R-300 320x752mm
 
 - type: entity
   id: WeaponTurretR300Base
   parent: BallisticArtilleryTier5HP
-  name: R-300 430mm howitzer
+  name: R-300 320mm howitzer
   suffix: Capital/Station, T4
   description: A giant, stupid howitzer. A stupid low velocity, a stupid long reload, and a stupidly powerful explosion if you can get it to hit. No AP whatsover.
   abstract: true
@@ -483,12 +500,12 @@
 
 - type: entity
   id: WeaponTurretLongbow
-  name: L/65 "Longbow" 140mm autocannon
+  name: L/65 "Longbow" 85mm autocannon
   parent:
   - BallisticArtilleryMagazine
   - BallisticArtilleryTier5HP
   suffix: Capital/Station, T4
-  description: Fires 140mm shells in a 15 round burst from an internal autoloader.
+  description: Fires 85mm shells in a 15 round burst from an internal autoloader.
   components:
   - type: StaticPrice
     price: 30000

@@ -41,6 +41,7 @@
           ambientMusicPrototype: CamelotMusic
         - type: VesselInfo
           description: "A rickety old station that has been cobbled together over many many cycles..."
+        - type: DeleteNearbyDrones
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Freeport Camelot'

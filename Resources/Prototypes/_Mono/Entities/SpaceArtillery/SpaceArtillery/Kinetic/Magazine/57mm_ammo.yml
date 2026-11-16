@@ -1,7 +1,7 @@
 - type: entity
   id: Magazine57mmHE
-  name: "57mm HE ammo loader"
-  description: "An ammunition loader containing infinite 57mm high-explosive rounds. Usable by vessel-mounted artillery pieces."
+  name: "40x360mm HE ammo loader"
+  description: "An ammunition loader containing infinite 40x360mm high-explosive rounds. Usable by vessel-mounted artillery pieces."
   parent: [BaseItem, RecyclableItemSteelTiny]
   components:
   - type: Tag
@@ -29,7 +29,7 @@
 
 - type: entity
   id: 57mmCartridgeHE
-  name: cartridge (57mm HE)
+  name: cartridge (40x360mm HE)
   parent: BaseCartridge
   components:
   - type: Tag
@@ -69,8 +69,8 @@
 
 - type: entity
   id: Magazine57mmSmart
-  name: "57mm HMNG ammo loader"
-  description: "An ammunition loader containing 600 57mm homing rounds. Usable by vessel-mounted artillery pieces."
+  name: "40x360mm HMNG ammo loader"
+  description: "An ammunition loader containing 600 40x360mm homing rounds. Usable by vessel-mounted artillery pieces."
   parent: [BaseItem, RecyclableItemSteelTiny]
   components:
   - type: Tag
@@ -104,7 +104,7 @@
 
 - type: entity
   id: 57mmCartridgeSmart
-  name: cartridge (57mm HMNG)
+  name: cartridge (40x360mm HMNG)
   parent: BaseCartridge
   components:
   - type: Tag
@@ -144,9 +144,9 @@
 
 - type: entity
   id: Magazine57mmSmartInfinite
-  name: "57mm HMNG ammo loader"
+  name: "40x360mm HMNG ammo loader"
   suffix: INFINITE
-  description: "An ammunition loader containing infinite 57mm homing rounds. Usable by vessel-mounted artillery pieces."
+  description: "An ammunition loader containing infinite 40x360mm homing rounds. Usable by vessel-mounted artillery pieces."
   parent: Magazine57mmHE
   components:
   - type: BallisticAmmoProvider
@@ -164,8 +164,8 @@
 
 - type: entity
   id: Magazine57mmSACLOS
-  name: "57mm LG-SACLOS ammo loader"
-  description: "An ammunition loader containing 600 57mm laser-guided semi-automatic-command-line-of-sight rounds. Thats a mouthful, but it just means it's guided by you directly mid-flight. Usable by vessel-mounted artillery pieces."
+  name: "40x360mm LG-SACLOS ammo loader"
+  description: "An ammunition loader containing 600 40x360mm laser-guided semi-automatic-command-line-of-sight rounds. Thats a mouthful, but it just means it's guided by you directly mid-flight. Usable by vessel-mounted artillery pieces."
   parent: [BaseItem, RecyclableItemSteelTiny]
   components:
   - type: Tag
@@ -199,7 +199,7 @@
 
 - type: entity
   id: 57mmCartridgeSACLOS
-  name: cartridge (57mm LG-SACLOS)
+  name: cartridge (40x360mm LG-SACLOS)
   parent: BaseCartridge
   components:
   - type: Tag
@@ -239,9 +239,9 @@
 
 - type: entity
   id: Magazine57mmSACLOSInfinite
-  name: "57mm LG-SACLOS ammo loader"
+  name: "40x360mm LG-SACLOS ammo loader"
   suffix: INFINITE
-  description: "An ammunition loader containing infinite 57mm laser-guided semi-automatic-command-line-of-sight rounds. Thats a mouthful, but it just means it's guided by you directly mid-flight. Usable by vessel-mounted artillery pieces."
+  description: "An ammunition loader containing infinite 40x360mm laser-guided semi-automatic-command-line-of-sight rounds. Thats a mouthful, but it just means it's guided by you directly mid-flight. Usable by vessel-mounted artillery pieces."
   parent: Magazine57mmHE
   components:
   - type: BallisticAmmoProvider

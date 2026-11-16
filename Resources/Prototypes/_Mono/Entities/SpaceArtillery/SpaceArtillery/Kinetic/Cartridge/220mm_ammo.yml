@@ -1,7 +1,7 @@
 - type: entity
   id: 220mmCartridgeAPHE
-  name: 220mm APHE shell
-  description: A chemically-propelled armor-piercing high-explosive shell for 220mm cannons.
+  name: 130x820mm APHE shell
+  description: A chemically-propelled armor-piercing high-explosive shell for 130x820mm cannons.
   parent: BaseGrenade
   components:
   - type: Tag
@@ -41,8 +41,8 @@
 
 - type: entity
   id: 220mmCartridgeHECluster
-  name: 220mm HE-CLST shell
-  description: A chemically-propelled high-explosive cluster shell for 220mm cannons. Shoots a spread of explosive projectiles.
+  name: 130x820mm HE-CLST shell
+  description: A chemically-propelled high-explosive cluster shell for 130x820mm cannons. Shoots a spread of explosive projectiles.
   parent: BaseGrenade
   components:
   - type: Tag
@@ -82,8 +82,8 @@
 
 - type: entity
   id: 220mmCartridgeSmartCluster
-  name: 220mm HMNG-CLST shell
-  description: A chemically-propelled homing cluster shell for 220mm cannons. Shoots a spread of explosive projectiles that seek targets with basic tracking.
+  name: 130x820mm HMNG-CLST shell
+  description: A chemically-propelled homing cluster shell for 130x820mm cannons. Shoots a spread of explosive projectiles that seek targets with basic tracking.
   parent: BaseGrenade
   components:
   - type: Tag
@@ -125,8 +125,8 @@
 
 - type: entity
   id: Box220mmAPHE
-  name: "220mm APHE ammo box"
-  description: "A big box containing 24 220mm APHE rounds. Usable by vessel-mounted artillery pieces."
+  name: "130x820mm APHE ammo box"
+  description: "A big box containing 24 130x820mm APHE rounds. Usable by vessel-mounted artillery pieces."
   parent: [BaseItem, RecyclableItemSteelTiny]
   components:
   - type: Item
@@ -157,8 +157,8 @@
 
 - type: entity
   id: Box220mmHECluster
-  name: "220mm HE-CLST ammo box"
-  description: "A big box containing 24 220mm high-explosive cluster rounds. Usable by vessel-mounted artillery pieces."
+  name: "130x820mm HE-CLST ammo box"
+  description: "A big box containing 24 130x820mm high-explosive cluster rounds. Usable by vessel-mounted artillery pieces."
   parent: [BaseItem, RecyclableItemSteelTiny]
   components:
   - type: Item
@@ -189,8 +189,8 @@
 
 - type: entity
   id: Box220mmSmartCluster
-  name: "220mm HMNG-CLST ammo box"
-  description: "A big box containing 24 220mm homing-cluster rounds. Usable by vessel-mounted artillery pieces."
+  name: "130x820mm HMNG-CLST ammo box"
+  description: "A big box containing 24 130x820mm homing-cluster rounds. Usable by vessel-mounted artillery pieces."
   parent: [BaseItem, RecyclableItemSteelTiny]
   components:
   - type: Item

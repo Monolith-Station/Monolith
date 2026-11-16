@@ -69,6 +69,7 @@
     tags:
     - VimPilot
     - DoorBumpOpener
+    - BountyCrispy
   - type: CanEscapeInventory
     baseResistTime: 2
   - type: Puller
@@ -135,6 +136,7 @@
   - type: Tag
     tags:
     - Meat
+    - BountyDragonOmelette
 
 - type: entity
   name: avocado toast
@@ -142,6 +144,11 @@
   id: FoodBreadAvocadoToast
   description: It was this or home ownership.
   components:
+  - type: Tag
+    tags:
+    - Bread
+    - Slice
+    - BountyAvocadoToast
   - type: FlavorProfile
     flavors:
       - avocado
@@ -167,6 +174,9 @@
   id: FoodMealBreakfastBagel
   description: For when your morning egg sandwich needs a touch of green and quadruple the asking price.
   components:
+  - type: Tag
+    tags:
+    - BountyBreakfastBagel
   - type: FlavorProfile
     flavors:
       - avocado
@@ -219,6 +229,7 @@
   - type: Tag
     tags:
     - Meat
+    - BountyPoppyseedBreakfastBagel
 
 - type: entity
   name: cucumber sandwich
@@ -248,6 +259,7 @@
   - type: Tag
     tags:
     - Meat
+    - BountyCucumberSandwich
 
 - type: entity
   name: greek salad
@@ -281,6 +293,7 @@
     tags:
     - Vegetable
     - Fruit
+    - BountyGreekSalad
 
 - type: entity
   name: avocado salad
@@ -314,6 +327,7 @@
     tags:
     - Vegetable
     - Fruit
+    - BountyAvocadoSalad
 
 - type: entity
   name: poached pears
@@ -345,6 +359,7 @@
   - type: Tag
     tags:
     - Fruit
+    - BountyPoachedPears
 
 - type: entity
   name: pears belle helene
@@ -378,6 +393,7 @@
   - type: Tag
     tags:
     - Fruit
+    - BountyPearsBelleHelene
 
 - type: entity
   name: basic noodles
@@ -385,6 +401,10 @@
   id: FoodMealBasicNoodles
   description: A simple ramen bowl of noodles and broth. Yum!
   components:
+  - type: Tag
+    tags:
+    - Soup
+    - BountyBasicNoodles
   - type: FlavorProfile
     flavors:
       - finenoodles
@@ -436,6 +456,7 @@
   - type: Tag
     tags:
     - Meat
+    - BountyMisoNoodles
 
 - type: entity
   name: shio noodles
@@ -468,6 +489,7 @@
   - type: Tag
     tags:
     - Vegetable
+    - BountyShioNoodles
 
 - type: entity
   name: shoyu noodles
@@ -502,6 +524,7 @@
     tags:
     - Vegetable
     - Meat
+    - BountyShoyuNoodles
 
 - type: entity
   name: spicy noodles
@@ -535,6 +558,7 @@
   - type: Tag
     tags:
     - Vegetable
+    - BountySpicyNoodles
 
 - type: entity
   name: tonkatsu noodles
@@ -568,6 +592,7 @@
   - type: Tag
     tags:
     - Meat
+    - BountyTonkatsuNoodles
 
 - type: entity
   parent: FoodMealBase
@@ -579,6 +604,7 @@
     tags:
     - Cooked
     - NFHotdog
+    - BountyCookedSausage
   - type: FlavorProfile
     flavors:
       - meaty
@@ -607,6 +633,7 @@
   - type: Tag
     tags:
     - Cooked
+    - BountyHotdog
   - type: FlavorProfile
     flavors:
       - meaty

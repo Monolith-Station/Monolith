@@ -9,9 +9,15 @@
       time: 43200
   assignedCompany: TSF
   canBeAntag: false
+  hideConsoleVisibility: true
   icon: JobIconBorg
   supervisors: job-supervisors-hire
   jobEntity: PlayerBorgTSF
   applyTraits: false
   guides:
   - TSFMC_Entry
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: RadioOnCryosleep
+      radioChannel: Nfsd # NFSD = TSF Comms

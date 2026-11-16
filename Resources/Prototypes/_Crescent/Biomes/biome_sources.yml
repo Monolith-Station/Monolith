@@ -11,7 +11,22 @@
 - type: entity
   id: BaseBiomeSource
   name: base biome source
+  placement:
+    mode: SnapgridCenter
   components:
+  - type: Transform
+    anchored: true
+  - type: Marker
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Tag
+    tags:
+    - ForceFixRotations
+  - type: Sprite
+    sprite: _NF/Markers/jobs.rsi
+    layers:
+    - state: green
+    drawdepth: Overdoors
   - type: GlobalPvs #needed so the client can see these past PVS range
 
 - type: entity

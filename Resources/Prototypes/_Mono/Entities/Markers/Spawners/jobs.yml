@@ -35,6 +35,17 @@
     state: banner-red
 
 - type: entity
+  id: SpawnPointPDVInfantry
+  parent: SpawnPointJobBase
+  name: PDV Infantry
+  components:
+  - type: SpawnPoint
+    job_id: PdvInfantry
+  - type: Sprite
+    sprite: Structures/Decoration/banner.rsi
+    state: banner-red
+
+- type: entity
   id: SpawnPointPDVInfiltrator
   parent: SpawnPointJobBase
   name: pdv infiltrator
@@ -148,6 +159,18 @@
     - state: green
 
 - type: entity
+  id: SpawnPointTsfInfantry
+  parent: SpawnPointJobBase
+  name: TSF Infantry
+  components:
+  - type: SpawnPoint
+    job_id: TsfInfantry
+  - type: Sprite
+    sprite: _NF/Markers/jobs.rsi
+    layers:
+    - state: green
+
+- type: entity
   id: SpawnPointTSFBorg
   parent: SpawnPointJobBase
   name: tsf cyborg
@@ -230,6 +253,47 @@
   components:
   - type: SpawnPoint
     job_id: MMCLiason
+  - type: Sprite
+    sprite: _NF/Markers/jobs.rsi
+    layers:
+    - state: green
+
+# Crocus
+
+- type: entity
+  id: SpawnPointCrocusDockworker
+  parent: SpawnPointJobBase
+  name: Jianghui Dockworker
+  suffix: Crocus
+  components:
+  - type: SpawnPoint
+    job_id: CrocusDockworker
+  - type: Sprite
+    sprite: _NF/Markers/jobs.rsi
+    layers:
+    - state: green
+
+# Underground
+
+- type: entity
+  id: SpawnPointFugitive
+  parent: SpawnPointJobBase
+  name: Fugitive
+  components:
+  - type: SpawnPoint
+    job_id: Fugitive
+  - type: Sprite
+    sprite: _NF/Markers/jobs.rsi
+    layers:
+    - state: green
+
+- type: entity
+  id: SpawnPointGodfather
+  parent: SpawnPointJobBase
+  name: Godfather
+  components:
+  - type: SpawnPoint
+    job_id: Godfather
   - type: Sprite
     sprite: _NF/Markers/jobs.rsi
     layers:

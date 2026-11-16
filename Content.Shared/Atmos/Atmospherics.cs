@@ -101,7 +101,9 @@ namespace Content.Shared.Atmos
         /// <summary>
         ///     Visible moles multiplied by this factor to get moles at which gas is at max visibility.
         /// </summary>
-        public const float FactorGasVisibleMax = 20f;
+        // ES START
+        public const float FactorGasVisibleMax = 10f;
+        // ES END
 
         /// <summary>
         ///     Minimum number of moles a gas can have.
@@ -165,6 +167,10 @@ namespace Content.Shared.Atmos
         /// </summary>
         public static Dictionary<Gas, string> GasAbbreviations = new Dictionary<Gas, string>()
         {
+            // ES START
+            // todo why the fuck does it work like this and why is it not just on the prototype dude
+            [Gas.Smoke] = Loc.GetString("gas-smoke-abbreviation"),
+            // ES END
             [Gas.Ammonia] = Loc.GetString("gas-ammonia-abbreviation"),
             [Gas.BZ] = Loc.GetString("gas-bz-abbreviation"), // Funky/Goob - Ported gas
             [Gas.CarbonDioxide] = Loc.GetString("gas-carbon-dioxide-abbreviation"),
@@ -186,6 +192,10 @@ namespace Content.Shared.Atmos
         /// </summary>
         public static Dictionary<Gas, string> GasNames = new Dictionary<Gas, string>()
         {
+            // ES START
+            // todo why the fuck does it work like this and why is it not just on the prototype dude
+            [Gas.Smoke] = Loc.GetString("gases-smoke"),
+            // ES END
             [Gas.Ammonia] = Loc.GetString("gases-ammonia"),
             [Gas.BZ] = Loc.GetString("gases-bz"), // Funky/Goob - Ported gas
             [Gas.CarbonDioxide] = Loc.GetString("gases-co2"),
@@ -228,7 +238,7 @@ namespace Content.Shared.Atmos
         /// <summary>
         ///     Total number of gases. Increase this if you want to add more!
         /// </summary>
-        public const int TotalNumberOfGases = 13; //Funky/Goob: 9 >> 13
+        public const int TotalNumberOfGases = 14; //Funky/Goob/ES: 9 >> 14
 
         /// <summary>
         ///     This is the actual length of the gases arrays in mixtures.
@@ -305,9 +315,9 @@ namespace Content.Shared.Atmos
         ///     Divisor for Ammonia Oxygen reaction so that it doesn't happen instantaneously.
         /// </summary>
         public const float AmmoniaOxygenReactionRate = 10f;
-		
+
 		///Funky/Goob start
-		
+
         /// <summary>
         ///     The amount of energy 1 mole of BZ forming from N2O and plasma releases.
         /// </summary>
@@ -327,14 +337,14 @@ namespace Content.Shared.Atmos
         ///     The amount of energy 1 mol of Nitrium decomposing into nitrogen and water vapor releases.
         /// </summary>
         public const float NitriumDecompositionEnergy = 30e3f;
-		
+
 		/// <summary>
         ///     The amount of energy 1 mol of Pluoxium forming releases.
         /// </summary>
         public const float PluoxiumProductionEnergy = 250;
-		
+
 		///Funky/Goob end
-		
+
         /// <summary>
         ///     Determines at what pressure the ultra-high pressure red icon is displayed.
         /// </summary>
@@ -430,5 +440,8 @@ namespace Content.Shared.Atmos
         Healium = 10, //Funky/Goob
         Nitrium = 11, //Funky/Goob
 		Pluoxium = 12, //Funky/Goob
+        // ES START
+        Smoke = 13,
+        // ES END
     }
 }

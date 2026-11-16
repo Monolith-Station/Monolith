@@ -64,9 +64,8 @@ public sealed partial class ThiefBeaconSystem : EntitySystem
         if (!TryComp<StealAreaComponent>(beacon, out var area))
             return;
 
-        args.PushText(Loc.GetString(area.Owners.Count == 0
-            ? "thief-fulton-examined-unset"
-            : "thief-fulton-examined-set"));
+        // Mono - remove owner check, it's tag based now
+        args.PushText(Loc.GetString("thief-fulton-examined-set"));
     }
 
     private void SetCoordinate(Entity<ThiefBeaconComponent> beacon, EntityUid mind)
@@ -76,8 +75,11 @@ public sealed partial class ThiefBeaconSystem : EntitySystem
 
         _audio.PlayPvs(beacon.Comp.LinkSound, beacon);
         _popup.PopupEntity(Loc.GetString("thief-fulton-set"), beacon);
+        // Mono - idgaf about owners
+        /*
         area.Owners.Clear(); //We only reconfigure the beacon for ourselves, we don't need multiple thieves to steal from the same beacon.
         area.Owners.Add(mind);
+        */
     }
 
     private void ClearCoordinate(Entity<ThiefBeaconComponent> beacon)
@@ -85,11 +87,14 @@ public sealed partial class ThiefBeaconSystem : EntitySystem
         if (!TryComp<StealAreaComponent>(beacon, out var area))
             return;
 
+        // Mono - remove owner checks
+        /*
         if (area.Owners.Count == 0)
             return;
+        */
 
         _audio.PlayPvs(beacon.Comp.UnlinkSound, beacon);
         _popup.PopupEntity(Loc.GetString("thief-fulton-clear"), beacon);
-        area.Owners.Clear();
+        //area.Owners.Clear();
     }
 }

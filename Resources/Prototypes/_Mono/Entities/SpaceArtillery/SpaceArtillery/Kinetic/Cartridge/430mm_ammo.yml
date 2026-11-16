@@ -1,6 +1,6 @@
 - type: entity
   id: R300ShellHE
-  name: 430mm HE shell
+  name: 320x752mm HE shell
   description: Giant sluggish HE shell. Exclusive to the R300.
   parent: BaseGrenade
   components:
@@ -42,7 +42,7 @@
 
 - type: entity
   id: R300BulletHE
-  name: 430mm HE projectile
+  name: 320x752mm HE projectile
   parent: ShipMissileBase # For shootdown
   categories: [ HideSpawnMenu ]
   components:

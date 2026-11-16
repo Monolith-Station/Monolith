@@ -92,12 +92,13 @@
     sprite: Clothing/Eyes/Hud/beergoggles.rsi
   - type: ShowThirstIcons
   - type: StealTarget
-    stealGroup: ClothingEyesHudBeer
+    stealGroup:
+    - ClothingEyesHudBeer
   - type: SolutionScanner
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: ClothingEyesBase
   id: ClothingEyesHudFriedOnion
@@ -124,7 +125,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: ClothingEyesBase
   id: ClothingEyesHudOnionBeer
@@ -140,7 +141,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: [ClothingEyesBase, ShowMedicalIcons]
   id: ClothingEyesHudMedOnion
@@ -155,7 +156,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: [ClothingEyesBase, ShowMedicalIcons]
   id: ClothingEyesHudMedOnionBeer
@@ -171,7 +172,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons, ShowMedicalIcons]
   id: ClothingEyesHudMedSec
@@ -188,7 +189,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons, ShowMedicalIcons]
   id: ClothingEyesHudMultiversal
@@ -207,7 +208,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons, ShowMedicalIcons]
   id: ClothingEyesHudOmni
@@ -228,7 +229,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons, BaseFactionGearOtherFactionT1]
   id: ClothingEyesHudSyndicate
@@ -243,7 +244,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons]
   id: ClothingEyesHudSyndicateAgent
@@ -259,7 +260,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: [ClothingEyesGlassesSunglasses, ShowSecurityIcons]
   id: ClothingEyesGlassesHiddenSecurity
@@ -278,7 +279,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: [ClothingEyesEyepatchHudMedical, ClothingHeadEyeBaseFlipped]
   id: ClothingEyesEyepatchHudMedicalFlipped
@@ -297,7 +298,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: [ClothingEyesEyepatchHudSecurity,  ClothingHeadEyeBaseFlipped]
   id: ClothingEyesEyepatchHudSecurityFlipped
@@ -316,7 +317,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: [ClothingEyesEyepatchHudBeer, ClothingHeadEyeBaseFlipped]
   id: ClothingEyesEyepatchHudBeerFlipped
@@ -335,7 +336,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: [ClothingEyesEyepatchHudDiag, ClothingHeadEyeBaseFlipped]
   id: ClothingEyesEyepatchHudDiagFlipped

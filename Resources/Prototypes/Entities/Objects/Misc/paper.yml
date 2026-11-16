@@ -633,7 +633,8 @@
     - Folder
     - HighRiskItem
   - type: StealTarget
-    stealGroup: BoxFolderQmClipboard
+    stealGroup:
+    - BoxFolderQmClipboard
 
 - type: entity
   parent: Paper # eat or burn your damn piece of paper damn thieves

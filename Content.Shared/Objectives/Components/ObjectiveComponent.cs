@@ -57,18 +57,19 @@ public record struct RequirementCheckEvent(EntityUid MindId, MindComponent Mind,
 /// Use this if the objective cannot be used, like a kill objective with no people alive.
 /// </summary>
 [ByRefEvent]
-public record struct ObjectiveAssignedEvent(EntityUid MindId, MindComponent Mind, bool Cancelled = false);
+public record struct ObjectiveAssignedEvent(EntityUid MindId, bool Cancelled = false); // Mono - mind comp removed, most dont need it and i can just trycomp
 
 /// <summary>
 /// Event raised on an objective after everything has handled <see cref="ObjectiveAssignedEvent"/>.
 /// Use this to set the objective's title description or icon.
 /// </summary>
 [ByRefEvent]
-public record struct ObjectiveAfterAssignEvent(EntityUid MindId, MindComponent Mind, ObjectiveComponent Objective, MetaDataComponent Meta);
+public record struct ObjectiveAfterAssignEvent(EntityUid MindId, ObjectiveComponent Objective, MetaDataComponent Meta); // Mono - I removed the mindcomponent from this. They piss me off and it's unused.
 
 /// <summary>
 /// Event raised on an objective to update the Progress field.
 /// To use this yourself call <see cref="SharedObjectivesSystem.GetInfo"/> with the mind.
+/// MONO NOTE - THIS SYSTEM IS EDITED TO WORK MORE GENERICALLY FOR NUKIE OPERATIONS, AND NOT REQUIRE A MINDCOMPONENT
 /// </summary>
 [ByRefEvent]
-public record struct ObjectiveGetProgressEvent(EntityUid MindId, MindComponent Mind, float? Progress = null);
+public record struct ObjectiveGetProgressEvent(EntityUid MindId, float? Progress = null);

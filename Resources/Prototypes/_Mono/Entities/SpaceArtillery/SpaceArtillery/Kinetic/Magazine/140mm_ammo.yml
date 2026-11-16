@@ -1,7 +1,7 @@
 - type: entity
   id: Magazine140mm
-  name: "140mm APHE ammo loader"
-  description: "An ammunition loader containing infinite 140mm APHE rounds. Usable by vessel-mounted artillery pieces."
+  name: "85x680mm APHE ammo loader"
+  description: "An ammunition loader containing infinite 85x680mm APHE rounds. Usable by vessel-mounted artillery pieces."
   parent: [BaseItem, RecyclableItemSteelTiny]
   components:
   - type: Tag
@@ -35,7 +35,7 @@
 
 - type: entity
   id: 140mmCartridge
-  name: cartridge (140mm HEAT)
+  name: cartridge (85x680mm HEAT)
   parent: BaseCartridge
   components:
   - type: Tag
@@ -66,8 +66,8 @@
 
 - type: entity
   id: Magazine140mmSACLOS
-  name: "140mm SACLOS ammo loader"
-  description: "An ammunition loader containing 120 140mm laser-guided semi-automatic-command-line-of-sight rounds. Thats a mouthful, but it just means it's guided by you directly mid-flight. Usable by vessel-mounted artillery pieces."
+  name: "85x680mm SACLOS ammo loader"
+  description: "An ammunition loader containing 120 85x680mm laser-guided semi-automatic-command-line-of-sight rounds. Thats a mouthful, but it just means it's guided by you directly mid-flight. Usable by vessel-mounted artillery pieces."
   parent: [BaseItem, RecyclableItemSteelTiny]
   components:
   - type: Tag
@@ -101,7 +101,7 @@
 
 - type: entity
   id: 140mmCartridgeSACLOS
-  name: cartridge (140mm SACLOS)
+  name: cartridge (85x680mm SACLOS)
   parent: BaseCartridge
   components:
   - type: Tag

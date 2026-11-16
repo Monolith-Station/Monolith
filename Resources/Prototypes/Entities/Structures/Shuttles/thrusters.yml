@@ -49,6 +49,7 @@
           !type:DamageTrigger
           damage: 300  # Changed 100->300 because impact damage is real
         behaviors:
+          - !type:TriggerBehavior # Mono
           - !type:DoActsBehavior
             acts: ["Destruction"]
           - !type:PlaySoundBehavior
@@ -75,12 +76,14 @@
         !type:DamageTrigger
         damage: 600
       behaviors:
+        - !type:TriggerBehavior # Mono
         - !type:DoActsBehavior
           acts: ["Destruction"]
     - trigger:
         !type:DamageTrigger
         damage: 300
       behaviors:
+        - !type:TriggerBehavior # Mono
         - !type:DoActsBehavior
           acts: ["Destruction"]
         - !type:PlaySoundBehavior
@@ -129,6 +132,15 @@
   - type: ShipRepairable
     repairTime: 5
     repairCost: 5
+  - type: ProjectileGrenade # funny
+    randomAngle: true
+    fillPrototype: PelletClusterIncendiary
+    capacity: 2
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      cluster-payload: !type:Container
 
 # Xenoborg Thruster
 - type: entity
@@ -238,12 +250,14 @@
         !type:DamageTrigger
         damage: 300
       behaviors:
+        - !type:TriggerBehavior # Mono
         - !type:DoActsBehavior
           acts: ["Destruction"]
     - trigger:
         !type:DamageTrigger
         damage: 100
       behaviors:
+        - !type:TriggerBehavior # Mono
         - !type:DoActsBehavior
           acts: ["Destruction"]
         - !type:PlaySoundBehavior
@@ -267,10 +281,35 @@
     repairTime: 6
     repairCost: 6
   - type: Explosive
-    explosionType: Default
-    maxIntensity: 100
-    intensitySlope: 2
-    totalIntensity: 200
+    explosionType: ESWelderBomb
+    maxIntensity: 10
+    intensitySlope: 1
+    totalIntensity: 40
+  - type: ESSparkOnHit
+    prob: 0.4
+    tileFireChance: 0.4
+    count: 3
+  - type: Flammable
+    fireSpread: true
+    firestackFade: 0.1
+    alwaysCombustible: true
+    damage:
+      types:
+        Heat: 1
+        Structural: 2
+  - type: Appearance
+  - type: FireVisuals
+    sprite: Mobs/Effects/onfire.rsi
+    normalState: Generic_mob_burning
+  - type: ProjectileGrenade # funny
+    randomAngle: true
+    fillPrototype: PelletClusterIncendiary
+    capacity: 2
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      cluster-payload: !type:Container
 
 - type: entity
   id: GyroscopeUnanchored

@@ -1,8 +1,8 @@
 - type: entity
   id: CrateSyndicateSurplusBundle
-  parent: [ CrateSyndicate, StorePresetUplink ]
-  name: Syndicate surplus crate
-  description: Contains 250 telecrystals worth of completely random Syndicate items. It can be useless junk or really good.
+  parent: [ CratePDVEquippment, StorePresetUplink ] # Mono
+  name: surplus crate # Mono
+  description: Contains 250 telecrystals worth of items haphazardly imported from a distant black market. It can be useless junk or really good. # Mono
   components:
     - type: SurplusBundle
       totalPrice: 250
@@ -10,9 +10,9 @@
 - type: entity
   id: CrateCybersunJuggernautBundle
   suffix: Filled
-  parent: CrateSyndicate
-  name: Cybersun juggernaut bundle
-  description: Contains everything except a big gun to go postal.
+  parent: CratePDVEquippment # Mono
+  name: juggernaut bundle # Mono: remove syndicate references
+  description: Contains everything except a big gun to go postal. You are one lucky fugitive. # Mono: remove syndicate references
   components:
   - type: StorageFill
     contents:
@@ -24,9 +24,9 @@
 
 - type: entity
   id: CrateSyndicateSuperSurplusBundle
-  parent: [ CrateSyndicate, StorePresetUplink ]
-  name: Syndicate super surplus crate
-  description: Contains 600 telecrystals worth of completely random Syndicate items.
+  parent: [ CratePDVEquippment, StorePresetUplink ] # Mono
+  name: super surplus crate # Mono
+  description: Contains 600 telecrystals worth of items haphazardly imported from a distant black market. # Mono
   components:
     - type: SurplusBundle
       totalPrice: 600

@@ -1,3 +1,4 @@
+using Content.Shared._Crescent.ShipShields;
 using Content.Shared.Damage;
 using Content.Shared.Explosion.EntitySystems;
 using Content.Shared.Weapons.Hitscan.Components;
@@ -28,6 +29,8 @@ public sealed partial class HitscanSpawnEntitySystem : EntitySystem
 
         foreach (var hitEntity in args.HitEntities)
         {
+            if (HasComp<ShipShieldComponent>(hitEntity))
+                continue; // if we don't do this, it'll spawn the entity in the centre of the ship if it hits a shield. which, with the prometheus, basically 1-taps a ton of ships who put their critical components in the centre like Mercury.
             Spawn(ent.Comp.SpawnedEntity, Transform(hitEntity).Coordinates);
         }
     }

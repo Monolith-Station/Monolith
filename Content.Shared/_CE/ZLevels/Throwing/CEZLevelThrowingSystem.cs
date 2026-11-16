@@ -25,8 +25,9 @@ public sealed partial class CEZLevelThrowingSystem : EntitySystem
         if (flyTime <= 0f)
             return;
 
-        var distToGround = ent.Comp.LocalPosition - ent.Comp.CachedGroundHeight;
-        var v0 = MathF.Max(0f, (0.5f * CESharedZLevelsSystem.ZGravityForce * flyTime - distToGround / flyTime) * 2f);
+        flyTime = MathF.Min(flyTime, 1f);
+        var distToGround = MathF.Max(0f, ent.Comp.LocalPosition - ent.Comp.CachedGroundHeight);
+        var v0 = MathF.Max(0f, 0.5f * CESharedZLevelsSystem.ZGravityForce * flyTime - distToGround / flyTime);
         _zLevels.SetZVelocity((ent.Owner, ent.Comp), v0);
     }
 }

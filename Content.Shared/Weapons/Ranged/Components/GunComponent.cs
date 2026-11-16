@@ -1,9 +1,11 @@
 using System.Numerics;
+using Content.Shared._Mono.Detection;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared.Weapons.Ranged.Components;
@@ -340,6 +342,13 @@ public sealed partial class GunComponent : Component
     /// </summary>
     [DataField]
     public float ExecutionModifier = 9.0f;
+
+    /// <summary>
+    /// Mono
+    /// Muzzle flash for gun. Takes priority over ammo flash.
+    /// </summary>
+    [DataField]
+    public EntProtoId? MuzzleFlash;
 }
 
 [Flags]

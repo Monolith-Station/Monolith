@@ -45,6 +45,11 @@
       - type: JamOverwatch
         excludedFactions:
         - PDV
+      - type: DeleteNearbyDrones
+        distance: 5000
+      - type: ApplyIFFFlagsToDockedShips
+        flags:
+        - HideLabelAlways # hide all docked ships
       components:
         - type: StationNameSetup
           mapNameTemplate: 'PDV Helio Fortress'

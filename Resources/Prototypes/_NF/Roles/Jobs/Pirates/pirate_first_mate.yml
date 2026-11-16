@@ -9,10 +9,14 @@
     - !type:RoleTimeRequirement
       role: JobPDVDenasvar
       time: 28800 # 8 hours
+    - !type:TraitsRequirement # The trait doesn't do anything if you're PDV anyways, but this is 1 step closer to letting it actually give you points
+      inverted: true
+      traits:
+      - Heretic
   #whitelisted: true # mono - comment out
   startingGear: PirateFirstMateNFGear
   alwaysUseSpawner: true
-  hideConsoleVisibility: true
+# hideConsoleVisibility: true
   canBeAntag: true
   icon: "JobIconPirateFirstMate"
   supervisors: job-supervisors-captain
@@ -21,7 +25,7 @@
   assignedCompany: PDV
   setPreference: true
   access:
-  - Pirate
+  - PDV
   - PDVCommand
   - Mercenary
   accessGroups:
@@ -37,6 +41,8 @@
     - type: NpcFactionMember
       factions:
       - PirateNF
+    - type: RadioOnCryosleep
+      radioChannel: Freelance # freelance = Vanguard
   - !type:AddImplantSpecial
     implants: [ FreelanceTrackingImplant ]
   - !type:AddLanguageSpecial # Monolith - Languages

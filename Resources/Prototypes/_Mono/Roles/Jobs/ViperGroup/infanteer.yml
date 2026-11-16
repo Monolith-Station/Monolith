@@ -6,7 +6,7 @@
   whitelisted: true # Everyone who has the company whitelist, I'd assume.
   startingGear: ViperRadioGear
   alwaysUseSpawner: true
-  hideConsoleVisibility: true
+# hideConsoleVisibility: true
   icon: "JobIconVGInfanteer"
   supervisors: job-supervisors-vg-infanteer
   canBeAntag: false
@@ -17,7 +17,7 @@
   - Viper_Group
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, ViperTrackingImplant ]
+    implants: [ ViperTrackingImplant ]
   - !type:AddComponentSpecial
     components:
     - type: MailDisabled
@@ -28,6 +28,8 @@
       - VG
     - type: ChatRank
       rank: vg-infanteer
+    - type: RadioOnCryosleep
+      radioChannel: Viper
   accessGroups:
   - GeneralAccess
   - ViperLow

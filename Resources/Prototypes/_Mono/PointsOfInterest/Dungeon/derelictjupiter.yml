@@ -10,7 +10,7 @@
 # intended as a replacement for ListeningPointBravo
 - type: pointOfInterest
   id: Jupiter
-  parent: BaseMobilePOI
+  parent: BasePOI # no fun allowed
   name: 'PDV Jupiter Class Carrier'
   minimumDistance: 15000
   maximumDistance: 17500
@@ -22,7 +22,6 @@
     color: "#d1bf58"
     flags: [HideLabel]
     readOnly: false
-  - type: SyndicateFOB # For pinpointer, since it needs to point to SOMETHING.
   - type: WorldGenDistanceCarver
     distanceThresholds:
     # Dead zone

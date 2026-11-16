@@ -9,3 +9,25 @@ objective-condition-steal-Ian = station representative's corgi
 objective-condition-thief-description = The {$itemName} would be a great addition to my collection!
 objective-condition-thief-animal-description = The {$itemName} would be a great addition to my collection! Most importantly, alive.
 objective-condition-thief-multiply-description = I need to get {$count} {MAKEPLURAL($itemName)} (any) and take them with me.
+
+# Mono
+objective-condition-steal-pdv = the PDV
+objective-condition-steal-tsf = the TSF
+objective-condition-steal-title-faction = Acquire {$owner}'s {$itemName}.
+objective-condition-steal-title-faction-no-owner = Acquire {$itemName}.
+objective-condition-steal-description-faction = Ensure atleast one person in your company/faction or you are in possesion of {$itemName}.
+objective-condition-steal-description-faction-beacon-crocus = Ensure atleast one person in your company/faction or you are in possesion of {$itemName}, or it is in range of an extraction beacon.
+objective-condition-steal-multiply-description-faction = Ensure atleast one person in your company/faction or you are in possesion of {$count}x {MAKEPLURAL($itemName)} (any).
+objective-condition-steal-multiply-description-faction-crocus = Ensure atleast one person in your company/faction or you are in possesion of {$count}x {MAKEPLURAL($itemName)} (any), or it is in range of an extraction beacon.
+
+objective-condition-steal-title-repair = Repair {$itemName}.
+objective-condition-steal-description-faction-beacon-crocus-repair = Ensure that {$itemName} is repaired, and it is in range of an extraction beacon.
+objective-condition-steal-multiply-description-faction-beacon-crocus-repair = Ensure that atleast {$count}x {MAKEPLURAL($itemName)} (any) are repaired, and they are in range of an extraction beacon.
+
+objective-condition-steal-title-destroy = Destroy {$itemName}.
+objective-condition-steal-description-faction-beacon-crocus-destroy = Ensure that {$itemName} is inoperable, and it is in range of an extraction beacon.
+objective-condition-steal-multiply-description-faction-beacon-crocus-destroy = Ensure that atleast {$count}x {MAKEPLURAL($itemName)} (any) are inoperable, and they are in range of an extraction beacon.
+
+steal-target-groups-federal-nanites = federation nanite canister
+steal-target-groups-federal-pdas = military PDA
+steal-target-groups-beacon-repairs = beacon

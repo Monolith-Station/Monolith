@@ -33,6 +33,9 @@
   id: FoodMealPotatoLoaded
   description: Totally baked.
   components:
+  - type: Tag # Mono
+    tags:
+    - BountyLoadedBakedPotato
   - type: FlavorProfile
     flavors:
       - cheesy
@@ -47,6 +50,9 @@
   id: FoodMealFries
   description: AKA, French Fries, Freedom Fries, etc.
   components:
+  - type: Tag # Mono
+    tags:
+    - BountySpaceFries
   - type: FlavorProfile
     flavors:
       - potatoes
@@ -61,6 +67,9 @@
   id: FoodMealFriesCheesy
   description: Fries. Covered in cheese. Duh.
   components:
+  - type: Tag # Mono
+    tags:
+    - BountyCheesyFries
   - type: FlavorProfile
     flavors:
       - potatoes
@@ -85,6 +94,7 @@
   - type: Tag
     tags:
     - CarrotFries
+    - BountyCarrotFries # Mono
   - type: SolutionContainerManager
     solutions:
       food:
@@ -100,6 +110,9 @@
   id: FoodMealNachos
   description: Chips from Space Mexico.
   components:
+  - type: Tag # Mono
+    tags:
+    - BountyNachos
   - type: Food
     trash:
     - FoodPlateSmall
@@ -127,6 +140,9 @@
   id: FoodMealNachosCheesy
   description: The delicious combination of nachos and melting cheese.
   components:
+  - type: Tag # Mono
+    tags:
+    - BountyCheesyNachos
   - type: Food
     trash:
     - FoodPlateSmall
@@ -157,6 +173,9 @@
   id: FoodMealNachosCuban
   description: That's some dangerously spicy nachos.
   components:
+  - type: Tag # Mono
+    tags:
+    - BountyCubanNachos
   - type: Food
     trash:
     - FoodPlateSmall
@@ -273,6 +292,7 @@
     tags:
     - CubanCarp
     - Meat
+    - BountyCubanCarp # Mono
 # Tastes like fish, batter, hot peppers.
 
 - type: entity
@@ -388,6 +408,7 @@
   - type: Tag
     tags:
     - Meat
+    - BountyBbqRibs # Mono
 # Tastes like meat, smokey sauce.
 
 - type: entity
@@ -516,6 +537,9 @@
   id: DisgustingSweptSoup
   description: Jesus christ.
   components:
+  - type: Tag # Mono
+    tags:
+    - BountySaltySweetMisoColaSoup
   - type: Sprite
     state: saltysweet
   - type: SolutionContainerManager
@@ -539,6 +563,9 @@
   id: FoodMealQueso
   description: A classic dipping sauce that you can't go wrong with.
   components:
+    - type: Tag # Mono
+      tags:
+      - BountyQueso
     - type: FlavorProfile
       flavors:
         - cheesy
@@ -569,6 +596,7 @@
   - type: Tag
     tags:
     - Meat
+    - BountySashimi # Mono
 # tastes exotic
 
 - type: entity
@@ -596,6 +624,7 @@
     - type: Tag
       tags:
       - Meat
+      - BountyEnchiladas # Mono
 # What do Europeans eat instead of enchiladas? 25.4 millimeter-iladas.
 
 - type: entity
@@ -628,6 +657,7 @@
   - type: Tag
     tags:
     - Fruit
+    - BountyMelonFruitBowl # Mono
 
 - type: entity
   name: corn in butter
@@ -635,6 +665,9 @@
   id: FoodMealCornInButter
   description: Buttery.
   components:
+  - type: Tag # Mono
+    tags:
+    - BountyCornInButter
   - type: Food
     trash:
     - FoodPlate

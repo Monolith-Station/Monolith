@@ -74,13 +74,13 @@
     name: "Omnichurch Beacon"
 
 - type: entity
-  parent: [BaseStructureDisableToolUse, FaxMachineSyndie, FaxMachineShipAntag]
+  parent: [BaseStructureDisableToolUse, FaxMachineBase, FaxMachineShipAntag]
   id: FaxMachineNFLPBravo
-  suffix: POI, LP Bravo
+  suffix: POI, Black Market
   #categories: [ HideSpawnMenu ] # Mono - comment out
   components:
   - type: FaxMachine
-    name: "Listening Point: Bravo"
+    name: "Underground Black Market"
   #- type: ApcPowerReceiver # Mono - comment out
   #  powerDisabled: true #starts off
 

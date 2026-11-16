@@ -78,6 +78,14 @@
       - VanykCartridgeUnguided
 
 - type: entity
+  id: VanykMagazineAAM
+  name: "Vanyk 150mm anti-munition missile autoloader"
+  parent: VanykMagazine
+  components:
+  - type: BallisticAmmoProvider
+    proto: VanykCartridgeAAM
+
+- type: entity
   id: VanykCartridge
   name: 150mm HEAT missile
   description: An individual ASM-150 HEAT missile used in the Vanyk.
@@ -100,6 +108,17 @@
       map: ["enum.AmmoVisualLayers.Base"]
   - type: Appearance
   - type: SpentAmmoVisuals
+  - type: Flammable
+    fireSpread: true
+    firestackFade: -0.01
+    alwaysCombustible: true
+    damage:
+      types:
+        Heat: 1
+        Structural: 2
+  - type: FireVisuals
+    sprite: Mobs/Effects/onfire.rsi
+    normalState: Generic_mob_burning
   - type: Destructible
     thresholds:
     - trigger:
@@ -134,3 +153,12 @@
   - type: CartridgeAmmo
     proto: ShipMissileASM150Unguided
     deleteOnSpawn: true
+
+- type: entity
+  id: VanykCartridgeAAM
+  name: 150mm anti-munition missile
+  description: An individual ASM-150 anti-munition missile used in the Vanyk.
+  parent: VanykCartridge
+  components:
+  - type: CartridgeAmmo
+    proto: ShipMissileASM150AAM

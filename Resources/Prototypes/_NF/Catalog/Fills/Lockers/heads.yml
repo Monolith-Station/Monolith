@@ -40,7 +40,6 @@
     contents:
       - id: SrIDCard
       #- id: ClothingHeadsetCentCom # Frontier - Mono out
-      - id: ClothingHeadsetAltCentComSR #Mono in
       - id: BoxHandcuff # Frontier
       - id: IDComputerCircuitboard
       - id: CommsComputerCircuitboard # Frontier
@@ -77,7 +76,7 @@
   suffix: Filled
   components:
   - type: AccessReader
-    access: [["HeadOfPersonnel"]]
+    access: [["CaelestinusCommand"]]
   - type: StorageFill
     contents:
     - id: WeaponCaseHeavyCdet

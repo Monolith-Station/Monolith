@@ -17,7 +17,7 @@
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
   - type: AccessReader
-    access: [["HeadOfPersonnel"], ["HeadOfSecurity"]]
+    access: [["Tsfmc"]] # Mono
   - type: CommunicationsConsole
     title: comms-console-announcement-title-station
     canShuttle: false

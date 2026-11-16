@@ -6,7 +6,7 @@
   # No requirements. Anyone can be my slave.
   startingGear: MMCEmployeeGear
   alwaysUseSpawner: true
-  hideConsoleVisibility: true
+# hideConsoleVisibility: true
   icon: "JobIconMMCEmployee"
   supervisors: job-supervisors-mmc-liason
   assignedCompany: MMC
@@ -29,6 +29,8 @@
       - MMC
     - type: ChatRank
       rank: mmc-employee
+    - type: RadioOnCryosleep
+      radioChannel: Mieyo
   - !type:AddLanguageSpecial
     languagesSpoken:
     - Nekomimetic
