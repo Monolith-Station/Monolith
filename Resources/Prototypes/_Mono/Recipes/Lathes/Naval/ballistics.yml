@@ -2,7 +2,8 @@
   id: RecipeWeaponTurretFlare
   result: TurretFlareFlatpack
   categories:
-  - Components
+  - Ballistics
+  - SuperLight
   completetime: 10
   materialDiscountScale: 0
   materials:
@@ -12,7 +13,8 @@
   id: RecipeWeaponTurretL85Autocannon
   result: L58Flatpack
   categories:
-  - Components
+  - Ballistics
+  - Light
   completetime: 10
   materialDiscountScale: 0
   materials:
@@ -21,10 +23,24 @@
     Plasteel: 500
 
 - type: latheRecipe
+  id: RecipeWeaponTurretAdderScattercannon
+  result: AdderScattercannonFlatpack
+  categories:
+  - Ballistics
+  - Light
+  completetime: 10
+  materialDiscountScale: 0
+  materials:
+    MaterialIndustryMechanical: 1
+    MaterialIndustryRecievers: 1
+    MaterialIndustryElectronics: 1
+
+- type: latheRecipe
   id: RecipeWeaponTurretAK570
   result: AK570Flatpack
   categories:
-  - Components
+  - Ballistics
+  - Light
   completetime: 10
   materialDiscountScale: 0
   materials:
@@ -36,7 +52,8 @@
   id: RecipeWeaponTurretAC-35
   result: AC-35Flatpack
   categories:
-  - Components
+  - Ballistics
+  - Medium
   completetime: 10
   materialDiscountScale: 0
   materials:
@@ -48,7 +65,8 @@
   id: RecipeWeaponTurretRAC30
   result: DraupnirFlatpack
   categories:
-  - Components
+  - Ballistics
+  - Medium
   completetime: 10
   materialDiscountScale: 0
   materials:
@@ -60,7 +78,8 @@
   id: RecipeWeaponTurretDravon
   result: DravonFlatpack
   categories:
-  - Components
+  - Ballistics
+  - Medium
   completetime: 10
   materialDiscountScale: 0
   materials:
@@ -72,7 +91,8 @@
   id: RecipeWeaponTurretTarnyxReload
   result: TarnyxFlatpack
   categories:
-  - Components
+  - Ballistics
+  - Medium
   completetime: 10
   materialDiscountScale: 0
   materials:
@@ -85,7 +105,8 @@
   id: RecipeWeaponTurretTarnyxReloadAP
   result: EquinoxFlatpack
   categories:
-  - Components
+  - Ballistics
+  - Medium
   completetime: 10
   materialDiscountScale: 0
   materials:
@@ -97,7 +118,8 @@
   id: RecipeWeaponTurretBofors
   result: BoforsFlatpack
   categories:
-  - Components
+  - Ballistics
+  - Heavy
   completetime: 10
   materialDiscountScale: 0
   materials:
@@ -109,7 +131,8 @@
   id: RecipeWeaponTurretCyrexa
   result: CyrexaFlatpack
   categories:
-  - Components
+  - Ballistics
+  - Heavy
   completetime: 10
   materialDiscountScale: 0
   materials:
@@ -121,7 +144,8 @@
   id: RecipeWeaponTurretR300
   result: R300Flatpack
   categories:
-  - Components
+  - Ballistics
+  - Heavy
   completetime: 10
   materialDiscountScale: 0
   materials:
@@ -132,7 +156,8 @@
   id: RecipeWeaponTurretAK800
   result: Ak800Flatpack
   categories:
-  - Components
+  - Ballistics
+  - Heavy
   completetime: 10
   materialDiscountScale: 0
   materials:
@@ -145,7 +170,8 @@
   id: RecipeWeaponTurretAK820
   result: Ak820Flatpack
   categories:
-  - Components
+  - Ballistics
+  - Heavy
   completetime: 10
   materialDiscountScale: 0
   materials:
@@ -158,7 +184,8 @@
   id: RecipeWeaponTurretFang
   result: FangFlatpack
   categories:
-  - Components
+  - Ballistics
+  - Heavy
   completetime: 10
   materialDiscountScale: 0
   materials:
@@ -171,23 +198,12 @@
   id: RecipeWeaponTurretHydra
   result: HydraFlatpack
   categories:
-  - Components
+  - Ballistics
+  - Heavy
   completetime: 10
   materialDiscountScale: 0
   materials:
     MaterialIndustryFCS: 3
     MaterialIndustryMechanical: 5
     MaterialIndustryRecievers: 5
-    MaterialIndustryElectronics: 1
-
-- type: latheRecipe
-  id: RecipeWeaponTurretAdderScattercannon
-  result: AdderScattercannonFlatpack
-  categories:
-  - Components
-  completetime: 10
-  materialDiscountScale: 0
-  materials:
-    MaterialIndustryMechanical: 1
-    MaterialIndustryRecievers: 1
     MaterialIndustryElectronics: 1

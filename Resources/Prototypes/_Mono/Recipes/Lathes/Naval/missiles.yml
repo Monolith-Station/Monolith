@@ -1,0 +1,91 @@
+- type: latheRecipe
+  id: RecipeWeaponTurretVanyk
+  result: VanykFlatpack
+  categories:
+  - Missiles
+  - Light
+  completetime: 10
+  materialDiscountScale: 0
+  materials:
+    MaterialIndustryFCS: 3
+    MaterialIndustryMechanical: 1
+    MaterialIndustryElectronics: 3
+
+- type: latheRecipe
+  id: RecipeWeaponTurretLightMunitionsBay
+  result: LightMunitionsBayFlatpack
+  categories:
+  - Missiles
+  - Light
+  completetime: 10
+  materialDiscountScale: 0
+  materials:
+    MaterialIndustryMechanical: 1
+    MaterialIndustryElectronics: 1
+
+- type: latheRecipe
+  id: RecipeWeaponTurretVespera
+  result: VesperaFlatpack
+  categories:
+  - Missiles
+  - Medium
+  completetime: 10
+  materialDiscountScale: 0
+  materials:
+    MaterialIndustryFCS: 3
+    MaterialIndustryMechanical: 1
+    MaterialIndustryElectronics: 3
+
+- type: latheRecipe
+  id: RecipeWeaponTurretTovek
+  result: TovekFlatpack
+  categories:
+  - Missiles
+  - Medium
+  completetime: 10
+  materialDiscountScale: 0
+  materials:
+    MaterialIndustryFCS: 1
+    MaterialIndustryMechanical: 1
+    MaterialIndustryElectronics: 3
+
+- type: latheRecipe
+  id: RecipeWeaponTurretASM220
+  result: TridentFlatpack
+  categories:
+  - Missiles
+  - Heavy
+  completetime: 10
+  materialDiscountScale: 0
+  materials:
+    MaterialIndustryFCS: 5
+    MaterialIndustryMechanical: 3
+    MaterialIndustryElectronics: 5
+
+- type: latheRecipe
+  id: RecipeWeaponTurretVanquisher
+  result: VanquisherFlatpack
+  categories:
+  - Missiles
+  - Heavy
+  completetime: 10
+  materialDiscountScale: 0
+  materials:
+    MaterialIndustryFCS: 5
+    MaterialIndustryMechanical: 5
+    MaterialIndustryElectronics: 5
+    MaterialIndustryPlates: 3
+
+- type: latheRecipe
+  id: RecipeWeaponTurretPaladin
+  result: PaladinFlatpack
+  categories:
+  - Missiles
+  - Heavy
+  completetime: 10
+  materialDiscountScale: 0
+  materials:
+    MaterialIndustryFCS: 5
+    MaterialIndustryMechanical: 5
+    MaterialIndustryElectronics: 5
+    MaterialIndustryPlates: 3

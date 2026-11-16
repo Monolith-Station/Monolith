@@ -60,6 +60,10 @@
     - ResearchedExplosives
     - SecurityEquipment
     - SmartGun
+    # Shipguns
+    - NavalBallistics
+    - NavalEnergy
+    - NavalMissiles
   - type: MaterialStorage
     whitelist:
       tags:
@@ -160,6 +164,10 @@
     - ResearchedExplosives
     - SecurityEquipment
     - SmartGun
+    - # Shipguns
+    - NavalBallistics
+    - NavalEnergy
+    - NavalMissiles
   - type: MaterialStorage
     whitelist:
       tags:
@@ -221,6 +229,10 @@
     - ResearchedExplosives
     - SecurityEquipment
     - SmartGun
+    - # Shipguns
+    - NavalBallistics
+    - NavalEnergy
+    - NavalMissiles
   - type: MaterialStorage
     whitelist:
       tags:
@@ -282,6 +294,10 @@
     # Civ military tech
     - SecurityEquipment
     - SmartGun
+    - # Shipguns
+    - NavalBallistics
+    - NavalEnergy
+    - NavalMissiles
   - type: MaterialStorage
     whitelist:
       tags:
@@ -886,6 +902,10 @@
     - UniversalOrdinance
     - SmartGun #Smart SMG
     - NFMercenaryTechfabDeprecated
+    - # Shipguns
+    - NavalBallistics
+    - NavalEnergy
+    - NavalMissiles
     # Mono end
   - type: MaterialStorage
     whitelist:

@@ -1,0 +1,90 @@
+- type: latheRecipe
+  id: RecipeWeaponLaserTurretL1Phalanx
+  result: L1PhalanxFlatpack
+  categories:
+  - Energy
+  - Light
+  completetime: 10
+  materialDiscountScale: 0
+  materials:
+    MaterialIndustryFCS: 1
+    MaterialIndustryMechanical: 1
+    MaterialIndustryElectronics: 1
+
+- type: latheRecipe
+  id: RecipeWeaponTurretM220
+  result: M220Flatpack
+  categories:
+  - Energy
+  - Light
+  completetime: 10
+  materialDiscountScale: 0
+  materials:
+    MaterialIndustryFCS: 1
+    MaterialIndustryMechanical: 1
+    MaterialIndustryElectronics: 3
+
+- type: latheRecipe
+  id: RecipeWeaponLaserTurretPrometheus
+  result: PrometheusFlatpack
+  categories:
+  - Energy
+  - Medium
+  completetime: 10
+  materialDiscountScale: 0
+  materials:
+    MaterialIndustryFCS: 3
+    MaterialIndustryMechanical: 2
+    MaterialIndustryElectronics: 3
+
+- type: latheRecipe
+  id: RecipeWeaponTurretType35
+  result: Type35Flatpack
+  categories:
+  - Energy
+  - Medium
+  completetime: 10
+  materialDiscountScale: 0
+  materials:
+    MaterialIndustryFCS: 2
+    MaterialIndustryMechanical: 1
+    MaterialIndustryElectronics: 3
+
+- type: latheRecipe
+  id: RecipeWeaponTurretType54
+  result: Type54Flatpack
+  categories:
+  - Energy
+  - Medium
+  completetime: 10
+  materialDiscountScale: 0
+  materials:
+    MaterialIndustryFCS: 2
+    MaterialIndustryMechanical: 1
+    MaterialIndustryElectronics: 4
+
+- type: latheRecipe
+  id: RecipeWeaponLaserTurretApollo
+  result: ApolloFlatpack
+  categories:
+  - Energy
+  - Heavy
+  completetime: 10
+  materialDiscountScale: 0
+  materials:
+    MaterialIndustryFCS: 3
+    MaterialIndustryMechanical: 3
+    MaterialIndustryElectronics: 4
+
+- type: latheRecipe
+  id: RecipeWeaponTurretCerberus
+  result: CerberusFlatpack
+  categories:
+  - Energy
+  - Heavy
+  completetime: 10
+  materialDiscountScale: 0
+  materials:
+    MaterialIndustryFCS: 2
+    MaterialIndustryMechanical: 3
+    MaterialIndustryElectronics: 5
