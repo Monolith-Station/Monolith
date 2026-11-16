@@ -27283,3 +27283,48 @@ Entries:
   id: 2930
   time: '2026-11-16T14:41:34.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/5036
+- author: SuperGDPWYL
+  changes:
+    - type: Add
+      message: >-
+        The CAW-32 "Galactica" has been added to the loadout of all Caelestinus
+        roles as a sidearm.
+    - type: Add
+      message: >-
+        Added a Caelestinus R&D server to Caelestinus Central. It can research
+        Caelestinus weapons and suits.
+    - type: Add
+      message: >-
+        Added the CSW-25 "Adjudicator", an advanced Caelestinus hardsuit. It can
+        absorb a lot of punishment but is quite heavy.
+    - type: Add
+      message: Added Caelestinus banners, sprite by thoughtlessuser!
+    - type: Tweak
+      message: Resprited all of Caelestinus' suits, new sprites by thoughtlessuser.
+    - type: Tweak
+      message: Renamed Caelestinus PDAs to be more fitting.
+    - type: Tweak
+      message: >-
+        Caelestinus modsuits and hardsuits now have secHUDs. Some have medHUDs
+        and improved NVGs too!
+    - type: Tweak
+      message: >-
+        Renamed Caelestinus suits to be more thematic, and buffed them to be
+        more equivalent to TSFMC/PDV suits.
+    - type: Tweak
+      message: The Firestarter is now a Caelestinus gun.
+    - type: Tweak
+      message: The Firestarter now fires 4.6x30mm at 12 RPS (192DPS).
+    - type: Tweak
+      message: >-
+        The Iroh has been buffed to be on par with TSFMC/PDV assault and battle
+        rifles.
+    - type: Tweak
+      message: Caelestinus suits no longer spawn on Anomalous Lab.
+    - type: Tweak
+      message: Removed the Overseer's spare overseer selector.
+    - type: Remove
+      message: The Overseer no longer has an "NT energy shotgun".
+  id: 2931
+  time: '2026-11-16T19:10:08.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4925
