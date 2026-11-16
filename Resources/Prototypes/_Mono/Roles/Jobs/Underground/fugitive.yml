@@ -6,6 +6,10 @@
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 10800 # 3 hours # mono
+  - !type:TraitsRequirement # already a heretic by default
+    inverted: true
+    traits:
+    - Heretic
   startingGear: FugitiveGear
   icon: JobIconFugitive
   supervisors: job-supervisors-nobody
@@ -13,6 +17,8 @@
   accessGroups:
   - GeneralAccess
   access:
+  - Underground
+  guides:
   - Underground
   special:
   - !type:GiveItemOnHolidaySpecial
@@ -26,6 +32,14 @@
         FederationMilitaryCredit: 150 # bounty on your head
     - type: RadioOnCryosleep
       radioChannel: Syndicate # Syndicate = Underground
+    - type: AddComponentsAfterTime # heresy
+      addComponentsOnSelection:
+      - type: Contraband
+        hideValues: true
+        turnInValues:
+          FederationMilitaryCredit: 150 # heresy
+          Doubloon: 250
+      - type: Heretic
   - !type:AddImplantSpecial
     implants: [ DeathRattleImplant, RadioImplant ]
   - !type:AddLanguageSpecial
