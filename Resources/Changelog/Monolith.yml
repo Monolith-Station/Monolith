@@ -27235,3 +27235,14 @@ Entries:
   id: 2925
   time: '2026-11-16T04:34:42.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/5015
+- author: Mrrpip
+  changes:
+    - type: Add
+      message: >-
+        Adds a variant of the QJ-490, the QJ-490 classic. Comes with it's
+        Tumour-era loadout.
+    - type: Fix
+      message: Fixed Hullmod rotation, applies a negative hullmod to Zvezda's shipyard.
+  id: 2926
+  time: '2026-11-16T04:36:45.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5008
