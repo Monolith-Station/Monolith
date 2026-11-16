@@ -50,6 +50,23 @@
   - !type:TileNotBlocked
 
 - type: construction
+  id: BannerCaelestinus
+  name: caelestinus banner
+  description: A green banner depicting a torch held high by an unknown individual. There are two non-descript battle rifles mirrored and adjacent on each side of the previous visage. This is the logo of Caelestinus representing the strength to hold newfound liberty high.
+  graph: MonoBannersGraph
+  startNode: start
+  targetNode: BannerCaelestinusNode
+  category: construction-category-furniture
+  icon:
+    sprite: _Mono/Structures/Decoration/banner.rsi
+    state: caelestinus-banner
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
   id: TargetHuman
   name: human target
   description: A shooting target. This one is a human.

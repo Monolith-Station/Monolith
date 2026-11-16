@@ -1,0 +1,26 @@
+- type: technology
+  id: CaelestinusBasicHardsuits
+  name: research-technology-caelestinus-gear-basic
+  entityIcon: ClothingOuterHardsuitSecurity
+  discipline: Caelestinus
+  tier: 1
+  cost: 20000
+  recipeUnlocks:
+  - ClothingModsuitSecurityCaelestinus
+  - ClothingOuterHardsuitSecurityCaelestinus
+  technologyPrerequisites:
+  - UniversalMaterialResearchT1
+  position: 2, -13
+
+- type: technology
+  id: CaelestinusAdvancedHardsuits
+  name: research-technology-caelestinus-gear-advanced
+  entityIcon: ClothingOuterHardsuitWarden
+  discipline: Caelestinus
+  tier: 3
+  cost: 85000
+  recipeUnlocks:
+  - ClothingOuterHardsuitWardenCaelestinus
+  technologyPrerequisites:
+  - UniversalMaterialResearchT3
+  position: 2, -29
