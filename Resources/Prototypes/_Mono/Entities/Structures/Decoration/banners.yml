@@ -36,3 +36,16 @@
   - type: Construction
     graph: MonoBannersGraph
     node: BannerDINode
+
+- type: entity
+  id: BannerCaelestinus
+  parent: BannerBase
+  name: caelestinus banner
+  description: A green banner depicting a torch held high by an unknown individual. There are two non-descript battle rifles mirrored and adjacent on each side of the previous visage. This is the logo of Caelestinus representing the strength to hold newfound liberty high.
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Decoration/banner.rsi
+    state: caelestinus-banner
+  - type: Construction
+    graph: MonoBannersGraph
+    node: BannerTSFNode

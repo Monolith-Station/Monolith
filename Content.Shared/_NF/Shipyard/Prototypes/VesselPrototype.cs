@@ -26,15 +26,15 @@ public sealed partial class VesselPrototype : IPrototype, IInheritingPrototype
 
     /// <summary>
     ///     The amount of this ship that can active at any given time.
-    ///     0 for unlimited.
+    ///     -1 for unlimited.
     /// </summary>
-    [DataField("limit")] public int LimitActive;
+    [DataField("limit")] public int LimitActive = -1;
 
     /// <summary>
     ///     The amount of this ship that can active at any given time while HyperwarGamerule is active.
-    ///     0 for unlimited.
+    ///     -1 for unlimited.
     /// </summary>
-    [DataField("hyperwarLimit")] public int HyperwarLimitActive;
+    [DataField("hyperwarLimit")] public int HyperwarLimitActive = -1;
 
     /// <summary>
     ///     Makes ship unable to be deployed until specific time from round start passes while HyperwarGamerule is active.

@@ -44,7 +44,7 @@
     - type: RadioOnCryosleep
       radioChannel: Freelance # freelance = Vanguard
   - !type:AddImplantSpecial
-    implants: [ FreelanceTrackingImplant, RadioImplant ]
+    implants: [ FreelanceTrackingImplant ]
   - !type:AddLanguageSpecial # Monolith - Languages
     languagesSpoken:
     - Freespeak

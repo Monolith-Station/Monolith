@@ -272,6 +272,9 @@
   - type: RadarBlip
     scale: 4
     shape: square
+  - type: Tag
+    tags:
+    - AMMTarget
   - type: Projectile
     deleteOnCollide: false
     damage:

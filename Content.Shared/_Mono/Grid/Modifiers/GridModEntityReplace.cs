@@ -43,9 +43,11 @@ public sealed partial class GridModEntityReplace : GridModifier
                     continue;
 
                 var pos = xform.Coordinates;
+                var rot = xform.LocalRotation;
 
+                system.SpawnAttachedTo(rD.ReplaceWith, pos, null, rot);
                 system.QueueDeleteEntity(ent);
-                system.SpawnAtPosition(rD.ReplaceWith, pos);
+
 
                 break;
             }

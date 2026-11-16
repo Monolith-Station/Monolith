@@ -88,7 +88,7 @@ public sealed partial class ShuttleRestrictionsSystem : EntitySystem
         var query = EntityQueryEnumerator<VesselComponent>();
         var shuttleCount = 0;
 
-        if (limitActive <= 0)
+        if (limitActive < 0)
             return;
 
         while (query.MoveNext(out var uid, out var targetVessel))

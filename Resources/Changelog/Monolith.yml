@@ -27148,3 +27148,190 @@ Entries:
   id: 2918
   time: '2026-11-14T14:23:04.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/5001
+- author: DoubleHypercube
+  changes:
+    - type: Fix
+      message: Ship limits are now properly respected.
+  id: 2919
+  time: '2026-11-14T23:34:44.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5026
+- author: SuperGDPWYL
+  changes:
+    - type: Fix
+      message: Fixed TSF/PDV borg accesses.
+    - type: Fix
+      message: TSF borgs now have access to the TSFMil radio channel.
+  id: 2920
+  time: '2026-11-14T23:35:00.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5024
+- author: DoubleHypercube
+  changes:
+    - type: Remove
+      message: All player-facing references to "Unathi" and "Asakim" have been killed.
+    - type: Add
+      message: >-
+        Added translators & their implants for Hydraspeak, Felyaic, Nova-Cygni
+        Classic, Scratch, and Squeakish.
+    - type: Add
+      message: Draconic and Azaziba are now trait-selectable languages.
+    - type: Tweak
+      message: Azaziba is no longer unobtainable "for lore reasons". Who's lore?
+    - type: Tweak
+      message: Standardized translator & implant names and descriptions.
+    - type: Remove
+      message: Nekomimetic, Gary, and Nova-Cygni translators are no longer obtainable.
+    - type: Fix
+      message: Siik'maas translators are now properly obtainable again.
+  id: 2921
+  time: '2026-11-15T10:44:58.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5025
+- author: SuperGDPWYL
+  changes:
+    - type: Fix
+      message: >-
+        The windoors at TSFMC Flagship Halcyon's reception now use the correct
+        access.
+  id: 2922
+  time: '2026-11-15T16:07:08.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5029
+- author: EquanimityX0880
+  changes:
+    - type: Tweak
+      message: Cargo Bounties can now be skipped non-USSP players
+  id: 2923
+  time: '2026-11-15T16:10:19.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5030
+- author: SuperGDPWYL
+  changes:
+    - type: Tweak
+      message: >-
+        TSFMC and PDV can now equip their respective roundstart hardsuits in
+        their loadout.
+    - type: Fix
+      message: USSP can no longer equip TSF winter coats in their loadout.
+  id: 2924
+  time: '2026-11-16T04:31:28.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5031
+- author: SuperGDPWYL
+  changes:
+    - type: Add
+      message: Added a guidebook page for the Underground Black Market.
+    - type: Remove
+      message: Telecrystals can no longer be exchanged for data chits or vice versa.
+    - type: Tweak
+      message: >-
+        PDV Asvaran and PDV Grand Vizier no longer come with underground radio
+        implants.
+    - type: Tweak
+      message: Underground roles now have the Heretic trait by default.
+    - type: Tweak
+      message: >-
+        Heretics are now selected between 15 and 60 minutes after spawning (was
+        30 to 270).
+    - type: Fix
+      message: The Heretic trait's time selection now works properly.
+    - type: Fix
+      message: Fugitive Heretics are now actually worth 250 DC.
+  id: 2925
+  time: '2026-11-16T04:34:42.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5015
+- author: Mrrpip
+  changes:
+    - type: Add
+      message: >-
+        Adds a variant of the QJ-490, the QJ-490 classic. Comes with it's
+        Tumour-era loadout.
+    - type: Fix
+      message: Fixed Hullmod rotation, applies a negative hullmod to Zvezda's shipyard.
+  id: 2926
+  time: '2026-11-16T04:36:45.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5008
+- author: pizzay30tyd
+  changes:
+    - type: Tweak
+      message: >-
+        Gyroscopes now only have a 1.125x power multiplier instead of a 3.5x
+        power multiplier in Drive Mode
+  id: 2927
+  time: '2026-11-16T04:47:54.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4970
+- author: EckoAurum
+  changes:
+    - type: Add
+      message: >-
+        Shuttle Console's and Mass Scanners can now properly see planetary
+        terrain and structures.
+  id: 2928
+  time: '2026-11-16T04:49:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4969
+- author: DoubleHypercube
+  changes:
+    - type: Tweak
+      message: The nuclear fission explosive menu is now more intuitive.
+  id: 2929
+  time: '2026-11-16T09:12:28.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5027
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Added anti-munition missiles to 150mm (Vanyk/Vanquisher) and 50mm
+        (Vespera) pods. They home in on and destroy other missiles, naval mines,
+        R-300 shells, and MPSSM missiles.
+    - type: Fix
+      message: Fixed naval mines being indestructible.
+  id: 2930
+  time: '2026-11-16T14:41:34.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5036
+- author: SuperGDPWYL
+  changes:
+    - type: Add
+      message: >-
+        The CAW-32 "Galactica" has been added to the loadout of all Caelestinus
+        roles as a sidearm.
+    - type: Add
+      message: >-
+        Added a Caelestinus R&D server to Caelestinus Central. It can research
+        Caelestinus weapons and suits.
+    - type: Add
+      message: >-
+        Added the CSW-25 "Adjudicator", an advanced Caelestinus hardsuit. It can
+        absorb a lot of punishment but is quite heavy.
+    - type: Add
+      message: Added Caelestinus banners, sprite by thoughtlessuser!
+    - type: Tweak
+      message: Resprited all of Caelestinus' suits, new sprites by thoughtlessuser.
+    - type: Tweak
+      message: Renamed Caelestinus PDAs to be more fitting.
+    - type: Tweak
+      message: >-
+        Caelestinus modsuits and hardsuits now have secHUDs. Some have medHUDs
+        and improved NVGs too!
+    - type: Tweak
+      message: >-
+        Renamed Caelestinus suits to be more thematic, and buffed them to be
+        more equivalent to TSFMC/PDV suits.
+    - type: Tweak
+      message: The Firestarter is now a Caelestinus gun.
+    - type: Tweak
+      message: The Firestarter now fires 4.6x30mm at 12 RPS (192DPS).
+    - type: Tweak
+      message: >-
+        The Iroh has been buffed to be on par with TSFMC/PDV assault and battle
+        rifles.
+    - type: Tweak
+      message: Caelestinus suits no longer spawn on Anomalous Lab.
+    - type: Tweak
+      message: Removed the Overseer's spare overseer selector.
+    - type: Remove
+      message: The Overseer no longer has an "NT energy shotgun".
+  id: 2931
+  time: '2026-11-16T19:10:08.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4925
+- author: Mrrpip
+  changes:
+    - type: Add
+      message: The .45 Vector is now obtainable through research.
+  id: 2932
+  time: '2026-11-16T21:01:46.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5042

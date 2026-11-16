@@ -21,7 +21,7 @@ public sealed partial class AddComponentsAfterTimeSystem : EntitySystem
     {
         if (ent.Comp.SelectionTime != TimeSpan.Zero) // already rolled
             return;
-        ent.Comp.SelectionTime = _timing.CurTime + TimeSpan.FromMinutes(_random.Next(ent.Comp.MinSelectionTime.Minutes, ent.Comp.MaxSelectionTime.Minutes));
+        ent.Comp.SelectionTime = _timing.CurTime + TimeSpan.FromMinutes(_random.NextDouble(ent.Comp.MinSelectionTime.TotalMinutes, ent.Comp.MaxSelectionTime.TotalMinutes));
         if (!_random.Prob(ent.Comp.SelectionProbability) || TryComp<CompanyComponent>(ent, out var company) && ent.Comp.ExcludedCompanies.Contains(company.CompanyName))
             ent.Comp.SelectionTime = TimeSpan.MaxValue;
     }
@@ -36,7 +36,7 @@ public sealed partial class AddComponentsAfterTimeSystem : EntitySystem
             if (comp.SelectionTime > curTime)
                 continue;
 
-            EntityManager.AddComponents(ent, comp.AddComponentsOnSelection, false);
+            EntityManager.AddComponents(ent, comp.AddComponentsOnSelection, true);
 
             RemComp<AddComponentsAfterTimeComponent>(ent);
         }

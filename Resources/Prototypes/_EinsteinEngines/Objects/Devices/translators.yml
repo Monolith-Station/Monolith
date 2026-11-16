@@ -66,8 +66,8 @@
 - type: entity
   id: CanilunztTranslator
   parent: [ TranslatorPoweredBase ]
-  name: Canilunzt translator
-  description: Translates speech between Canilunzt and Galactic Common, allowing your local yeepers to communicate with the locals and vice versa!
+  name: canilunzt translator
+  description: Translates speech between Canilunzt and Andromeda Standard. # Mono: Andromeda Standard
   components:
   - type: HandheldTranslator
     spoken:
@@ -83,8 +83,8 @@
 - type: entity
   id: BubblishTranslator
   parent: [ TranslatorPoweredBase ]
-  name: Bubblish translator
-  description: Translates speech between Bubblish and Galactic Common, helping communicate with slimes and slime people.
+  name: bubblish translator
+  description: Translates speech between Bubblish and Andromeda Standard. # Mono: Andromeda Standard
   components:
   - type: HandheldTranslator
     spoken:
@@ -100,8 +100,8 @@
 - type: entity
   id: NekomimeticTranslator
   parent: [ TranslatorPoweredBase ]
-  name: Nekomimetic translator
-  description: Translates speech between Nekomimetic and Galactic Common, enabling you to communicate with your pet cats.
+  name: nekomimetic translator
+  description: Translates speech between Nekomimetic and Andromeda Standard. # Mono: Andromeda Standard
   components:
   - type: HandheldTranslator
     spoken:
@@ -117,8 +117,8 @@
 - type: entity
   id: DraconicTranslator
   parent: [ TranslatorPoweredBase ]
-  name: Sinta'Unathi translator
-  description: Translates speech between Sinta'Unathi and Tau-Ceti Basic, making it easier to understand your local Unathi.
+  name: draconic translator
+  description: Translates speech between Draconic and Andromeda Standard. # Mono: Andromeda Standard
   components:
   - type: HandheldTranslator
     spoken:
@@ -134,8 +134,8 @@
 - type: entity
   id: SolCommonTranslator
   parent: [ TranslatorPoweredBase ]
-  name: Sol Common translator
-  description: Translates speech between Sol Common and Galactic Common. Like a true Earthman!
+  name: sol common translator
+  description: Translates speech between Sol Common and Andromeda Standard. # Mono: Andromeda Standard
   components:
   - type: HandheldTranslator
     spoken:
@@ -151,8 +151,8 @@
 - type: entity
   id: NovuNedericTranslator
   parent: [ TranslatorPoweredBase ]
-  name: Novu-Nederic translator
-  description: Translates speech between Novu-Nederic and Galactic Common. Like a true Earthman!
+  name: novu-nederic translator
+  description: Translates speech between Novu-Nederic and Andromeda Standard. # Mono: Andromeda Standard
   components:
   - type: HandheldTranslator
     spoken:
@@ -168,8 +168,8 @@
 - type: entity
   id: RootSpeakTranslator
   parent: [ TranslatorPoweredBase ]
-  name: RootSpeak translator
-  description: Translates speech between RootSpeak and Galactic Common. You may now speak for the trees.
+  name: rootspeak translator
+  description: Translates speech between Rootspeak and Andromeda Standard. # Mono: Andromeda Standard
   components:
   - type: HandheldTranslator
     spoken:
@@ -185,8 +185,8 @@
 - type: entity
   id: MofficTranslator
   parent: [ TranslatorPoweredBase ]
-  name: Moffic translator
-  description: Translates speech between Moffic and Galactic Common, helping you understand the buzzes of your pet mothroach!
+  name: moffic translator
+  description: Translates speech between Moffic and Andromeda Standard. # Mono: Andromeda Standard
   components:
   - type: HandheldTranslator
     spoken:
@@ -202,8 +202,8 @@
 - type: entity
   id: XenoTranslator
   parent: [ TranslatorPoweredBase ]
-  name: Xeno translator
-  description: Translates speech between Xeno and Galactic Common. This will probably not help you survive an encounter, though.
+  name: xeno translator
+  description: Translates speech between Xeno and Andromeda Standard. # Mono: Andromeda Standard
   components:
   - type: HandheldTranslator
     spoken:
@@ -218,7 +218,7 @@
 - type: entity
   id: AnimalTranslator
   parent: [ TranslatorPoweredBase ]
-  name: Animal translator
+  name: animal translator
   description: Translates all the cutes noises that most animals make into a more understandable form!
   components:
   - type: HandheldTranslator
@@ -245,8 +245,8 @@
 - type: entity
   id: ValyrianStandardTranslator
   parent: [ TranslatorPoweredBase ]
-  name: Valyrian Standard translator
-  description: Translates speech between Valyrian Standard and Tau-Ceti Basic. For talking to Harpies!
+  name: valyrian standard translator
+  description: Translates speech between Valyrian Standard and Andromeda Standard. # Mono: Andromeda Standard
   components:
   - type: HandheldTranslator
     spoken:
@@ -262,25 +262,25 @@
 - type: entity
   id: AzazibaTranslator
   parent: [ TranslatorPoweredBase ]
-  name: Azaziba translator
-  description: Translates speech between Unathi and Azaziba. For Unathi to speak the Archaic form of their native tongue! # Intended for Admins Only, this item is for lore reasons not obtainable.
+  name: azaziba translator
+  description: Translates speech between Azaziba and Andromeda Standard. # Mono: Who's fucking lore?
   components:
   - type: HandheldTranslator
     spoken:
-    - Draconic
+    - TauCetiBasic
     - Azaziba
     understood:
-    - Draconic
+    - TauCetiBasic
     - Azaziba
     requires:
-    - Draconic
+    - TauCetiBasic
     - Azaziba
 
 - type: entity
   id: ChittinTranslator
   parent: [ TranslatorPoweredBase ]
   name: Chittin translator
-  description: Translates speech between Chittin and Tau-Ceti Basic. For talking to Chitinids!
+  description: Translates speech between Chittin and Andromeda Standard. # Mono: Andromeda Standard
   components:
   - type: HandheldTranslator
     spoken:
@@ -297,7 +297,7 @@
   id: SiikMaasTranslator
   parent: [ TranslatorPoweredBase ]
   name: Siik'maas translator
-  description: Translates speech between Siik'maas and Tau-Ceti Basic. For talking to Tajara!
+  description: Translates speech between Siik'maas and Andromeda Standard. # Mono: Andromeda Standard
   components:
   - type: HandheldTranslator
     spoken:
@@ -314,7 +314,7 @@
   id: MarishTranslator
   parent: [ TranslatorPoweredBase ]
   name: Marish translator
-  description: Translates speech between Marish and Tau-Ceti Basic. For talking to Shadowkin!
+  description: Translates speech between Marish and Andromeda Standard. # Mono: Andromeda Standard
   components:
   - type: HandheldTranslator
     spoken:
@@ -331,7 +331,7 @@
   id: NewKinPidginTranslator
   parent: [ TranslatorPoweredBase ]
   name: Ka'rakk translator
-  description: Interprets speech for, colloquially, Vox Pidgin. It almost sounds... Alive, inside. Atleast it takes batteries!
+  description: Translates speech between New Kin Pidgin and Andromeda Standard. # Mono: Andromeda Standard
   components:
   - type: HandheldTranslator
     spoken:
