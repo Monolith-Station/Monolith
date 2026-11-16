@@ -114,7 +114,7 @@
     - HeadSide
 
 - type: entity
-  parent: [ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase, ShowSecurityIcons, MonoEnergyShieldClothing]
+  parent: [ClothingHeadHardsuitBase, ShowSecurityIcons, MonoEnergyShieldClothing]
   id: ClothingHeadHelmetHardsuitViperGroupShield
   name: MEDUSA mk.VI viper hardsuit helmet
   description: A hardsuit helmet with signature markings of the Viper Group. Has a built-in identity tracking HUD complemented by a night-vision system.
@@ -124,8 +124,6 @@
     sprite: _Mono/Clothing/Head/Hardsuits/viper_group_shield.rsi
   - type: Clothing
     sprite: _Mono/Clothing/Head/Hardsuits/viper_group_shield.rsi
-  - type: PointLight
-    color: "#eb772a"
   - type: NightVision # Gen 4 dualtube
     relayOverlay: true
     goggleEffect: true
