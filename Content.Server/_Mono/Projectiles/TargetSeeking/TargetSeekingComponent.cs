@@ -96,7 +96,7 @@ public sealed partial class TargetSeekingComponent : Component
     /// Targets must have this tag to be valid.
     /// </summary>
     [DataField]
-    public ProtoId<TagPrototype> Tag;
+    public ProtoId<TagPrototype> Tag = string.Empty;
 }
 
 /// <summary>
