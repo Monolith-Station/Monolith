@@ -293,11 +293,12 @@
   name: loadout-group-contractor-outerclothing
   minLimit: 1
   loadouts:
+  - TsfmcClothingOuterHardsuitM86
   - TsfmcClothingOuterArmorBPVestLight
   - TsfmcClothingOuterArmorBPVestMedium
   - TsfmcClothingOuterArmorWintercoat
   fallbacks:
-  - TsfmcClothingOuterArmorBPVestLight
+  - TsfmcClothingOuterHardsuitM86
 
 - type: loadoutGroup
   id: TsfmcOuterClothingInfantry
