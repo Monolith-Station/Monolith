@@ -1,0 +1,84 @@
+- type: entity
+  id: HydraspeakTranslator
+  parent: [ TranslatorPoweredBase ]
+  name: hydraspeak translator
+  description: Translates speech between Hydraspeak and Andromeda Standard.
+  components:
+  - type: HandheldTranslator
+    spoken:
+    - TauCetiBasic
+    - Hydraspeak
+    understood:
+    - TauCetiBasic
+    - Hydraspeak
+    requires:
+    - TauCetiBasic
+    - Hydraspeak
+
+- type: entity
+  id: ScratchTranslator
+  parent: [ TranslatorPoweredBase ]
+  name: scratch translator
+  description: Translates speech between Scratch and Andromeda Standard.
+  components:
+  - type: HandheldTranslator
+    spoken:
+    - TauCetiBasic
+    - Scratch
+    understood:
+    - TauCetiBasic
+    - Scratch
+    requires:
+    - TauCetiBasic
+    - Scratch
+
+- type: entity
+  id: SqueakishTranslator
+  parent: [ TranslatorPoweredBase ]
+  name: squeakish translator
+  description: Translates speech between Squeakish and Andromeda Standard.
+  components:
+  - type: HandheldTranslator
+    spoken:
+    - TauCetiBasic
+    - Squeakish
+    understood:
+    - TauCetiBasic
+    - Squeakish
+    requires:
+    - TauCetiBasic
+    - Squeakish
+
+- type: entity
+  id: NovaCygniClassicalTranslator
+  parent: [ TranslatorPoweredBase ]
+  name: nova cygni classical translator
+  description: Translates speech between Nova-Cygni Classical and Andromeda Standard.
+  components:
+  - type: HandheldTranslator
+    spoken:
+    - TauCetiBasic
+    - NovaCygniClassical
+    understood:
+    - TauCetiBasic
+    - NovaCygniClassical
+    requires:
+    - TauCetiBasic
+    - NovaCygniClassical
+
+- type: entity
+  id: FelyaicTranslator
+  parent: [ TranslatorPoweredBase ]
+  name: felyaic translator
+  description: Translates speech between Felyaic and Andromeda Standard.
+  components:
+  - type: HandheldTranslator
+    spoken:
+    - TauCetiBasic
+    - Felyaic
+    understood:
+    - TauCetiBasic
+    - Felyaic
+    requires:
+    - TauCetiBasic
+    - Felyaic

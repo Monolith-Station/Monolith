@@ -1,23 +1,36 @@
 - type: accessLevel
   id: TsfmcEngineering
-  name: id-card-access-level-tsf-engineer
+  name: id-card-access-level-tsfmc-engineer
 
-- type: accessGroup
-  id: TsfGeneralNoBrig
-  tags:
-  - Maintenance
-  - External
-  - Command
-  - Security
-  - Mercenary # Frontier
-  - Captain # Frontier
+- type: accessLevel
+  id: Tsfmc
+  name: id-card-access-level-tsfmc
+
+- type: accessLevel
+  id: TsfmcArmory
+  name: id-card-access-level-tsfmc-armory
+
+- type: accessLevel
+  id: TsfmcCaptain
+  name: id-card-access-level-tsfmc-captain
+
+- type: accessLevel
+  id: TsfmcColonel
+  name: id-card-access-level-tsfmc-colonel
 
 - type: accessGroup
   id: TSF
   tags:
-  - HeadOfSecurity
-  - Armory
-  - Bailiff
-  - Sergeant
-  - Security
+  - TsfmcColonel
+  - TsfmcArmory
+  - TsfmcCaptain
+  - Tsfmc
   - TsfmcEngineering
+
+- type: accessGroup
+  id: GeneralTsfmcAccess
+  tags:
+  - Maintenance
+  - External
+  - Tsfmc
+  - Brig

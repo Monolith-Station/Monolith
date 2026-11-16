@@ -1,6 +1,7 @@
 # Languages spoken by various animals and critters.
 - type: language
   id: Cat
+  icon: LanguageIconAnimal # Mono
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 1
@@ -13,6 +14,7 @@
 
 - type: language
   id: Dog
+  icon: LanguageIconAnimal # Mono
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 1
@@ -27,6 +29,7 @@
 
 - type: language
   id: Fox
+  icon: LanguageIconAnimal # Mono
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 1
@@ -41,6 +44,7 @@
 
 - type: language
   id: Xeno
+  icon: LanguageIconAnimal # Mono
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 1
@@ -51,6 +55,7 @@
 
 - type: language
   id: Monkey
+  icon: LanguageIconAnimal # Mono
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 1
@@ -68,6 +73,7 @@
 
 - type: language
   id: Mouse
+  icon: LanguageIconAnimal # Mono
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 2
@@ -84,6 +90,7 @@
 
 - type: language
   id: Chicken
+  icon: LanguageIconAnimal # Mono
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 1
@@ -95,6 +102,7 @@
 
 - type: language
   id: Duck
+  icon: LanguageIconAnimal # Mono
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 1
@@ -106,6 +114,7 @@
 
 - type: language
   id: Cow
+  icon: LanguageIconAnimal # Mono
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 1
@@ -127,6 +136,7 @@
 
 - type: language
   id: Kangaroo
+  icon: LanguageIconAnimal # Mono
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 1
@@ -139,6 +149,7 @@
 
 - type: language
   id: Pig
+  icon: LanguageIconAnimal # Mono
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 1
@@ -148,6 +159,7 @@
 
 - type: language
   id: Crab
+  icon: LanguageIconAnimal # Mono
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 1
@@ -163,6 +175,7 @@
 
 - type: language
   id: Kobold
+  icon: LanguageIconAnimal # Mono
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 2
@@ -182,6 +195,7 @@
 
 - type: language
   id: Hissing
+  icon: LanguageIconAnimal # Mono
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 2
@@ -194,6 +208,7 @@
 
 - type: language
   id: Penguin
+  icon: LanguageIconAnimal # Mono
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 2
@@ -207,6 +222,7 @@
 
 - type: language # Goobstation - For Deer
   id: Deer
+  icon: LanguageIconAnimal # Mono
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 1

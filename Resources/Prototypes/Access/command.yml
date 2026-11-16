@@ -1,14 +1,17 @@
 - type: accessLevel
   id: Command
   name: id-card-access-level-command
+  deprecated: true
 
 - type: accessLevel
   id: Captain
   name: id-card-access-level-captain
+  deprecated: true
 
 - type: accessLevel
   id: HeadOfPersonnel
   name: id-card-access-level-head-of-personnel
+  deprecated: true
 
 - type: accessGroup
   id: Command
@@ -23,7 +26,9 @@
   id: EmergencyShuttleRepealAll
   canAddToIdCard: false
   name: id-card-access-level-emergency-shuttle-repeal
+  deprecated: true
 
 - type: accessLevel
   id: Cryogenics
   name: id-card-access-level-cryogenics
+  deprecated: true

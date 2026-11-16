@@ -19,6 +19,9 @@
   - type: Pinpointer
     component: SyndicateFOB
     targetName: unknown
+  - type: Tag
+    tags:
+    - Unstashable
 
 # Dead Drop
 - type: entity

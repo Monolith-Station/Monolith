@@ -535,6 +535,25 @@
     scanArc: 0
     launchSpeed: 0
     maxSpeed: 3
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Missile
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: TargetSeekingTarget
+    requireSeekerWhitelist: true
+  - type: Tag
+    tags:
+    - AMMTarget
 
 # 85x680mm
 
@@ -996,6 +1015,25 @@
     scanArc: 0
     launchSpeed: 0
     maxSpeed: 3
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Missile
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: TargetSeekingTarget
+    requireSeekerWhitelist: true
+  - type: Tag
+    tags:
+    - AMMTarget
 
 # CHARON
 

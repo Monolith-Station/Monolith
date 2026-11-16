@@ -3,7 +3,8 @@
 # TODO: Replace this with a much better language.
 - type: language
   id: Nekomimetic
-  isVisibleLanguage: true
+  # isVisibleLanguage: true /* Monolith: This has been killed */
+  icon: LanguageIconNeko # Mono
   chatPrefix: nek # Mono
   speech:
     color: "#df57aaee"

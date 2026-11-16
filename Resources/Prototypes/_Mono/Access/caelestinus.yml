@@ -1,0 +1,13 @@
+- type: accessLevel
+  id: Caelestinus
+  name: id-card-access-level-caelestinus
+
+- type: accessLevel
+  id: CaelestinusCommand
+  name: id-card-access-level-caelestinus-command
+
+- type: accessGroup
+  id: Caelestinus
+  tags:
+  - CaelestinusCommand
+  - Caelestinus
