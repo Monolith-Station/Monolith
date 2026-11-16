@@ -1,10 +1,10 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 277.0.0
+  engineVersion: 277.0.6
   forkId: ""
   forkVersion: ""
-  time: 10/15/2026 17:27:34
+  time: 11/16/2026 19:28:19
   entityCount: 744
 maps: []
 grids:
@@ -511,11 +511,11 @@ entities:
             84: -1,-2
     - type: SpreaderGrid
       spreadQueues:
-        ESTileFire: []
-        Kudzu: []
         MetalFoam: []
+        Kudzu: []
         Smoke: []
         Puddle: []
+        ESTileFire: []
     - type: GridAtmosphere
       version: 2
       data:
@@ -4225,7 +4225,7 @@ entities:
     - type: Transform
       pos: 1.5,-5.5
       parent: 1
-- proto: ThrusterLarge
+- proto: ThrusterLargeSecurity
   entities:
   - uid: 59
     components:
@@ -4242,12 +4242,12 @@ entities:
   - uid: 61
     components:
     - type: Transform
-      pos: 5.5,-5.5
+      pos: -5.5,-5.5
       parent: 1
   - uid: 62
     components:
     - type: Transform
-      pos: -5.5,-5.5
+      pos: 5.5,-5.5
       parent: 1
 - proto: ThrusterSecurity
   entities:
