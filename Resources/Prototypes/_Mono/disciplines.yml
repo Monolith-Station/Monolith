@@ -166,3 +166,16 @@
     2: 0.5
     3: 0.5
   uiName: MMC
+
+- type: techDiscipline
+  id: NavalWeaponry
+  name: research-discipline-naval-guns
+  color: "#24a1bd"
+  icon:
+    sprite: _Mono/Interface/Misc/research_disciplines_misc.rsi
+    state: naval
+  tierPrerequisites:
+    1: 0
+    2: 0.5
+    3: 0.5
+  uiName: NVL

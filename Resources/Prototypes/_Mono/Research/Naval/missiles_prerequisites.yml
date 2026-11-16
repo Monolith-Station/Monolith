@@ -1,0 +1,38 @@
+- type: technology
+  id: NavalMissilesLight
+  name: research-technology-naval-missiles-l
+  entityIcon: WeaponTurretVanyk
+  discipline: NavalWeaponry
+  tier: 1
+  cost: 50000
+  position: 9, 11
+  recipeUnlocks:
+  - RecipeWeaponTurretVanyk
+  technologyPrerequisites:
+  - ShuttleAdvancedComponents
+
+- type: technology
+  id: NavalMissilesMedium
+  name: research-technology-naval-missiles-m
+  entityIcon: WeaponTurretVespera
+  discipline: NavalWeaponry
+  tier: 2
+  cost: 100000
+  position: 13, 11
+  recipeUnlocks:
+  - RecipeWeaponTurretVespera
+  technologyPrerequisites:
+  - NavalMissilesLight
+
+- type: technology
+  id: NavalMissilesHeavy
+  name: research-technology-naval-missiles-h
+  entityIcon: WeaponTurretASM220
+  discipline: NavalWeaponry
+  tier: 3
+  cost: 300000
+  position: 17, 11
+  recipeUnlocks:
+  - RecipeWeaponTurretASM220
+  technologyPrerequisites:
+  - NavalMissilesMedium
