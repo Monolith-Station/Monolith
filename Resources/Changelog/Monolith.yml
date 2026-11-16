@@ -27201,3 +27201,14 @@ Entries:
   id: 2923
   time: '2026-11-15T16:10:19.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/5030
+- author: SuperGDPWYL
+  changes:
+    - type: Tweak
+      message: >-
+        TSFMC and PDV can now equip their respective roundstart hardsuits in
+        their loadout.
+    - type: Fix
+      message: USSP can no longer equip TSF winter coats in their loadout.
+  id: 2924
+  time: '2026-11-16T04:31:28.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5031
