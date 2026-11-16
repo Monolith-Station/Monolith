@@ -15,3 +15,12 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsMieyo ]
+
+- type: entity
+  parent: WindoorSecureSecurityLocked
+  id: WindoorSecureTsfmcLocked
+  suffix: TSFMC, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsTsfmc ]

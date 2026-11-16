@@ -1,22 +1,27 @@
 - type: accessLevel
   id: HeadOfSecurity
   name: id-card-access-level-head-of-security
+  deprecated: true
 
 - type: accessLevel
   id: Security
   name: id-card-access-level-security
+  deprecated: true
 
 - type: accessLevel
   id: Armory
   name: id-card-access-level-armory
+  deprecated: true
 
 - type: accessLevel
   id: Brig
   name: id-card-access-level-brig
+  deprecated: true
 
 - type: accessLevel
   id: Detective
   name: id-card-access-level-detective
+  deprecated: true
 
 - type: accessGroup
   id: Security

@@ -12,7 +12,7 @@
       - Heretic
   startingGear: PirateNFGear
   alwaysUseSpawner: true
-  hideConsoleVisibility: true
+# hideConsoleVisibility: true
   canBeAntag: true
   icon: "JobIconPirate"
   supervisors: job-supervisors-pirate
@@ -21,7 +21,7 @@
   assignedCompany: PDV
   setPreference: true
   access:
-  - Pirate
+  - PDV
   - Mercenary
   accessGroups:
   - GeneralAccess

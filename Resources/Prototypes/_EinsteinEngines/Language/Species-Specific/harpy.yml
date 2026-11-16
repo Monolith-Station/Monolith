@@ -2,7 +2,7 @@
 # Based on Polish, Greek, Serbian, Turkish.
 - type: language
   id: ValyrianStandard
-  isVisibleLanguage: true
+  # isVisibleLanguage: true /* Monolith: This has been killed */
   chatPrefix: val # Mono
   speech:
    # fontId: Delius # Goob Edit - Different Font / Monolith Edit - FONTS NOT ALREADY HERE ARE NOT BEING ADDED

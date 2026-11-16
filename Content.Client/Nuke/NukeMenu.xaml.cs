@@ -36,9 +36,10 @@ namespace Content.Client.Nuke
             // clear button
             var clearBtn = new Button()
             {
-                Text = "C"
+                Text = "C",
             };
             clearBtn.OnPressed += _ => OnClearButtonPressed?.Invoke();
+            clearBtn.AddStyleClass("ButtonColorRed");
             KeypadGrid.AddChild(clearBtn);
 
             // zero button
@@ -47,9 +48,10 @@ namespace Content.Client.Nuke
             // enter button
             var enterBtn = new Button()
             {
-                Text = "E"
+                Text = "E",
             };
             enterBtn.OnPressed += _ => OnEnterButtonPressed?.Invoke();
+            enterBtn.AddStyleClass("ButtonColorGreen");
             KeypadGrid.AddChild(enterBtn);
         }
 

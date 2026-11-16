@@ -76,7 +76,7 @@
   suffix: Filled
   components:
   - type: AccessReader
-    access: [["HeadOfPersonnel"]]
+    access: [["CaelestinusCommand"]]
   - type: StorageFill
     contents:
     - id: WeaponCaseHeavyCdet

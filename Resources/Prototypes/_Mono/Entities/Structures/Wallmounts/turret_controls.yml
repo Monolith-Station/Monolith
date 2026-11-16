@@ -5,7 +5,6 @@
   abstract: true
   components:
   - type: AccessReader
-    access: [["Security"]]
   - type: DeployableTurret
     retractedDamageModifierSetId: Metallic
     deployedDamageModifierSetId: Metallic
@@ -67,12 +66,11 @@
     access: [["TsfmcEngineering"]]
   - type: TurretTargetSettings
     exemptAccessLevels:
-    - HeadOfSecurity
-    - Armory
-    - Bailiff
-    - Sergeant
-    - Security
+    - TsfmcColonel
+    - TsfmcCaptain
+    - TsfmcArmory
     - TsfmcEngineering
+    - Tsfmc
   - type: DeviceNetwork
     receiveFrequencyId: TurretAITSF
     transmitFrequencyId: TurretControlAITSF
@@ -87,12 +85,11 @@
     access: [["TsfmcEngineering"]]
   - type: TurretTargetSettings
     exemptAccessLevels:
-    - HeadOfSecurity
-    - Armory
-    - Bailiff
-    - Sergeant
-    - Security
+    - TsfmcColonel
+    - TsfmcCaptain
+    - TsfmcArmory
     - TsfmcEngineering
+    - Tsfmc
   - type: DeviceNetwork
     receiveFrequencyId: TurretControlAITSF
     transmitFrequencyId: TurretAITSF
@@ -120,7 +117,7 @@
     exemptAccessLevels:
     - GrandVizier
     - PDVCommand
-    - Pirate
+    - PDV
   - type: DeviceNetwork
     receiveFrequencyId: TurretAIPDV
     transmitFrequencyId: TurretControlAIPDV
@@ -137,7 +134,7 @@
     exemptAccessLevels:
     - GrandVizier
     - PDVCommand
-    - Pirate
+    - PDV
   - type: DeviceNetwork
     receiveFrequencyId: TurretControlAIPDV
     transmitFrequencyId: TurretAIPDV
@@ -249,6 +246,49 @@
   id: TurretAIFP
   name: device-frequency-prototype-name-turret
   frequency: 1688
+
+- type: entity
+  parent: WeaponEnergyTurretStationControlPanel
+  id: WeaponEnergyTurretCaelestinusControlPanel
+  name: caelestinus sentry turret control panel
+  suffix: Caelestinus Command access
+  description: A wall-mounted interface that allows a local artifical intelligence to adjust the operational parameters of linked sentry turrets.
+  components:
+  - type: AccessReader
+    access: [["CaelestinusCommand"]]
+  - type: TurretTargetSettings
+    exemptAccessLevels:
+    - Caelestinus
+    - CaelestinusCommand
+  - type: DeviceNetwork
+    receiveFrequencyId: TurretAICaelestinus
+    transmitFrequencyId: TurretControlAICaelestinus
+
+- type: entity
+  parent: BallisticTurretHeavyAIBase
+  id: BallisticTurretHeavyAICaelestinus
+  name: caelestinus heavy remote sentry turret
+  suffix: Caelestinus
+  components:
+  - type: AccessReader
+    access: [["Caelestinus"]]
+  - type: TurretTargetSettings
+    exemptAccessLevels:
+    - Caelestinus
+    - CaelestinusCommand
+  - type: DeviceNetwork
+    receiveFrequencyId: TurretControlAICaelestinus
+    transmitFrequencyId: TurretAICaelestinus
+
+- type: deviceFrequency
+  id: TurretControlAICaelestinus
+  name: device-frequency-prototype-name-turret-control
+  frequency: 1693
+
+- type: deviceFrequency
+  id: TurretAICaelestinus
+  name: device-frequency-prototype-name-turret
+  frequency: 1694
 
 - type: entity
   parent: WeaponEnergyTurretStationControlPanel
