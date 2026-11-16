@@ -257,10 +257,7 @@ public sealed partial class TargetSeekingSystem : EntitySystem
                     continue;
                 }
             }
-
-            if(signatureComp.RequireSeekerWhitelist && !_tag.HasTag(actualTarget, component.Tag))
-                break;
-            if(component.Tag != string.Empty && !_tag.HasTag(actualTarget, component.Tag))
+            if(component.Tag != null && !_tag.HasTag(actualTarget, component.Tag.Value) || component.Tag == null && signatureComp.RequireSeekerWhitelist)
                 break;
 
             // If this is closer than our previous best target, update
