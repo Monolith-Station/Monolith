@@ -27271,3 +27271,15 @@ Entries:
   id: 2929
   time: '2026-11-16T09:12:28.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/5027
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Added anti-munition missiles to 150mm (Vanyk/Vanquisher) and 50mm
+        (Vespera) pods. They home in on and destroy other missiles, naval mines,
+        R-300 shells, and MPSSM missiles.
+    - type: Fix
+      message: Fixed naval mines being indestructible.
+  id: 2930
+  time: '2026-11-16T14:41:34.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5036
