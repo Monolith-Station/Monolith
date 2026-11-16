@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
+using Content.Server._Mono.Administration.DeadChatShadowban; // Mono
 using Content.Server.Chat.Managers;
 using Content.Server.Discord.DiscordLink;
 using Content.Server.GameTicking;
@@ -70,6 +71,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     [Dependency] private DiscordChatLink _discordLink = default!;
     [Dependency] private LanguageSystem _language = default!; // Einstein Engines - Language
     [Dependency] private CollectiveMindUpdateSystem _collectiveMind = default!; // Goobstation - Starlight collective mind port
+    [Dependency] private DeadChatShadowbanManager _deadChatShadowbans = default!; // Mono
 
     public const int VoiceRange = 10; // how far voice goes in world units
     public const int WhisperClearRange = 2; // how far whisper goes while still being understandable, in world units
@@ -859,6 +861,8 @@ public sealed partial class ChatSystem : SharedChatSystem
         var clients = GetDeadChatClients();
         var playerName = Name(source);
         string wrappedMessage;
+        var shadowbanned = _deadChatShadowbans.IsShadowbanned(player); // Mono
+        var logSuffix = shadowbanned ? " [deadchat shadowbanned, only shown to sender]" : string.Empty; // Mono
         // Mono - add short title
         if (_adminManager.GetAdminData(player) is { } data)
         {
@@ -867,7 +871,7 @@ public sealed partial class ChatSystem : SharedChatSystem
                 ("title", title),
                 ("userName", player.Channel.UserName),
                 ("message", FormattedMessage.EscapeText(message)));
-            _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Admin dead chat from {player:Player}: {message}");
+            _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Admin dead chat from {player:Player}: {message}{logSuffix}"); // Mono - logSuffix
         }
         else
         {
@@ -875,8 +879,17 @@ public sealed partial class ChatSystem : SharedChatSystem
                 ("deadChannelName", Loc.GetString("chat-manager-dead-channel-name")),
                 ("playerName", (playerName)),
                 ("message", FormattedMessage.EscapeText(message)));
-            _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Dead chat from {player:Player}: {message}");
+            _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Dead chat from {player:Player}: {message}{logSuffix}"); // Mono - logSuffix
         }
+
+        // Mono - deadchat shadowban: echo the message back to the sender only.
+        // Not sent to other ghosts, admins, replays or Discord.
+        if (shadowbanned)
+        {
+            _chatManager.ChatMessageToOne(ChatChannel.Dead, message, wrappedMessage, source, hideChat, player.Channel, recordReplay: false, author: player.UserId);
+            return;
+        }
+        // End Mono
 
         _chatManager.ChatMessageToMany(ChatChannel.Dead, message, wrappedMessage, source, hideChat, true, clients.ToList(), author: player.UserId);
 
