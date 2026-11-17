@@ -161,6 +161,10 @@
     component:
     - type: AlternateGun
       slot: attachment_grip
+      enableMessage: "underbarrel-launcher-enable"
+      enabledMessage: "underbarrel-launcher-enabled"
+      disableMessage: "underbarrel-launcher-disable"
+      disabledMessage: "underbarrel-launcher-disabled"
       switchSound:
         path: /Audio/_FinalHorizon/Weapons/Guns/Deploy/m203_select.ogg
   - type: ESGunRecoilAttachment

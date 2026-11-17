@@ -1,5 +1,5 @@
 - type: entity
-  name: GS-008 MeLat(.45 magnum)
+  name: GS-008 MeLat(.357 magnum)
   parent: BaseWeaponRevolver
   id: WeaponRevolverMeLat
   description: A custom-designed revolver by GS inspired by the times of old. Packs a punch with .357 magnum along with a lovely 12 gauge surprise.
@@ -39,7 +39,7 @@
       launcher_mag: !type:ContainerSlot
   - type: Gun
     fireRate: 2
-    damageModifier: 1.5 # For the next person doing an underbarrel gun, no, this doesn't affect it. You'd do that on the attachment entity.
+    damageModifier: 1.2 # For the next person doing an underbarrel gun, no, this doesn't affect it. You'd do that on the attachment entity.
   - type: RevolverAmmoProvider
     capacity: 5
     chambers: [ True, True, True, True, True ]

@@ -20,16 +20,16 @@ public sealed partial class AlternateGunComponent : Component
     public SoundSpecifier? SwitchSound = default;
 
     [DataField]
-    public string EnableMessage = "underbarrel-launcher-enable";
+    public string EnableMessage = "underbarrel-generic-enable";
 
     [DataField]
-    public string DisableMessage = "underbarrel-launcher-disable";
+    public string DisableMessage = "underbarrel-generic-disable";
 
     [DataField]
-    public string EnabledMessage = "underbarrel-launcher-enabled";
+    public string EnabledMessage = "underbarrel-generic-enabled";
 
     [DataField]
-    public string DisabledMessage = "underbarrel-launcher-disabled";
+    public string DisabledMessage = "underbarrel-generic-disabled";
 
     [DataField, AutoNetworkedField]
     public EntityUid? ActionUnderbarrelToggle;
