@@ -115,6 +115,19 @@
     Plastic: 800
 
 - type: latheRecipe
+  id: WeaponSubMachineGunVector45_ACP
+  parent: BaseWeaponRecipeLong
+  result: WeaponSubMachineGunVector45_ACP
+  categories:
+  - SMGs
+  - Ballistic
+  - Weapons
+  materials:
+    Steel: 1500
+    Plasteel: 1500
+    Plastic: 800
+
+- type: latheRecipe
   id: WeaponSubMachineGunWt550
   parent: BaseWeaponRecipeLong
   result: WeaponSubMachineGunWt550PMC

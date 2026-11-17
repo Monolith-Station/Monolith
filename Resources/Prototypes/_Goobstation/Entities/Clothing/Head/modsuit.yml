@@ -146,7 +146,7 @@
         isLooped: true
 
 - type: entity
-  parent: BaseClothingModsuitHelmet
+  parent: [ BaseClothingModsuitHelmet, ShowSecurityIcons ] # Mono
   id: ClothingModsuitHelmetSecurity
   name: soldat modsuit helmet
   description: A robust brain bucket for holding your brain in place just enough for it to be salvageable.
@@ -207,9 +207,18 @@
         minValue: 0.1
         maxValue: 2.0
         isLooped: true
+  - type: NightVision # Gen 1 dualtube, Mono
+    relayOverlay: true
+    goggleEffect: true
+    action: ActionToggleNightVision
+    viewCircleRadius: 400
+    viewCircleCount: 2
+    viewCircleSpacing: 280
+    phosphorColor: "#00AACC"
+    lightingColor: "#FFFFFF32"
 
 - type: entity
-  parent: BaseClothingModsuitHelmet
+  parent: [ BaseClothingModsuitHelmet, ShowSecurityIcons, ShowMedicalIcons ] # Mono
   id: ClothingModsuitHelmetHeadOfSecurity
   name: bulwark modsuit helmet
   description: How do you see out of this thing?
@@ -270,6 +279,15 @@
         minValue: 0.1
         maxValue: 2.0
         isLooped: true
+  - type: NightVision # Gen 4 quadtube-wide, Mono
+    relayOverlay: true
+    goggleEffect: true
+    viewCircleRadius: 450
+    viewCircleCount: 4
+    viewCircleSpacing: 280
+    action: ActionToggleNightVision
+    phosphorColor: "#41D7D9"
+    lightingColor: "#FFFFFF32"
 
 - type: entity
   parent: BaseClothingModsuitHelmetHideIdentity

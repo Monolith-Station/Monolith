@@ -49,6 +49,11 @@
     range: 2
     energyConsumption: 2700000
     disableDuration: 20
+  - type: TargetSeekingTarget
+    requireSeekerWhitelist: true
+  - type: Tag
+    tags:
+    - AMMTarget
 
 # HEAT
 
@@ -97,3 +102,8 @@
     intensitySlope: 80
     maxIntensity: 100
     tileBreakScale: 3
+  - type: TargetSeekingTarget
+    requireSeekerWhitelist: true
+  - type: Tag
+    tags:
+    - AMMTarget
