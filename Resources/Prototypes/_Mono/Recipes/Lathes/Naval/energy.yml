@@ -10,6 +10,8 @@
     MaterialIndustryFCS: 1
     MaterialIndustryMechanical: 1
     MaterialIndustryElectronics: 1
+    Steel: 2000
+    Plasteel: 500
 
 - type: latheRecipe
   id: RecipeWeaponTurretM220
@@ -23,6 +25,8 @@
     MaterialIndustryFCS: 1
     MaterialIndustryMechanical: 1
     MaterialIndustryElectronics: 3
+    Steel: 2000
+    Plasteel: 500
 
 - type: latheRecipe
   id: RecipeWeaponLaserTurretPrometheus
@@ -36,6 +40,8 @@
     MaterialIndustryFCS: 3
     MaterialIndustryMechanical: 2
     MaterialIndustryElectronics: 3
+    Steel: 3000
+    Plasteel: 1500
 
 - type: latheRecipe
   id: RecipeWeaponTurretType35
@@ -49,6 +55,8 @@
     MaterialIndustryFCS: 2
     MaterialIndustryMechanical: 1
     MaterialIndustryElectronics: 3
+    Steel: 3000
+    Plasteel: 1500
 
 - type: latheRecipe
   id: RecipeWeaponTurretType54
@@ -62,6 +70,8 @@
     MaterialIndustryFCS: 2
     MaterialIndustryMechanical: 1
     MaterialIndustryElectronics: 4
+    Steel: 3000
+    Plasteel: 1500
 
 - type: latheRecipe
   id: RecipeWeaponLaserTurretApollo
@@ -75,6 +85,8 @@
     MaterialIndustryFCS: 3
     MaterialIndustryMechanical: 3
     MaterialIndustryElectronics: 4
+    Steel: 5000
+    Plasteel: 5000
 
 - type: latheRecipe
   id: RecipeWeaponTurretCerberus
@@ -88,3 +100,5 @@
     MaterialIndustryFCS: 2
     MaterialIndustryMechanical: 3
     MaterialIndustryElectronics: 5
+    Steel: 5000
+    Plasteel: 5000
