@@ -165,10 +165,12 @@
   - type: HitscanGathering
   - type: ScrapCutting
     defaultYield: 2
-    blacklist:
+    whitelist:
       components:
-      - MobState
-      - Gatherable
+      - Machine
+      - Computer
+      tags:
+      - Wall
     yields:
     - whitelist:
         components:

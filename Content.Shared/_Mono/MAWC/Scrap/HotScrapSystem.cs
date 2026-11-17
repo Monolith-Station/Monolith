@@ -25,6 +25,7 @@ public sealed partial class HotScrapSystem : EntitySystem
     {
         SubscribeLocalEvent<HotScrapComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<HotScrapComponent, StackSplitEvent>(OnSplit);
+        SubscribeLocalEvent<StackComponent, StackMergeEvent>(OnMerge);
     }
 
     private void OnMapInit(Entity<HotScrapComponent> ent, ref MapInitEvent args)
@@ -41,6 +42,26 @@ public sealed partial class HotScrapSystem : EntitySystem
     {
         var comp = ent.Comp;
         TryCopyComponent(ent, args.NewId, ref comp, out _);
+    }
+
+    // no free cooling by MERGING the stacks
+    private void OnMerge(Entity<StackComponent> ent, ref StackMergeEvent args)
+    {
+        var hasHeat = TryComp<HotScrapComponent>(ent, out var heat);
+        var donorHasHeat = TryComp<HotScrapComponent>(args.ToBeMerged, out var donorHeat);
+        if (!hasHeat && !donorHasHeat)
+            return;
+
+        var recipientHeat = hasHeat ? GetHeat((ent.Owner, heat!)) : 0f;
+        var incomingHeat = donorHasHeat ? GetHeat((args.ToBeMerged, donorHeat!)) : 0f;
+        var mergedHeat = (recipientHeat * ent.Comp.Count + incomingHeat * args.Amount)
+            / (ent.Comp.Count + args.Amount);
+
+        if (!hasHeat && !TryCopyComponent(args.ToBeMerged, ent.Owner, ref donorHeat, out heat))
+            return;
+
+        heat!.CooledAt = _timing.CurTime + heat.CoolTime * mergedHeat;
+        Dirty(ent.Owner, heat); // dirtyfield flags my IDE I'm not live testing fuck you
     }
 
     public float GetHeat(Entity<HotScrapComponent> ent)

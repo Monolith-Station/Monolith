@@ -2,6 +2,7 @@ using Content.Server.Destructible;
 using Content.Server.Stack;
 using Content.Shared.Damage;
 using Content.Shared.Whitelist;
+using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
@@ -9,6 +10,7 @@ namespace Content.Server._Mono.MAWC.Scrap;
 
 public sealed partial class ScrapCuttingSystem : EntitySystem
 {
+    [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private DestructibleSystem _destructible = default!;
     [Dependency] private IPrototypeManager _proto = default!;
     [Dependency] private IRobustRandom _random = default!;
@@ -25,7 +27,7 @@ public sealed partial class ScrapCuttingSystem : EntitySystem
         if (args.Cancelled
             || !TryComp<ScrapCuttingComponent>(args.Tool, out var cutter)
             || !TryComp<DamageableComponent>(ent, out var damageable)
-            || _whitelist.IsBlacklistPass(cutter.Blacklist, ent))
+            || !_whitelist.IsWhitelistPass(cutter.Whitelist, ent))
             return;
 
         if (EntityManager.IsQueuedForDeletion(ent))
@@ -47,6 +49,7 @@ public sealed partial class ScrapCuttingSystem : EntitySystem
         if (amount > 0)
             _stack.SetCount(Spawn(cutter.Scrap, Transform(ent).Coordinates), amount);
 
+        _transform.ReparentChildren(ent, Transform(ent).ParentUid);
         QueueDel(ent);
     }
 

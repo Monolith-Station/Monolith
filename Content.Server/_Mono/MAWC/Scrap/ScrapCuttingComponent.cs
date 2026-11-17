@@ -19,7 +19,7 @@ public sealed partial class ScrapCuttingComponent : Component
     public int DefaultYield = 2;
 
     [DataField]
-    public EntityWhitelist? Blacklist;
+    public EntityWhitelist Whitelist = new();
 }
 
 [DataDefinition]
