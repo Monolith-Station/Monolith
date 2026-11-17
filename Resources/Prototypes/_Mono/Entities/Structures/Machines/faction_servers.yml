@@ -23,6 +23,7 @@
     - Experimental
     - CivilianServices
     - MechaEngineering
+    - NavalWeaponry
   - type: ApcPowerReceiver
     powerLoad: 500
   - type: ExtensionCableReceiver
@@ -86,6 +87,7 @@
     - Experimental
     - CivilianServices
     - MechaEngineering
+    - NavalWeaponry
 
 - type: entity
   id: ResearchAndDevelopmentServerRogues
@@ -112,6 +114,7 @@
     - Experimental
     - CivilianServices
     - MechaEngineering
+    - NavalWeaponry
 
 - type: entity
   id: ResearchAndDevelopmentServerUssp
@@ -136,6 +139,7 @@
     - Experimental
     - CivilianServices
     - MechaEngineering
+    - NavalWeaponry
 
 - type: entity
   id: ResearchAndDevelopmentServerMMC
@@ -159,6 +163,7 @@
     - Experimental
     - CivilianServices
     - MechaEngineering
+    - NavalWeaponry
 
 - type: entity
   id: ResearchAndDevelopmentServerCaelestinus
@@ -208,6 +213,7 @@
     - Mieyo
     - FactionUniversal
     - MechaEngineering
+    - NavalWeaponry
 
 - type: entity
   parent: ResearchAndDevelopmentServer

@@ -280,6 +280,17 @@
 
 - type: entity
   parent: BaseFlatpack
+  id: R300Flatpack
+  name: R-300 flatpack
+  description: A flatpack used for constructing a R-300 320x752mm howitzer.
+  components:
+  - type: Flatpack
+    entity: WeaponTurretR300
+  - type: StaticPrice
+    price: 500
+
+- type: entity
+  parent: BaseFlatpack
   id: Ak820Flatpack
   name: AK820 flatpack
   description: A flatpack used for constructing an AK820 100x650mm dual barreled autocannon.
