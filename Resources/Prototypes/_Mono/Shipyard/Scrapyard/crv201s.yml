@@ -80,7 +80,7 @@
       toReplace: AirlockFrontierLocked
       replaceWith: AirlockCommand
     - chance: 1
-      toReplace: AirlockServiceFrontierLocked
+      toReplace: AirlockSeviceFrontierLocked #Seriously?
       replaceWith: AirlockMercenary
   - !type:GridModEntityReplace
     comp: DetectionRangeMultiplier
