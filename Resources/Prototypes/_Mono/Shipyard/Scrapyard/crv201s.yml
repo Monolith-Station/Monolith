@@ -6,6 +6,7 @@
   name: GS CRV-201/S
   description: A relatively light corvette produced by GS for the defense market. Comes with a shield, reinforced cockpit and an elite radar. This one seems to have not been sold off... Probably good as a fixxer upper, though!
   price: 115000 # Appraisal was at 108K
+  minPriceMarkup: 0.1 # I am a fucking genius. Done because the tests seem to think the ship is more than it's ingame appraisal by a shit ton.
   category: Medium
   group: Scrap
   shuttlePath: /SharedMaps/_Mono/Shuttles/CSec/crv201.yml
