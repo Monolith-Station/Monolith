@@ -3,6 +3,7 @@ using System.Linq;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Construction;
+using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
@@ -44,7 +45,7 @@ public abstract partial class SharedLatheSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<LatheComponent, InteractUsingEvent>(OnItemInteract,
-            after: new []{ typeof(SharedMaterialStorageSystem) }); // Mono - Don't try to insert materials if they were handled.
+            after: new []{ typeof(SharedMaterialStorageSystem), typeof(ItemSlotsSystem) }); // Mono - Don't try to insert materials if they were handled.
         SubscribeLocalEvent<EmagLatheRecipesComponent, GotEmaggedEvent>(OnEmagged);
         SubscribeLocalEvent<EmagLatheRecipesComponent, GotUnEmaggedEvent>(OnUnemagged); // Frontier
         SubscribeLocalEvent<LatheComponent, ExaminedEvent>(OnExamined);
