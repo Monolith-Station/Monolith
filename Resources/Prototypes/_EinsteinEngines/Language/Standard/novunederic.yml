@@ -1,7 +1,7 @@
 # Spoken by Seafarers and merchants.
 - type: language
   id: NovuNederic
-  isVisibleLanguage: true
+  # isVisibleLanguage: true /* Monolith: This has been killed */
   chatPrefix: ned # Mono
   speech:
     color: "#df6e14dd"

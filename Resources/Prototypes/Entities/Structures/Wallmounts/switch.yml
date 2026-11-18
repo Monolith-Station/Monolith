@@ -322,7 +322,7 @@
   parent: LockableButton
   components:
   - type: AccessReader
-    access: [["Captain"]]
+  #  access: [["Captain"]] # Mono
 
 - type: entity
   id: LockableButtonHeadOfPersonnel
@@ -330,7 +330,7 @@
   parent: LockableButton
   components:
   - type: AccessReader
-    access: [["HeadOfPersonnel"]]
+    access: [["CaelestinusCommand"]] # Mono
 
 - type: entity
   id: LockableButtonChiefEngineer
@@ -346,7 +346,7 @@
   parent: LockableButton
   components:
   - type: AccessReader
-    access: [["ChiefMedicalOfficer"]]
+    access: [["CaelestinusCommand"]] # Mono
 
 - type: entity
   id: LockableButtonHeadOfSecurity
@@ -354,7 +354,7 @@
   parent: LockableButton
   components:
   - type: AccessReader
-    access: [["HeadOfSecurity"]]
+    access: [["TsfmcColonel"]] # Mono
 
 - type: entity
   id: LockableButtonResearchDirector
@@ -386,7 +386,7 @@
   parent: LockableButton
   components:
   - type: AccessReader
-    access: [["Security"]]
+    access: [["Caelestinus"]] # Mono
 
 - type: entity
   id: LockableButtonDetective
@@ -394,7 +394,7 @@
   parent: LockableButton
   components:
   - type: AccessReader
-    access: [["Detective"]]
+    access: [["Tsfmc"]] # Mono
 
 - type: entity
   id: LockableButtonArmory
@@ -402,7 +402,7 @@
   parent: LockableButton
   components:
   - type: AccessReader
-    access: [["Armory"]]
+    access: [["TsfmcArmory"]] # Mono
 
 - type: entity
   id: LockableButtonBrig
@@ -410,7 +410,7 @@
   parent: LockableButton
   components:
   - type: AccessReader
-    access: [["Brig"]]
+    access: [["Caelestinus"]] # Mono
 
 - type: entity
   id: LockableButtonLawyer

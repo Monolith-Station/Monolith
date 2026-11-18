@@ -305,13 +305,13 @@
 - type: entity
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitSecurity
-  name: judge's hardsuit
-  description: A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor.
+  name: MP-EVA CSW-15 "Constable" hardsuit # Mono
+  description: A voidsuit up-armoured by Caelestinus to serve as the backbone of their operations. # Mono
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/security.rsi
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/caelestinus_constable.rsi # Mono
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/security.rsi
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/caelestinus_constable.rsi # Mono
   - type: PressureProtection
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
@@ -321,13 +321,14 @@
     modifiers:
       coefficients:
         Blunt: 0.5
-        Slash: 0.6
+        Slash: 0.5 # Mono
         Piercing: 0.5
         Caustic: 0.8
-        Heat: 0.7 # Goobstation
-  - type: ClothingSpeedModifier
-    walkModifier: 0.85
-    sprintModifier: 0.85
+        Heat: 0.45 # Mono
+        Radiation: 0.45 # Mono: add radres
+  - type: ClothingSpeedModifier # Mono: 0.85 -> 0.9
+    walkModifier: 0.9
+    sprintModifier: 0.9
   - type: HeldSpeedModifier
   - type: StaminaDamageResistance # Mono - Stamres
     coefficient: 0.4
@@ -339,6 +340,12 @@
       head: ClothingHeadHelmetHardsuitSecurity
       helmetcover: ClothingHeadHelmetCoverBlock
       helmetattachment: ClothingHeadHelmetAttachmentBlock
+  - type: HideLayerClothing # Mono: new sprite hides hair
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide
 
 #Brigmedic Hardsuit
 - type: entity
@@ -381,13 +388,13 @@
 - type: entity
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitWarden
-  name: warden's hardsuit
-  description: A specialized riot suit geared to combat low pressure environments.
+  name: MP-EVA CSW-25 "Adjudicator" hardsuit # Mono
+  description: The Adjudicator is a result of monotonous reverse engineering and delicate blueprinting. While simple and slow at its core it is capable of sustaining the user through rigorous levels of trauma. It is also equipped with a high-grade optics solution and medical assessment HUD. # Mono
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/security-warden.rsi
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/caelestinus_adjudicator.rsi # Mono
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/security-warden.rsi
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/caelestinus_adjudicator.rsi # Mono
   - type: PressureProtection
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
@@ -396,14 +403,15 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.35
-        Slash: 0.45
-        Piercing: 0.40
+        Blunt: 0.25 # Mono
+        Slash: 0.25 # Mono
+        Piercing: 0.25 # Mono
         Caustic: 0.7
-        Heat: 0.55 # Goobstation
-  - type: ClothingSpeedModifier
-    walkModifier: 0.7
-    sprintModifier: 0.7
+        Heat: 0.3 # Mono
+        Radiation: 0.2 # Mono
+  - type: ClothingSpeedModifier # Mono: 0.7 -> 0.65
+    walkModifier: 0.65
+    sprintModifier: 0.65
   - type: HeldSpeedModifier
   - type: StaminaDamageResistance # Mono - Stamres
     coefficient: 0.3
@@ -415,6 +423,12 @@
       head: ClothingHeadHelmetHardsuitWarden
       helmetcover: ClothingHeadHelmetCoverBlock
       helmetattachment: ClothingHeadHelmetAttachmentBlock
+  - type: HideLayerClothing # Mono: new sprite hides hair
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide
 
 #Captain's Hardsuit
 - type: entity
@@ -605,13 +619,13 @@
 - type: entity
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitSecurityRed
-  name: overseer's hardsuit
-  description: A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor.
+  name: MP-EVA CSW-30 "Marshal" hardsuit # Mono
+  description: The Overseer's personal suit, the Marshal is effectively a suit of power armour adorned with several mismatching armour plates salvaged from seized TSFMC and PDV suits. # Mono
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/security-red.rsi
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/caelestinus_marshal.rsi # Mono
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/security-red.rsi
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/caelestinus_marshal.rsi # Mono
   - type: PressureProtection
     highPressureMultiplier: 0.45
     lowPressureMultiplier: 1000
@@ -620,15 +634,15 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.5
-        Piercing: 0.45
-        Radiation: 0.5
+        Blunt: 0.4 # Mono
+        Slash: 0.4 # Mono
+        Piercing: 0.35 # Mono
+        Radiation: 0.3 # Mono
         Caustic: 0.6
-        Heat: 0.55 # Goobstation
+        Heat: 0.2 # Mono
   - type: ClothingSpeedModifier
-    walkModifier: 0.85
-    sprintModifier: 0.85
+    walkModifier: 1.0
+    sprintModifier: 1.0
   - type: HeldSpeedModifier
   - type: StaminaDamageResistance # Mono - Stamres
     coefficient: 0.4

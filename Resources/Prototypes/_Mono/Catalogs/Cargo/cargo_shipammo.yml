@@ -281,11 +281,31 @@
   group: market
 
 - type: cargoProduct
+  id: ArmoryShipAmmoVanykAAM
+  icon:
+    sprite: _NF/Structures/Storage/Crates/secure_ammo.rsi
+    state: icon
+  product: CrateAmmoBoxVanykAAM
+  cost: 3000
+  category: cargoproduct-category-name-shipammo
+  group: market
+
+- type: cargoProduct
   id: ArmoryShipAmmoVespera
   icon:
     sprite: _NF/Structures/Storage/Crates/secure_ammo.rsi
     state: icon
   product: CrateAmmoBoxVespera
+  cost: 5000
+  category: cargoproduct-category-name-shipammo
+  group: market
+
+- type: cargoProduct
+  id: ArmoryShipAmmoVesperaAAM
+  icon:
+    sprite: _NF/Structures/Storage/Crates/secure_ammo.rsi
+    state: icon
+  product: CrateAmmoBoxVesperaAAM
   cost: 5000
   category: cargoproduct-category-name-shipammo
   group: market

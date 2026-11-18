@@ -2,8 +2,9 @@
 # Vox language
 - type: language
   id: NewKinPidgin
-  isVisibleLanguage: true
+  # isVisibleLanguage: true /* Monolith: This has been killed */
   chatPrefix: nkp # Mono
+  icon: LanguageIconVox # Mono
   speech:
     color: "#a489a0"
     fontId: ChelseaMarket

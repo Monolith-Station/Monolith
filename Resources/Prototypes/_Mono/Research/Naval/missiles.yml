@@ -1,0 +1,27 @@
+- type: technology
+  id: NavalMissilesMediumAdvanced
+  name: research-technology-naval-missiles-m-advanced
+  entityIcon: WeaponTurretTovek
+  discipline: NavalWeaponry
+  tier: 2
+  cost: 20000
+  position: 14, 10
+  recipeUnlocks:
+  - RecipeWeaponTurretTovek
+  technologyPrerequisites:
+  - NavalMissilesMedium
+
+- type: technology
+  id: NavalMissilesHeavyLaunchers
+  name: research-technology-naval-missiles-h-launchers
+  entityIcon: WeaponTurretPaladin
+  discipline: NavalWeaponry
+  tier: 3
+  cost: 200000
+  position: 18, 10
+  recipeUnlocks:
+  - RecipeWeaponTurretVanquisher
+  - RecipeWeaponTurretPaladin
+  technologyPrerequisites:
+  - NavalMissilesHeavy
+  - NavalMissilesMediumAdvanced

@@ -416,7 +416,7 @@
       sprite: Structures/Machines/computers.rsi
       state: generic_keys
   - type: AccessReader
-    access: [["StationTrafficController"]]
+    access: [["Caelestinus"]]
   - type: ActivatableUIRequiresAccess
   - type: WorldLoader
     disabled: true

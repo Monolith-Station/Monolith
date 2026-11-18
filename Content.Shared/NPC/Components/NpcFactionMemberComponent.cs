@@ -2,12 +2,13 @@ using Content.Shared.NPC.Prototypes;
 using Content.Shared.NPC.Systems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Content.Shared.Mech.EntitySystems; // Frontier
+using Content.Shared.Mech.EntitySystems;
+using Content.Shared._NF.Cloning; // Frontier
 
 namespace Content.Shared.NPC.Components;
 
 [RegisterComponent, NetworkedComponent, Access(typeof(NpcFactionSystem), typeof(SharedMechSystem)), AutoGenerateComponentState] // Frontier - Added MechSystem //Mono - autogeneratecomponentstate to replicate factions 2 clients
-public sealed partial class NpcFactionMemberComponent : Component
+public sealed partial class NpcFactionMemberComponent : Component, ITransferredByCloning // Mono: transferred by cloning
 {
     /// <summary>
     /// Factions this entity is a part of.

@@ -1,6 +1,7 @@
 using System.Numerics;
 using Content.Shared.Interaction;
 using Content.Shared.Projectiles;
+using Content.Shared.Tag;
 using Robust.Server.GameObjects;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Timing;
@@ -16,7 +17,8 @@ public sealed partial class TargetSeekingSystem : EntitySystem
     [Dependency] private SharedTransformSystem _transform = null!;
     [Dependency] private RotateToFaceSystem _rotateToFace = null!;
     [Dependency] private PhysicsSystem _physics = null!;
-    [Dependency] private IGameTiming _gameTiming = default!; // Mono
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private TagSystem _tag = default!;
 
     private EntityQuery<ProjectileComponent> _projectileQuery;
     private EntityQuery<PhysicsComponent> _physicsQuery;
@@ -213,7 +215,7 @@ public sealed partial class TargetSeekingSystem : EntitySystem
         // Look for shuttles to target
         var shuttleQuery = EntityQueryEnumerator<TargetSeekingTargetComponent>();
 
-        while (shuttleQuery.MoveNext(out var targetUid, out _))
+        while (shuttleQuery.MoveNext(out var targetUid, out var signatureComp))
         {
             var targetXform = Transform(targetUid);
 
@@ -255,6 +257,8 @@ public sealed partial class TargetSeekingSystem : EntitySystem
                     continue;
                 }
             }
+            if(component.Tag != null && !_tag.HasTag(actualTarget, component.Tag.Value) || component.Tag == null && signatureComp.RequireSeekerWhitelist)
+                continue;
 
             // If this is closer than our previous best target, update
             if (closestDistance > distance)

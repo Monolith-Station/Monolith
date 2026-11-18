@@ -3,7 +3,7 @@
 # To quote: "The traditionally employed tongue of Adhomai, comprised of expressive yowls and chirps. Native to the Tajara"
 - type: language
   id: SiikMaas
-  isVisibleLanguage: true
+  # isVisibleLanguage: true /* Monolith: This has been killed */
   chatPrefix: sik # Mono
   speech:
     color: "#d6a36eee" # Goob Edit - Make more unique from Vulpkanin
@@ -115,7 +115,7 @@
 # To quote: "Language native to the Tajara, it employs both verbal and non-verbal elements"
 - type: language
   id: SiikTajr
-  isVisibleLanguage: true
+  # isVisibleLanguage: true /* Monolith: This has been killed */
   speech:
     color: "#f58c9aee" # Bright red, to push this energy through
     fontId: Sriracha # relatively energetic, portraying the body movement I suppose
@@ -209,7 +209,7 @@
 # To quote: "The traditional language of the tajaran nobility"
 - type: language
   id: YaSsa
-  isVisibleLanguage: true
+  # isVisibleLanguage: true /* Monolith: This has been killed */
   speech:
     color: "#9a69f5ee" # More or less the color of nobility
     fontId: GrenzeGotisch # Old and distinguished, but not unreadable
@@ -288,7 +288,7 @@
 # ceremonies dedicated to the Snow God and amongst settlements comprised mostly of Zhan-Khazan"
 - type: language
   id: Delvahii
-  isVisibleLanguage: true
+  # isVisibleLanguage: true /* Monolith: This has been killed */
   speech:
     color: "#b1c472ee" # Green, color of grass, of change, and of spring
     fontId: RubikDirt # Aptly named

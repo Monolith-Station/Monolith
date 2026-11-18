@@ -1,0 +1,60 @@
+- type: technology
+  id: NavalBallisticsMediumChainguns
+  name: research-technology-naval-ballistics-m-chainguns
+  entityIcon: WeaponTurretAC-35
+  discipline: NavalWeaponry
+  tier: 2
+  cost: 75000
+  position: 14, 4
+  recipeUnlocks:
+  - RecipeWeaponTurretAC-35
+  - RecipeWeaponTurretRAC30
+  technologyPrerequisites:
+  - NavalBallisticsMedium
+
+- type: technology
+  id: NavalBallisticsMediumCannons
+  name: research-technology-naval-ballistics-m-cannons
+  entityIcon: WeaponTurretDravon
+  discipline: NavalWeaponry
+  tier: 2
+  cost: 50000
+  position: 14, 3
+  recipeUnlocks:
+  - RecipeWeaponTurretDravon
+  - RecipeWeaponTurretTarnyxReload
+  - RecipeWeaponTurretTarnyxReloadAP
+  - RecipeWeaponTurretAdderScattercannon
+  technologyPrerequisites:
+  - NavalBallisticsMedium
+
+- type: technology
+  id: NavalBallisticsHeavyCannons
+  name: research-technology-naval-ballistics-h-cannons
+  entityIcon: WeaponTurretCyrexa
+  discipline: NavalWeaponry
+  tier: 2
+  cost: 75000
+  position: 18, 3
+  recipeUnlocks:
+  - RecipeWeaponTurretCyrexa
+  - RecipeWeaponTurretR300
+  - RecipeWeaponTurretAK800
+  technologyPrerequisites:
+  - NavalBallisticsMediumCannons
+  - NavalBallisticsHeavy
+
+- type: technology
+  id: NavalBallisticsHeavyAdvancedCannons
+  name: research-technology-naval-ballistics-h-advanced-cannons
+  entityIcon: WeaponTurretAk820
+  discipline: NavalWeaponry
+  tier: 2
+  cost: 150000
+  position: 19, 3
+  recipeUnlocks:
+  - RecipeWeaponTurretHydra
+  - RecipeWeaponTurretFang
+  - RecipeWeaponTurretAK820
+  technologyPrerequisites:
+  - NavalBallisticsHeavyCannons

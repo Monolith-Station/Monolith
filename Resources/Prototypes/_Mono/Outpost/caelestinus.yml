@@ -29,7 +29,7 @@
         - type: TradeCrateDestination
           destinationProto: Trade
         - type: ExtraStationInformation
-          icon: /Textures/_Mono/Logo/icon/icon-256x256.png # used the biggest one, looks better when downscaling than upscaling
+          icon: /Textures/_Mono/Interface/Misc/LateJoin/caelestinus.png
           stationSubtext: 'frontier-lobby-frontier-subtext'
           stationDescription: 'frontier-lobby-frontier-description'
           lobbySortOrder: 1
@@ -51,8 +51,7 @@
             DirectorOfCare: [ 1, 1 ]
             MdMedic: [ -1, -1 ]
           tags:
-          - HeadOfPersonnel
-          - HeadOfSecurity
+          - CaelestinusCommand
         - type: Announcer
         - type: StationCargoBountyDatabase
           maxBounties: 20

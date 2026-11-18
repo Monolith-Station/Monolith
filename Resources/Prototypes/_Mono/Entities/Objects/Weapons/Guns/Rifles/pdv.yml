@@ -479,13 +479,16 @@
       map: ["enum.GunVisualLayers.Mag"]
   - type: GunWieldBonus
     minAngle: -18
-    maxAngle: -55
+    maxAngle: -60
   - type: Gun
     minAngle: 18
     maxAngle: 75
-    angleIncrease: 5
+    angleIncrease: 3
     angleDecay: 15
-    fireRate: 2.2
+    fireRate: 2.0
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
   - type: ChamberMagazineAmmoProvider
@@ -518,5 +521,12 @@
     magState: mag
     steps: 1
     zeroVisible: true
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 5
+    pvsIncrease: 0.7
   - type: Appearance
   - type: GunRequiresWield

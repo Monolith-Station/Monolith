@@ -1,8 +1,9 @@
 # Spoken by Hydrakin. Have fun.
 - type: language
   id: Hydraspeak
-  isVisibleLanguage: true
+  # isVisibleLanguage: true /* Monolith: This has been killed */
   chatPrefix: hyd # Mono
+  icon: LanguageIconAielic # Mono
   speech:
     color: "#6e6cfedd"
     fontId: MinecraftEnchantment

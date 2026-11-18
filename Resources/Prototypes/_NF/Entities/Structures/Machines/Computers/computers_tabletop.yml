@@ -642,7 +642,7 @@
     requiredCompanies:
     - Colonial
   - type: AccessReader
-    access: [["HeadOfPersonnel"]]
+    access: [["CaelestinusCommand"]]
 
 - type: entity
   parent: BaseComputerTabletopStationAdminBankATM
@@ -656,7 +656,7 @@
     requiredCompanies:
     - TSF
   - type: AccessReader
-    access: [["HeadOfSecurity"]]
+    access: [["TsfmcCaptain"]]
 
 - type: entity
   parent: BaseComputerTabletopStationAdminBankATM
@@ -668,9 +668,9 @@
     account: Medical
   - type: CompanyAccessReader
     requiredCompanies:
-    - MD
+    - Colonial
   - type: AccessReader
-    access: [["ChiefMedicalOfficer"]]
+    access: [["CaelestinusCommand"]]
 
 - type: entity
   parent: [BaseStructureIndestructible, BaseStructureComputerTabletop, ComputerContrabandPalletConsole]
