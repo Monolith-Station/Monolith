@@ -1,0 +1,44 @@
+#kasature90 (github)/_starch_ (discord)
+- type: vessel
+  id: Hangzhou
+  parent: BaseVesselIFFDisabled
+  name: TSFN Hangzhou-class
+  description: Naval designation Type-55C. A heavier, less utility-focused frigate. Equipped with multiple missile pods for anti-munition work and small craft, plus 4 CYREXA cannons for the big targets, but lacks in cheap PD.
+  limit: 3
+  hyperwarLimit: 5
+  hyperwarTimelock: 3600
+  price: 350000
+  purchasable: false # voucher only - t3
+  category: Large
+  group: Security
+  access: Tsfmc
+  shuttlePath: /SharedMaps/_Mono/Shuttles/TSF/hangzhou.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  - Brawler
+  - AntiShipMissileCarrier
+  - MissileCarrier
+  - Frigate
+  engine:
+  - AME
+
+- type: gameMap
+  id: Hangzhou
+  mapName: 'Hangzhou'
+  mapPath: /SharedMaps/_Mono/Shuttles/TSF/hangzhou.yml
+  minPlayers: 0
+  stations:
+    Hangzhou:
+      stationProto: StandardFrontierSecurityVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Hangzhou TSFN{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          Deputy: [ 0, 0 ]
+          TsfBorg: [ 0, 0 ]
+
