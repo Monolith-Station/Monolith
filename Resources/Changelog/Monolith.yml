@@ -27444,3 +27444,16 @@ Entries:
   id: 2945
   time: '2026-11-18T12:43:22.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/5049
+- author: kasature90
+  changes:
+    - type: Add
+      message: Added Hangzhou & Sovremenny to TSF/PDV T3 lineups.
+    - type: Tweak
+      message: Moved Kortik to T2.
+    - type: Fix
+      message: >-
+        Fixed minor issues with Polaris & Europa shipyard listings (nothing
+        gameplay-affecting)
+  id: 2946
+  time: '2026-11-18T21:47:04.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5048
