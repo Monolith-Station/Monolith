@@ -147,12 +147,12 @@
 
 - type: latheRecipe
   parent: BaseVoucherRecipe
-  id: ShipVoucherKortikT3Recipe
-  result: ShipVoucherKortikT3
+  id: ShipVoucherSovremennyT3Recipe
+  result: ShipVoucherSovremennyT3
   completetime: 100
   materialDiscountScale: 0.2
   materials:
-    PdvComposite: 12000
+    PdvComposite: 17000
 
 - type: latheRecipe
   parent: BaseVoucherRecipe
