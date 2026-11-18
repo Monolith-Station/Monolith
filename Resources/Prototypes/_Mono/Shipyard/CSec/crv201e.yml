@@ -5,10 +5,12 @@
   parent: BaseVessel
   name: GS CRV-201/E 'Muninn'
   description: A relatively light corvette produced by GS for the defense market. Comes with a shield, reinforced cockpit and an elite radar. Compared to it's ballistic based Twin, this brings a pair of Paladins, Promethei and 4 L1 point defense systems to work. Linking of systems to the autoloader will be necessary.
-  price: 230000 # Appraisal was at 205K
+  price: 999000 # 230000 # Appraisal was at 205K
+  purchasable: false # T1 - voucher only
   category: Medium
   group: Sr
   access: Caelestinus
+  mapchecker_group_override: Security
   shuttlePath: /SharedMaps/_Mono/Shuttles/CSec/crv201.yml
   guidebookPage: Null
   class:

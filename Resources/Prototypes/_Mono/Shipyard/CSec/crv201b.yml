@@ -5,10 +5,12 @@
   parent: BaseVessel
   name: GS CRV-201/B 'Huginn'
   description: A relatively light corvette produced by GS for the defense market. Comes with a shield, reinforced cockpit and an elite radar. Compared to it's energy based twin, this brings a pair of BOFORs, AC-35s and 4 Dravons to work. Linking of systems to the autoloader will be necessary.
-  price: 180000 # Appraisal was at 150K
+  price: 999000 # Appraisal was at 150K
+  purchasable: false # T1 - voucher only
   category: Medium
   group: Sr
   access: Caelestinus
+  mapchecker_group_override: Security
   shuttlePath: /SharedMaps/_Mono/Shuttles/CSec/crv201.yml
   guidebookPage: Null
   class:
