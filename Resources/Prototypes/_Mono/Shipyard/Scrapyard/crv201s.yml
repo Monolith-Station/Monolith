@@ -34,7 +34,8 @@
           !type:NanotrasenNameGenerator
           prefixCreator: '14'
       - type: StationJobs
-        availableJobs: {}
+        availableJobs:
+          Contractor: [ 0, 0 ]
 
 - type: gridModifier
   id: CRV201Scrap
