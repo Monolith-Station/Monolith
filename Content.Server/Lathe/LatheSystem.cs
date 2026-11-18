@@ -37,7 +37,11 @@ using Robust.Shared.Timing;
 using Content.Shared.Cargo.Components; // Frontier
 using Content.Server._NF.Contraband.Systems;
 using Content.Server.Storage.Components;
-using Content.Shared.Stacks; // Frontier
+using Content.Server.Storage.EntitySystems;
+using Content.Shared.Interaction;
+using Content.Shared.Stacks;
+using Content.Shared.Storage.Components;
+using Content.Shared.Tools.Components; // Frontier
 using Robust.Shared.Containers;
 using Robust.Shared.Utility; // Frontier
 
@@ -64,7 +68,6 @@ namespace Content.Server.Lathe
         [Dependency] private ContrabandTurnInSystem _contraband = default!; // Mono
         [Dependency] private TransformSystem _transform = default!;
         [Dependency] private DeviceLinkSystem _deviceLink = default!; // Mono
-
         /// <summary>
         /// Per-tick cache
         /// </summary>
@@ -497,7 +500,7 @@ namespace Content.Server.Lathe
             component.FinalMaterialUseMultiplier = component.MaterialUseMultiplier;
             // End of modified code
             // <Mono>
-            _deviceLink.EnsureSinkPorts(uid, component.PausePort, component.ResumePort);
+            _deviceLink.EnsureSinkPorts(uid, component.PausePort, component.ResumePort, component.ToggleOpenPort);
             _deviceLink.EnsureSourcePorts(uid, component.ProducedPort);
             // </Mono>
         }
@@ -657,6 +660,23 @@ namespace Content.Server.Lathe
             {
                 TryUnpause((ent, ent.Comp));
             }
+            else if (args.Port == ent.Comp.ToggleOpenPort)
+            {
+                TryToggleOpen((ent, ent.Comp));
+            }
+        }
+
+        public void TryToggleOpen(Entity<LatheComponent?> ent)
+        {
+            SharedEntityStorageComponent? storage = null;
+
+            if (!_storage.ResolveStorage(ent, ref storage))
+                return;
+
+            if (_storage.IsOpen(ent, storage))
+                _storage.CloseStorage(ent, storage);
+            else
+                _storage.OpenStorage(ent, storage);
         }
 
         public void TryPause(Entity<LatheComponent?> ent)

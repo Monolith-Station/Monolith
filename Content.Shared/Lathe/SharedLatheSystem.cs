@@ -2,9 +2,11 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
+using Content.Shared.Construction;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
+using Content.Shared.Interaction;
 using Content.Shared.Lathe.Prototypes;
 using Content.Shared.Localizations;
 using Content.Shared.Materials;
@@ -12,6 +14,8 @@ using Content.Shared.Research.Prototypes;
 using Content.Shared.Stacks;
 using Content.Shared.Storage.Components;
 using Content.Shared.Storage.EntitySystems;
+using Content.Shared.Tools.Components;
+using Content.Shared.Wires;
 using JetBrains.Annotations;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
@@ -26,7 +30,8 @@ public abstract partial class SharedLatheSystem : EntitySystem
 {
     [Dependency] private IPrototypeManager _proto = default!;
     [Dependency] private SharedMaterialStorageSystem _materialStorage = default!;
-    [Dependency] private SharedEntityStorageSystem _storage = default!;
+    [Dependency] private SharedTransformSystem _sharedTransform = default!; // Mono
+    [Dependency] protected SharedEntityStorageSystem _storage = default!;
     [Dependency] private EmagSystem _emag = default!;
     [Dependency] private SharedContainerSystem _container = default!;
     [Dependency] private SharedSolutionContainerSystem _solution = default!;
@@ -38,6 +43,7 @@ public abstract partial class SharedLatheSystem : EntitySystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<LatheComponent, InteractUsingEvent>(OnItemInteract);
         SubscribeLocalEvent<EmagLatheRecipesComponent, GotEmaggedEvent>(OnEmagged);
         SubscribeLocalEvent<EmagLatheRecipesComponent, GotUnEmaggedEvent>(OnUnemagged); // Frontier
         SubscribeLocalEvent<LatheComponent, ExaminedEvent>(OnExamined);
@@ -257,6 +263,34 @@ public abstract partial class SharedLatheSystem : EntitySystem
         }
 
         return string.Empty;
+    }
+
+    /// <summary>
+    /// Monolith - Insert item into lathe on interaction (If it has container).
+    /// </summary>
+    /// <param name="ent"></param>
+    /// <param name="args"></param>
+    private void OnItemInteract(Entity<LatheComponent> ent, ref InteractUsingEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        var inserting = args.Used;
+        SharedEntityStorageComponent? storage = null;
+
+        if (HasComp<ToolComponent>(inserting) ||
+            !_storage.ResolveStorage(ent, ref storage)) // Don't insert tools.
+            return;
+
+        if (storage.Open)
+        {
+            _sharedTransform.SetCoordinates(inserting, Transform(ent).Coordinates); // Just put it on lathe instead.
+            return;
+        }
+
+        _container.Insert(inserting, storage.Contents);
+
+        args.Handled = true;
     }
 
     // Monolith
