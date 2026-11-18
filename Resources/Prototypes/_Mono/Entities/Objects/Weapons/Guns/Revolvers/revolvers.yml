@@ -24,6 +24,7 @@
           tags:
           - MonoGripMeLat
         disableEject: true # It's part of the gun.
+        locked: true
       launcher_mag: # Needs to be here or else it causes spawning errors.
         name: Shell Chamber
         priority: 3
