@@ -43,7 +43,8 @@ public abstract partial class SharedLatheSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<LatheComponent, InteractUsingEvent>(OnItemInteract);
+        SubscribeLocalEvent<LatheComponent, InteractUsingEvent>(OnItemInteract,
+            after: new []{ typeof(SharedMaterialStorageSystem) }); // Mono - Don't try to insert materials if they were handled.
         SubscribeLocalEvent<EmagLatheRecipesComponent, GotEmaggedEvent>(OnEmagged);
         SubscribeLocalEvent<EmagLatheRecipesComponent, GotUnEmaggedEvent>(OnUnemagged); // Frontier
         SubscribeLocalEvent<LatheComponent, ExaminedEvent>(OnExamined);
