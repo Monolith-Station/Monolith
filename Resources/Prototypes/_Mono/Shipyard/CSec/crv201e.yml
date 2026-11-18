@@ -63,13 +63,13 @@
     data:
     - chance: 1
       toReplace: WeaponTurretPinhole
-      replaceWith: WeaponLaserTurretL1Phalanx
+      replaceWith: WeaponTurretType35 # Going full weapon bay, I guess? If it was a T0, I would've probably just done empty and called it a day.
     - chance: 1
       toReplace: WeaponTurretFragment
       replaceWith: Catwalk
     - chance: 1
       toReplace: WeaponTurretShard
-      replaceWith: WeaponLaserTurretL1Phalanx
+      replaceWith: WeaponTurretType35
     - chance: 1
       toReplace: WeaponTurretBofors
       replaceWith: WeaponTurretPaladin
