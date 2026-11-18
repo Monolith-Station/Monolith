@@ -31,6 +31,7 @@ namespace Content.Shared.Input
         public static readonly BoundKeyFunction OpenLanguageMenu = "OpenLanguageMenu"; // Einstein Engines - Language
         public static readonly BoundKeyFunction OpenGuidebook = "OpenGuidebook";
         public static readonly BoundKeyFunction OpenInventoryMenu = "OpenInventoryMenu";
+        public static readonly BoundKeyFunction ToggleUnderbarrel = "ToggleUnderbarrel"; //Mono
         public static readonly BoundKeyFunction SmartEquipBackpack = "SmartEquipBackpack";
         public static readonly BoundKeyFunction SmartEquipBelt = "SmartEquipBelt";
         public static readonly BoundKeyFunction SmartEquipPocket1 = "SmartEquipPocket1";

@@ -1,7 +1,8 @@
 # Spoken by Shadowkins.
 - type: language
   id: Marish
-  isVisibleLanguage: true
+  # isVisibleLanguage: true /* Monolith: This has been killed */
+  chatPrefix: mar # Mono
   speech:
     color: "#be3cc5"
     # fontId: Lymphatic #* FONTS NOT ALREADY HERE ARE NOT BEING ADDED

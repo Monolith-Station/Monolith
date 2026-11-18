@@ -242,6 +242,7 @@
     # Shitmed
     - id: MedicalBiofabMachineBoard
     - id: MMI # Shitmed
+    - id: GeneticDatabaseServerFlatpack # Mono
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -365,7 +366,7 @@
   table: !type:AllSelector
     children:
     - id: ClothingMaskGasSwat
-    - id: UndeterminedVoidsuitHeadOfSecurity # Goob edit
+  # - id: UndeterminedVoidsuitHeadOfSecurity # Goob edit, Mono out
     - id: JetpackSecurityFilled
     - id: OxygenTankFilled
     - id: NitrogenTankFilled

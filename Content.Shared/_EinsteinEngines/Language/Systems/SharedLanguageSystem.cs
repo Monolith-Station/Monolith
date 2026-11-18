@@ -6,6 +6,13 @@ namespace Content.Shared._EinsteinEngines.Language.Systems;
 
 public abstract partial class SharedLanguageSystem : EntitySystem
 {
+    // Starlight start
+    /// <summary>
+    /// The chat prefix used to begin parsing a language. e.g. <c>^gcThis will parse to Galactic Common</c>.
+    /// </summary>
+    public static readonly char ChatPrefixChar = '^';
+    // Starlight end
+
     /// <summary>
     ///     The language used as a fallback in cases where an entity suddenly becomes a Language Speaker (e.g. the usage of make-sentient).
     /// </summary>
@@ -59,6 +66,19 @@ public abstract partial class SharedLanguageSystem : EntitySystem
         language.Obfuscation.Obfuscate(builder, message, this);
 
         return builder.ToString();
+    }
+
+    // Starlight
+    public bool GetLanguageIcon(LanguagePrototype language, bool obfuscated)
+    {
+        switch (obfuscated)
+        {
+            case false when language.IconVisibleIfUnderstood:
+            case true when language.IconVisibleIfNotUnderstood:
+                return true;
+            default:
+                return false;
+        }
     }
 
     /// <summary>

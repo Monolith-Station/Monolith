@@ -418,7 +418,15 @@
 # Phalanx
 
 - type: entity
+  abstract: true
   parent: BasicHitscan
+  id: ShipWeaponHitscan
+  components:
+  - type: HitscanBasicRaycast
+    ignoreShields: false
+
+- type: entity
+  parent: ShipWeaponHitscan
   id: PhalanxLaser
   categories: [ HideSpawnMenu ]
   components:
@@ -445,7 +453,7 @@
 # Apollo
 
 - type: entity
-  parent: BasicHitscan
+  parent: ShipWeaponHitscan
   id: ApolloLaser
   categories: [ HideSpawnMenu ]
   components:
@@ -489,10 +497,28 @@
   - type: HitscanBasicRaycast
     maxDistance: 1000
 
+# Retribution
+
+- type: entity
+  parent: PrometheusLaser
+  id: RetributionLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanRadarSignature
+    radarColor: "#ba0707"
+    lineThickness: 5
+    lifeTime: 0.1 # 5 lasers visible at once
+  - type: HitscanBasicRaycast
+    maxDistance: 3500
+
+
+
+
+
 # Reaper
 
 - type: entity
-  parent: BasicHitscan
+  parent: ShipWeaponHitscan
   id: TachyonLaser
   categories: [ HideSpawnMenu ]
   components:
@@ -521,7 +547,7 @@
 # Sunder
 
 - type: entity
-  parent: BasicHitscan
+  parent: ShipWeaponHitscan
   id: SunderLaser
   categories: [ HideSpawnMenu ]
   components:
@@ -550,7 +576,7 @@
 # Flayer
 
 - type: entity
-  parent: BasicHitscan
+  parent: ShipWeaponHitscan
   id: GaussRound
   categories: [ HideSpawnMenu ]
   components:

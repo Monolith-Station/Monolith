@@ -884,18 +884,21 @@
   - type: Access
     groups:
     - AllAccess
+    - AllAccessMono # Mono
     - USSPAA # Mono
     - Mieyo # Mono
     - Viper # Mono
+    - Underground # Mono
     tags:
     - CentralCommand
     - NuclearOperative
     - SyndicateAgent
     - Wizard
-    - Pirate # Mono
+    - PDV # Mono
     - TsfmcEngineering # Mono
     - GrandVizier
     - PDVCommand # Mono
+    - ViperCommand # Mono
   - type: Tag #  Ignore Chameleon tags
     tags:
     - DoorBumpOpener

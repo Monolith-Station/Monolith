@@ -1,5 +1,7 @@
 ## Controls menu
 
+ui-options-function-toggle-underbarrel = Toggle Underbarrel
+
 ui-options-function-toggle-standing = Toggle Standing
 
 ui-options-function-target-left-hand = Target left hand

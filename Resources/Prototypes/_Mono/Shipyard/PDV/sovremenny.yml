@@ -1,0 +1,39 @@
+- type: vessel
+  id: Sovremenny
+  parent: BaseVesselIFFDisabled
+  name: HSS Sovremenny
+  description: Sovremennys carry 8x tri-barreled 130mm cannons and nothing else out-of-the-box, but have the GCS & hardpoints for upgrades to add PD and AShMs. They suffer from poor manueverability and their high cost.
+  limit: 1
+  hyperwarLimit: 2
+  hyperwarTimelock: 3600
+  price: 500000
+  purchasable: false # Voucher only - T3
+  category: Large
+  group: BlackMarket
+  access: PDV
+  shuttlePath: /SharedMaps/_Mono/Shuttles/PDV/sovremenny.yml
+  guidebookPage: ShipyardNFROperation
+  class:
+  - Brawler
+  - Frigate
+  engine:
+  - NFR
+
+- type: gameMap
+  id: Sovremenny
+  mapName: 'PDV Sovremenny'
+  mapPath: /SharedMaps/_Mono/Shuttles/PDV/sovremenny.yml
+  minPlayers: 0
+  stations:
+    Sovremenny:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Sovremenny HSS{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Pirate: [ 0, 0 ]
+            PdvBorg: [ 0, 0 ]

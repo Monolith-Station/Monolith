@@ -48,3 +48,13 @@ lathe-category-guns-energy = Energy Weapons
 lathe-category-guns-explosive = Explosives
 lathe-category-guns-antitank = Anti-Tank Weapons
 lathe-category-attachments = Weapon Attachments
+
+# Naval
+lathe-category-naval-sl = Naval Superlight
+lathe-category-naval-l = Naval Light
+lathe-category-naval-m = Naval Medium
+lathe-category-naval-h = Naval Heavy
+lathe-category-naval-sh = Naval Superheavy
+lathe-category-naval-ballistics = Naval Ballistics
+lathe-category-naval-energy = Naval Energy
+lathe-category-naval-missiles = Naval Missiles

@@ -1,5 +1,5 @@
 reagent-name-fent = fentanyl
-reagent-desc-fent = A highly potent opioid painkiller and narcotic. Its highly addictive, and horribly abused. When mixed with Tricordrazine at a 5:1 ratio (5u Fentanyl, 1u Tricordrazine), and heated to 310k, it is solidified, and highly valuable. Its very explosive with dylovene, and as such you can only crystallize one at a time.
+reagent-desc-fent = A highly potent, valuable, and addictive opioid painkiller narcotic. Mix 25 units with 1 unit of catalytic Tricordrazine at 310k to form a crystal and 5 units of Dylovene as a byproduct. Dylovene is highly reactive with Fentanyl - Only one crystal can be formed at a time.
 
 reagent-name-gestalzitine = Gestalzitine
 reagent-desc-gestalzitine = An anomalous chemical, not naturally found. It is a highly effective sedative, apparently directly manipulating cerebral functions to force the metabolizer into a dream-like state.

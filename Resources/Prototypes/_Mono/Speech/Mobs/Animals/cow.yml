@@ -1,0 +1,41 @@
+- type: localizedDataset
+  id: CowEating
+  values:
+    prefix: cow-eating-
+    count: 5
+
+- type: localizedDataset
+  id: CowDrinking
+  values:
+    prefix: cow-drinking-
+    count: 5
+
+- type: localizedDataset
+  id: CowCritical
+  values:
+    prefix: cow-critical-
+    count: 5
+
+- type: localizedDataset
+  id: CowDeath
+  values:
+    prefix: cow-dead-
+    count: 5
+
+- type: localizedDataset
+  id: CowRevived
+  values:
+    prefix: cow-revived-
+    count: 5
+
+- type: localizedDataset
+  id: CowExamined
+  values:
+    prefix: cow-examined-
+    count: 5
+
+- type: localizedDataset
+  id: CowGhostExamined
+  values:
+    prefix: cow-ghost-examined-
+    count: 5

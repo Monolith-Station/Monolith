@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/01/2026 00:28:14
-  entityCount: 225
+  time: 11/02/2026 09:38:08
+  entityCount: 226
 maps: []
 grids:
 - 1
@@ -81,9 +81,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Smoke: []
-        MetalFoam: []
         Puddle: []
+        ESTileFire: []
+        MetalFoam: []
+        Smoke: []
         Kudzu: []
     - type: Shuttle
       dampingModifier: 0.25
@@ -697,6 +698,14 @@ entities:
       rot: 3.141592653589793 rad
       pos: 4.5,2.5
       parent: 1
+- proto: ExtinguisherCabinetFilled
+  entities:
+  - uid: 224
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 2.5,2.5
+      parent: 1
 - proto: FirelockEdge
   entities:
   - uid: 118
@@ -875,24 +884,18 @@ entities:
       rot: 3.141592653589793 rad
       pos: 1.5,6.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 186
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 3.5,6.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 222
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -2.5,6.5
       parent: 1
-    - type: Physics
-      canCollide: False
 - proto: HardpointEnergyMedium
   entities:
   - uid: 223
@@ -901,8 +904,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -0.5,6.5
       parent: 1
-    - type: Physics
-      canCollide: False
 - proto: NFHolopadShip
   entities:
   - uid: 242

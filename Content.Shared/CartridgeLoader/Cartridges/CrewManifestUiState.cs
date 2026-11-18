@@ -6,12 +6,11 @@ namespace Content.Shared.CartridgeLoader.Cartridges;
 [Serializable, NetSerializable]
 public sealed class CrewManifestUiState : BoundUserInterfaceState
 {
-    public string StationName;
+    public string StationName = "Crew Manifest"; // Monolith: Remove name
     public CrewManifestEntries? Entries;
 
-    public CrewManifestUiState(string stationName, CrewManifestEntries? entries)
+    public CrewManifestUiState(CrewManifestEntries? entries)
     {
-        StationName = stationName;
         Entries = entries;
     }
 }

@@ -534,6 +534,25 @@
     scanArc: 0
     launchSpeed: 0
     maxSpeed: 3
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Missile
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: TargetSeekingTarget
+    requireSeekerWhitelist: true
+  - type: Tag
+    tags:
+    - AMMTarget
 
 # 85x680mm
 
@@ -994,6 +1013,25 @@
     scanArc: 0
     launchSpeed: 0
     maxSpeed: 3
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Missile
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: TargetSeekingTarget
+    requireSeekerWhitelist: true
+  - type: Tag
+    tags:
+    - AMMTarget
 
 # CHARON
 
@@ -1077,7 +1115,7 @@
 - type: entity
   id: ShipRailgunProjectileAphe
   name: M381 CHARON 280mm 26.5kg APHE slug
-  parent: BaseBulletTrigger
+  parent: BaseBulletTriggerSpent
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile

@@ -107,6 +107,9 @@
         cell_slot:
           name: power-cell-slot-component-slot-name-default
           startingItem: PowerCellSmall
+          blacklist:
+            tags:
+            - PowerCage
 
 - type: entity
   id: PowerCellSlotMediumItem
@@ -122,6 +125,9 @@
         cell_slot:
           name: power-cell-slot-component-slot-name-default
           startingItem: PowerCellMedium
+          blacklist:
+            tags:
+            - PowerCage
 
 - type: entity
   id: PowerCellSlotHighItem
@@ -137,3 +143,6 @@
         cell_slot:
           name: power-cell-slot-component-slot-name-default
           startingItem: PowerCellHigh
+          blacklist:
+            tags:
+            - PowerCage

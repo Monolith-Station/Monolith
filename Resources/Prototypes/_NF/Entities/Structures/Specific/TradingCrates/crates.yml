@@ -88,7 +88,7 @@
 
 # region Contraband Crates
 - type: entity
-  parent: [ CrateTradeBaseSecureContraband, BaseFactionGearTaxedT2 ]
+  parent: [ CrateTradeBaseSecurePDV, BaseFactionGearTaxedT2 ]
   id: CrateTradeContrabandSecure1
   #categories: [ HideSpawnMenu ]
   components:
@@ -117,7 +117,7 @@
     valueElsewhere: 20000
 
 - type: entity
-  parent: [ CrateTradeBaseSecureContraband, BaseFactionGearTaxedT2 ]
+  parent: [ CrateTradeBaseSecurePDV, BaseFactionGearTaxedT2 ]
   id: CrateTradeContrabandSecure2
   categories: [ HideSpawnMenu ]
   components:
@@ -149,7 +149,7 @@
     expressLatePenalty: 30000
 
 - type: entity
-  parent: [ CrateTradeBaseSecureContraband, BaseFactionGearTaxedT2 ]
+  parent: [ CrateTradeBaseSecurePDV, BaseFactionGearTaxedT2 ]
   id: CrateTradeContrabandSecure3
   categories: [ HideSpawnMenu ]
   components:
@@ -181,7 +181,7 @@
     expressLatePenalty: 25000
 
 - type: entity
-  parent: [ CrateTradeBaseSecureContraband, BaseFactionGearTaxedT2 ]
+  parent: [ CrateTradeBaseSecurePDV, BaseFactionGearTaxedT2 ]
   id: CrateTradeContrabandSecure4
   categories: [ HideSpawnMenu ]
   components:
@@ -213,7 +213,7 @@
     expressLatePenalty: 30000
 
 - type: entity
-  parent: [ CrateTradeBaseSecureContraband, BaseFactionGearTaxedT3 ] # the only t3
+  parent: [ CrateTradeBaseSecurePDV, BaseFactionGearTaxedT3 ] # the only t3
   id: CrateTradeContrabandSecure5
   categories: [ HideSpawnMenu ]
   components:

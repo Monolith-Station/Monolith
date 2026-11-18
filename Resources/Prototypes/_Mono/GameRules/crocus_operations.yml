@@ -178,9 +178,9 @@
 - type: weightedRandom
   id: TSFOperationsCrocus
   weights:
-    TSFCrocusBeaconRepairOperation: 1
+    #TSFCrocusBeaconRepairOperation: 1
     TSFCrocusBothOperation: 1.25
-    TSFCrocusPDAOperation: 0.75
+    #TSFCrocusPDAOperation: 0.75
 
 - type: nukieOperation
   id: TSFCrocusBeaconRepairOperation

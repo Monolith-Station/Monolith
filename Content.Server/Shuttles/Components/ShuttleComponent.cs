@@ -25,6 +25,13 @@ namespace Content.Server.Shuttles.Components
 
         public const float MaxAngularVelocity = 4f;
 
+        /// Mono start
+        /// Drive mode values because drive mode is the default mode
+        public float MaxLinearVelocityMultiplier = 1f;
+        public float BaseThrusterMultiplier = 3.5f;
+        public float BaseGyroscopeMultiplier = 1.125f;
+        /// Mono end
+
         /// <summary>
         /// The cached thrust available for each cardinal direction
         /// </summary>

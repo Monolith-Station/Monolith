@@ -28,14 +28,12 @@
   assignedCompany: TSF
   canBeAntag: false
   accessGroups:
-  - AllAccessMono #Mono Start
+  - GeneralTsfmcAccess #Mono Start
   access:
   - TsfmcEngineering
-  - HeadOfSecurity
-  - Bailiff
-  - Sergeant
-  - Armory
-  - Frontier #Mono End
+  - TsfmcColonel
+  - TsfmcCaptain
+  - TsfmcArmory
   guides:
   - TSFMC_Entry
   special:

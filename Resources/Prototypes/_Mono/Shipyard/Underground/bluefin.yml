@@ -1,0 +1,40 @@
+# Author Info
+# GitHub: Mrrpip
+# Discord: skye1803
+
+# Shuttle Notes:
+- type: vessel
+  id: Bluefin
+  parent: BaseVesselIFFDisabled
+  name: UGR Bluefin
+  description: Similar to its sister, the Mudskipper, the Bluefin is an illegally modified Caracara for combat usage. It is equipped with a shield generator, the mining laser mount now holds an AK820 autocannon and additional TOVEK EMP missiles have been installed on top.
+  price: 100000
+  category: Medium
+  group: Syndicate # Underground
+  access: Underground
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Underground/bluefin.yml
+  guidebookPage: Null
+  class:
+  - Pursuit
+  engine:
+  - Plasma # Pinch fusion gen kind, not the pacman kind.
+
+- type: gameMap
+  id: Bluefin
+  mapName: 'UGR Bluefin'
+  mapPath: /SharedMaps/_Mono/Shuttles/Underground/bluefin.yml
+  minPlayers: 0
+  stations:
+    Bluefin:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Bluefin UGR{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            # Pilot: [ 0, 0 ]
+            # Mercenary: [ 0, 0 ]
