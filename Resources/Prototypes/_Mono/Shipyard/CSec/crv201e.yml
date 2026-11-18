@@ -47,8 +47,8 @@
     comp: Hardpoint
     data:
     - chance: 1
-      toReplace: HardpointEnergyMedium
-      replaceWith: HardpointMissileMedium
+      toReplace: HardpointBallisticHeavy
+      replaceWith: HardpointMissileHeavy
     - chance: 1
       toReplace: HardpointEnergySuperlight
       replaceWith: RailingRound
@@ -73,3 +73,9 @@
     - chance: 1
       toReplace: WeaponTurretBofors
       replaceWith: WeaponTurretPaladin
+  - !type:GridModEntityReplace
+    comp: FireControlServer
+    data:
+    - chance: 1
+      toReplace: GunneryServerMedium
+      replaceWith: GunneryServerHigh
