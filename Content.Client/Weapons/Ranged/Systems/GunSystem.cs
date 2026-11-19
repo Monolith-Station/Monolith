@@ -4,7 +4,9 @@ using Content.Client.Animations;
 using Content.Client.Gameplay;
 using Content.Client.Items;
 using Content.Client.Projectiles;
+using Content.Client.Viewport; // Mono
 using Content.Client.Weapons.Ranged.Components;
+using Content.Shared._CE.ZLevels.Core.Components; // Mono
 using Content.Shared.Camera;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage;
@@ -223,7 +225,8 @@ public sealed partial class GunSystem : SharedGunSystem
         if (gunUid.Comp.NextFire > Timing.CurTime)
             return;
 
-        var mousePos = _eyeManager.PixelToMap(_inputManager.MouseScreenPosition);
+        var cursor = _inputManager.MouseScreenPosition; // Mono
+        var mousePos = _eyeManager.PixelToMap(cursor); // Mono
 
         if (mousePos.MapId == MapId.Nullspace)
         {
@@ -233,11 +236,19 @@ public sealed partial class GunSystem : SharedGunSystem
             return;
         }
 
-        // Define target coordinates relative to gun entity, so that network latency on moving grids doesn't fuck up the target location.
+        // Mono Start
+        var lookingUp = TryComp<CEZLevelViewerComponent>(entity, out var viewer) && viewer.LookUp;
+        if (lookingUp && _eyeManager.MainViewport is ScalingViewport viewport &&
+            viewport.TryGetLookUpAim(cursor.Position, mousePos.MapId, out var upperAim))
+        {
+            mousePos = new MapCoordinates(upperAim.Position, mousePos.MapId);
+        }
+
         var coordinates = TransformSystem.ToCoordinates(entity, mousePos);
+        // Mono End
 
         NetEntity? target = null;
-        if (_state.CurrentState is GameplayStateBase screen)
+        if (!lookingUp && _state.CurrentState is GameplayStateBase screen) // Mono: Skip same-deck target picking when aiming up.
             target = GetNetEntity(screen.GetDamageableClickedEntity(mousePos)); // Goob edit
 
         Log.Debug($"Sending shoot request tick {Timing.CurTick} / {Timing.CurTime}");

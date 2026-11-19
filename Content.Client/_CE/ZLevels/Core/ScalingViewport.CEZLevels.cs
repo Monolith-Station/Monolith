@@ -38,6 +38,21 @@ public sealed partial class ScalingViewport
 
     private IEye? _fallbackEye;
 
+    // Mono Start
+    private IEye? _lookUpAimEye;
+    private MapId _lookUpSourceMap;
+
+    internal bool TryGetLookUpAim(Vector2 screenPosition, MapId sourceMap, out MapCoordinates aim)
+    {
+        aim = default;
+        if (_lookUpAimEye is not { } eye || sourceMap != _lookUpSourceMap)
+            return false;
+
+        aim = PixelToMap(screenPosition, eye);
+        return aim.MapId != MapId.Nullspace;
+    }
+    // Mono end
+
     /// <summary>
     /// We are looking for at least one empty tile on the screen.
     /// This is used to ensure that it makes sense to draw the z-planes and that they are visible.
@@ -115,6 +130,7 @@ public sealed partial class ScalingViewport
 
     private void RenderZLevels(IRenderHandle renderHandle, IClydeViewport viewport)
     {
+        _lookUpAimEye = null; // Mono
         if (_eye is null)
             return;
 
@@ -231,15 +247,17 @@ public sealed partial class ScalingViewport
         // always render your own map
         _zPasses.Add((playerMap, ownDepth, true, false));
 
-        if (riderTransit != null)
+        // Mono Start: Use the full Look Up pass even while riding a transit map.
+        if (zLevelViewer.LookUp && aboveMap != null)
+        {
+            _zPasses.Add((aboveMap.Value, aboveDepth, true, false));
+        }
+        else if (riderTransit != null)
         {
             if (aboveMap != null && aboveDepth > 0.001f && TransitFade(aboveDepth) > 0.01f)
                 _zPasses.Add((aboveMap.Value, aboveDepth, false, true));
         }
-        else if (zLevelViewer.LookUp && aboveMap != null)
-        {
-            _zPasses.Add((aboveMap.Value, aboveDepth, true, false));
-        }
+        // Mono End
 
         // transit maps also render
         var altitudeAnchor = riderTransit?.LowerMap ?? playerMap;
@@ -395,6 +413,13 @@ public sealed partial class ScalingViewport
             {
                 if (MakeZEye(mapUid, depth) is not { } zEye)
                     continue;
+                // Mono Start: Cache the eye that actually draws the aimed-at deck.
+                if (zLevelViewer.LookUp && !isTransit && mapUid == aboveMap)
+                {
+                    _lookUpAimEye = zEye;
+                    _lookUpSourceMap = _fallbackEye.Position.MapId;
+                }
+                // Mono End
                 zEye.Primary = mapUid == playerMap && !isTransit;
                 zEye.DrawFov = _fallbackEye.DrawFov && allowFov;
                 zEye.DrawParallax = !isTransit && depth == lowestDepth && cloudDeck == null;

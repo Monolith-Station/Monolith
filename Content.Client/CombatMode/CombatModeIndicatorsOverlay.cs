@@ -1,10 +1,12 @@
 using System.Numerics;
 using Content.Client.Hands.Systems;
+using Content.Shared._CE.ZLevels.Core.Components; // Mono
 using Content.Shared._RMC14.CombatMode; // Mono
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
+using Robust.Client.Player; // Mono
 using Robust.Client.Serialization;
 using Robust.Client.UserInterface;
 using Robust.Shared.Enums;
@@ -27,12 +29,14 @@ public sealed class CombatModeIndicatorsOverlay : Overlay
     private readonly IEyeManager _eye;
     private readonly CombatModeSystem _combat;
     private readonly HandsSystem _hands = default!;
+    private readonly IPlayerManager _player; // Mono
     private readonly RMCCombatModeSystem _rmcCombatMode; // Mono
     private readonly SpriteSystem _sprite; // Mono
 
     private readonly Texture _gunSight;
     private readonly Texture _gunBoltSight;
     private readonly Texture _meleeSight;
+    private readonly Texture _upArrow; // Mono
 
     public override OverlaySpace Space => OverlaySpace.ScreenSpace;
 
@@ -41,13 +45,14 @@ public sealed class CombatModeIndicatorsOverlay : Overlay
     public float Scale = 0.6f;  // 1 is a little big
 
     public CombatModeIndicatorsOverlay(IInputManager input, IEntityManager entMan,
-            IEyeManager eye, CombatModeSystem combatSys, HandsSystem hands)
+            IEyeManager eye, CombatModeSystem combatSys, HandsSystem hands, IPlayerManager player) // Mono: Look Up indicator
     {
         _inputManager = input;
         _entMan = entMan;
         _eye = eye;
         _combat = combatSys;
         _hands = hands;
+        _player = player; // Mono
 
         var spriteSys = _entMan.EntitySysManager.GetEntitySystem<SpriteSystem>();
         _gunSight = spriteSys.Frame0(new SpriteSpecifier.Rsi(new ResPath("/Textures/Interface/Misc/crosshair_pointers.rsi"),
@@ -56,6 +61,7 @@ public sealed class CombatModeIndicatorsOverlay : Overlay
             "gun_bolt_sight"));
         _meleeSight = spriteSys.Frame0(new SpriteSpecifier.Rsi(new ResPath("/Textures/Interface/Misc/crosshair_pointers.rsi"),
              "melee_sight"));
+        _upArrow = spriteSys.Frame0(new SpriteSpecifier.Rsi(new ResPath("/Textures/_CE/Actions/zLevels.rsi"), "up")); // Mono
 
         _rmcCombatMode = entMan.System<RMCCombatModeSystem>(); // Mono
         _sprite = entMan.System<SpriteSystem>(); // Mono
@@ -90,17 +96,24 @@ public sealed class CombatModeIndicatorsOverlay : Overlay
         var sight = isHandGunItem ? (isGunBolted ? _gunSight : _gunBoltSight) : _meleeSight;
 
         // Mono Start
+        var sightWidth = sight.Width * limitedScale * Scale + 7f;
         if (handEntity != null && _rmcCombatMode.GetCrosshair(handEntity.Value) is { } crosshair)
         {
             sight = _sprite.Frame0(crosshair);
             var sightSize = sight.Size * limitedScale;
             var rect = UIBox2.FromDimensions(mousePos - sightSize * 0.5f, sightSize);
             args.ScreenHandle.DrawTextureRect(sight, rect);
-            return;
+            sightWidth = sightSize.X;
+        }
+        else
+            DrawSight(sight, args.ScreenHandle, mousePos, limitedScale * Scale);
+        if (isHandGunItem && _entMan.TryGetComponent(_player.LocalEntity, out CEZLevelViewerComponent? viewer) && viewer.LookUp)
+        {
+            var size = new Vector2(16f * limitedScale);
+            var position = mousePos + new Vector2(sightWidth * 0.5f + 4f, -size.Y * 0.5f);
+            args.ScreenHandle.DrawTextureRect(_upArrow, UIBox2.FromDimensions(position, size));
         }
         // Mono End
-
-        DrawSight(sight, args.ScreenHandle, mousePos, limitedScale * Scale);
     }
 
     private void DrawSight(Texture sight, DrawingHandleScreen screen, Vector2 centerPos, float scale)

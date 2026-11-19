@@ -1,3 +1,4 @@
+// Mono: Cross-Z projectile routing.
 using System.Numerics;
 using Content.Shared._CE.ZLevels.Core.Components;
 using Content.Shared._CE.ZLevels.Core.EntitySystems;
@@ -13,25 +14,33 @@ public sealed partial class ProjectileSystem
     [Dependency] private IMapManager _zShotMaps = default!;
     [Dependency] private SharedMapSystem _zShotTiles = default!;
 
-    internal readonly record struct ZShot(EntityUid Source, Vector2 Aim, Vector2 Direction);
+    internal readonly record struct ZShot(EntityUid Source, EntityUid? UpperMap, Vector2 Aim, Vector2 Direction);
 
     internal ZShot? PlanZShot(EntityUid? user, MapCoordinates from, MapCoordinates aim)
     {
         if (user is not { } shooter || from.MapId != aim.MapId ||
             !TryComp(shooter, out TransformComponent? xform) ||
-            xform.MapID != from.MapId || xform.MapUid is not { } map ||
-            TryComp<CEZLevelViewerComponent>(shooter, out var viewer) && viewer.LookUp)
+            xform.MapID != from.MapId || xform.MapUid is not { } map)
             return null;
 
         var delta = aim.Position - from.Position;
         var length = delta.Length();
-        if (!float.IsFinite(length) || length <= 0f ||
-            !(_zLevels.TryMapDown(map, out _) ||
-              TryComp<CEZTransitMapComponent>(map, out var transit) && transit.TransitBelow != null) ||
+        if (!float.IsFinite(length) || length <= 0f)
+            return null;
+
+        if (TryComp<CEZLevelViewerComponent>(shooter, out var viewer) && viewer.LookUp)
+        {
+            return _zLevels.TryMapUp(map, out var above) && !HasZShotFloor(above, aim.Position)
+                ? new ZShot(map, above, aim.Position, delta / length)
+                : null;
+        }
+
+        if ((!_zLevels.TryMapDown(map, out _) &&
+            (!TryComp<CEZTransitMapComponent>(map, out var transit) || transit.TransitBelow == null)) ||
             HasZShotFloor(map, aim.Position))
             return null;
 
-        return new ZShot(map, aim.Position, delta / length);
+        return new ZShot(map, null, aim.Position, delta / length);
     }
 
     internal void ArmZShot(EntityUid uid, ZShot shot)
@@ -58,13 +67,45 @@ public sealed partial class ProjectileSystem
 
         fraction = Math.Clamp(toOpening / advance, 0f, 1f);
         var crossing = position + step * fraction;
-        if (HasZShotFloor(shot.Source, crossing) || !TryGetZShotDestination(shot.Source, crossing, out var map))
+        var map = MapId.Nullspace;
+        var canCross = shot.UpperMap is { } upper
+            ? TryGetUpwardShotDestination(shot.Source, upper, crossing, out map)
+            : !HasZShotFloor(shot.Source, crossing) && TryGetZShotDestination(shot.Source, crossing, out map);
+        if (!canCross)
         {
             RemComp<CEZShotComponent>(entity);
             return false;
         }
 
         destination = new MapCoordinates(crossing, map);
+        return true;
+    }
+
+    private bool TryGetUpwardShotDestination(EntityUid source, EntityUid upper, Vector2 crossing, out MapId destination)
+    {
+        destination = MapId.Nullspace;
+        if (!_zLevels.TryMapUp(source, out var above) || above.Owner != upper ||
+            TerminatingOrDeleted(upper) || !TryComp<MapComponent>(upper, out var map) || HasZShotFloor(upper, crossing))
+            return false;
+
+        EntityUid? lower = source;
+        var progress = 0f;
+        if (TryComp<CEZTransitMapComponent>(source, out var sourceTransit))
+        {
+            lower = sourceTransit.LowerMap;
+            progress = _zLevels.GetTransitProgress(sourceTransit);
+        }
+
+        var query = EntityQueryEnumerator<CEZTransitMapComponent>();
+        while (query.MoveNext(out var uid, out var transit))
+        {
+            if (uid != source && lower != null && transit.LowerMap == lower && transit.UpperMap == upper &&
+                !TerminatingOrDeleted(uid) && _zLevels.GetTransitProgress(transit) > progress &&
+                HasZShotFloor(uid, crossing))
+                return false;
+        }
+
+        destination = map.MapId;
         return true;
     }
 
