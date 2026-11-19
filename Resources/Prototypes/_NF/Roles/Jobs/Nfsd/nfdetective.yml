@@ -29,16 +29,16 @@
   assignedCompany: TSF
   canBeAntag: false
   setPreference: false # mono
-  access:
-  - Detective
   accessGroups:
-  - GeneralNfsdAccess
+  - GeneralTsfmcAccess
   special:
   - !type:AddComponentSpecial
     components:
     - type: NpcFactionMember
       factions:
       - TSFMC
+    - type: RadioOnCryosleep
+      radioChannel: Nfsd # NFSD = TSF Comms
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, TrackingImplant ]
   - !type:AddLanguageSpecial # Monolith - Languages

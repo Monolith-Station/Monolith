@@ -38,10 +38,12 @@
   name: loadout-group-contractor-outerclothing
   minLimit: 1
   loadouts:
+  - PDVClothingOuterArmorCV32
+  - PDVClothingOuterArmorCV53
   - PDVClothingOuterArmorBPVestLight
   - PDVClothingOuterArmorBPVestMedium
   fallbacks:
-  - PDVClothingOuterArmorBPVestLight
+  - PDVClothingOuterArmorCV32
 
 - type: loadoutGroup
   id: PDVOuterClothingVizier
@@ -73,10 +75,10 @@
 - type: loadoutGroup
   id: PDVHud
   name: loadout-group-contractor-glasses
-  hidden: true
   minLimit: 1
   loadouts:
   - PDVClothingEyesHudSecurity
+  - PDVClothingEyesPGlassesSecurity
   fallbacks:
   - PDVClothingEyesHudSecurity
 
@@ -132,7 +134,7 @@
   - MonoSecurityGuardSatchel
   - MonoSecurityGuardDuffel
   fallbacks:
-  - PDVClothingBackpack
+  - MonoSecurityGuardBackpack
 
 - type: loadoutGroup
   id: PDVHead
@@ -168,6 +170,8 @@
   loadouts:
   - PDVClothingBeltWebbingsNormalBlack
   - PDVClothingBeltWebbingsBigBlack
+  - ContractorClothingBeltHolster
+  - ContractorClothingBeltHolsterLarge
   fallbacks:
   - PDVClothingBeltWebbingsNormalBlack
 

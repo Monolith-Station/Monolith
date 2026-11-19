@@ -22,8 +22,11 @@ using Robust.Shared.Toolshed.Commands.Math;
 using Content.Server._Mono.Store.Components;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
-using Content.Shared._Mono.Company;
+using Content.Shared._Mono.Store; // Mono
 using Content.Server._Mono.Store; // Mono
+using Content.Server._Mono.Cargo; // Mono
+using Content.Server.Radio.EntitySystems; // Mono
+using Content.Shared.Popups; // Mono
 
 
 namespace Content.Server.Cargo.Systems;
@@ -37,6 +40,7 @@ public sealed partial class CargoSystem
     // Frontier addition:
     // The maximum distance from the console to look for pallets.
 
+    [Dependency] private RadioSystem _radio = default!; // Mono
     [Dependency] private CurrencyInjectionSystem _currencyInjection = default!;
     private const int DefaultPalletDistance = 8;
 
@@ -86,7 +90,7 @@ public sealed partial class CargoSystem
         }
 
         // Frontier: per-object market modification
-        GetPalletGoods(uid, gridUid, out var toSell, out var amount, out var noModAmount, out var blackMarketTaxAmount, out var frontierTaxAmount, out var nfsdTaxAmount, out var medicalTaxAmount, out _, out _);
+        GetPalletGoods(uid, gridUid, out var toSell, out var amount, out var noModAmount, out var blackMarketTaxAmount, out var frontierTaxAmount, out var nfsdTaxAmount, out var medicalTaxAmount, out _);
 
         amount += noModAmount;
         // End Frontier
@@ -291,17 +295,18 @@ public sealed partial class CargoSystem
 
     #region Station
 
-    private bool SellPallets(Entity<CargoPalletConsoleComponent> consoleUid, EntityUid gridUid, out double amount, out double noMultiplierAmount, out double blackMarketTaxAmount, out double frontierTaxAmount, out double nfsdTaxAmount, out double medicalTaxAmount, out Dictionary<string, FixedPoint2>? currencyInjections, out ProtoId<CompanyPrototype>? injectionCompany) // Frontier: first arg to Entity, add noMultiplierAmount
+    private bool SellPallets(Entity<CargoPalletConsoleComponent> consoleUid, EntityUid gridUid, out double amount, out double noMultiplierAmount, out double blackMarketTaxAmount, out double frontierTaxAmount, out double nfsdTaxAmount, out double medicalTaxAmount, out List<CurrencyInjection>? currencyInjections) // Frontier: first arg to Entity, add noMultiplierAmount
     {
-        GetPalletGoods(consoleUid, gridUid, out var toSell, out amount, out noMultiplierAmount, out blackMarketTaxAmount, out frontierTaxAmount, out nfsdTaxAmount, out medicalTaxAmount, out currencyInjections, out injectionCompany); // Frontier: add noMultiplierAmount
+        GetPalletGoods(consoleUid, gridUid, out var toSell, out amount, out noMultiplierAmount, out blackMarketTaxAmount, out frontierTaxAmount, out nfsdTaxAmount, out medicalTaxAmount, out currencyInjections); // Frontier: add noMultiplierAmount
 
         Log.Debug($"Cargo sold {toSell.Count} entities for {amount} (plus {noMultiplierAmount} without mods). (Taxes: Black Market: {blackMarketTaxAmount}, CO: {frontierTaxAmount}, TSFMC: {nfsdTaxAmount}, MD: {medicalTaxAmount})"); // Frontier: add section in parentheses
 
         if (toSell.Count == 0)
             return false;
 
-        var ev = new EntitySoldEvent(toSell, gridUid); // Frontier: add gridUid
-        RaiseLocalEvent(ref ev);
+        // Mono comment out to move above sold event
+        //var ev = new EntitySoldEvent(toSell, gridUid); // Frontier: add gridUid
+        //RaiseLocalEvent(ref ev);
 
         // Collect all container entities and their contained entities recursively
         var allEntsToDelete = new HashSet<EntityUid>(toSell);
@@ -318,12 +323,99 @@ public sealed partial class CargoSystem
             }
         }
 
+        if (!SendSoldAlert(consoleUid, allEntsToDelete)) // Mono: sell snitching
+            return false;
+
+        var ev = new EntitySoldEvent(toSell, gridUid); // Mono: moved here so refused sales dont count as sold
+        RaiseLocalEvent(ref ev);
+
         foreach (var ent in allEntsToDelete)
         {
             Del(ent);
         }
 
         return true;
+    }
+    /// <summary>
+    /// Mono: Sold stuff that have <see cref="SoldAlertComponent"/> sends a radio
+    /// message if it meets its Threshold. Sends nothing if over MaxPerSale.
+    /// </summary>
+    private bool SendSoldAlert(EntityUid console, HashSet<EntityUid> sold)
+    {
+        Dictionary<string, (int Count, SoldAlertComponent Alert, string Name)>? groups = null;
+
+        foreach (var ent in sold)
+        {
+            if (!TryComp<SoldAlertComponent>(ent, out var alert))
+                continue;
+
+            var key = alert.GroupId ?? MetaData(ent).EntityPrototype?.ID;
+            if (key == null)
+                continue;
+
+            var amount = 1;
+            if (TryComp<StackComponent>(ent, out var stack))
+                amount = stack.Count;
+
+            groups ??= new();
+            if (groups.TryGetValue(key, out var existing))
+                groups[key] = (existing.Count + amount, existing.Alert, existing.Name);
+            else
+                groups[key] = (amount, alert, MetaData(ent).EntityName);
+        }
+
+        if (groups == null)
+            return true;
+
+        foreach (var (count, alert, _) in groups.Values)
+        {
+            if (alert.MaxPerSale > 0 && count > alert.MaxPerSale)
+            {
+                _popup.PopupEntity(Loc.GetString("cargo-sold-alert-console"), console, PopupType.MediumCaution);
+                return false;
+            }
+        }
+
+        string? location = null;
+
+        foreach (var (count, alert, name) in groups.Values)
+        {
+            if (count < alert.Threshold)
+                continue;
+
+            location ??= GetConsoleLocation(console);
+
+            var message = Loc.GetString(alert.Message, ("item", name), ("count", count), ("location", location));
+            var speaker = Transform(console).GridUid ?? console;
+            foreach (var channel in alert.Channels)
+            {
+                _radio.SendRadioMessage(speaker, message, channel, console, jammable: alert.Jammable);
+            }
+        }
+
+        return true;
+    }
+
+    /// <summary>
+    /// Mono: Location for the console. Probably shouldn't do this here.
+    /// </summary>
+    private string GetConsoleLocation(EntityUid console)
+    {
+        var xform = Transform(console);
+
+        var gridName = xform.GridUid is { } grid
+            ? MetaData(grid).EntityName
+            : Loc.GetString("cargo-sold-alert-location-space");
+
+        // World coordinates
+        var coords = _transformSystem.GetMapCoordinates(console, xform);
+        var x = (int)coords.X;
+        var y = (int)coords.Y;
+
+        return Loc.GetString("cargo-sold-alert-location",
+            ("grid", gridName),
+            ("x", x),
+            ("y", y));
     }
 
     /// <summary>
@@ -346,7 +438,7 @@ public sealed partial class CargoSystem
         }
     }
 
-    private void GetPalletGoods(Entity<CargoPalletConsoleComponent> consoleUid, EntityUid gridUid, out HashSet<EntityUid> toSell, out double amount, out double noMultiplierAmount, out double blackMarketTaxAmount, out double frontierTaxAmount, out double nfsdTaxAmount, out double medicalTaxAmount, out Dictionary<string, FixedPoint2>? currencyInjections, out ProtoId<CompanyPrototype>? injectionCompany) // Frontier: first arg to Entity, add noMultiplierAmount // Mono: add currencyInjections
+    private void GetPalletGoods(Entity<CargoPalletConsoleComponent> consoleUid, EntityUid gridUid, out HashSet<EntityUid> toSell, out double amount, out double noMultiplierAmount, out double blackMarketTaxAmount, out double frontierTaxAmount, out double nfsdTaxAmount, out double medicalTaxAmount, out List<CurrencyInjection>? currencyInjections) // Frontier: first arg to Entity, add noMultiplierAmount // Mono: add currencyInjections
     {
         amount = 0;
         noMultiplierAmount = 0;
@@ -355,8 +447,7 @@ public sealed partial class CargoSystem
         nfsdTaxAmount = 0;
         medicalTaxAmount = 0;
         toSell = new HashSet<EntityUid>();
-        currencyInjections = null;
-        injectionCompany = null;
+        currencyInjections = new();
 
         foreach (var (palletUid, _, _) in GetCargoPallets(consoleUid, gridUid, BuySellType.Sell))
         {
@@ -446,21 +537,9 @@ public sealed partial class CargoSystem
                     }
                 }
                 // Mono: Calculate if any factions need to receive currency
-                if (TryComp<CurrencyInjectionOnSellComponent>(ent, out var injection))
+                if (TryComp<CurrencyInjectionOnSellComponent>(ent, out var injection) && (!injection.RequireCorrectDestination || !TryComp<TradeCrateComponent>(ent, out var tradeCrate) || _station.GetOwningStation(ent) == tradeCrate.DestinationStation))
                 {
-                    injectionCompany = injection.Company;
-                    if (currencyInjections == null)
-                        currencyInjections = injection.Amount;
-                    else
-                    {
-                        foreach (var key in injection.Amount.Keys)
-                        {
-                            if (currencyInjections.Keys.Contains(key))
-                                currencyInjections[key] += injection.Amount[key];
-                            else
-                                currencyInjections[key] = injection.Amount[key];
-                        }
-                    }
+                    currencyInjections.Add(injection.Injection);
                 }
                 // End Mono
             }
@@ -505,7 +584,7 @@ public sealed partial class CargoSystem
             return;
         }
 
-        if (!SellPallets((uid, component), gridUid, out var price, out var noMultiplierPrice, out var blackMarketTaxAmount, out var frontierTaxAmount, out var nfsdTaxAmount, out var medicalTaxAmount, out var currencyInjections, out var injectionCompany)) // Frontier: convert first arg to Entity, add noMultiplierPrice
+        if (!SellPallets((uid, component), gridUid, out var price, out var noMultiplierPrice, out var blackMarketTaxAmount, out var frontierTaxAmount, out var nfsdTaxAmount, out var medicalTaxAmount, out var currencyInjections)) // Frontier: convert first arg to Entity, add noMultiplierPrice
             return;
 
         price += noMultiplierPrice;
@@ -542,8 +621,13 @@ public sealed partial class CargoSystem
         }
 
         // Faction currency injections
-        if (injectionCompany != null && currencyInjections != null)
-            _currencyInjection.InjectCurrency(injectionCompany ?? "PDV", currencyInjections); // the "if null" case should never actually be used here, but my IDE apparently thinks an explicit check of "is this not null" isn't good enough
+        if (currencyInjections != null)
+        {
+            foreach (var injection in currencyInjections)
+            {
+                _currencyInjection.InjectCurrency(injection);
+            }
+        }
         // Mono End
         var stackPrototype = _protoMan.Index<StackPrototype>(component.CashType);
         _stack.Spawn((int)price, stackPrototype, xform.Coordinates);

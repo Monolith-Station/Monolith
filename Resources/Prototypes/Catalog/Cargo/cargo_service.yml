@@ -226,4 +226,12 @@
   category: cargoproduct-category-name-service
   group: market
 
-
+- type: cargoProduct
+  id: CrateMRE
+  icon: 
+    sprite: Objects/Consumable/Food/snacks.rsi
+    state: nutribrick
+  product: CrateFoodMRE
+  cost: 6000
+  category: cargoproduct-category-name-service
+  group: market

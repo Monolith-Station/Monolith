@@ -40,7 +40,7 @@ public sealed partial class DoorElectronicsBoundUserInterface : BoundUserInterfa
 
         foreach (var accessLevel in _prototypeManager.EnumeratePrototypes<AccessLevelPrototype>())
         {
-            if (accessLevel.Name != null)
+            if (accessLevel.Name != null && !accessLevel.Deprecated)
             {
                 accessLevels.Add(accessLevel.ID);
             }

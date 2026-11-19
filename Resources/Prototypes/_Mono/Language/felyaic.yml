@@ -1,0 +1,23 @@
+- type: language
+  id: Felyaic
+  chatPrefix: fel
+  speech:
+    color: "#8f40ff"
+    fontId: Cosmic
+    obfuscationFont: true
+  icon: LanguageIconFelyaic
+  obfuscation:
+    !type:SyllableObfuscation
+    minSyllables: 1
+    maxSyllables: 3
+    replacement: # Surprise, it's... a fox?
+    - rie
+    - la
+    - nesh
+    - has
+    - nifl
+    - aksh
+    - es
+    - au
+    - re
+    - uix

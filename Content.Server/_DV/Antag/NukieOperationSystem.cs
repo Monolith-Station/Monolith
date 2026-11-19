@@ -148,7 +148,7 @@ public sealed partial class NukieOperationSystem : GameRuleSystem<NukieOperation
                     {
                         args.AddLine(Loc.GetString("fac-operation-objectives-list-entry",
                             ("name", info.Value.Title),
-                            ("progress", info.Value.Progress)
+                            ("progress", (int)(info.Value.Progress * 100))
                         ));
                     }
             }

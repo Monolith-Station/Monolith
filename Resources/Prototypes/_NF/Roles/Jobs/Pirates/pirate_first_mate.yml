@@ -16,7 +16,7 @@
   #whitelisted: true # mono - comment out
   startingGear: PirateFirstMateNFGear
   alwaysUseSpawner: true
-  hideConsoleVisibility: true
+# hideConsoleVisibility: true
   canBeAntag: true
   icon: "JobIconPirateFirstMate"
   supervisors: job-supervisors-captain
@@ -25,7 +25,7 @@
   assignedCompany: PDV
   setPreference: true
   access:
-  - Pirate
+  - PDV
   - PDVCommand
   - Mercenary
   accessGroups:
@@ -41,6 +41,8 @@
     - type: NpcFactionMember
       factions:
       - PirateNF
+    - type: RadioOnCryosleep
+      radioChannel: Freelance # freelance = Vanguard
   - !type:AddImplantSpecial
     implants: [ FreelanceTrackingImplant ]
   - !type:AddLanguageSpecial # Monolith - Languages

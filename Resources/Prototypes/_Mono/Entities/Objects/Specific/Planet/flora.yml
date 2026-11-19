@@ -144,6 +144,7 @@
   abstract: true
   components:
   - type: SpriteFade
+  - type: Drain
   - type: RangedDamageSound # WOLFGATE - material bullet impacts
     soundGroups:
       Brute:
@@ -165,7 +166,7 @@
     noRot: true
     sprite: _Mono/Objects/Flora/flora_trees_crocus.rsi
     drawdepth: Overdoors
-    offset: 0,0.9
+    offset: 0,1.7
   - type: BarricadeBlock
     bidirectional: true
     omnidirectional: true
@@ -200,7 +201,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 2000
+        damage: 400
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -217,7 +218,7 @@
             max: 1
     - trigger:
         !type:DamageTrigger
-        damage: 500
+        damage: 100
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -233,6 +234,7 @@
   description: Yep, it's a tree.
   components:
   - type: SpriteFade
+  - type: Drain
   - type: RangedDamageSound # WOLFGATE - material bullet impacts
     soundGroups:
       Brute:
@@ -254,7 +256,7 @@
     noRot: true
     sprite: _Mono/Objects/Flora/flora_trees_crocus.rsi
     drawdepth: Overdoors
-    offset: 0,0.9
+    offset: 0,1.7
     layers:
     - state: bald
   - type: Physics
@@ -281,7 +283,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 1000
+        damage: 200
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -303,6 +305,7 @@
   description: Yep, it's not a tree.
   components:
   - type: SpriteFade
+  - type: Drain
   - type: RangedDamageSound # WOLFGATE - material bullet impacts
     soundGroups:
       Brute:
@@ -324,7 +327,7 @@
     noRot: true
     sprite: _Mono/Objects/Flora/flora_trees_crocus.rsi
     drawdepth: Overdoors
-    offset: 0,0.9
+    offset: 0,1.7
     layers:
     - state: tree_stump
   - type: Physics
@@ -351,7 +354,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 1000
+        damage: 200
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -411,6 +414,7 @@
     layers:
     - state: basalt_5
       map: ["random"]
+  - type: Drain
   - type: RandomSprite
     available:
     - random:

@@ -84,12 +84,16 @@ public sealed partial class GunSystem
         UpdateBatteryAppearance(uid, component);
     }
 
+    // Mono - modified for handling AP
     private void OnBatteryDamageExamine(EntityUid uid, BatteryAmmoProviderComponent component, ref DamageExamineEvent args)
     {
-        var damageSpec = GetDamage(component);
+        var damageT = GetDamage(component);
 
-        if (damageSpec == null)
+        if (damageT == null)
             return;
+
+        var damageSpec = damageT.Value.Item1;
+        var ap = damageT.Value.Item2;
 
         var damageType = component switch
         {
@@ -98,10 +102,11 @@ public sealed partial class GunSystem
             _ => throw new ArgumentOutOfRangeException(),
         };
 
-        _damageExamine.AddDamageExamine(args.Message, Damageable.ApplyUniversalAllModifiers(damageSpec), damageType);
+        _damageExamine.AddDamageExamine(args.Message, Damageable.ApplyUniversalAllModifiers(damageSpec), damageType, ap);
     }
 
-    private DamageSpecifier? GetDamage(BatteryAmmoProviderComponent component)
+    // Mono - modified for handling AP
+    private (DamageSpecifier, float)? GetDamage(BatteryAmmoProviderComponent component)
     {
         if (component is ProjectileBatteryAmmoProviderComponent battery)
         {
@@ -112,7 +117,7 @@ public sealed partial class GunSystem
 
                 if (!p.Damage.Empty)
                 {
-                    return p.Damage * Damageable.UniversalProjectileDamageModifier;
+                    return (p.Damage * Damageable.UniversalProjectileDamageModifier, p.ArmorPenetration);
                 }
             }
 
@@ -125,7 +130,7 @@ public sealed partial class GunSystem
             if (!dmg.TryGetComponent<HitscanBasicDamageComponent>(out var basicDamageComp, Factory))
                 return null;
 
-            return basicDamageComp.Damage * Damageable.UniversalHitscanDamageModifier;
+            return (basicDamageComp.Damage * Damageable.UniversalHitscanDamageModifier, basicDamageComp.ArmorPenetration);
         }
 
         return null;

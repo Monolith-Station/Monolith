@@ -18,7 +18,7 @@
     stateDoorOpen: mail_open
     stateDoorClosed: mail_door
   - type: AccessReader
-    access: [["Mail"]]
+    access: [["Caelestinus"]]
 
 # Mercenary
 - type: entity
@@ -31,7 +31,7 @@
     stateDoorOpen: mercenary_open
     stateDoorClosed: mercenary_door
   - type: AccessReader
-    access: [["Captain"], ["Mercenary"]]
+  # access: [["Captain"], ["Mercenary"]]
 
 # Janitor
 - type: entity
@@ -163,7 +163,7 @@
     stateDoorOpen: nfsd_gold_open
     stateDoorClosed: nfsd_gold_door
   - type: AccessReader
-    access: [["Sergeant"]]
+    access: [["TsfmcArmory"]]
 
 # NFSD Gold - Bailiff
 - type: entity
@@ -173,7 +173,7 @@
   suffix: Bailiff
   components:
   - type: AccessReader
-    access: [["Bailiff"]]
+    access: [["TsfmcCaptain"]]
 
 # NFSD Sheriff
 - type: entity
@@ -187,7 +187,7 @@
     stateDoorOpen: nfsd_sheriff_open
     stateDoorClosed: nfsd_sheriff_door
   - type: AccessReader
-    access: [["HeadOfSecurity"]]
+    access: [["TsfmcColonel"]]
 
 # SR
 - type: entity

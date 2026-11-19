@@ -85,6 +85,12 @@
       - !type:PlaySoundBehavior
         sound:
           collection: GlassBreak
+  - type: PlacementReplacement
+    key: lights
+# ES START
+  - type: ESSparkOnHit
+    tileFireChance: 0.05
+# ES END
   # Mono
   - type: ShipRepairable
     repairTime: 1

@@ -1,0 +1,125 @@
+- type: entity
+  id: FuelTankHugeOil
+  name: fuel storage tanker
+  description: A large reinforced fuel tank, rated to contain 20ku of reagents.
+  parent: BaseStructure
+  suffix: Empty
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 20000
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Heat
+        damage: 500
+      behaviors:
+      - !type:SolutionExplosionBehavior
+        solution: tank
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ScrapSteel:
+            min: 1
+            max: 3
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Piercing
+        damage: 1000
+      behaviors:
+      - !type:SolutionExplosionBehavior
+        solution: tank
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ScrapSteel:
+            min: 1
+            max: 3
+    - trigger:
+        !type:DamageTrigger
+        damage: 5000
+      behaviors:
+      - !type:SpillBehavior
+        solution: tank
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ScrapSteel:
+            min: 1
+            max: 5
+  - type: Sprite
+    noRot: true
+    sprite: _Crescent/Structures/fueltank.rsi
+    layers:
+    - state: fueltank
+  - type: Occluder
+    enabled: true
+    boundingBox: "-1.1,-1.1,1.1,1.1"
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.1,-1.1,1.1,1.1"
+        density: 10000
+        mask:
+        - MachineMask
+        layer:
+        - WallLayer
+  - type: Animateable
+  - type: InteractionOutline
+  - type: Physics
+  - type: Clickable
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: DrainableSolution
+    solution: tank
+  - type: ReagentTank
+    tankType: Fuel
+  - type: Transform
+    noRot: true
+  - type: PacifismDangerousAttack
+  - type: Explosive
+    explosionType: HardBombShipGun
+    totalIntensity: 6000
+    maxIntensity: 400
+    intensitySlope: 4
+
+- type: entity
+  id: FuelTankHugeOilFilled
+  parent: FuelTankHugeOil
+  suffix: Full, Oil
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        reagents:
+        - ReagentId: Oil
+          Quantity: 20000
+
+- type: entity
+  id: FuelTankHugeFuelFilled
+  parent: FuelTankHugeOil
+  suffix: Full, Welding Fuel
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 20000

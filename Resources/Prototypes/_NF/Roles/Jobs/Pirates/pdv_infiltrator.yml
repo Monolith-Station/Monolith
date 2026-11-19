@@ -19,7 +19,7 @@
   whitelisted: true
   startingGear: PDVInfiltratorGear
   alwaysUseSpawner: true
-  hideConsoleVisibility: true
+# hideConsoleVisibility: true
   canBeAntag: true
   icon: "JobIconPDVInfiltrator"
   supervisors: job-supervisors-pirate
@@ -28,7 +28,7 @@
   assignedCompany: PDV
   setPreference: true
   access:
-  - Pirate
+  - PDV
   - Mercenary
   accessGroups:
   - GeneralAccess
@@ -43,6 +43,8 @@
     - type: NpcFactionMember
       factions:
       - PirateNF
+    - type: RadioOnCryosleep
+      radioChannel: Freelance # freelance = Vanguard
   - !type:AddImplantSpecial
     implants: [ FreelanceTrackingImplant ]
   - !type:AddImplantSpecial

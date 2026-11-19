@@ -579,6 +579,7 @@
     accent-german-words-61-4: accent-german-words-replace-61
     accent-german-words-62: accent-german-words-replace-62
 
+# SpL Start
 - type: accent
   id: russian
   wordReplacements:
@@ -589,7 +590,35 @@
     accent-russian-words-3-3: accent-russian-words-replace-3
     accent-russian-words-4: accent-russian-words-replace-4
     accent-russian-words-5: accent-russian-words-replace-5
+    accent-russian-words-5-2: accent-russian-words-replace-5
     accent-russian-words-6: accent-russian-words-replace-6
+    accent-russian-words-6-2: accent-russian-words-replace-6
+    accent-russian-word-7: accent-russian-words-replace-7
+    accent-russian-word-7-2: accent-russian-words-replace-7
+    accent-russian-word-7-3: accent-russian-words-replace-7
+    accent-russian-word-8: accent-russian-words-replace-8
+    accent-russian-word-8-2: accent-russian-words-replace-8
+    accent-russian-word-9: accent-russian-words-replace-9
+    accent-russian-word-9-2: accent-russian-words-replace-9
+    accent-russian-word-9-3: accent-russian-words-replace-9
+    accent-russian-word-10: accent-russian-words-replace-10
+    accent-russian-word-11: accent-russian-words-replace-11
+    accent-russian-word-11-2: accent-russian-words-replace-11
+    accent-russian-word-12: accent-russian-words-replace-12
+    accent-russian-word-13: accent-russian-words-replace-13
+    accent-russian-word-13-2: accent-russian-words-replace-13
+    accent-russian-word-13-3: accent-russian-words-replace-13
+    accent-russian-word-13-4: accent-russian-words-replace-13
+    accent-russian-word-14: accent-russian-words-replace-14
+    accent-russian-word-14-2: accent-russian-words-replace-14
+    accent-russian-word-15-1: accent-russian-word-replace-15
+    accent-russian-word-15-2: accent-russian-word-replace-15
+    accent-russian-word-15-3: accent-russian-word-replace-15
+    accent-russian-word-16: accent-russian-word-replace-16
+    accent-russian-words-17: accent-russian-words-replace-17
+    accent-russian-words-18: accent-russian-words-replace-18
+    accent-russian-words-19: accent-russian-words-replace-19
+# SpL End
 
 - type: accent
   id: skeleton

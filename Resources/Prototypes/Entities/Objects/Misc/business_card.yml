@@ -1,8 +1,8 @@
 - type: entity
   id: SyndicateBusinessCard
-  name: syndicate business card
+  name: business card
   parent: Paper
-  description: A black card with the syndicate's logo. There's something written on the back.
+  description: A black card with a mysterious red S on it. There's something written on the back.
   components:
     - type: Sprite
       sprite: Objects/Misc/bureaucracy.rsi

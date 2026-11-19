@@ -34,6 +34,7 @@
   maxLimit: 1
   loadouts:
   - ContractorClothingBeltHolster
+  - ContractorClothingBeltHolsterLarge
   - MercenaryClothingBeltSecurityEmpty
   subgroups:
   - USSPBelt
@@ -45,7 +46,7 @@
   - USSPClothingCoat
   - USSPClothingL10A
   subgroups:
-  - TsfmcOuterClothing
+# - TsfmcOuterClothing # I'm keeping this commented out as a mark of shame for whoever did this. "oh i'm sure there's no issues with maintainability here"
   - USSPOuterClothing
 
 - type: loadoutGroup
@@ -53,8 +54,10 @@
   name: loadout-group-contractor-outerclothing
   loadouts:
   - USSPClothingL10
-  subgroups:
-  - TsfmcOuterClothing
+  - TsfmcClothingOuterArmorBPVestLight
+  - TsfmcClothingOuterArmorBPVestMedium
+#  subgroups:
+#  - TsfmcOuterClothing # I'm keeping this commented out as a mark of shame for whoever did this. "oh i'm sure there's no issues with maintainability here"
 
 - type: loadoutGroup
   id: USSPJumpsuit

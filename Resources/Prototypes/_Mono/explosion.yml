@@ -30,6 +30,10 @@
   lightColor: Orange
   texturePath: /Textures/Effects/fire.rsi
   fireStates: 3 # Mono
+  temperature: 600
+  fireChance: 0.4
+  minFireLevel: 1
+  maxFireLevel: 2
 
 - type: explosion
   id: BottleBomb
@@ -42,6 +46,10 @@
   texturePath: /Textures/Effects/fire.rsi
   fireStates: 7
   fireStacks: 3
+  temperature: 700
+  fireChance: 0.8
+  minFireLevel: 1
+  maxFireLevel: 3
 
 - type: explosion
   id: PyrogelBomb
@@ -54,6 +62,10 @@
   texturePath: /Textures/Effects/fire.rsi
   fireStates: 10
   fireStacks: 8
+  temperature: 1500
+  fireChance: 0.8
+  minFireLevel: 1
+  maxFireLevel: 3
 
 # STOP
 # BEFORE YOU ADD MORE EXPLOSION TYPES CONSIDER IF AN EXISTING ONE IS SUITABLE

@@ -177,8 +177,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtHoS
-  name: head of security's jumpskirt
-  description: It's bright red and rather crisp, much like security's victims tend to be.
+  name: overseer's jumpskirt # Mono - Overseer
+  description: It's bright red and rather crisp, much like the Overseer's victims tend to be. # Mono - Overseer
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/hos.rsi
@@ -202,8 +202,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtHoSAlt
-  name: head of security's turtleneck
-  description: It's a turtleneck worn by those strong and disciplined enough to achieve the position of Head of Security.
+  name: overseer's turtleneck # Mono - Overseer
+  description: It's a turtleneck worn by those strong and disciplined enough to achieve the position of Overseer.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/hos_alt.rsi
@@ -213,8 +213,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtHoSParadeMale
-  name: head of security's parade uniform
-  description: A head of security's luxury-wear, for special occasions.
+  name: overseer's parade uniform # Mono - Overseer
+  description: An overseer's luxury-wear, for special occasions.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/hos_parade.rsi

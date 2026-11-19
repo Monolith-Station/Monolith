@@ -13,7 +13,8 @@ using Content.Server._NF.CryoSleep; // Frontier
 using Robust.Shared.Player; // Frontier
 using Content.Shared.Ghost; // Frontier
 using Content.Server.Administration.Managers; // Frontier
-using Content.Server.Administration; // Frontier
+using Content.Server.Administration;
+using Content.Server.GameTicking;
 using Content.Shared.GameTicking; // Frontier
 using Content.Shared._Mono.CorticalBorer;
 
@@ -25,9 +26,14 @@ public sealed partial class RespawnSystem : EntitySystem
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private IConfigurationManager _cfg = default!;
     [Dependency] private IAdminManager _admin = default!;
+    [Dependency] private GameTicker _ticker = default!; // Mono
 
     private float _respawnTimeOnFirstCryo = 0f; // Frontier: shorter time for cryo respawns
     private float _respawnTime = 0f;
+
+    // Mono - base respawn timers
+    private float _baseRespawnTimeOnFirstCryo = 0f;
+    private float _baseRespawnTime = 0f;
 
     // Frontier: struct for respawn lookup
     private sealed class RespawnData
@@ -47,6 +53,7 @@ public sealed partial class RespawnSystem : EntitySystem
         SubscribeLocalEvent<MindContainerComponent, CryosleepBeforeMindRemovedEvent>(OnCryoBeforeMindRemoved);
         SubscribeLocalEvent<MindContainerComponent, CryosleepWakeUpEvent>(OnCryoWakeUp);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart); // Frontier
+        SubscribeLocalEvent<RoundStartedEvent>(OnRoundStart); // Mono
 
         _admin.OnPermsChanged += OnAdminPermsChanged; // Frontier
         _player.PlayerStatusChanged += PlayerStatusChanged; // Frontier
@@ -58,12 +65,22 @@ public sealed partial class RespawnSystem : EntitySystem
     // Frontier: CVar setters
     private void OnRespawnCryoFirstTimeChanged(float value)
     {
-        _respawnTimeOnFirstCryo = value;
+        _baseRespawnTimeOnFirstCryo = value;
+        if (_ticker.CurrentPreset != null)
+        {
+            _respawnTimeOnFirstCryo = _baseRespawnTimeOnFirstCryo * _ticker.CurrentPreset.RespawnMultiplier;
+            _respawnTime = _baseRespawnTime * _ticker.CurrentPreset.RespawnMultiplier;
+        }
     }
 
     private void OnRespawnCryoTimeChanged(float value)
     {
-        _respawnTime = value;
+        _baseRespawnTime = value;
+        if (_ticker.CurrentPreset != null)
+        {
+            _respawnTimeOnFirstCryo = _baseRespawnTimeOnFirstCryo * _ticker.CurrentPreset.RespawnMultiplier;
+            _respawnTime = _baseRespawnTime * _ticker.CurrentPreset.RespawnMultiplier;
+        }
     }
     // End Frontier
 
@@ -200,6 +217,18 @@ public sealed partial class RespawnSystem : EntitySystem
     private void OnRoundRestart(RoundRestartCleanupEvent ev)
     {
         _respawnInfo.Clear();
+        _respawnTimeOnFirstCryo = _baseRespawnTimeOnFirstCryo;
+        _respawnTime = _baseRespawnTime;
     }
     // End Frontier
+
+    // Mono
+    private void OnRoundStart(RoundStartedEvent ev)
+    {
+        if (_ticker.CurrentPreset != null)
+        {
+            _respawnTimeOnFirstCryo = _baseRespawnTimeOnFirstCryo * _ticker.CurrentPreset.RespawnMultiplier;
+            _respawnTime = _baseRespawnTime * _ticker.CurrentPreset.RespawnMultiplier;
+        }
+    }
 }

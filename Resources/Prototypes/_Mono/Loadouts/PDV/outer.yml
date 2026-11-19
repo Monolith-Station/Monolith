@@ -11,8 +11,17 @@
 - type: loadout
   id: PDVClothingOuterArmorInfantry
   equipment:
-    outerClothing: ClothingOuterArmorBPVestMediumPDV
+    outerClothing: ClothingOuterArmorBPVestLightPDV
 
+- type: loadout
+  id: PDVClothingOuterArmorCV32
+  equipment:
+    outerClothing: ClothingOuterHardsuitAshen
+
+- type: loadout
+  id: PDVClothingOuterArmorCV53
+  equipment:
+    outerClothing: ClothingOuterHardsuitAshenElite
 
 - type: loadout
   id: PDVClothingOuterArmorCV67

@@ -17,6 +17,11 @@ public sealed partial class ShuttleSystem
     private const float SpaceFrictionStrength = 0.0075f;
     private const float DampenDampingStrength = 0.25f;
     private const float AnchorDampingStrength = 2.5f;
+
+    public readonly float CruiseModeLinearAccelerationMultiplier = 4f;
+    public readonly float DriveModeThrusterMultiplier = 3.5f;
+    public readonly float DriveModeGyroscopeMultiplier = 1.125f;
+    public readonly float CruiseModeGyroscopeMultiplier = 1f;
     private void NfInitialize()
     {
         SubscribeLocalEvent<ShuttleConsoleComponent, SetInertiaDampeningRequest>(OnSetInertiaDampening);
@@ -42,13 +47,33 @@ public sealed partial class ShuttleSystem
             return false;
         }
 
-        shuttleComponent.BodyModifier = mode switch
+        switch (mode)
         {
-            InertiaDampeningMode.Off => SpaceFrictionStrength,
-            InertiaDampeningMode.Dampen => DampenDampingStrength,
-            InertiaDampeningMode.Anchor => AnchorDampingStrength,
-            _ => DampenDampingStrength, // other values: default to some sane behaviour (assume normal dampening)
-        };
+            case InertiaDampeningMode.Off:
+            {
+                shuttleComponent.BodyModifier = SpaceFrictionStrength;
+                shuttleComponent.BaseThrusterMultiplier = 1f;
+                shuttleComponent.MaxLinearVelocityMultiplier = CruiseModeLinearAccelerationMultiplier;
+                shuttleComponent.BaseGyroscopeMultiplier = CruiseModeGyroscopeMultiplier;
+                break;
+            }
+            case InertiaDampeningMode.Dampen:
+            {
+                shuttleComponent.BodyModifier = DampenDampingStrength;
+                shuttleComponent.BaseThrusterMultiplier = DriveModeThrusterMultiplier;
+                shuttleComponent.MaxLinearVelocityMultiplier = 1f;
+                shuttleComponent.BaseGyroscopeMultiplier = DriveModeGyroscopeMultiplier;
+                break;
+            }
+            case InertiaDampeningMode.Anchor:
+            {
+                shuttleComponent.BodyModifier = AnchorDampingStrength;
+                shuttleComponent.BaseThrusterMultiplier = 1f;
+                shuttleComponent.MaxLinearVelocityMultiplier = 1f;
+                shuttleComponent.BaseGyroscopeMultiplier = 1f;
+                break;
+            }
+        }
 
         if (shuttleComponent.DampingModifier == shuttleComponent.BodyModifier)
             return true;

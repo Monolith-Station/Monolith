@@ -1,0 +1,45 @@
+- type: parallax
+  id: FTL
+  layers:
+  - texture:
+      !type:ImageParallaxTextureSource
+      path: "/Textures/Parallaxes/KettleParallaxBG.png"
+    slowness: 0.5
+    scale: "3, 3"
+  - texture:
+      !type:GeneratedParallaxTextureSource
+      id: "hq_wizard_stars"
+      configPath: "/Prototypes/Parallaxes/parallax_config_stars.toml"
+    slowness: 0.986625
+  - texture:
+      !type:GeneratedParallaxTextureSource
+      id: "hq_wizard_stars_dim"
+      configPath: "/Prototypes/Parallaxes/parallax_config_stars_dim.toml"
+    slowness: 0.25
+  - texture:
+      !type:ImageParallaxTextureSource
+      path: "/Textures/Parallaxes/KettleParallaxNeb.png"
+    slowness: 0.15
+    scale: "3, 3"
+  - texture:
+      !type:ImageParallaxTextureSource
+      path: "/Textures/Parallaxes/XenoParallaxNeb.png"
+    slowness: 0.2
+    scale: "3, 3"
+  - texture:
+      !type:GeneratedParallaxTextureSource
+      id: "hq_wizard_stars_faster"
+      configPath: "/Prototypes/Parallaxes/parallax_config_stars-2.toml"
+    slowness: 0.4
+  - texture:
+      !type:GeneratedParallaxTextureSource
+      id: "hq_wizard_stars_dim_faster"
+      configPath: "/Prototypes/Parallaxes/parallax_config_stars_dim-2.toml"
+    slowness: 0.3
+  layersLQ:
+  - texture:
+      !type:GeneratedParallaxTextureSource
+      id: ""
+      configPath: "/Prototypes/Parallaxes/parallax_config.toml"
+      slowness: 0.875
+  layersLQUseHQ: false

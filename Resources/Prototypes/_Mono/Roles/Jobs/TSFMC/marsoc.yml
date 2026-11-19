@@ -23,8 +23,9 @@
   canBeAntag: false
   setPreference: true
   accessGroups:
-  - AllAccess
+  - GeneralTsfmcAccess
   access:
+  - TsfmcArmory
   - TsfmcEngineering
   guides:
   - TSFMC_Entry
@@ -36,6 +37,8 @@
       - TSFMC
     - type: ChatRank
       rank: tsf-marsoc
+    - type: RadioOnCryosleep
+      radioChannel: Nfsd # NFSD = TSF Comms
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, TrackingImplant ]
   - !type:AddLanguageSpecial

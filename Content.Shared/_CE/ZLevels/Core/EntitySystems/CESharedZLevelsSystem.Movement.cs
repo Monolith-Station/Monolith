@@ -237,7 +237,7 @@ public abstract partial class CESharedZLevelsSystem
 
                 var groundYInterp = MathHelper.Lerp(y0, y1, frac);
 
-                if (target.Comp.Velocity < 0 && target.Comp.Velocity > -2f && heightComp.Stick)
+                if (target.Comp.Velocity <= 0 && target.Comp.Velocity > -2f && heightComp.Stick)
                     stickyGround = true;
 
                 return -floor + groundYInterp;

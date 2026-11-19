@@ -24,14 +24,11 @@
   assignedCompany: TSF
   canBeAntag: false
   access:
-  - Armory
-  - Sergeant
-  - Bailiff
-  - Medical
-  - Chemistry
+  - TsfmcArmory
+  - TsfmcCaptain
   - TsfmcEngineering # Mono
   accessGroups:
-  - GeneralNfsdAccess
+  - GeneralTsfmcAccess
   guides:
   - TSFMC_Entry
   special:
@@ -40,6 +37,8 @@
     - type: NpcFactionMember
       factions:
       - TSFMC
+    - type: RadioOnCryosleep
+      radioChannel: Nfsd # NFSD = TSF Comms
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, TrackingImplant ]
   - !type:AddLanguageSpecial

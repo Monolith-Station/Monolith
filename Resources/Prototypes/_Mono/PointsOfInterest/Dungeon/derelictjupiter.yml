@@ -22,7 +22,6 @@
     color: "#d1bf58"
     flags: [HideLabel]
     readOnly: false
-  - type: SyndicateFOB # For pinpointer, since it needs to point to SOMETHING.
   - type: WorldGenDistanceCarver
     distanceThresholds:
     # Dead zone
