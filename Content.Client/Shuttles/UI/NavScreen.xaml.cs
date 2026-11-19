@@ -110,6 +110,7 @@ public sealed partial class NavScreen : BoxContainer
         args.Button.Pressed = NavRadar.ShowIFFDetailed;
     }
 
+    // Mono
     private void OnMarkersTogglePressed(BaseButton.ButtonEventArgs args)
     {
         NavRadar.ShowMarkers ^= true;
