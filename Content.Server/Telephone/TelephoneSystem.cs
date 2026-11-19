@@ -1,3 +1,4 @@
+using Content.Server._EinsteinEngines.Language;
 using Content.Server.Access.Systems;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems;
@@ -5,23 +6,24 @@ using Content.Server.Interaction;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Speech;
 using Content.Server.Speech.Components;
-using Content.Server._EinsteinEngines.Language;
+using Content.Shared._EinsteinEngines.Language;
+using Content.Shared._EinsteinEngines.Language.Components;
 using Content.Shared.Chat;
 using Content.Shared.Database;
 using Content.Shared.Labels.Components;
 using Content.Shared.Mind.Components;
 using Content.Shared.Power;
-using Content.Shared.Silicons.StationAi;
 using Content.Shared.Silicons.Borgs.Components;
+using Content.Shared.Silicons.StationAi;
 using Content.Shared.Speech;
 using Content.Shared.Telephone;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Timing;
-using Robust.Shared.Utility;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Replays;
+using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 using System.Linq;
 
 namespace Content.Server.Telephone;
@@ -119,7 +121,15 @@ public sealed partial class TelephoneSystem : SharedTelephoneSystem
         var range = args.TelephoneSource.Comp.LinkedTelephones.Count > 1 ? ChatTransmitRange.HideChat : ChatTransmitRange.GhostRangeLimit;
         var volume = entity.Comp.SpeakerVolume == TelephoneVolume.Speak ? InGameICChatType.Speak : InGameICChatType.Whisper;
 
-        _chat.TrySendInGameICMessage(speaker, args.Message, volume, range, nameOverride: name, checkRadioPrefix: false, languageOverride: args.Language); // Einstein Engines - Language
+
+        // Mono Handle language
+        LanguagePrototype? language = null;
+        if (!string.IsNullOrEmpty(args.Language) && _prototype.TryIndex<LanguagePrototype>(args.Language, out var languageProtoOut))
+        {
+            language = languageProtoOut;
+        }
+
+        _chat.TrySendInGameICMessage(speaker, args.Message, volume, range, nameOverride: name, checkRadioPrefix: false, languageOverride: language); // Mono - Language
     }
 
     #endregion
@@ -373,6 +383,10 @@ public sealed partial class TelephoneSystem : SharedTelephoneSystem
         else
             speech = _chat.GetSpeechVerb(messageSource, message);
 
+        // Mono: Handle language
+        var language = TryComp<LanguageSpeakerComponent>(messageSource, out var languageCompOut)
+            ? languageCompOut.CurrentLanguage : "";
+
         var content = escapeMarkup
             ? FormattedMessage.EscapeText(message)
             : message;
@@ -394,11 +408,11 @@ public sealed partial class TelephoneSystem : SharedTelephoneSystem
 
         var chatMsg = new MsgChatMessage { Message = chat };
 
-        var evSentMessage = new TelephoneMessageSentEvent(message, chatMsg, messageSource);
+        var evSentMessage = new TelephoneMessageSentEvent(message, chatMsg, messageSource, language);
         RaiseLocalEvent(source, ref evSentMessage);
         source.Comp.StateStartTime = _timing.CurTime;
 
-        var evReceivedMessage = new TelephoneMessageReceivedEvent(message, chatMsg, messageSource, source);
+        var evReceivedMessage = new TelephoneMessageReceivedEvent(message, chatMsg, messageSource, source, language); // Mono - Language
 
         foreach (var receiverUid in source.Comp.LinkedTelephones)
         {

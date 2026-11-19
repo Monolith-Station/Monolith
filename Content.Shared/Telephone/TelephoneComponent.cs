@@ -187,15 +187,16 @@ public record struct TelephoneCallEndedEvent();
 
 /// <summary>
 /// Raised when a chat message is sent by a telephone to another
+/// Mono: Added language support
 /// </summary>
 [ByRefEvent]
-public readonly record struct TelephoneMessageSentEvent(string Message, MsgChatMessage ChatMsg, EntityUid MessageSource);
+public readonly record struct TelephoneMessageSentEvent(string Message, MsgChatMessage ChatMsg, EntityUid MessageSource, string Language);
 
 /// <summary>
 /// Raised when a chat message is received by a telephone from another
 /// </summary>
 [ByRefEvent]
-public readonly record struct TelephoneMessageReceivedEvent(string Message, MsgChatMessage ChatMsg, EntityUid MessageSource, Entity<TelephoneComponent> TelephoneSource, LanguagePrototype? Language = null); // Einstein Engines - Language
+public readonly record struct TelephoneMessageReceivedEvent(string Message, MsgChatMessage ChatMsg, EntityUid MessageSource, Entity<TelephoneComponent> TelephoneSource, string Language = ""); // Mono - Language
 
 #endregion
 
