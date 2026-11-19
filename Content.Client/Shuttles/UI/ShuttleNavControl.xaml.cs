@@ -863,7 +863,7 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
                         : _detection.HandleUnknownMassLabel(grid.Owner)
                     : _shuttles.GetIFFLabel(grid, self: false, component: iff);
 
-                var shouldDrawOutline = labelName != null;
+                var shouldDrawOutline = labelName != null; // Mono - replaced shouldDrawIFF
                 if (shouldDrawOutline)
                 {
                     if (IFFFilter != null)
