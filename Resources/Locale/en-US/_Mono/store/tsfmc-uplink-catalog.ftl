@@ -94,44 +94,11 @@ uplink-security-anubis-desc = The QLU-907 Anubis, a magazine-fed six-shot 35mm g
 uplink-security-t0-voucher-name = TSFMC Tier 0 Ship Voucher
 uplink-security-t0-voucher-desc = A single-use voucher for any small ship.
 
-uplink-security-t1-spica-voucher-name = TSFMC Spica LPC [T1]
-uplink-security-t1-spica-voucher-desc = A small card that contains the data for the procurement of a Spica-class escort from the flagship's reserves.
+uplink-security-t1-voucher-name = TSFMC Tier 1 Ship Voucher
+uplink-security-t1-voucher-desc = A TSF requisitions voucher for any medium ship.
 
-uplink-security-t1-dagger-voucher-name = TSFMC Dagger LPC [T1]
-uplink-security-t1-dagger-voucher-desc = A small card that contains the data for the procurement of a Dagger-class railgun destroyer from the flagship's reserves.
-
-uplink-security-t1-tarantula-voucher-name = TSFMC Tarantula LPC [T1]
-uplink-security-t1-tarantula-voucher-desc = A small card that contains the data for the procurement of a Tarantula-class escort from the flagship's reserves.
-
-uplink-security-t1-sentinel-voucher-name = TSFMC Sentinel LPC [T1]
-uplink-security-t1-sentinel-voucher-desc = A small card that contains the data for the procurement of a Sentinel-class escort from the flagship's reserves.
-
-uplink-security-t1-mercury-voucher-name = TSFMC Mercury LPC [T1]
-uplink-security-t1-mercury-voucher-desc = A small card that contains the data for the procurement of a Mercury-class corvette from the flagship's reserves.
-
-uplink-security-t1-aldebaran-voucher-name = TSFMC Aldebaran LPC [T1]
-uplink-security-t1-aldebaran-voucher-desc = A small card that contains the data for the procurement of an Aldebaran-class frigate from the flagship's reserves.
-
-uplink-security-t2-andromeda-voucher-name = TSFMC Andromeda LPC [T2]
-uplink-security-t2-andromeda-voucher-desc = A small card that contains the data for the procurement of an Andromeda-class cruiser from the flagship's reserves.
-
-uplink-security-t2-cinquedea-voucher-name = TSFMC Cinquedea LPC [T2]
-uplink-security-t2-cinquedea-voucher-desc = A small card that contains the data for the procurement of an Cinquedea-class corvette from the flagship's reserves.
-
-uplink-security-t2-spekter-voucher-name = TSFMC Spekter LPC [T2]
-uplink-security-t2-spekter-voucher-desc = A small card that contains the data for the procurement of an Spekter-class corvette from the flagship's reserves.
-
-uplink-security-t3-altair-voucher-name = TSFMC Altair LPC [T3]
-uplink-security-t3-altair-voucher-desc = A small card that contains the data for the procurement of an Altair-class frigate from the flagship's reserves.
-
-uplink-security-t3-polaris-voucher-name = TSFMC Polaris LPC [T3]
-uplink-security-t3-polaris-voucher-desc = A small card that contains the data for the procurement of an Type-56D Polaris-class frigate from the flagship's reserves.
-
-uplink-security-t3-fujian-voucher-name = TSFMC Fujian LPC [T3]
-uplink-security-t3-fujian-voucher-desc = A small card that contains the data for the procurement of an Type-53C Fujian-class escort carrier from the flagship's reserves.
-
-uplink-security-flyssa-voucher-name = TSFMC Flyssa LPC [T4]
-uplink-security-flyssa-voucher-desc = A small card that contains the data for the procurement of a Flyssa-class destroyer from the flagship's reserves.
+uplink-security-t2-voucher-name = TSFMC Tier 2 Ship Voucher
+uplink-security-t2-voucher-desc = A TSF requisitions voucher for any medium ship.
 
 uplink-security-sentry-mk290-name = MK-290 Deployable Sentry System
 uplink-security-sentry-mk290-desc = A multipurpose portable sentry, capable of feeding from 5.56x45mm, 6.8x52mm, and 7.62x39mm magazines. Requires a screwdriver to disassemble once placed. DOES NOT come with ammo, and empty before packing.

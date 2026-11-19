@@ -27,6 +27,7 @@ public sealed partial class CargoOrderConsoleComponent : Component
 
     /// <summary>
     /// Radio channel on which order approval announcements are transmitted
+    /// Mono: This is now only used if an order on AlertOnPurchase is made.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public ProtoId<RadioChannelPrototype> AnnouncementChannel = "Supply";
@@ -36,4 +37,10 @@ public sealed partial class CargoOrderConsoleComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public Dictionary<SectorBankAccount, float> TaxAccounts = new();
     // End Frontier
+
+    /// <summary>
+    /// A list of entity prototypes that the AnnouncementChannel will be alerted of the purchase of.
+    /// </summary>
+    [DataField]
+    public List<EntProtoId> AlertOnPurchase = new List<EntProtoId>();
 }

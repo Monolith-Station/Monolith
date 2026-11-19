@@ -80,6 +80,25 @@
 
 - type: latheRecipe
   parent: BaseVoucherRecipe
+  id: ShipVoucherHangzhouRecipe
+  result: ShipVoucherHangzhou
+  completetime: 100
+  materialDiscountScale: 0.2
+  materials:
+    Steel: 15000
+    Copper: 15000
+    Plasteel: 12000
+    Lithium: 15000
+    Glass: 5000
+    Plasma: 5000
+    Gold: 5000
+    Silver: 5000
+    Plastitanium: 2000
+    UraniumDepleted: 1000
+    UraniumFissile: 250
+
+- type: latheRecipe
+  parent: BaseVoucherRecipe
   id: ShipVoucherLudaRecipe
   result: ShipVoucherLuda
   completetime: 240
@@ -128,12 +147,12 @@
 
 - type: latheRecipe
   parent: BaseVoucherRecipe
-  id: ShipVoucherKortikT3Recipe
-  result: ShipVoucherKortikT3
+  id: ShipVoucherSovremennyT3Recipe
+  result: ShipVoucherSovremennyT3
   completetime: 100
   materialDiscountScale: 0.2
   materials:
-    PdvComposite: 12000
+    PdvComposite: 17000
 
 - type: latheRecipe
   parent: BaseVoucherRecipe

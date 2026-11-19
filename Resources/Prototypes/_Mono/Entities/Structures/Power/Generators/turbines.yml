@@ -1,11 +1,10 @@
 - type: entity
   id: TurbineUnaffiliated
   parent: Turbine
-  suffix: Unaffiliated, Ship Captain Locked
-  description: A large turbine used for generating power using hot gas. Locked to the captain of the ship.
+  suffix: Unaffiliated
+  description: A large turbine used for generating power using hot gas.
   components:
   - type: AccessReader
-    access: [["Captain"]]
 
 - type: entity
   id: TurbineTSF
@@ -14,7 +13,7 @@
   description: A large turbine used for generating power using hot gas. Locked to the TSF.
   components:
   - type: AccessReader
-    access: [["Security"]]
+    access: [["Tsfmc"]]
 
 - type: entity
   id: TurbinePDV
@@ -23,7 +22,7 @@
   description: A large turbine used for generating power using hot gas. Locked to the PDV.
   components:
   - type: AccessReader
-    access: [["Pirate"]]
+    access: [["PDV"]]
 
 # No use really, but just in case.
 - type: entity
@@ -40,10 +39,10 @@
   id: TurbineCC
   parent: Turbine
   suffix: Overseer Locked
-  description: A large turbine used for generating power using hot gas. Locked to the CC Overseer.
+  description: A large turbine used for generating power using hot gas. Locked to the Overseer or Director of Care.
   components:
   - type: AccessReader
-    access: [["HeadOfPersonnel"]]
+    access: [["CaelestinusCommand"]]
 
 # Small turbines
 #
@@ -52,11 +51,10 @@
 - type: entity
   id: TurbineUnaffiliatedSmall
   parent: TurbineSmall
-  suffix: Unaffiliated, Ship Captain Locked
+  suffix: Unaffiliated
   description: A large turbine used for generating power using hot gas. Locked to the captain of the ship.
   components:
   - type: AccessReader
-    access: [["Captain"]]
 
 - type: entity
   id: TurbineTSFSmall
@@ -65,7 +63,7 @@
   description: A large turbine used for generating power using hot gas. Locked to the TSF.
   components:
   - type: AccessReader
-    access: [["Security"]]
+    access: [["Tsfmc"]]
 
 - type: entity
   id: TurbinePDVSmall
@@ -74,7 +72,7 @@
   description: A large turbine used for generating power using hot gas. Locked to the PDV.
   components:
   - type: AccessReader
-    access: [["Pirate"]]
+    access: [["PDV"]]
 
 # No use really, but just in case.
 - type: entity
@@ -91,7 +89,7 @@
   id: TurbineCCSmall
   parent: TurbineSmall
   suffix: Overseer Locked
-  description: A large turbine used for generating power using hot gas. Locked to the CC Overseer.
+  description: A large turbine used for generating power using hot gas. Locked to the Overseer or Director of Care.
   components:
   - type: AccessReader
-    access: [["HeadOfPersonnel"]]
+    access: [["CaelestinusCommand"]]

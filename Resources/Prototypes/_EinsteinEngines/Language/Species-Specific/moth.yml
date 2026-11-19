@@ -2,8 +2,9 @@
 # TODO: Replace this with a much better language.
 - type: language
   id: Moffic
-  isVisibleLanguage: true
+  # isVisibleLanguage: true /* Monolith: This has been killed */
   chatPrefix: mof # Mono
+  icon: LanguageIconMoth # Mono
   speech:
     color: "#c7df2edd"
     # fontId: Copperplate #* FONTS NOT ALREADY HERE ARE NOT BEING ADDED

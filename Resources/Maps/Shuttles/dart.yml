@@ -2799,8 +2799,6 @@ entities:
       parent: 1
     - type: DeviceLinkSource
       linkedPorts:
-        928:
-        - MedicalScannerSender: MedicalScannerReceiver
         926:
         - CloningPodSender: CloningPodReceiver
 - proto: ComputerCrewMonitoring

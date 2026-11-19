@@ -1,10 +1,10 @@
 - type: entity
   id: LockableButtonMailCarrier
-  suffix: Mail
+  suffix: Caelestinus
   parent: LockableButton
   components:
   - type: AccessReader
-    access: [["Mail"]]
+    access: [["Caelestinus"]]
 
 - type: entity
   id: LockableButtonPirate
@@ -12,7 +12,7 @@
   parent: LockableButton
   components:
   - type: AccessReader
-    access: [["Pirate"]]
+    access: [["PDV"]]
 
 - type: entity
   id: LockableButtonTSFMC
@@ -20,4 +20,4 @@
   parent: LockableButton
   components:
   - type: AccessReader
-    access: [["Security"]]
+    access: [["Tsfmc"]]

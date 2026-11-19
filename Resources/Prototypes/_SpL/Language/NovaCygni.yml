@@ -1,0 +1,49 @@
+﻿- type: language
+  id: NovaCygniClassical
+  icon: LanguageIconNovaCygni
+  chatPrefix: ncc # Mono
+  speech: # Mono
+    color: "#a13a2ddd"
+  obfuscation:
+    !type:SyllableObfuscation
+    minSyllables: 1
+    maxSyllables: 3
+    replacement:
+    - да
+    - сла
+    - не
+    - ыи
+    - цом
+    - сар
+    - ис
+    - и
+    - во
+    - ви
+    - йед
+    - лец
+    - мо
+    - цле
+    - те
+    - дис
+    - е
+    - вол
+    - зем
+    - луй
+    - вой
+    - лов
+    - сто
+    - йес
+    - моы
+    - ков
+    - мец
+    - си
+    - цку
+    - бир
+    - ар
+    - ат
+    - он
+    - нов
+    - прив
+    - ма
+    - той
+    - чев

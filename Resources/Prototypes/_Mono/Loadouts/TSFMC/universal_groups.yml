@@ -106,6 +106,8 @@
   loadouts:
   - TsfmcCombatWebbing
   - TsfmcCombatWebbingLarge
+  - ContractorClothingBeltHolster
+  - ContractorClothingBeltHolsterLarge
   - ContractorClothingBeltSheathFilled
   fallbacks:
   - TsfmcCombatWebbing
@@ -118,6 +120,8 @@
   loadouts:
   - TsfmcCombatWebbing
   - TsfmcCombatWebbingLarge
+  - ContractorClothingBeltHolster
+  - ContractorClothingBeltHolsterLarge
   fallbacks:
   - TsfmcCombatWebbing
 
@@ -141,6 +145,8 @@
   - TsfmcCombatWebbingMedical
   - TsfmcCombatWebbing
   - TsfmcCombatWebbingLarge
+  - ContractorClothingBeltHolster
+  - ContractorClothingBeltHolsterLarge
   fallbacks:
   - TsfmcCombatWebbingMedical
 
@@ -287,10 +293,12 @@
   name: loadout-group-contractor-outerclothing
   minLimit: 1
   loadouts:
+  - TsfmcClothingOuterHardsuitM86
   - TsfmcClothingOuterArmorBPVestLight
   - TsfmcClothingOuterArmorBPVestMedium
+  - TsfmcClothingOuterArmorWintercoat
   fallbacks:
-  - TsfmcClothingOuterArmorBPVestLight
+  - TsfmcClothingOuterHardsuitM86
 
 - type: loadoutGroup
   id: TsfmcOuterClothingInfantry
