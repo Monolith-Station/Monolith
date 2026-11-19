@@ -27540,3 +27540,16 @@ Entries:
   id: 2955
   time: '2026-11-19T23:32:43.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/5058
+- author: NazrinNya
+  changes:
+    - type: Add
+      message: Toggle open port for lathes (if it has container)
+    - type: Tweak
+      message: >-
+        You can now insert items into lathes with entity containers by clicking
+        on them
+    - type: Fix
+      message: Backpacks that are currently used being anchorable.
+  id: 2956
+  time: '2026-11-19T23:38:56.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5051
