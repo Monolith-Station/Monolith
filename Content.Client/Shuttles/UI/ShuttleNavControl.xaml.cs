@@ -1079,11 +1079,6 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
         return (top - offset, left - offset, offset);
     }
 
-    private void DrawIFFLabel(String labelText, Color color)
-    {
-
-    }
-
     private void DrawBlipShape(DrawingHandleScreen handle, Vector2 position, Box2Rotated bounds, Color color, RadarBlipShape shape)
     {
         switch (shape)
