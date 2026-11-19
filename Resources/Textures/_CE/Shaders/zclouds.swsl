@@ -1,5 +1,7 @@
 blend_mode mix;
 
+#include "/Textures/_CE/Shaders/zcloud_density.swsl"
+
 uniform highp vec3 CLOUD_COLOR;
 uniform highp float COVERAGE;
 uniform highp float WISP;
@@ -7,40 +9,14 @@ uniform highp vec2 WORLD_ORIGIN;
 uniform highp vec2 WORLD_X;
 uniform highp vec2 WORLD_Y;
 
-highp vec2 hash(highp vec2 p) {
-    highp vec3 h = fract(vec3(p.x, p.y, p.x) * vec3(0.1031, 0.1030, 0.0973));
-    h += dot(h, h.yzx + 33.33);
-    return fract((h.xx + h.yz) * h.zy);
-}
-
-highp float noise(highp vec2 p) {
-    highp vec2 i = floor(p);
-    highp vec2 f = fract(p);
-    highp vec2 u = f * f * f * (f * (f * 6.0 - 15.0) + 10.0);
-    return mix(mix(hash(i).x, hash(i + vec2(1.0, 0.0)).x, u.x),
-        mix(hash(i + vec2(0.0, 1.0)).x, hash(i + vec2(1.0, 1.0)).x, u.x), u.y);
-}
-
-highp float detail(highp vec2 p) {
-    highp float value = 0.0;
-    highp float weight = 0.43;
-    for (int i = 0; i < 6; i++) {
-        value += noise(p) * weight;
-        p = mat2(1.64, 1.23, -1.23, 1.64) * p + vec2(17.3, 9.2);
-        weight *= 0.58;
-    }
-    return value;
-}
-
 void fragment() {
     highp vec2 uv = FRAGCOORD.xy * SCREEN_PIXEL_SIZE;
     highp vec2 world = WORLD_ORIGIN + WORLD_X * uv.x + WORLD_Y * uv.y;
-    highp vec2 p = (world - TIME * vec2(0.32, 0.09)) * 0.055;
-    highp vec2 warp = vec2(noise(p * 0.6), noise(p * 0.6 + vec2(23.7, 5.1))) - 0.5;
-    highp vec2 q = p * vec2(0.8, 1.2) + warp;
-    highp float shape = detail(q);
-    highp float threads = detail(q * vec2(2.4, 5.5) + vec2(8.1, 31.7) + TIME * vec2(0.003, -0.002));
-    highp float density = smoothstep(0.36, 0.72, shape * 0.8 + threads * 0.2);
+    highp vec2 p;
+    highp vec2 q;
+    highp float shape;
+    highp float threads;
+    highp float density = cloudDensity(world, TIME, p, q, shape, threads);
     highp float veil = detail(p * 0.48 + vec2(47.1, 19.3));
     highp float light = clamp((shape - detail(q + vec2(-0.18, 0.24))) * 1.4, -0.16, 0.16);
     highp vec3 haze = CLOUD_COLOR * vec3(0.92, 0.97, 1.04) * mix(0.62, 0.9, veil);

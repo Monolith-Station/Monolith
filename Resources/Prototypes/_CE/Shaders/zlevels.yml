@@ -22,3 +22,18 @@
   path: "/Textures/_CE/Shaders/zclouds.swsl"
   params:
     COVERAGE: 1.0
+
+- type: shader
+  id: CEZProjectedLight
+  kind: source
+  path: /Textures/_CE/Shaders/zlight_projected.swsl
+
+- type: shader
+  id: CEZLightBufferCopy
+  kind: source
+  path: /Textures/_CE/Shaders/zlight_buffer_copy.swsl
+
+- type: shader
+  id: CEZLightCloudMask
+  kind: source
+  path: /Textures/_CE/Shaders/zlight_cloud_mask.swsl
