@@ -38,8 +38,8 @@ public sealed partial class NavScreen : BoxContainer
         DockToggle.OnToggled += OnDockTogglePressed;
         DockToggle.Pressed = NavRadar.ShowDocks;
 
-        MarkersToggle.OnToggled += OnMarkersTogglePressed;
-        MarkersToggle.Pressed = NavRadar.ShowMarkers;
+        MarkersToggle.OnToggled += OnMarkersTogglePressed; // Mono
+        MarkersToggle.Pressed = NavRadar.ShowMarkers; // Mono
 
         NfInitialize(); // Frontier Initialization for the NavScreen
     }
