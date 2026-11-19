@@ -8,6 +8,6 @@ damage-melee = melee
 damage-throw = throw
 
 damage-examine = It does the following damage:
-damage-examine-type = It does the following [color=cyan]{$type}[/color] damage with [color=yellow]{$ap}%[/color] armor penetration:
+damage-examine-type = It does the following [color=cyan]{$type}[/color] damage with [color={$negative}]{$ap}%[/color] armor penetration:
 damage-value = - [color=red]{$amount}[/color] units of [color=yellow]{$type}[/color].
 damage-none = It does no damage.

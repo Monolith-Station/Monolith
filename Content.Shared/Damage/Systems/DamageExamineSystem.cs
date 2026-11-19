@@ -71,8 +71,9 @@ public sealed partial class DamageExamineSystem : EntitySystem
 
             msg.AddMarkupOrThrow(Loc.GetString("damage-examine-type",
                 ("type", type),
-                ("ap", (armorPiercing * 100).ToString(CultureInfo.CurrentCulture)
-                )));
+                ("ap", (armorPiercing * 100).ToString(CultureInfo.CurrentCulture)),
+                ("negative", armorPiercing < 0 ? "red" : "yellow")
+                ));
         }
 
         foreach (var damage in damageSpecifier.DamageDict)
