@@ -3,6 +3,7 @@ using System.Numerics;
 using Content.Server._Mono.FireControl;
 using Content.Server.Cargo.Systems;
 using Content.Server.Power.EntitySystems;
+using Content.Server.Projectiles;
 using Content.Server.Weapons.Ranged.Components;
 using Content.Shared._Mono.Weapons.Ranged.Components;
 using Content.Shared._RMC14.Weapons.Ranged.Prediction;
@@ -44,6 +45,7 @@ public sealed partial class GunSystem : SharedGunSystem
     [Dependency] private SharedMapSystem _map = default!;
     [Dependency] private RequireProjectileTargetSystem _requireProjectileTarget = default!;
     [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private ProjectileSystem _serverProjectiles = default!;
     private EntityQuery<AutoShootGunComponent> _autoShootGunQuery; // Mono
     private EntityQuery<DamageableComponent> _damageableQuery; // Mono
 
@@ -100,7 +102,9 @@ public sealed partial class GunSystem : SharedGunSystem
         }
 
         var fromMap = TransformSystem.ToMapCoordinates(fromCoordinates);
-        var toMap = TransformSystem.ToMapCoordinates(toCoordinates).Position;
+        var aim = TransformSystem.ToMapCoordinates(toCoordinates);
+        var toMap = aim.Position;
+        var zShot = throwItems ? null : _serverProjectiles.PlanZShot(user, fromMap, aim);
         var mapDirection = toMap - fromMap.Position;
         var mapAngle = mapDirection.ToAngle();
 
@@ -209,19 +213,19 @@ public sealed partial class GunSystem : SharedGunSystem
                 var angles = LinearSpread(mapAngle - spreadEvent.Spread / 2,
                     mapAngle + spreadEvent.Spread / 2, ammoSpreadComp.Count);
 
-                ShootOrThrow(ammoEnt, angles[0].ToVec(), gunVelocity, gun, gunUid, user, offset, fromCoordinates);
+                ShootOrThrow(ammoEnt, angles[0].ToVec(), gunVelocity, gun, gunUid, user, offset, fromCoordinates, zShot);
                 shotProjectiles.Add(ammoEnt);
 
                 for (var i = 1; i < ammoSpreadComp.Count; i++)
                 {
                     var newuid = Spawn(ammoSpreadComp.Proto, fromEnt);
-                    ShootOrThrow(newuid, angles[i].ToVec(), gunVelocity, gun, gunUid, user, offset, fromCoordinates);
+                    ShootOrThrow(newuid, angles[i].ToVec(), gunVelocity, gun, gunUid, user, offset, fromCoordinates, zShot);
                     shotProjectiles.Add(newuid);
                 }
             }
             else
             {
-                ShootOrThrow(ammoEnt, mapDirection, gunVelocity, gun, gunUid, user, offset, fromCoordinates);
+                ShootOrThrow(ammoEnt, mapDirection, gunVelocity, gun, gunUid, user, offset, fromCoordinates, zShot);
                 shotProjectiles.Add(ammoEnt);
             }
             MuzzleFlash(gunUid, muzzle, mapDirection.ToAngle(), user);
@@ -230,7 +234,7 @@ public sealed partial class GunSystem : SharedGunSystem
     }
 
     private void ShootOrThrow(EntityUid uid, Vector2 mapDirection, Vector2 gunVelocity, GunComponent gun, EntityUid gunUid, EntityUid? user,
-                              float offset = 0f, EntityCoordinates? fromCoordinates = null) // Mono - add offset and fromCoordinates
+                              float offset = 0f, EntityCoordinates? fromCoordinates = null, ProjectileSystem.ZShot? zShot = null)
     {
         if (gun.Target is { } target && !TerminatingOrDeleted(target))
         {
@@ -284,7 +288,10 @@ public sealed partial class GunSystem : SharedGunSystem
             gunUid,
             user,
             gun.ProjectileSpeedModified,
-            offset); // Mono - add offset
+            zShot == null ? offset : 0f);
+
+        if (zShot is { } shot)
+            _serverProjectiles.ArmZShot(uid, shot);
 
         if (HasComp<FireControllableComponent>(gunUid)) {
             EnsureComp<ProjectileGridPhaseComponent>(uid);

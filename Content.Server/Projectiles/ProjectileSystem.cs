@@ -138,34 +138,74 @@ public sealed partial class ProjectileSystem : SharedProjectileSystem
             }
 
             var xform = Transform(uid);
-            var parentVel = _physics.GetMapLinearVelocity(uid, physicsComp, xform) - physicsComp.LinearVelocity; // Mono
-            var currentVelocity = projectileComp.RaycastResetVelocity - parentVel ?? physicsComp.LinearVelocity;
+            if (TryComp<CEZShotComponent>(uid, out var zShot) && zShot.Crossed)
+            {
+                if (zShot.RestoreVelocity is { } velocity)
+                    SetZShotMapVelocity(uid, xform, physicsComp, velocity);
+                RemComp<CEZShotComponent>(uid);
+                zShot = null;
+            }
+
+            var mapVelocity = _physics.GetMapLinearVelocity(uid, physicsComp, xform);
+            var parentVel = mapVelocity - physicsComp.LinearVelocity;
+            var currentVelocity = projectileComp.RaycastResetVelocity ?? (zShot != null ? mapVelocity : physicsComp.LinearVelocity);
             var velLen = currentVelocity.Length();
-            if (!ShouldRaycastProjectile(velLen) && projectileComp.RaycastResetVelocity == null)
+            var raycast = ShouldRaycastProjectile(velLen) || projectileComp.RaycastResetVelocity != null;
+            if (!raycast && zShot == null)
                 continue;
 
             var lastMap = _transformSystem.GetMapCoordinates(xform);
             var lastPosition = lastMap.Position;
-            var rayDirection = currentVelocity / velLen;
             // Ensure rayDistance is not zero to prevent issues with IntersectRay if frametime or velocity is zero.
             var rayDistance = velLen * frameTime;
             if (rayDistance <= 0f)
                 continue;
 
+            var rayDirection = currentVelocity / velLen;
+            var fraction = 0f;
+            var destination = default(MapCoordinates);
+            var crosses = zShot != null && TryGetZShotCrossing((uid, zShot), xform, lastPosition,
+                currentVelocity * frameTime, out fraction, out destination);
+            if (!crosses && !raycast)
+                continue;
+
             if (!_fixQuery.TryComp(uid, out var fix) || !fix.Fixtures.TryGetValue(ProjectileFixture, out var projFix))
                 continue;
 
-            var hits = _physics.IntersectRay(xform.MapID,
-                new CollisionRay(lastPosition, rayDirection, projFix.CollisionMask),
-                rayDistance,
-                uid, // Entity to ignore (self)
-                false); // IncludeNonHard = false
+            var sourceDistance = crosses ? rayDistance * fraction : rayDistance;
+            if (Cast(sourceDistance))
+                continue;
+
+            if (crosses && zShot != null)
+            {
+                // Resolve collisions on the source deck before moving, then sweep the rest of the tick on the destination.
+                var rotation = _transformSystem.GetWorldRotation(xform);
+                _transformSystem.SetMapCoordinates((uid, xform), destination);
+                _transformSystem.SetWorldRotation(uid, rotation);
+                SetZShotMapVelocity(uid, xform, physicsComp, currentVelocity);
+                zShot.Crossed = true;
+                projectileComp.RaycastResetVelocity = null;
+                lastMap = destination;
+                lastPosition = destination.Position;
+                if (!Cast(rayDistance - sourceDistance))
+                {
+                    zShot.RestoreVelocity = currentVelocity;
+                    SetZShotMapVelocity(uid, xform, physicsComp, currentVelocity * (1f - fraction));
+                }
+                continue;
+            }
 
             // do not process other grid velocity if we are gridded
-            if (!ProcessHits(hits) && projectileComp.RaycastResetVelocity != null)
+            if (projectileComp.RaycastResetVelocity is { } resetVel)
             {
-                _physics.SetLinearVelocity(uid, currentVelocity, body: physicsComp);
+                _physics.SetLinearVelocity(uid, resetVel - parentVel, body: physicsComp);
                 projectileComp.RaycastResetVelocity = null;
+            }
+
+            bool Cast(float distance)
+            {
+                return distance > 0f && ProcessHits(_physics.IntersectRay(lastMap.MapId,
+                    new CollisionRay(lastPosition, rayDirection, projFix.CollisionMask), distance, uid, false));
             }
 
             bool ProcessHits(IEnumerable<RayCastResults> hits)
@@ -218,7 +258,9 @@ public sealed partial class ProjectileSystem : SharedProjectileSystem
 
                 if (projectileComp.RaycastResetVelocity == null)
                 {
-                    projectileComp.RaycastResetVelocity = currentVelocity + parentVel; // record specifically world velocity
+                    projectileComp.RaycastResetVelocity = zShot != null
+                        ? currentVelocity
+                        : currentVelocity + parentVel; // record specifically world velocity
                     var curVel = physicsComp.LinearVelocity;
                     curVel.Normalize();
                     var resetTo = 1f / frameTime;
