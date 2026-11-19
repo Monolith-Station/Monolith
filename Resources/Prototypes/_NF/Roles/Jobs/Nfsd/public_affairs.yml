@@ -30,7 +30,7 @@
   assignedCompany: TSF
   setPreference: false # mono
   accessGroups:
-  - CadetNfsdAccess
+  - GeneralTsfmcAccess
   special:
   - !type:AddComponentSpecial
     components:

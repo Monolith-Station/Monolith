@@ -2,7 +2,7 @@
 
 - type: entity
   id: 20mmBulletBase
-  parent: BaseBullet
+  parent: BaseBulletShip
   abstract: true
   categories: [ HideSpawnMenu ]
   components:
@@ -74,7 +74,7 @@
 
 - type: entity
   id: 30mmBullet
-  parent: BaseBullet
+  parent: BaseBulletShip
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -94,7 +94,7 @@
 
 - type: entity
   id: 30mmBulletHE
-  parent: BaseBulletTrigger
+  parent: [ BaseBulletTriggerShip, BaseProjectileHitmarkerLight ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -123,7 +123,7 @@
 
 - type: entity
   id: 35mmBulletAP
-  parent: BaseBullet
+  parent: BaseBulletShip
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -143,7 +143,7 @@
 
 - type: entity
   id: 35mmBulletHE
-  parent: BaseBulletTrigger
+  parent: [ BaseBulletTriggerShip, BaseProjectileHitmarkerLight ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -172,7 +172,7 @@
 
 - type: entity
   id: 57mmBulletHE
-  parent: BaseBulletTrigger
+  parent: [ BaseBulletTriggerShip, BaseProjectileHitmarkerLight ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -207,7 +207,7 @@
 
 - type: entity
   id: 57mmBulletSmart
-  parent: BaseBulletTrigger
+  parent: [ BaseBulletTriggerShip, BaseProjectileHitmarkerLight ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -250,7 +250,7 @@
 
 - type: entity
   id: 57mmBulletSACLOS
-  parent: BaseBulletTrigger
+  parent: [ BaseBulletTriggerShip, BaseProjectileHitmarkerLight ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -295,7 +295,7 @@
 - type: entity
   id: 90mmBulletBase
   name: shell
-  parent: BaseBulletTrigger
+  parent: BaseBulletTriggerShip
   abstract: true
   categories: [ HideSpawnMenu ]
   components:
@@ -312,7 +312,7 @@
 
 - type: entity
   id: 90mmBulletHE
-  parent: 90mmBulletBase
+  parent: [ 90mmBulletBase, BaseProjectileHitmarkerMedium ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -393,7 +393,7 @@
   id: Shrapnel90mmFlak
   name: shrapnel
   categories: [ HideSpawnMenu ]
-  parent: BaseBullet
+  parent: BaseBulletShip
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
@@ -433,7 +433,7 @@
 - type: entity
   id: 90mmBulletMinelayer
   name: 57x460mm mine-laying projectile
-  parent: BaseBullet
+  parent: BaseBulletShip
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -470,6 +470,7 @@
       cluster-payload: !type:Container
 
 - type: entity
+  parent: BaseProjectileHitmarkerHeavy
   id: NavalMine90mm
   name: naval mine
   categories: [ HideSpawnMenu ]
@@ -534,13 +535,32 @@
     scanArc: 0
     launchSpeed: 0
     maxSpeed: 3
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Missile
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: TargetSeekingTarget
+    requireSeekerWhitelist: true
+  - type: Tag
+    tags:
+    - AMMTarget
 
 # 85x680mm
 
 - type: entity
   id: 140mmBulletAPHE
   name: 85x680mm APHE projectile
-  parent: BaseBulletTriggerSpent
+  parent: [ BaseBulletTriggerSpentShip, BaseProjectileHitmarkerHeavy ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -580,7 +600,7 @@
 - type: entity
   id: 140mmBulletSACLOS
   name: 85x680mm SACLOS projectile
-  parent: BaseBulletTriggerSpent
+  parent: [ BaseBulletTriggerSpentShip, BaseProjectileHitmarkerHeavy ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -629,7 +649,7 @@
 - type: entity
   id: 220mmBulletAPHE
   name: 130x820mm APHE projectile
-  parent: BaseBulletTriggerSpent
+  parent: [ BaseBulletTriggerSpentShip, BaseProjectileHitmarkerHeavy ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -669,7 +689,7 @@
 - type: entity
   id: 220mmBulletHE
   name: 130x820mm HE projectile
-  parent: BaseBulletTrigger
+  parent: [ BaseBulletTriggerShip, BaseProjectileHitmarkerHeavy ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -708,7 +728,7 @@
 - type: entity
   id: 220mmPelletHE
   name: 130x820mm HE cluster-projectile
-  parent: BaseBulletTrigger
+  parent: [ BaseBulletTriggerShip, BaseProjectileHitmarkerMedium ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -756,7 +776,7 @@
 - type: entity
   id: 220mmPelletSmart
   name: 130x820mm HMNG cluster-projectile
-  parent: BaseBulletTrigger
+  parent: [ BaseBulletTriggerShip, BaseProjectileHitmarkerMedium ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -814,7 +834,7 @@
 - type: entity
   id: 255mmBulletAPHE
   name: 203x940mm APHE projectile
-  parent: BaseBulletTriggerSpent
+  parent: [ BaseBulletTriggerSpentShip, BaseProjectileHitmarkerSuperheavy ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -853,7 +873,7 @@
 - type: entity
   id: 255mmBulletEMP
   name: 203x940mm EMP projectile
-  parent: BaseBulletTrigger
+  parent: [ BaseBulletTriggerShip, BaseProjectileHitmarkerSuperheavyBlue ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -894,7 +914,7 @@
 - type: entity
   id: 255mmBulletMinelayer
   name: 203x940mm mine-laying projectile
-  parent: BaseBullet
+  parent: BaseBulletShip
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -931,6 +951,7 @@
       cluster-payload: !type:Container
 
 - type: entity
+  parent: BaseProjectileHitmarkerSuperheavy
   id: NavalMine255mm
   name: naval mine
   categories: [ HideSpawnMenu ]
@@ -994,13 +1015,32 @@
     scanArc: 0
     launchSpeed: 0
     maxSpeed: 3
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Missile
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: TargetSeekingTarget
+    requireSeekerWhitelist: true
+  - type: Tag
+    tags:
+    - AMMTarget
 
 # CHARON
 
 - type: entity
   id: ShipRailgunProjectile
   name: M381 CHARON 280mm 26.5 kg slug
-  parent: BaseBulletTriggerSpent
+  parent: [ BaseBulletTriggerSpentShip, BaseProjectileHitmarkerSuperheavy ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -1039,7 +1079,7 @@
 - type: entity
   id: ShipRailgunProjectileEMP
   name: M381 CHARON 280mm 26.5 kg EMP slug
-  parent: BaseBulletTrigger
+  parent: [ BaseBulletTriggerShip, BaseProjectileHitmarkerSuperheavyBlue ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -1077,7 +1117,7 @@
 - type: entity
   id: ShipRailgunProjectileAphe
   name: M381 CHARON 280mm 26.5kg APHE slug
-  parent: BaseBulletTrigger
+  parent: [ BaseBulletTriggerSpentShip, BaseProjectileHitmarkerSuperheavy ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -1117,7 +1157,7 @@
   id: ShipRailgunProjectileSubnuclear
   name: M381 CHARON 280mm 1.5kt nuclear slug
   description: Once the genie is out of the bottle, there's no putting it back inside, Tarkhan.
-  parent: BaseBulletTrigger
+  parent: [ BaseBulletTriggerShip, BaseProjectileHitmarkerSubnuclear ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -1187,7 +1227,7 @@
 - type: entity
   id: ShipLeviathanProjectile
   name: LEVIATHAN 380x1120mm projectile
-  parent: BaseBulletTrigger
+  parent: [ BaseBulletTriggerShip, BaseProjectileHitmarkerSuperheavy ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -1226,7 +1266,7 @@
 
 - type: entity
   id: ShipShardProjectile
-  parent: BaseBulletTrigger
+  parent: [ BaseBulletTriggerShip, BaseProjectileHitmarkerLight ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -1279,7 +1319,7 @@
 
 - type: entity
   id: ShipPinholeProjectile
-  parent: BaseBulletTrigger
+  parent: [ BaseBulletTriggerShip, BaseProjectileHitmarkerMedium ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile

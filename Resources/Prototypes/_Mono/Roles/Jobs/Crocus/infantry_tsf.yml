@@ -15,13 +15,14 @@
   alwaysUseSpawner: true # cuz like, planets are 1 mapgrid, u cant use latejoins bro!!
   icon: JobIconDeputy
   supervisors: job-supervisors-sergeant
+  hideConsoleVisibility: true
   weight: 150
   displayWeight: 5
   assignedCompany: TSF
   canBeAntag: false
   setPreference: true # just to config loadout
   accessGroups:
-  - AllAccess
+  - GeneralTsfmcAccess
   access:
   - TsfmcEngineering
   guides:
@@ -35,6 +36,11 @@
     # It doesn't need to be a implant, because it's not meant to be removed.
     - type: MindShield
       mindShieldStatusIcon: MindShieldIcon
+    - type: CMVendorUser
+      id: TsfInfantry
+      points: 4
+      extraPoints:
+        CrocusPoints: 2
   - !type:AddLanguageSpecial
     languagesSpoken:
     - SolCommon
@@ -46,9 +52,6 @@
   id: TSFInfantryGear
   equipment:
     neck: ClothingNeckIFFCyan
-    eyes: ClothingEyesHudNfsd
   storage:
     belt:
     - RadioHandheldNF
-  inhand:
-  - UndeterminedTSFCrocusKit

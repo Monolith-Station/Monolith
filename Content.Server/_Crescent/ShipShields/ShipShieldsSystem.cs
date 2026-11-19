@@ -77,7 +77,18 @@ public sealed partial class ShipShieldsSystem : EntitySystem
                 continue;
 
             var filter = _station.GetInOwningStation(uid);
+        // Mono start
+        var damageCoefficient = Math.Clamp(1 - (emitter.Damage / emitter.DamageLimit), 0, 1); // Mono - HPCoefficient based on damage overload shieldbreak condition
+        var loadDamageCoefficient = Math.Clamp(1 - (CalculateLoadDamage(emitter) / emitter.MaxDraw), 0, 1); //HPCoefficient based on power load damage overload shieldbreak condition
+        var HPCoefficient = damageCoefficient;
+        if(loadDamageCoefficient < damageCoefficient)
+        HPCoefficient = loadDamageCoefficient;
 
+        if(TryComp<ShipShieldVisualsComponent>(emitter.Shield, out var visuals)){
+        visuals.ShieldColor = emitter.ShieldColor.WithAlpha(HPCoefficient);
+        Dirty(emitter.Shield.Value, visuals); //pass it to client HERE so it properly updates on damage taken
+        }
+        // Mono end
             if (emitter.Damage > emitter.DamageLimit)
                 emitter.OverloadAccumulator = emitter.DamageOverloadTimePunishment;
 
@@ -214,7 +225,7 @@ public sealed partial class ShipShieldsSystem : EntitySystem
 
         _fixtureSystem.TryCreateFixture(shield, internalPoly, "internalShield",
             hard: true,
-            collisionLayer: (int)CollisionGroup.BulletImpassable, // Mono - Only try to block bullets
+            collisionLayer: (int)CollisionGroup.BulletImpassable + (int)CollisionGroup.LaserImpassable, // Mono - Only try to block bullets AND LASERS
             body: shieldPhysics);
 
         _physicsSystem.WakeBody(shield, body: shieldPhysics);

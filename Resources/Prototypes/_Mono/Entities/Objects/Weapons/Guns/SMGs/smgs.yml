@@ -318,9 +318,9 @@
 #weaker typewriter for libvend
 - type: entity
   name: PA Keyboard (.45 ACP)
-  parent: WeaponSubMachineGunTypewriter
+  parent: WeaponSubMachineGunTypewriterBase
   id: WeaponSubMachineGunTypewriterPMC
-  description: A modern take on the classic design used by mobsters throughout space and time. This one is an offbrand mercenary version of the typewritter nicknamed the "keyboard", its barrel heat rapidly which reduce accuracy. Uses .45 ACP ammo.
+  description: A modern take on the classic design used by mobsters throughout space and time. This one is an offbrand "legal" version of the Typewriter with a lower rate of fire nicknamed the "Keyboard". Its barrel heats rapidly, which reduces its accuracy. Uses .45 ACP ammo.
   components:
   - type: GunWieldBonus
     minAngle: -27
@@ -333,57 +333,6 @@
     fireRate: 7
   - type: StaticPrice
     price: 500
-
-#old drozd sprite SMG
-- type: entity
-  name: HWM Firestarter (.45 ACP)
-  parent: [BaseWeaponSubMachineGun, BaseGunWieldable]
-  id: WeaponSubMachineGunFirestarter
-  description: An excellent fully automatic SMG. Uses .45 ACP ammo.
-  components:
-  - type: Sprite
-    sprite: _NF/Objects/Weapons/Guns/SMGs/drozd.rsi
-    layers:
-      - state: base
-        map: ["enum.GunVisualLayers.Base"]
-      - state: mag-0
-        map: ["enum.GunVisualLayers.Mag"]
-  - type: GunWieldBonus
-    minAngle: -5
-    maxAngle: -5
-  - type: Clothing
-    sprite: _NF/Objects/Weapons/Guns/SMGs/drozd.rsi
-  - type: Gun
-    fireRate: 6
-    selectedMode: FullAuto
-    soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/ltrifle.ogg
-    availableModes:
-    - SemiAuto
-    - FullAuto
-  - type: ItemSlots
-    slots:
-      gun_magazine:
-        name: Magazine
-        startingItem: Magazine45_ACPSubMachineGunFMJ
-        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
-        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
-        priority: 2
-        whitelist:
-          tags:
-            - Magazine45_ACPSubMachineGunFMJ
-      gun_chamber:
-        name: Chamber
-        startingItem: Cartridge45_ACPFMJ
-        priority: 1
-        whitelist:
-          tags:
-            - Cartridge45_ACPFMJ
-  - type: MagazineVisuals
-    magState: mag
-    steps: 1
-    zeroVisible: true
-  - type: Appearance
 
 - type: entity
   name: RS-2 Malandro (9x19mm)

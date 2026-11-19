@@ -60,6 +60,10 @@
     - ResearchedExplosives
     - SecurityEquipment
     - SmartGun
+    # Shipguns
+    - NavalBallistics
+    - NavalEnergy
+    - NavalMissiles
   - type: MaterialStorage
     whitelist:
       tags:
@@ -107,6 +111,7 @@
     - description: Insert components for recipes by placing them on top of the lathe, then "open / close" inside its right-click menu.
       color: "#4f94ad"
       requireDetailRange: true
+  - type: OreSiloClient
 
 #USSP
 
@@ -159,6 +164,10 @@
     - ResearchedExplosives
     - SecurityEquipment
     - SmartGun
+    # Shipguns
+    - NavalBallistics
+    - NavalEnergy
+    - NavalMissiles
   - type: MaterialStorage
     whitelist:
       tags:
@@ -220,6 +229,10 @@
     - ResearchedExplosives
     - SecurityEquipment
     - SmartGun
+    # Shipguns
+    - NavalBallistics
+    - NavalEnergy
+    - NavalMissiles
   - type: MaterialStorage
     whitelist:
       tags:
@@ -281,6 +294,10 @@
     # Civ military tech
     - SecurityEquipment
     - SmartGun
+    # Shipguns
+    - NavalBallistics
+    - NavalEnergy
+    - NavalMissiles
   - type: MaterialStorage
     whitelist:
       tags:
@@ -885,6 +902,13 @@
     - UniversalOrdinance
     - SmartGun #Smart SMG
     - NFMercenaryTechfabDeprecated
+    # Shipguns
+    - NavalBallistics
+    - NavalEnergy
+    - NavalMissiles
+    # Caelestinus
+    - MonoCaelestinusWeaponsDynamic
+    - MonoCaelestinusGearDynamic
     # Mono end
   - type: MaterialStorage
     whitelist:

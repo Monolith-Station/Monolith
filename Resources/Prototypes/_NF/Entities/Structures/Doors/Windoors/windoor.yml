@@ -5,10 +5,6 @@
   parent: WindoorSecure
   id: WindoorSecureMercenaryLocked
   suffix: Mercenary, Locked
-  components:
-  - type: ContainerFill
-    containers:
-      board: [ DoorElectronicsMercenary ]
 
 - type: entity
   parent: WindoorSecure

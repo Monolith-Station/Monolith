@@ -25,7 +25,7 @@
   - NfsdSpeciesSpecific
   - TsfmcFirearm
   - TsfmcMag
-  - FactionArmorPlates
+  #- FactionArmorPlates
   - TsfmcRanksEnlisted
   canCustomizeName: true # pseudonym?
 
@@ -56,7 +56,7 @@
   - TsfmcSidearm
   - TsfmcMag
   - TsfmcSidearmAmmo
-  - FactionArmorPlates
+  #- FactionArmorPlates
   - TsfmcRanksEnlisted
   canCustomizeName: true
 
@@ -87,7 +87,7 @@
   - TsfmcSidearm
   - TsfmcMag
   - TsfmcSidearmAmmo
-  - FactionArmorPlates
+  #- FactionArmorPlates
   - TsfnRanksCorpsmen
   canCustomizeName: true
 
@@ -118,7 +118,7 @@
   - TsfmcSidearm
   - TsfmcMag
   - TsfmcSidearmAmmo
-  - FactionArmorPlates
+  #- FactionArmorPlates
   - TsfmcRanksCaptain
   canCustomizeName: true
 
@@ -149,7 +149,7 @@
   - TsfmcSidearm
   - TsfmcMag
   - TsfmcSidearmAmmo
-  - FactionArmorPlates
+  #- FactionArmorPlates
   - TsfmcRanksFTL
   canCustomizeName: true
 
@@ -179,7 +179,7 @@
   - TsfmcSidearm
   - TsfmcMag
   - TsfmcSidearmAmmo
-  - FactionArmorPlates
+  #- FactionArmorPlates
   - TsfmcRanksColonel
   canCustomizeName: true
 
@@ -208,7 +208,7 @@
   - NfsdSpeciesSpecific
   - TsfmcSidearm
   - TsfmcSidearmAmmo
-  - FactionArmorPlates
+  #- FactionArmorPlates
   - TsfnRanksEngineers
   canCustomizeName: true
 
@@ -224,7 +224,7 @@
   - NfsdSpeciesSpecific
   - TsfmcSidearm
   - TsfmcSidearmAmmo
-  - FactionArmorPlates
+  #- FactionArmorPlates
   canCustomizeName: true
 
 - type: roleLoadout
@@ -254,7 +254,6 @@
   - NFSpeciesSpecific
   - MercenaryBalaclava # Mono
   - CivGunCaseSpecial # Mono
-  - ContractorArmorPlates # Mono
   - TsfmcSidearm
   - TsfmcSidearmAmmo
   canCustomizeName: true

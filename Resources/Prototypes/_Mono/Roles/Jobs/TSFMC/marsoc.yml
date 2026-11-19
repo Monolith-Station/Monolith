@@ -23,8 +23,9 @@
   canBeAntag: false
   setPreference: true
   accessGroups:
-  - AllAccess
+  - GeneralTsfmcAccess
   access:
+  - TsfmcArmory
   - TsfmcEngineering
   guides:
   - TSFMC_Entry

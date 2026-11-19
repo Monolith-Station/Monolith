@@ -27,7 +27,6 @@
         components:
         - IdCard
         - ShipyardVoucher
-    newAccessLevels: [Captain]
   - type: ActivatableUI
     singleUser: true
     key: enum.ShipyardConsoleUiKey.Shipyard
@@ -54,7 +53,6 @@
   id: ComputerShipyard
   components:
   - type: ShipyardConsole
-    newJobTitle: Captain
   - type: CompanyAccessReader
     requiredCompanies:
     - TSF
@@ -85,7 +83,8 @@
         type: ShipyardConsoleBoundUserInterface
   - type: ShipyardConsole
     shipyardChannel: Nfsd
-    newAccessLevels: [Captain, Security, Brig]
+    newAccessLevels: [Tsfmc]
+    canTransferDeed: false # Mono: faction shipyard
 
 - type: entity
   id: ComputerShipyardNfsd
@@ -112,7 +111,8 @@
         type: ShipyardConsoleBoundUserInterface
   - type: ShipyardConsole
     shipyardChannel: Nfsd
-    newAccessLevels: [Captain, Security, Brig]
+    newAccessLevels: [Tsfmc]
+    canTransferDeed: false # Mono: faction shipyard
 
 - type: entity
   id: ComputerShipyardSyndicate
@@ -263,8 +263,8 @@
 - type: entity
   id: ComputerShipyardSr
   parent: [BaseStructureDisableToolUse, BaseStructureIndestructible, ComputerShipyardBase]
-  name: C-Sec shipyard console
-  description: Used to buy vessels exclusive to Caelestinus Security personnel.
+  name: caelestinus shipyard console
+  description: Used to buy vessels exclusive to Caelestinus personnel.
   components:
   - type: ActivatableUI
     key: enum.ShipyardConsoleUiKey.Sr
@@ -283,3 +283,5 @@
       state: shipyard_sr
     - map: ["computerLayerKeys"]
       state: telesci_key
+  - type: ShipyardConsole
+    canTransferDeed: false # Mono: faction shipyard

@@ -1,7 +1,8 @@
 - type: entity
-  description: Points to the nearest radio uplink beacon for TSF/PDV objectives. Only works on the current level of the user, so you might be missing some under/above you.
   id: PinpointerSyndicateCrocusBeacon
   parent: PinpointerSyndicateNuclear
+  name: radio-uplink beacon pinpointer
+  description: Points to the nearest radio uplink beacon for TSF/PDV objectives. Only works on the current level of the user, so you might be missing some under/above you.
   suffix: Crocus Beacons
   components:
   - type: Pinpointer

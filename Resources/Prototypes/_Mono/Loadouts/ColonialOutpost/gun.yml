@@ -3,42 +3,42 @@
   name: loadout-group-weapon-civilian
   minLimit: 1
   loadouts:
-  - StationRepWeaponEnergyShotgun
-  - SecurityGuardIrohLoadout
+  - CaelestinusIrohLoadout
+  - CaelestinusFirestarterLoadout
+  - SecurityGuardEnforcerLoadout
+  - SecurityGuardDisablerSMGLoadout
   fallbacks:
-  - StationRepWeaponEnergyShotgun
+  - CaelestinusIrohLoadout
 
 - type: loadoutGroup
   id: SecurityGuardFirearm
   name: loadout-group-weapon
   minLimit: 0
   loadouts:
-  - SecurityGuardIrohLoadout
-  - SecurityGuardVectorLoadout
-  - SecurityGuardKammererLoadout
+  - CaelestinusIrohLoadout
+  - CaelestinusFirestarterLoadout
   - SecurityGuardEnforcerLoadout
   - SecurityGuardDisablerSMGLoadout
-  - SecurityGuardEnergyGunLoadout
   fallbacks:
-  - SecurityGuardIrohLoadout
+  - CaelestinusIrohLoadout
 
 - type: loadoutGroup
   id: SecurityGuardPistol
   name: loadout-group-pistol
   minLimit: 1
   loadouts:
-  - SecurityGuardMk58Loadout #MK58
+  - CaelestinusGalacticaLoadout
+  - SecurityGuardEnergyGunLoadout
   fallbacks:
-  - SecurityGuardMk58Loadout
+  - CaelestinusGalacticaLoadout
 
 - type: loadoutGroup
   id: SecurityGuardAmmo
   name: loadout-group-magazine
   minLimit: 1
   loadouts:
-  - SecurityGuardAcpPistolRubberAmmoLoadout #MK58
-  - SecurityGuardAcpSmgAmmoRubberLoadout #Vector
   - SecurityGuardBeanbagAmmoLoadout #Beanbag
-  - SecurityGuard556x45mmAmmoLoadout # iroh
+  - Caelestinus556x45mmAmmoLoadout # iroh
+  - Caelestinus46x30mmAmmoLoadout # Firestarter
   fallbacks:
-  - SecurityGuard556x45mmAmmoLoadout
+  - Caelestinus556x45mmAmmoLoadout

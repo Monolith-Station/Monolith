@@ -14,6 +14,7 @@ public sealed class MsgCompanyWhitelist : NetMessage
     public override void ReadFromBuffer(NetIncomingMessage buffer, IRobustSerializer serializer)
     {
         var count = buffer.ReadVariableInt32();
+        buffer.AssertAtLeastSize(count * NetMessageExt.MinSizeOfString);
         Whitelist.EnsureCapacity(count);
 
         for (var i = 0; i < count; i++)

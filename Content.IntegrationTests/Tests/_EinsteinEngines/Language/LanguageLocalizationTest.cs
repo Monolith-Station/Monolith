@@ -27,7 +27,7 @@ public sealed class LanguageLocalizationTest
             var missingStrings = new List<string>();
 
             foreach (var langProto in proto.EnumeratePrototypes<LanguagePrototype>().OrderBy(a => a.ID))
-                foreach (var locString in new List<string> { $"language-{langProto.ID}-name", $"chat-language-{langProto.ID}-name", $"language-{langProto.ID}-description" })
+                foreach (var locString in new List<string> { $"language-{langProto.ID}-name", $"language-{langProto.ID}-description" }) // Monolith: Remove `$"chat-language-{langProto.ID}-name"`
                     if (!locale.HasString(locString))
                         missingStrings.Add($"\"{langProto.ID}\", \"{locString}\"");
 

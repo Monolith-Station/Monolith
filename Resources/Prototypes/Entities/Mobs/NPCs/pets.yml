@@ -966,7 +966,34 @@
     - Monkey
     - Kobold
     - TauCetiBasic
-
+  - type: contextualSpeech
+    triggers:
+      Eating:
+        dataset: PunPunEating
+        speechChance: 0.15
+      PickedUp:
+        dataset: PunPunPickedUp
+        speechChance: 0.15
+      Thrown:
+        dataset: PunPunThrown
+        speechChance: 0.5
+      Drinking:
+        dataset: PunPunDrinking
+        speechChance: 0.15
+      Critical:
+        dataset: PunPunCritical
+        speechChance: 1
+      Dead:
+        dataset: PunPunDeath
+        speechChance: 1
+      Revived:
+        dataset: PunPunRevived
+        speechChance: 1
+      Examined:
+        dataset: PunPunExamined
+        ghostDataset: PunPunGhostExamined
+        speechChance: 0.15
+        
 - type: entity
   name: Tropico
   parent: MobCrab

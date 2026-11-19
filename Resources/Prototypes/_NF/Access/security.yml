@@ -1,14 +1,17 @@
 - type: accessLevel
   id: Mercenary
   name: id-card-access-level-mercenary
+  deprecated: true
 
 - type: accessLevel
   id: Sergeant
   name: id-card-access-level-sergeant
+  deprecated: true
   
 - type: accessLevel
   id: Bailiff
   name: id-card-access-level-bailiff
+  deprecated: true
   
 - type: accessGroup
   id: CadetNfsdAccess

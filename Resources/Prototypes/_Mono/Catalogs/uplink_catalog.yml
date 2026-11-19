@@ -105,7 +105,7 @@
   productEntity: WeaponSubMachineGunTypewriter
   cost:
     Telecrystal: 30
-  categories: 
+  categories:
   - UplinkWeaponry
 
 - type: listing
@@ -118,15 +118,16 @@
   categories:
   - UplinkWearables
 
-- type: listing
-  id: UplinkDataChit50
-  name: uplink-data-chit-50-name
-  description: uplink-data-chit-50-desc
-  productEntity: Doubloon50
-  cost:
-    Telecrystal: 25
-  categories:
-  - UplinkDisruption
+# Removed as the Underground Black Market is no longer reliant on the PDV. Please do not re-add without a good reason.
+#- type: listing
+#  id: UplinkDataChit50
+#  name: uplink-data-chit-50-name
+#  description: uplink-data-chit-50-desc
+#  productEntity: Doubloon50
+#  cost:
+#    Telecrystal: 25
+#  categories:
+#  - UplinkDisruption
 
 - type: listing
   id: UplinkIffConsoleFlatpack
@@ -168,15 +169,15 @@
   categories:
   - UplinkWearables
 
-- type: listing
-  id: UplinkUllmanEnforcerMk2
-  name: uplink-ullman-enforcer-mk2-name
-  description: uplink-ullman-enforcer-mk2-desc
-  productEntity: ClothingOuterHardsuitUIEnforcerMKII
-  cost:
-    Telecrystal: 90
-  categories:
-  - UplinkWearables
+#- type: listing
+#  id: UplinkUllmanEnforcerMk2
+#  name: uplink-ullman-enforcer-mk2-name
+#  description: uplink-ullman-enforcer-mk2-desc
+#  productEntity: ClothingOuterHardsuitUIEnforcerMKII
+#  cost:
+#    Telecrystal: 90
+#  categories:
+#  - UplinkWearables
 
 - type: listing
   id: UplinkUllmanRx01
@@ -247,3 +248,27 @@
     Telecrystal: 5
   categories:
   - UplinkAmmo
+
+- type: listing
+  id: UplinkUndergroundCodespeakTranslatorImplanter
+  name: uplink-underground-codespeak-translator-implanter-name
+  description: uplink-underground-codespeak-translator-implanter-desc
+  productEntity: UndergroundCodespeakTranslatorImplanter
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkImplants
+  conditions:
+  - !type:BuyerJobCondition
+      whitelist:
+      - Godfather
+
+- type: listing
+  id: UplinkOrganNENvgEyes
+  name: uplink-organ-nosske-eien-nvgeyes-name
+  description: uplink-organ-nosske-eien-nvgeyes-desc
+  productEntity: AutosurgeonEienNvgEyesUndergroundFlatpack
+  cost:
+    Telecrystal: 25 # I'm basing this off of the fact that while improved compared to standard NVGs, well, nearly every hardsuit has them + EMP vulnerability. Also the extremely good EMP implant is 10 or so TCs.
+  categories:
+  - UplinkImplants # close enough.

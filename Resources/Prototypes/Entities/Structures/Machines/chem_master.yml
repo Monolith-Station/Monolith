@@ -90,7 +90,9 @@
           - PillCanister
   - type: SolutionContainerManager
     solutions:
-      buffer: {}
+      buffer:
+        maxVol: 250000 # Monolith
+        canReact: false # Monolith
   - type: DumpableSolution
     solution: buffer
     unlimited: true
@@ -98,3 +100,8 @@
     guides:
     - Chemicals
     - Chemist
+  - type: Drain # Monolith
+    solutionName: buffer
+    range: 5
+    unitsPerSecond: 50
+    unitsDestroyedPerSecond: 0
