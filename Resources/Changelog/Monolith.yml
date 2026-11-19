@@ -27471,3 +27471,12 @@ Entries:
   id: 2948
   time: '2026-11-19T02:39:55.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/5050
+- author: DoubleHypercube
+  changes:
+    - type: Remove
+      message: Character naming restrictions are gone.
+    - type: Add
+      message: Ported custom species names from Starllght.
+  id: 2949
+  time: '2026-11-19T02:46:01.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4942
