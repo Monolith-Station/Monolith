@@ -1,0 +1,9 @@
+- type: entity
+  id: ActionToggleUnderbarrel
+  name: Toggle Underbarrel Weapon
+  description: When enabled, you will fire your underbarrel weapon [color=red]You can also toggle this with your toggle underbarrel keybind![/color]
+  components:
+  - type: InstantAction
+    useDelay: 0.25
+    itemIconStyle: BigItem
+    event: !type:ActionToggleUnderbarrelEvent

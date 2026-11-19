@@ -1,0 +1,20 @@
+- type: marking
+  id: WingsDragon
+  bodyPart: Wings
+  markingCategory: Wings
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _SimpleStation/Mobs/Customization/wings64x34.rsi
+    state: dragon
+
+- type: marking
+  id: WingsDragonTwotone
+  bodyPart: Wings
+  markingCategory: Wings
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _SimpleStation/Mobs/Customization/wings64x34.rsi
+    state: dragon
+  - sprite: _SimpleStation/Mobs/Customization/wings64x34.rsi
+    state: dragon-inner
+    
