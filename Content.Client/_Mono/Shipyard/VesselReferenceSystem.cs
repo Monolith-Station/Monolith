@@ -3,7 +3,7 @@ using Robust.Shared.Console;
 
 namespace Content.Client._Mono.Shipyard;
 
-public sealed class VesselReferenceSystem : EntitySystem
+public sealed partial class VesselReferenceSystem : EntitySystem
 {
     [Dependency] private IConsoleHost _console = default!;
 
@@ -12,12 +12,12 @@ public sealed class VesselReferenceSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        _console.RegisterCommand("vesselref", "Opens the unit reference window.", "vesselref", VesselRefCommand);
+        _console.RegisterCommand("unitref", "Opens the unit reference window.", "unitref", VesselRefCommand);
     }
 
     public override void Shutdown()
     {
-        _console.UnregisterCommand("vesselref");
+        _console.UnregisterCommand("unitref");
         base.Shutdown();
     }
 

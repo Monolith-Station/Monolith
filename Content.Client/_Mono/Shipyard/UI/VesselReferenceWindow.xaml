@@ -7,7 +7,6 @@
                SetSize="820 520"
                MinSize="640 400">
     <BoxContainer Orientation="Horizontal" SeparationOverride="8">
-        <!-- Left: searchable tree -->
         <BoxContainer Orientation="Vertical" MinWidth="260" MaxWidth="300">
             <LineEdit Name="SearchBar"
                       PlaceHolder="{Loc vessel-reference-search-placeholder}"
@@ -18,8 +17,6 @@
                            HorizontalExpand="True" />
             </ScrollContainer>
         </BoxContainer>
-
-        <!-- Right: detail panel -->
         <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
             <Label Name="VesselTitleLabel"
                    StyleClasses="LabelHeading"
