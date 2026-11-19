@@ -159,6 +159,9 @@ namespace Content.Shared.Lathe
 
         [DataField]
         public ProtoId<SourcePortPrototype> ProducedPort = "Produced";
+
+        [DataField]
+        public ProtoId<SinkPortPrototype> ToggleOpenPort = "ToggleOpen";
         // </Mono>
     }
 
