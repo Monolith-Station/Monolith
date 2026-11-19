@@ -31,7 +31,7 @@ public sealed partial class ForeignerTraitSystem : EntitySystem
         if (entity.Comp.CantUnderstand && !entity.Comp.CantSpeak)
             Log.Warning($"Allowing entity {entity.Owner} to speak a language but not understand it leads to undefined behavior.");
 
-        if (!TryComp<LanguageKnowledgeComponent>(entity, out var knowledge))
+        if (!TryComp<Shared._EinsteinEngines.Language.LanguageKnowledgeComponent>(entity, out var knowledge))
         {
             Log.Warning($"Entity {entity.Owner} does not have a LanguageKnowledge but has a ForeignerTrait!");
             return;

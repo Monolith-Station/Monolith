@@ -33,7 +33,7 @@ public sealed partial class MakeSentient : EntityEffect
         // Einstein Engines - Language begin
         // Make sure the entity knows at least fallback (Tau-Ceti Basic).
         var speaker = entityManager.EnsureComponent<LanguageSpeakerComponent>(uid);
-        var knowledge = entityManager.EnsureComponent<LanguageKnowledgeComponent>(uid);
+        var knowledge = entityManager.EnsureComponent<Shared._EinsteinEngines.Language.LanguageKnowledgeComponent>(uid);
         var fallback = SharedLanguageSystem.FallbackLanguagePrototype;
 
         if (!knowledge.UnderstoodLanguages.Contains(fallback))

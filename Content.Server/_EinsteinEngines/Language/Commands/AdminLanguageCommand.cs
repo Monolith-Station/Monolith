@@ -27,7 +27,7 @@ public sealed class AdminLanguageCommand : ToolshedCommand
     {
         if (language == SharedLanguageSystem.UniversalPrototype)
         {
-            EnsureComp<UniversalLanguageSpeakerComponent>(input);
+            EnsureComp<Shared._EinsteinEngines.Language.UniversalLanguageSpeakerComponent>(input);
             Languages.UpdateEntityLanguages(input);
         }
         else
@@ -48,9 +48,9 @@ public sealed class AdminLanguageCommand : ToolshedCommand
         [CommandArgument] bool removeUnderstand = true
     )
     {
-        if (language == SharedLanguageSystem.UniversalPrototype && HasComp<UniversalLanguageSpeakerComponent>(input))
+        if (language == SharedLanguageSystem.UniversalPrototype && HasComp<Shared._EinsteinEngines.Language.UniversalLanguageSpeakerComponent>(input))
         {
-            RemComp<UniversalLanguageSpeakerComponent>(input);
+            RemComp<Shared._EinsteinEngines.Language.UniversalLanguageSpeakerComponent>(input);
             EnsureComp<LanguageSpeakerComponent>(input);
         }
         // We execute this branch even in case of universal so that it gets removed if it was added manually to the LanguageKnowledge.

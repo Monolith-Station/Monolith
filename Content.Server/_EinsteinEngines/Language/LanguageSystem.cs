@@ -17,11 +17,11 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
 
         SubscribeLocalEvent<LanguageSpeakerComponent, MapInitEvent>(OnInitLanguageSpeaker);
         SubscribeLocalEvent<LanguageSpeakerComponent, ComponentGetState>(OnGetLanguageState);
-        SubscribeLocalEvent<UniversalLanguageSpeakerComponent, DetermineEntityLanguagesEvent>(OnDetermineUniversalLanguages);
+        SubscribeLocalEvent<Shared._EinsteinEngines.Language.UniversalLanguageSpeakerComponent, DetermineEntityLanguagesEvent>(OnDetermineUniversalLanguages);
         SubscribeNetworkEvent<LanguagesSetMessage>(OnClientSetLanguage);
 
-        SubscribeLocalEvent<UniversalLanguageSpeakerComponent, MapInitEvent>((uid, _, _) => UpdateEntityLanguages(uid));
-        SubscribeLocalEvent<UniversalLanguageSpeakerComponent, ComponentRemove>((uid, _, _) => UpdateEntityLanguages(uid));
+        SubscribeLocalEvent<Shared._EinsteinEngines.Language.UniversalLanguageSpeakerComponent, MapInitEvent>((uid, _, _) => UpdateEntityLanguages(uid));
+        SubscribeLocalEvent<Shared._EinsteinEngines.Language.UniversalLanguageSpeakerComponent, ComponentRemove>((uid, _, _) => UpdateEntityLanguages(uid));
     }
 
     #region event handling
@@ -44,7 +44,7 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
         };
     }
 
-    private void OnDetermineUniversalLanguages(Entity<UniversalLanguageSpeakerComponent> entity, ref DetermineEntityLanguagesEvent ev)
+    private void OnDetermineUniversalLanguages(Entity<Shared._EinsteinEngines.Language.UniversalLanguageSpeakerComponent> entity, ref DetermineEntityLanguagesEvent ev)
     {
         // We only add it as a spoken language: CanUnderstand checks for ULSC itself.
         if (entity.Comp.Enabled)
@@ -68,13 +68,7 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
 
     #region public api
 
-    public bool CanUnderstand(Entity<LanguageSpeakerComponent?> ent, ProtoId<LanguagePrototype> language)
-    {
-        if (language == PsychomanticPrototype || language == UniversalPrototype || TryComp<UniversalLanguageSpeakerComponent>(ent, out var uni) && uni.Enabled)
-            return true;
 
-        return Resolve(ent, ref ent.Comp, logMissing: false) && ent.Comp.UnderstoodLanguages.Contains(language);
-    }
 
     public bool CanSpeak(Entity<LanguageSpeakerComponent?> ent, ProtoId<LanguagePrototype> language)
     {
@@ -137,7 +131,7 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
         bool addSpoken = true,
         bool addUnderstood = true)
     {
-        EnsureComp<LanguageKnowledgeComponent>(uid, out var knowledge);
+        EnsureComp<Shared._EinsteinEngines.Language.LanguageKnowledgeComponent>(uid, out var knowledge);
         EnsureComp<LanguageSpeakerComponent>(uid, out var speaker);
 
         if (addSpoken && !knowledge.SpokenLanguages.Contains(language))
@@ -153,7 +147,7 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
     ///     Removes a language from the respective lists of intrinsically known languages of the given entity.
     /// </summary>
     public void RemoveLanguage(
-        Entity<LanguageKnowledgeComponent?> ent,
+        Entity<Shared._EinsteinEngines.Language.LanguageKnowledgeComponent?> ent,
         ProtoId<LanguagePrototype> language,
         bool removeSpoken = true,
         bool removeUnderstood = true)
@@ -202,7 +196,7 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
 
         var ev = new DetermineEntityLanguagesEvent();
         // We add the intrinsically known languages first so other systems can manipulate them easily
-        if (TryComp<LanguageKnowledgeComponent>(ent, out var knowledge))
+        if (TryComp<Shared._EinsteinEngines.Language.LanguageKnowledgeComponent>(ent, out var knowledge))
         {
             foreach (var spoken in knowledge.SpokenLanguages)
                 ev.SpokenLanguages.Add(spoken);
