@@ -27,6 +27,12 @@
       path: /Audio/Machines/button.ogg
       params:
         variation: 0.250
+  - type: ComponentToggler
+    components:
+    - type: MeleeThrowOnHit
+      speed: 5
+      distance: 3
+      stunTime: 0.4
   - type: ItemToggleMeleeWeapon
     activatedDamage:
       types:
