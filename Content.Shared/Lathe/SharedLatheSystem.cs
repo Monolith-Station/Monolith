@@ -7,10 +7,12 @@ using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Lathe.Prototypes;
 using Content.Shared.Localizations;
 using Content.Shared.Materials;
+using Content.Shared.Popups;
 using Content.Shared.Research.Prototypes;
 using Content.Shared.Stacks;
 using Content.Shared.Storage.Components;
@@ -32,6 +34,7 @@ public abstract partial class SharedLatheSystem : EntitySystem
     [Dependency] private IPrototypeManager _proto = default!;
     [Dependency] private SharedMaterialStorageSystem _materialStorage = default!;
     [Dependency] private SharedTransformSystem _sharedTransform = default!; // Mono
+    [Dependency] private SharedPopupSystem _sharedPopup = default!; // Mono
     [Dependency] protected SharedEntityStorageSystem _storage = default!;
     [Dependency] private EmagSystem _emag = default!;
     [Dependency] private SharedContainerSystem _container = default!;
@@ -290,7 +293,19 @@ public abstract partial class SharedLatheSystem : EntitySystem
             return;
         }
 
-        _container.Insert(inserting, storage.Contents);
+        if (storage.Capacity > storage.Contents.Count && _container.Insert(inserting, storage.Contents))
+        {
+            var msg = Loc.GetString("entity-storage-popup-insert",
+                ("user", Identity.Entity(args.User, EntityManager)),
+                ("blueprint", Identity.Entity(args.Used, EntityManager)),
+                ("receiver", Identity.Entity(ent, EntityManager)));
+
+            _sharedPopup.PopupPredicted(msg, ent, args.User);
+        }
+        else
+        {
+            _sharedPopup.PopupPredicted(Loc.GetString("entity-storage-popup-insert-fail"), ent, args.User);
+        }
 
         args.Handled = true;
     }
