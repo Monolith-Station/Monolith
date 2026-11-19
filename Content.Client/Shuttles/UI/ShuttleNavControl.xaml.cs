@@ -67,7 +67,7 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
     ];
 
     public bool ShowIFF { get; set; } = true;
-    public bool ShowIFFDetailed { get; set; } = false; // Mono
+    public bool ShowIFFDetailed { get; set; } = true;
     public bool ShowDocks { get; set; } = true;
     public bool ShowMarkers { get; set; } = false; // Mono
 
