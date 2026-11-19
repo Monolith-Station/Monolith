@@ -1,0 +1,34 @@
+- type: job
+  id: CrocusDockworker
+  name: job-name-crocus-dockworker
+  description: job-description-crocus-dockworker
+  playTimeTracker: JobCrocusDockworker
+  startingGear: JianghuiDockworkerGear
+  alwaysUseSpawner: true
+  hideConsoleVisibility: true
+  icon: "JobIconStationEngineer"
+  supervisors: job-supervisors-nobody
+  canBeAntag: false
+  setPreference: true # For loadout.
+  weight: 10
+  displayWeight: 10
+  accessGroups:
+  - GeneralAccess
+  special:
+  - !type:AddLanguageSpecial
+    languagesSpoken:
+    - NovuNederic
+    languagesUnderstood:
+    - NovuNederic
+    # TRUST
+    removeLanguagesSpoken:
+    - TauCetiBasic
+    removeLanguagesUnderstood:
+    - TauCetiBasic
+
+- type: startingGear
+  id: JianghuiDockworkerGear
+  storage:
+    belt:
+    - RadioHandheldNF
+    - FlashlightLantern

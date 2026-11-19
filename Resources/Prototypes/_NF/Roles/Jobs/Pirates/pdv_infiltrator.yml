@@ -12,10 +12,14 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 36000 # 10 hours # mono end
+    - !type:TraitsRequirement # The trait doesn't do anything if you're PDV anyways, but this is 1 step closer to letting it actually give you points
+      inverted: true
+      traits:
+      - Heretic
   whitelisted: true
   startingGear: PDVInfiltratorGear
   alwaysUseSpawner: true
-  hideConsoleVisibility: true
+# hideConsoleVisibility: true
   canBeAntag: true
   icon: "JobIconPDVInfiltrator"
   supervisors: job-supervisors-pirate
@@ -24,7 +28,7 @@
   assignedCompany: PDV
   setPreference: true
   access:
-  - Pirate
+  - PDV
   - Mercenary
   accessGroups:
   - GeneralAccess
@@ -39,6 +43,8 @@
     - type: NpcFactionMember
       factions:
       - PirateNF
+    - type: RadioOnCryosleep
+      radioChannel: Freelance # freelance = Vanguard
   - !type:AddImplantSpecial
     implants: [ FreelanceTrackingImplant ]
   - !type:AddImplantSpecial

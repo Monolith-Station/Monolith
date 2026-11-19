@@ -174,7 +174,7 @@ public sealed partial class AmmoLoaderSystem : EntitySystem
         ammoCapacity = 0;
         canModifyAmmo = true;
 
-        if (!_gun.TryGetGun(artillery, out var gunUid, out _))
+        if (!_gun.TryGetGun(artillery, out var gunUid))
             return false;
 
         if (TryComp<MagazineAmmoProviderComponent>(gunUid, out _))
@@ -301,7 +301,7 @@ public sealed partial class AmmoLoaderSystem : EntitySystem
         EntityUid incomingAmmo,
         EntityUid? user)
     {
-        if (!_gun.TryGetGun(artillery, out var gunUid, out _))
+        if (!_gun.TryGetGun(artillery, out var gunUid))
             return false;
 
         if (TryComp<MagazineAmmoProviderComponent>(gunUid, out _) &&
@@ -340,7 +340,7 @@ public sealed partial class AmmoLoaderSystem : EntitySystem
         EntityUid artillery,
         EntityUid? user)
     {
-        if (!_gun.TryGetGun(artillery, out var gunUid, out _))
+        if (!_gun.TryGetGun(artillery, out var gunUid))
             return false;
 
         if (TryComp<MagazineAmmoProviderComponent>(gunUid, out _))
@@ -465,7 +465,7 @@ public sealed partial class AmmoLoaderSystem : EntitySystem
 
     private bool IsAmmoCompatible(Entity<AmmoLoaderComponent> loader, EntityUid artillery, EntityUid ammoEntity)
     {
-        if (!_gun.TryGetGun(artillery, out var gunUid, out _))
+        if (!_gun.TryGetGun(artillery, out var gunUid))
             return false;
 
         if (TryComp<MagazineAmmoProviderComponent>(gunUid, out _))
@@ -557,7 +557,7 @@ public sealed partial class AmmoLoaderSystem : EntitySystem
 
     private bool TryTransferSingleAmmo(Entity<AmmoLoaderComponent> loader, EntityUid artillery, EntityUid ammoEntity)
     {
-        if (!_gun.TryGetGun(artillery, out var gunUid, out _))
+        if (!_gun.TryGetGun(artillery, out var gunUid))
             return false;
 
         if (TryComp<MagazineAmmoProviderComponent>(gunUid, out _))

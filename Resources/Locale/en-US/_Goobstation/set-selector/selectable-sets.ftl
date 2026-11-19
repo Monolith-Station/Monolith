@@ -10,25 +10,26 @@ selectable-set-paramedic-modsuit-desc =
     A modular modsuit with heavier plates
     to shrug off a bullet or two, hopefully.
 
-selectable-set-security-voidsuit-name = Security Hardsuit
+selectable-set-security-voidsuit-name = "Constable" Hardsuit
 selectable-set-security-voidsuit-desc =
-    A light hardsuit with an in-built plate carrier to provide
-    moderate protection while remaining mobile for low intensity kinetic ops.
+    A voidsuit, up-armored by Caelestinus.
+    Serves as the backbone of their operations.
 
-selectable-set-security-modsuit-name = Security 'Soldat' Modsuit
+selectable-set-security-modsuit-name = "Soldat" Modsuit
 selectable-set-security-modsuit-desc =
-    A modular modsuit with ceramic inserts to provide more protection
-    than the hardsuit counterpart, but with less mobility.
+    A modsuit equipped with several gadgets, including improved
+    night vision and 12 gauge knuckledusters.
 
-selectable-set-headofsecurity-voidsuit-name = Head of Security's Hardsuit
+selectable-set-headofsecurity-voidsuit-name = "Marshal" Hardsuit
 selectable-set-headofsecurity-voidsuit-desc =
-    A light hardsuit with material cut from non-vital areas to slightly increase
-    the armour value of the vital organs and increase mobility
-    compared to the standard security hardsut.
+    A suit of power armour adorned with several mismatching armour plates
+    salvaged from seized TSFMC and PDV suits.
+    In this particular event, this has somehow created a very formidable suit.
 
-selectable-set-headofsecurity-modsuit-name = Head of Security's 'Bulwark' Modsuit
+selectable-set-headofsecurity-modsuit-name = "Bulwark" Modsuit
 selectable-set-headofsecurity-modsuit-desc =
-    A modsuit with expensive plastitanium armour for the head of security's use.
+    A modsuit with expensive plastitanium armour, improved HUDs
+    and 4 gauge knuckledusters.
 
 selectable-set-engineering-voidsuit-name = Engineering Hardsuit
 selectable-set-engineering-voidsuit-desc =

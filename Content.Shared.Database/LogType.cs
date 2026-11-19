@@ -484,6 +484,11 @@ public enum LogType
 
     // <Mono>
     ShipgunFired = 150,
+
+    /// <summary>
+    /// Tried to yell banned words over their headset (don't do this)
+    /// </summary>
+    HeadsetExploded = 151,
     // </Mono>
 
     /// <summary>

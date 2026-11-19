@@ -20,6 +20,8 @@
     - type: NpcFactionMember
       factions:
       - TSFMC
+    - type: RadioOnCryosleep
+      radioChannel: Nfsd # NFSD = TSF Comms
 # - !type:AddLanguageSpecial # UNCOMMENT WHEN THIS DOESN'T MAKE IMPERSONATING TSF CIVS IMPOSSIBLE FOR PDV
 #   languagesSpoken:
 #   - SolCommon

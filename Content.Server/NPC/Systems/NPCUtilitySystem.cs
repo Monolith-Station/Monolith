@@ -375,13 +375,13 @@ public sealed partial class NPCUtilitySystem : EntitySystem
             // Mono
             case GunTargetGoodCon con:
             {
-                if (!_gun.TryGetGun(owner, out var gunUid, out var gun))
+                if (!_gun.TryGetGun(owner, out var gunUid))
                     return 0f;
 
                 var radius = blackboard.GetValueOrDefault<float>(blackboard.GetVisionRadiusKey(EntityManager), EntityManager);
                 const float bufferRange = 0.5f;
 
-                return _npcCombat.InRangeGoodTarget((gunUid, gun), owner, targetUid, radius + bufferRange, con.ShootThroughThreshold) ? 1f : 0f;
+                return _npcCombat.InRangeGoodTarget((gunUid, gunUid.Comp), owner, targetUid, radius + bufferRange, con.ShootThroughThreshold) ? 1f : 0f;
             }
             case TargetIsAliveCon:
             {

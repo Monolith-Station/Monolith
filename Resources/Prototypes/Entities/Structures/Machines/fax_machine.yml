@@ -126,4 +126,5 @@
       name: "Captain's Office"
       receiveNukeCodes: true
     - type: StealTarget
-      stealGroup: FaxMachineCaptain
+      stealGroup:
+      - FaxMachineCaptain

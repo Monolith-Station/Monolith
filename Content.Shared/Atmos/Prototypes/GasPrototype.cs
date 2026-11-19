@@ -41,13 +41,15 @@ namespace Content.Shared.Atmos.Prototypes
         [DataField("gasMolesVisible")]
         public float GasMolesVisible { get; private set; } = 0.25f;
 
+        // ES START
+        // I dont give a fuck about any thing
+        // why would you not just be this
         /// <summary>
         ///     Visibility for this gas will be max after this value.
         /// </summary>
-        public float GasMolesVisibleMax => GasMolesVisible * GasVisibilityFactor;
-
-        [DataField("gasVisbilityFactor")]
-        public float GasVisibilityFactor = Atmospherics.FactorGasVisibleMax;
+        [DataField("gasMolesVisibleMax")]
+        public float GasMolesVisibleMax = Atmospherics.FactorGasVisibleMax;
+        // ES END
 
         /// <summary>
         ///     If this reagent is in gas form, this is the path to the overlay that will be used to make the gas visible.

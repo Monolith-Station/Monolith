@@ -268,7 +268,7 @@
   description: A precise and reliable bullpup DMR, developed as a cheaper production model from early QBU-243 prototypes. Feeds from 8x65mm STANAG magazines. It has a Erebus railmount for optics. # Mono
   components:
   - type: Sprite
-    sprite: _Harmony/Objects/Weapons/Guns/Rifles/bandit.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/bandit.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -276,7 +276,9 @@
       map: ["enum.GunVisualLayers.Mag"]
     - map: ["opticAttachment"] # Mono
   - type: Clothing
-    sprite: _Harmony/Objects/Weapons/Guns/Rifles/bandit.rsi
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/bandit_inhands_32x.rsi
+  - type: Item
+    sprite: _Mono/Objects/Weapons/Guns/Rifles/bandit_inhands_32x.rsi
   - type: GunWieldBonus # Mono
     minAngle: -32
     maxAngle: -51
@@ -285,10 +287,11 @@
     maxAngle: 54 # Mono
     angleIncrease: 14
     angleDecay: 5
+    damageModifier: 1.5
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
-    fireRate: 2
+    fireRate: 1.5
     soundGunshot:
       collection: DMRFire
   - type: ChamberMagazineAmmoProvider

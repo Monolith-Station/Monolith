@@ -1,3 +1,4 @@
+using System.Globalization;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Events;
 using Content.Shared.Damage.Prototypes;
@@ -38,9 +39,10 @@ public sealed partial class DamageExamineSystem : EntitySystem
         }
     }
 
-    public void AddDamageExamine(FormattedMessage message, DamageSpecifier damageSpecifier, string? type = null)
+    // Mono edit start - added armor piercing to examine.
+    public void AddDamageExamine(FormattedMessage message, DamageSpecifier damageSpecifier, string? type = null, float? armorPiercing = 0f)
     {
-        var markup = GetDamageExamine(damageSpecifier, type);
+        var markup = GetDamageExamine(damageSpecifier, type, armorPiercing ?? 0f);
         if (!message.IsEmpty)
         {
             message.PushNewline();
@@ -51,7 +53,7 @@ public sealed partial class DamageExamineSystem : EntitySystem
     /// <summary>
     /// Retrieves the damage examine values.
     /// </summary>
-    private FormattedMessage GetDamageExamine(DamageSpecifier damageSpecifier, string? type = null)
+    private FormattedMessage GetDamageExamine(DamageSpecifier damageSpecifier, string? type = null, float armorPiercing = 0f)
     {
         var msg = new FormattedMessage();
 
@@ -67,7 +69,11 @@ public sealed partial class DamageExamineSystem : EntitySystem
                 return msg;
             }
 
-            msg.AddMarkupOrThrow(Loc.GetString("damage-examine-type", ("type", type)));
+            msg.AddMarkupOrThrow(Loc.GetString("damage-examine-type",
+                ("type", type),
+                ("ap", (armorPiercing * 100).ToString(CultureInfo.CurrentCulture)),
+                ("negative", armorPiercing < 0 ? "red" : "yellow")
+                ));
         }
 
         foreach (var damage in damageSpecifier.DamageDict)
@@ -81,4 +87,5 @@ public sealed partial class DamageExamineSystem : EntitySystem
 
         return msg;
     }
+    // Mono edit end
 }

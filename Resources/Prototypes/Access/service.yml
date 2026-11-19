@@ -1,34 +1,42 @@
 - type: accessLevel
   id: Bar
   name: id-card-access-level-bar
+  deprecated: true
 
 - type: accessLevel
   id: Kitchen
   name: id-card-access-level-kitchen
+  deprecated: true
 
 - type: accessLevel
   id: Hydroponics
   name: id-card-access-level-hydroponics
+  deprecated: true
 
 - type: accessLevel
   id: Service
   name: id-card-access-level-service
+  deprecated: true
 
 - type: accessLevel
   id: Janitor
   name: id-card-access-level-janitor
+  deprecated: true
 
 - type: accessLevel
   id: Theatre
   name: id-card-access-level-theatre
+  deprecated: true
 
 - type: accessLevel
   id: Chapel
   name: id-card-access-level-chapel
+  deprecated: true
 
 - type: accessLevel
   id: Lawyer
   name: id-card-access-level-lawyer
+  deprecated: true
 
 - type: accessGroup
   id: Service

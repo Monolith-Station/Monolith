@@ -1,0 +1,93 @@
+- type: entity
+  id: GeneticDatabaseServer
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  name: genetic database
+  description: Stores genetic scans of the crew so they can be cloned, wherever they fell.
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/server.rsi
+    layers:
+    - state: server
+    - state: variant-crew
+    - state: server_o
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: GeneticDatabase
+  - type: ApcPowerReceiver
+    powerLoad: 200
+  - type: ExtensionCableReceiver
+  - type: WiresPanel
+  - type: WiresVisuals
+  - type: Machine
+    board: GeneticDatabaseMachineCircuitboard
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 1
+            max: 2
+  - type: Appearance
+  - type: AmbientOnPowered
+  - type: AmbientSound
+    volume: -9
+    range: 5
+    sound:
+      path: /Audio/Ambience/Objects/server_fans.ogg
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+
+- type: entity
+  id: GeneticDatabaseMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: genetic database machine board
+  description: A machine printed circuit board for a genetic database.
+  components:
+  - type: Sprite
+    state: medical
+  - type: MachineBoard
+    prototype: GeneticDatabaseServer
+    stackRequirements:
+      Plasma: 5
+    tagRequirements:
+      MicroprocessorEconomy1:
+        amount: 2
+        defaultPrototype: MicroprocessorEconomy1
+      RadioEconomy1:
+        amount: 1
+        defaultPrototype: RadioEconomy1
+
+- type: entity
+  parent: BaseNFFlatpack
+  id: GeneticDatabaseServerFlatpack
+  name: genetic database flatpack
+  description: A flatpack used for constructing a genetic database.
+  components:
+  - type: Flatpack
+    entity: GeneticDatabaseServer
+  - type: StaticPrice
+    price: 250
+  - type: Sprite
+    layers:
+    - state: science_server
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: GeneticDatabaseMachineCircuitboard
+  result: GeneticDatabaseMachineCircuitboard

@@ -1,0 +1,25 @@
+- type: explosion
+  id: HeadsetPunishment
+  damagePerIntensity:
+    types: {}
+  tileBreakChance: [0]
+  tileBreakIntensity: [0]
+  maxCombineDistance: 0
+  throwEntitiesOnExplosion: false
+  lightColor: Orange
+  texturePath: /Textures/Effects/fire.rsi
+  fireStates: 3
+
+- type: headsetPunishment
+  id: Default
+  wordsBase64:
+    - "bmlnZ2Vy"
+    - "bmlnZ2Vycw=="
+    - "bmlnZ2E="
+    - "bmlnZ2Fz"
+
+  explosion: HeadsetPunishment
+  baseIntensity: 8
+  intensityPerMatch: 8
+  maxIntensity: 40
+  stunSecondsPerMatch: 2

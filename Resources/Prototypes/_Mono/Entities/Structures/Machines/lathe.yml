@@ -33,7 +33,7 @@
     # rogue start
     - MonoRogueWeaponsDynamicMelee
     - MonoRogueWeaponsDynamicRanged
-    #- MonoRogueVouchersDynamic
+    - MonoRogueVouchersDynamic
     - MonoRogueMiscDynamic
     - MonoRogueGearDynamic
     #- MonoRogueGearProDynamic
@@ -60,6 +60,10 @@
     - ResearchedExplosives
     - SecurityEquipment
     - SmartGun
+    # Shipguns
+    - NavalBallistics
+    - NavalEnergy
+    - NavalMissiles
   - type: MaterialStorage
     whitelist:
       tags:
@@ -107,6 +111,7 @@
     - description: Insert components for recipes by placing them on top of the lathe, then "open / close" inside its right-click menu.
       color: "#4f94ad"
       requireDetailRange: true
+  - type: OreSiloClient
 
 #USSP
 
@@ -159,6 +164,10 @@
     - ResearchedExplosives
     - SecurityEquipment
     - SmartGun
+    # Shipguns
+    - NavalBallistics
+    - NavalEnergy
+    - NavalMissiles
   - type: MaterialStorage
     whitelist:
       tags:
@@ -220,6 +229,10 @@
     - ResearchedExplosives
     - SecurityEquipment
     - SmartGun
+    # Shipguns
+    - NavalBallistics
+    - NavalEnergy
+    - NavalMissiles
   - type: MaterialStorage
     whitelist:
       tags:
@@ -281,6 +294,10 @@
     # Civ military tech
     - SecurityEquipment
     - SmartGun
+    # Shipguns
+    - NavalBallistics
+    - NavalEnergy
+    - NavalMissiles
   - type: MaterialStorage
     whitelist:
       tags:
@@ -844,3 +861,75 @@
     anchored: true
     noRot: false
   - type: OreSiloClient
+
+- type: entity
+  parent: BaseLatheAssembler # caelestinus ASMGTs require small monocrystals now.
+  id: SecurityTechFabCaelestinus # Exists because anything given to the regular secfab is also given to the TSFMCfab.
+  name: caelestinus security techfab
+  description: A techfab used by members of the Caelestinus Security Detachment.
+  components:
+  - type: Lathe
+    idleState: icon
+    runningState: icon
+    staticPacks:
+    - SecurityEquipmentStatic
+    - SecurityPracticeStatic
+    - StaticAmmoRecipePack
+    - StaticGrenades
+    - SecurityWeaponsStatic
+    - MonoCaelestinusVouchersStatic
+    dynamicPacks:
+    - SecurityEquipment
+    - SecurityExplosives
+    - DynamicAmmoRecipePack
+    - SecurityWeapons
+    - SecurityDisablers
+    - SMCybernetics
+    # Mono - Mechs
+    - WeaponMechCombatArsenal
+    - SmartGun # Goobstation
+    # Mono start
+    - MonoTSFWeaponsDynamicMelee
+    - MonoTSFWeaponsDynamicRanged
+    - MonoTSFMiscDynamic
+    - MonoRogueWeaponsDynamicMelee
+    - MonoRogueWeaponsDynamicRanged
+    - MonoRogueMiscDynamic
+    - UniversalShellAmmo
+    - ResearchedExplosives
+    - UniversalRailgunAmmo
+    - UniversalMissileAmmo
+    - UniversalOrdinance
+    - SmartGun #Smart SMG
+    - NFMercenaryTechfabDeprecated
+    # Shipguns
+    - NavalBallistics
+    - NavalEnergy
+    - NavalMissiles
+    # Caelestinus
+    - MonoCaelestinusWeaponsDynamic
+    - MonoCaelestinusGearDynamic
+    # Mono end
+  - type: MaterialStorage
+    whitelist:
+      tags:
+      - Sheet
+      - RawMaterial
+      - Ingot
+  - type: RequireProjectileTarget
+  - type: OreSiloClient
+  - type: Sprite
+    sprite: Structures/Machines/techfab.rsi
+    layers:
+    - state: icon
+      map: [ "enum.LatheVisualLayers.IsRunning" ]
+    - state: sec
+    - state: unlit
+      shader: unshaded
+      map: [ "enum.PowerDeviceVisualLayers.Powered"]
+    - state: inserting
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Machine
+    board: SecurityTechFabCaelestinusMachineCircuitboard

@@ -11,6 +11,15 @@
   - type: StaticPrice
     price: 200
 
+- type: entity #MeLat
+  parent:
+  - WeaponRevolverMeLat
+  id: WeaponRevolverMeLatPMC
+  suffix: Registered
+  components:
+  - type: StaticPrice
+    price: 200
+
 # SMGs
 
 - type: entity #WT-550

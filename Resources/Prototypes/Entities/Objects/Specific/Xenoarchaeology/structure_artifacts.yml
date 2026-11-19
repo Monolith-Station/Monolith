@@ -58,7 +58,8 @@
     guides:
     - Xenoarchaeology
   - type: StealTarget
-    stealGroup: XenoArtifact
+    stealGroup:
+    - XenoArtifact
   - type: ContainerContainer
     containers:
       storagebase: !type:Container # needed for the EffectStorage artifactEffect

@@ -131,3 +131,53 @@
     - chance: 1
       toReplace: ShieldGeneratorPOI
       replaceWith: ShieldGeneratorPOIBioPdv
+
+- type: gridModifier
+  id: DeOutpost
+  modifiers:
+  - !type:GridModEntityReplace
+    comp: Destructible
+    data:
+    - chance: 1
+      toReplace: ReinforcedWindowDiagonalOutpost
+      replaceWith: ReinforcedWindowDiagonal
+    - chance: 1
+      toReplace: ReinforcedWindowOutpost
+      replaceWith: ReinforcedWindow
+    - chance: 1
+      toReplace: PlastitaniumWindowOutpost
+      replaceWith: PlastitaniumWindow
+    - chance: 1
+      toReplace: PlastitaniumWindowDiagonalOutpost
+      replaceWith: PlastitaniumWindowDiagonal
+  - !type:GridModEntityReplace
+    comp: Occluder
+    data:
+    - chance: 1
+      toReplace: WallMiningOutpost
+      replaceWith: WallMining
+    - chance: 1
+      toReplace: WallMiningDiagonalOutpost
+      replaceWith: WallMiningDiagonal
+    - chance: 1
+      toReplace: WallPlastitaniumOutpost
+      replaceWith: WallPlastitanium
+    - chance: 1
+      toReplace: WallPlastitaniumDiagonalOutpost
+      replaceWith: WallPlastitaniumDiagonal
+    - chance: 1
+      toReplace: WallReinforcedOutpost
+      replaceWith: WallReinforced
+    - chance: 1
+      toReplace: WallReinforcedDiagonalOutpost
+      replaceWith: WallReinforcedDiagonal
+
+- type: gridModifier
+  id: CosmeticRust
+  modifiers:
+  - !type:GridModEntityReplace
+    comp: Occluder
+    data:
+    - chance: 0.5
+      toReplace: WallReinforced
+      replaceWith: WallReinforcedRust

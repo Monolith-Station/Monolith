@@ -149,6 +149,15 @@
 
 # Other Timed Despawn Windows
 
+# This one is just used on crocus so dockworkers have a head start, and for latejoining.
+- type: entity
+  id: WindowTimedSeal10Minutes
+  parent: WindowTimedSeal
+  suffix: 10 Minutes, Indestructible
+  components:
+  - type: TimedDespawn
+    lifetime: 600
+
 - type: entity
   id: WindowTimedSeal60Minutes
   parent: WindowTimedSeal

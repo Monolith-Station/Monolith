@@ -4,12 +4,12 @@
   id: Neptune
   parent: BaseVesselIFFDisabled
   name: PDW Neptune
-  description: Equipped with heavy frontal armor, 6 Fang heavy 90mms, and 2 Trident torpedoes. Good for dealing with heavier targets in head on brawls, but it lacks capabilities to fight nimble and small targets. Unable to use shields.
+  description: Equipped with heavy frontal armor, 6 Fang heavy 57mms, and 2 Trident torpedoes. Good for dealing with heavier targets in head on brawls, but it lacks capabilities to fight nimble and small targets.
   price: 208340
   purchasable: false # voucher only - T2
   category: Medium
   group: BlackMarket
-  access: Pirate
+  access: PDV
   shuttlePath: /SharedMaps/_Mono/Shuttles/PDV/neptune.yml
   guidebookPage: Null
   class:
@@ -28,8 +28,6 @@
   stations:
     Neptune:
       stationProto: StandardFrontierVessel
-      gridComponents:
-      - type: ShipShieldDisabledGrid
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Neptune PDV{1}'

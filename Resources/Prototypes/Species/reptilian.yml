@@ -30,6 +30,7 @@
     RLeg: MobReptilianRLegDigi # WWDP-Edit
     LFoot: MobReptilianLFootDigi # WWDP-Edit
     RFoot: MobReptilianRFootDigi # WWDP-Edit
+    Wings: MobHumanoidAnyMarking # Floof
 
 - type: markingPoints
   id: MobReptilianMarkingLimits
@@ -59,10 +60,13 @@
       points: 3
       required: false
     Legs:
-      points: 2
+      points: 8 # imp/mono 2<8
       required: false
     Arms:
-      points: 2
+      points: 8 # imp/mono 2<8
+      required: false
+    Wings:
+      points: 1 # Floof Edit
       required: false
 
 - type: humanoidBaseSprite

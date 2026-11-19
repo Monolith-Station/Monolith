@@ -1,0 +1,30 @@
+- type: reagent
+  id: Smoke
+  name: es-reagent-name-smoke
+  desc: es-reagent-desc-smoke
+  physicalDesc: es-reagent-physical-desc-smoky
+  flavor: smokey
+  color: "#2e2e2e"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        ignoreResistances: true
+        damage:
+          types:
+            Asphyxiation:
+              1
+    Gas:
+      effects:
+      - !type:HealthChange
+        ignoreResistances: true
+        damage:
+          types:
+            Asphyxiation:
+              2.5 #1.25 - Mono
+            Poison: # Mono
+              2.5
+#      - !type:ESAddWound
+#        minScale: 0.5
+#        wound: ESWoundSmokeInhalation
+#        probability: 0.33

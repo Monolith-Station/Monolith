@@ -331,6 +331,7 @@
     - NFServiceBoardsStatic # Frontier
     - NFSalvageBoardsStatic # Frontier
     dynamicPacks:
+    - MonoCloningBoards # Mono
     - MonoEconomyLatheBoards # Mono
     - EngineeringBoards
     - CargoBoards
@@ -349,7 +350,8 @@
     - AiCoreBoard
     - S2MechBoards
     - EngineeringBoardsGoob #Goob Factorio port
-    - ReactorCircuitboards # FH edit
+    - ReactorCircuitboards # FH edit\
+    - ServiceBoardsGoob #Forge-Change
   - type: MaterialStorage
     whitelist:
       tags:
@@ -522,6 +524,10 @@
     - UniversalOrdinance
     - SmartGun #Smart SMG
     - NFMercenaryTechfabDeprecated
+    # Shipguns
+    - NavalBallistics
+    - NavalEnergy
+    - NavalMissiles
     # Mono end
   - type: MaterialStorage
     whitelist:
@@ -622,7 +628,8 @@
   - type: Machine
     board: MedicalTechFabCircuitboard
   - type: StealTarget
-    stealGroup: MedicalTechFabCircuitboard
+    stealGroup:
+    - MedicalTechFabCircuitboard
   - type: PirateBountyItem # Mono
     id: Techfab
 

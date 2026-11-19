@@ -23,6 +23,9 @@
           tags: ## TODO: Add a risk of the gun blowing up if using non-light shotgun shells, and then re-enable them.
             ## - ShellShotgun12_gaugeBuckshot
             - SignalFlareLaunchable
+        blacklist:
+          tags:
+          - SignalFlareLaunched
   - type: ContainerContainer
     containers:
       gun_chamber: !type:ContainerSlot
@@ -69,6 +72,28 @@
       path: /Audio/_Goobstation/Items/handling/gun_drop.ogg
       params:
         volume: -8
+
+
+- type: entity
+  name: flare gun type-R
+  parent: WeaponFlareGun
+  id: WeaponFlareGunRacing
+  description: A compact, single-shot flare launcher. Used for firing signal flares. Now with added BlueSpace technology to allow for use in high speed racing.
+  suffix: ADMEME
+  components:
+  - type: ItemSlots
+    slots:
+      gun_chamber:
+        name: Chamber
+        startingItem: null
+        priority: 1
+        whitelist:
+          tags: # No blacklist for already shot flares. NYOOM
+          - SignalFlareLaunchable
+  - type: Tag
+    tags:
+    - Unstashable # We do NOT need more stashed flintlocks.
+
   # Goobstation edit end
 
 # Mono - Commented out, unused

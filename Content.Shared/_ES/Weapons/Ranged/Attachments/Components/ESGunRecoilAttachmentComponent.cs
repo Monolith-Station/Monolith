@@ -21,16 +21,4 @@ public sealed partial class ESGunRecoilAttachmentComponent : Component
 
     [DataField]
     public float MaxSpreadModifier = 1.0f;
-
-    [DataField]
-    public float WieldRecoilRecoveryModifier = 1.0f;
-
-    [DataField]
-    public float WieldRecoilIncreaseModifier = 1.0f;
-
-    [DataField]
-    public float WieldMinSpreadModifier = 1.0f;
-
-    [DataField]
-    public float WieldMaxSpreadModifier = 1.0f;
 }

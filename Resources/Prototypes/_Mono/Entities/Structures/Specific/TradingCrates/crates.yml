@@ -1,0 +1,29 @@
+- type: entity
+  parent: [ CrateTradeBaseSecureUnderground ]
+  id: CrateTradeContrabandSecureUnderground
+  #categories: [ HideSpawnMenu ]
+  components:
+  - type: Icon
+    sprite: _Mono/Structures/Storage/Crates/underground_crate.rsi
+  - type: Sprite
+    sprite: _Mono/Structures/Storage/Crates/underground_crate.rsi
+    layers:
+    - state: icon
+    - sprite: _NF/Interface/Misc/cargo_destination_icons.rsi
+      state: cargo_other
+      offset: 0.275,-0.265
+      map: ["enum.TradeCrateVisualLayers.Icon"]
+      visible: false
+    - sprite: _NF/Interface/Misc/cargo_destination_icons.rsi
+      state: cargo_priority_inactive
+      offset: 0.025,-0.265
+      map: ["enum.TradeCrateVisualLayers.Priority"]
+      visible: false
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      offset: "-0.5,0"
+      map: ["enum.PaperLabelVisuals.Layer"]
+  - type: TradeCrate
+    valueAtDestination: 30000
+    valueElsewhere: 100 # since they're buyable, might as well nuke the elsewhere price.
+  

@@ -95,6 +95,11 @@
     state: fission
   - type: StaticPrice
     vendPrice: 6000
+  - type: Explosive # Only used for the rad chaining
+    explosionType: Default
+    maxIntensity: 100
+    intensitySlope: 2
+    totalIntensity: 200 # 4x as volatile as ammo
   - type: RadiationSource
     intensity: 2
     slope: 2.5

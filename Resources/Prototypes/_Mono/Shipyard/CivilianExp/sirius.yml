@@ -21,7 +21,7 @@
   minPlayers: 0
   stations:
     Sirius:
-      stationProto: StandardFrontierVessel
+      stationProto: StandardFrontierExpeditionVessel
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Sirius EXP{1}'

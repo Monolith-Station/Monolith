@@ -46,3 +46,80 @@
   - type: SpentAmmoVisuals
     state: stinger
     suffix: false
+
+# Crocus grenades for seperate balancing
+- type: entity
+  id: Cartridge35mmGrenadeHEDP
+  name: 35x53mm HEDP grenade
+  description: A high-explosive dual-purpose grenade. Optimized for structural damage over killing people.
+  parent: Base35mmGrenade
+  suffix: for Crocus only
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet35mmGrenadeHEDP
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/35mm_grenade.rsi
+    layers:
+    - state: hedp
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+    state: hedp
+    suffix: false
+
+- type: entity
+  id: Cartridge35mmGrenadeFlash
+  name: 35x53mm flash grenade
+  description: A flashbang grenade. Explodes on impact.
+  parent: Base35mmGrenade
+  suffix: for Crocus only
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet35mmGrenadeFlash
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/35mm_grenade.rsi
+    layers:
+    - state: flash
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+    state: flash
+    suffix: false
+
+- type: entity
+  id: Cartridge35mmGrenadeBaton
+  name: 35x53mm baton grenade
+  description: A baton grenade. Actually just a big rubber slug. Knocks down anyone it hits.
+  parent: Base35mmGrenade
+  suffix: for Crocus only
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet35mmGrenadeBaton
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/35mm_grenade.rsi
+    layers:
+    - state: baton
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+    state: baton
+    suffix: false
+
+- type: entity
+  id: Cartridge35mmGrenadeEMP
+  name: 35x53mm EMP grenade
+  description: An EMP grenade.
+  parent: Base35mmGrenade
+  suffix: for Crocus only
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet35mmGrenadeEMP
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Explosives/35mm_grenade.rsi
+    layers:
+    - state: emp
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+    state: emp
+    suffix: false

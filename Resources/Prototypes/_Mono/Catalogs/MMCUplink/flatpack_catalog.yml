@@ -1,0 +1,340 @@
+# Atmospherics
+- type: listing
+  id: MMCGasThermoMachineFreezerFlatpack
+  productEntity: GasThermoMachineFreezerFlatpack
+  cost:
+    MMCIndustrialCredit: 10
+  categories:
+  - UplinkMmcAtmosphericsFlatpacks
+  - UplinkMmcFlatpacks
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
+  id: MMCGasThermoMachineHeaterFlatpack
+  productEntity: GasThermoMachineHeaterFlatpack
+  cost:
+    MMCIndustrialCredit: 10
+  categories:
+  - UplinkMmcAtmosphericsFlatpacks
+  - UplinkMmcFlatpacks
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
+  id: MMCBaseGasCondenserFlatpack
+  productEntity: BaseGasCondenserFlatpack
+  cost:
+    MMCIndustrialCredit: 15
+  categories:
+  - UplinkMmcAtmosphericsFlatpacks
+  - UplinkMmcFlatpacks
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
+  id: MMCGasMiningDrillFlatpack
+  productEntity: GasMiningDrillFlatpack
+  cost:
+    MMCIndustrialCredit: 25
+  categories:
+  - UplinkMmcAtmosphericsFlatpacks
+  - UplinkMmcFlatpacks
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
+  id: MMCGaslockFrameFlatpack
+  productEntity: GaslockFrameFlatpack
+  cost:
+    MMCIndustrialCredit: 10
+  categories:
+  - UplinkMmcAtmosphericsFlatpacks
+  - UplinkMmcFlatpacks
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
+  id: MMCGaslockFlatpack
+  productEntity: GaslockFlatpack
+  cost:
+    MMCIndustrialCredit: 50
+  categories:
+  - UplinkMmcAtmosphericsFlatpacks
+  - UplinkMmcFlatpacks
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
+  id: MMCGasThermoMachineHellfireFreezerFlatpack
+  productEntity: GasThermoMachineHellfireFreezerFlatpack
+  cost:
+    MMCIndustrialCredit: 50
+  categories:
+  - UplinkMmcAtmosphericsFlatpacks
+  - UplinkMmcFlatpacks
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
+  id: MMCGasThermoMachineHellfireHeaterFlatpack
+  productEntity: GasThermoMachineHellfireHeaterFlatpack
+  cost:
+    MMCIndustrialCredit: 50
+  categories:
+  - UplinkMmcAtmosphericsFlatpacks
+  - UplinkMmcFlatpacks
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
+  id: MMCCrystallizerFlatpack
+  productEntity: CrystallizerFlatpack
+  cost:
+    MMCIndustrialCredit: 250
+  categories:
+  - UplinkMmcAtmosphericsFlatpacks
+  - UplinkMmcFlatpacks
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+# Engineering/salvage
+
+- type: listing
+  id: MMCGeneratorRTGFlatpack
+  productEntity: GeneratorRTGFlatpack
+  cost:
+    MMCIndustrialCredit: 75
+  categories:
+  - UplinkMmcEngineeringFlatpacks
+  - UplinkMmcFlatpacks
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
+  id: MMCOreProcessorIndustrialFlatpack
+  productEntity: OreProcessorIndustrialFlatpack
+  cost:
+    MMCIndustrialCredit: 250
+  categories:
+  - UplinkMmcEngineeringFlatpacks
+  - UplinkMmcFlatpacks
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
+  id: MMCLaserDrillFlatpack
+  productEntity: LaserDrillFlatpack
+  cost:
+    MMCIndustrialCredit: 150
+  categories:
+  - UplinkMmcEngineeringFlatpacks
+  - UplinkMmcFlatpacks
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
+  id: MMCOreMagnetFlatpack
+  productEntity: OreMagnetFlatpack
+  cost:
+    MMCIndustrialCredit: 20
+  categories:
+  - UplinkMmcEngineeringFlatpacks
+  - UplinkMmcFlatpacks
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
+  id: MMCSalvageRadarFlatpack
+  productEntity: SalvageRadarFlatpack
+  cost:
+    MMCIndustrialCredit: 20
+  categories:
+  - UplinkMmcEngineeringFlatpacks
+  - UplinkMmcFlatpacks
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
+  id: MMCScrapProcessorFlatpack
+  productEntity: ScrapProcessorFlatpack
+  cost:
+    MMCIndustrialCredit: 20
+  categories:
+  - UplinkMmcEngineeringFlatpacks
+  - UplinkMmcFlatpacks
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
+  id: MMCFTLDriveFlatpack
+  productEntity: FTLDriveFlatpack
+  cost:
+    MMCIndustrialCredit: 20
+  categories:
+  - UplinkMmcEngineeringFlatpacks
+  - UplinkMmcFlatpacks
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
+  id: MMCFTLDrive25SFlatpack
+  productEntity: FTLDrive25SFlatpack
+  cost:
+    MMCIndustrialCredit: 50
+  categories:
+  - UplinkMmcEngineeringFlatpacks
+  - UplinkMmcFlatpacks
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
+  id: MMCFTLDrive50Flatpack
+  productEntity: FTLDrive50Flatpack
+  cost:
+    MMCIndustrialCredit: 50
+  categories:
+  - UplinkMmcEngineeringFlatpacks
+  - UplinkMmcFlatpacks
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+# Corporate supplies
+
+- type: listing
+  id: MMCVendingMachineMieyoAutomatedFlatpack
+  productEntity: VendingMachineMieyoAutomatedFlatpack
+  cost:
+    MMCIndustrialCredit: 200
+  categories:
+  - UplinkMmcCorporateSuppliesFlatpacks
+  - UplinkMmcFlatpacks
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
+  id: MMCVendingMachineRestockMMC
+  productEntity: VendingMachineRestockMMC
+  cost:
+    MMCIndustrialCredit: 100
+  categories:
+  - UplinkMmcCorporateSuppliesFlatpacks
+  - UplinkMmcFlatpacks
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
+  id: MMCAutosurgeonAdvHeartMMCFlatpack
+  productEntity: AutosurgeonAdvHeartMMCFlatpack
+  cost:
+    MMCIndustrialCredit: 1000
+  categories:
+  - UplinkMmcCorporateSuppliesFlatpacks
+  - UplinkMmcFlatpacks
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
+  id: MMCAutosurgeonSandevistanMieyoFlatpack
+  productEntity: AutosurgeonSandevistanMieyoFlatpack
+  cost:
+    MMCIndustrialCredit: 1000
+  categories:
+  - UplinkMmcCorporateSuppliesFlatpacks
+  - UplinkMmcFlatpacks
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
+  id: MMCAutosurgeonLeftMantisBladeMieyoFlatpack
+  productEntity: AutosurgeonLeftMantisBladeMieyoFlatpack
+  cost:
+    MMCIndustrialCredit: 200
+  categories:
+  - UplinkMmcCorporateSuppliesFlatpacks
+  - UplinkMmcFlatpacks
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
+  id: MMCAutosurgeonRightMantisBladeMieyoFlatpack
+  productEntity: AutosurgeonRightMantisBladeMieyoFlatpack
+  cost:
+    MMCIndustrialCredit: 200
+  categories:
+  - UplinkMmcCorporateSuppliesFlatpacks
+  - UplinkMmcFlatpacks
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink

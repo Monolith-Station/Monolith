@@ -2,12 +2,12 @@
 
 - type: entity
   id: WeaponTurretAK570
-  name: AK570 57mm autocannon
+  name: AK570 40mm autocannon
   parent:
   - BallisticArtilleryMagazine
   - BallisticArtilleryTier2HP
   suffix: Medium, T2
-  description: A dual-barrel, heavy 57mm autocannon firing general-purpose APHE rounds, effective for sustained fire against medium targets. Can be remotely activated or linked up to a GCS.
+  description: A dual-barrel, heavy 40x360mm autocannon firing general-purpose APHE rounds, effective for sustained fire against medium targets. Can be remotely activated or linked up to a GCS.
   components:
   - type: StaticPrice
     price: 650
@@ -81,7 +81,7 @@
 
 - type: entity
   id: WeaponTurretDravon
-  name: ADBP-7 DRAVON 90mm Autocannon
+  name: ADBP-7 DRAVON 57mm Autocannon
   parent:
   - BallisticArtilleryMagazine
   - BallisticArtilleryTier2HP
@@ -171,7 +171,7 @@
   parent:
   - BallisticArtilleryMagazine
   - BallisticArtilleryTier3HP
-  description: A quad-barrel, 35mm chaingun firing solid shot AP rounds, designed to be mounted upon fighters by Armamenti Corvus. Can be remotely activated or linked up to a GCS.
+  description: A quad-barrel, 25x170mm chaingun firing solid shot AP rounds, designed to be mounted upon fighters by Armamenti Corvus. Can be remotely activated or linked up to a GCS.
   components:
   - type: StaticPrice
     price: 3000

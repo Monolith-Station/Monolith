@@ -113,14 +113,14 @@
     - TechDiskCivMS250
     - TechDiskCivCTLA50
     - TechDiskCivShipComps
-    - TechDiskCivBackpackWaterTank
+    #    - TechDiskCivBackpackWaterTank
     - TechDiskCivTranslationBasic
     - TechDiskTSFLecter
     - TechDiskTSFDrozd
     - TechDiskC20r
     - TechDiskUniversalShipAmmo
-    - ResearchDisk35000
-    - ResearchDisk65000
+    #    - ResearchDisk35000
+    #    - ResearchDisk65000
     chance: 0.95
     offset: 0.0
     rarePrototypes:
@@ -143,10 +143,10 @@
       color: red
   - type: RandomSpawner
     prototypes:
-    - TechDiskM90
-    - TechDiskRogueTools
+    #    - TechDiskM90
+    #    - TechDiskRogueTools
     - TechDiskTSFAnnie
-    - TechDiskBulldog
+    #    - TechDiskBulldog
     - TechDiskShields
     - TechDiskFtl
     chance: 0.95
@@ -172,8 +172,8 @@
     prototypes:
     - TechDiskTSFICWS
     - TechDiskEnergyWeapons
-    - TechDiskHristov
-    - TechDiskMla73
+    #    - TechDiskHristov
+    #    - TechDiskMla73
     - TechDiskUniversalShipAmmoAdvanced
     chance: 0.95
     offset: 0.0

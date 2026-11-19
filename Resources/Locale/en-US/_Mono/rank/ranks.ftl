@@ -1,6 +1,7 @@
 ### TSFMC/TSFN fixed ranks
 
 tsf-marsoc = WS.MARSOC
+tsf-infantry = Rfl.
 
 ## TSFMC loadout ranks
 

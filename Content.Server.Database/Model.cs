@@ -449,6 +449,7 @@ namespace Content.Server.Database
         public string Sex { get; set; } = null!;
         public string Gender { get; set; } = null!;
         public string Species { get; set; } = null!;
+        public string? CustomSpeciesName { get; set; } // Starlight
         [Column(TypeName = "jsonb")] public JsonDocument? Markings { get; set; } = null!;
         public string HairName { get; set; } = null!;
         public string HairColor { get; set; } = null!;
@@ -470,7 +471,7 @@ namespace Content.Server.Database
         public string Company { get; set; } = "None";
 
         // Mono start
-        public List<string> Flags { get; set; } = [];
+        public string[] Flags { get; set; } = [];
         public List<ProfileComponent> Components { get; } = [];
         public List<ProfileItem> Items { get; } = [];
         // Mono end

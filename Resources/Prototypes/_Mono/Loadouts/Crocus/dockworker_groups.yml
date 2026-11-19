@@ -1,0 +1,62 @@
+- type: loadoutGroup
+  id: CrocusDockworkerHead
+  name: loadout-group-contractor-head
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - CrocusDockworkerCap
+  - CrocusDockworkerCapAlt
+  - CrocusDockworkerHardhat
+
+- type: loadoutGroup
+  id: CrocusDockworkerJumpsuit
+  name: loadout-group-contractor-jumpsuit
+  minLimit: 1
+  loadouts:
+  - CrocusDockworkerJumpsuit
+  - CrocusDockworkerJumpsuitHazard
+  - CrocusDockworkerJumpsuitEngineering
+  - CrocusDockworkerJumpsuitBlue
+  - CrocusDockworkerJumpsuitTan
+  - CrocusDockworkerJumpsuitBrown
+  fallbacks:
+  - CrocusDockworkerJumpsuit
+
+- type: loadoutGroup
+  id: CrocusDockworkerGloves
+  name: loadout-group-contractor-gloves
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - CrocusDockworkerGloves
+
+- type: loadoutGroup
+  id: CrocusDockworkerOuterClothing
+  name: loadout-group-contractor-outerclothing
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - CrocusDockworkerOuterClothing
+  - CrocusDockworkerOuterClothingWinterCoat
+  fallbacks:
+  - CrocusDockworkerOuterClothing
+
+- type: loadoutGroup
+  id: CrocusDockworkerBelt
+  name: loadout-group-contractor-belt
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - CrocusDockworkerBelt
+  fallbacks:
+  - CrocusDockworkerBelt
+
+- type: loadoutGroup
+  id: CrocusDockworkerShoes
+  name: loadout-group-contractor-shoes
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - CrocusDockworkerShoes
+  fallbacks:
+  - CrocusDockworkerShoes

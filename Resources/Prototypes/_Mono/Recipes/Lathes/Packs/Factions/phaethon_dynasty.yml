@@ -1,7 +1,7 @@
 - type: latheRecipePack
   id: MonoRogueGearDynamic
   recipes:
-  - ClothingOuterHardsuitPirateScafRogue
+  #- ClothingOuterHardsuitPirateScafRogue
   - ClothingOuterVestWebRogue
   - ClothingOuterVestWebEliteRogue
 # - ClothingOuterHardsuitPDVMedic
@@ -52,9 +52,12 @@
   - ShipVoucherPdvT0Recipe
   - ShipVoucherPdvT1Recipe
   - ShipVoucherPdvT2Recipe
-  - ShipVoucherKortikT3Recipe
+  - ShipVoucherSovremennyT3Recipe
   - ShipVoucherEuropaT3Recipe
   - ShipVoucherSaturnRecipe
+  - SnakeletVoucherRogue
+  - InertiaVoucherRogue
+  - MockVoucherRogue
 
 - type: latheRecipePack
   id: MonoRogueMiscDynamic

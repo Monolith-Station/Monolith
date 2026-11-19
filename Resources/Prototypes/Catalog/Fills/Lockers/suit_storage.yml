@@ -76,13 +76,13 @@
 - type: entity
   id: SuitStorageEVAPirate
   parent: SuitStorageBase
-  suffix: PDV SCAF # Mono
+  suffix: PDV CV-32 # Mono
   components:
   - type: StorageFill
     contents:
         - id: OxygenTankFilled
         - id: NitrogenTankFilled
-        - id: ClothingOuterHardsuitPirateScaf # Mono
+        - id: ClothingOuterHardsuitAshen # Mono
 #        - id: ClothingMaskGas # Mono
         - id: JetpackBlackFilled # Frontier
         - id: ClothingShoesBootsMagAshen # Mono
@@ -165,7 +165,7 @@
         - id: JetpackSecurityFilled # Frontier
         - id: ClothingShoesBootsMagSecurityFilled # Frontier
   - type: AccessReader
-    access: [["Security"]]
+    access: [["Caelestinus"]] # Mono
 
 #CE's hardsuit
 - type: entity
@@ -217,7 +217,7 @@
       entity_storage: !type:NestedSelector
         tableId: FillHeadOfSecurityHardsuit
   - type: AccessReader
-    access: [["HeadOfSecurity"]]
+    access: [["CaelestinusCommand"]] # Mono
 
 #Warden's hardsuit
 - type: entity
@@ -234,7 +234,7 @@
         - id: JetpackSecurityFilled # Frontier
         - id: ClothingShoesBootsMagSecurityFilled # Frontier
   - type: AccessReader
-    access: [["Armory"]]
+    access: [["Caelestinus"]] # Mono
 
 #Captain's hardsuit
 - type: entity

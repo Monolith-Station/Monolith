@@ -31,6 +31,9 @@
       cell_slot:
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellSmall
+        blacklist: #Mono
+          tags:
+          - PowerCage
   - type: ContainerContainer
     containers:
       cell_slot: !type:ContainerSlot
@@ -52,7 +55,8 @@
   - type: Physics
     canCollide: false
   - type: StealTarget
-    stealGroup: LAMP
+    stealGroup:
+    - LAMP
 
 - type: entity
   name: lamp
@@ -178,6 +182,9 @@
       cell_slot:
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellHigh
+        blacklist: #Mono
+          tags:
+          - PowerCage
   - type: GenericVisualizer
     visuals:
       enum.FlashVisuals.Burnt:
@@ -225,6 +232,9 @@
       cell_slot:
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellMedium
+        blacklist: #Mono , it doesn't even use charge.
+          tags:
+          - PowerCage
   - type: Anchorable
   - type: Damageable
     damageContainer: StructuralInorganic

@@ -1,0 +1,7 @@
+- type: vendingMachineInventory
+  id: FlatpackVendRadioInventory
+  startingInventory:
+    StationRadioServerFlatpack: 5
+    StationRadioRigFlatpack: 2
+    VinylPlayerFlatpack: 20
+    StationRadioReceiverFlatpack: 4294967295 # Infinite

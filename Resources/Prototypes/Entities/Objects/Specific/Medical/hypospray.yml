@@ -25,7 +25,8 @@
     price: 1000
     vendPrice: 20000
   - type: StealTarget
-    stealGroup: Hypospray
+    stealGroup:
+    - Hypospray
 
 - type: entity
   name: gorlex hypospray

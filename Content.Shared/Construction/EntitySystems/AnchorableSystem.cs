@@ -1,5 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Administration.Logs;
+using Content.Shared.Clothing.Components;
+using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.Examine;
 using Content.Shared.Construction.Components;
 using Content.Shared.Containers.ItemSlots;
@@ -33,6 +35,7 @@ public sealed partial class AnchorableSystem : EntitySystem
     [Dependency] private SharedTransformSystem _transformSystem = default!;
     [Dependency] private TagSystem _tagSystem = default!;
     [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private ClothingSystem _clothing = default!; // Mono
     private EntityQuery<PhysicsComponent> _physicsQuery;
 
     public readonly ProtoId<TagPrototype> Unstackable = "Unstackable";
@@ -93,6 +96,9 @@ public sealed partial class AnchorableSystem : EntitySystem
 
         // If the used entity doesn't have a tool, return early.
         if (!TryComp(args.Used, out ToolComponent? usedTool) || !_tool.HasQuality(args.Used, anchorable.Tool, usedTool))
+            return;
+
+        if (TryComp<ClothingComponent>(uid, out var clothing) && clothing.InSlotFlag.HasValue) // Mono - Don't try to anchor clothing that you are currently wearing
             return;
 
         args.Handled = true;

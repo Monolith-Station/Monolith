@@ -24,6 +24,14 @@
 
 - type: entity
   parent: DoorElectronics
+  id: DoorElectronicsTsfmc
+  suffix: TSFMC, Locked
+  components:
+  - type: AccessReader
+    access: [["Tsfmc"]]
+
+- type: entity
+  parent: DoorElectronics
   id: DoorElectronicsTsfEngineer
   suffix: TSF Engineering, Locked
   components:
@@ -85,3 +93,19 @@
   components:
   - type: AccessReader
     access: [["MieyoLiason"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsUnderground
+  suffix: Underground, Locked
+  components:
+  - type: AccessReader
+    access: [["Underground"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsGodfather
+  suffix: Godfather, Locked
+  components:
+  - type: AccessReader
+    access: [["Godfather"]]

@@ -10,6 +10,10 @@
   name: asteroid rock
   description: A rocky asteroid.
   components:
+  - type: RangedDamageSound # WOLFGATE - material bullet impacts
+    soundGroups:
+      Brute:
+        collection: WolfgateBulletImpactConcrete
   - type: Transform
     noRot: true
   - type: IconSmooth
@@ -730,6 +734,10 @@
   name: rock
   suffix: planetmap
   components:
+  - type: RangedDamageSound # WOLFGATE - material bullet impacts
+    soundGroups:
+      Brute:
+        collection: WolfgateBulletImpactConcrete
   - type: Transform
     noRot: true
   - type: SoundOnGather
@@ -772,6 +780,22 @@
     - map: [ "enum.EdgeLayer.West" ]
       state: rock_west
   - type: RequiresGrid
+
+# Mono
+- type: entity
+  id: WallRockCrocus
+  parent: WallRock
+  name: rock
+  suffix: planetmap, Crocus
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
 
 # Ore veins
 - type: entity

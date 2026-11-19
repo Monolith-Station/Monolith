@@ -51,6 +51,7 @@
   cost: 60000
   recipeUnlocks:
   - ShipVoucherTsfT2Recipe
+  - ZephyrVoucherTSF
   technologyPrerequisites:
   - TsfTierOneVouchers
   - UniversalMaterialResearchT2
@@ -62,10 +63,11 @@
   entityIcon: ShipVoucherLuda
   discipline: TsfmcShipyard
   tier: 3
-  cost: 80000
+  cost: 150000
   recipeUnlocks:
   - ShipVoucherLudaRecipe
   - ShipVoucherPolarisRecipe
+  - ShipVoucherHangzhouRecipe
   technologyPrerequisites:
   - TsfTierTwoVouchers
   - UniversalMaterialResearchT3

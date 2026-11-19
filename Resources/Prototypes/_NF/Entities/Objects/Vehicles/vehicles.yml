@@ -277,7 +277,7 @@
   - type: SolutionContainerManager
     solutions:
       bucket:
-        maxVol: 800
+        maxVol: 2500
   - type: DrainableSolution
     solution: bucket
   - type: RefillableSolution
@@ -306,6 +306,11 @@
       trashbag_slot: !type:ContainerSlot {}
   - type: StaticPrice
     price: 375 # Same as flatpack
+  - type: Drain # Monolith
+    solutionName: bucket
+    range: 2
+    unitsPerSecond: 50
+    unitsDestroyedPerSecond: 0
 
 - type: entity
   parent: NFVehicleJanicart

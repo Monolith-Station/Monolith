@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/03/2026 20:16:37
-  entityCount: 8564
+  time: 09/21/2026 13:51:36
+  entityCount: 8555
 maps: []
 grids:
 - 1
@@ -4548,8 +4548,8 @@ entities:
     - type: SpreaderGrid
       spreadQueues:
         Kudzu: []
-        Puddle: []
         Smoke: []
+        Puddle: []
         MetalFoam: []
     - type: GridAtmosphere
       version: 2
@@ -6331,7 +6331,7 @@ entities:
       pos: 1.5,30.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -6984.3975
+      secondsUntilStateChange: -7223.692
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -24925,15 +24925,6 @@ entities:
     - type: Transform
       pos: 13.35905,16.593409
       parent: 1
-- proto: ClothingMaskGasSyndicate
-  entities:
-  - uid: 3667
-    components:
-    - type: Transform
-      parent: 3666
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: ClothingOuterVestTank
   entities:
   - uid: 3673
@@ -24946,15 +24937,6 @@ entities:
     - type: Transform
       pos: 13.331253,16.56563
       parent: 1
-- proto: ClothingShoesBootsMagSyndie
-  entities:
-  - uid: 3669
-    components:
-    - type: Transform
-      parent: 3666
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: CMSemioticAmmunition
   entities:
   - uid: 3675
@@ -42058,15 +42040,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 8.5,75.5
       parent: 1
-- proto: JetpackBlackFilled
-  entities:
-  - uid: 3670
-    components:
-    - type: Transform
-      parent: 3666
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: JukeboxWallmount
   entities:
   - uid: 6012
@@ -43195,15 +43168,6 @@ entities:
     - type: Transform
       pos: -16.5,10.5
       parent: 1
-- proto: NitrogenTankFilled
-  entities:
-  - uid: 3671
-    components:
-    - type: Transform
-      parent: 3666
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: NitrousOxideTankFilled
   entities:
   - uid: 6126
@@ -43249,15 +43213,6 @@ entities:
     - type: Transform
       pos: -16.5,9.5
       parent: 1
-- proto: OxygenTankFilled
-  entities:
-  - uid: 3672
-    components:
-    - type: Transform
-      parent: 3666
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: Paper
   entities:
   - uid: 6133
@@ -47742,35 +47697,13 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -7.5,73.5
       parent: 1
-- proto: SuitStorageBase
+- proto: SuitStorageEVAPirate
   entities:
   - uid: 3666
     components:
     - type: Transform
       pos: 5.5,38.5
       parent: 1
-    - type: EntityStorage
-      air:
-        volume: 200
-        immutable: False
-        temperature: 293.14923
-        moles:
-          Oxygen: 1.7459903
-          Nitrogen: 6.568249
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 3668
-          - 3670
-          - 3669
-          - 3672
-          - 3671
-          - 3667
-- proto: SuitStorageEVAPirate
-  entities:
   - uid: 6816
     components:
     - type: Transform

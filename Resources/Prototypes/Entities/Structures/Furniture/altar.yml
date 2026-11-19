@@ -65,7 +65,8 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: StealTarget
-    stealGroup: AltarNanotrasen
+    stealGroup:
+    - AltarNanotrasen
   - type: Construction # Frontier
     graph: AltarsGraph # Frontier
     node: AltarNanotrasenNode # Frontier

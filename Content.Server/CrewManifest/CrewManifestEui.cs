@@ -29,8 +29,7 @@ public sealed class CrewManifestEui : BaseEui
 
     public override CrewManifestEuiState GetNewState()
     {
-        var (name, entries) = _crewManifest.GetCrewManifest(_station);
-        return new(name, entries);
+        return new CrewManifestEuiState(_crewManifest.GetCrewManifest()); // Monolith: Remove name
     }
 
     public override void Closed()

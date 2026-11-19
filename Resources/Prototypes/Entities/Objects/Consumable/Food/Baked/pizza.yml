@@ -75,6 +75,11 @@
   id: FoodPizzaMargherita
   description: The flavor of Italy.
   components:
+  - type: Tag # Mono
+    tags:
+    - Pizza
+    - ReptilianFood
+    - BountyMargheritaPizza
   - type: FlavorProfile
     flavors:
       - cheesy
@@ -122,6 +127,7 @@
     tags:
     - Meat
     - Pizza
+    - BountyMeatPizza # Mono
 
 - type: entity
   name: slice of meat pizza
@@ -151,6 +157,11 @@
   id: FoodPizzaMushroom
   description: Very special pizza.
   components:
+  - type: Tag # Mono
+    tags:
+    - Pizza
+    - ReptilianFood
+    - BountyMushroomPizza
   - type: FlavorProfile
     flavors:
       - mushroom
@@ -184,6 +195,11 @@
   id: FoodPizzaVegetable
   description: The station's vegetarians will thank you for making this.
   components:
+  - type: Tag # Mono
+    tags:
+    - Pizza
+    - ReptilianFood
+    - BountyVegetablePizza
   - type: FlavorProfile
     flavors:
       - eggplant
@@ -276,6 +292,7 @@
     tags:
     - Meat
     - Pizza
+    - BountyDonkPocketPizza # Mono
 
 
 - type: entity
@@ -316,6 +333,11 @@
   id: FoodPizzaDank
   description: The hippie's pizza of choice.
   components:
+  - type: Tag # Mono
+    tags:
+    - Pizza
+    - ReptilianFood
+    - BountyDankPizza
   - type: FlavorProfile
     flavors:
       - oily
@@ -433,6 +455,7 @@
     tags:
     - Meat
     - Pizza
+    - BountyHawaiianPizza # Mono
 
 - type: entity
   name: slice of Hawaiian pizza
@@ -587,6 +610,7 @@
     tags:
     - Meat
     - Pizza
+    - BountySpicyRockPizza # Mono
   - type: PointLight
     enabled: true
     radius: 2
@@ -666,6 +690,7 @@
     tags:
     - ClothMade
     - Pizza
+    - BountyCottonPizza # Mono
   - type: SolutionContainerManager
     solutions:
       food:

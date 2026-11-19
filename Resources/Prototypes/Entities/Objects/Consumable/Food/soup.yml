@@ -72,6 +72,10 @@
   id: FoodSoupPea
   description: A humble split pea soup.
   components:
+  - type: Tag # Mono
+    tags:
+    - Soup
+    - BountyPeaSoup
   - type: FlavorProfile
     flavors:
       - creamy
@@ -155,6 +159,7 @@
     tags:
     - Fruit
     - Soup
+    - BountyHerbSalad # Mono
 
 - type: entity
   name: valid salad
@@ -190,6 +195,7 @@
     - Meat
     - Fruit
     - Soup
+    - BountyValidSalad # Mono
 
 - type: entity
   name: coleslaw
@@ -197,6 +203,10 @@
   id: FoodSaladColeslaw
   description: Shredded cabbage and red onions dressed with a vinaigrette.
   components:
+  - type: Tag # Mono
+    tags:
+    - Soup
+    - BountyColeslaw
   - type: FlavorProfile
     flavors:
       - onion
@@ -226,6 +236,10 @@
   id: FoodSaladCaesar
   description: A simple yet flavorful salad of onions, lettuce, croutons, and shreds of cheese dressed in oil. Comes with a slice of pita bread!
   components:
+  - type: Tag # Mono
+    tags:
+    - Soup
+    - BountyCaesarSalad
   - type: FlavorProfile
     flavors:
       - onion
@@ -254,6 +268,10 @@
   id: FoodSaladKimchi
   description: It really is just a spicy salad.
   components:
+  - type: Tag # Mono
+    tags:
+    - Soup
+    - BountyKimchiSalad
   - type: FlavorProfile
     flavors:
       - spicy
@@ -305,6 +323,7 @@
     tags:
     - Fruit
     - Soup
+    - BountyFruitSalad # Mono
 
 - type: entity
   name: jungle salad
@@ -335,6 +354,7 @@
     tags:
     - Fruit
     - Soup
+    - BountyJungleSalad # Mono
 
 - type: entity
   name: citrus salad
@@ -365,6 +385,7 @@
     tags:
     - Fruit
     - Soup
+    - BountyCitrusSalad # Mono
 
 - type: entity
   name: salad of eden
@@ -401,6 +422,10 @@
   id: FoodRiceBoiled
   description: A warm bowl of rice.
   components:
+  - type: Tag # Mono
+    tags:
+    - Soup
+    - BountyBoiledRice
   - type: FlavorProfile
     flavors:
       - rice
@@ -436,6 +461,7 @@
     tags:
     - Meat
     - Soup
+    - BountyEggFriedRice # Mono
 
 - type: entity
   name: rice and pork
@@ -470,6 +496,7 @@
     tags:
     - Meat
     - Soup
+    - BountyRiceAndPork # Mono
 
 - type: entity
   name: rice pudding
@@ -477,6 +504,10 @@
   id: FoodRicePudding
   description: Everybody loves rice pudding!
   components:
+  - type: Tag # Mono
+    tags:
+    - Soup
+    - BountyRicePudding
   - type: FlavorProfile
     flavors:
       - rice
@@ -534,6 +565,7 @@
     tags:
     - Meat
     - Soup
+    - BountyBlackEyedGumbo # Mono
 
 # Misc
 
@@ -543,6 +575,10 @@
   id: FoodOatmeal
   description: A nice bowl of oatmeal.
   components:
+  - type: Tag # Mono
+    tags:
+    - Soup
+    - BountyOatmeal
   - type: FlavorProfile
     flavors:
       - oats
@@ -586,6 +622,9 @@
   id: FoodJellyAmanita
   description: It's evil, don't touch it!
   components:
+  - type: Tag # Mono
+    tags:
+    - BountyAmanitaJelly
   - type: FlavorProfile
     flavors:
       - mushroom
@@ -636,6 +675,7 @@
     tags:
     - Meat
     - Soup
+    - BountyMeatballSoup # Mono
 
 - type: entity
   name: slime soup
@@ -695,6 +735,7 @@
     tags:
     - Fruit
     - Soup
+    - BountyTomatoSoupEither # Mono
 
 - type: entity
   name: wing fang chu
@@ -702,6 +743,10 @@
   id: FoodSoupWingFangChu
   description: A savory dish of alien wing wang in soy.
   components:
+  - type: Tag # Mono
+    tags:
+    - Soup
+    - BountyWingFangChu
   - type: FlavorProfile
     flavors:
       - meaty
@@ -730,6 +775,10 @@
   id: FoodSoupClown
   description: Not very funny.
   components:
+  - type: Tag # Mono
+    tags:
+    - Soup
+    - BountyClownsTears
   - type: FlavorProfile
     flavors:
       - bad-joke
@@ -757,6 +806,10 @@
   id: FoodSoupVegetable
   description: A true vegan meal.
   components:
+  - type: Tag # Mono
+    tags:
+    - Soup
+    - BountyVegtableSoup
   - type: FlavorProfile
     flavors:
       - vegetables
@@ -787,6 +840,10 @@
   id: FoodSoupNettle
   description: To think, the botanist would've beat you to death with one of these.
   components:
+  - type: Tag # Mono
+    tags:
+    - Soup
+    - BountyNettleSoup
   - type: FlavorProfile
     flavors:
       - nettles
@@ -857,6 +914,7 @@
   - type: Tag
     tags:
     - ChiliBowl
+    - BountyBowlOfHotChili # Mono
 
 
 - type: entity
@@ -887,6 +945,7 @@
   - type: Tag
     tags:
     - ChiliBowl
+    - BountyColdChili # Mono
 
 - type: entity
   name: chili con carnival
@@ -922,6 +981,7 @@
   - type: Tag
     tags:
     - ChiliBowl
+    - BountyChiliConCarnival # Mono
 
 - type: entity
   name: monkey's delight
@@ -956,6 +1016,7 @@
     tags:
     - Meat
     - Soup
+    - BountyMonkeysDelight # Mono
 
 - type: entity
   name: tomato soup
@@ -987,6 +1048,7 @@
     tags:
     - Fruit
     - Soup
+    - BountyTomatoSoupEither # Mono
 
 - type: entity
   name: eyeball soup
@@ -1017,6 +1079,7 @@
     tags:
     - Meat
     - Soup
+    - BountyEyeballSoup # Mono
 
 - type: entity
   name: miso soup
@@ -1059,6 +1122,10 @@
   id: FoodSoupMushroom
   description: A delicious and hearty mushroom soup.
   components:
+  - type: Tag # Mono
+    tags:
+    - Soup
+    - BountyMushroomSoup
   - type: FlavorProfile
     flavors:
       - mushroom
@@ -1163,6 +1230,7 @@
     - Meat
     - Fruit
     - Soup
+    - BountyStew # Mono
 
 - type: entity
   name: sweet potato soup
@@ -1196,6 +1264,10 @@
   id: FoodSoupOnion
   description: Good enough to make a grown mime cry.
   components:
+  - type: Tag # Mono
+    tags:
+    - Soup
+    - BountyFrenchOnionSoup
   - type: FlavorProfile
     flavors:
       - onion
@@ -1223,6 +1295,10 @@
   id: FoodSoupBisque
   description: A classic entrée from Space France.
   components:
+  - type: Tag # Mono
+    tags:
+    - Soup
+    - BountyBisque
   - type: FlavorProfile
     flavors:
       - creamy
@@ -1303,6 +1379,7 @@
     tags:
     - Fruit
     - Soup
+    - BountyBungoCurry # Mono
 # Tastes like bungo, hot curry.
 
 - type: entity
@@ -1334,6 +1411,7 @@
     tags:
     - Meat
     - Soup
+    - BountyEscargot # Mono
 
 - type: entity
   name: buttered grits
@@ -1341,6 +1419,10 @@
   id: FoodPlainGrits
   description: A savory bowl of grits, topped with a pat of butter.
   components:
+  - type: Tag # Mono
+    tags:
+    - Soup
+    - BountyButteredGrits
   - type: FlavorProfile
     flavors:
     - savory
@@ -1370,6 +1452,10 @@
   id: FoodCheeseGrits
   description: A thick, savory bowl of cheesy grits.
   components:
+  - type: Tag # Mono
+    tags:
+    - Soup
+    - BountyCheeseGrits
   - type: FlavorProfile
     flavors:
     - savory

@@ -20,11 +20,17 @@
   - type: Item
     size: Tiny
   - type: StealTarget
-    stealGroup: Stamp
+    stealGroup:
+    - Stamp
   - type: UseDelay # Frontier
     delays: # Frontier
       stamp:
         length: 1.0 # Frontier: 1 second between stampings, avoid spam for reapplied stamps
+  - type: ExtendDescription # Mono
+    descriptionList:
+    - description: This item will dry up and become useless if it is left in a safety deposit box.
+      color: "#4f94ad"
+      requireDetailRange: true
 
 - type: entity
   name: alternate rubber stamp
@@ -150,7 +156,7 @@
     state: stamp-hop
 
 - type: entity
-  name: head of security's rubber stamp
+  name: overseer's rubber stamp # Mono - Overseer
   parent: RubberStampBase
   id: RubberStampHos
   categories: [ DoNotMap ]

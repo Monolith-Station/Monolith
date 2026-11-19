@@ -27,7 +27,6 @@
         components:
         - IdCard
         - ShipyardVoucher
-    newAccessLevels: [Captain]
   - type: ActivatableUI
     singleUser: true
     key: enum.ShipyardConsoleUiKey.Shipyard
@@ -42,6 +41,11 @@
       ShipyardConsole-targetId: !type:ContainerSlot
   - type: Computer
     board: Null
+  - type: CreditReceiver # Mono - Ironman players and whoever else can use cash money for their ships.
+    cashSlot:
+      whitelist:
+        components:
+        - Cash
 
 # Concrete consoles
 - type: entity
@@ -49,7 +53,6 @@
   id: ComputerShipyard
   components:
   - type: ShipyardConsole
-    newJobTitle: Captain
   - type: CompanyAccessReader
     requiredCompanies:
     - TSF
@@ -80,7 +83,8 @@
         type: ShipyardConsoleBoundUserInterface
   - type: ShipyardConsole
     shipyardChannel: Nfsd
-    newAccessLevels: [Captain, Security, Brig]
+    newAccessLevels: [Tsfmc]
+    canTransferDeed: false # Mono: faction shipyard
 
 - type: entity
   id: ComputerShipyardNfsd
@@ -107,12 +111,13 @@
         type: ShipyardConsoleBoundUserInterface
   - type: ShipyardConsole
     shipyardChannel: Nfsd
-    newAccessLevels: [Captain, Security, Brig]
+    newAccessLevels: [Tsfmc]
+    canTransferDeed: false # Mono: faction shipyard
 
 - type: entity
   id: ComputerShipyardSyndicate
   parent: [BaseStructureDisableToolUse, BaseStructureDestructible, ComputerShipyardBase]
-  name: syndicate shipyard console
+  name: underground shipyard console # Mono
   description: Used to buy ships not available through other means.
   components:
   - type: ActivatableUI
@@ -258,8 +263,8 @@
 - type: entity
   id: ComputerShipyardSr
   parent: [BaseStructureDisableToolUse, BaseStructureIndestructible, ComputerShipyardBase]
-  name: colonial staff shipyard console
-  description: Used to buy vessels exclusive to Colonial Outpost personnel.
+  name: caelestinus shipyard console
+  description: Used to buy vessels exclusive to Caelestinus personnel.
   components:
   - type: ActivatableUI
     key: enum.ShipyardConsoleUiKey.Sr
@@ -278,3 +283,5 @@
       state: shipyard_sr
     - map: ["computerLayerKeys"]
       state: telesci_key
+  - type: ShipyardConsole
+    canTransferDeed: false # Mono: faction shipyard

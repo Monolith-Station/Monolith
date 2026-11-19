@@ -1,0 +1,28 @@
+- type: entity
+  parent: BaseBattlemap
+  id: MapJianghui
+  name: 'jianghui industrial zone map'
+  description: A chart of the Jianghui industrial zone. Annotated for military coordination. May be missing underground areas!
+  components:
+  - type: Item
+    size: Normal
+  - type: Sprite
+    sprite: Objects/Misc/bureaucracy.rsi
+    state: paper_dotmatrix
+  - type: TabletopGame
+    size: 480, 250
+    setup:
+      !type:TabletopEmptySetup
+      boardPrototype: JianghuiChart
+
+- type: entity
+  parent: BaseBoardTabletop
+  id: JianghuiChart
+  name: jianghui chart
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/maps.rsi
+    state: jianghui
+    noRot: false
+    drawdepth: FloorTiles

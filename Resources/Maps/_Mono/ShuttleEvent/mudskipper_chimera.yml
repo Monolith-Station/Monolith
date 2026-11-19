@@ -4,7 +4,7 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/09/2026 16:40:09
+  time: 09/21/2026 15:45:48
   entityCount: 625
 maps: []
 grids:
@@ -36,7 +36,7 @@ entities:
   - uid: 1
     components:
     - type: MetaData
-      name: Mudskipper
+      name: Transponderless Vessel
     - type: Transform
       parent: invalid
     - type: MapGrid
@@ -75,7 +75,7 @@ entities:
     - type: Fixtures
       fixtures: {}
     - type: BecomesStation
-      id: Mudskipper
+      id: Mudskipper-Chimera
     - type: OccluderTree
     - type: Shuttle
       dampingModifier: 0.25
@@ -372,9 +372,9 @@ entities:
     - type: SpreaderGrid
       spreadQueues:
         Puddle: []
+        MetalFoam: []
         Kudzu: []
         Smoke: []
-        MetalFoam: []
     - type: GridAtmosphere
       version: 2
       data:
@@ -485,6 +485,10 @@ entities:
         -1,-4: 16204198577751244800
     - type: ThermalSignature
     - type: ExplosionAirtightGrid
+    - type: IFF
+      address: ' 2653-DB2F'
+      color: '#FFFFFFFF'
+      flags: HideLabel, IsPlayerShuttle
 - proto: AirAlarm
   entities:
   - uid: 2

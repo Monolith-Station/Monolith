@@ -12,6 +12,10 @@
     - !type:RoleTimeRequirement
       role: JobSeniorOfficer
       time: 10800 # 3 hours
+    - !type:TraitsRequirement # The trait is intended for members of the civilian population or other neutral groups. TSF are already all implicitly heretics.
+      inverted: true
+      traits:
+      - Heretic
   startingGear: BailiffGear
   icon: JobIconTSFCaptain
   supervisors: job-supervisors-sheriff
@@ -20,14 +24,11 @@
   assignedCompany: TSF
   canBeAntag: false
   access:
-  - Armory
-  - Sergeant
-  - Bailiff
-  - Medical
-  - Chemistry
+  - TsfmcArmory
+  - TsfmcCaptain
   - TsfmcEngineering # Mono
   accessGroups:
-  - GeneralNfsdAccess
+  - GeneralTsfmcAccess
   guides:
   - TSFMC_Entry
   special:
@@ -36,6 +37,8 @@
     - type: NpcFactionMember
       factions:
       - TSFMC
+    - type: RadioOnCryosleep
+      radioChannel: Nfsd # NFSD = TSF Comms
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, TrackingImplant ]
   - !type:AddLanguageSpecial
@@ -56,7 +59,7 @@
 #    - Magazine45_ACPPistolFMJ # Mono
     - BaseSecurityUplinkRadioCaptain
 #    - ShipVoucherNfsdBailiff # Mono
-    - RubberStampBailiff
+#   - RubberStampBailiff # Mono: sorry furo
     - RadioHandheldNF # Mono
     - RubberStampTSFCaptain # Mono
     - BookTSFSOP

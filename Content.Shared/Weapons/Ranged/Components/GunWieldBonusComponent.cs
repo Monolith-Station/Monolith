@@ -7,7 +7,7 @@ namespace Content.Shared.Weapons.Ranged.Components;
 /// <summary>
 /// Applies an accuracy bonus upon wielding.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, Access(typeof(SharedWieldableSystem), typeof(ESSharedGunAttachmentsSystem))] // Mono - extend access
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true), Access(typeof(SharedWieldableSystem))] // Mono - extend access, fieldDeltas
 public sealed partial class GunWieldBonusComponent : Component
 {
     [ViewVariables(VVAccess.ReadWrite), DataField("minAngle"), AutoNetworkedField]

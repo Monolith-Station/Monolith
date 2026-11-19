@@ -621,3 +621,9 @@ binds:
   key: X
   mod1: Shift
 # endregion Frontier
+# Mono
+- function: ToggleUnderbarrel
+  type: State
+  key: Space
+  mod1: Shift
+# Mono end

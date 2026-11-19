@@ -35,9 +35,21 @@
   loadouts:
   - TsfmcClothingJumpsuit
   - TsfmcClothingJumpsuitType47D
+  - TsfmcClothingJumpsuitType47F
   - TsfmcClothingDressUniform
   fallbacks:
   - TsfmcClothingJumpsuit
+
+- type: loadoutGroup
+  id: TsfmcInfantryJumpsuit
+  name: loadout-group-contractor-jumpsuit
+  minLimit: 1
+  hidden: false
+  loadouts:
+  - TsfmcClothingJumpsuitType47FCrocus
+  - TsfmcClothingJumpsuitType47DCrocus
+  fallbacks:
+  - TsfmcClothingJumpsuitType47FCrocus
 
 - type: loadoutGroup
   id: TsfmcJumpsuitEngi
@@ -47,6 +59,7 @@
   - TsfmcEngineeringClothingJumpsuit
   - TsfmcClothingJumpsuit
   - TsfmcClothingJumpsuitType47D
+  - TsfmcClothingJumpsuitType47F
   - TsfmcClothingDressUniform
   fallbacks:
   - TsfmcEngineeringClothingJumpsuit
@@ -59,6 +72,7 @@
   loadouts:
   - TsfmcCombatBoots
   - TsfmcJackboots
+  - ContractorClothingShoesHighheelShoes # for the larp
   fallbacks:
   - TsfmcCombatBoots
 
@@ -92,7 +106,22 @@
   loadouts:
   - TsfmcCombatWebbing
   - TsfmcCombatWebbingLarge
+  - ContractorClothingBeltHolster
+  - ContractorClothingBeltHolsterLarge
   - ContractorClothingBeltSheathFilled
+  fallbacks:
+  - TsfmcCombatWebbing
+
+- type: loadoutGroup
+  id: TsfmcInfantryBelt
+  name: loadout-group-contractor-belt
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - TsfmcCombatWebbing
+  - TsfmcCombatWebbingLarge
+  - ContractorClothingBeltHolster
+  - ContractorClothingBeltHolsterLarge
   fallbacks:
   - TsfmcCombatWebbing
 
@@ -116,6 +145,8 @@
   - TsfmcCombatWebbingMedical
   - TsfmcCombatWebbing
   - TsfmcCombatWebbingLarge
+  - ContractorClothingBeltHolster
+  - ContractorClothingBeltHolsterLarge
   fallbacks:
   - TsfmcCombatWebbingMedical
 
@@ -207,6 +238,14 @@
   - TsfmcBeretCommon
 
 - type: loadoutGroup
+  id: TsfmcInfantryHead
+  name: loadout-group-contractor-head
+  minLimit: 1
+  hidden: true
+  loadouts:
+  - TsfmcHelmet
+
+- type: loadoutGroup
   id: TsfmcHeadMedic
   name: loadout-group-contractor-head
   minLimit: 0
@@ -254,8 +293,20 @@
   name: loadout-group-contractor-outerclothing
   minLimit: 1
   loadouts:
+  - TsfmcClothingOuterHardsuitM86
   - TsfmcClothingOuterArmorBPVestLight
   - TsfmcClothingOuterArmorBPVestMedium
+  - TsfmcClothingOuterArmorWintercoat
+  fallbacks:
+  - TsfmcClothingOuterHardsuitM86
+
+- type: loadoutGroup
+  id: TsfmcOuterClothingInfantry
+  name: loadout-group-contractor-outerclothing
+  hidden: true # No point in showing this, it gets auto-selected.
+  minLimit: 1
+  loadouts:
+  - TsfmcClothingOuterArmorBPVestLight
   fallbacks:
   - TsfmcClothingOuterArmorBPVestLight
 

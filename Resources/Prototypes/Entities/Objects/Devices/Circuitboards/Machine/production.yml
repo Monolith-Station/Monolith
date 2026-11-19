@@ -134,7 +134,8 @@
           amount: 2
           defaultPrototype: Beaker
     - type: StealTarget
-      stealGroup: MedicalTechFabCircuitboard
+      stealGroup:
+      - MedicalTechFabCircuitboard
     - type: PirateBountyItem # Frontier
       id: MedicalTechFabCircuitboard # Frontier
 

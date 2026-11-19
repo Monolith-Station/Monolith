@@ -4,7 +4,7 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/19/2026 18:05:34
+  time: 09/21/2026 15:11:26
   entityCount: 3127
 maps: []
 grids:
@@ -439,10 +439,10 @@ entities:
     - type: ThermalSignature
     - type: SpreaderGrid
       spreadQueues:
+        MetalFoam: []
+        Kudzu: []
         Smoke: []
         Puddle: []
-        Kudzu: []
-        MetalFoam: []
       updateAccumulator: 0.39827442
     - type: Shuttle
       dampingModifier: 0.25
@@ -1551,6 +1551,7 @@ entities:
       - 2697
       - 2698
       - 2701
+      - 2700
   - uid: 2664
     components:
     - type: Transform
@@ -1650,6 +1651,11 @@ entities:
       rot: 3.141592653589793 rad
       pos: -7.5,7.5
       parent: 1
+    - type: DeviceList
+      devices:
+      - 1871
+      - 1870
+      - 2716
   - uid: 2674
     components:
     - type: Transform
@@ -1759,6 +1765,12 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -2.5,31.5
       parent: 1
+    - type: DeviceList
+      devices:
+      - 2037
+      - 2036
+      - 2736
+      - 2735
   - uid: 2683
     components:
     - type: Transform
@@ -9403,6 +9415,9 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -2.5,-10.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 2663
   - uid: 2701
     components:
     - type: Transform
@@ -9552,6 +9567,9 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -5.5,8.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 2673
   - uid: 2717
     components:
     - type: Transform
@@ -9723,6 +9741,7 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 2684
+      - 2682
   - uid: 2736
     components:
     - type: Transform
@@ -9732,6 +9751,7 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 2683
+      - 2682
   - uid: 2737
     components:
     - type: Transform
@@ -13420,6 +13440,9 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -7.5,8.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 2673
     - type: AtmosPipeColor
       color: '#0055CCFF'
   - uid: 1873
@@ -13566,6 +13589,9 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 0.5,29.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 2682
     - type: AtmosPipeColor
       color: '#0055CCFF'
   - uid: 2176
@@ -13776,6 +13802,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: -6.5,7.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 2673
     - type: AtmosPipeLayers
       pipeLayer: Secondary
     - type: AtmosPipeColor
@@ -13952,6 +13981,9 @@ entities:
     - type: Transform
       pos: 0.5,32.5
       parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 2682
     - type: AtmosPipeLayers
       pipeLayer: Secondary
     - type: AtmosPipeColor

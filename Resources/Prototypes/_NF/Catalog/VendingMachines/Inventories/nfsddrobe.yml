@@ -17,8 +17,11 @@
     ClothingShoesBootsCombat: 30
     ClothingHeadHelmetMercenaryBlack: 20
     ClothingHeadHatBeretCommander: 10
-    ClothingOuterArmorBasicSlim: 15
+#    ClothingOuterArmorBasicSlim: 15 #Mono - Exact same texture as the BPlight so it looks like a duplicate, also just a reskinned basic armor anyways
     ClothingOuterArmorBasic: 15
+    ClothingOuterArmorBPVestLight: 15 #Mono - Add BP vests and winter coat, TSF spawns with these vests so they should be obtainable in their drobe
+    ClothingOuterArmorBPVestMedium: 5
+    ClothingOuterWinterTSF: 5
     ClothingShoesBootsMagSecurity: 3
     ClothingEyesHudNfsd: 10
     ClothingEyesHudMedSec: 2

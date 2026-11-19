@@ -46,7 +46,6 @@
   - ContractorFirearm # Mono
   - ContractorMag # Mono
   - CivGunCaseSpecial # Mono
-  - ContractorArmorPlates # Mono
 
 # Pilot
 - type: roleLoadout
@@ -74,7 +73,6 @@
   - ContractorTrinkets
   - ContractorBureaucracy
   - NFSpeciesSpecific
-  - ContractorArmorPlates # Mono
   - ContractorFirearm # Mono
   - ContractorMag # Mono
 # - CivGunCaseSpecial # Mono
@@ -110,7 +108,6 @@
   - ContractorBureaucracy
   - NFSpeciesSpecific
 # - CivGunCaseSpecial # Mono
-  - ContractorArmorPlates # Mono
 
 # Frontier
 - type: roleLoadout
@@ -135,9 +132,9 @@
   - ContractorTrinkets
   - ContractorBureaucracy
   - NFSpeciesSpecific
-  - ContractorFirearm # Mono
-  - ContractorMag # Mono
-  - ContractorArmorPlates # Mono
+  - MercenaryFirearm # Mono
+  - SecurityGuardPistol # Mono
+  - MercenaryMag # Mono
 
 - type: roleLoadout
   id: JobNFJanitor
@@ -161,7 +158,6 @@
   - NFSpeciesSpecific
   - ContractorFirearm # Mono
   - ContractorMag # Mono
-  - ContractorArmorPlates # Mono
 
 - type: roleLoadout
   id: JobMailCarrier
@@ -186,7 +182,6 @@
   - NFSpeciesSpecific
   - ContractorFirearm # Mono
   - ContractorMag # Mono
-  - ContractorArmorPlates # Mono
 
 - type: roleLoadout
   id: JobStationTrafficController
@@ -213,7 +208,6 @@
   - NFSpeciesSpecific
   - ContractorFirearm # Mono
   - ContractorMag # Mono
-  - ContractorArmorPlates # Mono
 
 # Mono edit
 - type: roleLoadout
@@ -235,7 +229,8 @@
   - HeadofSecurityHead
   - HeadofSecurityJumpsuit
   - HeadofSecurityNeck
-  - ColonialLiaisonFirearm # Mono
+  - SecurityGuardFirearm # Mono
+  - SecurityGuardPistol # Mono
   - ContractorBoxSurvival
   - StationRepPDA
   - ContractorWallet
@@ -246,7 +241,6 @@
   - StationRepTrinkets
   - ContractorBureaucracy
   - NFSpeciesSpecific
-  - ContractorArmorPlates # Mono
 
 - type: roleLoadout
   id: JobSecurityGuard
@@ -277,7 +271,7 @@
   - ContractorTrinkets
   - ContractorBureaucracy
   - NFSpeciesSpecific
-  - FactionArmorPlates # Mono
+  #- FactionArmorPlates # Mono
 
 - type: roleLoadout
   id: JobDirectorOfCare
@@ -303,8 +297,9 @@
   - ContractorFun
   - ContractorTrinkets
   - ContractorBureaucracy
+  - SecurityGuardFirearm # Mono
+  - SecurityGuardPistol # Mono
   - NFSpeciesSpecific
-  - ContractorArmorPlates # Mono
 
 # Nfsd
 

@@ -35,7 +35,8 @@
     - CannotSuicide
     - VimPilot
   - type: StealTarget
-    stealGroup: AnimalIan
+    stealGroup:
+    - AnimalIan
   - type: LanguageKnowledge # Einstein Engines - Language
     speaks:
     - Dog
@@ -130,7 +131,8 @@
       amount: 2
     - id: MaterialHideCorgi
   - type: StealTarget
-    stealGroup: AnimalIan
+    stealGroup:
+    - AnimalIan
   - type: LanguageKnowledge # Einstein Engines - Languages
     speaks:
     - Dog
@@ -160,7 +162,8 @@
     - CannotSuicide
     - VimPilot
   - type: StealTarget
-    stealGroup: AnimalNamedCat
+    stealGroup:
+    - AnimalNamedCat
   - type: LanguageKnowledge # Einstein Engines - Language
     speaks:
     - Cat
@@ -187,7 +190,8 @@
     - CannotSuicide
     - VimPilot
   - type: StealTarget
-    stealGroup: AnimalNamedCat
+    stealGroup:
+    - AnimalNamedCat
   - type: LanguageKnowledge # Einstein Engines - Language
     speaks:
     - Cat
@@ -223,7 +227,8 @@
     - CannotSuicide
     - VimPilot
   - type: StealTarget
-    stealGroup: AnimalNamedCat
+    stealGroup:
+    - AnimalNamedCat
   - type: LanguageKnowledge # Einstein Engines - Language
     speaks:
     - Cat
@@ -310,7 +315,8 @@
     - CannotSuicide
     - VimPilot
   - type: StealTarget
-    stealGroup: AnimalNamedCat
+    stealGroup:
+    - AnimalNamedCat
   - type: LanguageKnowledge # Einstein Engines - Language
     speaks:
     - Cat
@@ -382,7 +388,8 @@
     - CannotSuicide
     - VimPilot
   - type: StealTarget
-    stealGroup: AnimalMcGriff
+    stealGroup:
+    - AnimalMcGriff
 
 - type: entity
   name: Paperwork
@@ -485,7 +492,8 @@
     - CannotSuicide
     - VimPilot
   - type: StealTarget
-    stealGroup: AnimalWalter
+    stealGroup:
+    - AnimalWalter
   - type: Speech
     speechVerb: Canine
     speechSounds: Dog
@@ -512,7 +520,8 @@
     - CannotSuicide
     - VimPilot
   - type: StealTarget
-    stealGroup: AnimalMorty
+    stealGroup:
+    - AnimalMorty
   - type: LanguageKnowledge # Einstein Engines - Language
     speaks:
     - Hissing
@@ -646,7 +655,8 @@
     - CannotSuicide
     - VimPilot
   - type: StealTarget
-    stealGroup: AnimalRenault
+    stealGroup:
+    - AnimalRenault
   - type: LanguageKnowledge # Einstein Engines - Language
     speaks:
     - Fox
@@ -776,7 +786,8 @@
     - DoorBumpOpener
     - FootstepSound
   - type: StealTarget
-    stealGroup: AnimalShiva
+    stealGroup:
+    - AnimalShiva
   - type: LanguageKnowledge # Einstein Engines - Language
     speaks:
     - Xeno
@@ -955,7 +966,34 @@
     - Monkey
     - Kobold
     - TauCetiBasic
-
+  - type: contextualSpeech
+    triggers:
+      Eating:
+        dataset: PunPunEating
+        speechChance: 0.15
+      PickedUp:
+        dataset: PunPunPickedUp
+        speechChance: 0.15
+      Thrown:
+        dataset: PunPunThrown
+        speechChance: 0.5
+      Drinking:
+        dataset: PunPunDrinking
+        speechChance: 0.15
+      Critical:
+        dataset: PunPunCritical
+        speechChance: 1
+      Dead:
+        dataset: PunPunDeath
+        speechChance: 1
+      Revived:
+        dataset: PunPunRevived
+        speechChance: 1
+      Examined:
+        dataset: PunPunExamined
+        ghostDataset: PunPunGhostExamined
+        speechChance: 0.15
+        
 - type: entity
   name: Tropico
   parent: MobCrab
@@ -981,7 +1019,8 @@
       gender: male
 #  - type: AlwaysRevolutionaryConvertible
   - type: StealTarget
-    stealGroup: AnimalTropico
+    stealGroup:
+    - AnimalTropico
   - type: LanguageKnowledge # Einstein Engines - Language
     speaks:
     - Crab

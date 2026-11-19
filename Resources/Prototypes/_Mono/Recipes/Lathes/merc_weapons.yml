@@ -12,6 +12,20 @@
     Plastic: 1500
 
 - type: latheRecipe
+  id: WeaponRevolverMeLat
+  parent: BaseWeaponRecipeLong
+  result: WeaponRevolverMeLat
+  categories:
+  - Sidearms
+  - Ballistic
+  - Weapons
+  materials:
+    Steel: 1200
+    Plasteel: 1000
+    Plastic: 750
+    Wood: 300
+
+- type: latheRecipe
   id: WeaponRiflePrometheus
   parent: BaseWeaponRecipeLong
   result: WeaponRiflePrometheus
@@ -105,6 +119,19 @@
   id: WeaponSubMachineGunVector9x19mm
   parent: BaseWeaponRecipeLong
   result: WeaponSubMachineGunVector9x19mmRegistered
+  categories:
+  - SMGs
+  - Ballistic
+  - Weapons
+  materials:
+    Steel: 1500
+    Plasteel: 1500
+    Plastic: 800
+
+- type: latheRecipe
+  id: WeaponSubMachineGunVector45_ACP
+  parent: BaseWeaponRecipeLong
+  result: WeaponSubMachineGunVector45_ACP
   categories:
   - SMGs
   - Ballistic

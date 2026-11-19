@@ -48,5 +48,17 @@ namespace Content.Server.GameTicking.Presets
         /// </summary>
         [DataField]
         public float Weight = 1f;
+
+        /// <summary>
+        /// Mono - multiply respawn timer by this amount
+        /// </summary>
+        [DataField]
+        public float RespawnMultiplier = 1f;
+
+        /// <summary>
+        /// Mono - enable the autobalancer for TSF/PDV
+        /// </summary>
+        [DataField]
+        public bool AutobalancerEnabled = false;
     }
 }

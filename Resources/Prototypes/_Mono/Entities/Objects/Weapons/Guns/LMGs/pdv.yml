@@ -147,3 +147,91 @@
     baseDelay: 0.8
     modifiedDelay: 0.8
     preventFiring: true
+
+# this is basically just a grizzly reskin for ground war loloolol
+- type: entity
+  name: PD-VI PKMS (5.56x45mm)
+  parent: [BaseWeaponLightMachineGun, BaseGunWieldable]
+  id: WeaponLMGPKMS
+  description: A light machine gun chambered in 5.56x45mm, accepts both box and standard magazines. The weight of the machine gun make it hard to wield easily.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/LMGs/pkms/pkms-icon.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: GunWieldBonus
+    minAngle: -1
+    maxAngle: 0
+  - type: Gun
+    minAngle: 1 # forcewield anyways
+    maxAngle: 12
+    angleIncrease: 1
+    angleDecay: 12
+    fireRate: 8 # same as L6, but more accurate and heavier
+    selectedMode: FullAuto
+    damageModifier: 1.1 # Don't walk in front of a MG.
+    availableModes:
+    - SemiAuto
+    - FullAuto
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/heavy_rifle_1.ogg
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/lmg_cock.ogg
+    soundBoltClosed:
+      path: /Audio/Weapons/Guns/Bolt/lmg_bolt_closed.ogg
+    soundBoltOpened:
+      path: /Audio/Weapons/Guns/Bolt/lmg_bolt_open.ogg
+  - type: Item
+    sprite: _Mono/Objects/Weapons/Guns/LMGs/pkms/pkms-inhands.rsi
+    shape:
+    - 0,0,6,3
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: AmmoBox556x45mmFMJ
+        insertSound: /Audio/Weapons/Guns/MagIn/lmg_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/lmg_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - Magazine556x45mmBox
+          - Magazine556x45mmAmmoBox
+          - Magazine556x45mmFMJ
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: Cartridge556x45mmFMJ
+        priority: 1
+        whitelist:
+          tags:
+          - Cartridge556x45mmFMJ
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/LMGs/pkms/pkms-inhands.rsi
+  - type: StaticPrice
+    price: 2500
+  - type: GunRequiresWield
+  - type: HeldSpeedModifier
+  - type: ClothingSpeedModifier
+    sprintModifier: 1
+    walkModifier: 1
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.6
+    sprintModifier: 0.5
+  - type: WieldDelay
+    baseDelay: 1.2
+    modifiedDelay: 1.2
+    preventFiring: true
