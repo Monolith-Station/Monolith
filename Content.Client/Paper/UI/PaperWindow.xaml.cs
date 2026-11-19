@@ -40,7 +40,8 @@ namespace Content.Client.Paper.UI
         // we're able to resize this UI or not. Default to everything enabled:
         private DragMode _allowedResizeModes = ~DragMode.None;
 
-        private readonly Type[] _allowedTags = new Type[] {
+        private readonly Type[] _allowedTags = new[]
+        {
             typeof(BoldItalicTag),
             typeof(BoldTag),
             typeof(BulletTag),
@@ -49,8 +50,6 @@ namespace Content.Client.Paper.UI
             typeof(ItalicTag),
             typeof(MonoTag),
             typeof(LanguageMarkupTag), // Mono
-            typeof(IconTag), // Mono
-            typeof(FontTag), // Mono
         };
 
         public event Action<string>? OnSaved;
