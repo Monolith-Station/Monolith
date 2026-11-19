@@ -37,18 +37,17 @@
   - ComponentBrickEconomy2
   - ArmorPlate4
   - ArmorPlate4Alt
-  # Commented out materials until we give them a use
   - MaterialIndustryElectronics
-  #- MaterialIndustryElectronicsAdvanced
-  #- MaterialIndustryElectronicsAdvancedAlt
+  - MaterialIndustryElectronicsAdvanced
+  - MaterialIndustryElectronicsAdvancedAlt
   - MaterialIndustryFCS
   - MaterialIndustryMechanical
-  #- MaterialIndustryPlates
-  #- MaterialIndustryPlatesAlt
+  - MaterialIndustryPlates
+  - MaterialIndustryPlatesAlt
   - MaterialIndustryRecievers
-  #- MaterialIndustrySensors
-  #- MaterialIndustryShip
-  #- MaterialIndustrySterile
+  - MaterialIndustrySensors
+  - MaterialIndustryShip
+  - MaterialIndustrySterile
 
 - type: latheRecipePack
   id: ArcFurnaceStatic
