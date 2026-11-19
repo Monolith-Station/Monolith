@@ -27487,3 +27487,20 @@ Entries:
   id: 2950
   time: '2026-11-19T14:04:44.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/5055
+- author: SuperGDPWYL
+  changes:
+    - type: Add
+      message: >-
+        Explosive, nuclear and EMP ship weaponry now have radar blips when they
+        land.
+    - type: Tweak
+      message: Increased the render distance of most ship projectiles to 4km (was 2km).
+    - type: Tweak
+      message: Increased the render distance of most missiles to 8km (was 2km).
+    - type: Tweak
+      message: >-
+        Increased the render distance of "Sandbox" cruise missiles to 16km (was
+        4km).
+  id: 2951
+  time: '2026-11-19T16:36:41.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4990
