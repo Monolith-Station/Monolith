@@ -699,9 +699,9 @@ public sealed partial class HolopadSystem : SharedHolopadSystem
             {
                 UnlinkHolopadFromUser(entity, (entity.Comp.User.Value, holopadUser));
             }
-
-            Dirty(entity);
         }
+
+        Dirty(entity);
     }
 
     private void ActivateProjector(Entity<HolopadComponent> entity, EntityUid user)

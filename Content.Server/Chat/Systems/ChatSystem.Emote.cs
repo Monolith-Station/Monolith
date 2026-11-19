@@ -248,7 +248,7 @@ public partial class ChatSystem
     private void InvokeEmoteEventChatOnly(EntityUid uid, string textInput)
     {
         var ev = new EmoteEventChatOnly(textInput);
-        RaiseLocalEvent(uid, ref ev, true);
+        RaiseLocalEvent(uid, ref ev);
     }
 }
 
