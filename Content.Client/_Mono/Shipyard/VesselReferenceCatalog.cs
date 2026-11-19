@@ -131,7 +131,7 @@ public sealed class VesselReferenceCatalog
         {
             entry.EquipmentByCategory[catName] = nameCounts
                 .OrderBy(kv => kv.Key, StringComparer.OrdinalIgnoreCase)
-                .Select(kv => kv.Value > 1 ? $"{kv.Key} ×{kv.Value}" : kv.Key)
+                .Select(kv => kv.Value > 1 ? $"{kv.Key} {kv.Value}x" : kv.Key)
                 .ToList();
         }
     }

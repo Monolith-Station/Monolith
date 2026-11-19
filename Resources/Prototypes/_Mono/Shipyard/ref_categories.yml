@@ -1,3 +1,5 @@
+# this only works for shared/clientside comps
+
 - type: vesselReferenceCategory
   id: NavalGuns
   name: vessel-reference-category-guns
@@ -22,6 +24,6 @@
 - type: vesselReferenceCategory
   id: FTL
   name: vessel-reference-category-ftl
-  priority: 30
+  priority: 15
   componentTypes:
   - FTLDrive
