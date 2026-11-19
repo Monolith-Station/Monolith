@@ -1,0 +1,237 @@
+- type: latheRecipe
+  id: RecipeWeaponTurretFlare
+  result: TurretFlareFlatpack
+  categories:
+  - NavalBallistics
+  - SuperLight
+  completetime: 10
+  materialDiscountScale: 0
+  materials:
+    Steel: 2500
+
+- type: latheRecipe
+  id: RecipeWeaponTurretL85Autocannon
+  result: L58Flatpack
+  categories:
+  - NavalBallistics
+  - Light
+  completetime: 10
+  materialDiscountScale: 0
+  materials:
+    MaterialIndustryRecievers: 1
+    Steel: 2000
+    Plasteel: 500
+
+- type: latheRecipe
+  id: RecipeWeaponTurretAdderScattercannon
+  result: AdderScattercannonFlatpack
+  categories:
+  - NavalBallistics
+  - Light
+  completetime: 10
+  materialDiscountScale: 0
+  materials:
+    MaterialIndustryMechanical: 1
+    MaterialIndustryRecievers: 1
+    MaterialIndustryElectronics: 1
+    Steel: 2000
+    Plasteel: 500
+
+- type: latheRecipe
+  id: RecipeWeaponTurretAK570
+  result: AK570Flatpack
+  categories:
+  - NavalBallistics
+  - Light
+  completetime: 10
+  materialDiscountScale: 0
+  materials:
+    MaterialIndustryFCS: 1
+    MaterialIndustryMechanical: 1
+    MaterialIndustryRecievers: 1
+    Steel: 2000
+    Plasteel: 500
+
+- type: latheRecipe
+  id: RecipeWeaponTurretAC-35
+  result: AC-35Flatpack
+  categories:
+  - NavalBallistics
+  - Medium
+  completetime: 10
+  materialDiscountScale: 0
+  materials:
+    MaterialIndustryFCS: 1
+    MaterialIndustryMechanical: 2
+    MaterialIndustryRecievers: 2
+    Steel: 3000
+    Plasteel: 1500
+
+- type: latheRecipe
+  id: RecipeWeaponTurretRAC30
+  result: DraupnirFlatpack
+  categories:
+  - NavalBallistics
+  - Medium
+  completetime: 10
+  materialDiscountScale: 0
+  materials:
+    MaterialIndustryFCS: 1
+    MaterialIndustryMechanical: 2
+    MaterialIndustryRecievers: 2
+    Steel: 3000
+    Plasteel: 1500
+
+- type: latheRecipe
+  id: RecipeWeaponTurretDravon
+  result: DravonFlatpack
+  categories:
+  - NavalBallistics
+  - Medium
+  completetime: 10
+  materialDiscountScale: 0
+  materials:
+    MaterialIndustryFCS: 2
+    MaterialIndustryMechanical: 1
+    MaterialIndustryRecievers: 2
+    Steel: 3000
+    Plasteel: 1500
+
+- type: latheRecipe
+  id: RecipeWeaponTurretTarnyxReload
+  result: TarnyxFlatpack
+  categories:
+  - NavalBallistics
+  - Medium
+  completetime: 10
+  materialDiscountScale: 0
+  materials:
+    MaterialIndustryFCS: 2
+    MaterialIndustryMechanical: 1
+    MaterialIndustryRecievers: 2
+    MaterialIndustryElectronics: 1
+    Steel: 3000
+    Plasteel: 1500
+
+- type: latheRecipe
+  id: RecipeWeaponTurretTarnyxReloadAP
+  result: EquinoxFlatpack
+  categories:
+  - NavalBallistics
+  - Medium
+  completetime: 10
+  materialDiscountScale: 0
+  materials:
+    MaterialIndustryFCS: 1
+    MaterialIndustryMechanical: 1
+    MaterialIndustryRecievers: 2
+    Steel: 3000
+    Plasteel: 1500
+
+- type: latheRecipe
+  id: RecipeWeaponTurretBofors
+  result: BoforsFlatpack
+  categories:
+  - NavalBallistics
+  - Heavy
+  completetime: 10
+  materialDiscountScale: 0
+  materials:
+    MaterialIndustryFCS: 1
+    MaterialIndustryMechanical: 4
+    MaterialIndustryRecievers: 4
+    Steel: 5000
+    Plasteel: 5000
+
+- type: latheRecipe
+  id: RecipeWeaponTurretCyrexa
+  result: CyrexaFlatpack
+  categories:
+  - NavalBallistics
+  - Heavy
+  completetime: 10
+  materialDiscountScale: 0
+  materials:
+    MaterialIndustryFCS: 3
+    MaterialIndustryMechanical: 3
+    MaterialIndustryRecievers: 3
+    Steel: 5000
+    Plasteel: 5000
+
+- type: latheRecipe
+  id: RecipeWeaponTurretR300
+  result: R300Flatpack
+  categories:
+  - NavalBallistics
+  - Heavy
+  completetime: 10
+  materialDiscountScale: 0
+  materials:
+    MaterialIndustryMechanical: 1
+    MaterialIndustryRecievers: 5
+    Steel: 5000
+    Plasteel: 5000
+
+- type: latheRecipe
+  id: RecipeWeaponTurretAK800
+  result: Ak800Flatpack
+  categories:
+  - NavalBallistics
+  - Heavy
+  completetime: 10
+  materialDiscountScale: 0
+  materials:
+    MaterialIndustryFCS: 3
+    MaterialIndustryMechanical: 3
+    MaterialIndustryRecievers: 2
+    MaterialIndustryElectronics: 1
+    Steel: 5000
+    Plasteel: 5000
+
+- type: latheRecipe
+  id: RecipeWeaponTurretAK820
+  result: Ak820Flatpack
+  categories:
+  - NavalBallistics
+  - Heavy
+  completetime: 10
+  materialDiscountScale: 0
+  materials:
+    MaterialIndustryFCS: 3
+    MaterialIndustryMechanical: 5
+    MaterialIndustryRecievers: 4
+    MaterialIndustryElectronics: 1
+    Steel: 5000
+    Plasteel: 5000
+
+- type: latheRecipe
+  id: RecipeWeaponTurretFang
+  result: FangFlatpack
+  categories:
+  - NavalBallistics
+  - Heavy
+  completetime: 10
+  materialDiscountScale: 0
+  materials:
+    MaterialIndustryFCS: 1
+    MaterialIndustryMechanical: 4
+    MaterialIndustryRecievers: 4
+    MaterialIndustryElectronics: 1
+    Steel: 5000
+    Plasteel: 5000
+
+- type: latheRecipe
+  id: RecipeWeaponTurretHydra
+  result: HydraFlatpack
+  categories:
+  - NavalBallistics
+  - Heavy
+  completetime: 10
+  materialDiscountScale: 0
+  materials:
+    MaterialIndustryFCS: 3
+    MaterialIndustryMechanical: 5
+    MaterialIndustryRecievers: 5
+    MaterialIndustryElectronics: 1
+    Steel: 5000
+    Plasteel: 5000

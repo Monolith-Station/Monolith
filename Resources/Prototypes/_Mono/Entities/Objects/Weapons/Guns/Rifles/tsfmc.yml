@@ -99,10 +99,10 @@
     maxAngle: -17
   - type: Gun
     minAngle: 18
-    maxAngle: 35
+    maxAngle: 40
     angleIncrease: 1
     angleDecay: 15
-    fireRate: 8
+    fireRate: 7.5
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/light_rifle_1.ogg
   - type: ItemSlots

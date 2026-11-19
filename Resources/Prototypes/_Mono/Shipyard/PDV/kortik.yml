@@ -3,18 +3,18 @@
   parent: BaseVesselIFFDisabled
   name: PDV-NCI Kortik-R
   description: An retrofitted version of old purchased hulls. Equipped with a heavy up-close armament, 2 howitzers for bombardment, and lots of extra hardpoints, but lacking in PD, GCS power, and unable to use shields.
-  limit: 2
-  hyperwarLimit: 3
+  limit: 4
+  hyperwarLimit: 8
   hyperwarTimelock: 3600
   price: 500000
-  purchasable: false # Voucher only - T3
+  purchasable: false # Voucher only - T2
   category: Large
   group: BlackMarket
   shuttlePath: /SharedMaps/_Mono/Shuttles/PDV/kortik_r.yml
   guidebookPage: Null
   class:
   - Brawler
-  - Frigate
+  - Corvette
   engine:
   - AME
 

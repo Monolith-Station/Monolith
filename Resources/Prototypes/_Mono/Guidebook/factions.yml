@@ -11,6 +11,7 @@
   - Viper_Group
   - MMC
   - MAWC_Entry
+  - Underground
 
 - type: guideEntry
   id: TSFMC_Entry
@@ -189,3 +190,9 @@
   - type: Sprite
     sprite: _Mono/Guidebook/small_icons/MAWC/28x34.rsi
     state: guidebook_seraph
+    
+- type: guideEntry
+  id: Underground
+  name: Underground Black Market
+  text: "/ServerInfo/_Mono/Guidebook/Factions/underground.xml"
+  priority: 13

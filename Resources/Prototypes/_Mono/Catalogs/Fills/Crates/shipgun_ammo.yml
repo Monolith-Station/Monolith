@@ -294,6 +294,17 @@
 
 - type: entity
   parent: CrateAmmoSecureMercenary
+  id: CrateAmmoBoxVanykAAM
+  name: ASM-150 Vanyk anti-munition missile box
+  description: Contains 60 anti-munition missles. 2 full loads.
+  components:
+  - type: StorageFill
+    contents:
+    - id: VanykMagazineAAM
+      amount: 2 # 2 reloads
+
+- type: entity
+  parent: CrateAmmoSecureMercenary
   id: CrateAmmoBoxVespera
   name: ADMP-50 Vespera HE missile box
   description: Contains 12 bursts of 13 high-explosive missiles. 2 full loads.
@@ -301,6 +312,17 @@
   - type: StorageFill
     contents:
     - id: MissileMagazine50mmHE
+      amount: 2 # 2 reload
+
+- type: entity
+  parent: CrateAmmoSecureMercenary
+  id: CrateAmmoBoxVesperaAAM
+  name: ADMP-50 Vespera anti-munition missile box
+  description: Contains 12 bursts of 13 anti-munition missiles. 2 full loads.
+  components:
+  - type: StorageFill
+    contents:
+    - id: MissileMagazine50mmAAM
       amount: 2 # 2 reload
 
 - type: entity

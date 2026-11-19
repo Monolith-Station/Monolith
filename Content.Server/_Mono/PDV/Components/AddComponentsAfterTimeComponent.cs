@@ -13,11 +13,12 @@ public sealed partial class AddComponentsAfterTimeComponent : Component, ITransf
     [DataField]
     public float SelectionProbability = 0.5f;
 
+    // Don't make these longer than an hour
     [DataField]
-    public TimeSpan MinSelectionTime = TimeSpan.FromMinutes(30);
+    public TimeSpan MinSelectionTime = TimeSpan.FromMinutes(15);
 
     [DataField]
-    public TimeSpan MaxSelectionTime = TimeSpan.FromMinutes(270); // 4.5 hours
+    public TimeSpan MaxSelectionTime = TimeSpan.FromMinutes(60);
 
     [DataField]
     public TimeSpan SelectionTime;

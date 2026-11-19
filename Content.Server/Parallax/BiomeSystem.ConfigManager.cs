@@ -17,6 +17,9 @@ public sealed partial class BiomeSystem
         if (!obj.ByType.TryGetValue(typeof(BiomeTemplatePrototype), out var reloads))
             return;
 
+        // Mono
+        InvalidateCompiledBiomes();
+
         var query = AllEntityQuery<BiomeComponent>();
 
         while (query.MoveNext(out var uid, out var biome))
@@ -56,6 +59,7 @@ public sealed partial class BiomeSystem
     {
         component.Layers.Clear();
         component.Template = null;
+        InvalidateCompiledBiomes(); // Mono
 
         if (dirty)
             Dirty(uid, component);
@@ -73,6 +77,8 @@ public sealed partial class BiomeSystem
         {
             component.Layers.Add(layer);
         }
+
+        InvalidateCompiledBiomes(); // Mono
 
         if (dirty)
             Dirty(uid, component);
@@ -94,6 +100,8 @@ public sealed partial class BiomeSystem
             component.Layers.Insert(i, addedLayer);
             break;
         }
+
+        InvalidateCompiledBiomes(); // Mono
 
         Dirty(uid, component);
     }
@@ -125,6 +133,8 @@ public sealed partial class BiomeSystem
 
             break;
         }
+
+        InvalidateCompiledBiomes(); // Mono
 
         Dirty(uid, component);
     }

@@ -1,5 +1,6 @@
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._FinalHorizon.Guns.AlternateGun;
 
@@ -8,6 +9,9 @@ public sealed partial class AlternateGunComponent : Component
 {
     [DataField, AutoNetworkedField]
     public bool Enabled = false;
+
+    [DataField, AutoNetworkedField]
+    public EntProtoId ActionToggleUnderbarrelId = "ActionToggleUnderbarrel";
 
     [DataField, AutoNetworkedField]
     public string Slot = "launcher";
@@ -26,4 +30,7 @@ public sealed partial class AlternateGunComponent : Component
 
     [DataField]
     public string DisabledMessage = "underbarrel-launcher-disabled";
+
+    [DataField, AutoNetworkedField]
+    public EntityUid? ActionUnderbarrelToggle;
 }

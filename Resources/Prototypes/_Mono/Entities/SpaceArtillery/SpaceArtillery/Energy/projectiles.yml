@@ -497,6 +497,24 @@
   - type: HitscanBasicRaycast
     maxDistance: 1000
 
+# Retribution
+
+- type: entity
+  parent: PrometheusLaser
+  id: RetributionLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanRadarSignature
+    radarColor: "#ba0707"
+    lineThickness: 5
+    lifeTime: 0.1 # 5 lasers visible at once
+  - type: HitscanBasicRaycast
+    maxDistance: 3500
+
+
+
+
+
 # Reaper
 
 - type: entity

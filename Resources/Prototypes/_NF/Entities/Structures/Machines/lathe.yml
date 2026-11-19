@@ -211,6 +211,10 @@
     - UniversalMissileAmmo
     - UniversalOrdinance
     - ResearchedExplosives
+    # Shipguns
+    - NavalBallistics
+    - NavalEnergy
+    - NavalMissiles
     # Mono end
   - type: EmagLatheRecipes
     emagStaticPacks:
@@ -266,6 +270,10 @@
     - UniversalOrdinance
     - SecurityEquipment
     - SmartGun #Smart SMG
+    # Shipguns
+    - NavalBallistics
+    - NavalEnergy
+    - NavalMissiles
     # Mono end
   - type: EmagLatheRecipes
     emagStaticPacks:
@@ -333,6 +341,10 @@
     - UniversalMissileAmmo
     - UniversalShellAmmo
     - UniversalOrdinance
+    # Shipguns
+    - NavalBallistics
+    - NavalEnergy
+    - NavalMissiles
     # Mono end
   - type: PirateBountyItem # Mono
     id: Techfab

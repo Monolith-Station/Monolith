@@ -146,3 +146,21 @@
     - type: SandevistanUser
       activeDuration: 8
       rechargeDuration: 40
+
+- type: entity
+  id: OrganNENvgEyes
+  parent: BaseCyberneticEyes
+  name: Nosske-Eien night vision cybereyes
+  description: A pair of prototype robotic eyeballs that NE is supposedly developing for mining applications. You're not entirely sure how they've found their way into the sector so soon.
+  components:
+  - type: Organ
+    onAdd:
+    - type: NightVision # Gen 3 wide-quadtube
+      relayOverlay: false
+      goggleEffect: true
+      viewCircleRadius: 450
+      viewCircleCount: 4
+      viewCircleSpacing: 280
+      action: ActionToggleNightVision
+      phosphorColor: "#00FF00"
+      lightingColor: "#FFFFFF32"
