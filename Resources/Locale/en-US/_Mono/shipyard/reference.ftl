@@ -17,12 +17,12 @@ vessel-reference-shipyard-Shipyard = Civilian
 vessel-reference-shipyard-Scrap = Scrapyard
 vessel-reference-shipyard-Ussp = USSP
 vessel-reference-shipyard-Viper = VG
-vessel-reference-shipyard-Syndicate = UGR
+vessel-reference-shipyard-Syndicate = UBM
 vessel-reference-shipyard-Custom = Carrier
 vessel-reference-shipyard-Security = TSFMC/TSFN
 vessel-reference-shipyard-Mieyo = MMC
-vessel-reference-shipyard-Medical = CC-MD
-vessel-reference-shipyard-Sr = CC
+vessel-reference-shipyard-Medical = CMed
+vessel-reference-shipyard-Sr = Caelestinus
 
 vessel-reference-category-shields = Emitters
 vessel-reference-category-guns = Armaments
