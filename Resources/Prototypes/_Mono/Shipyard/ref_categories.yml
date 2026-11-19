@@ -1,0 +1,27 @@
+- type: vesselReferenceCategory
+  id: NavalGuns
+  name: vessel-reference-category-guns
+  priority: 0
+  componentTypes:
+  - ShipGunClass # firecontrollable and spaceartillery are server only lol
+
+- type: vesselReferenceCategory
+  id: Hardpoints
+  name: vessel-reference-category-hardpoints
+  priority: 5
+  componentTypes:
+  - Hardpoint
+
+- type: vesselReferenceCategory
+  id: Shields
+  name: vessel-reference-category-shields
+  priority: 10
+  componentTypes:
+  - ShipShieldEmitter
+
+- type: vesselReferenceCategory
+  id: FTL
+  name: vessel-reference-category-ftl
+  priority: 30
+  componentTypes:
+  - FTLDrive

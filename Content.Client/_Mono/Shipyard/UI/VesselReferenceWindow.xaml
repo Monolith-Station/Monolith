@@ -1,0 +1,37 @@
+<DefaultWindow xmlns="https://spacestation14.io"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               xmlns:controls="clr-namespace:Robust.Client.UserInterface.Controls;assembly=Robust.Client"
+               xmlns:fancyTree="clr-namespace:Content.Client.UserInterface.Controls.FancyTree"
+               x:Class="Content.Client._Mono.Shipyard.UI.VesselReferenceWindow"
+               Title="{Loc vessel-reference-title}"
+               SetSize="820 520"
+               MinSize="640 400">
+    <BoxContainer Orientation="Horizontal" SeparationOverride="8">
+        <!-- Left: searchable tree -->
+        <BoxContainer Orientation="Vertical" MinWidth="260" MaxWidth="300">
+            <LineEdit Name="SearchBar"
+                      PlaceHolder="{Loc vessel-reference-search-placeholder}"
+                      Margin="0 0 0 4" />
+            <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
+                <fancyTree:FancyTree Name="VesselTree"
+                           VerticalExpand="True"
+                           HorizontalExpand="True" />
+            </ScrollContainer>
+        </BoxContainer>
+
+        <!-- Right: detail panel -->
+        <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
+            <Label Name="VesselTitleLabel"
+                   StyleClasses="LabelHeading"
+                   Text="{Loc vessel-reference-no-selection}" />
+            <PanelContainer StyleClasses="AngleRect" Margin="0 6 0 0" VerticalExpand="True">
+                <ScrollContainer VerticalExpand="True">
+                    <BoxContainer Name="StatsBox"
+                                  Orientation="Vertical"
+                                  Margin="8"
+                                  SeparationOverride="4" />
+                </ScrollContainer>
+            </PanelContainer>
+        </BoxContainer>
+    </BoxContainer>
+</DefaultWindow>
