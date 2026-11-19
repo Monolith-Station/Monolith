@@ -17,11 +17,11 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
 
         SubscribeLocalEvent<LanguageSpeakerComponent, MapInitEvent>(OnInitLanguageSpeaker);
         SubscribeLocalEvent<LanguageSpeakerComponent, ComponentGetState>(OnGetLanguageState);
-        SubscribeLocalEvent<Shared._EinsteinEngines.Language.UniversalLanguageSpeakerComponent, DetermineEntityLanguagesEvent>(OnDetermineUniversalLanguages);
+        SubscribeLocalEvent<UniversalLanguageSpeakerComponent, DetermineEntityLanguagesEvent>(OnDetermineUniversalLanguages);
         SubscribeNetworkEvent<LanguagesSetMessage>(OnClientSetLanguage);
 
-        SubscribeLocalEvent<Shared._EinsteinEngines.Language.UniversalLanguageSpeakerComponent, MapInitEvent>((uid, _, _) => UpdateEntityLanguages(uid));
-        SubscribeLocalEvent<Shared._EinsteinEngines.Language.UniversalLanguageSpeakerComponent, ComponentRemove>((uid, _, _) => UpdateEntityLanguages(uid));
+        SubscribeLocalEvent<UniversalLanguageSpeakerComponent, MapInitEvent>((uid, _, _) => UpdateEntityLanguages(uid));
+        SubscribeLocalEvent<UniversalLanguageSpeakerComponent, ComponentRemove>((uid, _, _) => UpdateEntityLanguages(uid));
     }
 
     #region event handling
@@ -44,7 +44,7 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
         };
     }
 
-    private void OnDetermineUniversalLanguages(Entity<Shared._EinsteinEngines.Language.UniversalLanguageSpeakerComponent> entity, ref DetermineEntityLanguagesEvent ev)
+    private void OnDetermineUniversalLanguages(Entity<UniversalLanguageSpeakerComponent> entity, ref DetermineEntityLanguagesEvent ev)
     {
         // We only add it as a spoken language: CanUnderstand checks for ULSC itself.
         if (entity.Comp.Enabled)
@@ -103,7 +103,7 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
 
     /// <summary>
     ///     Returns the list of languages this entity can understand.
-    /// </summary
+    /// </summary>
     /// <remarks>This simply returns the value of <see cref="LanguageSpeakerComponent.SpokenLanguages"/>.</remarks>
     public List<ProtoId<LanguagePrototype>> GetUnderstoodLanguages(EntityUid uid)
     {
@@ -131,7 +131,7 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
         bool addSpoken = true,
         bool addUnderstood = true)
     {
-        EnsureComp<Shared._EinsteinEngines.Language.LanguageKnowledgeComponent>(uid, out var knowledge);
+        EnsureComp<LanguageKnowledgeComponent>(uid, out var knowledge);
         EnsureComp<LanguageSpeakerComponent>(uid, out var speaker);
 
         if (addSpoken && !knowledge.SpokenLanguages.Contains(language))
@@ -147,7 +147,7 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
     ///     Removes a language from the respective lists of intrinsically known languages of the given entity.
     /// </summary>
     public void RemoveLanguage(
-        Entity<Shared._EinsteinEngines.Language.LanguageKnowledgeComponent?> ent,
+        Entity<LanguageKnowledgeComponent?> ent,
         ProtoId<LanguagePrototype> language,
         bool removeSpoken = true,
         bool removeUnderstood = true)
@@ -196,13 +196,17 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
 
         var ev = new DetermineEntityLanguagesEvent();
         // We add the intrinsically known languages first so other systems can manipulate them easily
-        if (TryComp<Shared._EinsteinEngines.Language.LanguageKnowledgeComponent>(ent, out var knowledge))
+        if (TryComp<LanguageKnowledgeComponent>(ent, out var knowledge))
         {
             foreach (var spoken in knowledge.SpokenLanguages)
+            {
                 ev.SpokenLanguages.Add(spoken);
+            }
 
             foreach (var understood in knowledge.UnderstoodLanguages)
+            {
                 ev.UnderstoodLanguages.Add(understood);
+            }
         }
 
         RaiseLocalEvent(ent, ref ev);
@@ -225,7 +229,7 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
     /// Attempt to resolve language based off a given prefix.
     /// </summary>
     /// <param name="ent">Entity to get language from</param>
-    /// <param name="input">Input to parse for prefix. Should start with <c><see cref="ChatPrefixChar"/></c>.</param>
+    /// <param name="input">Input to parse for prefix. Should start with <c><see cref="SharedLanguageSystem.ChatPrefixChar"/></c>.</param>
     /// <param name="parsed">Whether the function managed to parse the prefix or not.</param>
     /// <param name="modifyText">Whether to allow this function to modify the resulting text string or not.</param>
     /// <returns></returns>
@@ -239,7 +243,8 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
         var proto = GetLanguage(ent);
         // Begin parsing
         var text = input;
-        if (text.Length<4 || !text.StartsWith(ChatPrefixChar)) return proto;
+        if (text.Length<4 || !text.StartsWith(ChatPrefixChar))
+            return proto;
         text = text[1..];
         var prefix = text[..3];
         foreach (var langId in ent.Comp.SpokenLanguages)

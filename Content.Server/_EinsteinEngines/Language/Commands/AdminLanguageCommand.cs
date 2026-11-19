@@ -5,16 +5,13 @@ using Content.Shared._EinsteinEngines.Language.Components;
 using Content.Shared._EinsteinEngines.Language.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Toolshed;
-using Robust.Shared.Toolshed.Syntax;
-using Robust.Shared.Toolshed.TypeParsers;
 
 namespace Content.Server._EinsteinEngines.Language.Commands;
 
 [ToolshedCommand(Name = "language"), AdminCommand(AdminFlags.Admin)]
 public sealed class AdminLanguageCommand : ToolshedCommand
 {
-    private LanguageSystem? _languagesField;
-    private LanguageSystem Languages => _languagesField ??= GetSys<LanguageSystem>();
+    private LanguageSystem Languages => field ??= GetSys<LanguageSystem>();
 
     [CommandImplementation("add")]
     public EntityUid AddLanguage(
@@ -27,7 +24,7 @@ public sealed class AdminLanguageCommand : ToolshedCommand
     {
         if (language == SharedLanguageSystem.UniversalPrototype)
         {
-            EnsureComp<Shared._EinsteinEngines.Language.UniversalLanguageSpeakerComponent>(input);
+            EnsureComp<UniversalLanguageSpeakerComponent>(input);
             Languages.UpdateEntityLanguages(input);
         }
         else
@@ -48,9 +45,9 @@ public sealed class AdminLanguageCommand : ToolshedCommand
         [CommandArgument] bool removeUnderstand = true
     )
     {
-        if (language == SharedLanguageSystem.UniversalPrototype && HasComp<Shared._EinsteinEngines.Language.UniversalLanguageSpeakerComponent>(input))
+        if (language == SharedLanguageSystem.UniversalPrototype && HasComp<UniversalLanguageSpeakerComponent>(input))
         {
-            RemComp<Shared._EinsteinEngines.Language.UniversalLanguageSpeakerComponent>(input);
+            RemComp<UniversalLanguageSpeakerComponent>(input);
             EnsureComp<LanguageSpeakerComponent>(input);
         }
         // We execute this branch even in case of universal so that it gets removed if it was added manually to the LanguageKnowledge.

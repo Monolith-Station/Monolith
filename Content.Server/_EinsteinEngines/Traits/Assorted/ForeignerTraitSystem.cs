@@ -5,7 +5,6 @@ using Content.Server.Storage.EntitySystems;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Inventory;
 using Content.Shared._EinsteinEngines.Language;
-using Content.Shared._EinsteinEngines.Language.Components;
 using Content.Shared._EinsteinEngines.Language.Components.Translators;
 using Content.Shared.Storage;
 using Robust.Shared.Prototypes;
@@ -28,10 +27,10 @@ public sealed partial class ForeignerTraitSystem : EntitySystem
 
     private void OnSpawn(Entity<ForeignerTraitComponent> entity, ref ComponentInit args)
     {
-        if (entity.Comp.CantUnderstand && !entity.Comp.CantSpeak)
+        if (entity.Comp is { CantUnderstand: true, CantSpeak: false })
             Log.Warning($"Allowing entity {entity.Owner} to speak a language but not understand it leads to undefined behavior.");
 
-        if (!TryComp<Shared._EinsteinEngines.Language.LanguageKnowledgeComponent>(entity, out var knowledge))
+        if (!TryComp<LanguageKnowledgeComponent>(entity, out var knowledge))
         {
             Log.Warning($"Entity {entity.Owner} does not have a LanguageKnowledge but has a ForeignerTrait!");
             return;
@@ -44,7 +43,7 @@ public sealed partial class ForeignerTraitSystem : EntitySystem
             return;
         }
 
-        if (TryGiveTranslator(entity.Owner, entity.Comp.BaseTranslator, entity.Comp.BaseLanguage, alternateLanguage, out var translator))
+        if (TryGiveTranslator(entity.Owner, entity.Comp.BaseTranslator, entity.Comp.BaseLanguage, alternateLanguage, out _))
         {
             _languages.RemoveLanguage(entity.Owner, entity.Comp.BaseLanguage, entity.Comp.CantSpeak, entity.Comp.CantUnderstand);
         }
@@ -87,7 +86,7 @@ public sealed partial class ForeignerTraitSystem : EntitySystem
         if (TryComp<ClothingComponent>(translator, out var clothing)
             && clothing.Slots != SlotFlags.NONE
             && _inventory.TryGetSlots(uid, out var slots)
-            && slots.Any(it => _inventory.TryEquip(uid, translator, it.Name, true, false)))
+            && slots.Any(it => _inventory.TryEquip(uid, translator, it.Name, true)))
             return true;
 
         // Try to put the translator into entities bag, if it has one
