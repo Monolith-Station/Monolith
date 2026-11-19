@@ -144,10 +144,20 @@ public sealed partial class VesselReferenceWindow : DefaultWindow
             : string.Empty);
         Row("vessel-reference-size", e.SizeClass);
 
+        StatsBox.AddChild(new RichTextLabel
+        {
+            Text = e.Description,
+            Margin = new Thickness(0, 12, 0, 4),
+            VerticalExpand = true,
+            HorizontalExpand = true,
+            VerticalAlignment = VAlignment.Top,
+            HorizontalAlignment = HAlignment.Left,
+            MaxWidth = 450
+        });
+
         StatsBox.AddChild(new Label
         {
             Text = _loc.GetString("vessel-reference-equipment"),
-            StyleClasses = { "LabelHeading" },
             Margin = new Thickness(0, 12, 0, 4)
         });
 

@@ -29,7 +29,8 @@
                     <BoxContainer Name="StatsBox"
                                   Orientation="Vertical"
                                   Margin="8"
-                                  SeparationOverride="4" />
+                                  SeparationOverride="4"
+                                  VerticalExpand="True"/>
                 </ScrollContainer>
             </PanelContainer>
         </BoxContainer>

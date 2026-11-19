@@ -31,7 +31,8 @@ public sealed class VesselReferenceCatalog
             var entry = new VesselReferenceEntry
             {
                 Id = vessel.ID,
-                Name = _loc.TryGetString(vessel.Name, out var locName) ? locName : vessel.Name,
+                Name = vessel.Name,
+                Description = vessel.Description,
                 Price = vessel.Price,
                 Shipyard = LocalizeShipyardGroup(vessel.Group.ToString()),
                 SizeClass = vessel.Category.ToString(),
