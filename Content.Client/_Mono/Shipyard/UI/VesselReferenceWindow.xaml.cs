@@ -179,4 +179,18 @@ public sealed partial class VesselReferenceWindow : DefaultWindow
             }
         }
     }
+
+    public void OpenToVessel(string vesselId)
+    {
+        if (!IsOpen)
+            OpenCentered();
+
+        Rebuild();
+
+        if (_byId.TryGetValue(vesselId, out var entry))
+        {
+            _catalog?.EnsureEquipment(entry);
+            PopulateDetail(entry);
+        }
+    }
 }

@@ -7,6 +7,7 @@ vessel-reference-size = Size class
 vessel-reference-equipment = Equipment
 vessel-reference-equipment-none = None listed
 vessel-reference-unknown = Unknown
+vessel-reference-open = U.REF
 
 vessel-reference-shipyard = Shipyard
 vessel-reference-shipyard-other = Other
