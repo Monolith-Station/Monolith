@@ -1,0 +1,61 @@
+- type: entity
+  name: GS-008 MeLat(.357 magnum)
+  parent: BaseWeaponRevolver
+  id: WeaponRevolverMeLat
+  description: A custom-designed revolver by GS inspired by the times of old. Packs a punch with .357 magnum along with a lovely 12 gauge surprise.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Revolvers/deckard.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-3
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: ItemSlots
+    slots:
+      attachment_grip:
+        name: grip
+        startingItem: GunAttachmentMeLat
+        priority: 0
+        insertSound: /Audio/Items/screwdriver2.ogg
+        ejectSound: /Audio/Items/screwdriver2.ogg
+        whitelist:
+          tags:
+          - MonoGripMeLat
+        disableEject: true # It's part of the gun.
+        locked: true
+      launcher_mag: # Needs to be here or else it causes spawning errors.
+        name: Shell Chamber
+        priority: 3
+        insertSound: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
+        ejectSound: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
+        whitelist:
+          tags:
+          - ShellShotgun12_gaugeBuckshot
+  - type: ContainerContainer
+    containers:
+      revolver-ammo: !type:Container
+      attachment_grip: !type:ContainerSlot
+      launcher_mag: !type:ContainerSlot
+  - type: Gun
+    fireRate: 2
+    damageModifier: 1.2 # For the next person doing an underbarrel gun, no, this doesn't affect it. You'd do that on the attachment entity.
+  - type: RevolverAmmoProvider
+    capacity: 5
+    chambers: [ True, True, True, True, True ]
+    ammoSlots: [ null, null, null, null, null ]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 4
+    zeroVisible: true
+  - type: Appearance
+  - type: StaticPrice
+    price: 150
+  - type: ESAttachableGun
+    slots:
+    - name: es-gun-attachments-slot-name-grip
+      containerId: attachment_grip
+      whitelist:
+        tags:
+        - MonoGripMeLat
