@@ -1,0 +1,141 @@
+# Author notes: Adapted from Ratgore's Harrier. https://github.com/ss14-art/ratgore/blob/master/Resources/Prototypes/_Crescent/Maps/Ships/NCSP/harrier.yml . Creator's github tag might be Ilikeships?
+
+- type: vessel
+  id: Bratan
+  parent: BaseVessel
+  name: GS Bratan
+  description: The GS QJ-799/A Bratan is a long range patrol craft whose blueprints were supposedly won at a poker game and was adapted for Naval Infantry use. Comes with an AK-800 and two AK-570s
+  price: 90000 # appraised at 71K
+  category: Small
+  group: Ussp
+  access: USSP
+  shuttlePath: /SharedMaps/_Mono/Shuttles/CSec/pegasus.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  - Escort
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Bratan
+  mapName: 'Bratan'
+  mapPath: /SharedMaps/_Mono/Shuttles/CSec/pegasus.yml
+  minPlayers: 0
+  stations:
+    Bratan:
+      stationProto: StandardFrontierVessel
+      gridComponents:
+      - type: GridModifier
+        modifications:
+        - Bratan
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'BRATAN USSP{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          USSPSergeant: [ 0, 0 ]
+          USSPRifleman: [ 0, 0 ]
+
+- type: gridModifier
+  id: Bratan
+  modifiers:
+  - !type:GridModEntityReplace
+    comp: Occluder
+    data:
+    - chance: 1
+      toReplace: WallReinforced
+      replaceWith: Catwalk
+    - chance: 1
+      toReplace: WallShuttle
+      replaceWith: WallReinforced
+    - chance: 1
+      toReplace: WallShuttleDiagonal
+      replaceWith: WallReinforcedDiagonal
+  - !type:GridModEntityReplace
+    comp: Hardpoint
+    data:
+    - chance: 1
+      toReplace: HardpointBallisticHeavy
+      replaceWith: Catwalk
+    - chance: 1
+      toReplace: HardpointEnergyMedium
+      replaceWith: HardpointBallisticMedium
+  - !type:GridModEntityReplace
+    comp: Destructible
+    data:
+    - chance: 1
+      toReplace: WindowDirectional
+      replaceWith: HardpointBallisticHeavy
+    - chance: 1
+      toReplace: PlasmaWindowDirectional
+      replaceWith: WeaponTurretAk800
+    - chance: 1
+      toReplace: UraniumWindowDirectional
+      replaceWith: WallReinforcedDiagonal
+    - chance: 1
+      toReplace: WindoorClockwork
+      replaceWith: DecalSpawnerBloodSplatters
+    - chance: 1
+      toReplace: ChairBlack
+      replaceWith: Handrail
+    - chance: 1
+      toReplace: Chair
+      replaceWith: Handrail
+    - chance: 1
+      toReplace: WindowFrostedDirectional
+      replaceWith: Handrail
+    - chance: 1
+      toReplace: PlasturaniumWindowRadProof
+      replaceWith: PlastitaniumWindow
+    - chance: 1
+      toReplace: UraniumReinforcedWindowDirectional
+      replaceWith: CableMV
+    - chance: 1
+      toReplace: CurtainsCyan
+      replaceWith: CableMV
+    - chance: 1
+      toReplace: CurtainsCyanOpen
+      replaceWith: CableMV
+    - chance: 1
+      toReplace: VendingMachineMedical
+      replaceWith: CableMV
+    - chance: 1
+      toReplace: CrateMedicalRollerBeds
+      replaceWith: CableMV
+  - !type:GridModEntityReplace
+    comp: Gun
+    data:
+    - chance: 1
+      toReplace: WeaponTurretBofors
+      replaceWith: DecalSpawnerBloodSplatters
+    - chance: 1
+      toReplace: WeaponLaserTurretPrometheus
+      replaceWith: WeaponTurretAK570
+  - !type:GridModEntityReplace
+    comp: Thruster
+    data:
+    - chance: 1
+      toReplace: ThrusterSecurity
+      replaceWith: ThrusterUSSP
+    - chance: 1
+      toReplace: ThrusterLargeSecurity
+      replaceWith: ThrusterLargeUSSP
+  - !type:GridModEntityReplace
+    comp: AccessReader
+    data:
+    - chance: 1
+      toReplace: AirlockMailCarrierLocked
+      replaceWith: AirlockEngineering
+    - chance: 1
+      toReplace: AirlockFrontierLocked
+      replaceWith: AirlockUSSP
+    - chance: 1
+      toReplace: AirlockSeviceFrontierLocked
+      replaceWith: AirlockUSSP
+    - chance: 1
+      toReplace: AirlockMedical
+      replaceWith: AirlockUSSP
