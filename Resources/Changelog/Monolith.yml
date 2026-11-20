@@ -27560,3 +27560,13 @@ Entries:
   id: 2957
   time: '2026-11-20T18:35:37.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4857
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Added a specifications menu for ships, it like lists their guns and
+        stuff so you don't have to do the preview to see. Access in shipyard
+        console or with unitref command.
+  id: 2958
+  time: '2026-11-20T19:19:25.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5060
