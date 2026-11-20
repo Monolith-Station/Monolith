@@ -59,6 +59,8 @@ namespace Content.Server.Guardian
             SubscribeLocalEvent<GuardianHostComponent, GuardianToggleActionEvent>(OnPerformAction);
 
             SubscribeLocalEvent<GuardianComponent, AttackAttemptEvent>(OnGuardianAttackAttempt);
+
+            SubscribeLocalEvent<GuardianHostComponent, Content.Shared.Polymorph.PolymorphedEvent>(OnHostPolymorphed); // Goob
         }
 
         private void OnGuardianShutdown(EntityUid uid, GuardianComponent component, ComponentShutdown args)
@@ -335,20 +337,7 @@ namespace Content.Server.Guardian
 
             // Goobstation - now moves you closer instead of retracting
             if (!_transform.InRange(guardianXform.Coordinates, hostXform.Coordinates, guardianComponent.DistanceAllowed))
-            {
-                if (hostXform.MapID != guardianXform.MapID)
-                {
-                    _transform.SetCoordinates(guardianUid, guardianXform, hostXform.Coordinates);
-                }
-                else
-                {
-                    // host's position in our parent's coordinates
-                    var hostPos = hostXform.Coordinates.WithEntityId(guardianXform.ParentUid, EntityManager).Position;
-                    var diff = guardianXform.LocalPosition - hostPos;
-                    var newDiff = diff.Normalized() * guardianComponent.DistanceAllowed;
-                    _transform.SetLocalPosition(guardianUid, hostPos + newDiff, guardianXform);
-                }
-            }
+                PullGuardianToHost(guardianUid, guardianComponent, hostXform, guardianXform);
         }
 
         private bool CanRelease(EntityUid guardian)
