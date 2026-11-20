@@ -29,3 +29,5 @@ vessel-reference-category-guns = Armaments
 vessel-reference-category-hardpoints = Hardpoints
 vessel-reference-category-ftl = Drives
 vessel-reference-category-other = Other
+
+unitref-command-description = Opens the unit/vessel reference menu.

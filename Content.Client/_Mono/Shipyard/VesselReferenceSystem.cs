@@ -1,32 +1,17 @@
 using Content.Client._Mono.Shipyard.UI;
+using Content.Shared.Administration;
 using Robust.Shared.Console;
 
 namespace Content.Client._Mono.Shipyard;
-
-public sealed partial class VesselReferenceSystem : EntitySystem
+[AnyCommand]
+public sealed partial class UnitRefCommand : LocalizedCommands
 {
-    [Dependency] private IConsoleHost _console = default!;
-
     private VesselReferenceWindow? _window;
+    public override string Command => "unitref";
 
-    public override void Initialize()
-    {
-        base.Initialize();
-        _console.RegisterCommand("unitref", "Opens the unit reference window.", "unitref", VesselRefCommand);
-    }
+    public override string Description => Loc.GetString("unitref-command-description");
 
-    public override void Shutdown()
-    {
-        _console.UnregisterCommand("unitref");
-        base.Shutdown();
-    }
-
-    private void VesselRefCommand(IConsoleShell shell, string argStr, string[] args)
-    {
-        ToggleWindow();
-    }
-
-    public void ToggleWindow()
+    public override void Execute(IConsoleShell shell, string argStr, string[] args)
     {
         if (_window != null && !_window.Disposed && _window.IsOpen)
         {
