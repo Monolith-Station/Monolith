@@ -140,6 +140,7 @@
   id: LizardTailSmooth
   bodyPart: Tail
   markingCategory: Tail
+  companion: LizardTailSmoothAnimated # Mono
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
@@ -160,6 +161,7 @@
   id: LizardTailSpikes
   bodyPart: Tail
   markingCategory: Tail
+  companion: LizardTailSpikesAnimated # Mono
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
@@ -169,6 +171,7 @@
   id: LizardTailLTiger
   bodyPart: Tail
   markingCategory: Tail
+  companion: LizardTailLTigerAnimated # Mono
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
@@ -178,6 +181,7 @@
   id: LizardTailDTiger
   bodyPart: Tail
   markingCategory: Tail
+  companion: LizardTailDTigerAnimated # Mono
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
@@ -362,6 +366,7 @@
   id: LizardTailSmoothAnimated
   bodyPart: Tail
   markingCategory: Tail
+  companion: LizardTailSmooth # Mono
   speciesRestriction: []
   sprites:
     - sprite: Mobs/Customization/reptilian_parts.rsi
@@ -373,6 +378,7 @@
   id: LizardTailSpikesAnimated
   bodyPart: Tail
   markingCategory: Tail
+  companion: LizardTailSpikes # Mono
   speciesRestriction: []
   sprites:
     - sprite: Mobs/Customization/reptilian_parts.rsi
@@ -382,6 +388,7 @@
   id: LizardTailLTigerAnimated
   bodyPart: Tail
   markingCategory: Tail
+  companion: LizardTailLTiger # Mono
   speciesRestriction: []
   sprites:
     - sprite: Mobs/Customization/reptilian_parts.rsi
@@ -391,6 +398,7 @@
   id: LizardTailDTigerAnimated
   bodyPart: Tail
   markingCategory: Tail
+  companion: LizardTailDTiger # Mono
   speciesRestriction: []
   sprites:
     - sprite: Mobs/Customization/reptilian_parts.rsi

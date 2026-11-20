@@ -272,44 +272,48 @@
   id: VulpTail
   bodyPart: Tail
   markingCategory: Tail
+  companion: VulpTailWag # Mono
   speciesRestriction: [Vulpkanin, Felinid]
   sprites:
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    - sprite: _Starlight/Mobs/Customization/Vulpkanin/tail_markings.rsi # Monolith
       state: vulp
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    - sprite: _Starlight/Mobs/Customization/Vulpkanin/tail_markings.rsi # Monolith
       state: vulp-fade
 
 - type: marking
   id: VulpTailTip
   bodyPart: Tail
   markingCategory: Tail
+  companion: VulpTailWagTip # Mono
   speciesRestriction: [Vulpkanin, Felinid]
   sprites:
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    - sprite: _Starlight/Mobs/Customization/Vulpkanin/tail_markings.rsi # Monolith
       state: vulp
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    - sprite: _Starlight/Mobs/Customization/Vulpkanin/tail_markings.rsi # Monolith
       state: vulp-tip
 
 - type: marking
   id: VulpTailWag
   bodyPart: Tail
   markingCategory: Tail
+  companion: VulpTail # Mono
   speciesRestriction: [Vulpkanin, Felinid]
   sprites:
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    - sprite: _Starlight/Mobs/Customization/Vulpkanin/tail_markings.rsi # Monolith
       state: vulp_wag
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    - sprite: _Starlight/Mobs/Customization/Vulpkanin/tail_markings.rsi # Monolith
       state: vulp_wag-tip #fade
 
 - type: marking
   id: VulpTailWagTip
   bodyPart: Tail
   markingCategory: Tail
+  companion: VulpTailTip # Mono
   speciesRestriction: [Vulpkanin, Felinid]
   sprites:
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    - sprite: _Starlight/Mobs/Customization/Vulpkanin/tail_markings.rsi # Monolith
       state: vulp_wag
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    - sprite: _Starlight/Mobs/Customization/Vulpkanin/tail_markings.rsi # Monolith
       state: vulp_wag-tip
 
 - type: marking
@@ -318,9 +322,9 @@
   markingCategory: Tail
   speciesRestriction: [Vulpkanin, Felinid]
   sprites:
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    - sprite: _Starlight/Mobs/Customization/Vulpkanin/tail_markings.rsi # Monolith
       state: vulp_alt
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    - sprite: _Starlight/Mobs/Customization/Vulpkanin/tail_markings.rsi # Monolith
       state: vulp_alt-fade
 
 - type: marking
@@ -329,100 +333,109 @@
   markingCategory: Tail
   speciesRestriction: [Vulpkanin, Felinid]
   sprites:
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    - sprite: _Starlight/Mobs/Customization/Vulpkanin/tail_markings.rsi # Monolith
       state: vulp_alt
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    - sprite: _Starlight/Mobs/Customization/Vulpkanin/tail_markings.rsi # Monolith
       state: vulp_alt-tip
 
 - type: marking
   id: VulpTailLong
   bodyPart: Tail
   markingCategory: Tail
+  companion: VulpTailLongAnimated # Mono
   speciesRestriction: [Vulpkanin, Felinid]
   sprites:
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    - sprite: _Starlight/Mobs/Customization/Vulpkanin/tail_markings.rsi # Monolith
       state: long
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    - sprite: _Starlight/Mobs/Customization/Vulpkanin/tail_markings.rsi # Monolith
       state: long-tip
 
 - type: marking
   id: VulpTailFox
   bodyPart: Tail
   markingCategory: Tail
+  companion: VulpTailFoxWag # Mono
   speciesRestriction: [Vulpkanin, Felinid]
   sprites:
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    - sprite: _Starlight/Mobs/Customization/Vulpkanin/tail_markings.rsi # Monolith
       state: fox
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    - sprite: _Starlight/Mobs/Customization/Vulpkanin/tail_markings.rsi # Monolith
       state: fox-fade
 
 - type: marking
   id: VulpTailFoxTip
   bodyPart: Tail
   markingCategory: Tail
+  companion: VulpTailFoxWagTip # Mono
   speciesRestriction: [Vulpkanin, Felinid]
   sprites:
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    - sprite: _Starlight/Mobs/Customization/Vulpkanin/tail_markings.rsi # Monolith
       state: fox
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    - sprite: _Starlight/Mobs/Customization/Vulpkanin/tail_markings.rsi # Monolith
       state: fox-tip
 
 - type: marking
   id: VulpTailFoxWag
   bodyPart: Tail
   markingCategory: Tail
+  companion: VulpTailFox # Mono
   speciesRestriction: [Vulpkanin, Felinid]
   sprites:
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    - sprite: _Starlight/Mobs/Customization/Vulpkanin/tail_markings.rsi # Monolith
       state: fox_wag
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    - sprite: _Starlight/Mobs/Customization/Vulpkanin/tail_markings.rsi # Monolith
       state: fox_wag-fade
 
 - type: marking
   id: VulpTailFoxWagTip
   bodyPart: Tail
   markingCategory: Tail
+  companion: VulpTailFoxTip # Mono
   speciesRestriction: [Vulpkanin, Felinid]
   sprites:
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    - sprite: _Starlight/Mobs/Customization/Vulpkanin/tail_markings.rsi # Monolith
       state: fox_wag
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    - sprite: _Starlight/Mobs/Customization/Vulpkanin/tail_markings.rsi # Monolith
       state: fox_wag-tip
 
 - type: marking
   id: VulpTailBushy
   bodyPart: Tail
   markingCategory: Tail
+  companion: VulpTailBushyWag # Mono
   speciesRestriction: [Vulpkanin]
   sprites:
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    - sprite: _Starlight/Mobs/Customization/Vulpkanin/tail_markings.rsi # Monolith
       state: bushfluff
 
 - type: marking
   id: VulpTailBushyWag
   bodyPart: Tail
   markingCategory: Tail
+  companion: VulpTailBushy # Mono
   speciesRestriction: [Vulpkanin]
   sprites:
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    - sprite: _Starlight/Mobs/Customization/Vulpkanin/tail_markings.rsi # Monolith
       state: bushfluff_wag
 
 - type: marking
   id: VulpTailCoyote
   bodyPart: Tail
   markingCategory: Tail
+  companion: VulpTailCoyoteWag # Mono
   speciesRestriction: [Vulpkanin, Felinid]
   sprites:
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    - sprite: _Starlight/Mobs/Customization/Vulpkanin/tail_markings.rsi # Monolith
       state: coyote
 
 - type: marking
   id: VulpTailCoyoteWag
   bodyPart: Tail
   markingCategory: Tail
+  companion: VulpTailCoyote # Mono
   speciesRestriction: [Vulpkanin, Felinid]
   sprites:
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    - sprite: _Starlight/Mobs/Customization/Vulpkanin/tail_markings.rsi # Monolith
       state: coyote_wag
 
 - type: marking
@@ -431,18 +444,19 @@
   markingCategory: Tail
   speciesRestriction: [Vulpkanin]
   sprites:
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    - sprite: _Starlight/Mobs/Customization/Vulpkanin/tail_markings.rsi # Monolith
       state: corgi_wag
 
 - type: marking
   id: VulpTailHusky
   bodyPart: Tail
   markingCategory: Tail
+  companion: VulpTailHuskyAnimated # Mono
   speciesRestriction: [Vulpkanin, Felinid]
   sprites:
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    - sprite: _Starlight/Mobs/Customization/Vulpkanin/tail_markings.rsi # Monolith
       state: husky-inner
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    - sprite: _Starlight/Mobs/Customization/Vulpkanin/tail_markings.rsi # Monolith
       state: husky-outer
 
 - type: marking
@@ -451,7 +465,7 @@
   markingCategory: Tail
   speciesRestriction: [Vulpkanin, Felinid]
   sprites:
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    - sprite: _Starlight/Mobs/Customization/Vulpkanin/tail_markings.rsi # Monolith
       state: husky
 
 - type: marking
@@ -460,7 +474,7 @@
   markingCategory: Tail
   speciesRestriction: [Vulpkanin, Felinid]
   sprites:
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    - sprite: _Starlight/Mobs/Customization/Vulpkanin/tail_markings.rsi # Monolith
       state: fox2
 
 - type: marking
@@ -469,19 +483,22 @@
   markingCategory: Tail
   speciesRestriction: [Vulpkanin, Felinid]
   sprites:
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    - sprite: _Starlight/Mobs/Customization/Vulpkanin/tail_markings.rsi # Monolith
       state: fox3
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    - sprite: _Starlight/Mobs/Customization/Vulpkanin/tail_markings.rsi # Monolith
       state: fox3-tip
 
 - type: marking
   id: VulpTailFennec
   bodyPart: Tail
   markingCategory: Tail
+  companion: VulpTailFennecAnimated # Mono
   speciesRestriction: [Vulpkanin, Felinid]
   sprites:
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    - sprite: _Mono/Mobs/Customization/Vulpkanin/tail_markings.rsi # Monolith
       state: fennec
+    - sprite: _Mono/Mobs/Customization/Vulpkanin/tail_markings.rsi # Monolith
+      state: fennec-tip
 
 - type: marking
   id: VulpTailOtie
@@ -489,17 +506,20 @@
   markingCategory: Tail
   speciesRestriction: [Vulpkanin, Felinid]
   sprites:
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    - sprite: _Starlight/Mobs/Customization/Vulpkanin/tail_markings.rsi # Monolith
       state: otie
 
 - type: marking
   id: VulpTailFluffy
   bodyPart: Tail
   markingCategory: Tail
+  companion: VulpTailFluffyAnimated # Mono
   speciesRestriction: [Vulpkanin, Felinid]
   sprites:
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    - sprite: _Mono/Mobs/Customization/Vulpkanin/tail_markings.rsi # Monolith
       state: fluffy
+    - sprite: _Mono/Mobs/Customization/Vulpkanin/tail_markings.rsi # Monolith
+      state: fluffy-tip
 
 - type: marking
   id: VulpTailDalmatianWag
@@ -507,7 +527,7 @@
   markingCategory: Tail
   speciesRestriction: [Vulpkanin]
   sprites:
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    - sprite: _Starlight/Mobs/Customization/Vulpkanin/tail_markings.rsi # Monolith
       state: dalmatian_wag
 
 # Body Markings (Chest)
