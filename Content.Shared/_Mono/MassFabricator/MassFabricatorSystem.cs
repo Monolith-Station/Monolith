@@ -115,7 +115,7 @@ public abstract partial class MassFabricatorSystem : EntitySystem
     {
         if (blueprint is { } id)
         {
-            if (!ent.Comp.AvailableBlueprints.Contains(id) ||
+            if (!ent.Comp.HasBlueprint(id) ||
                 !_prototypes.TryIndex(id, out var selected) || !selected.HasTarget(target))
                 return false;
         }
@@ -171,24 +171,28 @@ public abstract partial class MassFabricatorSystem : EntitySystem
         return StartPrint(ent, blueprint, user);
     }
 
-    protected void StartNeighbors(Entity<MassFabricatorHologramComponent> completed, EntityUid grid,
-        MapGridComponent mapGrid, Vector2i index)
+    private readonly HashSet<EntityUid> _waitingNeighbors = new();
+
+    private void StartNeighbors(Entity<MassFabricatorHologramComponent> completed, EntityUid grid, Vector2i index)
     {
-        var query = EntityQueryEnumerator<MassFabricatorHologramComponent, TransformComponent>();
-        while (query.MoveNext(out var uid, out var plan, out var transform))
+        var query = EntityQueryEnumerator<MassFabricatorHologramComponent>();
+        while (query.MoveNext(out var uid, out var plan))
         {
             if (plan.Kind != MassFabricatorBlueprintKind.Tile ||
                 plan.PrintState != MassFabricatorPrintState.Idle ||
                 plan.Fabricator != completed.Comp.Fabricator || plan.Blueprint != completed.Comp.Blueprint ||
-                plan.Target != completed.Comp.Target || transform.GridUid != grid)
+                plan.Target != completed.Comp.Target || plan.BuildGrid != grid)
                 continue;
 
-            var cell = _maps.CoordinatesToTile(grid, mapGrid, transform.Coordinates);
+            var cell = plan.Cell;
             if (Math.Abs(cell.X - index.X) + Math.Abs(cell.Y - index.Y) != 1 ||
                 !_prototypes.TryIndex(plan.Blueprint, out var blueprint))
                 continue;
 
-            StartPrint((uid, plan), blueprint);
+            if (HasStructuralSupport(grid, cell) == null)
+                _waitingNeighbors.Add(uid);
+            else
+                StartPrint((uid, plan), blueprint);
         }
     }
 
@@ -211,6 +215,23 @@ public abstract partial class MassFabricatorSystem : EntitySystem
         base.Update(frameTime);
         if (_net.IsClient && !_timing.InPrediction)
             return;
+
+        foreach (var uid in _waitingNeighbors.ToArray())
+        {
+            if (!TryComp<MassFabricatorHologramComponent>(uid, out var plan) ||
+                plan.PrintState != MassFabricatorPrintState.Idle || plan.BuildGrid is not { } grid)
+            {
+                _waitingNeighbors.Remove(uid);
+                continue;
+            }
+
+            if (HasStructuralSupport(grid, plan.Cell) == null)
+                continue;
+
+            _waitingNeighbors.Remove(uid);
+            if (_prototypes.TryIndex(plan.Blueprint, out var blueprint))
+                StartPrint((uid, plan), blueprint);
+        }
 
         UpdateAutomaticPrintsNow();
         var fading = EntityQueryEnumerator<MassFabricatorHologramComponent>();
@@ -249,7 +270,8 @@ public abstract partial class MassFabricatorSystem : EntitySystem
         MassFabricatorBlueprintPrototype blueprint, EntityUid? user = null)
     {
         if (ent.Comp.PrintState != MassFabricatorPrintState.Idle || EntityManager.IsQueuedForDeletion(ent.Owner) ||
-            !TryComp<MassFabricatorComponent>(ent.Comp.Fabricator, out var fabricator))
+            !TryComp<MassFabricatorComponent>(ent.Comp.Fabricator, out var fabricator) || !fabricator.HasBlueprint(blueprint.ID) ||
+            !CanPrintCell(ent))
             return false;
 
         var costs = blueprint.GetMaterials(ent.Comp.Target);
@@ -300,7 +322,27 @@ public abstract partial class MassFabricatorSystem : EntitySystem
         if (ent.Comp.PrintState != MassFabricatorPrintState.Printing)
             return;
 
-        if (!_prototypes.TryIndex(ent.Comp.Blueprint, out var blueprint) || !blueprint.HasTarget(ent.Comp.Target))
+        // Tile chunks and fixtures are authoritative. Predict the animation, not grid topology.
+        if (_net.IsClient && ent.Comp.Kind == MassFabricatorBlueprintKind.Tile)
+            return;
+
+        if (!TryComp<MassFabricatorComponent>(ent.Comp.Fabricator, out var fabricator) ||
+            !fabricator.HasBlueprint(ent.Comp.Blueprint) ||
+            !_prototypes.TryIndex(ent.Comp.Blueprint, out var blueprint) || !blueprint.HasTarget(ent.Comp.Target))
+        {
+            ResetPrint(ent);
+            return;
+        }
+
+        if (ent.Comp.BuildGrid is { } frame && HasStructuralSupport(frame, ent.Comp.Cell) == null)
+        {
+            // The do-after is complete; wait for Z-collapse before consuming materials.
+            ent.Comp.AutomaticPrint = true;
+            Dirty(ent);
+            return;
+        }
+
+        if (!CanPrintCell(ent))
         {
             ResetPrint(ent);
             return;
@@ -309,18 +351,19 @@ public abstract partial class MassFabricatorSystem : EntitySystem
         var coords = Transform(ent.Owner).Coordinates;
         if (ent.Comp.Kind == MassFabricatorBlueprintKind.Tile &&
             _prototypes.TryIndex<ContentTileDefinition>(ent.Comp.Target, out var tile) &&
-            _transforms.GetGrid(coords) is { } grid &&
+            ent.Comp.BuildGrid is { } grid &&
             TryComp<MapGridComponent>(grid, out var mapGrid))
         {
             if (!ConsumePlanMaterials(ent))
                 return;
 
-            var index = _maps.CoordinatesToTile(grid, mapGrid, coords);
+            var index = ent.Comp.Cell;
             _maps.SetTile(grid, mapGrid, index, new Tile(tile.TileId));
             ent.Comp.PrintState = MassFabricatorPrintState.Fading;
             ent.Comp.PrintStarted = _timing.CurTime;
             Dirty(ent.Owner, ent.Comp);
-            StartNeighbors(ent, grid, mapGrid, index);
+            AdvanceBuildSupport(ent, grid);
+            StartNeighbors(ent, grid, index);
         }
         else if (ent.Comp.Kind == MassFabricatorBlueprintKind.Entity &&
                  _prototypes.HasIndex<EntityPrototype>(ent.Comp.Target))
@@ -380,31 +423,30 @@ public abstract partial class MassFabricatorSystem : EntitySystem
         BeginReturn(user, eye);
     }
 
-    public EntityUid? GetPlacementGrid(EntityUid user, MassFabricatorBlueprintKind kind,
-        EntityCoordinates requested) => _transforms.GetGrid(requested);
-
     public bool TryGetPlacementCoordinates(EntityUid user, MassFabricatorBlueprintKind kind,
         EntityCoordinates requested, out EntityCoordinates coordinates)
     {
         coordinates = default;
         if (!requested.IsValid(EntityManager) ||
             GetPlacementGrid(user, kind, requested) is not { } grid ||
-            !TryComp<MapGridComponent>(grid, out _))
+            !TryComp<MapGridComponent>(grid, out var mapGrid))
             return false;
 
         coordinates = _transforms.WithEntityId(requested, grid);
+        if (kind == MassFabricatorBlueprintKind.Tile)
+            coordinates = _maps.GridTileToLocal(grid, mapGrid, _maps.CoordinatesToTile(grid, mapGrid, coordinates));
         return true;
     }
 
     public MassFabricatorPlacementResult CanPlacePlan(EntityUid user, MassFabricatorBlueprintPrototype blueprint,
-        string target, EntityCoordinates requested, double currentLoad, int maxLoad)
+        string target, EntityCoordinates requested, double currentLoad, int maxLoad, IReadOnlySet<EntityCoordinates>? staged = null)
     {
         if (!TryGetPlacementCoordinates(user, blueprint.Kind, requested, out var coordinates) ||
             !blueprint.HasTarget(target) || blueprint.Load <= 0 || maxLoad <= 0 || blueprint.Load > maxLoad ||
             !(blueprint.Kind == MassFabricatorBlueprintKind.Tile && _prototypes.HasIndex<ContentTileDefinition>(target) ||
               blueprint.Kind == MassFabricatorBlueprintKind.Entity && _prototypes.HasIndex<EntityPrototype>(target)) ||
             !CanSeePlanPlacement(user, coordinates) ||
-            blueprint.Kind == MassFabricatorBlueprintKind.Tile && !CanPlaceTile(coordinates) ||
+            blueprint.Kind == MassFabricatorBlueprintKind.Tile && !CanPlaceTile(user, coordinates, staged) ||
             blueprint.Kind == MassFabricatorBlueprintKind.Entity && !CanPlacePlanOnTile(coordinates))
             return MassFabricatorPlacementResult.Invalid;
 
@@ -437,7 +479,7 @@ public abstract partial class MassFabricatorSystem : EntitySystem
             !TryGetEntity(message.Fabricator, out var uid) || uid is not { } gun ||
             !CanModifyPlans(user, gun) ||
             !TryComp<MassFabricatorComponent>(gun, out var component) ||
-            !component.AvailableBlueprints.Contains(message.Blueprint) ||
+            !component.HasBlueprint(message.Blueprint) ||
             !_prototypes.TryIndex(message.Blueprint, out var blueprint) || !blueprint.HasTarget(message.Target))
             return;
 
@@ -457,8 +499,16 @@ public abstract partial class MassFabricatorSystem : EntitySystem
             if (TryGetEntity(netPlan, out var planUid) && planUid is { } plan &&
                 TryComp<MassFabricatorHologramComponent>(plan, out var hologram) &&
                 hologram.Fabricator == gun &&
-                _eraseExamine.InRangeUnOccluded(user, Transform(plan).Coordinates, range))
+                CanEraseFromEditor(user, plan, range))
                 ErasePlan(gun, (plan, hologram));
+    }
+
+    public bool CanEraseFromEditor(EntityUid user, EntityUid plan, float range)
+    {
+        var xform = Transform(plan);
+        return xform.MapUid == Transform(user).MapUid
+            ? _eraseExamine.InRangeUnOccluded(user, xform.Coordinates, range)
+            : CanSeePlanPlacement(user, xform.Coordinates);
     }
 
     public EntityUid? CreatePlan(EntityUid user, Entity<MassFabricatorComponent> gun,
@@ -482,6 +532,13 @@ public abstract partial class MassFabricatorSystem : EntitySystem
         plan.Fabricator = gun.Owner;
         plan.Kind = blueprint.Kind;
         plan.Target = target;
+        if (blueprint.Kind == MassFabricatorBlueprintKind.Tile)
+        {
+            plan.BuildGrid = coordinates.EntityId;
+            var grid = Comp<MapGridComponent>(coordinates.EntityId);
+            plan.Cell = _maps.CoordinatesToTile(grid.Owner, grid, coordinates);
+            TryGetPlanSupport(user, (grid.Owner, grid), plan.Cell, out plan.SupportCell);
+        }
         Dirty(uid, plan);
 
         gun.Comp.Plans.Add(uid);
@@ -553,7 +610,7 @@ public abstract partial class MassFabricatorSystem : EntitySystem
         Dirty(plan.Comp.Fabricator, gun);
     }
 
-    public bool CanPlaceTile(EntityCoordinates coordinates)
+    public bool CanPlaceTile(EntityUid user, EntityCoordinates coordinates, IReadOnlySet<EntityCoordinates>? staged = null)
     {
         if (!coordinates.IsValid(EntityManager) ||
             _transforms.GetGrid(coordinates) is not { } grid ||
@@ -561,16 +618,15 @@ public abstract partial class MassFabricatorSystem : EntitySystem
             return false;
 
         var cell = _maps.CoordinatesToTile(grid, mapGrid, coordinates);
-        var plans = EntityQueryEnumerator<MassFabricatorHologramComponent, TransformComponent>();
-        while (plans.MoveNext(out var uid, out var plan, out var xform))
+        var plans = EntityQueryEnumerator<MassFabricatorHologramComponent>();
+        while (plans.MoveNext(out var uid, out var plan))
         {
-            if (!EntityManager.IsQueuedForDeletion(uid) &&
-                plan.Kind == MassFabricatorBlueprintKind.Tile && xform.GridUid == grid &&
-                _maps.CoordinatesToTile(grid, mapGrid, xform.Coordinates) == cell)
+            if (!EntityManager.IsQueuedForDeletion(uid) && plan.BuildGrid == grid && plan.Cell == cell)
                 return false;
         }
 
-        return true;
+        return TryGetPlanSupport(user, (grid, mapGrid), cell, out _, staged) &&
+               !OverlapsForeignGrid((grid, mapGrid), cell);
     }
 
     public bool CanPlacePlanOnTile(EntityCoordinates coordinates)
@@ -582,10 +638,14 @@ public abstract partial class MassFabricatorSystem : EntitySystem
 
     public bool CanSeePlanPlacement(EntityUid user, EntityCoordinates coordinates)
     {
+        var targetMap = _transforms.GetMap(coordinates);
+        if (!CanTargetBuildLayer(user, targetMap))
+            return false;
+
         if (_transforms.GetGrid(coordinates) is { } grid &&
             TryComp<BroadphaseComponent>(grid, out var broadphase) &&
             TryComp<MapGridComponent>(grid, out var mapGrid))
-            return _visibility.CanSee(user, (grid, broadphase, mapGrid), coordinates);
+            return _visibility.CanSee(user, (grid, broadphase, mapGrid), coordinates, allowUpperLayer: true);
 
         var userMap = Transform(user).MapID;
         var target = _transforms.ToMapCoordinates(coordinates);

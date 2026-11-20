@@ -27,8 +27,6 @@ public sealed class MassFabricatorEyeOverlay : Overlay
         var transform = _entities.System<SharedTransformSystem>();
         var handle = args.WorldHandle;
         var client = _entities.System<MassFabricatorClientSystem>();
-        var viewport = args.Viewport;
-        var pixelsPerTile = viewport.RenderScale * 32f;
         var query = _entities.EntityQueryEnumerator<MassFabricatorEyeComponent, TransformComponent>();
         while (query.MoveNext(out var eye, out var visual, out var xform))
         {
@@ -42,21 +40,27 @@ public sealed class MassFabricatorEyeOverlay : Overlay
                 bodyXform.MapID == args.MapId)
                 body = transform.GetWorldPosition(visual.User);
 
-            var eyePixel = viewport.WorldToLocal(center);
-            eyePixel.Y = viewport.Size.Y - eyePixel.Y;
-            var bodyPixel = viewport.WorldToLocal(body);
-            bodyPixel.Y = viewport.Size.Y - bodyPixel.Y;
-
-            _shader.SetParameter("EYE_POSITION", eyePixel);
-            _shader.SetParameter("BODY_POSITION", bodyPixel);
-            _shader.SetParameter("PIXELS_PER_TILE", pixelsPerTile);
-            _shader.SetParameter("HOLOGRAM_COLOR", visual.Color);
-            handle.UseShader(_shader);
-            handle.DrawRect(new Box2(Vector2.Min(center, body) - new Vector2(1.1f),
-                Vector2.Max(center, body) + new Vector2(1.1f)), Color.White);
+            DrawTether(args, _shader, center, body, visual.Color);
         }
 
         handle.UseShader(null);
+    }
+
+    private static void DrawTether(in OverlayDrawArgs args, ShaderInstance shader, Vector2 start, Vector2 end, Color color)
+    {
+        var viewport = args.Viewport;
+        var startPixel = viewport.WorldToLocal(start);
+        startPixel.Y = viewport.Size.Y - startPixel.Y;
+        var endPixel = viewport.WorldToLocal(end);
+        endPixel.Y = viewport.Size.Y - endPixel.Y;
+
+        shader.SetParameter("EYE_POSITION", startPixel);
+        shader.SetParameter("BODY_POSITION", endPixel);
+        shader.SetParameter("PIXELS_PER_TILE", viewport.RenderScale * EyeManager.PixelsPerMeter);
+        shader.SetParameter("HOLOGRAM_COLOR", color);
+        var padding = new Vector2(1.1f);
+        args.WorldHandle.UseShader(shader);
+        args.WorldHandle.DrawRect(new Box2(Vector2.Min(start, end) - padding, Vector2.Max(start, end) + padding), Color.White);
     }
 
     protected override void DisposeBehavior()

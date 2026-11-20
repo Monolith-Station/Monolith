@@ -9,9 +9,12 @@ using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Client.GameObjects;
 using Robust.Client.Placement;
+using Robust.Client.UserInterface;
+using Robust.Client.UserInterface.CustomControls;
 using Robust.Shared.Input;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 namespace Content.Client._Mono.MassFabricator;
 
@@ -26,6 +29,9 @@ public sealed partial class MassFabricatorState : GameplayStateBase, IMainViewpo
 
     private MassFabricatorMenu? _menu;
     private bool _rotationKeyHeld;
+    private bool _singleTilePress;
+    private Tooltip? _supportTooltip;
+    private string? _supportTooltipKey;
 
     private InputCmdHandler? _previousEscape;
 
@@ -45,8 +51,12 @@ public sealed partial class MassFabricatorState : GameplayStateBase, IMainViewpo
 
     protected override void Shutdown()
     {
+        _singleTilePress = false;
         _menu?.Close();
         _menu = null;
+        _supportTooltip?.Orphan();
+        _supportTooltip = null;
+        _supportTooltipKey = null;
         _entities.System<MassFabricatorClientSystem>().ClearPlacement();
         _entities.System<MassFabricatorEraseSystem>().Clear();
         _entities.System<InputSystem>().SetEntityContextActive();
@@ -62,6 +72,7 @@ public sealed partial class MassFabricatorState : GameplayStateBase, IMainViewpo
     {
         base.FrameUpdate(args);
         var client = _entities.System<MassFabricatorClientSystem>();
+        UpdateSupportTooltip(client);
         var gun = client.ActiveFabricator;
         if (client.ActiveFabricatorUid is not { } uid ||
             !_entities.TryGetComponent<MaterialStorageComponent>(uid, out var storage))
@@ -72,8 +83,80 @@ public sealed partial class MassFabricatorState : GameplayStateBase, IMainViewpo
             _entities.System<SharedMaterialStorageSystem>().GetStoredMaterials((uid, storage)), storage.StorageLimit ?? 0);
     }
 
+    private void UpdateSupportTooltip(MassFabricatorClientSystem client)
+    {
+        if (client.Returning || UserInterfaceManager.CurrentlyHovered != Viewport.Viewport ||
+            client.GetPlanDenialTooltipAt(_input.MouseScreenPosition) is not { } denial)
+        {
+            client.ClearWaveRoute();
+            _supportTooltip?.Orphan();
+            return;
+        }
+
+        _supportTooltip ??= new Tooltip
+        {
+            MouseFilter = Control.MouseFilterMode.Ignore,
+        };
+        if (_supportTooltipKey != denial.Key)
+        {
+            _supportTooltipKey = denial.Key;
+            var title = Loc.GetString(denial.Blocked ? "mass-fabricator-print-denied" : "mass-fabricator-print-indirect");
+            var titleColor = denial.Blocked ? "#ff9b43" : "#ffd47f";
+            var text = $"[color={titleColor}][bold]{title}[/bold][/color]";
+            if (denial.Key.Length > 0)
+                text += $"\n{Loc.GetString(denial.Key)}";
+            var backing = new StyleBoxFlat(Color.FromHex("#000007"))
+            {
+                BorderColor = Color.FromHex(denial.Blocked ? "#784820" : "#6b5832"),
+                BorderThickness = new Thickness(2),
+            };
+            backing.SetContentMarginOverride(StyleBox.Margin.Horizontal, 7);
+            _supportTooltip.PanelOverride = backing;
+            _supportTooltip.InvalidateMeasure();
+            _supportTooltip.SetMessage(FormattedMessage.FromMarkupOrThrow(text));
+        }
+        if (_supportTooltip.Parent == null)
+            UserInterfaceManager.PopupRoot.AddChild(_supportTooltip);
+        Tooltips.PositionTooltip(_supportTooltip);
+    }
+
     protected override void OnKeyBindStateChanged(ViewportBoundKeyEventArgs args)
     {
+        if (args.KeyEventArgs.Function == EngineKeyFunctions.EditorPlaceObject)
+        {
+            if (args.KeyEventArgs.State == BoundKeyState.Up && _singleTilePress)
+            {
+                _singleTilePress = false;
+                _entities.System<MassFabricatorClientSystem>().EndPlacementPress();
+                args.KeyEventArgs.Handle();
+                return;
+            }
+
+            if (args.KeyEventArgs.State == BoundKeyState.Down &&
+                _placement is PlacementManager
+                {
+                    IsActive: true,
+                    CurrentPermission.IsTile: true,
+                    CurrentMode: AlignMassFabricator mode,
+                } singlePlacement)
+            {
+                if (!_singleTilePress)
+                {
+                    _singleTilePress = true;
+                    if (singlePlacement.PlacementType == PlacementManager.PlacementTypes.None)
+                    {
+                        mode.AlignPlacementMode(args.KeyEventArgs.PointerLocation);
+                        singlePlacement.HandlePlacement();
+                    }
+                    else
+                        mode.PlaceDragTiles();
+                }
+
+                args.KeyEventArgs.Handle();
+                return;
+            }
+        }
+
         var erase = _entities.System<MassFabricatorEraseSystem>();
         if (erase.Active && (args.KeyEventArgs.Function == EngineKeyFunctions.EditorPlaceObject ||
                              args.KeyEventArgs.Function == EngineKeyFunctions.EditorGridPlace))
@@ -95,7 +178,15 @@ public sealed partial class MassFabricatorState : GameplayStateBase, IMainViewpo
             }
             if (args.KeyEventArgs.Function == EngineKeyFunctions.EditorGridPlace &&
                 _placement is PlacementManager { PlacementType: PlacementManager.PlacementTypes.Grid } manager)
-                manager.HandlePlacement();
+            {
+                if (manager.CurrentPermission?.IsTile == true && manager.CurrentMode is AlignMassFabricator tiles)
+                    tiles.PlaceDragTiles();
+                else if (manager.CurrentMode is not AlignMassFabricator alignment ||
+                    alignment.HasValidDragCursor(_input.MouseScreenPosition))
+                    manager.HandlePlacement();
+                else
+                    manager.PlacementType = PlacementManager.PlacementTypes.None;
+            }
             base.OnKeyBindStateChanged(args);
             if (args.KeyEventArgs.Function == EngineKeyFunctions.EditorPlaceObject ||
                 args.KeyEventArgs.Function == EngineKeyFunctions.EditorGridPlace)

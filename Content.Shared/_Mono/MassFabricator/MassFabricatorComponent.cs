@@ -24,6 +24,12 @@ public sealed partial class MassFabricatorComponent : Component
     [DataField, AutoNetworkedField]
     public HashSet<ProtoId<MassFabricatorBlueprintPrototype>> AvailableBlueprints = new();
 
+    [AutoNetworkedField]
+    public HashSet<ProtoId<MassFabricatorBlueprintPrototype>> ChipBlueprints = new();
+
+    public bool HasBlueprint(ProtoId<MassFabricatorBlueprintPrototype> id) =>
+        AvailableBlueprints.Contains(id) || ChipBlueprints.Contains(id);
+
     [DataField, AutoNetworkedField]
     public ProtoId<MassFabricatorBlueprintPrototype>? SelectedBlueprint;
 

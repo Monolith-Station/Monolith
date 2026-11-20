@@ -9,7 +9,28 @@
     - HZBlueprintPlating
     - HZBlueprintLattice
     - HZBlueprintWall
-    - HZBlueprintStairs
+  - type: ContainerContainer
+    containers:
+      chip1: !type:ContainerSlot
+      chip2: !type:ContainerSlot
+      chip3: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      chip1:
+        name: mass-fabricator-chip-slot-1
+        swap: false
+        whitelist:
+          components: [MassFabricatorBlueprintChip]
+      chip2:
+        name: mass-fabricator-chip-slot-2
+        swap: false
+        whitelist:
+          components: [MassFabricatorBlueprintChip]
+      chip3:
+        name: mass-fabricator-chip-slot-3
+        swap: false
+        whitelist:
+          components: [MassFabricatorBlueprintChip]
   - type: MaterialStorage
     storageLimit: 10000
     canEjectStoredMaterials: false
@@ -27,6 +48,7 @@
   name: fabrication plan
   components:
   - type: Transform
+    gridTraversal: false
   - type: MassFabricatorHologram
   - type: Clickable
 

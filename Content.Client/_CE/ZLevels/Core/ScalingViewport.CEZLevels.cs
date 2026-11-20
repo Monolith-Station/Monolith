@@ -124,7 +124,7 @@ public sealed partial class ScalingViewport
     private static (float Scale, float Offset) ZProjection(float depth, float anchorDepth = 0f)
     {
         const float shrink = CESharedZLevelsSystem.ZLevelViewShrink;
-        return (MathF.Pow(shrink, -depth),
+        return shrink == 1f ? (1f, 0f) : (MathF.Pow(shrink, -depth),
             CESharedZLevelsSystem.ZLevelOffset * (1f - MathF.Pow(shrink, depth - anchorDepth)) / (1f - shrink));
     }
 

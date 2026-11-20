@@ -9,7 +9,7 @@ namespace Content.Server._CE.ZCollapse;
 
 public static class CEStabilityFloodFill
 {
-    private static readonly Vector2i[] CardinalOffsets =
+    internal static readonly Vector2i[] CardinalOffsets =
     {
         new(1, 0), new(-1, 0), new(0, 1), new(0, -1),
     };

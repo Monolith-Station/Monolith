@@ -42,41 +42,78 @@
   load: 4
   materials:
     Steel: 400
-  name: stairs
+  name: straight stairs
   description: A stairway connecting adjacent levels.
   category: Bulkheads
-  subcategory: Stairs
+  subcategory: Straight Stairs
   kind: Entity
   variants:
   - name: stone straight
     target: CEZLevelLadderStone
-  - name: stone corner
-    target: CEZLevelLadderStoneCorner
-  - name: stone inner corner
-    target: CEZLevelLadderStoneCornerInner
   - name: wooden straight
     target: CEZLevelLadderWooden
     materials:
       Wood: 400
+  - name: dirt straight
+    target: CEZLevelLadderDirtCliff
+  - name: red roof straight
+    target: CEZLevelsLadderRoofRed
+  - name: green roof straight
+    target: CEZLevelsLadderRoofGreen
+
+- type: massFabricatorBlueprint
+  id: HZBlueprintCornerStairs
+  load: 4
+  materials:
+    Steel: 400
+  name: corner stairs
+  description: A corner stairway connecting adjacent levels.
+  category: Bulkheads
+  subcategory: Corner Stairs
+  kind: Entity
+  variants:
+  - name: stone corner
+    target: CEZLevelLadderStoneCorner
+  - name: stone inner corner
+    target: CEZLevelLadderStoneCornerInner
   - name: wooden corner
     target: CEZLevelLadderWoodenCorner
     materials:
       Wood: 400
-  - name: dirt straight
-    target: CEZLevelLadderDirtCliff
   - name: dirt corner
     target: CEZLevelLadderDirtCliffCorner
   - name: dirt inner corner
     target: CEZLevelLadderDirtCliffCornerInner
-  - name: red roof straight
-    target: CEZLevelsLadderRoofRed
   - name: red roof corner
     target: CEZLevelsLadderRoofRedCorner
   - name: red roof inner corner
     target: CEZLevelsLadderRoofRedCornerInner
-  - name: green roof straight
-    target: CEZLevelsLadderRoofGreen
   - name: green roof corner
     target: CEZLevelsLadderRoofGreenCorner
   - name: green roof inner corner
     target: CEZLevelsLadderRoofGreenCornerInner
+
+- type: massFabricatorBlueprint
+  id: HZBlueprintWindows
+  load: 5
+  materials:
+    Glass: 200
+  name: windows
+  category: Bulkheads
+  subcategory: Windows
+  kind: Entity
+  variants:
+  - name: full-tile window
+    target: Window
+  - name: directional window
+    target: WindowDirectional
+    materials:
+      Glass: 100
+  - name: full-tile reinforced window
+    target: ReinforcedWindow
+    materials:
+      ReinforcedGlass: 200
+  - name: directional reinforced window
+    target: WindowReinforcedDirectional
+    materials:
+      ReinforcedGlass: 100

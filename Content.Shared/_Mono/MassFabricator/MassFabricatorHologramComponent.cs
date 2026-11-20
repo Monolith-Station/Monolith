@@ -37,4 +37,24 @@ public sealed partial class MassFabricatorHologramComponent : Component
 
     [AutoNetworkedField]
     public bool LoadReleased;
+
+    [AutoNetworkedField]
+    public EntityUid? BuildGrid;
+
+    [AutoNetworkedField]
+    public Vector2i Cell;
+
+    [AutoNetworkedField]
+    public Vector2i? SupportCell;
+
+    [AutoNetworkedField]
+    public bool Unsupported;
+
+    [AutoNetworkedField]
+    public bool PrintBlocked;
+
+    [AutoNetworkedField]
+    public bool NoWaveStart;
+
+    public int? PreFlashDrawDepth;
 }

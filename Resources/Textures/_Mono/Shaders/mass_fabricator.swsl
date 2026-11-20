@@ -23,8 +23,7 @@ void fragment()
     highp vec2 left = -right;
     highp float rim = min(min(segmentDistance(p, top, right), segmentDistance(p, right, bottom)),
                           min(segmentDistance(p, bottom, left), segmentDistance(p, left, top)));
-    highp float tether = segmentDistance(p, vec2(0.0), body);
-    highp float line = min(rim, tether);
+    highp float line = min(rim, segmentDistance(p, vec2(0.0), body));
 
     highp vec2 joint = p - body;
     highp float star = min(abs(joint.x) + abs(joint.y) * 5.0,

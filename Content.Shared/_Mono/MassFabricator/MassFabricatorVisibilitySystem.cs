@@ -24,9 +24,10 @@ public partial class MassFabricatorVisibilitySystem : EntitySystem
         _occluderQuery = GetEntityQuery<OccluderComponent>();
     }
 
-    public bool CanSee(EntityUid player, Entity<BroadphaseComponent, MapGridComponent> grid, EntityCoordinates coords)
+    public bool CanSee(EntityUid player, Entity<BroadphaseComponent, MapGridComponent> grid, EntityCoordinates coords,
+        bool allowUpperLayer = false)
     {
-        if (!coords.IsValid(EntityManager) || Transform(player).MapID != Transform(grid).MapID ||
+        if (!coords.IsValid(EntityManager) || !allowUpperLayer && Transform(player).MapID != Transform(grid).MapID ||
             _transforms.GetGrid(coords) != grid.Owner)
             return false;
 
