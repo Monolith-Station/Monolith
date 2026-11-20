@@ -1,0 +1,34 @@
+# Author notes: Adapted from Ratgore's Harrier. https://github.com/ss14-art/ratgore/blob/master/Resources/Prototypes/_Crescent/Maps/Ships/NCSP/harrier.yml . Creator's github tag might be Ilikeships?
+
+- type: vessel
+  id: Pegasus
+  parent: BaseVessel
+  name: GS Pegasus
+  description: The GS QJ-799 is a long range patrol craft capable of excurisons into relatively tame drone territories. Comes with a small medical bay for recovery efforts.
+  price: 125000 # appraised at 105K
+  category: Small
+  group: Sr
+  access: Caelestinus
+  mapchecker_group_override: Security
+  shuttlePath: /SharedMaps/_Mono/Shuttles/CSec/pegasus.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  - Escort
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Pegasus
+  mapName: 'Pegasus'
+  mapPath: /SharedMaps/_Mono/Shuttles/CSec/pegasus.yml
+  minPlayers: 0
+  stations:
+    Pegasus:
+      stationProto: StandardFrontierVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Pegasus CSEC{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
