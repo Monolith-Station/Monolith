@@ -110,3 +110,9 @@
     - chance: 1 # No clue how this works, but when the above chance fails, guaranteed rust.
       toReplace: WallShuttle
       replaceWith: WallReinforcedRust
+  - !type:GridModEntityReplace
+    comp: ShipShieldEmitter
+    data:
+    - chance: 1
+      toReplace: ShieldGeneratorSmall
+      replaceWith: MachineFrameDestroyed
