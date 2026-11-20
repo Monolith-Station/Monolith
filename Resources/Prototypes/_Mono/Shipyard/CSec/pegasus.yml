@@ -5,7 +5,8 @@
   parent: BaseVessel
   name: GS Pegasus
   description: The GS QJ-799/B Pegasus is a long range patrol craft capable of excurisons into relatively tame drone territories. Comes with a small medical bay for recovery efforts.
-  price: 138000 # appraised at 115K
+  price: 138000 # appraised at 115K + 20%
+  minPriceMarkup: 0.1 # Arbitage workaround, manually confirmed the price.
   category: Small
   group: Sr
   access: Caelestinus

@@ -5,7 +5,8 @@
   parent: BaseVessel
   name: GS Bratan
   description: The GS QJ-799/A Bratan is a long range patrol craft whose blueprints were supposedly won at a poker game and was adapted for Naval Infantry use. Comes with an AK-800 and two AK-570s
-  price: 90000 # appraised at 71K
+  price: 90000 # appraised at 71K + 25%~
+  minPriceMarkup: 0.1 # Manually confirmed price.
   category: Small
   group: Ussp
   access: USSP
