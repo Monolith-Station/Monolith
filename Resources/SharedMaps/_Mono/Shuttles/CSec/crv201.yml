@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.6
   forkId: ""
   forkVersion: ""
-  time: 11/18/2026 22:15:53
-  entityCount: 741
+  time: 11/20/2026 14:51:31
+  entityCount: 742
 maps: []
 grids:
 - 1
@@ -83,10 +83,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        MetalFoam: []
-        Kudzu: []
-        Puddle: []
         Smoke: []
+        Puddle: []
+        Kudzu: []
+        MetalFoam: []
         ESTileFire: []
     - type: Shuttle
       dampingModifier: 0.25
@@ -830,17 +830,25 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 4.5,-0.5
       parent: 1
-- proto: AtmosDeviceFanTiny
+- proto: AtmosDeviceFanDirectional
   entities:
   - uid: 115
     components:
     - type: Transform
+      rot: 3.141592653589793 rad
       pos: 1.5,15.5
       parent: 1
   - uid: 116
     components:
     - type: Transform
+      rot: 3.141592653589793 rad
       pos: -0.5,15.5
+      parent: 1
+  - uid: 144
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 0.5,15.5
       parent: 1
 - proto: BenchSofaCorpLeft
   entities:
@@ -2205,6 +2213,7 @@ entities:
   - uid: 5
     components:
     - type: Transform
+      rot: -1.5707963267948966 rad
       pos: -1.5,2.5
       parent: 1
   - uid: 8
@@ -2220,6 +2229,7 @@ entities:
   - uid: 27
     components:
     - type: Transform
+      rot: -1.5707963267948966 rad
       pos: 2.5,2.5
       parent: 1
   - uid: 168
