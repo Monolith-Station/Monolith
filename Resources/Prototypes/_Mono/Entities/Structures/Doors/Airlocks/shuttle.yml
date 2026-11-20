@@ -295,3 +295,18 @@
     containers:
       board: [ DoorElectronicsUnderground ]
 
+- type: entity
+  parent: AirlockShuttle
+  id: AirlockShuttleMawc
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Doors/Shuttle/Mawc.rsi
+
+- type: entity
+  parent: AirlockShuttleMawc
+  id: AirlockShuttleMawcLocked
+  suffix: External, Docking, MAWC, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMawcLow ]

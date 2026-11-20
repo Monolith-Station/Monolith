@@ -1,0 +1,39 @@
+- type: vessel
+  id: Icarus
+  parent: BaseVessel
+  name: MAWC Icarus
+  description: A hybrid frigate with self defense capability. Carrying four VANYKS for close range, and two PALADIN 250mm's for long range, its also got a flare launcher to help contest other missile ships with. Recommend L85's.
+  price: 188000 # 157K * 1.2~
+  purchasable: false # T1 - voucher only
+  category: Small
+  group: Mawc
+  access: MAWC
+  shuttlePath: /SharedMaps/_Mono/Shuttles/MAWC/icarus.yml
+  guidebookPage: Null
+  class:
+  - AntiShipMissileCarrier
+  engine:
+  - Bananium
+
+- type: gameMap
+  id: Icarus
+  mapName: 'MAWC Icarus'
+  mapPath: /SharedMaps/_Mono/Shuttles/MAWC/icarus.yml
+  minPlayers: 0
+  stations:
+    Icarus:
+      stationProto: StandardFrontierVessel
+      gridComponents:
+      - type: VesselInfo
+        description: "Daedelus's son flew close to the sun. His wings melted, and he plummeted like a rock, succumbing to the unforgiving sea."
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Icarus MAWC{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            MAWCInitiate: [ 0, 0 ]
+            MAWCCarpenter: [ 0, 0 ]
+            MAWCAcolyte: [ 0, 0 ]

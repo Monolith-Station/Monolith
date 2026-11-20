@@ -1,0 +1,67 @@
+- type: entity
+  parent: IDCardStandard
+  id: BaseMAWCIDCard
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/id_cards.rsi
+  - type: Item
+    sprite: Objects/Misc/id_cards.rsi
+  - type: Clothing
+    clothingVisuals:
+      idcard:
+      - sprite: _Mono/Objects/Misc/id_cards.rsi
+        state: equipped
+        shader: unshaded
+
+- type: entity
+  parent: BaseMAWCIDCard
+  id: MAWCInitiateIDCard
+  name: MAWC initiate ID card
+  components:
+  - type: PresetIdCard
+    job: MAWCInitiate
+  - type: Sprite
+    layers:
+    - state: initiate
+    - state: card-overlay
+      shader: unshaded
+
+- type: entity
+  parent: BaseMAWCIDCard
+  id: MAWCAcolyteIDCard
+  name: MAWC acolyte ID card
+  components:
+  - type: PresetIdCard
+    job: MAWCAcolyte
+  - type: Sprite
+    layers:
+    - state: acolyte
+    - state: card-overlay
+      shader: unshaded
+
+- type: entity
+  parent: BaseMAWCIDCard
+  id: MAWCSeraphIDCard
+  name: MAWC seraph ID card
+  components:
+  - type: PresetIdCard
+    job: MAWCSeraph
+  - type: Sprite
+    layers:
+    - state: seraph
+    - state: card-overlay
+      shader: unshaded
+
+- type: entity
+  parent: BaseMAWCIDCard
+  id: MAWCCarpenterIDCard
+  name: MAWC carpenter ID card
+  components:
+  - type: PresetIdCard
+    job: MAWCCarpenter
+  - type: Sprite
+    layers:
+    - state: carpenter
+    - state: card-overlay
+      shader: unshaded

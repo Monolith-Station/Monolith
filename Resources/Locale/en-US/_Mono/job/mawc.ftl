@@ -1,0 +1,19 @@
+department-MAWC = Malo-Avaliite Weapons Corporation
+department-MAWC-description = Corporate shipbreakers with hardlight weapons and a propensity for cold-blooded employees.
+job-supervisors-mawc-workers = the Acolytes and the Seraph
+job-supervisors-mawc-acolyte = the Seraph
+job-supervisors-mawc-seraph = corporate
+id-card-access-level-mawc = MAWC
+id-card-access-level-mawc-initiate = MAWC Initiate
+id-card-access-level-mawc-carpenter = MAWC Carpenter
+id-card-access-level-mawc-acolyte = MAWC Acolyte
+id-card-access-level-mawc-seraph = MAWC Seraph
+
+job-name-mawc-initiate = MAWC Initiate
+job-description-mawc-initiate = Serve the corporate interest. Perform menial labor! Do everything as you are told.
+job-name-mawc-carpenter = MAWC Carpenter
+job-description-mawc-carpenter = Repair ships. Salvage wrecks. Do as you are told, and everything runs fine.
+job-name-mawc-acolyte = MAWC Acolyte
+job-description-mawc-acolyte = Order your infantry, answer to the Seraph. Be a true member of the corporation.
+job-name-mawc-seraph = MAWC Seraph
+job-description-mawc-seraph = Represent the corporate shipbreakers in the sector. Send Initiates to die in the trenches. Host a tea party with your top Acolytes. The stage is yours.

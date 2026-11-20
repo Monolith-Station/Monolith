@@ -1,0 +1,23 @@
+- type: accessLevel
+  id: MAWC
+  name: id-card-access-level-mawc
+
+- type: accessLevel
+  id: MAWCInitiate
+  name: id-card-access-level-mawc-initiate
+
+- type: accessLevel
+  id: MAWCCarpenter
+  name: id-card-access-level-mawc-carpenter
+
+- type: accessLevel
+  id: MAWCAcolyte
+  name: id-card-access-level-mawc-acolyte
+
+- type: accessLevel
+  id: MAWCSeraph
+  name: id-card-access-level-mawc-seraph
+
+- type: accessGroup
+  id: MAWC
+  tags: [MAWC]

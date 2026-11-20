@@ -57,3 +57,18 @@
     - UndergroundCodespeak
     requires:
     - TauCetiBasic
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: MawcTrackingImplant
+  name: MAWC tracking implant
+  description: This implant has a tracking device monitor for the MAWC's lower nexus channel.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+  - type: TriggerOnMobstateChange
+    mobState:
+    - Critical
+    - Dead
+  - type: Rattle
+    radioChannel: "Mawc"

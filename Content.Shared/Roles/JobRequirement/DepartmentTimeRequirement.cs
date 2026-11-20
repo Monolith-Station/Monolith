@@ -12,6 +12,8 @@ namespace Content.Shared.Roles;
 [Serializable, NetSerializable]
 public sealed partial class DepartmentTimeRequirement : JobRequirement
 {
+    public override bool IsPlayTime => true;
+
     /// <summary>
     /// Which department needs the required amount of time.
     /// </summary>

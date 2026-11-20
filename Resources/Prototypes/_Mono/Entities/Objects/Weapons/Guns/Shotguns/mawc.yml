@@ -1,0 +1,40 @@
+- type: entity
+  parent: [BaseWeaponMAWC, BaseGunWieldable]
+  id: WeaponShotgunMAWCIntruder
+  name: M-WC Type-6E "Intruder" shotgun
+  description: A respectable and hefty automatic shotgun. Programmed with special hardlight flechette shells, it rips through armor and walls like tissue paper.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Battery/intruder.rsi
+    state: base
+  - type: Item
+    size: Huge
+    sprite: _Mono/Objects/Weapons/Guns/Battery/intruder_inhands.rsi
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/Battery/intruder_inhands.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Gun
+    fireRate: 3
+    projectileSpeed: 50
+    minAngle: 12
+    maxAngle: 24
+    selectedMode: FullAuto
+    availableModes:
+    - SemiAuto
+    - FullAuto
+    soundGunshot:
+      collection: MAWCShotgun
+  - type: GunWieldBonus
+    minAngle: -9
+    maxAngle: -16
+  - type: HeatAmmoProvider
+    proto: PelletMAWCIntruderSpread
+    maxHeat: 12
+    heatDissipation: 0.666667
+  - type: HeldSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.85
+  - type: GunRequiresWield

@@ -8,6 +8,7 @@ namespace Content.Shared.PDA
     {
         [Dependency] protected ItemSlotsSystem ItemSlotsSystem = default!;
         [Dependency] protected SharedAppearanceSystem Appearance = default!;
+        [Dependency] private SharedUserInterfaceSystem _userInterface = default!;
 
         public override void Initialize()
         {
@@ -20,6 +21,8 @@ namespace Content.Shared.PDA
             SubscribeLocalEvent<PdaComponent, EntRemovedFromContainerMessage>(OnItemRemoved);
 
             SubscribeLocalEvent<PdaComponent, GetAdditionalAccessEvent>(OnGetAdditionalAccess);
+            SubscribeLocalEvent<PdaComponent, BoundUIOpenedEvent>(OnPdaOpen);
+            SubscribeLocalEvent<PdaComponent, BoundUIClosedEvent>(OnPdaClose);
         }
         protected virtual void OnComponentInit(EntityUid uid, PdaComponent pda, ComponentInit args)
         {
@@ -60,6 +63,18 @@ namespace Content.Shared.PDA
         {
             if (component.ContainedId is { } id)
                 args.Entities.Add(id);
+        }
+
+        protected virtual void OnPdaOpen(Entity<PdaComponent> ent, ref BoundUIOpenedEvent args)
+        {
+            if (PdaUiKey.Key.Equals(args.UiKey))
+                Appearance.SetData(ent.Owner, PdaVisuals.InUse, true);
+        }
+
+        private void OnPdaClose(Entity<PdaComponent> ent, ref BoundUIClosedEvent args)
+        {
+            if (PdaUiKey.Key.Equals(args.UiKey))
+                Appearance.SetData(ent.Owner, PdaVisuals.InUse, _userInterface.IsUiOpen(ent.Owner, PdaUiKey.Key));
         }
 
         private void UpdatePdaAppearance(EntityUid uid, PdaComponent pda)

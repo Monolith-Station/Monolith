@@ -64,3 +64,19 @@
   keycode: '1'
   frequency: 1536
   color: "#AAAAAA"
+
+- type: radioChannel
+  id: Mawc
+  name: chat-radio-mawc
+  keycode: '4'
+  frequency: 1765
+  color: "#ff9310" #MAWC orange
+  longRange: true
+
+- type: radioChannel
+  id: MawcCommand
+  name: chat-radio-mawc-command
+  keycode: '3'
+  frequency: 1766
+  color: "#c6cac9" #MAWC silver
+  longRange: true

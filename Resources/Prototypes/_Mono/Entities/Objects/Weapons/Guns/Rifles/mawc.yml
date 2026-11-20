@@ -1,0 +1,39 @@
+- type: entity
+  parent: [BaseWeaponMAWC, BaseGunWieldable]
+  id: WeaponRifleMAWCFulcrum
+  name: M-WC Type-29A "Fulcrum" battle rifle
+  description: A rugged rifle with a slightly unusual design but dependable stopping power.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Battery/fulcrum.rsi
+    state: base
+  - type: Item
+    size: Huge
+    sprite: _Mono/Objects/Weapons/Guns/Battery/fulcrum_inhands.rsi
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/Battery/fulcrum_inhands.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Gun
+    fireRate: 4.5
+    projectileSpeed: 65
+    minAngle: 12
+    maxAngle: 24
+    burstFireRate: 9
+    shotsPerBurst: 3
+    burstCooldown: 0.65
+    selectedMode: Burst
+    availableModes:
+    - SemiAuto
+    - Burst
+    - FullAuto
+    soundGunshot:
+      collection: MAWCFulcrum
+  - type: GunWieldBonus
+    minAngle: -10
+    maxAngle: -19
+  - type: HeatAmmoProvider
+    proto: BulletMAWCFulcrum
+  - type: GunRequiresWield

@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/27/2026 06:58:23
-  entityCount: 1723
+  time: 10/19/2026 22:43:29
+  entityCount: 1724
 maps:
 - 1
 grids:
@@ -7658,6 +7658,34 @@ entities:
     - type: Transform
       pos: -4.5,2.5
       parent: 2
+- proto: SpawnPointMAWCAcolyte
+  entities:
+  - uid: 1730
+    components:
+    - type: Transform
+      pos: -5.5,1.5
+      parent: 2
+- proto: SpawnPointMAWCCarpenter
+  entities:
+  - uid: 1731
+    components:
+    - type: Transform
+      pos: -5.5,1.5
+      parent: 2
+- proto: SpawnPointMAWCInitiate
+  entities:
+  - uid: 1732
+    components:
+    - type: Transform
+      pos: -5.5,1.5
+      parent: 2
+- proto: SpawnPointMAWCSeraph
+  entities:
+  - uid: 1733
+    components:
+    - type: Transform
+      pos: -5.5,1.5
+      parent: 2
 - proto: SpawnPointMdMedic
   entities:
   - uid: 1152
@@ -11021,23 +11049,6 @@ entities:
     components:
     - type: Transform
       pos: -2.3528144,-0.3151633
-      parent: 2
-  - uid: 1691
-    components:
-    - type: Transform
-      pos: -2.3059394,-0.5495383
-      parent: 2
-  - uid: 1692
-    components:
-    - type: Transform
-      pos: -2.5559394,-0.8464133
-      parent: 2
-- proto: WeaponRevolverMateba
-  entities:
-  - uid: 1693
-    components:
-    - type: Transform
-      pos: -2.3059394,-1.3620384
       parent: 2
 - proto: WeaponRifleAk
   entities:

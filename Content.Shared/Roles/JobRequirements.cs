@@ -14,7 +14,8 @@ public static class JobRequirements
         [NotNullWhen(false)] out FormattedMessage? reason,
         IEntityManager entManager,
         IPrototypeManager protoManager,
-        HumanoidCharacterProfile? profile)
+        HumanoidCharacterProfile? profile,
+        bool checkPlayTime = true)
     {
         var sys = entManager.System<SharedRoleSystem>();
         var requirements = sys.GetJobRequirement(job);
@@ -27,6 +28,9 @@ public static class JobRequirements
         bool success = true;
         foreach (var requirement in requirements)
         {
+            if (!checkPlayTime && requirement.IsPlayTime)
+                continue;
+
             if (!requirement.Check(entManager, protoManager, profile, playTimes, out reason))
             {
                 success = false;
@@ -42,6 +46,9 @@ public static class JobRequirements
             success = true;
             foreach (var requirement in requirementSet)
             {
+                if (!checkPlayTime && requirement.IsPlayTime)
+                    continue;
+
                 // Frontier: do not accumulate reasons for alternate job requirements.
                 if (!requirement.Check(entManager, protoManager, profile, playTimes, out _))
                 {
@@ -72,6 +79,8 @@ public abstract partial class JobRequirement
 {
     [DataField]
     public bool Inverted;
+
+    public virtual bool IsPlayTime => false;
 
     public abstract bool Check(
         IEntityManager entManager,
