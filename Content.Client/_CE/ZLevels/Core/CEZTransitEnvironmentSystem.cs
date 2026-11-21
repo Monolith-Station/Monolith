@@ -7,32 +7,27 @@ namespace Content.Client._CE.ZLevels.Core;
 public sealed partial class CEZTransitEnvironmentSystem : EntitySystem
 {
     [Dependency] private CESharedZLevelsSystem _zLevels = default!;
+    [Dependency] private Content.Client.Light.LightCycleSystem _lightCycle = default!;
 
-    public override void Initialize()
+    public override void FrameUpdate(float frameTime)
     {
-        base.Initialize();
-        UpdatesAfter.Add(typeof(Content.Client.Light.LightCycleSystem));
-    }
-
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
-
         var query = EntityQueryEnumerator<CEZTransitMapComponent, MapLightComponent>();
         while (query.MoveNext(out _, out var transit, out var light))
         {
-            if (transit.LowerMap is not { } lower ||
-                !TryComp<MapLightComponent>(lower, out var lowerLight))
+            var lower = SampleAmbient(transit.LowerMap);
+            var upper = SampleAmbient(transit.UpperMap);
+            if (lower == null && upper == null)
                 continue;
 
-            var upperColor = transit.UpperMap is { } upper && TryComp<MapLightComponent>(upper, out var upperLight)
-                ? upperLight.AmbientLightColor
-                : lowerLight.AmbientLightColor;
-
             light.AmbientLightColor = Color.InterpolateBetween(
-                lowerLight.AmbientLightColor,
-                upperColor,
+                lower ?? upper!.Value,
+                upper ?? lower!.Value,
                 _zLevels.GetTransitProgress(transit));
         }
     }
+
+    private Color? SampleAmbient(EntityUid? map) =>
+        map is { } uid && TryComp<MapLightComponent>(uid, out var light)
+            ? _lightCycle.SampleAmbient(uid, light)
+            : null;
 }

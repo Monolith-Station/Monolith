@@ -2,6 +2,7 @@ using System.Buffers;
 using System.Numerics;
 using Content.Client._Mono.PlanetMap; // Mono
 using Content.Client.Shuttles.Systems;
+using Content.Shared._CE.ZLevels.Core.EntitySystems;
 using Content.Shared._Mono.Company;
 using Content.Shared._Mono.Detection;
 using Content.Shared.Shuttles.Components;
@@ -488,6 +489,11 @@ public sealed partial class ShuttleMapControl : BaseShuttleControl
         {
             handle.DrawPrimitives(DrawPrimitiveTopology.LineList, sendEdges, color);
         }
+
+        var worldToView = matty * Matrix3x2.CreateScale(MinimapScale, -MinimapScale) *
+                          Matrix3x2.CreateTranslation(MidPointVector);
+        var altitude = EntManager.System<CESharedZLevelsSystem>().GetAbsoluteAltitude(viewedMapUid);
+        DrawProjectedShields(handle, viewedMapUid, altitude, worldToView, _console, _shuttleEntity);
 
         foreach (var (color, sendStrings) in _strings)
         {

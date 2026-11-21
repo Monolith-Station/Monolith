@@ -3,6 +3,7 @@ using Content.Client._Mono.PlanetMap; // Mono
 using Content.Client._Mono.Radar;
 using Content.Client._Mono.Sensors.UI;
 using Content.Client.Station; // Frontier
+using Content.Shared._CE.ZLevels.Core.EntitySystems;
 using Content.Shared._Crescent.ShipShields;
 using Content.Shared._Mono.Company;
 using Content.Shared._Mono.Detection;
@@ -738,6 +739,11 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
 
         // Draw shields
         DrawShields(handle, xform, worldToShuttle);
+        if (xform.MapUid is { } shieldMap)
+        {
+            var altitude = EntManager.System<CESharedZLevelsSystem>().GetAbsoluteAltitude(xform.Owner);
+            DrawProjectedShields(handle, shieldMap, altitude, worldToView, _consoleEntity, xform.GridUid);
+        }
 
         // Frontier Corvax: north line drawing
         DrawNorthLine(handle, worldRot);

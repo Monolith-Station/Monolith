@@ -371,6 +371,12 @@ public sealed partial class ShipShieldCollisionSystem : EntitySystem
 
     private void OnSurfaceContact(Entity<ShipShieldProjectorComponent> shield, ref ShipShieldSurfaceContactEvent args)
     {
+        if (args.Warning)
+        {
+            SetImpact(shield, args.Point, args.Map, power: 2.5f, source: args.Source);
+            return;
+        }
+
         if (!_shells.TryGetValue(shield.Owner, out var shell))
             return;
 

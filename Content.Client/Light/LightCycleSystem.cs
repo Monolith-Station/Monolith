@@ -27,18 +27,18 @@ public sealed partial class LightCycleSystem : SharedLightCycleSystem
             if (!cycle.Running)
                 continue;
 
-            // We still iterate paused entities as we still want to override the lighting color and not have
-            // it apply the server state
-            var pausedTime = _metadata.GetPauseTime(uid);
-
-            var time = (float) _timing.CurTime
-                .Add(cycle.Offset)
-                .Subtract(_ticker.RoundStartTimeSpan)
-                .Subtract(pausedTime)
-                .TotalSeconds;
-
-            var color = GetColor((uid, cycle), cycle.OriginalColor, time);
-            map.AmbientLightColor = color;
+            map.AmbientLightColor = SampleAmbient((uid, cycle));
         }
+    }
+
+    public Color SampleAmbient(EntityUid mapUid, MapLightComponent map) =>
+        TryComp<LightCycleComponent>(mapUid, out var cycle) && cycle.Running
+            ? SampleAmbient((mapUid, cycle))
+            : map.AmbientLightColor;
+
+    private Color SampleAmbient(Entity<LightCycleComponent> cycle)
+    {
+        var time = _timing.CurTime + cycle.Comp.Offset - _ticker.RoundStartTimeSpan - _metadata.GetPauseTime(cycle);
+        return GetColor(cycle, cycle.Comp.OriginalColor, (float) time.TotalSeconds);
     }
 }

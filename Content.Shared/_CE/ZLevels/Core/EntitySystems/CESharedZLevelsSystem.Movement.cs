@@ -142,7 +142,9 @@ public abstract partial class CESharedZLevelsSystem
         entity.Comp.CachedStickyGround = sticky;
     }
 
-    private void OnMoveEvent(Entity<CEZPhysicsComponent> entity, ref MoveEvent args)
+    private void OnMoveEvent(Entity<CEZPhysicsComponent> entity, ref MoveEvent args) => QueueGroundRefresh(entity);
+
+    protected void QueueGroundRefresh(EntityUid entity)
     {
         if (_dirtyMovementBodies.Contains(entity))
             return;
@@ -223,6 +225,7 @@ public abstract partial class CESharedZLevelsSystem
 
                 if (curve.Count == 1)
                 {
+                    stickyGround = heightComp.Stick;
                     var groundY = curve[0];
                     // groundHeight is negative downwards: -floor + groundY
                     return -floor + groundY;
@@ -237,9 +240,7 @@ public abstract partial class CESharedZLevelsSystem
 
                 var groundYInterp = MathHelper.Lerp(y0, y1, frac);
 
-                if (target.Comp.Velocity <= 0 && target.Comp.Velocity > -2f && heightComp.Stick)
-                    stickyGround = true;
-
+                stickyGround = heightComp.Stick;
                 return -floor + groundYInterp;
             }
 

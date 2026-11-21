@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared._CE.Planets.Hellpods;
 using Content.Shared._CE.ZLevels.Core.Components;
 using Content.Shared._CE.ZLevels.Core.EntitySystems;
 using Content.Shared.Damage;
@@ -46,8 +47,10 @@ public sealed partial class SharedShipShieldShellSystem
     }
 
     private bool BlocksBody(ShipShieldShellSettings settings, EntityUid body) =>
-        HasComp<ProjectileComponent>(body) ||
-        settings.Blocks(HasComp<MobStateComponent>(body) ? ShipShieldCollision.Mobs : ShipShieldCollision.Objects);
+        !IsDroppingPod(body) && (HasComp<ProjectileComponent>(body) ||
+        settings.Blocks(HasComp<MobStateComponent>(body) ? ShipShieldCollision.Mobs : ShipShieldCollision.Objects));
+
+    private bool IsDroppingPod(EntityUid uid) => CompOrNull<CEHellpodComponent>(uid) is { InFlight: true };
 
     public bool TryGetSlice(Entity<ShipShieldProjectorComponent> shield, EntityUid? map, float altitude, out Vector2 radii)
     {
@@ -145,6 +148,14 @@ public sealed partial class SharedShipShieldShellSystem
             return to;
 
         var position = _transform.GetWorldPosition(mover);
+        if (!gridFootprint && IsDroppingPod(mover))
+        {
+            if (to < from)
+                TryFindVerticalContact(mover, map, position, from, to, out _, out _, out _, warnPassThrough: true);
+
+            return to;
+        }
+
         var hitHull = TryFindVerticalContact(mover, map, position, from, to, out var hit, out var point, out var altitude,
             gridFootprint, ignoreGrids);
         if (gridFootprint && ClampVerticalShells(mover, map, from, ref altitude, pushing, ignoreGrids))
@@ -234,7 +245,7 @@ public sealed partial class SharedShipShieldShellSystem
 
     public bool TryFindVerticalContact(EntityUid mover, EntityUid? map, Vector2 position, float from, float to,
         out EntityUid hit, out Vector3 hitPoint, out float target, bool gridFootprint = false,
-        IReadOnlySet<EntityUid>? ignoreGrids = null)
+        IReadOnlySet<EntityUid>? ignoreGrids = null, bool warnPassThrough = false)
     {
         hit = EntityUid.Invalid;
         hitPoint = Vector3.Zero;
@@ -257,7 +268,7 @@ public sealed partial class SharedShipShieldShellSystem
             var radii = shield.Shield.Radii;
             if (uid == mover || (xform.GridUid is { } host && (host == mover || ignoreGrids?.Contains(host) == true)) ||
                 !IsSolid(shield) || GetStack(xform.MapUid) != stack || radii is not { X: > 0f, Y: > 0f, Z: > 0f } ||
-                (gridFootprint ? !shield.Shield.Blocks(ShipShieldCollision.Grids) : !BlocksBody(shield.Shield, mover)))
+                (!warnPassThrough && (gridFootprint ? !shield.Shield.Blocks(ShipShieldCollision.Grids) : !BlocksBody(shield.Shield, mover))))
                 continue;
 
             var center = _levels.GetAbsoluteAltitude(uid) + shield.Shield.CenterHeight;
@@ -282,7 +293,19 @@ public sealed partial class SharedShipShieldShellSystem
                 CheckFootprint(center, radii.Z, local, local);
             }
 
-            if (nearestHit != previous)
+            if (nearestHit == previous)
+                continue;
+
+            if (warnPassThrough)
+            {
+                if (surfaceHit.Z > 0f)
+                {
+                    var contact = new ShipShieldSurfaceContactEvent(surfaceHit, Transform(uid).MapID, false, mover, Warning: true);
+                    RaiseLocalEvent(uid, ref contact);
+                }
+                nearestHit = to;
+            }
+            else
                 hit = uid;
         }
 
@@ -561,7 +584,7 @@ public sealed partial class SharedShipShieldShellSystem
 
 [ByRefEvent]
 public readonly record struct ShipShieldSurfaceContactEvent(Vector3 Point, MapId Map, bool Pushing,
-    EntityUid? Source = null, float? BodyImpactSpeed = null);
+    EntityUid? Source = null, float? BodyImpactSpeed = null, bool Warning = false);
 
 [ByRefEvent]
 public readonly record struct ShipShieldHitscanImpactEvent(Vector2 Point, MapId Map, float Altitude, EntityUid Shot, DamageSpecifier Damage);

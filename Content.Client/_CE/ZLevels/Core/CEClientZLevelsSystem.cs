@@ -12,6 +12,7 @@ using Content.Shared.StatusEffect;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Shared.GameObjects;
+using Robust.Shared.GameStates;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Maths;
 
@@ -32,13 +33,18 @@ public sealed partial class CEClientZLevelsSystem : CESharedZLevelsSystem
         _overlay.AddOverlay(new CEZLevelShadowOverlay(EntityManager));
 
         SubscribeLocalEvent<CEZPhysicsComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<CEZPhysicsComponent, AfterAutoHandleStateEvent>(OnZPhysicsState);
         SubscribeLocalEvent<CEZPhysicsComponent, GetEyeOffsetEvent>(OnEyeOffset);
     }
+
+    private void OnZPhysicsState(Entity<CEZPhysicsComponent> ent, ref AfterAutoHandleStateEvent args) =>
+        QueueGroundRefresh(ent);
 
     private void OnEyeOffset(Entity<CEZPhysicsComponent> ent, ref GetEyeOffsetEvent args)
     {
         Angle rotation = _eye.CurrentEye.Rotation * -1;
-        var localPosition = ent.Comp.LocalPosition;
+        var map = Transform(ent).MapUid;
+        var localPosition = HasComp<CEZMapComponent>(map) ? Math.Clamp(ent.Comp.LocalPosition, -1f, 1f) : 0f;
         var offset = rotation.RotateVec(new Vector2(0, localPosition * ZLevelOffset));
         args.Offset += offset;
     }

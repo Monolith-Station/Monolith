@@ -1,11 +1,15 @@
+using System.Linq;
+using Content.Server.Explosion.EntitySystems;
 using Content.Shared._CE.Planets.Hellpods;
 using Content.Shared._CE.ZLevels.Core.Components;
 using Content.Shared._CE.ZLevels.Core.EntitySystems;
+using Content.Shared._FarHorizons.StarSystem;
 using Content.Shared.Body.Components;
 using Content.Shared.DragDrop;
 using Content.Shared.DoAfter;
 using Content.Shared.Alert;
 using Robust.Shared.Containers;
+using Robust.Shared.Map;
 using Robust.Shared.Timing;
 
 namespace Content.Server._CE.Planets.Hellpods;
@@ -18,6 +22,8 @@ public sealed partial class CEHellpodSystem : EntitySystem
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private SharedDoAfterSystem _doAfter = default!;
     [Dependency] private AlertsSystem _alerts = default!;
+    [Dependency] private ExplosionSystem _explosions = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {
@@ -88,7 +94,8 @@ public sealed partial class CEHellpodSystem : EntitySystem
         var query = EntityQueryEnumerator<CEHellpodHatchComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var hatch, out var xform))
         {
-            if (Seat(uid).ContainedEntity is not { } occupant || !HasComp<CEZMapComponent>(xform.MapUid))
+            if (Seat(uid).ContainedEntity is not { } occupant || xform.MapUid is not { } map ||
+                !TryGetDropStart(map, out var lowerMap, out var height, out var inTransit))
             {
                 hatch.LaunchAt = null;
                 continue;
@@ -99,6 +106,17 @@ public sealed partial class CEHellpodSystem : EntitySystem
                 continue;
 
             var pod = Spawn(hatch.Pod, xform.Coordinates);
+            if (inTransit)
+                _transform.SetMapCoordinates(pod, new MapCoordinates(_transform.GetWorldPosition(xform), Transform(lowerMap).MapID));
+            else if (!_levels.TryMoveDown(pod))
+            {
+                QueueDel(pod);
+                hatch.LaunchAt = null;
+                continue;
+            }
+            else if (HasComp<CEZTransitMapComponent>(Transform(pod).MapUid))
+                height = _levels.GetAbsoluteAltitude(uid) - _levels.GetAbsoluteAltitude(pod);
+
             if (!_containers.Insert(occupant, Seat(pod)))
             {
                 QueueDel(pod);
@@ -106,14 +124,33 @@ public sealed partial class CEHellpodSystem : EntitySystem
                 continue;
             }
 
-            Comp<CEHellpodComponent>(pod).InFlight = true;
-            _levels.TryMoveDown(pod);
-            var physics = Comp<CEZPhysicsComponent>(pod);
-            physics.LocalPosition = 0.9f;
-            physics.Velocity = -5f;
-            Dirty(pod, physics);
-            _levels.WakeBody((pod, physics));
+            var component = Comp<CEHellpodComponent>(pod);
+            component.InFlight = true;
+            Dirty(pod, component);
+            _levels.SetZPosition(pod, height);
+            _levels.SetZVelocity(pod, -component.DropSpeed);
         }
+    }
+
+    private bool TryGetDropStart(EntityUid map, out EntityUid lowerMap, out float height, out bool inTransit)
+    {
+        lowerMap = default;
+        height = 1f;
+        inTransit = TryComp<CEZTransitMapComponent>(map, out var transit);
+        var anchor = transit?.LowerMap ?? map;
+        if (!_levels.TryGetMapNetwork(anchor, out var network) ||
+            !HasComp<PlanetSurfaceComponent>(network) &&
+            !network.Comp.SortedZLevels.Any(level => HasComp<CEZGroundLayerComponent>(level)))
+            return false;
+
+        if (transit != null)
+        {
+            lowerMap = anchor;
+            height = _levels.GetTransitProgress(transit);
+            return true;
+        }
+
+        return _levels.TryMapDown(map, out _);
     }
 
     private void OnLand(Entity<CEHellpodComponent> ent, ref CEZLevelHitEvent args)
@@ -121,7 +158,11 @@ public sealed partial class CEHellpodSystem : EntitySystem
         if (!ent.Comp.InFlight)
             return;
         ent.Comp.InFlight = false;
+        Dirty(ent);
         if (Seat(ent).ContainedEntity is { } occupant)
             _containers.Remove(occupant, Seat(ent));
+        _explosions.QueueExplosion(ent, ExplosionSystem.DefaultExplosionPrototypeId,
+            ent.Comp.ImpactIntensity, 3f, 5f, canCreateVacuum: false);
+        QueueDel(ent);
     }
 }

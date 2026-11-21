@@ -16,7 +16,7 @@ public sealed partial class ShipShieldShellSystem
 
     private void OnSurfaceContact(Entity<ShipShieldProjectorComponent> shield, ref ShipShieldSurfaceContactEvent args)
     {
-        if (!_timing.IsFirstTimePredicted || args.Source is not { } source)
+        if (args.Warning || !_timing.IsFirstTimePredicted || args.Source is not { } source)
             return;
 
         var now = _timing.CurTime;
