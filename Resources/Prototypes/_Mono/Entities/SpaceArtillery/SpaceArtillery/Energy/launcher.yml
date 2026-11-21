@@ -436,7 +436,7 @@
         layer:
         - MachineLayer
   - type: Gun
-    projectileSpeed: 295
+    projectileSpeed: 360
     fireRate: 0.75
     recoil: 500 # 20x - station weapon
     shootThermalSignature: 12000000 # ~6km after firing
@@ -449,7 +449,7 @@
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: BatterySelfRecharger
     autoRechargePause: true
-    autoRechargePauseTime: 20
+    autoRechargePauseTime: 30
     autoRecharge: true
     autoRechargeRate: 81600
   - type: SpaceArtillery
