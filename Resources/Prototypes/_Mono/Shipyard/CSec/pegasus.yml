@@ -1,0 +1,79 @@
+# Author notes: Adapted from Ratgore's Harrier. https://github.com/ss14-art/ratgore/blob/master/Resources/Prototypes/_Crescent/Maps/Ships/NCSP/harrier.yml . Creator's github tag might be Ilikeships?
+
+- type: vessel
+  id: Pegasus
+  parent: BaseVessel
+  name: GS Pegasus
+  description: The GS QJ-799/B Pegasus is a long range patrol craft capable of excurisons into relatively tame drone territories. Comes with a small medical bay for recovery efforts.
+  price: 138000 # appraised at 115K + 20%
+  minPriceMarkup: 0.1 # Arbitage workaround, manually confirmed the price.
+  category: Small
+  group: Sr
+  access: Caelestinus
+  mapchecker_group_override: Security
+  shuttlePath: /SharedMaps/_Mono/Shuttles/CSec/pegasus.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  - Escort
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Pegasus
+  mapName: 'Pegasus'
+  mapPath: /SharedMaps/_Mono/Shuttles/CSec/pegasus.yml
+  minPlayers: 0
+  stations:
+    Pegasus:
+      stationProto: StandardFrontierVessel
+      gridComponents:
+      - type: GridModifier
+        modifications:
+        - Pegasus
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'PEGASUS CSEC{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+
+- type: gridModifier
+  id: Pegasus
+  modifiers:
+  - !type:GridModEntityReplace
+    comp: Occluder
+    data:
+    - chance: 1
+      toReplace: WallReinforced
+      replaceWith: WallShuttle
+ # - !type:GridModEntityReplace
+ #   comp: Hardpoint
+#    data:
+#    - chance: 1
+ #     toReplace: HardpointBallisticHeavy
+#      replaceWith: WallShuttleDiagonal
+  - !type:GridModEntityReplace
+    comp: Destructible
+    data:
+    - chance: 1
+      toReplace: WindowDirectional
+      replaceWith: DecalSpawnerBloodSplatters
+    - chance: 1
+      toReplace: PlasmaWindowDirectional
+      replaceWith: DecalSpawnerBloodSplatters
+    - chance: 1
+      toReplace: UraniumWindowDirectional
+      replaceWith: Catwalk
+    - chance: 1
+      toReplace: WindoorClockwork
+      replaceWith: UraniumReinforcedWindowDirectional
+    - chance: 1
+      toReplace: ChairBlack
+      replaceWith: MedicalBed
+    - chance: 1
+      toReplace: Chair
+      replaceWith: StasisBed
+    - chance: 1
+      toReplace: WindowFrostedDirectional
+      replaceWith: CableMV
