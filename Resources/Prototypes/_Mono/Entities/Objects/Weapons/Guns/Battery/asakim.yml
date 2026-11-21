@@ -53,6 +53,7 @@
   id: WeaponRifleAsakimAutopulserADM
   description: An advanced handheld plasma rifle built for cyborgs. The design bears similarities to pre-fracture plasma weapons.
   components:
+  - type: LightWeapon
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Battery/asakimrifle.rsi
     layers:

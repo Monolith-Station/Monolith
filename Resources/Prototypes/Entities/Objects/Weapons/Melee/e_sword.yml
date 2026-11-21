@@ -91,6 +91,7 @@
   id: EnergySword
   description: A very loud & dangerous sword with a beam made of pure, concentrated plasma. Cuts through unarmored targets like butter.
   components:
+  - type: LightWeapon # Mono - dual wielding
   - type: Sprite
     sprite: Objects/Weapons/Melee/e_sword.rsi
     layers:
@@ -130,6 +131,7 @@
   id: EnergyDaggerLoud
   description: A not as loud and dangerous dagger with a beam made of pure, concentrated plasma. This one is completely undisguised.
   components:
+  - type: LightWeapon # Mono - dual wielding
   - type: ItemToggle
     soundActivate:
       path: /Audio/Weapons/ebladeon.ogg
@@ -197,6 +199,7 @@
   suffix: E-Dagger
   description: 'A dark ink pen.'
   components:
+  - type: LightWeapon # Mono - dual wielding
   - type: ItemToggle
     soundActivate:
       path: /Audio/Weapons/ebladeon.ogg
@@ -282,6 +285,7 @@
   id: EnergyCutlass
   description: An exotic energy weapon.
   components:
+  - type: LightWeapon # Mono - dual wielding
   - type: ItemToggleMeleeWeapon
     activatedDamage:
       types:

@@ -4,6 +4,7 @@
   id: MeleeHammer
   description: 3 steel 2 wood
   components:
+  - type: LightWeapon # Mono - dual wielding
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Melee/hammer.rsi
     state: icon

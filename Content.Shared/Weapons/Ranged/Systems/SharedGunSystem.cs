@@ -45,6 +45,7 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Robust.Shared.Spawners; // Mono
+using Content.Shared._Mono.DualWield; // Mono - dual wielding
 
 namespace Content.Shared.Weapons.Ranged.Systems;
 
@@ -69,6 +70,7 @@ public abstract partial class SharedGunSystem : EntitySystem
     [Dependency] protected SharedAppearanceSystem Appearance = default!;
     [Dependency] protected SharedAudioSystem Audio = default!;
     [Dependency] private   SharedCombatModeSystem _combatMode = default!;
+    [Dependency] private   SharedDualWieldSystem _dualWield = default!; // Mono - dual wielding
     [Dependency] protected SharedContainerSystem Containers = default!;
     [Dependency] private   SharedGravitySystem _gravity = default!;
     [Dependency] protected SharedPointLightSystem Lights = default!;
@@ -163,9 +165,11 @@ public abstract partial class SharedGunSystem : EntitySystem
         if (TryComp<MechPilotComponent>(user.Value, out var mechPilot))
             user = mechPilot.Mech;
 
-        if (!TryGetGun(user.Value, out var ent) ||
+        // Mono - dual wielding: accept either gun while dual wielding
+        if (!TryGetGunFor(user.Value, GetEntity(msg.Gun), out var ent, out var gun) ||
             HasComp<ItemComponent>(user))
             return;
+        // End Mono
 
         if (ent.Owner != GetEntity(msg.Gun))
             return;
@@ -191,7 +195,8 @@ public abstract partial class SharedGunSystem : EntitySystem
 
         if (user == null ||
             !_combatMode.IsInCombatMode(user) ||
-            !TryGetGun(user.Value, out var ent))
+            // Mono - dual wielding: accept either gun while dual wielding
+            !TryGetGunFor(user.Value, gunUid, out var ent, out var gunComp))
         {
             return null;
         }
@@ -199,8 +204,8 @@ public abstract partial class SharedGunSystem : EntitySystem
         if (ent.Owner != gunUid)
             return null;
 
-        ent.Comp.ShootCoordinates = GetCoordinates(coordinates);
-        ent.Comp.Target = GetEntity(target);
+        gunComp.ShootCoordinates = GetCoordinates(coordinates);
+        gunComp.Target = GetEntity(target);
 
         AttemptShoot(user.Value, ent, ent.Comp);
 
@@ -235,11 +240,12 @@ public abstract partial class SharedGunSystem : EntitySystem
         if (TryComp<MechPilotComponent>(user.Value, out var mechPilot))
             user = mechPilot.Mech;
 
-        if (!TryGetGun(user.Value, out var ent))
+        if (!TryGetGunFor(user.Value, gunUid, out var ent, out var gun))
             return;
 
         if (ent.Owner != gunUid)
             return;
+        // End Mono
 
         StopShooting(gunUid, ent.Comp);
     }
@@ -252,13 +258,24 @@ public abstract partial class SharedGunSystem : EntitySystem
         return true;
     }
 
+    // Mono - dual wielding
     /// <summary>
-    ///     Tries to get an entity with <see cref="GunComponent"/> from the specified entity's hands, or from the entity itself.
+    /// Validates a client-claimed gun. Normally the gun must be the one <see cref="TryGetGun"/> resolves
+    /// from the active hand, but while dual-wielding either of the two held weapons is valid.
     /// </summary>
-    /// <param name="entity">Entity that is holding the gun, or is the gun</param>
-    /// <param name="gun">Gun entity to return</param>
-    /// <returns>True if gun was found</returns>
-    public bool TryGetGun(EntityUid entity, out Entity<GunComponent> gun)
+    public bool TryGetGunFor(EntityUid user, EntityUid requested, out EntityUid gunEntity, [NotNullWhen(true)] out GunComponent? gunComp)
+    {
+        if (_dualWield.IsDualWieldWeapon(user, requested, out _) && TryComp(requested, out gunComp))
+        {
+            gunEntity = requested;
+            return true;
+        }
+
+        return TryGetGun(user, out gunEntity, out gunComp) && gunEntity == requested;
+    }
+    // End Mono
+
+    public bool TryGetGun(EntityUid entity, out EntityUid gunEntity, [NotNullWhen(true)] out GunComponent? gunComp)
     {
         gun = default;
 

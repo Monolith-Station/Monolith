@@ -4,6 +4,7 @@
   id: WeaponEnergyShotgunOverseer
   description: A weapon that has been the last thing seen by many pirates, "Dignity" is a 1-handed energy shotgun often used by pirate hunting overseers.
   components:
+  - type: LightWeapon
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Battery/dignity_shotgun.rsi
     state: icon

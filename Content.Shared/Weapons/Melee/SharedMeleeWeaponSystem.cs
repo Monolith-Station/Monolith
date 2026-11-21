@@ -22,6 +22,7 @@ using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
+using Content.Shared._Mono.DualWield; // Mono - dual wielding
 using Robust.Shared.Map;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
@@ -44,6 +45,7 @@ public abstract partial class SharedMeleeWeaponSystem : EntitySystem
     [Dependency] protected IGameTiming              Timing          = default!;
     [Dependency] protected SharedTransformSystem    TransformSystem = default!;
     [Dependency] private   InventorySystem         _inventory       = default!;
+    [Dependency] private   SharedDualWieldSystem   _dualWield       = default!; // Mono - dual wielding
     [Dependency] private   MeleeSoundSystem        _meleeSound      = default!;
     [Dependency] private   SharedPhysicsSystem     _physics         = default!;
     [Dependency] private   IPrototypeManager       _protoManager    = default!;
@@ -161,11 +163,10 @@ public abstract partial class SharedMeleeWeaponSystem : EntitySystem
         if (user == null)
             return;
 
-        if (!TryGetWeapon(user.Value, out var weaponUid, out var weapon) ||
-            weaponUid != GetEntity(msg.Weapon))
-        {
+        // Mono - dual wielding
+        if (!TryGetWeaponFor(user.Value, GetEntity(msg.Weapon), out var weaponUid, out var weapon, out _))
             return;
-        }
+        // End Mono
 
         if (!weapon.Attacking)
             return;
@@ -186,12 +187,9 @@ public abstract partial class SharedMeleeWeaponSystem : EntitySystem
             return;
         }
 
-        // Mono - also override user
-        if (!TryGetWeapon(user, out var weaponUid, out var weapon, out var userOverride) ||
-            weaponUid != GetEntity(msg.Weapon))
-        {
+        // Mono - also override user, and accept either weapon while dual wielding
+        if (!TryGetWeaponFor(user, GetEntity(msg.Weapon), out var weaponUid, out var weapon, out var userOverride))
             return;
-        }
 
         AttemptAttack(user, weaponUid, weapon, msg, args.SenderSession, userOverride);
     }
@@ -208,9 +206,8 @@ public abstract partial class SharedMeleeWeaponSystem : EntitySystem
             return;
         }
 
-        // Mono - also override user
-        if (!TryGetWeapon(user, out var weaponUid, out var weapon, out var userOverride) ||
-            weaponUid != GetEntity(msg.Weapon) ||
+        // Mono - also override user, and accept either weapon while dual wielding
+        if (!TryGetWeaponFor(user, GetEntity(msg.Weapon), out var weaponUid, out var weapon, out var userOverride) ||
             !weapon.CanWideSwing) // Goobstation Change
         {
             return;
@@ -357,6 +354,26 @@ public abstract partial class SharedMeleeWeaponSystem : EntitySystem
     {
         return TryGetWeapon(entity, out weaponUid, out melee, out _);
     }
+
+    // Mono - dual wielding
+    /// <summary>
+    /// Validates a client-claimed weapon. Normally the weapon must be the one <see cref="TryGetWeapon"/>
+    /// resolves from the active hand, but while dual-wielding either of the two held weapons is valid.
+    /// </summary>
+    public bool TryGetWeaponFor(EntityUid user, EntityUid requested, out EntityUid weaponUid,
+        [NotNullWhen(true)] out MeleeWeaponComponent? melee, out EntityUid attacker)
+    {
+        attacker = user;
+
+        if (_dualWield.IsDualWieldWeapon(user, requested, out _) && TryComp(requested, out melee))
+        {
+            weaponUid = requested;
+            return true;
+        }
+
+        return TryGetWeapon(user, out weaponUid, out melee, out attacker) && weaponUid == requested;
+    }
+    // End Mono
 
     public void AttemptLightAttackMiss(EntityUid user, EntityUid weaponUid, MeleeWeaponComponent weapon, EntityCoordinates coordinates,
         EntityUid? attackerOverride = null) // Mono
