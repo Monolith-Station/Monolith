@@ -15,14 +15,6 @@
   description: alerts-magboots-desc
 
 - type: alert
-  id: MagbootsPirate
-  icons:
-  - sprite: _NF/Clothing/Shoes/Boots/magboots-pirate.rsi
-    state: icon-on
-  name: alerts-magboots-name
-  description: alerts-magboots-desc
-
-- type: alert
   id: MagbootsMercenary
   icons:
   - sprite: _NF/Clothing/Shoes/Boots/magboots-mercenary.rsi
