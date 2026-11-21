@@ -1,0 +1,40 @@
+# Author Info
+# GitHub: Loldaddy5676
+# Discord: Huragok
+
+# Shuttle Notes:
+- type: vessel
+  id: Buffalomk2
+  parent: BaseVesselIFFDisabled
+  name: UGR Buffalomk2
+  description: The Buffalo MK2, a haphazordly refitted Buffalo cargo ship, equipped with 3 heavy ballistic hardpoints, 1 of which is equipped with a basic howitzer. barely armored, although it can reach decent speeds.
+  price: 65000
+  group: Syndicate # Underground
+  access: Underground
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Underground/buffalomk2.yml
+  guidebookPage: Null
+  class:
+  - Cargo
+  - pursuit
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Buffalomk2
+  mapName: 'UGR Buffalo MK2'
+  mapPath: /SharedMaps/_Mono/Shuttles/Underground/buffalomk2.yml
+  minPlayers: 0
+  stations:
+    Buffalomk2:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Buffalomk2 UGR{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            # Pilot: [ 0, 0 ]
+            # Mercenary: [ 0, 0 ]

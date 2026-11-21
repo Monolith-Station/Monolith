@@ -1,0 +1,40 @@
+# Author Info
+# GitHub: Loldaddy5676
+# Discord: Huragok
+
+# Shuttle Notes:
+- type: vessel
+  id: Buffalo
+  parent: BaseVesselIFFDisabled
+  name: UGR Buffalo
+  description: The Buffalo class transport vessel, designed specifically for smuggling goods across a sector, lightly armored and equipped with flare countermeasures, its primary defense is its speed.
+  price: 60000
+  category: Medium
+  group: Syndicate # Underground
+  access: Underground
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Underground/buffalo.yml
+  guidebookPage: Null
+  class:
+  - Cargo
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Buffalo
+  mapName: 'UGR Buffalo'
+  mapPath: /SharedMaps/_Mono/Shuttles/Underground/buffalo.yml
+  minPlayers: 0
+  stations:
+    Buffalo:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Buffalo UGR{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            # Pilot: [ 0, 0 ]
+            # Mercenary: [ 0, 0 ]
