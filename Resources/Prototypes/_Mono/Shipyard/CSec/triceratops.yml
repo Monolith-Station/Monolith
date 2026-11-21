@@ -1,0 +1,34 @@
+#author's note: based off of the Provost from Ratgore.
+
+- type: vessel
+  id: Triceratops
+  parent: BaseVessel
+  name: GS Triceratops
+  description: The QJ271/C is a short-ranged escort ship with limited capabilities. Outfitted with AAM Vanyks and SACLOS torpedos by default.
+  price: 92500 # appraised at 77K * 1.2
+  category: Small
+  group: Sr
+  access: Caelestinus
+  mapchecker_group_override: Security
+  shuttlePath: /SharedMaps/_Mono/Shuttles/CSec/triceratops.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  - Escort
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Triceratops
+  mapName: 'Triceratops'
+  mapPath: /SharedMaps/_Mono/Shuttles/CSec/triceratops.yml
+  minPlayers: 0
+  stations:
+    Triceratops:
+      stationProto: StandardFrontierVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'TRICERATOPS CSEC{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
