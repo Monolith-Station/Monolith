@@ -59,6 +59,8 @@
       input: AutomationSlotMaterials
       output: null
   - type: TechnologyDatabase
+  - type: PacketNetwork # KS14
+    frequency: LatheFrequency
   - type: MaterialStorageMagnetPickup # Frontier
     range: 1.50 # Mono
   # <Mono>
