@@ -7,6 +7,7 @@ using System.Numerics;
 using System.Linq;
 using Content.Client._CE.Planets.Shields;
 using Content.Client._CE.ZLevels.Core;
+using Content.Client._Mono.ShipShieldShell; // Mono
 using Content.Shared._CE.ZLevels.Core.Components;
 using Content.Shared._CE.ZLevels.Core.EntitySystems;
 using Content.Shared._FarHorizons.StarSystem;
@@ -113,6 +114,7 @@ public sealed partial class ScalingViewport
 
     private readonly List<(EntityUid MapUid, float Depth, bool AllowFov, bool Transit)> _zPasses = new();
     private IClydeViewport? _transitViewport;
+    private ShaderInstance? _zDeckComposite;
     private ShaderInstance? _transitBlitShader;
     private ShaderInstance? _cloudShader;
     private EntityUid? _visualObserver;
@@ -121,7 +123,7 @@ public sealed partial class ScalingViewport
     private float _visualAltitude;
     private float _visualDepthOffset;
 
-    private static (float Scale, float Offset) ZProjection(float depth, float anchorDepth = 0f)
+    internal static (float Scale, float Offset) ZProjection(float depth, float anchorDepth = 0f) // Mono: Shared with the ship shield renderer.
     {
         const float shrink = CESharedZLevelsSystem.ZLevelViewShrink;
         return shrink == 1f ? (1f, 0f) : (MathF.Pow(shrink, -depth),
@@ -358,7 +360,7 @@ public sealed partial class ScalingViewport
         }
 
         var first = true;
-        void PrepareBeams(int splitDepth)
+        void PrepareBeams(int splitDepth, IClydeViewport target)
         {
             if (!_entityManager.TryGetComponent<CEZMapComponent>(riderTransit?.LowerMap ?? playerMap, out var observerLevel)
                 || !_overlayManager.TryGetOverlay<CEShieldBeamOverlayDispatcher>(out var beams))
@@ -388,7 +390,7 @@ public sealed partial class ScalingViewport
                 return depth <= CloudFullCoverDepth ? 1f : CloudCoverage(depth);
             }
 
-            beams.PreparePass(viewport, ProjectBeamPoint, BeamCloudCoverage,
+            beams.PreparePass(target, ProjectBeamPoint, BeamCloudCoverage,
                 _fallbackEye!.Scale.Y * viewport.RenderScale.Y * EyeManager.PixelsPerMeter, splitDepth);
         }
 
@@ -396,8 +398,11 @@ public sealed partial class ScalingViewport
             .Where(pass => !pass.Transit && _entityManager.HasComponent<CEZMapComponent>(pass.MapUid))
             .Select(pass => (int?) _entityManager.GetComponent<CEZMapComponent>(pass.MapUid).Depth)
             .Max();
+        _overlayManager.TryGetOverlay<ShipShieldShellOverlay>(out var shipShields); // Mono
         foreach (var (mapUid, depth, allowFov, isTransit) in _zPasses)
         {
+            using var shieldPass = shipShields?.BeginZPass(_zPasses, mapUid, playerMap,
+                viewport, _fallbackEye!, _visualAltitude, ownDepth); // Mono
             // A cloud layer at or below the observer draws an opaque deck beneath
             // its own pass: deeper passes already rendered vanish under it, grids
             // parked on the layer draw crisp on top of it.
@@ -405,7 +410,7 @@ public sealed partial class ScalingViewport
             if (depth <= 0.001f && !isTransit)
                 _entityManager.TryGetComponent(mapUid, out cloudDeck);
 
-            if (mapUid == playerMap && depth == 0f && _visualDepthOffset == 0f)
+            if (first && cloudDeck == null && mapUid == playerMap && depth == 0f && _visualDepthOffset == 0f)
             {
                 viewport.Eye = _fallbackEye;
             }
@@ -426,7 +431,7 @@ public sealed partial class ScalingViewport
 
                 if (isTransit && depth > 0f)
                 {
-                    RenderTransitOverhead(renderHandle, viewport, mapUid, zEye, depth);
+                    RenderTransitOverhead(renderHandle, viewport, mapUid, zEye, depth, shipShields);
                     continue;
                 }
 
@@ -477,11 +482,25 @@ public sealed partial class ScalingViewport
             }
 
             viewport.ClearColor = first ? Color.Black : null;
+            // Keep the same render path when a deck crosses zero visual depth.
+            var isolate = !first;
             first = false;
+            var target = isolate ? GetTransitViewport(viewport) : viewport;
+            using var isolatedShieldPass = isolate
+                ? shipShields?.BeginZPass(_zPasses, mapUid, playerMap, target, _fallbackEye!, _visualAltitude, ownDepth)
+                : null;
+            if (isolate)
+            {
+                target.Eye = viewport.Eye;
+                target.ClearColor = new Color(0f, 0f, 0f, 0f);
+            }
+
             if (!isTransit && _entityManager.TryGetComponent<CEZMapComponent>(mapUid, out var beamLevel)
                 && beamLevel.Depth == beamTopDepth)
-                PrepareBeams(beamLevel.Depth);
-            viewport.Render();
+                PrepareBeams(beamLevel.Depth, target);
+            target.Render();
+            if (isolate)
+                CompositeZDeck(renderHandle, viewport, target.RenderTarget.Texture);
 
             if (wispColor != null)
                 DrawClouds(renderHandle, viewport, viewport.Eye, wispColor.Value, 0f,
@@ -691,23 +710,19 @@ public sealed partial class ScalingViewport
         IClydeViewport viewport,
         EntityUid transitMap,
         ZEye zEye,
-        float depth)
+        float depth,
+        ShipShieldShellOverlay? shipShields)
     {
-        if (_transitViewport == null || _transitViewport.Size != viewport.Size)
-        {
-            _transitViewport?.Dispose();
-            _transitViewport = _clyde.CreateViewport(viewport.Size, nameof(_transitViewport));
-            _transitViewport.RenderScale = viewport.RenderScale;
-        }
+        var scratch = GetTransitViewport(viewport);
 
         _transitBlitShader ??= _prototypeManager.Index<ShaderPrototype>("CEZBlurBlit").InstanceUnique();
 
         zEye.DrawParallax = false;
 
-        _transitViewport.Eye = zEye;
+        scratch.Eye = zEye;
         // "Why aren't you using Color.Transparent" because it's LIES it is entirely white
-        _transitViewport.ClearColor = new Color(0f, 0f, 0f, 0f);
-        _transitViewport.Render();
+        scratch.ClearColor = new Color(0f, 0f, 0f, 0f);
+        scratch.Render();
 
         var hazeColor = new Vector3(0, 0, 1);
         if (_entityManager.TryGetComponent(transitMap, out MapLightComponent? mapLight))
@@ -722,7 +737,9 @@ public sealed partial class ScalingViewport
 
         var cloud = 0f;
         var cloudColor = Vector3.One;
-        if (_entityManager.TryGetComponent(transitMap, out CEZTransitMapComponent? transit))
+        var fade = TransitFade(depth);
+        var isShipTransit = _entityManager.TryGetComponent(transitMap, out CEZTransitMapComponent? transit);
+        if (transit != null)
         {
             var progress = GetTransitProgress(transit);
 
@@ -747,20 +764,48 @@ public sealed partial class ScalingViewport
             }
         }
 
+        if (isShipTransit)
+            shipShields?.DrawTransitSurface(renderHandle, viewport, scratch, fade, aboveHull: false);
+
         var screenHandle = renderHandle.DrawingHandleScreen;
         screenHandle.RenderInRenderTarget(viewport.RenderTarget, () =>
         {
-            var texture = _transitViewport.RenderTarget.Texture;
+            var texture = scratch.RenderTarget.Texture;
 
             _transitBlitShader.SetParameter("BLUR_COLOR", hazeColor);
             _transitBlitShader.SetParameter("STRENGTH", strength);
             _transitBlitShader.SetParameter("CLOUD_COLOR", cloudColor);
             _transitBlitShader.SetParameter("CLOUD", cloud);
-            _transitBlitShader.SetParameter("FADE", TransitFade(depth));
+            _transitBlitShader.SetParameter("FADE", fade);
 
             screenHandle.UseShader(_transitBlitShader);
             screenHandle.DrawTextureRect(texture, new UIBox2(Vector2.Zero, texture.Size));
             screenHandle.UseShader(null);
+        }, null);
+        shipShields?.DrawTransitSurface(renderHandle, viewport, scratch, fade, aboveHull: isShipTransit ? true : null);
+    }
+
+    private IClydeViewport GetTransitViewport(IClydeViewport viewport)
+    {
+        if (_transitViewport == null || _transitViewport.Size != viewport.Size)
+        {
+            _transitViewport?.Dispose();
+            _transitViewport = _clyde.CreateViewport(viewport.Size, nameof(_transitViewport));
+        }
+
+        _transitViewport.RenderScale = viewport.RenderScale;
+        return _transitViewport;
+    }
+
+    private void CompositeZDeck(IRenderHandle render, IClydeViewport viewport, Texture texture)
+    {
+        _zDeckComposite ??= _prototypeManager.Index<ShaderPrototype>("CEZDeckComposite").Instance();
+        var handle = render.DrawingHandleScreen;
+        handle.RenderInRenderTarget(viewport.RenderTarget, () =>
+        {
+            handle.UseShader(_zDeckComposite);
+            handle.DrawTextureRect(texture, new UIBox2(Vector2.Zero, texture.Size));
+            handle.UseShader(null);
         }, null);
     }
 
@@ -783,12 +828,7 @@ public sealed partial class ScalingViewport
         if (eye is null || alpha <= 0.001f)
             return;
 
-        if (_transitViewport == null || _transitViewport.Size != viewport.Size)
-        {
-            _transitViewport?.Dispose();
-            _transitViewport = _clyde.CreateViewport(viewport.Size, nameof(_transitViewport));
-            _transitViewport.RenderScale = viewport.RenderScale;
-        }
+        var scratch = GetTransitViewport(viewport);
 
         _transitBlitShader ??= _prototypeManager.Index<ShaderPrototype>("CEZBlurBlit").InstanceUnique();
 
@@ -797,16 +837,16 @@ public sealed partial class ScalingViewport
         var textureShrink = shrink / eyeShrink;
         var eyeScale = eye.Scale;
         eye.Scale *= eyeShrink;
-        _transitViewport.Eye = eye;
-        _transitViewport.ClearColor = new Color(0f, 0f, 0f, 0f);
-        _transitViewport.Render();
+        scratch.Eye = eye;
+        scratch.ClearColor = new Color(0f, 0f, 0f, 0f);
+        scratch.Render();
         eye.Scale = eyeScale;
 
         var col = new Vector3(cloudColor.R, cloudColor.G, cloudColor.B);
         var screenHandle = renderHandle.DrawingHandleScreen;
         screenHandle.RenderInRenderTarget(viewport.RenderTarget, () =>
         {
-            var texture = _transitViewport.RenderTarget.Texture;
+            var texture = scratch.RenderTarget.Texture;
 
             _transitBlitShader.SetParameter("BLUR_COLOR", new Vector3(0f, 0f, 0f));
             _transitBlitShader.SetParameter("STRENGTH", 0f);

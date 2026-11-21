@@ -10,6 +10,7 @@ using Content.Server.Gravity;
 using Content.Shared._CE.ZLevels.Core.Components;
 using Content.Shared._CE.ZLevels.Core.EntitySystems;
 using Content.Shared._FarHorizons.StarSystem;
+using Content.Shared._Mono.Ships; // Mono
 using Content.Shared.Gravity;
 using Content.Shared.Maps;
 using Robust.Shared.Map.Components;
@@ -23,6 +24,7 @@ public sealed partial class CEZLevelsSystem
     [Dependency] private ExplosionSystem _explosion = default!;
     [Dependency] private GravitySystem _grav = default!;
     [Dependency] private ShipShieldsSystem _shipShields = default!;
+    [Dependency] private SharedShipShieldShellSystem _shieldContainment = default!; // Mono
 
     [Dependency] private EntityQuery<CEZMapComponent> _zMapQuery = default!;
     [Dependency] private EntityQuery<PhysicsComponent> _physQuery = default!;
@@ -392,6 +394,29 @@ public sealed partial class CEZLevelsSystem
         }
 
         var altitude = lowerZ.Depth + progress - faller.Velocity * frameTime;
+        // Mono Start: Clamp the whole convoy at the first shell contact.
+        var currentAltitude = lowerZ.Depth + progress;
+        var delta = altitude - currentAltitude;
+        var pushing = GetConvoyVerticalInput(convoy) != 0f;
+        foreach (var member in transitSet)
+        {
+            var from = GetAbsoluteAltitude(member);
+            var to = from + delta;
+            var clamped = _shieldContainment.ClampVertical(member, Transform(member).MapUid, from, to,
+                pushing, gridFootprint: true, transitSet);
+            if (clamped != to)
+                delta = clamped - from;
+        }
+
+        if (delta != altitude - currentAltitude)
+        {
+            altitude = currentAltitude + delta;
+            faller.Velocity = 0f;
+            foreach (var member in transitSet)
+                SetZVelocity(member, 0f);
+        }
+        // Mono End
+
         if (!SetTransitAltitude(grid, altitude))
             return;
 

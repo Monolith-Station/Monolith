@@ -1,0 +1,83 @@
+light_mode unshaded;
+blend_mode mix;
+
+#include "/Textures/_Mono/Shaders/shield_skin_common.swsl"
+
+uniform highp float MESH_ANIMATION;
+uniform highp vec4 MESH_PROJECTION;
+uniform highp vec3 MESH_VIEW;
+
+void fragment() {
+    highp vec2 point = UV * 2.0 - 1.0;
+    highp float radius = length(point);
+    highp float sectionData = abs(UV2.x);
+    bool mesh = sectionData >= 4095.5;
+    highp float section = floor(sectionData * 0.5);
+    highp float slice = mesh ? 1.0 : section / 1024.0;
+    highp float interior = mesh ? 0.0 : clamp(sectionData - 2.0 * section, 0.0, 1.0);
+    highp float blur = mesh ? max(sectionData - 4096.0, 0.0) : 0.0;
+    highp float extent = slice;
+    highp float edge = radius / max(extent, 0.001);
+    highp float elevation = sqrt(max(1.0 - slice * slice, 0.0));
+    highp float height = mesh ? clamp(dot(vec3(point, UV2.y), MESH_VIEW), 0.0, 1.0)
+        : sqrt(max(1.0 - edge * edge, 0.0));
+    highp float rim = pow(1.0 - height, 2.5);
+    // Bend the cells in shield-local space, independent of the camera.
+    highp vec2 lattice = shipShieldLattice(point);
+    highp vec3 cell = shieldHexCoordinates(lattice);
+    highp float aa = clamp(fwidth(cell.x) * 0.5, 0.002, 0.025);
+    highp float border = smoothstep(0.47 - aa, 0.47 + aa, cell.x);
+    highp vec2 dx = dFdx(lattice);
+    highp vec2 dy = dFdy(lattice);
+    highp float detail = 1.0 - smoothstep(0.20, 0.40, length(abs(dx) + abs(dy)));
+    if (blur > 0.0 && detail > 0.0) {
+        // Soften the projected hex edges without sampling the scene or moving the lattice.
+        highp float tapRadius = 2.0 * sqrt(max(blur, 1.0));
+        highp float filtered = 0.0;
+        for (int x = -1; x <= 1; x++) {
+            for (int y = -1; y <= 1; y++) {
+                highp vec3 sampleCell = shieldHexCoordinates(lattice + tapRadius * (float(x) * dx + float(y) * dy));
+                filtered += smoothstep(0.47 - aa, 0.47 + aa, sampleCell.x);
+            }
+        }
+        border = mix(border, filtered / 9.0, min(blur, 1.0));
+    }
+
+    // Snap the cell key before hashing so tiny rounding errors cannot produce speckle.
+    highp vec2 key = floor(cell.yz / vec2(0.5, 0.8660255) + 0.5);
+    highp float id = shieldHash21(key);
+    highp float time = TIME * 0.67 + id;
+    highp float roll = shieldHash21(key + vec2(11.0, floor(time)));
+    highp float phase = fract(time);
+    highp float glow = step(0.84, roll) * smoothstep(0.0, 0.18, phase)
+        * (1.0 - smoothstep(0.28, 0.58, phase));
+    highp float side = smoothstep(mix(0.88, 0.47, elevation), 0.99, edge);
+    highp float inside = UV2.x < 0.0 ? mix(0.28, 0.75, rim) : mix(0.55, 0.85, elevation) * side;
+    highp float visibility = mix(1.0, inside, interior);
+    highp float cells = (border * (mix(0.12, 0.22, rim) + glow * 0.16) + glow * 0.035) * detail;
+    highp float surfaceFill = mesh ? 0.045 * smoothstep(0.0, 0.85, height) : 0.0;
+    highp float alpha = 0.015 + surfaceFill + cells + 0.32 * rim;
+    highp float animationData = mesh ? MESH_ANIMATION : UV2.y;
+    highp float animation = mod(animationData, 2.0);
+    if (animation < 1.0) {
+        highp vec2 origin = MESH_PROJECTION.zw;
+        highp float formationRadius = length(point - origin) / (1.0 + length(origin));
+        if (mesh) {
+            // Measure the wave in the projected ellipse, not on the unprojected XY footprint.
+            highp vec2 axis = MESH_PROJECTION.xy;
+            highp vec2 projected = point + axis * UV2.y - origin;
+            highp float along = dot(projected, axis);
+            formationRadius = sqrt(max(0.0, dot(projected, projected) - along * along / (1.0 + dot(axis, axis))))
+                / (1.0 + length(origin));
+        }
+        highp vec2 formation = shieldFormation(vec2(formationRadius * 1.85, 0.0), vec2(0.0), id, animation);
+        highp float edgeFade = smoothstep(0.0, 0.08, animation) * (1.0 - smoothstep(0.82, 0.98, animation));
+        alpha = (alpha + formation.y * 0.6 * edgeFade) * formation.x * smoothstep(0.0, 0.06, animation);
+    } else if (animation > 1.0) {
+        highp vec2 fracture = shipShieldFracture(lattice, radius, animationData);
+        alpha = alpha * fracture.x + fracture.y * 0.55;
+    }
+    highp float silhouette = mesh ? 1.0 : (1.0 - smoothstep(0.995, 1.0, edge)) * smoothstep(0.0, 0.17, extent);
+    alpha *= visibility * silhouette;
+    COLOR = vec4(vec3(1.0), alpha);
+}

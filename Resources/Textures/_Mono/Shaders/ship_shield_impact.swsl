@@ -1,0 +1,71 @@
+light_mode unshaded;
+blend_mode mix;
+
+#include "/Textures/_Mono/Shaders/shield_skin_common.swsl"
+
+uniform highp float WAVE_COUNT;
+uniform highp vec2 WAVE_METRIC;
+uniform highp vec2[8] WAVE_CENTERS;
+uniform highp vec2[8] WAVE_HEIGHTS_RADII;
+uniform highp float[8] WAVE_STRENGTHS;
+uniform highp float SHATTER_ANIMATION;
+
+highp float waveDistance(highp vec3 a, highp vec3 b) {
+    highp float facing = clamp(dot(a, b), -1.0, 1.0);
+    highp float arc = acos(facing);
+    highp vec3 chord = b - a;
+    highp float stretch = length(chord * vec3(WAVE_METRIC, 1.0)) / max(length(chord), 0.0001);
+    // Keep the major-axis travel and widen the front along the short axis.
+    return arc * mix(0.55, 1.0, stretch);
+}
+
+void fragment() {
+    highp vec2 point = UV * 2.0 - 1.0;
+    bool mesh = UV2.x > 0.5;
+    highp vec2 lattice = shipShieldLattice(point);
+    highp vec3 hex = shieldHexCoordinates(lattice);
+    highp vec2 center = floor(hex.yz / vec2(0.5, 0.8660255) + 0.5) * vec2(0.5, 0.8660255);
+    highp float lengthOnLattice = length(center) / 15.0;
+    // Invert the shell's lattice warp to evaluate the wave once at the hex center.
+    highp float angle = lengthOnLattice;
+    for (int i = 0; i < 3; i++) {
+        angle -= (0.2 * sin(angle) + 0.8 * angle - lengthOnLattice) / (0.2 * cos(angle) + 0.8);
+    }
+    angle = clamp(angle, 0.0, 1.5707963);
+    highp vec2 xy = center * sin(angle) / max(length(center), 0.0001);
+    highp float height = cos(angle) * (mesh && UV2.y < 0.0 ? -1.0 : 1.0);
+    highp vec3 surface = vec3(xy, height);
+    highp float energy = 0.0;
+    highp float peak = 0.0;
+    highp vec2 ripple = vec2(0.0);
+    for (int i = 0; i < 8; i++) {
+        if (float(i) < WAVE_COUNT) {
+            highp vec2 wave = WAVE_HEIGHTS_RADII[i];
+            highp vec3 waveCenter = vec3(WAVE_CENTERS[i], wave.x);
+            highp float distanceToCenter = waveDistance(waveCenter, surface);
+            highp float travel = distanceToCenter - wave.y;
+            highp float crest = 1.0 - smoothstep(0.05, 0.14, abs(travel));
+            highp float wake = (1.0 - smoothstep(0.04, 0.27, -travel)) * step(travel, 0.0) * 0.38;
+            highp float core = (1.0 - smoothstep(0.06, 0.24, distanceToCenter)) * (1.0 - smoothstep(0.0, 0.22, wave.y));
+            highp float strength = WAVE_STRENGTHS[i];
+            energy += max(max(crest, wake), core) * strength;
+
+            highp float heavy = smoothstep(1.25, 2.0, strength);
+            peak = max(peak, heavy * max(crest, core));
+            highp vec2 outward = point - waveCenter.xy;
+            highp float bend = (1.0 - smoothstep(0.03, 0.17, abs(travel))) * smoothstep(0.0, 0.15, wave.y);
+            ripple += outward / max(length(outward), 0.03) * (0.22 * heavy * bend);
+        }
+    }
+
+    hex = shieldHexCoordinates(lattice + clamp(ripple, vec2(-0.3), vec2(0.3)));
+    highp float aa = clamp(fwidth(hex.x) * 0.5, 0.002, 0.025);
+    highp float border = smoothstep(0.44 - aa, 0.44 + aa, hex.x);
+    highp float radius = length(point);
+    highp float mask = mesh ? 1.0 : 1.0 - smoothstep(UV2.y - 0.01, UV2.y, radius);
+    if (SHATTER_ANIMATION > 1.0) {
+        mask *= shipShieldFracture(lattice, radius, SHATTER_ANIMATION).x;
+    }
+    highp float alpha = min(energy, 1.5) * (0.18 + 0.23 * border) + peak * (0.23 + 0.15 * border);
+    COLOR = vec4(vec3(1.0), min(alpha, 1.0) * mask);
+}

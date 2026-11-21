@@ -4,13 +4,17 @@
  */
 
 using Content.Shared._CE.ZLevels.Core.Components;
+using Content.Shared._Mono.Ships; // Mono
 using Content.Shared.Throwing;
+using Robust.Shared.Map.Components; // Mono
 using Robust.Shared.Physics.Components;
 
 namespace Content.Shared._CE.ZLevels.Core.EntitySystems;
 
 public abstract partial class CESharedZLevelsSystem
 {
+    [Dependency] private SharedShipShieldShellSystem _shieldContainment = default!; // Mono
+
     public int UpdateCalls { get; private set; }
 
     public override void Update(float frameTime)
@@ -87,6 +91,25 @@ public abstract partial class CESharedZLevelsSystem
 
         if (stickyGround)
             distanceToGround = 0;
+
+        // Mono Start
+        var xform = Transform(entity);
+        if (!xform.Anchored && entity.Comp2.CanCollide && entity.Comp2.InvMass > 0f &&
+            !HasComp<MapGridComponent>(entity) && _zMapQuery.TryComp(xform.MapUid, out var level))
+        {
+            var from = level.Depth + oldHeight;
+            var to = level.Depth + zPhysicsComponent.LocalPosition;
+            var altitude = _shieldContainment.ClampVertical(entity, xform.MapUid, from, to,
+                _shieldContainment.HasMovementIntent(entity) || oldVelocity > 0f && zPhysicsComponent.VelocityRaiseEvent,
+                verticalSpeed: zPhysicsComponent.Velocity);
+            if (altitude != to)
+            {
+                zPhysicsComponent.LocalPosition = altitude - level.Depth;
+                zPhysicsComponent.Velocity = 0f;
+                distanceToGround = zPhysicsComponent.LocalPosition - zPhysicsComponent.CachedGroundHeight;
+            }
+        }
+        // Mono End
 
         if (zPhysicsComponent is { Velocity: < 0, Fallable: true })
         {

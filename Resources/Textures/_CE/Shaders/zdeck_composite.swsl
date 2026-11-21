@@ -1,0 +1,8 @@
+light_mode unshaded;
+blend_mode mix;
+
+void fragment() {
+    highp vec4 deck = zTexture(UV);
+    // The scratch buffer already has coverage baked into its RGB.
+    COLOR = vec4(deck.rgb / max(deck.a, 0.0001), deck.a);
+}

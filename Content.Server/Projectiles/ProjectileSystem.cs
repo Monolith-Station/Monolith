@@ -1,4 +1,5 @@
 using Content.Server.Destructible;
+using Content.Server._Mono.Ships; // Mono
 using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Content.Shared.Projectiles;
@@ -17,6 +18,10 @@ public sealed partial class ProjectileSystem : SharedProjectileSystem
 
     [Dependency] private SharedPhysicsSystem _physics = default!;
     [Dependency] private SharedTransformSystem _transformSystem = default!;
+    [Dependency] private ShipShieldCollisionSystem _shipShields = default!; // Mono
+
+    protected override void OnShieldContact(Entity<ProjectileComponent> projectile, ref StartCollideEvent args) // Mono
+        => _shipShields.ConsumeProjectile(projectile, ref args);
 
     // <Mono>
     private EntityQuery<PhysicsComponent> _physQuery;
@@ -32,6 +37,7 @@ public sealed partial class ProjectileSystem : SharedProjectileSystem
         _fixQuery = GetEntityQuery<FixturesComponent>();
         // Mono
         UpdatesBefore.Add(typeof(SharedPhysicsSystem));
+        UpdatesAfter.Add(typeof(ShipShieldCollisionSystem)); // Mono
     }
 
     public override DamageSpecifier? ProjectileCollide(Entity<ProjectileComponent, PhysicsComponent> projectile, EntityUid target, MapCoordinates? collisionCoordinates, bool predicted = false)
@@ -151,7 +157,7 @@ public sealed partial class ProjectileSystem : SharedProjectileSystem
             var currentVelocity = projectileComp.RaycastResetVelocity ?? (zShot != null ? mapVelocity : physicsComp.LinearVelocity);
             var velLen = currentVelocity.Length();
             var raycast = ShouldRaycastProjectile(velLen) || projectileComp.RaycastResetVelocity != null;
-            if (!raycast && zShot == null)
+            if (!raycast && zShot == null && !_shipShields.HasShells) // Mono
                 continue;
 
             var lastMap = _transformSystem.GetMapCoordinates(xform);
@@ -166,7 +172,7 @@ public sealed partial class ProjectileSystem : SharedProjectileSystem
             var destination = default(MapCoordinates);
             var crosses = zShot != null && TryGetZShotCrossing((uid, zShot), xform, lastPosition,
                 currentVelocity * frameTime, out fraction, out destination);
-            if (!crosses && !raycast)
+            if (!crosses && !raycast && !_shipShields.HasShells) // Mono
                 continue;
 
             if (!_fixQuery.TryComp(uid, out var fix) || !fix.Fixtures.TryGetValue(ProjectileFixture, out var projFix))
@@ -178,6 +184,9 @@ public sealed partial class ProjectileSystem : SharedProjectileSystem
 
             if (crosses && zShot != null)
             {
+                if (_shipShields.TryBlockProjectileCrossing((uid, projectileComp), destination)) // Mono
+                    continue;
+
                 // Resolve collisions on the source deck before moving, then sweep the rest of the tick on the destination.
                 var rotation = _transformSystem.GetWorldRotation(xform);
                 _transformSystem.SetMapCoordinates((uid, xform), destination);
@@ -204,8 +213,20 @@ public sealed partial class ProjectileSystem : SharedProjectileSystem
 
             bool Cast(float distance)
             {
-                return distance > 0f && ProcessHits(_physics.IntersectRay(lastMap.MapId,
-                    new CollisionRay(lastPosition, rayDirection, projFix.CollisionMask), distance, uid, false));
+                // Mono Start
+                if (distance <= 0f)
+                    return false;
+
+                var blocked = _shipShields.TryFindProjectileHit(uid, lastMap, rayDirection, distance, out var shield, out var shieldDistance);
+                if ((raycast || crosses || blocked) && ProcessHits(_physics.IntersectRay(lastMap.MapId,
+                        new CollisionRay(lastPosition, rayDirection, projFix.CollisionMask), blocked ? shieldDistance : distance, uid, false)))
+                    return true;
+
+                if (blocked)
+                    _shipShields.ConsumeProjectile((uid, projectileComp), shield, lastPosition + rayDirection * shieldDistance);
+
+                return blocked;
+                // Mono End
             }
 
             bool ProcessHits(IEnumerable<RayCastResults> hits)

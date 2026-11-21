@@ -55,7 +55,11 @@ public sealed partial class CEClientZLevelsSystem : CESharedZLevelsSystem
     public override void Shutdown()
     {
         base.Shutdown();
-        _overlay.RemoveOverlay<CEZLevelBlurOverlay>();
+        if (_overlay.TryGetOverlay<CEZLevelBlurOverlay>(out var blur))
+        {
+            _overlay.RemoveOverlay(blur);
+            blur.Dispose();
+        }
         _overlay.RemoveOverlay<CEZLevelShadowOverlay>();
     }
 }

@@ -784,6 +784,7 @@ public sealed partial class CEZLevelsSystem
         // Validate every layer's arrival level first — the convoy lands all-or-nothing.
         var convoy = GetConvoyMaps(transitMap);
         var plans = new List<(EntityUid ConvoyMap, EntityUid Destination, int Depth)>();
+        var transitSet = CollectTransitSet(grid); // Mono
         foreach (var convoyMap in convoy)
         {
             var layerTransit = Comp<CEZTransitMapComponent>(convoyMap);
@@ -793,6 +794,16 @@ public sealed partial class CEZLevelsSystem
             {
                 return false;
             }
+
+            // Mono Start: A touchdown snap must not skip the last fraction of a shield crossing.
+            foreach (var member in CollectGridsOnMap(convoyMap))
+            {
+                var from = GetAbsoluteAltitude(member);
+                if (_shieldContainment.ClampVertical(member, convoyMap, from, destZMap.Depth, false,
+                        gridFootprint: true, transitSet) != destZMap.Depth)
+                    return false;
+            }
+            // Mono End
 
             plans.Add((convoyMap, destination, destZMap.Depth));
         }

@@ -6,6 +6,8 @@ using Robust.Shared.Physics.Components;
 using Content.Server.Emp;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Station.Systems;
+using Content.Server._Mono.Ships;
+using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.Examine;
 using Content.Server.Explosion.Components;
@@ -24,6 +26,8 @@ public partial class ShipShieldsSystem
     [Dependency] private StationSystem _station = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private ShipShieldProjectorSystem _projectors = default!;
+    private static readonly SoundSpecifier ProjectorCrashSound = new SoundPathSpecifier("/Audio/_CE/Explosions/shieldfail.ogg");
     public void InitializeEmitters()
     {
         SubscribeLocalEvent<ShipShieldEmitterComponent, ShieldDeflectedEvent>(OnShieldDeflected);
@@ -61,15 +65,22 @@ public partial class ShipShieldsSystem
 
     public bool TryAbsorbCrash(EntityUid grid, float totalIntensity)
     {
+        var damage = totalIntensity;
+        if (_prototypeManager.TryIndex<ExplosionPrototype>(ExplosionSystem.DefaultExplosionPrototypeId, out var explosion))
+            damage *= (float) explosion.DamagePerIntensity.GetTotal();
+
+        if (_projectors.TryAbsorbCrash(grid, damage, out var overloaded))
+        {
+            if (overloaded)
+                PlayCrashOverload(grid, totalIntensity, ProjectorCrashSound);
+            return true;
+        }
+
         if (!TryComp<ShipShieldedComponent>(grid, out var shielded) ||
             shielded.Source is not { } source ||
             !TryComp<ShipShieldEmitterComponent>(source, out var emitter) ||
             emitter.Shield is null)
             return false;
-
-        var damage = totalIntensity;
-        if (_prototypeManager.TryIndex<ExplosionPrototype>(ExplosionSystem.DefaultExplosionPrototypeId, out var explosion))
-            damage *= (float) explosion.DamagePerIntensity.GetTotal();
 
         emitter.Damage += damage;
         AdjustEmitterLoad(source, emitter);
@@ -79,18 +90,22 @@ public partial class ShipShieldsSystem
         emitter.OverloadAccumulator = MathF.Max(emitter.OverloadAccumulator, emitter.CrashRespoolTime);
         emitter.CrashRespooling = true;
 
+        PlayCrashOverload(grid, totalIntensity, emitter.CrashShutdownSound);
+        UnshieldEntity(grid);
+        emitter.Shield = null;
+        emitter.Shielded = null;
+        return true;
+    }
+
+    private void PlayCrashOverload(EntityUid grid, float totalIntensity, SoundSpecifier sound)
+    {
         var filter = Filter.BroadcastGrid(grid);
-        _audio.PlayGlobal(emitter.CrashShutdownSound, filter, true, emitter.CrashShutdownSound.Params);
+        _audio.PlayGlobal(sound, filter, true, sound.Params);
         RaiseNetworkEvent(new RadialShakeEvent
         {
             Duration = 1.5f,
             Amplitude = Math.Clamp(totalIntensity / 1500f, 0.6f, 1.2f),
         }, filter);
-
-        UnshieldEntity(grid);
-        emitter.Shield = null;
-        emitter.Shielded = null;
-        return true;
     }
 
     private void OnExamined(EntityUid uid, ShipShieldEmitterComponent component, ExaminedEvent args)

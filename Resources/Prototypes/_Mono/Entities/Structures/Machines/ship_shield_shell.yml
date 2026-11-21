@@ -1,0 +1,45 @@
+- type: entity
+  parent: CEPlaceholder3x3
+  id: MonoShipShieldGeneratorBase
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/ShuttleComponents/shield.rsi
+    state: control
+  - type: ShipShieldProjector
+  - type: ApcPowerReceiver
+    powerLoad: 0
+  - type: ExtensionCableReceiver
+  - type: ActivatableUI
+    key: enum.ShipShieldProjectorUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.ShipShieldProjectorUiKey.Key:
+        type: ShipShieldProjectorBoundUserInterface
+  - type: Lock
+    unlockOnClick: false
+  - type: AccessReader
+    access: [["Engineering"]]
+
+- type: entity
+  parent: MonoShipShieldGeneratorBase
+  id: MonoShipShieldGeneratorRadius
+  name: HZ-150 "Radius" shield projector
+  suffix: 15x15, circular
+  description: An updated version of the original shield generators that projects a radial field over a circular one, allowing for defense from all directions.
+  components:
+  - type: ShipShieldProjector
+    shield:
+      radii: 7.5, 7.5, 1.5
+
+- type: entity
+  parent: MonoShipShieldGeneratorBase
+  id: MonoShipShieldGeneratorBubble
+  name: HZ-200-EL "Bubble" shield projector
+  suffix: 20x10, ellipsoid
+  description: A modified version of the HE-150 that projects a more elliptic bubble. Comes with the caveat of only blocking other ships and shields.
+  components:
+  - type: ShipShieldProjector
+    shield:
+      radii: 5, 10, 1.5
+      collisionMask: [Grids, Shields]
