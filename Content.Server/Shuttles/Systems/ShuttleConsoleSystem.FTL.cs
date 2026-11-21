@@ -159,7 +159,11 @@ public sealed partial class ShuttleConsoleSystem
         List<ShuttleExclusionObject>? exclusions = null;
         GetExclusions(ref exclusions);
 
-        if (!_shuttle.FTLFree(shuttleUid.Value, targetCoordinates, targetAngle, exclusions))
+        IReadOnlySet<EntityUid>? ftlFreeGroup = _shuttle.IsTargetExpedition(targetCoordinates)
+            ? new HashSet<EntityUid> { shuttleUid.Value }
+            : null;
+
+        if (!_shuttle.FTLFree(shuttleUid.Value, targetCoordinates, targetAngle, exclusions, ftlFreeGroup))
         {
             return;
         }
