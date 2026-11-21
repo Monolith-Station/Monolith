@@ -45,7 +45,6 @@ public sealed partial class ShipSensorsSystem : EntitySystem
         SubscribeLocalEvent<ShipSensorComponent, GetThermalSignatureEvent>(OnSensorThermalSignature);
 
         SubscribeLocalEvent<FireControlConsoleComponent, GetRadarSourcesEvent>(OnGetRadarSources);
-        // Mono: ShuttleConsoleComponent is outside _Mono
         SubscribeLocalEvent<ShuttleConsoleComponent, GetRadarSourcesEvent>(OnGetRadarSources);
 
         Subs.BuiEvents<FireControlConsoleComponent>(SensorsUiKey.Key,
@@ -54,7 +53,6 @@ public sealed partial class ShipSensorsSystem : EntitySystem
             subs.Event<SensorsToggleHardwareMessage>(OnToggleHardware);
         });
 
-        // Mono: shuttle console BUI
         Subs.BuiEvents<ShuttleConsoleComponent>(SensorsUiKey.Key,
             subs =>
         {
@@ -150,7 +148,6 @@ public sealed partial class ShipSensorsSystem : EntitySystem
             hardware.Add((sensUid, sens, sensXform));
         }
 
-        // Omni aggregate written onto the grid for DetectionSystem + any other consumers.
         ApplyOmniMultipliers(rangeMul, sensors, hardware);
         Dirty(gridUid, rangeMul);
 
@@ -170,7 +167,6 @@ public sealed partial class ShipSensorsSystem : EntitySystem
 
             var bearing = delta.ToWorldAngle();
 
-            // Per-bearing multipliers so arcs matter; push onto grid then call stock IsGridDetected.
             ApplyDirectionalMultipliers(rangeMul, sensors, hardware, bearing);
 
             var passiveRadar = GetBestSensitivity(hardware, SensorType.PassiveRadar, bearing, activeOnly: false);
@@ -217,7 +213,6 @@ public sealed partial class ShipSensorsSystem : EntitySystem
             if (IsBearingJammed(hardware, bearing))
                 flags |= SensorContactFlags.Jammed;
 
-            // Re-apply directional so the check above matched; flags for radar:
             if (radarLevel != DetectionLevel.Undetected)
             {
                 if (activeRadar > 0f && RadarRange(otherGrid, activeRadar) >= dist)
@@ -242,7 +237,6 @@ public sealed partial class ShipSensorsSystem : EntitySystem
             };
         }
 
-        // Restore omni multipliers for external readers between ticks
         ApplyOmniMultipliers(rangeMul, sensors, hardware);
         Dirty(gridUid, rangeMul);
 
@@ -275,9 +269,6 @@ public sealed partial class ShipSensorsSystem : EntitySystem
         }
     }
 
-    /// <summary>
-    ///     Writes max visual/IR (and omni radar) into the grid's DetectionRangeMultiplierComponent.
-    /// </summary>
     private void ApplyOmniMultipliers(
         DetectionRangeMultiplierComponent rangeMul,
         GridSensorsComponent sensors,
@@ -286,7 +277,6 @@ public sealed partial class ShipSensorsSystem : EntitySystem
         var visual = sensors.GrantBasicSensors ? sensors.BasicVisualMultiplier : 0f;
         var infrared = sensors.GrantBasicSensors ? sensors.BasicInfraredMultiplier : 0f;
 
-        // Omni IR/visual: only sensors with full 360 arcs, plus basics
         foreach (var (uid, sens, sensXform) in hardware)
         {
             if (sens.SensorType is not (SensorType.Infrared))
@@ -327,9 +317,6 @@ public sealed partial class ShipSensorsSystem : EntitySystem
         rangeMul.InfraredMultiplier = infrared;
     }
 
-    /// <summary>
-    ///     Radar range using the same grid-diagonal proxy DetectionSystem uses for visual signature.
-    /// </summary>
     private static float RadarRange(MapGridComponent grid, float multiplier)
     {
         if (multiplier <= 0f)
@@ -350,7 +337,6 @@ public sealed partial class ShipSensorsSystem : EntitySystem
         if (range <= 0f || distance > range)
             return DetectionLevel.Undetected;
 
-        // Treat radar track as full Detected (outline-equivalent).
         return DetectionLevel.Detected;
     }
 
@@ -366,7 +352,7 @@ public sealed partial class ShipSensorsSystem : EntitySystem
         {
             if (sens.SensorType != type)
                 continue;
-            if (activeOnly && !sens.ActiveMode)   // EMCON/STBY → not used for ARS
+            if (activeOnly && !sens.ActiveMode)
                 continue;
             if (requireInactive && sens.ActiveMode)
                 continue;
@@ -622,7 +608,6 @@ public sealed partial class ShipSensorsSystem : EntitySystem
                 Sensitivity = sens.Sensitivity,
                 ArcDegrees = sens.ArcDegrees,
                 ArcOffset = sens.ArcOffset,
-                DisplayRange = DisplayRangeFor(sens),
                 TransmitWatts = sens.SensorType switch
                 {
                     SensorType.ActiveRadar => SensitivityToRadarWatts(sens.Sensitivity),
@@ -711,8 +696,9 @@ public sealed partial class ShipSensorsSystem : EntitySystem
         if (TryComp<IFFComponent>(targetUid, out var iff))
             designation = iff.Address;
 
-        var bearing = (c.WorldPosition - _xform.GetWorldPosition(detectedBy)).ToWorldAngle();
-        var bearingDegrees = (int)((bearing.Degrees % 360f + 360f) % 360f);
+        var delta = _xform.GetWorldPosition(targetUid) - _xform.GetWorldPosition(detectedBy);
+        var bearing = delta.ToWorldAngle();
+        var bearingDegrees = (int)((bearing.Degrees % 360f + 90f) % 360f);
 
         return new SensorContactDto
         {
@@ -726,35 +712,6 @@ public sealed partial class ShipSensorsSystem : EntitySystem
             IrSignature = ir,
             ActiveRadarWatts = arWatts,
             JamStrength = jam
-        };
-    }
-
-    private static float DisplayRangeFor(ShipSensorComponent sens, MapGridComponent? grid = null)
-    {
-        float refDiagonal = 20f;
-        if (grid != null)
-        {
-            var aabb = grid.LocalAABB;
-            refDiagonal = MathF.Sqrt(aabb.Width * aabb.Width + aabb.Height * aabb.Height);
-            refDiagonal = MathF.Max(refDiagonal, 1f);
-        }
-
-        // Reference emitter for ESM range readout (notional strong shipborne ARS).
-        const float refEmitterRange = 80f;
-
-        return sens.SensorType switch
-        {
-            // ESM: range vs a reference emitter, scaled by sensitivity — NOT hull diagonal search
-            SensorType.PassiveRadar => refEmitterRange * sens.Sensitivity,
-
-            // Active search: only meaningful while emitting; still show full capability in the list
-            SensorType.ActiveRadar => refDiagonal * sens.Sensitivity,
-
-            SensorType.Infrared => MathF.Sqrt(500f) * sens.Sensitivity,
-
-            SensorType.Jammer => refDiagonal * sens.JamStrength,
-
-            _ => 0f
         };
     }
 
@@ -790,7 +747,6 @@ public sealed partial class ShipSensorsSystem : EntitySystem
         if (consoleGrid == null || Transform(sensUid.Value).GridUid != consoleGrid)
             return false;
 
-        // Normalize to [-180, 180]
         var offset = msg.ArcOffsetDegrees % 360f;
         if (offset > 180f)
             offset -= 360f;
@@ -835,7 +791,7 @@ public sealed partial class ShipSensorsSystem : EntitySystem
         {
             if (xform.GridUid != targetGridUid)
                 continue;
-            if (!sens.Enabled || !sens.ActiveMode) // STBY = not radiating
+            if (!sens.Enabled || !sens.ActiveMode)
                 continue;
             if (!IsSensorPowered(uid))
                 continue;

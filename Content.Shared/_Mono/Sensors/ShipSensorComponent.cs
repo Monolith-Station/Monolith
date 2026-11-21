@@ -23,9 +23,10 @@ public sealed partial class ShipSensorComponent : Component
 
     /// <summary>
     /// Offset from the ent rotation for arc
+    /// Keep it on +90 default, 0 degrees is east instead of north.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float ArcOffset;
+    public float ArcOffset = 90f;
 
     /// <summary>
     /// Power draw when disabled

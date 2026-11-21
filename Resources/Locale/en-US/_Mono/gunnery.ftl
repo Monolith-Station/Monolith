@@ -12,12 +12,20 @@ gunnery-emcon-contacts = CONTACTS
 gunnery-emcon-datalink = DATALINK
 gunnery-emcon-datalink-placeholder = CODES (seperate with spaces)
 
+gunnery-emcon-sensor-info-emitter = {$name} ({$type}) - OUTPUT:{ POWERWATTS($output) }
+gunnery-emcon-sensor-info-passive = {$name} ({$type}) - SENS:{$sensitivity}
+gunnery-emcon-sensor-ActiveRadar = ACTIVE RADAR
+gunnery-emcon-sensor-PassiveRadar = PASSIVE RADAR
+gunnery-emcon-sensor-Infrared = IRST
+gunnery-emcon-sensor-Jammer = ECM
+
 gunnery-emcon-range = RNG
 gunnery-emcon-angle = ANG
 gunnery-emcon-source = SRC
 gunnery-emcon-cross-section = RCS
 gunnery-emcon-infrared = IR
 gunnery-emcon-ars = EM
+gunnery-emcon-ars-value = { POWERWATTS($output) }
 gunnery-emcon-jamming = JAM
 gunnery-emcon-track = ID
 

@@ -45,7 +45,6 @@ public sealed class SensorHardwareDto
     public float Sensitivity;
     public float ArcDegrees;
     public float ArcOffset;
-    public float DisplayRange;
     public float TransmitWatts;
     public float JamStrength;
 }

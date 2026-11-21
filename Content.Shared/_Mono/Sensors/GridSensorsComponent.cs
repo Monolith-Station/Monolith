@@ -18,10 +18,10 @@ public sealed partial class GridSensorsComponent : Component
     public float BasicVisualMultiplier = 1f;
 
     [DataField]
-    public float BasicInfraredMultiplier = 0.4f;
+    public float BasicInfraredMultiplier = 0.2f;
 
     [DataField]
-    public float BasicPassiveRadarMultiplier = 0.4f;
+    public float BasicPassiveRadarMultiplier = 0.2f;
 
     /// <summary>
     /// time since last detect that contacts remain for
