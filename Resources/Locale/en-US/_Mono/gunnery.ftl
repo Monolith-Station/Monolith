@@ -7,6 +7,19 @@ gunnery-guns = Guns
 gunnery-gun-select = {$name}
 gunnery-gun-select-ammo = {$name}: {$ammo}
 
+gunnery-emcon-sensors = HARDWARE
+gunnery-emcon-contacts = CONTACTS
+gunnery-emcon-datalink = DATALINK
+gunnery-emcon-datalink-placeholder = CODES (seperate with spaces)
+
+gunnery-emcon-range = RNG
+gunnery-emcon-source = SRC
+gunnery-emcon-cross-section = RCS
+gunnery-emcon-infrared = IR
+gunnery-emcon-ars = EM
+gunnery-emcon-jamming = JAM
+gunnery-emcon-track = ID
+
 gunnery-server-examine-detail = The server is using [color={$valueColor}]{$usedProcessingPower}/{$processingPower}[/color] of its processing power.
 gunnery-server-examine-pacifist-grid = [color=crimson]The grid it's anchored to can't use ship weapons![/color]
 

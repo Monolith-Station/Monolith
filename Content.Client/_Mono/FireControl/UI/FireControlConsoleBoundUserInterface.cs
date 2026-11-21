@@ -22,6 +22,9 @@ public sealed class FireControlConsoleBoundUserInterface : BoundUserInterface
     {
         base.Open();
         _window = this.CreateWindow<FireControlWindow>();
+        _window.Sensors.OnEmcon += msg => SendMessage(msg);
+        _window.Sensors.OnArc += msg => SendMessage(msg);
+        _window.Sensors.OnDatalink += msg => SendMessage(msg);
 
         _window.OnServerRefresh += OnRefreshServer;
 

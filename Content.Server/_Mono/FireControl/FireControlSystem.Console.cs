@@ -1,10 +1,12 @@
 // Copyright Rane (elijahrane@gmail.com) 2025
 // All rights reserved. Relicensed under AGPL with permission
 
+using Content.Server._Mono.Sensors;
 using Content.Server._Mono.Ships.Systems;
 using Content.Server.Administration.Logs;
 using Content.Server.Shuttles.Systems;
 using Content.Shared._Mono.FireControl;
+using Content.Shared._Mono.Sensors;
 using Content.Shared._Mono.Ships.Components;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
@@ -35,6 +37,8 @@ public sealed partial class FireControlSystem : EntitySystem
     [Dependency] private SharedContainerSystem _containers = default!;
     [Dependency] private IAdminLogManager _adminLogger = default!;
     [Dependency] private IMapManager _mapMan = default!;
+    [Dependency] private ShipSensorsSystem _sensors = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private bool _completedCheck = false;
 
@@ -48,6 +52,10 @@ public sealed partial class FireControlSystem : EntitySystem
         SubscribeLocalEvent<FireControlConsoleComponent, FireControlConsoleFireMessage>(OnFire);
         SubscribeLocalEvent<FireControlConsoleComponent, BoundUIOpenedEvent>(OnUIOpened);
         SubscribeLocalEvent<FireControlConsoleComponent, ActivatableUIOpenAttemptEvent>(OnConsoleUIOpenAttempt);
+
+        SubscribeLocalEvent<FireControlConsoleComponent, SensorsSetEmconMessage>(OnSensorsEmcon);
+        SubscribeLocalEvent<FireControlConsoleComponent, SensorsSetArcMessage>(OnSensorsArc);
+        SubscribeLocalEvent<FireControlConsoleComponent, SensorsSetDatalinkMessage>(OnSensorsDatalink);
     }
 
     // scuffed one-time check of all station control consoles to ensure they're already refreshed
@@ -191,6 +199,24 @@ public sealed partial class FireControlSystem : EntitySystem
         }
     }
 
+    private void OnSensorsEmcon(EntityUid uid, FireControlConsoleComponent component, SensorsSetEmconMessage args)
+    {
+        _sensors.TrySetEmcon(uid, args);
+        UpdateUi(uid, component);
+    }
+
+    private void OnSensorsArc(EntityUid uid, FireControlConsoleComponent component, SensorsSetArcMessage args)
+    {
+        _sensors.TrySetArc(uid, args);
+        UpdateUi(uid, component);
+    }
+
+    private void OnSensorsDatalink(EntityUid uid, FireControlConsoleComponent component, SensorsSetDatalinkMessage args)
+    {
+        _sensors.TrySetDatalink(uid, args);
+        UpdateUi(uid, component);
+    }
+
     private void UnregisterConsole(EntityUid console, FireControlConsoleComponent? component = null)
     {
         if (!Resolve(console, ref component))
@@ -283,8 +309,14 @@ public sealed partial class FireControlSystem : EntitySystem
         }
 
         var array = controllables.ToArray();
+        var sensorsState = _sensors.BuildBuiState(uid);
 
-        var state = new FireControlConsoleBoundInterfaceState(component.ConnectedServer != null, array, navState);
+        var state = new FireControlConsoleBoundInterfaceState(
+            component.ConnectedServer != null,
+            array,
+            navState,
+            sensorsState);
+
         _ui.SetUiState(uid, FireControlConsoleUiKey.Key, state);
     }
 
@@ -306,7 +338,7 @@ public sealed partial class FireControlSystem : EntitySystem
             return (ballisticAmmo.Count, ballisticAmmo.Cycleable && (ballisticAmmo.Count != 0 || !ballisticAmmo.InfiniteUnspawned));
         }
 
-        if (TryComp<MagazineAmmoProviderComponent>(weaponEntity, out var magazineAmmo))
+        if (TryComp<MagazineAmmoProviderComponent>(weaponEntity, out _))
         {
             var magazineEntity = GetMagazineEntity(weaponEntity);
             if (magazineEntity != null)

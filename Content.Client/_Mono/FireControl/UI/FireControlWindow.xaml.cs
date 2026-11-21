@@ -2,6 +2,7 @@
 // All rights reserved. Relicensed under AGPL with permission
 
 using System.Linq;
+using Content.Client._Mono.Sensors.UI;
 using Content.Client.UserInterface.Controls;
 using Content.Shared._Mono.FireControl;
 using Content.Shared._Mono.ShipGuns;
@@ -17,6 +18,7 @@ public sealed partial class FireControlWindow : FancyWindow
     [Dependency] private IEntityManager _entityManager = default!;
 
     public FireControlNavControl Radar => NavRadar;
+    public SensorsControl Sensors => SensorsTab;
     public Action? OnServerRefresh;
     public Action? OnWeaponSelectionChanged;
 
@@ -40,6 +42,8 @@ public sealed partial class FireControlWindow : FancyWindow
         SelectBallisticButton.OnPressed += SelectBallisticWeapons;
         SelectEnergyButton.OnPressed += SelectEnergyWeapons;
         SelectMissileButton.OnPressed += SelectMissileWeapons;
+        MainTabs.SetTabTitle(0, Loc.GetString("gunnery-window-title"));
+        MainTabs.SetTabTitle(1, "Sensors");
 
         IFFToggle.OnToggled += OnIFFTogglePressed;
         IFFToggle.Pressed = NavRadar.ShowIFF;
@@ -210,6 +214,7 @@ public sealed partial class FireControlWindow : FancyWindow
     {
         _currentState = state;
         NavRadar.UpdateState(state.NavState);
+        SensorsTab.UpdateState(state.Sensors);
 
         if (state.Connected)
         {

@@ -1,3 +1,4 @@
+using Content.Shared._Mono.Sensors;
 using Robust.Shared.Serialization;
 using Robust.Shared.Map;
 using Content.Shared.Shuttles.BUIStates;
@@ -16,11 +17,21 @@ public sealed class FireControlConsoleBoundInterfaceState : BoundUserInterfaceSt
     public FireControllableEntry[] FireControllables;
     public NavInterfaceState NavState;
 
-    public FireControlConsoleBoundInterfaceState(bool connected, FireControllableEntry[] fireControllables, NavInterfaceState navState)
+    /// <summary>
+    /// Sensors tab state for this console's grid. Null if sensors system is unavailable.
+    /// </summary>
+    public SensorsBuiState? Sensors;
+
+    public FireControlConsoleBoundInterfaceState(
+        bool connected,
+        FireControllableEntry[] fireControllables,
+        NavInterfaceState navState,
+        SensorsBuiState? sensors = null)
     {
         Connected = connected;
         FireControllables = fireControllables;
         NavState = navState;
+        Sensors = sensors;
     }
 }
 
