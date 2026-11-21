@@ -170,56 +170,76 @@ public sealed partial class ShipSensorsSystem : EntitySystem
                 continue;
 
             var bearing = delta.ToWorldAngle();
-
             ApplyDirectionalMultipliers(rangeMul, sensors, hardware, bearing);
 
-            var passiveRadar = GetBestSensitivity(hardware, SensorType.PassiveRadar, bearing, activeOnly: false);
-            var activeRadar = GetBestSensitivity(hardware, SensorType.ActiveRadar, bearing, activeOnly: true);
-            // Active arrays in standby still contribute reduced passive-like radar
-            var standbyActive = GetBestSensitivity(hardware, SensorType.ActiveRadar, bearing, activeOnly: false, requireInactive: true);
-            passiveRadar = MathF.Max(passiveRadar, standbyActive * 0.5f);
-            if (sensors.GrantBasicSensors)
-                passiveRadar = MathF.Max(passiveRadar, sensors.BasicPassiveRadarMultiplier);
-
-            var visualIrLevel = _detection.IsGridDetected((otherUid, otherGrid), gridUid);
             var passiveSens = GetBestSensitivity(hardware, SensorType.PassiveRadar, bearing, activeOnly: false);
-            var emissions = GetTargetEmissions(otherUid);
-            // For the noobs
-            // Passive radar is like hiding in a dark room
-            // Active radar is like a flashlight (or just a lantern I guess, that's more fitting for omnidirectional)
-            var esmTrack = passiveSens * emissions.ActiveRadarWatts;
-            var activeSens = GetBestSensitivity(hardware,
-                SensorType.ActiveRadar,
-                bearing,
-                activeOnly: true);
-            var activeTrack = activeSens > 0f
-                              && RadarRange(otherGrid, activeSens) >= dist;
-            var radarLevel = EvaluateRadarLevel(otherGrid, dist, passiveRadar, activeRadar);
-            var level = visualIrLevel;
-            if (activeTrack || esmTrack >= dist)
-                level = BestLevel(level, DetectionLevel.Detected);
+            var activeSens = GetBestSensitivity(hardware, SensorType.ActiveRadar, bearing, activeOnly: true);
+            var standbyActive = GetBestSensitivity(hardware, SensorType.ActiveRadar, bearing,
+                activeOnly: false, requireInactive: true);
+            passiveSens = MathF.Max(passiveSens, standbyActive * 0.5f);
 
-            if (level == DetectionLevel.Undetected)
+            if (sensors.GrantBasicSensors)
+                passiveSens = MathF.Max(passiveSens, sensors.BasicPassiveRadarMultiplier);
+
+            var irSens = GetBestSensitivity(hardware, SensorType.Infrared, bearing, activeOnly: false);
+
+            if (sensors.GrantBasicSensors)
+                irSens = MathF.Max(irSens, sensors.BasicInfraredMultiplier);
+
+            var emissions = GetTargetEmissions(otherUid);
+            var thermalSig = 0f;
+            if (TryComp<ThermalSignatureComponent>(otherUid, out var heat))
+                thermalSig = MathF.Max(heat.TotalHeat, 0f);
+
+            var aabb = otherGrid.LocalAABB;
+            var diagonal = MathF.Sqrt(aabb.Width * aabb.Width + aabb.Height * aabb.Height);
+
+            // ARS
+            var activeRange = activeSens > 0f ? diagonal * activeSens : 0f;
+
+            // V
+            const float VisualRangeFloor = 500f;
+            var visualMul = sensors.GrantBasicSensors ? sensors.BasicVisualMultiplier : 0f;
+            var visualRange = visualMul > 0f
+                ? MathF.Max(VisualRangeFloor, diagonal * visualMul)
+                : 0f;
+
+            // IR
+            var irRange = irSens > 0f && thermalSig > 0f
+                ? MathF.Sqrt(thermalSig) * irSens
+                : 0f;
+
+            // EM
+            var esmRange = passiveSens > 0f && emissions.ActiveRadarWatts > 0f
+                ? passiveSens * emissions.ActiveRadarWatts
+                : 0f;
+
+            var seenByArs = activeRange > 0f && dist <= activeRange;
+            var seenByEsm = esmRange > 0f && dist <= esmRange;
+            var seenByIr = irRange > 0f && dist <= irRange;
+            var seenByVisual = visualRange > 0f && dist <= visualRange;
+
+            if (!seenByArs && !seenByEsm && !seenByIr && !seenByVisual)
                 continue;
 
+            var level = DetectionLevel.Undetected;
+            if (seenByArs || seenByVisual)
+                level = DetectionLevel.Detected;
+            else if (seenByIr || seenByEsm)
+                level = DetectionLevel.PartialDetected;
+
+            if (seenByArs || seenByEsm || seenByIr || seenByVisual)
+                level = BestLevel(level, DetectionLevel.Detected);
+
             var flags = SensorContactFlags.None;
-
-            if (visualIrLevel != DetectionLevel.Undetected)
-                flags |= SensorContactFlags.VisualIr;
-
-            if (esmTrack >= dist)      // they emit + you have passive
-                flags |= SensorContactFlags.PassiveRadar;
-
-            if (activeTrack)   // you emit + reflected track
+            if (seenByArs)
                 flags |= SensorContactFlags.ActiveRadar;
-
-            if (radarLevel != DetectionLevel.Undetected)
-            {
-                if (activeRadar > 0f && RadarRange(otherGrid, activeRadar) >= dist)
-                    flags |= SensorContactFlags.ActiveRadar;
-                else if (passiveRadar > 0f && RadarRange(otherGrid, passiveRadar) >= dist)
-                    flags |= SensorContactFlags.PassiveRadar;
-            }
+            if (seenByEsm)
+                flags |= SensorContactFlags.PassiveRadar;
+            if (seenByVisual)
+                flags |= SensorContactFlags.Visual;
+            if (seenByIr)
+                flags |= SensorContactFlags.Infrared;
 
             var netOther = GetNetEntity(otherUid);
             newContacts[netOther] = new SensorContact
@@ -247,8 +267,6 @@ public sealed partial class ShipSensorsSystem : EntitySystem
 
         sensors.Contacts = newContacts;
         Dirty(gridUid, sensors);
-
-        RefreshOpenConsoles(gridUid);
     }
 
     private void RefreshOpenConsoles(EntityUid gridUid)
@@ -430,7 +448,6 @@ public sealed partial class ShipSensorsSystem : EntitySystem
             if (members.Count < 2)
                 continue;
 
-            // Union of everyone's contacts (prefer stronger level if same target appears twice)
             var union = new Dictionary<NetEntity, SensorContact>();
             foreach (var (_, comp) in members)
             {
@@ -649,8 +666,12 @@ public sealed partial class ShipSensorsSystem : EntitySystem
             parts.Add("ARS");
         if ((flags & SensorContactFlags.PassiveRadar) != 0)
             parts.Add("E");
-        if ((flags & SensorContactFlags.VisualIr) != 0)
+        if ((flags & SensorContactFlags.Infrared) != 0)
             parts.Add("IR");
+        if ((flags & SensorContactFlags.Visual) != 0)
+            parts.Add("V");
+        if ((flags & SensorContactFlags.Datalink) != 0)
+            parts.Add("DL");
         return parts.Count == 0 ? "—" : string.Join('/', parts);
     }
 

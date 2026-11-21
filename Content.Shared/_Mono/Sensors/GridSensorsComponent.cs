@@ -52,8 +52,9 @@ public partial record struct SensorContact
 public enum SensorContactFlags : byte
 {
     None = 0,
-    VisualIr = 1 << 0,
-    PassiveRadar = 1 << 1,
-    ActiveRadar = 1 << 2,
-    Datalink = 1 << 3
+    Infrared = 1 << 0,
+    Visual = 1 << 1,
+    PassiveRadar = 1 << 2,
+    ActiveRadar = 1 << 3,
+    Datalink = 1 << 4,
 }

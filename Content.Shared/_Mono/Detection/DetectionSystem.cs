@@ -40,10 +40,13 @@ public sealed partial class DetectionSystem : EntitySystem
         if (comp.AlwaysDetect)
             return DetectionLevel.Detected;
 
-
         var gridAABB = grid.Comp.LocalAABB;
         var gridDiagonal = MathF.Sqrt(gridAABB.Width * gridAABB.Width + gridAABB.Height * gridAABB.Height);
-        var visualRadius = gridDiagonal * comp.VisualMultiplier * _visualMul;
+
+        var visualRangeFloor = 500f;
+        var visualRadius = comp.VisualMultiplier > 0f
+            ? MathF.Max(visualRangeFloor, gridDiagonal * comp.VisualMultiplier * _visualMul)
+            : 0f;
 
         var thermalSig = TryComp<ThermalSignatureComponent>(grid, out var sigComp)
             ? MathF.Max(sigComp.TotalHeat, 0f)
@@ -55,11 +58,9 @@ public sealed partial class DetectionSystem : EntitySystem
             visualRadius *= compAt.VisualMultiplier;
             thermalRadius *= compAt.InfraredMultiplier;
             visualRadius += compAt.VisualBias;
+            if (comp.VisualMultiplier > 0f)
+                visualRadius = MathF.Max(visualRangeFloor, visualRadius);
         }
-
-
-        var outlineRadius = thermalRadius * comp.InfraredOutlinePortion;
-        outlineRadius = MathF.Max(outlineRadius, visualRadius);
 
         var level = DetectionLevel.Undetected;
 
@@ -67,16 +68,22 @@ public sealed partial class DetectionSystem : EntitySystem
         var byXform = Transform(byUid);
         if (!xform.Coordinates.TryDistance(EntityManager, byXform.Coordinates, out var distance))
             return DetectionLevel.Undetected;
-        if (IsActiveRadarDetected(byUid, grid, gridDiagonal, distance, byXform, xform) || distance <= visualRadius)
-            return DetectionLevel.Detected;
-        if (distance < thermalRadius || IsEsmDetected(byUid, grid, distance, byXform, xform))
-            return DetectionLevel.PartialDetected;
+
+        if (IsActiveRadarDetected(byUid, grid, gridDiagonal, distance, byXform, xform)
+            || (visualRadius > 0f && distance <= visualRadius))
+            level = DetectionLevel.Detected;
+        else if ((thermalRadius > 0f && distance < thermalRadius)
+                 || IsEsmDetected(byUid, grid, distance, byXform, xform))
+            level = DetectionLevel.PartialDetected;
 
         if (TryComp<GridSensorsComponent>(byUid, out var gs))
         {
             var netTarget = GetNetEntity(grid.Owner);
-            if (gs.Contacts.TryGetValue(netTarget, out var c) && c.Level != DetectionLevel.Undetected)
-                level = BestLevel(level, c.Level);
+            if (gs.Contacts.TryGetValue(netTarget, out var contact)
+                && contact.Level != DetectionLevel.Undetected)
+            {
+                level = BestLevel(level, contact.Level);
+            }
         }
 
         return level;
