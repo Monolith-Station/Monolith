@@ -192,7 +192,7 @@
   components:
     - type: Sprite
       sprite: _Mono/Clothing/Neck/Misc/pir.rsi
-      layers: 
+      layers:
         - state: pdvbox
     - type: DeviceNetwork
       receiveFrequencyId: SurveillanceCameraPDV
@@ -227,3 +227,114 @@
         - state: civbox
     - type: DeviceNetwork
       receiveFrequencyId: SurveillanceCameraMMC
+
+# HUD scrambler IFF
+
+- type: entity
+  parent: ClothingNeckIFFNeutral
+  id: ClothingNeckIFFMercenary
+  name: Mercenary IFF strobes
+  description: Adjustable LED IFF kit that has been tweaked to jam HUD units.
+  components:
+  - type: ChameleonClothing # Mono
+    slot: NECK
+    default: ClothingNeckIFFNeutral
+    requireTag: IffStrobe
+  - type: UserInterface # Mono
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+  - type: Tag
+    tags:
+    - PetWearable
+    - IffStrobe # Mono
+
+- type: entity
+  parent: ClothingNeckIFFNeutral
+  id: ClothingNeckIFFJammer
+  name: IFF jammer strobes
+  description: Adjustable LED IFF kit that has been tweaked to jam HUD units. Try not to forget what kind you're wearing.
+  components:
+  - type: ClothingGrantComponent
+    component:
+    - type: HudScrambler
+  - type: ChameleonClothing # Mono
+    slot: NECK
+    default: ClothingNeckIFFJammer
+    requireTag: IffStrobeJammer
+  - type: UserInterface # Mono
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+  - type: Tag
+    tags:
+    - PetWearable
+    - IffStrobeJammer
+    - WhitelistChameleon
+
+# Mieyo Yellow
+
+- type: entity
+  parent: ClothingNeckIFFNeutral
+  id: ClothingNeckIFFMieyoYellow
+  name: IFF Mieyo yellow strobe
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Neck/Misc/mercenary_iff.rsi
+    layers:
+    - state: icon-off
+    - state: icon-on
+      color: "#fca503"
+      shader: unshaded
+  - type: Clothing
+    sprite: _NF/Clothing/Neck/Misc/mercenary_iff.rsi
+    clothingVisuals:
+      neck:
+      - state: equipped-NECK-off
+      - state: equipped-NECK-on
+        color: "#fca503"
+        shader: unshaded
+
+- type: entity
+  parent: ClothingNeckIFFNeutral
+  id: ClothingNeckIFFUSSPRed
+  name: IFF Union red strobe
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Neck/Misc/mercenary_iff.rsi
+    layers:
+    - state: icon-off
+    - state: icon-on
+      color: "#b2224b"
+      shader: unshaded
+  - type: Clothing
+    sprite: _NF/Clothing/Neck/Misc/mercenary_iff.rsi
+    clothingVisuals:
+      neck:
+      - state: equipped-NECK-off
+      - state: equipped-NECK-on
+        color: "#b2224b"
+        shader: unshaded
+
+# Freeport Copper
+
+- type: entity
+  parent: ClothingNeckIFFNeutral
+  id: ClothingNeckIFFFreeport
+  name: IFF Freeport copper strobe
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Neck/Misc/mercenary_iff.rsi
+    layers:
+    - state: icon-off
+    - state: icon-on
+      color: "#b87333"
+      shader: unshaded
+  - type: Clothing
+    sprite: _NF/Clothing/Neck/Misc/mercenary_iff.rsi
+    clothingVisuals:
+      neck:
+      - state: equipped-NECK-off
+      - state: equipped-NECK-on
+        color: "#b87333"
+        shader: unshaded

@@ -1,3 +1,4 @@
+using Content.Shared._Mono.Clothing;
 using Content.Shared._Mono.CorticalBorer;
 using Content.Shared.CCVar;
 using Content.Shared.Ghost;
@@ -85,6 +86,9 @@ public sealed partial class StatusIconSystem : SharedStatusIconSystem
             return false;
 
         if (data.HideOnStealth && TryComp<StealthComponent>(ent, out var stealth) && stealth.Enabled)
+            return false;
+
+        if (data.HideOnStealth && HasComp<HudScramblerComponent>(ent)) // Mono
             return false;
 
         if (TryComp<SpriteComponent>(ent, out var sprite) && !sprite.Visible)
