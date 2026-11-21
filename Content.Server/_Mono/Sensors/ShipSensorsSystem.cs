@@ -184,7 +184,11 @@ public sealed partial class ShipSensorsSystem : EntitySystem
             var visualIrLevel = _detection.IsGridDetected((otherUid, otherGrid), gridUid);
             var passiveSens = GetBestSensitivity(hardware, SensorType.PassiveRadar, bearing, activeOnly: false);
             var emissions = GetTargetEmissions(otherUid);
-            var esmTrack = passiveSens > 0f && emissions.IsEmitting;
+            // For the noobs
+            // Passive radar is like hiding in a dark room
+            // Active radar is like a flashlight (or just a lantern I guess, that's more fitting for omnidirectional)
+            // Jamming is like throwing a fucking flashbang
+            var esmTrack = passiveSens * emissions.ActiveRadarWatts + passiveSens * emissions.JamStrength * 30;
             var activeSens = GetBestSensitivity(hardware,
                 SensorType.ActiveRadar,
                 bearing,
@@ -193,7 +197,7 @@ public sealed partial class ShipSensorsSystem : EntitySystem
                               && RadarRange(otherGrid, activeSens) >= dist;
             var radarLevel = EvaluateRadarLevel(otherGrid, dist, passiveRadar, activeRadar);
             var level = visualIrLevel;
-            if (activeTrack || esmTrack)
+            if (activeTrack || esmTrack >= dist)
                 level = BestLevel(level, DetectionLevel.Detected);
 
             if (level == DetectionLevel.Undetected)
@@ -204,7 +208,7 @@ public sealed partial class ShipSensorsSystem : EntitySystem
             if (visualIrLevel != DetectionLevel.Undetected)
                 flags |= SensorContactFlags.VisualIr;
 
-            if (esmTrack)      // they emit + you have passive
+            if (esmTrack >= dist)      // they emit + you have passive
                 flags |= SensorContactFlags.PassiveRadar;
 
             if (activeTrack)   // you emit + reflected track
@@ -527,7 +531,7 @@ public sealed partial class ShipSensorsSystem : EntitySystem
         BuildBuiState(uid);
     }
 
-    private bool SharesDatalink(EntityUid aGrid, EntityUid bGrid)
+    public bool SharesDatalink(EntityUid aGrid, EntityUid bGrid)
     {
         if (!TryComp<GridSensorsComponent>(aGrid, out var a) ||
             !TryComp<GridSensorsComponent>(bGrid, out var b))

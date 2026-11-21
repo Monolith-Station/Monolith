@@ -20,6 +20,7 @@ public sealed partial class RadarBlipsSystem : EntitySystem
     private List<BlipNetData> _blips = new();
     private List<MissileVectorNetData> _missiles = new();
     private List<HitscanNetData> _hitscans = new();
+    private List<JamConeNetData> _jamCones = new();
     private List<BlipConfig> _configPalette = new();
 
     // cached results to avoid allocating on every draw/frame
@@ -39,6 +40,7 @@ public sealed partial class RadarBlipsSystem : EntitySystem
         _blips = ev.Blips;
         _missiles = ev.Missiles;
         _hitscans = ev.HitscanLines;
+        _jamCones = ev.JamCones;
         _lastUpdatedTime = _timing.CurTime;
     }
 
@@ -156,6 +158,17 @@ public sealed partial class RadarBlipsSystem : EntitySystem
             return new();
 
         return _hitscans;
+    }
+
+    /// <summary>
+    /// Gets the jamming cones to be rendered on the radar
+    /// </summary>
+    public List<JamConeNetData> GetJammingCones()
+    {
+        if (_timing.CurTime.TotalSeconds - _lastUpdatedTime.TotalSeconds > BlipStaleSeconds)
+            return new();
+
+        return _jamCones;
     }
 }
 

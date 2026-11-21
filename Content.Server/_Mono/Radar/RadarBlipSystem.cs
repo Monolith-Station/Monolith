@@ -1,10 +1,12 @@
 using System.Numerics;
 using Content.Server._Mono.Projectiles.TargetGuided;
 using Content.Server._Mono.Projectiles.TargetSeeking;
+using Content.Server._Mono.Sensors;
+using Content.Server.Power.Components;
 using Content.Shared._Mono.Radar;
-using Content.Shared.Projectiles;
+using Content.Shared._Mono.Sensors;
+using Content.Shared.Power.EntitySystems;
 using Content.Shared.Shuttles.Components;
-using Robust.Shared.Map;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 
@@ -14,11 +16,14 @@ public sealed partial class RadarBlipSystem : EntitySystem
 {
     [Dependency] private SharedTransformSystem _xform = default!;
     [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private SharedPowerReceiverSystem _power = default!;
+    [Dependency] private ShipSensorsSystem _sensors = default!;
 
     // Pooled collections to avoid per-request heap churn
     private readonly List<BlipNetData> _tempBlipsCache = new();
     private readonly List<MissileVectorNetData> _tempMissileCache = new();
     private readonly List<HitscanNetData> _tempHitscansCache = new();
+    private readonly List<JamConeNetData> _tempJammingCache = new();
     private readonly List<EntityUid> _tempSourcesCache = new();
     private readonly List<BlipConfig> _tempPaletteCache = new();
     private readonly Dictionary<BlipConfig, ushort> _paletteIndex = new();
@@ -49,14 +54,16 @@ public sealed partial class RadarBlipSystem : EntitySystem
 
         AssembleBlipsReport((EntityUid)radarUid, _tempSourcesCache, radar);
         AssembleHitscanReport((EntityUid)radarUid, _tempSourcesCache, radar);
+        AssembleJamConeReport((EntityUid)radarUid, _tempSourcesCache, radar);
 
-        // Combine the blips and hitscan lines
-        var giveEv = new GiveBlipsEvent(_tempPaletteCache, _tempBlipsCache, _tempMissileCache, _tempHitscansCache);
+        // Combine them all
+        var giveEv = new GiveBlipsEvent(_tempPaletteCache, _tempBlipsCache, _tempMissileCache, _tempHitscansCache, _tempJammingCache);
         RaiseNetworkEvent(giveEv, args.SenderSession);
 
         _tempBlipsCache.Clear();
         _tempMissileCache.Clear();
         _tempHitscansCache.Clear();
+        _tempJammingCache.Clear();
         _tempSourcesCache.Clear();
         _tempPaletteCache.Clear();
         _paletteIndex.Clear();
@@ -173,6 +180,52 @@ public sealed partial class RadarBlipSystem : EntitySystem
         _tempPaletteCache.Add(config);
         _paletteIndex[config] = index;
         return index;
+    }
+
+    private void AssembleJamConeReport(EntityUid uid, List<EntityUid> sources, RadarConsoleComponent? component = null)
+    {
+        if (!Resolve(uid, ref component))
+            return;
+
+        var radarXform = Transform(uid);
+        var radarMapId = radarXform.MapID;
+        var radarGrid = radarXform.GridUid;
+
+        var query = EntityQueryEnumerator<ShipSensorComponent, TransformComponent>();
+        while (query.MoveNext(out var jamUid, out var sens, out var jamXform))
+        {
+            if (sens.SensorType != SensorType.Jammer)
+                continue;
+
+            if (!sens.Enabled || !sens.ActiveMode)
+                continue;
+
+            if (jamXform.MapID != radarMapId)
+                continue;
+
+            if (TryComp<ApcPowerReceiverComponent>(jamUid, out _) && !_power.IsPowered(jamUid))
+                continue;
+
+            var origin = _xform.GetWorldPosition(jamXform);
+
+            if (!NearAnySources(origin, sources, component.MaxRange))
+                continue;
+
+            var bearingRad = (float)Angle.FromDegrees(sens.ArcOffset).Theta;
+            var arcRad = (float)Angle.FromDegrees(Math.Clamp(sens.ArcDegrees, 1f, 360f)).Theta;
+
+            var range = sens.JamStrength * 20;
+
+            var coord = jamXform.Coordinates;
+            if (jamXform.ParentUid != jamXform.MapUid && jamXform.ParentUid != jamXform.GridUid)
+                coord = _xform.WithEntityId(coord, jamXform.GridUid ?? jamXform.MapUid!.Value);
+
+            _tempJammingCache.Add(new JamConeNetData(
+                GetNetCoordinates(coord),
+                bearingRad,
+                arcRad,
+                range));
+        }
     }
 
     /// <summary>
