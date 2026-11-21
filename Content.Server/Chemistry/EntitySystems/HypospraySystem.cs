@@ -16,6 +16,7 @@ using Content.Server.Body.Components;
 using System.Linq;
 using Robust.Server.Audio;
 using Content.Shared.DoAfter; // Frontier
+using Content.Server.Actions; // Mono
 
 namespace Content.Server.Chemistry.EntitySystems;
 
@@ -31,6 +32,7 @@ public sealed partial class HypospraySystem : SharedHypospraySystem
         SubscribeLocalEvent<HyposprayComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<HyposprayComponent, MeleeHitEvent>(OnAttack);
         SubscribeLocalEvent<HyposprayComponent, UseInHandEvent>(OnUseInHand);
+        SubscribeLocalEvent<HyposprayComponent, HypoSelfInjectEvent>(OnHypoSelf); // Mono
         SubscribeLocalEvent<HyposprayComponent, HyposprayDoAfterEvent>(OnDoAfter); // Frontier - Upstream: #30704 - MIT
     }
 
@@ -86,6 +88,14 @@ public sealed partial class HypospraySystem : SharedHypospraySystem
             return;
 
         args.Handled = TryDoInject(entity, args.User, args.User);
+    }
+
+    private void OnHypoSelf(Entity<HyposprayComponent> entity, ref HypoSelfInjectEvent args) // Mono likely shitcode but if it works...
+    {
+        if (args.Handled)
+            return;
+
+        args.Handled = TryDoInject(entity, args.Performer, args.Performer);
     }
 
     public void OnAfterInteract(Entity<HyposprayComponent> entity, ref AfterInteractEvent args)
