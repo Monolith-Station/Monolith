@@ -78,7 +78,7 @@ public sealed partial class ShipSensorsSystem : EntitySystem
         if (!ent.Comp.Enabled || !IsSensorPowered(ent) || !ent.Comp.ActiveMode)
             return;
 
-        if (ent.Comp.SensorType is SensorType.ActiveRadar or SensorType.Jammer)
+        if (ent.Comp.SensorType is SensorType.ActiveRadar)
             args.Signature += ent.Comp.ActiveThermalSignature;
     }
 
@@ -96,8 +96,6 @@ public sealed partial class ShipSensorsSystem : EntitySystem
             if (xform.GridUid != gridUid)
                 continue;
             if (!sens.Enabled || !IsSensorPowered(sensUid))
-                continue;
-            if (sens.SensorType == SensorType.Jammer)
                 continue;
 
             args.Sources.Add(sensUid);
@@ -183,8 +181,7 @@ public sealed partial class ShipSensorsSystem : EntitySystem
             // For the noobs
             // Passive radar is like hiding in a dark room
             // Active radar is like a flashlight (or just a lantern I guess, that's more fitting for omnidirectional)
-            // Jamming is like throwing a fucking flashbang
-            var esmTrack = passiveSens * emissions.ActiveRadarWatts + passiveSens * emissions.JamStrength * 30;
+            var esmTrack = passiveSens * emissions.ActiveRadarWatts;
             var activeSens = GetBestSensitivity(hardware,
                 SensorType.ActiveRadar,
                 bearing,
@@ -210,9 +207,6 @@ public sealed partial class ShipSensorsSystem : EntitySystem
             if (activeTrack)   // you emit + reflected track
                 flags |= SensorContactFlags.ActiveRadar;
 
-            if (IsBearingJammed(hardware, bearing))
-                flags |= SensorContactFlags.Jammed;
-
             if (radarLevel != DetectionLevel.Undetected)
             {
                 if (activeRadar > 0f && RadarRange(otherGrid, activeRadar) >= dist)
@@ -220,9 +214,6 @@ public sealed partial class ShipSensorsSystem : EntitySystem
                 else if (passiveRadar > 0f && RadarRange(otherGrid, passiveRadar) >= dist)
                     flags |= SensorContactFlags.PassiveRadar;
             }
-
-            if (IsBearingJammed(hardware, bearing))
-                flags |= SensorContactFlags.Jammed;
 
             var netOther = GetNetEntity(otherUid);
             newContacts[netOther] = new SensorContact
@@ -283,8 +274,6 @@ public sealed partial class ShipSensorsSystem : EntitySystem
                 continue;
             if (sens.ArcDegrees < 360f)
                 continue;
-            if (IsSensorJammedEntity(uid, sens, sensXform))
-                continue;
             infrared = MathF.Max(infrared, sens.Sensitivity);
         }
 
@@ -306,8 +295,6 @@ public sealed partial class ShipSensorsSystem : EntitySystem
             if (sens.SensorType is not SensorType.Infrared)
                 continue;
             if (!InArc(sens, sensXform, bearing))
-                continue;
-            if (IsSensorJammedEntity(uid, sens, sensXform))
                 continue;
 
             infrared = MathF.Max(infrared, sens.Sensitivity);
@@ -358,67 +345,10 @@ public sealed partial class ShipSensorsSystem : EntitySystem
                 continue;
             if (!InArc(sens, sensXform, bearing))
                 continue;
-            if (IsSensorJammedEntity(uid, sens, sensXform))
-                continue;
 
             best = MathF.Max(best, sens.Sensitivity);
         }
         return best;
-    }
-
-    private bool IsBearingJammed(
-        List<(EntityUid Uid, ShipSensorComponent Sens, TransformComponent Xform)> hardware,
-        Angle bearing)
-    {
-        foreach (var (uid, sens, sensXform) in hardware)
-        {
-            if (sens.SensorType == SensorType.Jammer)
-                continue;
-            if (!InArc(sens, sensXform, bearing))
-                continue;
-            if (IsSensorJammedEntity(uid, sens, sensXform))
-                return true;
-        }
-
-        return false;
-    }
-
-    private bool IsSensorJammedEntity(EntityUid sensorUid, ShipSensorComponent sens, TransformComponent sensXform)
-    {
-        var sensorPos = _xform.GetWorldPosition(sensXform);
-        var mapId = sensXform.MapID;
-
-        var jamEnum = EntityQueryEnumerator<ShipSensorComponent, TransformComponent>();
-        while (jamEnum.MoveNext(out var jamUid, out var jam, out var jamXform))
-        {
-            if (jam.SensorType != SensorType.Jammer || !jam.Enabled || !jam.ActiveMode)
-                continue;
-            if (!IsSensorPowered(jamUid))
-                continue;
-            if (jamXform.MapID != mapId)
-                continue;
-            if (jamXform.GridUid != null && jamXform.GridUid == sensXform.GridUid)
-                continue;
-            if (jamXform.GridUid is { } jamGrid &&
-                sensXform.GridUid is { } sensGrid &&
-                SharesDatalink(jamGrid, sensGrid))
-                continue;
-
-            var jamPos = _xform.GetWorldPosition(jamXform);
-            var toSensor = sensorPos - jamPos;
-            if (toSensor.LengthSquared() < 0.0001f)
-                continue;
-
-            if (!InArc(jam, jamXform, toSensor.ToWorldAngle()))
-                continue;
-
-            var resistance = sens.JammingResistance * sens.Sensitivity;
-
-            if (jam.JamStrength > resistance)
-                return true;
-        }
-
-        return false;
     }
 
     private bool InArc(ShipSensorComponent sens, TransformComponent sensXform, Angle targetWorldBearing)
@@ -426,9 +356,9 @@ public sealed partial class ShipSensorsSystem : EntitySystem
         if (sens.ArcDegrees >= 360f)
             return true;
 
-        // world rotation instead of grid relative for ease of use i'd rather friend myself than adjust it for every little turn man
         var center = Angle.FromDegrees(sens.ArcOffset);
-        var half = Angle.FromDegrees(sens.ArcDegrees / 2f);
+        var half  = Angle.FromDegrees(sens.ArcDegrees * 0.5f);
+
         var delta = Angle.ShortestDistance(center, targetWorldBearing);
         return Math.Abs(delta.Theta) <= half.Theta;
     }
@@ -583,7 +513,6 @@ public sealed partial class ShipSensorsSystem : EntitySystem
                     Rcs = 0f,
                     IrSignature = 0f,
                     ActiveRadarWatts = 0f,
-                    JamStrength = 0f
                 });
                 continue;
             }
@@ -611,10 +540,8 @@ public sealed partial class ShipSensorsSystem : EntitySystem
                 TransmitWatts = sens.SensorType switch
                 {
                     SensorType.ActiveRadar => SensitivityToRadarWatts(sens.Sensitivity),
-                    SensorType.Jammer => SensitivityToJamWatts(sens.JamStrength),
-                    _ => 0f
+                    _ => 0f,
                 },
-                JamStrength = sens.JamStrength
             });
         }
 
@@ -659,25 +586,11 @@ public sealed partial class ShipSensorsSystem : EntitySystem
     public static float SensitivityToRadarWatts(float sensitivity)
         => MathF.Max(0f, sensitivity) * 25_000f;
 
-    public static float SensitivityToJamWatts(float jamStrength)
-        => MathF.Max(0f, jamStrength) * 10_000f;
-
     private SensorContactDto ToDto(SensorContact c, EntityUid targetUid, MapGridComponent targetGrid, EntityUid detectedBy)
     {
         var ir = 0f;
         if (TryComp<ThermalSignatureComponent>(targetUid, out var heat))
             ir = MathF.Max(heat.TotalHeat, 0f);
-
-        var jam = 0f;
-        var jamEnum = EntityQueryEnumerator<ShipSensorComponent, TransformComponent>();
-        while (jamEnum.MoveNext(out _, out var sens, out var xform))
-        {
-            if (xform.GridUid != targetUid)
-                continue;
-            if (sens.SensorType != SensorType.Jammer || !sens.Enabled || !sens.ActiveMode)
-                continue;
-            jam = MathF.Max(jam, sens.JamStrength);
-        }
 
         var flags = c.Flags;
 
@@ -710,8 +623,7 @@ public sealed partial class ShipSensorsSystem : EntitySystem
             Sources = BuildSourceString(flags),
             Rcs = targetGrid.LocalAABB.Width * targetGrid.LocalAABB.Height,
             IrSignature = ir,
-            ActiveRadarWatts = arWatts,
-            JamStrength = jam
+            ActiveRadarWatts = arWatts
         };
     }
 
@@ -748,13 +660,9 @@ public sealed partial class ShipSensorsSystem : EntitySystem
             return false;
 
         var offset = msg.ArcOffsetDegrees % 360f;
-        if (offset > 180f)
-            offset -= 360f;
-        if (offset < -180f)
+        if (offset < 0f)
             offset += 360f;
-
         sens.ArcOffset = offset;
-
         Dirty(sensUid.Value, sens);
         return true;
     }
@@ -776,15 +684,14 @@ public sealed partial class ShipSensorsSystem : EntitySystem
         return true;
     }
 
-    private readonly record struct TargetEmissions(float ActiveRadarWatts, float JamStrength)
+    private readonly record struct TargetEmissions(float ActiveRadarWatts)
     {
-        public bool IsEmitting => ActiveRadarWatts > 0f || JamStrength > 0f;
+        public bool IsEmitting => ActiveRadarWatts > 0f;
     }
 
     private TargetEmissions GetTargetEmissions(EntityUid targetGridUid)
     {
         var arWatts = 0f;
-        var jam = 0f;
 
         var q = EntityQueryEnumerator<ShipSensorComponent, TransformComponent>();
         while (q.MoveNext(out var uid, out var sens, out var xform))
@@ -798,11 +705,9 @@ public sealed partial class ShipSensorsSystem : EntitySystem
 
             if (sens.SensorType == SensorType.ActiveRadar)
                 arWatts = MathF.Max(arWatts, SensitivityToRadarWatts(sens.Sensitivity));
-            else if (sens.SensorType == SensorType.Jammer)
-                jam = MathF.Max(jam, sens.JamStrength);
         }
 
-        return new TargetEmissions(arWatts, jam);
+        return new TargetEmissions(arWatts);
     }
 
     private static string NormalizeCode(string code) => code.Trim().ToUpperInvariant();

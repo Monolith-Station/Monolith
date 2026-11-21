@@ -42,23 +42,16 @@ public sealed class GiveBlipsEvent : EntityEventArgs
     /// </summary>
     public readonly List<HitscanNetData> HitscanLines;
 
-    /// <summary>
-    /// Jamming cones from EWAR
-    /// </summary>
-    public readonly List<JamConeNetData> JamCones;
-
     public GiveBlipsEvent(
         List<BlipConfig> configPalette,
         List<BlipNetData> blips,
         List<MissileVectorNetData> missiles,
-        List<HitscanNetData> hitscans,
-        List<JamConeNetData> jamCones)
+        List<HitscanNetData> hitscans)
     {
         ConfigPalette = configPalette;
         Blips = blips;
         Missiles = missiles;
         HitscanLines = hitscans;
-        JamCones = jamCones;
     }
 }
 
@@ -100,15 +93,6 @@ public record struct MissileVectorNetData
     NetEntity Uid,
     float Range,
     Angle ScanArc
-);
-
-[Serializable, NetSerializable]
-public record struct JamConeNetData
-(
-    NetCoordinates Origin,
-    float BearingRadians,
-    float ArcRadians,
-    float Range
 );
 
 [Serializable, NetSerializable]

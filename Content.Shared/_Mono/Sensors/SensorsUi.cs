@@ -30,7 +30,6 @@ public sealed class SensorContactDto
     public float Rcs;
     public float IrSignature;
     public float ActiveRadarWatts;
-    public float JamStrength;
 }
 
 [Serializable, NetSerializable]
@@ -46,7 +45,6 @@ public sealed class SensorHardwareDto
     public float ArcDegrees;
     public float ArcOffset;
     public float TransmitWatts;
-    public float JamStrength;
 }
 
 /// <summary>EMCON: enable/standby and active emit for one sensor.</summary>

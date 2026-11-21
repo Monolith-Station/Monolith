@@ -38,15 +38,6 @@ public sealed partial class ShipSensorComponent : Component
     public float PowerDrawActive = 200f;
 
     /// <summary>
-    /// Resistance to jamming. Just a simple check if the strength is higher than the resistance * sensitivity.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public float JammingResistance = 0.25f;
-
-    [DataField, AutoNetworkedField]
-    public float JamStrength = 1f;
-
-    /// <summary>
     /// Thermal sig added when jammer/radar active
     /// </summary>
     [DataField, AutoNetworkedField]
@@ -70,6 +61,5 @@ public enum SensorType : byte
 {
     PassiveRadar = 0,
     ActiveRadar = 1,
-    Infrared = 2,
-    Jammer = 3
+    Infrared = 2
 }

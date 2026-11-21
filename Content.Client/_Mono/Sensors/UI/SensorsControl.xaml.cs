@@ -44,7 +44,7 @@ public sealed partial class SensorsControl : BoxContainer
 
             var text = string.Empty;
             var type = Loc.GetString($"gunnery-emcon-sensor-{h.SensorType}");
-            if (h.SensorType == SensorType.ActiveRadar || h.SensorType == SensorType.Jammer)
+            if (h.SensorType == SensorType.ActiveRadar)
                 text = Loc.GetString($"gunnery-emcon-sensor-info-emitter", ("name", h.Name), ("type", type), ("output", h.TransmitWatts));
             if (h.SensorType == SensorType.PassiveRadar || h.SensorType == SensorType.Infrared)
                 text = Loc.GetString($"gunnery-emcon-sensor-info-passive", ("name", h.Name), ("type", type), ("sensitivity", h.Sensitivity));
@@ -76,7 +76,7 @@ public sealed partial class SensorsControl : BoxContainer
             };
             row.AddChild(power);
 
-            if (h.SensorType is SensorType.ActiveRadar or SensorType.Jammer)
+            if (h.SensorType is SensorType.ActiveRadar)
             {
                 var emit = new Button
                 {
@@ -101,20 +101,40 @@ public sealed partial class SensorsControl : BoxContainer
 
             if (h.ArcDegrees < 360f)
             {
-                row.AddChild(new Label { Text = $"{(h.ArcOffset - 90f) * -1:F0}°", MinWidth = 40 });
-                var left = new Button { Text = "<", MinWidth = 28 };
+                float bearing = (h.ArcOffset % 360f + 360f) % 360f;
+
+                row.AddChild(new Label
+                {
+                    Text = $"{bearing:F0}°",
+                    MinWidth = 48,
+                    FontColorOverride = Color.Lime
+                });
+
+                var left  = new Button { Text = "<", MinWidth = 28 };
                 var right = new Button { Text = ">", MinWidth = 28 };
+
                 var offset = h.ArcOffset;
-                left.OnPressed += _ => OnArc?.Invoke(new SensorsSetArcMessage
+
+                // Left button = turn the arc left (decrease bearing)
+                left.OnPressed += _ =>
                 {
-                    Sensor = ent,
-                    ArcOffsetDegrees = offset + 15f,
-                });
-                right.OnPressed += _ => OnArc?.Invoke(new SensorsSetArcMessage
+                    OnArc?.Invoke(new SensorsSetArcMessage
+                    {
+                        Sensor = ent,
+                        ArcOffsetDegrees = offset - 15f
+                    });
+                };
+
+                // Right button = turn the arc right (increase bearing)
+                right.OnPressed += _ =>
                 {
-                    Sensor = ent,
-                    ArcOffsetDegrees = offset - 15f,
-                });
+                    OnArc?.Invoke(new SensorsSetArcMessage
+                    {
+                        Sensor = ent,
+                        ArcOffsetDegrees = offset + 15f
+                    });
+                };
+
                 row.AddChild(left);
                 row.AddChild(right);
             }
@@ -172,13 +192,6 @@ public sealed partial class SensorsControl : BoxContainer
             row.AddChild(new Label
             {
                 Text = c.ActiveRadarWatts > 0 ? Loc.GetString($"gunnery-emcon-ars-value", ("output", c.ActiveRadarWatts)) : "—",
-                MinWidth = 110,
-                HorizontalAlignment=HAlignment.Left,
-                FontColorOverride = Color.Lime,
-            });
-            row.AddChild(new Label
-            {
-                Text = c.JamStrength > 0 ? $"{c.JamStrength / 100:F1}mW" : "—",
                 MinWidth = 110,
                 HorizontalAlignment=HAlignment.Left,
                 FontColorOverride = Color.Lime,

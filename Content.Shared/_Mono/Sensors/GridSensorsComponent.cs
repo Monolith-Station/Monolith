@@ -55,6 +55,5 @@ public enum SensorContactFlags : byte
     VisualIr = 1 << 0,
     PassiveRadar = 1 << 1,
     ActiveRadar = 1 << 2,
-    Datalink = 1 << 3,
-    Jammed = 1 << 4
+    Datalink = 1 << 3
 }

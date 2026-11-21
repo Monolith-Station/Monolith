@@ -208,13 +208,11 @@ public sealed partial class DetectionSystem : EntitySystem
                 continue;
             if (!esens.Enabled || !esens.ActiveMode)
                 continue;
-            if (esens.SensorType is not (SensorType.ActiveRadar or SensorType.Jammer))
-                continue;
 
             int watts = 0;
             if (esens.SensorType == SensorType.ActiveRadar)
                 watts = (int)(esens.Sensitivity * 25_000f);
-            float emRange = passiveSens * (watts) + passiveSens * esens.JamStrength * 30;
+            float emRange = passiveSens * (watts);
 
             if (distance <= emRange)
                 return true;

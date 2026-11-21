@@ -778,36 +778,6 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
                 }
             }
         }
-        var jamCones = _blips.GetJammingCones();
-        const int segments = 24;
-
-        foreach (var cone in jamCones)
-        {
-            var entCoords = EntManager.GetCoordinates(cone.Origin);
-            if (!entCoords.IsValid(EntManager))
-                continue;
-
-            var worldOrigin = _transform.ToMapCoordinates(entCoords).Position;
-
-            var originView = Vector2.Transform(worldOrigin, worldToView);
-
-            var start = cone.BearingRadians - cone.ArcRadians * 0.5f;
-            var end = cone.BearingRadians + cone.ArcRadians * 0.5f;
-
-            var verts = new Vector2[segments + 2];
-            verts[0] = originView;
-
-            for (var i = 0; i <= segments; i++)
-            {
-                var t = start + (end - start) * (i / (float)segments);
-                var worldRim = worldOrigin + new Vector2(MathF.Cos(t), MathF.Sin(t)) * cone.Range;
-                verts[i + 1] = Vector2.Transform(worldRim, worldToView);
-            }
-
-            handle.DrawPrimitives(DrawPrimitiveTopology.TriangleFan, verts, Color.Magenta.WithAlpha(0.1f));
-            handle.DrawLine(verts[0], verts[1], Color.Magenta.WithAlpha(0.6f));
-            handle.DrawLine(verts[0], verts[^1], Color.Magenta.WithAlpha(0.6f));
-        }
         #endregion
     }
 
