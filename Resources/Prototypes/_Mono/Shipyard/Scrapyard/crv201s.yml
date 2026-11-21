@@ -1,0 +1,118 @@
+#Based off of @Fleshangel(Discord)'s Archon for Ratgore
+
+- type: vessel
+  id: CRV201Scrap
+  parent: BaseVessel
+  name: GS CRV-201/S
+  description: A relatively light corvette produced by GS for the defense market. Comes with a shield, reinforced cockpit and an elite radar. This one seems to have not been sold off... Probably good as a fixxer upper, though!
+  price: 125000 # Appraisal was at 108K , Not taxed much as it's got absolutely 0 guns to start.
+  minPriceMarkup: 0.1 # I am a fucking genius. Done because the tests seem to think the ship is more than it's ingame appraisal by a shit ton.
+  category: Medium
+  group: Scrap
+  shuttlePath: /SharedMaps/_Mono/Shuttles/CSec/crv201.yml
+  guidebookPage: Null
+  class:
+  - Corvette
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: CRV201Scrap
+  mapName: 'CRV201/S'
+  mapPath: /SharedMaps/_Mono/Shuttles/CSec/crv201.yml
+  minPlayers: 0
+  stations:
+    CRV201Scrap:
+      stationProto: StandardFrontierVessel
+      gridComponents:
+      - type: GridModifier
+        modifications:
+        - CRV201Scrap
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'CRV-201/S MIL{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          Contractor: [ 0, 0 ]
+
+- type: gridModifier
+  id: CRV201Scrap
+  modifiers:
+  - !type:GridModEntityReplace
+    comp: Hardpoint
+    data:
+    - chance: 1
+      toReplace: HardpointEnergySuperlight #Unused 2x1
+      replaceWith: RailingRound
+    - chance: 1
+      toReplace: HardpointBallisticSuperlight # Top
+      replaceWith: HardpointMissileLight
+    - chance: 1
+      toReplace: HardpointMissileSuperlight # Bottom
+      replaceWith: HardpointBallisticMedium
+  - !type:GridModEntityReplace
+    comp: Gun
+    data:
+    - chance: 1
+      toReplace: WeaponTurretPinhole # Top
+      replaceWith: MachineFrameDestroyed
+    - chance: 1
+      toReplace: WeaponTurretFragment # Middle 2x1 unused
+      replaceWith: Catwalk
+    - chance: 1
+      toReplace: WeaponTurretShard # Rear
+      replaceWith: MachineFrameDestroyed
+    - chance: 1
+      toReplace: WeaponTurretBofors # Middle 2x1
+      replaceWith: MachineFrameDestroyed
+    - chance: 1
+      toReplace: WeaponLaserTurretPrometheus # Middle 1x1
+      replaceWith: MachineFrameDestroyed
+  - !type:GridModEntityReplace
+    comp: AccessReader
+    data:
+    - chance: 1
+      toReplace: AirlockMailCarrierLocked
+      replaceWith: AirlockEngineering
+    - chance: 1
+      toReplace: AirlockFrontierLocked
+      replaceWith: AirlockCommand
+    - chance: 1
+      toReplace: AirlockSeviceFrontierLocked #Seriously?
+      replaceWith: AirlockMercenary
+  - !type:GridModEntityReplace
+    comp: DetectionRangeMultiplier
+    data:
+    - chance: 1
+      toReplace: ComputerEliteRadar
+      replaceWith: ComputerRadar
+  - !type:GridModEntityReplace
+    comp: Thruster
+    data:
+    - chance: 1
+      toReplace: ThrusterLargeSecurity
+      replaceWith: ThrusterLarge
+    - chance: 1
+      toReplace: ThrusterSecurity
+      replaceWith: Thruster
+  - !type:GridModEntityReplace
+    comp: Occluder
+    data:
+    - chance: 0.65
+      toReplace: WallShuttle
+      replaceWith: WallReinforced
+    - chance: 1
+      toReplace: WallShuttleDiagonal
+      replaceWith: WallReinforcedDiagonal
+    - chance: 1 # No clue how this works, but when the above chance fails, guaranteed rust.
+      toReplace: WallShuttle
+      replaceWith: WallReinforcedRust
+  - !type:GridModEntityReplace
+    comp: ShipShieldEmitter
+    data:
+    - chance: 1
+      toReplace: ShieldGeneratorSmall
+      replaceWith: MachineFrameDestroyed

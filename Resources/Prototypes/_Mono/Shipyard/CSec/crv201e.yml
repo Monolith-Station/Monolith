@@ -1,0 +1,81 @@
+#Based off of @Fleshangel(Discord)'s Archon for Ratgore
+
+- type: vessel
+  id: CRV201Energy
+  parent: BaseVessel
+  name: GS CRV-201/E 'Muninn'
+  description: A relatively light corvette produced by GS for the defense market. Comes with a shield, reinforced cockpit and an elite radar. Compared to it's ballistic based Twin, this brings a pair of Paladins, Promethei and 4 L1 point defense systems to work. Linking of systems to the autoloader will be necessary.
+  price: 999000 # 230000 # Appraisal was at 205K
+  purchasable: false # T1 - voucher only
+  category: Medium
+  group: Sr
+  access: Caelestinus
+  mapchecker_group_override: Security
+  shuttlePath: /SharedMaps/_Mono/Shuttles/CSec/crv201.yml
+  guidebookPage: Null
+  class:
+  - Corvette
+  - EarlyWarning
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: CRV201Energy
+  mapName: 'CRV201/E'
+  mapPath: /SharedMaps/_Mono/Shuttles/CSec/crv201.yml
+  minPlayers: 0
+  stations:
+    CRV201Energy:
+      stationProto: StandardFrontierVessel
+      gridComponents:
+      - type: GridModifier
+        modifications:
+        - CRV201Energy
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'MUGINN CSEC{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs: {}
+
+- type: gridModifier
+  id: CRV201Energy
+  modifiers:
+  - !type:GridModEntityReplace
+    comp: Hardpoint
+    data:
+    - chance: 1
+      toReplace: HardpointBallisticHeavy
+      replaceWith: HardpointMissileHeavy
+    - chance: 1
+      toReplace: HardpointEnergySuperlight
+      replaceWith: RailingRound
+    - chance: 1
+      toReplace: HardpointBallisticSuperlight
+      replaceWith: HardpointEnergyMedium
+    - chance: 1
+      toReplace: HardpointMissileSuperlight
+      replaceWith: HardpointEnergyMedium
+  - !type:GridModEntityReplace
+    comp: Gun
+    data:
+    - chance: 1
+      toReplace: WeaponTurretPinhole
+      replaceWith: WeaponTurretType35 # Going full weapon bay, I guess? If it was a T0, I would've probably just done empty and called it a day.
+    - chance: 1
+      toReplace: WeaponTurretFragment
+      replaceWith: Catwalk
+    - chance: 1
+      toReplace: WeaponTurretShard
+      replaceWith: WeaponTurretType35
+    - chance: 1
+      toReplace: WeaponTurretBofors
+      replaceWith: WeaponTurretPaladin
+  - !type:GridModEntityReplace
+    comp: FireControlServer
+    data:
+    - chance: 1
+      toReplace: GunneryServerMedium
+      replaceWith: GunneryServerHigh
