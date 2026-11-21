@@ -79,6 +79,60 @@
   suffix: IMMOVABLE
 
 - type: entity
+  id: FactionLatheImmmovableHyperwar
+  parent: [FactionLathe, BaseStructureDisableToolUse]
+  suffix: IMMOVABLE, HYPERWAR
+  components:
+  - type: Lathe
+    producingSound: /Audio/Machines/circuitprinter.ogg
+    reagentOutputSlotId: beaker_slot
+    idleState: icon
+    runningState: icon
+    staticPacks:
+    - StaticAmmoRecipePack
+    - NFMercenaryTechfabDeprecatedStatic
+    - RoundstartShipgunAmmo
+    - StaticGrenades
+    - MonoAttachmentsStatic
+    dynamicPacks:
+    # rogue start
+    - MonoRogueWeaponsDynamicMelee
+    - MonoRogueWeaponsDynamicRanged
+    - MonoRogueVouchersDynamic
+    - MonoRogueMiscDynamic
+    - MonoRogueGearDynamic
+    #- MonoRogueGearProDynamic
+    # TSF start
+    - MonoTSFWeaponsDynamicMelee
+    - MonoTSFWeaponsDynamicRanged
+    - MonoTSFVouchersDynamic
+    - MonoTSFMiscDynamic
+    - MonoTSFGearDynamic
+    # USSP start
+    # - MonoUSSPArmorDynamic
+    # - MonoUSSPMiscDynamic
+    # - MonoUSSPWeaponsDynamicRanged
+    # Viper Group start
+    # - MonoViperGroupDynamic
+    # Universal shit (stuff like shipgun ammo)
+    - UniversalRailgunAmmo
+    - UniversalMissileAmmo
+    - UniversalShellAmmo
+    - UniversalOrdinance
+    - DynamicAmmoRecipePack
+    - NFMercenaryTechfabDeprecated
+    # Civ military tech
+    - ResearchedExplosives
+    - SecurityEquipment
+    - SmartGun
+    # Shipguns
+    - NavalBallistics
+    - NavalEnergy
+    - NavalMissiles
+    # Hyperwar
+    - MonoTSFHyperwarExclusive
+
+- type: entity
   id: BaseLatheAssembler
   parent: BaseLathe
   abstract: true

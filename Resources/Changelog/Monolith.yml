@@ -27504,3 +27504,106 @@ Entries:
   id: 2951
   time: '2026-11-19T16:36:41.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4990
+- author: DoubleHypercube
+  changes:
+    - type: Fix
+      message: Russian accent no longer gives Cyrillic speakers aneurysms.
+  id: 2952
+  time: '2026-11-19T18:55:53.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5056
+- author: Mrrpip
+  changes:
+    - type: Remove
+      message: Removes a CSEC hardsuit from anomalous labs.
+  id: 2953
+  time: '2026-11-19T21:24:37.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5057
+- author: Mrrpip
+  changes:
+    - type: Add
+      message: >-
+        Adds the GS-008 MeLat revolver in the second tier of mercenary guns.
+        Comes with a fun 12 gauge surprise!
+    - type: Add
+      message: Also adds a weapon case for it in the loadout menu.
+    - type: Tweak
+      message: Firestarters no longer appear in MercFabs.
+  id: 2954
+  time: '2026-11-19T23:25:49.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5046
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: >-
+        Armor Penetration is now displayed upon examination of cartridges and
+        battery guns
+  id: 2955
+  time: '2026-11-19T23:32:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5058
+- author: NazrinNya
+  changes:
+    - type: Add
+      message: Toggle open port for lathes (if it has container)
+    - type: Tweak
+      message: >-
+        You can now insert items into lathes with entity containers by clicking
+        on them
+    - type: Fix
+      message: Backpacks that are currently used being anchorable.
+  id: 2956
+  time: '2026-11-19T23:38:56.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5051
+- author: TheScienceOfKSP
+  changes:
+    - type: Add
+      message: Added the KSP Fluyt, a cheap medium-tier freighter.
+  id: 2957
+  time: '2026-11-20T18:35:37.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4857
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Added a specifications menu for ships, it like lists their guns and
+        stuff so you don't have to do the preview to see. Access in shipyard
+        console or with unitref command.
+  id: 2958
+  time: '2026-11-20T19:19:25.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5060
+- author: Mrrpip
+  changes:
+    - type: Tweak
+      message: PDV Rakhshan, TSF Marine, Fugitive are now no longer timelocked.
+    - type: Fix
+      message: Fixed a typo in DI Watchdog respirator's description. Wih is no more.
+  id: 2959
+  time: '2026-11-20T20:10:06.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5063
+- author: NazrinNya
+  changes:
+    - type: Add
+      message: Flyssa and Eris have returned (Hyperwar-exclusive).
+    - type: Tweak
+      message: Ore processors and Industrial ore processors are way faster now
+    - type: Fix
+      message: Fast lathes stacking sounds (MMC press for example)
+    - type: Fix
+      message: TSFMC now gets supplies on hyperwar properly
+    - type: Tweak
+      message: Reduced portstrike time on hyperwar to 1 hour and 20 minutes
+    - type: Tweak
+      message: Reduced hyperwar round time to 2 hours
+    - type: Tweak
+      message: Hyperwar respawn time is now 300 seconds.
+    - type: Add
+      message: Hyperwar factions now receive small batch of resources roundstart.
+  id: 2960
+  time: '2026-11-21T13:57:26.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5071
+- author: NazrinNya
+  changes:
+    - type: Fix
+      message: RPED being inserted when you're using it on lathe with container.
+  id: 2961
+  time: '2026-11-21T13:59:50.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5072

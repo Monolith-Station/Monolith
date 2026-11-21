@@ -116,6 +116,25 @@
     UraniumDepleted: 3000
     UraniumFissile: 1000
 
+- type: latheRecipe
+  parent: BaseVoucherRecipe
+  id: ShipVoucherFlyssaRecipe
+  result: ShipVoucherFlyssa
+  completetime: 240
+  materialDiscountScale: 0.2
+  materials:
+    Steel: 30000
+    Copper: 15000
+    Plasteel: 25000
+    Lithium: 15000
+    Glass: 5000
+    Plasma: 5000
+    Gold: 5000
+    Silver: 5000
+    Plastitanium: 3000
+    UraniumDepleted: 3000
+    UraniumFissile: 1000
+
 # PDV
 
 - type: latheRecipe
