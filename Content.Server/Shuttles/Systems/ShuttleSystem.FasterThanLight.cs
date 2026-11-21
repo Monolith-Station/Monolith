@@ -455,6 +455,72 @@ public sealed partial class ShuttleSystem
     }
 
     /// <summary>
+    /// Recursively gets all docked shuttles to the target shuttle without mutating components.
+    /// </summary>
+    public void GetFTLDockedShuttlesReadOnly(EntityUid shuttleUid, HashSet<EntityUid> dockedShuttles)
+    {
+        if (HasComp<EmergencyShuttleComponent>(shuttleUid) || HasComp<ArrivalsShuttleComponent>(shuttleUid))
+        {
+            dockedShuttles.Add(shuttleUid);
+            return;
+        }
+
+        CollectFTLDockedShuttlesReadOnly(shuttleUid, dockedShuttles);
+    }
+
+    private void CollectFTLDockedShuttlesReadOnly(EntityUid shuttleUid, HashSet<EntityUid> dockedShuttles)
+    {
+        if (!dockedShuttles.Add(shuttleUid))
+            return;
+
+        var docks = _dockSystem.GetDocks(shuttleUid);
+        foreach (var dock in docks)
+        {
+            if (!TryComp<DockingComponent>(dock, out var dockComp) || !dockComp.Docked || dockComp.DockedWith == null)
+                continue;
+
+            var dockedGridUid = _transform.GetParentUid(dockComp.DockedWith.Value);
+            if (dockedGridUid == EntityUid.Invalid || !HasComp<ShuttleComponent>(dockedGridUid))
+                continue;
+
+            if (TryComp<FTLLockComponent>(dockedGridUid, out var ftlLock) && !ftlLock.Enabled)
+            {
+                var nestedDocks = _dockSystem.GetDocks(dockedGridUid);
+                foreach (var nestedDock in nestedDocks)
+                {
+                    if (!TryComp<DockingComponent>(nestedDock, out var nestedDockComp) ||
+                        !nestedDockComp.Docked ||
+                        nestedDockComp.DockedWith == null)
+                        continue;
+
+                    var nestedDockedGridUid = _transform.GetParentUid(nestedDockComp.DockedWith.Value);
+                    if (nestedDockedGridUid == EntityUid.Invalid ||
+                        nestedDockedGridUid == shuttleUid ||
+                        !HasComp<ShuttleComponent>(nestedDockedGridUid))
+                        continue;
+
+                    if (!TryComp<FTLLockComponent>(nestedDockedGridUid, out var nestedFtlLock) || nestedFtlLock.Enabled)
+                    {
+                        CollectFTLDockedShuttlesReadOnly(nestedDockedGridUid, dockedShuttles);
+                    }
+                }
+
+                continue;
+            }
+
+            if (!dockedShuttles.Contains(dockedGridUid))
+            {
+                CollectFTLDockedShuttlesReadOnly(dockedGridUid, dockedShuttles);
+            }
+        }
+    }
+
+    protected override void GetFTLDockedShuttles(EntityUid shuttleUid, HashSet<EntityUid> dockedShuttles)
+    {
+        GetFTLDockedShuttlesReadOnly(shuttleUid, dockedShuttles);
+    }
+
+    /// <summary>
     /// Recursively gets all docked shuttles to the target shuttle.
     /// </summary>
     public void GetAllDockedShuttles(EntityUid shuttleUid, HashSet<EntityUid> dockedShuttles)
@@ -645,7 +711,7 @@ public sealed partial class ShuttleSystem
     /// <summary>
     /// Checks if the target coordinates are in an expedition map.
     /// </summary>
-    private bool IsTargetExpedition(EntityCoordinates coordinates)
+    public bool IsTargetExpedition(EntityCoordinates coordinates)
     {
         if (!Exists(coordinates.EntityId))
             return false;
@@ -1161,7 +1227,32 @@ public sealed partial class ShuttleSystem
         // We essentially expand the Box2 of the target area until nothing else is added then we know it's valid.
         // Can't just get an AABB of every grid as we may spawn very far away.
         //var nearbyGrids = new HashSet<EntityUid>(); // Frontier
-        var shuttleAABB = Comp<MapGridComponent>(shuttleUid).LocalAABB;
+        var dockedShuttles = new HashSet<EntityUid>();
+        if (IsTargetExpedition(targetCoordinates))
+            dockedShuttles.Add(shuttleUid);
+        else
+            GetFTLDockedShuttlesReadOnly(shuttleUid, dockedShuttles);
+
+        var combinedLocalAABB = Comp<MapGridComponent>(shuttleUid).LocalAABB;
+        var (mainPos, mainRot) = _transform.GetWorldPositionRotation(xform);
+
+        foreach (var dockedUid in dockedShuttles)
+        {
+            if (dockedUid == shuttleUid)
+                continue;
+
+            if (!TryComp<MapGridComponent>(dockedUid, out var dockedGrid) ||
+                !_xformQuery.TryGetComponent(dockedUid, out var dockedXform))
+            {
+                continue;
+            }
+
+            var (dockedPos, dockedRot) = _transform.GetWorldPositionRotation(dockedXform);
+            var relPos = (-mainRot).RotateVec(dockedPos - mainPos);
+            var relRot = dockedRot - mainRot;
+            var dockedLocalBounds = Matrix3Helpers.CreateTransform(relPos, relRot).TransformBox(dockedGrid.LocalAABB);
+            combinedLocalAABB = combinedLocalAABB.Union(dockedLocalBounds);
+        }
 
         // Start with small point.
         // If our target pos is offset we mot even intersect our target's AABB so we don't include it.
@@ -1169,7 +1260,7 @@ public sealed partial class ShuttleSystem
 
         // How much we expand the target AABB be.
         // We half it because we only need the width / height in each direction if it's placed at a particular spot.
-        var expansionAmount = MathF.Max(shuttleAABB.Width * 0.72f, shuttleAABB.Height * 0.72f); // Frontier: "/ 2" < "* 0.72" - a bit over sqrt 2, worst case for AABB shenanigans
+        var expansionAmount = MathF.Max(combinedLocalAABB.Width * 0.72f, combinedLocalAABB.Height * 0.72f); // Frontier: "/ 2" < "* 0.72" - a bit over sqrt 2, worst case for AABB shenanigans
 
         // Expand the starter AABB so we have something to query to start with.
         var targetAABB = _transform.GetWorldMatrix(targetXform)
@@ -1231,6 +1322,7 @@ public sealed partial class ShuttleSystem
         {
             grids.Clear();
             _mapManager.FindGridsIntersecting(targetXform.MapID, targetAABB, ref grids);
+            grids.RemoveAll(g => dockedShuttles.Contains(g.Owner));
             if (grids.Count == 0)
                 break;
 
@@ -1282,45 +1374,10 @@ public sealed partial class ShuttleSystem
         // End Frontier
 
         // Now we have a targetAABB. This has already been expanded to account for our fat ass.
-        Vector2 spawnPos;
-
         if (TryComp<PhysicsComponent>(shuttleUid, out var shuttleBody))
         {
             _physics.SetLinearVelocity(shuttleUid, Vector2.Zero, body: shuttleBody);
             _physics.SetAngularVelocity(shuttleUid, 0f, body: shuttleBody);
-        }
-
-        // Frontier: spawn in our AABB
-        // TODO: This should prefer the position's angle instead.
-        // TODO: This is pretty crude for multiple landings.
-        /*
-        if (nearbyGrids.Count > 1 || !HasComp<MapComponent>(targetXform.GridUid))
-        {
-            // Pick a random angle
-            var offsetAngle = _random.NextAngle();
-
-            // Our valid spawn positions are <targetAABB width / height +  offset> away.
-            var minRadius = MathF.Max(targetAABB.Width / 2f, targetAABB.Height / 2f);
-            spawnPos = targetAABB.Center + offsetAngle.RotateVec(new Vector2(_random.NextFloat(minRadius + minOffset, minRadius + maxOffset), 0f));
-        }
-        else if (shuttleBody != null)
-        {
-            (spawnPos, angle) = _transform.GetWorldPositionRotation(targetXform);
-        }
-        else
-        {
-            spawnPos = _transform.GetWorldPosition(targetXform);
-        }
-        */
-        spawnPos = targetAABB.Center;
-        // End Frontier
-
-        var offset = Vector2.Zero;
-
-        // Offset it because transform does not correspond to AABB position.
-        if (TryComp(shuttleUid, out MapGridComponent? shuttleGrid))
-        {
-            offset = -shuttleGrid.LocalAABB.Center;
         }
 
         if (!HasComp<MapComponent>(targetXform.GridUid))
@@ -1332,11 +1389,7 @@ public sealed partial class ShuttleSystem
             angle = Angle.Zero;
         }
 
-        // Rotate our localcenter around so we spawn exactly where we "think" we should (center of grid on the dot).
-        var transform = new Transform(spawnPos, angle);
-        spawnPos = Robust.Shared.Physics.Transform.Mul(transform, offset);
-
-        coordinates = new EntityCoordinates(targetXform.MapUid.Value, spawnPos - offset);
+        coordinates = new EntityCoordinates(targetXform.MapUid.Value, targetAABB.Center - angle.RotateVec(combinedLocalAABB.Center));
         return true;
     }
 

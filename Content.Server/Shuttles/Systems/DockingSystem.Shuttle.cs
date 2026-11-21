@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Numerics;
+using Content.Server.Salvage.Expeditions;
 using Content.Server.Shuttles.Components;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -179,6 +180,36 @@ public sealed partial class DockingSystem
 
         var isMap = HasComp<MapComponent>(targetGrid);
 
+        var dockedShuttles = new HashSet<EntityUid>();
+        if (targetGridXform.MapUid is { } targetMapUid && HasComp<SalvageExpeditionComponent>(targetMapUid))
+            dockedShuttles.Add(shuttleUid);
+        else
+            GetFTLDockedShuttlesForDocking(shuttleUid, dockedShuttles);
+
+        var dockedInfos = new List<(EntityUid Uid, Matrix3x2 RelMatrix, Angle RelRot, FixturesComponent Fixtures, Box2 LocalAABB)>();
+        if (dockedShuttles.Count > 1)
+        {
+            var (mainPos, mainRot) = _transform.GetWorldPositionRotation(shuttleUid);
+            foreach (var dockedUid in dockedShuttles)
+            {
+                if (dockedUid == shuttleUid)
+                    continue;
+
+                if (!TryComp<FixturesComponent>(dockedUid, out var dockedFixtures) ||
+                    !_gridQuery.TryGetComponent(dockedUid, out var dockedGridComp) ||
+                    !_xformQuery.TryGetComponent(dockedUid, out var dockedXform))
+                {
+                    continue;
+                }
+
+                var (dockedPos, dockedRot) = _transform.GetWorldPositionRotation(dockedXform);
+                var relPos = (-mainRot).RotateVec(dockedPos - mainPos);
+                var relRot = (dockedRot - mainRot).Reduced();
+                var relMatrix = Matrix3Helpers.CreateTransform(relPos, relRot);
+                dockedInfos.Add((dockedUid, relMatrix, relRot, dockedFixtures, dockedGridComp.LocalAABB));
+            }
+        }
+
         var grids = new List<Entity<MapGridComponent>>();
         if (shuttleDocks.Count > 0)
         {
@@ -227,7 +258,39 @@ public sealed partial class DockingSystem
                     // Check if there's no intersecting grids (AKA oh god it's docking at cargo).
                     grids.Clear();
                     _mapManager.FindGridsIntersecting(targetGridXform.MapID, dockedBounds, ref grids, includeMap: false);
-                    if (grids.Any(o => o.Owner != targetGrid && o.Owner != targetGridXform.MapUid))
+                    if (grids.Any(o => o.Owner != targetGrid && o.Owner != targetGridXform.MapUid && !dockedShuttles.Contains(o.Owner)))
+                    {
+                        continue;
+                    }
+
+                    // Also ensure every FTL-locked docked shuttle has clearance at this docking pose.
+                    var dockedCollision = false;
+                    foreach (var docked in dockedInfos)
+                    {
+                        var dockedMatty = Matrix3x2.Multiply(docked.RelMatrix, matty);
+                        var dockedTargetAngle = (targetAngle + docked.RelRot).Reduced();
+
+                        if (!ValidSpawn((targetGrid, targetGridGrid), dockedMatty, dockedTargetAngle, docked.Fixtures, isMap))
+                        {
+                            dockedCollision = true;
+                            break;
+                        }
+
+                        var dockedGridPos = new EntityCoordinates(targetGrid, Vector2.Transform(Vector2.Zero, dockedMatty));
+                        var dockedSpawnPos = _transform.ToMapCoordinates(dockedGridPos).Position;
+                        var dockedWorldAngle = (targetGridAngle + dockedTargetAngle).Reduced();
+                        var dockedOtherBounds = new Box2Rotated(docked.LocalAABB.Translated(dockedSpawnPos), dockedWorldAngle, dockedSpawnPos);
+
+                        grids.Clear();
+                        _mapManager.FindGridsIntersecting(targetGridXform.MapID, dockedOtherBounds, ref grids, includeMap: false);
+                        if (grids.Any(o => o.Owner != targetGrid && o.Owner != targetGridXform.MapUid && !dockedShuttles.Contains(o.Owner)))
+                        {
+                            dockedCollision = true;
+                            break;
+                        }
+                    }
+
+                    if (dockedCollision)
                     {
                         continue;
                     }
@@ -395,6 +458,67 @@ public sealed partial class DockingSystem
         _lookup.GetChildEntities(uid, _dockingSet);
 
         return _dockingSet.ToList();
+    }
+
+    /// <summary>
+    /// Collects all FTL-locked shuttles docked to <paramref name="shuttleUid"/> without mutating components.
+    /// </summary>
+    private void GetFTLDockedShuttlesForDocking(EntityUid shuttleUid, HashSet<EntityUid> dockedShuttles)
+    {
+        if (HasComp<EmergencyShuttleComponent>(shuttleUid) || HasComp<ArrivalsShuttleComponent>(shuttleUid))
+        {
+            dockedShuttles.Add(shuttleUid);
+            return;
+        }
+
+        CollectFTLDockedShuttlesForDocking(shuttleUid, dockedShuttles);
+    }
+
+    private void CollectFTLDockedShuttlesForDocking(EntityUid shuttleUid, HashSet<EntityUid> dockedShuttles)
+    {
+        if (!dockedShuttles.Add(shuttleUid))
+            return;
+
+        var docks = GetDocks(shuttleUid);
+        foreach (var dock in docks)
+        {
+            if (!TryComp<DockingComponent>(dock, out var dockComp) || !dockComp.Docked || dockComp.DockedWith == null)
+                continue;
+
+            var dockedGridUid = _transform.GetParentUid(dockComp.DockedWith.Value);
+            if (dockedGridUid == EntityUid.Invalid || !HasComp<ShuttleComponent>(dockedGridUid))
+                continue;
+
+            if (TryComp<FTLLockComponent>(dockedGridUid, out var ftlLock) && !ftlLock.Enabled)
+            {
+                var nestedDocks = GetDocks(dockedGridUid);
+                foreach (var nestedDock in nestedDocks)
+                {
+                    if (!TryComp<DockingComponent>(nestedDock, out var nestedDockComp) ||
+                        !nestedDockComp.Docked ||
+                        nestedDockComp.DockedWith == null)
+                        continue;
+
+                    var nestedDockedGridUid = _transform.GetParentUid(nestedDockComp.DockedWith.Value);
+                    if (nestedDockedGridUid == EntityUid.Invalid ||
+                        nestedDockedGridUid == shuttleUid ||
+                        !HasComp<ShuttleComponent>(nestedDockedGridUid))
+                        continue;
+
+                    if (!TryComp<FTLLockComponent>(nestedDockedGridUid, out var nestedFtlLock) || nestedFtlLock.Enabled)
+                    {
+                        CollectFTLDockedShuttlesForDocking(nestedDockedGridUid, dockedShuttles);
+                    }
+                }
+
+                continue;
+            }
+
+            if (!dockedShuttles.Contains(dockedGridUid))
+            {
+                CollectFTLDockedShuttlesForDocking(dockedGridUid, dockedShuttles);
+            }
+        }
     }
 
     /// <summary>
