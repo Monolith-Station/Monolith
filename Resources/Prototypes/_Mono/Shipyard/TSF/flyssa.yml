@@ -1,0 +1,45 @@
+- type: vessel
+  id: Flyssa
+  parent: BaseVesselIFFDisabled
+  name: TSF-SKR-H Flyssa-K
+  description: Lended over from the TSFN for you marines. A one-ship fleet on this scale of combat.
+  limit: 1 # Can't get voucher anyways, keeping 1 for possible events.
+  hyperwarLimit: 2
+  hyperwarTimelock: 3600
+  price: 1225950
+  purchasable: false # voucher only
+  category: Large
+  group: Security
+  access: Tsfmc
+  shuttlePath: /SharedMaps/_Mono/Shuttles/TSF/flyssa.yml
+  guidebookPage: Null
+  class:
+  - Capital
+  - Destroyer
+  - Medical
+  - Chemistry
+  - Pursuit
+  - Patrol
+  engine:
+  - AME
+
+- type: gameMap
+  id: Flyssa
+  mapName: 'TSF-SKR Flyssa-K'
+  mapPath: /SharedMaps/_Mono/Shuttles/TSF/flyssa.yml
+  minPlayers: 0
+  stations:
+    Flyssa:
+      stationProto: StandardFrontierSecurityVessel
+      gridComponents:
+      - type: VesselInfo
+        description: "The pride and joy of the TSFN, and a shining star in the sector. Sol invictus."
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Flyssa TSFN{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          Deputy: [ 0, 0 ]
