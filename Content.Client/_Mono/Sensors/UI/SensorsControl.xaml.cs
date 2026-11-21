@@ -101,13 +101,16 @@ public sealed partial class SensorsControl : BoxContainer
 
             if (h.ArcDegrees < 360f)
             {
-                float bearing = (h.ArcOffset % 360f + 360f) % 360f;
+                // Convert stored ArcOffset → the same 0-360 bearing the contact list uses
+                // Engine 0° = East, displayed 0° = North-ish after the +90 the rest of the UI uses.
+                float displayBearing = (h.ArcOffset + 90f) % 360f;
+                if (displayBearing < 0f)
+                    displayBearing += 360f;
 
                 row.AddChild(new Label
                 {
-                    Text = $"{bearing:F0}°",
+                    Text = $"{displayBearing:F0}°",
                     MinWidth = 48,
-                    FontColorOverride = Color.Lime
                 });
 
                 var left  = new Button { Text = "<", MinWidth = 28 };
@@ -115,7 +118,6 @@ public sealed partial class SensorsControl : BoxContainer
 
                 var offset = h.ArcOffset;
 
-                // Left button = turn the arc left (decrease bearing)
                 left.OnPressed += _ =>
                 {
                     OnArc?.Invoke(new SensorsSetArcMessage
@@ -125,7 +127,6 @@ public sealed partial class SensorsControl : BoxContainer
                     });
                 };
 
-                // Right button = turn the arc right (increase bearing)
                 right.OnPressed += _ =>
                 {
                     OnArc?.Invoke(new SensorsSetArcMessage

@@ -356,6 +356,7 @@ public sealed partial class ShipSensorsSystem : EntitySystem
         if (sens.ArcDegrees >= 360f)
             return true;
 
+        // ArcOffset is absolute world angle (engine space, 0 = East)
         var center = Angle.FromDegrees(sens.ArcOffset);
         var half  = Angle.FromDegrees(sens.ArcDegrees * 0.5f);
 
@@ -662,6 +663,7 @@ public sealed partial class ShipSensorsSystem : EntitySystem
         var offset = msg.ArcOffsetDegrees % 360f;
         if (offset < 0f)
             offset += 360f;
+
         sens.ArcOffset = offset;
         Dirty(sensUid.Value, sens);
         return true;
