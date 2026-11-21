@@ -216,6 +216,8 @@
     viewCircleSpacing: 280
     phosphorColor: "#00AACC"
     lightingColor: "#FFFFFF32"
+  - type: SpeechSoundsReplacer
+    speechSounds: Chrono
 
 - type: entity
   parent: [ BaseClothingModsuitHelmet, ShowSecurityIcons, ShowMedicalIcons ] # Mono
@@ -288,6 +290,8 @@
     action: ActionToggleNightVision
     phosphorColor: "#41D7D9"
     lightingColor: "#FFFFFF32"
+  - type: SpeechSoundsReplacer
+    speechSounds: Chrono
 
 - type: entity
   parent: BaseClothingModsuitHelmetHideIdentity
