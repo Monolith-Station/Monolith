@@ -1,3 +1,4 @@
+using Content.Server._Mono.Sensors;
 using Content.Server._Mono.Ships.Systems;
 using Content.Server._Mono.Shuttles.Components;
 using Content.Server.Power.EntitySystems;
@@ -28,6 +29,7 @@ using Content.Shared.Construction.Components; // Frontier
 using Content.Server.Radio.EntitySystems;
 using Content.Server.Station.Components;
 using Content.Shared._Mono.FireControl;
+using Content.Shared._Mono.Sensors.Events;
 using Content.Shared._Mono.Ships.Components;
 using Content.Shared.Verbs;
 using Robust.Shared.Prototypes;
@@ -52,6 +54,7 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
     [Dependency] private StationJobsSystem _stationJobs = default!;
     [Dependency] private ILogManager _log = default!;
     [Dependency] private CrewedShuttleSystem _crewedShuttle = default!;
+    [Dependency] private ShipSensorsSystem _sensors = default!; // Mono
 
     private ISawmill _sawmill = default!;
 
@@ -84,10 +87,14 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
             subs.Event<ShuttleConsoleFTLPositionMessage>(OnPositionFTLMessage);
             subs.Event<ToggleFTLLockRequestMessage>(OnToggleFTLLock);
             subs.Event<BoundUIClosedEvent>(OnConsoleUIClose);
+            subs.Event<Content.Shared._Mono.Sensors.SensorsSetEmconMessage>(OnSensorsEmcon); // Mono
+            subs.Event<Content.Shared._Mono.Sensors.SensorsSetArcMessage>(OnSensorsArc); // Mono
+            subs.Event<Content.Shared._Mono.Sensors.SensorsSetDatalinkMessage>(OnSensorsDatalink); // Mono
         });
 
         SubscribeLocalEvent<DroneConsoleComponent, ConsoleShuttleEvent>(OnCargoGetConsole);
         SubscribeLocalEvent<DroneConsoleComponent, AfterActivatableUIOpenEvent>(OnDronePilotConsoleOpen);
+        SubscribeLocalEvent<ShuttleConsoleComponent, SensorsConsoleRefreshEvent>(OnSensorsConsoleRefresh); // Mono
         Subs.BuiEvents<DroneConsoleComponent>(ShuttleConsoleUiKey.Key, subs =>
         {
             subs.Event<BoundUIClosedEvent>(OnDronePilotConsoleClose);
@@ -419,9 +426,13 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
                 new List<ShuttleExclusionObject>());
         }
 
+        // Mono
+        var sensorsState = _sensors.BuildBuiState(consoleUid);
+
         if (_ui.HasUi(consoleUid, ShuttleConsoleUiKey.Key))
         {
-            _ui.SetUiState(consoleUid, ShuttleConsoleUiKey.Key, new ShuttleBoundUserInterfaceState(navState, mapState, dockState));
+            _ui.SetUiState(consoleUid, ShuttleConsoleUiKey.Key,
+                new ShuttleBoundUserInterfaceState(navState, mapState, dockState, sensorsState));
         }
     }
 
@@ -722,4 +733,36 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
         jobSlotsComp.SavedJobSlots.Clear();
         jobSlotsComp.OwningStation = null;
     }
+
+    // Mono start
+    private void OnSensorsEmcon(EntityUid uid, ShuttleConsoleComponent component,
+        Content.Shared._Mono.Sensors.SensorsSetEmconMessage args)
+    {
+        _sensors.TrySetEmcon(uid, args);
+        DockingInterfaceState? dockState = null;
+        UpdateState(uid, ref dockState);
+    }
+
+    private void OnSensorsArc(EntityUid uid, ShuttleConsoleComponent component,
+        Content.Shared._Mono.Sensors.SensorsSetArcMessage args)
+    {
+        _sensors.TrySetArc(uid, args);
+        DockingInterfaceState? dockState = null;
+        UpdateState(uid, ref dockState);
+    }
+
+    private void OnSensorsDatalink(EntityUid uid, ShuttleConsoleComponent component,
+        Content.Shared._Mono.Sensors.SensorsSetDatalinkMessage args)
+    {
+        _sensors.TrySetDatalink(uid, args);
+        DockingInterfaceState? dockState = null;
+        UpdateState(uid, ref dockState);
+    }
+
+    private void OnSensorsConsoleRefresh(EntityUid uid, ShuttleConsoleComponent component, SensorsConsoleRefreshEvent args)
+    {
+        DockingInterfaceState? dockState = null;
+        UpdateState(uid, ref dockState);
+    }
+    // Mono end
 }

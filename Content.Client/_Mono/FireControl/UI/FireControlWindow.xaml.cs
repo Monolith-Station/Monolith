@@ -42,8 +42,8 @@ public sealed partial class FireControlWindow : FancyWindow
         SelectBallisticButton.OnPressed += SelectBallisticWeapons;
         SelectEnergyButton.OnPressed += SelectEnergyWeapons;
         SelectMissileButton.OnPressed += SelectMissileWeapons;
-        MainTabs.SetTabTitle(0, Loc.GetString("gunnery-window-title"));
-        MainTabs.SetTabTitle(1, "Sensors");
+        GunneryModeButton.OnPressed += _ => SwitchMode(GunneryMode.Gunnery);
+        SensorsModeButton.OnPressed += _ => SwitchMode(GunneryMode.Sensors);
 
         IFFToggle.OnToggled += OnIFFTogglePressed;
         IFFToggle.Pressed = NavRadar.ShowIFF;
@@ -53,6 +53,18 @@ public sealed partial class FireControlWindow : FancyWindow
 
         DockToggle.OnToggled += OnDockTogglePressed;
         DockToggle.Pressed = NavRadar.ShowDocks;
+        SwitchMode(GunneryMode.Gunnery); // default
+    }
+
+    private enum GunneryMode { Gunnery, Sensors }
+
+    private void SwitchMode(GunneryMode mode)
+    {
+        GunneryModeButton.Pressed = mode == GunneryMode.Gunnery;
+        SensorsModeButton.Pressed = mode == GunneryMode.Sensors;
+
+        GunneryContainer.Visible = mode == GunneryMode.Gunnery;
+        SensorsTab.Visible      = mode == GunneryMode.Sensors;
     }
 
     private void SelectAllWeapons(BaseButton.ButtonEventArgs args)

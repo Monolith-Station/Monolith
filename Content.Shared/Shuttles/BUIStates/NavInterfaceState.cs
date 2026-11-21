@@ -1,3 +1,4 @@
+using Content.Shared._Mono.Sensors;
 using Robust.Shared.Map;
 using Robust.Shared.Serialization;
 using Content.Shared._NF.Shuttles.Events; // Frontier - InertiaDampeningMode access
@@ -42,6 +43,11 @@ public sealed class NavInterfaceState
     /// Frontier: settable coordinate visibility
     /// </summary>
     public bool HideCoords = false;
+
+    /// <summary>
+    /// Sensors tab state for this console's grid. Null if sensors system is unavailable.
+    /// </summary>
+    public SensorsBuiState? Sensors;
     // End Frontier fields
 
     public NavInterfaceState(
@@ -50,13 +56,15 @@ public sealed class NavInterfaceState
         Angle? angle,
         Dictionary<NetEntity, List<DockingPortState>> docks,
         InertiaDampeningMode dampeningMode, // Frontier: add dampeningMode
-        Dictionary<string, string>? networkPortNames = null)
+        Dictionary<string, string>? networkPortNames = null,
+        SensorsBuiState? sensors = null)
     {
         MaxRange = maxRange;
         Coordinates = coordinates;
         Angle = angle;
         Docks = docks;
         DampeningMode = dampeningMode; // Frontier
+        Sensors = sensors;
         NetworkPortNames = networkPortNames ?? new Dictionary<string, string>();
     }
 }

@@ -8,6 +8,7 @@ using Content.Shared._Mono.FireControl;
 using Content.Shared._Mono.Sensors;
 using Content.Shared._Mono.Sensors.Events;
 using Content.Shared.Power.EntitySystems;
+using Content.Shared.Shuttles.BUIStates;
 using Content.Shared.Shuttles.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map.Components;
@@ -57,7 +58,6 @@ public sealed partial class ShipSensorsSystem : EntitySystem
             subs =>
         {
             subs.Event<BoundUIOpenedEvent>(OnUIOpened);
-            subs.Event<SensorsSetDatalinkMessage>(OnSetDatalink);
             subs.Event<SensorsToggleHardwareMessage>(OnToggleHardware);
         });
     }
@@ -247,13 +247,34 @@ public sealed partial class ShipSensorsSystem : EntitySystem
 
     private void RefreshOpenConsoles(EntityUid gridUid)
     {
-        var query = EntityQueryEnumerator<FireControlConsoleComponent, TransformComponent>();
-        while (query.MoveNext(out var consoleUid, out _, out var xform))
+        var fcQuery = EntityQueryEnumerator<FireControlConsoleComponent, TransformComponent>();
+        while (fcQuery.MoveNext(out var consoleUid, out _, out var xform))
         {
             if (xform.GridUid != gridUid)
                 continue;
-
             if (!_ui.IsUiOpen(consoleUid, FireControlConsoleUiKey.Key))
+                continue;
+
+            RaiseLocalEvent(consoleUid, new SensorsConsoleRefreshEvent());
+        }
+
+        var shuttleQuery = EntityQueryEnumerator<ShuttleConsoleComponent, TransformComponent>();
+        while (shuttleQuery.MoveNext(out var consoleUid, out _, out var xform))
+        {
+            if (xform.GridUid != gridUid)
+                continue;
+            if (!_ui.IsUiOpen(consoleUid, ShuttleConsoleUiKey.Key))
+                continue;
+
+            RaiseLocalEvent(consoleUid, new SensorsConsoleRefreshEvent());
+        }
+
+        var radarQuery = EntityQueryEnumerator<RadarConsoleComponent, TransformComponent>();
+        while (radarQuery.MoveNext(out var consoleUid, out _, out var xform))
+        {
+            if (xform.GridUid != gridUid)
+                continue;
+            if (!_ui.IsUiOpen(consoleUid, RadarConsoleUiKey.Key))
                 continue;
 
             RaiseLocalEvent(consoleUid, new SensorsConsoleRefreshEvent());

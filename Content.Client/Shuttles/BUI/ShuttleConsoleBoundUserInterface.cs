@@ -33,6 +33,12 @@ public sealed partial class ShuttleConsoleBoundUserInterface : BoundUserInterfac
         _window.UndockRequest += OnUndockRequest;
         _window.UndockAllRequest += OnUndockAllRequest;
         _window.ToggleFTLLockRequest += OnToggleFTLLockRequest;
+
+        // Mono
+        _window.Sensors.OnEmcon += msg => SendMessage(msg);
+        _window.Sensors.OnArc += msg => SendMessage(msg);
+        _window.Sensors.OnDatalink += msg => SendMessage(msg);
+
         NfOpen(); // Frontier
     }
 

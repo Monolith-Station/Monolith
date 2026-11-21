@@ -6,13 +6,42 @@
             xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
             xmlns:ui="clr-namespace:Content.Client._Mono.FireControl.UI"
             xmlns:sensors="clr-namespace:Content.Client._Mono.Sensors.UI"
-            Title="{Loc 'gunnery-window-title'}"
-            SetSize="1000 800"
-            MinSize="1000 800">
-    <TabContainer Name="MainTabs" VerticalExpand="True" HorizontalExpand="True">
-        <BoxContainer Name="GunneryTab" Orientation="Horizontal">
-            <BoxContainer Name="RootBox" Orientation="Horizontal">
-                <BoxContainer Orientation="Vertical" MinWidth="300" MaxWidth="300" HorizontalExpand="False" Margin="5 0 5 5">
+            Title="{Loc 'gunnery-window-title'}" SetSize="1000 870" MinSize="1000 870">
+    <BoxContainer Orientation="Vertical">
+        <!-- Outer chrome (same as shuttle) -->
+        <PanelContainer VerticalExpand="True" HorizontalExpand="True" Margin="0 8 0 2">
+            <PanelContainer.PanelOverride>
+                <gfx:StyleBoxFlat BorderThickness="7" BorderColor="#252525" BackgroundColor="#3d474d"/>
+            </PanelContainer.PanelOverride>
+            <PanelContainer VerticalExpand="True" HorizontalExpand="True" Margin="4">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BorderThickness="2" BorderColor="#333333" BackgroundColor="#181818"/>
+                </PanelContainer.PanelOverride>
+
+                <BoxContainer Orientation="Vertical" HorizontalAlignment="Center" VerticalExpand="True">
+                <BoxContainer Orientation="Vertical" HorizontalAlignment="Center">
+                    <!-- Mode buttons row (identical style to shuttle) -->
+                    <PanelContainer VerticalExpand="False" HorizontalExpand="True" SetWidth="970">
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BorderThickness="2" BorderColor="#333333" BackgroundColor="#121212"/>
+                        </PanelContainer.PanelOverride>
+                        <BoxContainer Name="ModeButtons" Orientation="Horizontal"
+                                      HorizontalExpand="True" MinSize="52 52" Margin="5">
+                            <Button Name="GunneryModeButton" ToggleMode="True"
+                                    HorizontalExpand="True" VerticalExpand="True"
+                                    Text="GUNNERY" StyleClasses="ButtonSquare"/>
+                            <Button Name="SensorsModeButton" ToggleMode="True"
+                                    HorizontalExpand="True" VerticalExpand="True"
+                                    Text="SENSORS" StyleClasses="ButtonSquare"/>
+                        </BoxContainer>
+                    </PanelContainer>
+                </BoxContainer>
+
+                <LayoutContainer VerticalExpand="True">
+                <BoxContainer Name="Contents" HorizontalExpand="True" VerticalExpand="True" Margin="5">
+                    <BoxContainer Name="RootBox" Orientation="Horizontal">
+                        <BoxContainer Name="GunneryContainer" Orientation="Horizontal" Visible="True">
+                    <BoxContainer Orientation="Vertical" MinWidth="300" MaxWidth="300" HorizontalExpand="False" Margin="5 0 5 5">
                     <PanelContainer VerticalExpand="True" HorizontalExpand="True">
                         <PanelContainer.PanelOverride>
                             <gfx:StyleBoxFlat BorderThickness="3" BorderColor="#35434d" BackgroundColor="#696969"/>
@@ -114,15 +143,20 @@
                             </PanelContainer>
                         </BoxContainer>
                     </PanelContainer>
-                </BoxContainer>
+                    </BoxContainer>
 
-                <BoxContainer Name="RadarContainer" Orientation="Horizontal" HorizontalExpand="True" Margin="50 50 50 50">
-                    <LayoutContainer>
-                        <ui:FireControlNavControl Name="NavRadar" />
-                    </LayoutContainer>
+                    <BoxContainer Name="RadarContainer" Orientation="Horizontal" HorizontalExpand="True" Margin="50 50 50 50">
+                        <LayoutContainer>
+                            <ui:FireControlNavControl Name="NavRadar" />
+                        </LayoutContainer>
+                    </BoxContainer>
+                    </BoxContainer>
+                        </BoxContainer>
                 </BoxContainer>
-            </BoxContainer>
-        </BoxContainer>
-        <sensors:SensorsControl Name="SensorsTab" Access="Public"/>
-    </TabContainer>
+                </LayoutContainer>
+                </BoxContainer>
+                <sensors:SensorsControl Name="SensorsTab" Access="Public" VerticalExpand="True" Margin="5 80 5 5"/>
+            </PanelContainer>
+        </PanelContainer>
+    </BoxContainer>
 </controls:FancyWindow>

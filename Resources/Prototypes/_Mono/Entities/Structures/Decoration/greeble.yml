@@ -254,17 +254,3 @@
     sensitivity: 20.0
     arcDegrees: 360
     enabled: true
-
-- type: entity
-  parent: GreebleElint1
-  id: DebugRadarJammer
-  name: debug radar jammer
-  placement:
-    mode: SnapgridCenter
-  components:
-  - type: ShipSensor
-    sensorType: Jammer
-    jamStrength: 20.0
-    arcDegrees: 60
-    activeMode: true
-    enabled: true
