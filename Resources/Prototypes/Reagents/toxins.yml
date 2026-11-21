@@ -625,12 +625,29 @@
   color: "#AAAAAA"
   metabolisms:
     Poison:
+      metabolismRate: 1 # Mono: Double decay rate
       effects:
-      - !type:GenericStatusEffect
+      - !type:GenericStatusEffect # Mono: No cheese touch
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Pax
+          min: 13
         key: Pacified
         component: Pacified
         type: Add
         time: 4
+      - !type:AdjustReagent # Mono: Heavily reduced snowball effect after successful cheese touch. Go do something else.
+        conditions:
+        - !type:ReagentThreshold
+          min: 13
+        reagent: Pax
+        amount: -6
+      - !type:PopupMessage # Mono: Popup so you know what's happening to you
+        type: Local
+        visualType: Medium
+        messages:
+        - "psicodine-effect-at-peace"
+        probability: 0.33
 
 - type: reagent
   id: Honk
