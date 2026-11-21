@@ -76,18 +76,20 @@
 - type: entity
   parent: BaseComputerOverwatch
   id: MDOverwatchComputer
-  name: MD overwatch console
+  name: medical overwatch console
+  description: Displays a readout of all people implanted with Caelestinus' medical tracking implant.
   components:
   - type: OverwatchConsole
     faction: MD
+    canSendAnnouncements: false # director of care shouldn't be able to beam thoughts into vagrants' minds probably
   - type: CompanyAccessReader
     requiredCompanies:
-    - MD
+    - Colonial
 
 - type: entity
   parent: BaseComputerOverwatch
   id: CCTCOverwatchComputer
-  name: CCTC overwatch console
+  name: caelestinus overwatch console
   components:
   - type: OverwatchConsole
     faction: Colonial
@@ -178,17 +180,19 @@
   parent: BaseHandheldOverwatchConsole
   id: MDHandheldOverwatchConsole
   name: MD handheld overwatch console
+  description: Displays a readout of all people implanted with Caelestinus' medical tracking implant.
   components:
   - type: OverwatchConsole
     faction: MD
+    canSendAnnouncements: false # director of care shouldn't be able to beam thoughts into vagrants' minds probably
   - type: CompanyAccessReader
     requiredCompanies:
-    - MD
+    - Colonial
 
 - type: entity
   parent: BaseHandheldOverwatchConsole
   id: CCHandheldOverwatchConsole
-  name: CCTC handheld overwatch console
+  name: caelestinus handheld overwatch console
   components:
   - type: OverwatchConsole
     faction: Colonial

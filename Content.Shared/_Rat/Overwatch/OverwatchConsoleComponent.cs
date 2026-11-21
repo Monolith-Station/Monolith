@@ -33,4 +33,10 @@ public sealed partial class OverwatchConsoleComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public string SearchQuery = string.Empty;
+
+    /// <summary>
+    /// Mono: Whether or not this overwatch console can send announcements.
+    /// </summary>
+    [DataField]
+    public bool CanSendAnnouncements = true;
 }
