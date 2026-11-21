@@ -34,6 +34,7 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/pistol.ogg
     projectileSpeed: 40 # Mono
+    drawTime: 0.05 # Mono basically instant, but prevents guns going off while grabbing off floor in harm-mode unless input is held
   - type: ChamberMagazineAmmoProvider
     soundRack:
       path: /Audio/Weapons/Guns/Cock/pistol_cock.ogg
@@ -97,6 +98,7 @@
     animation: WeaponArcThrust
     soundHit:
       collection: MetalThud
+    resetOnHandSelected: false
   - type: AltFireMelee
     attackType: Light
   - type: CanShootWithShield # Mono: only sidearms can be used alongside a shield

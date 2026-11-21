@@ -57,6 +57,7 @@
     animation: WeaponArcThrust
     soundHit:
       collection: MetalThud
+    resetOnHandSelected: false # Mono
   - type: AltFireMelee
     attackType: Light
   # Mono end

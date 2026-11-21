@@ -35,6 +35,7 @@
       path: /Audio/Weapons/Guns/Gunshots/lmg.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
+    drawTime: 1.0 # Mono, unlikely this will come into effect due to the Usedelay and two-hand lock most LMGs have.
   - type: ChamberMagazineAmmoProvider
     soundRack:
       path: /Audio/Weapons/Guns/Cock/lmg_cock.ogg
@@ -103,6 +104,7 @@
     animation: WeaponArcThrust
     soundHit:
       collection: MetalThud
+    resetOnHandSelected: false
   - type: AltFireMelee
     attackType: Light
   # Mono end
