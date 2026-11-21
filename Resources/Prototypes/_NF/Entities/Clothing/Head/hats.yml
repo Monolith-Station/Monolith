@@ -54,7 +54,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatWitchhunter
@@ -68,7 +68,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatBishopMitre
@@ -82,7 +82,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatKippah
@@ -96,7 +96,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatHoodCardinalHood
@@ -111,7 +111,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatMcCrown
@@ -125,7 +125,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatPilot
@@ -142,7 +142,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatPirates
@@ -156,7 +156,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatPirateLuffy
@@ -170,7 +170,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatNfsdBeretGreen
@@ -185,7 +185,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatNfsdBeretBrown
@@ -200,7 +200,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatNfsdBeretCream
@@ -215,7 +215,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatNfsdCampaign
@@ -247,7 +247,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: ClothingHeadHatNfsdCampaign
   id: ClothingHeadHatNfsdCampaignFilled
@@ -263,7 +263,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: ClothingHeadBaseButcherable
   id: ClothingHeadHatNfsdSmallCampaign
@@ -280,7 +280,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: ClothingHeadHatHopcap
   id: ClothingHeadHatSrCap
@@ -295,7 +295,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: ClothingHeadHatHopcap
   id: ClothingHeadHatSrBeret
@@ -310,12 +310,12 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: ClothingHeadHatHopcap
   id: ClothingHeadHatStcCap
   name: station traffic controller's cap
-  description: A cap issued to Colonial Outpost's station traffic controller. Try not to lose it.
+  description: A cap issued to a station traffic controller. Try not to lose it.
   components:
   - type: Sprite
     sprite: _NF/Clothing/Head/Hats/stc_cap.rsi
@@ -325,13 +325,13 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: ClothingHeadHatBeretHoS
   id: ClothingHeadHatBeretCommander
   name: commander's beret
   description: A black beret with a commander's rank emblem.
-    
+
 - type: entity
   parent: ClothingHeadHatBeretHoS
   id: ClothingHeadHatBeretCommon
@@ -345,7 +345,7 @@
   - type: Tag
     tags:
     - PetWearable
-    
+
 - type: entity
   parent: ClothingHeadHatHopcap
   id: ClothingHeadHatUtilityTsfmc

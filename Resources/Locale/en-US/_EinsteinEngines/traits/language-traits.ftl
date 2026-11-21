@@ -5,24 +5,24 @@ trait-category-languages = Languages
 
 trait-language-foreigner-light-name = Foreigner Light
 trait-language-foreigner-light-desc =
-    You understand the common language, Andromeda Standard Basic, but you can't quite speak it yet.
+    You understand the common language, Orion Standard Basic, but you can't quite speak it yet.
     You have a translator to help you with your basic understanding of the language, better keep it charged.
 
 trait-language-foreigner-name = Foreigner
 trait-language-foreigner-desc =
-    You can't understand the common language, Andromeda Standard, and you require a translator at all times to talk.
+    You can't understand the common language, Orion Standard, and you require a translator at all times to talk.
     You have a translator to help you with your understanding and speaking, make sure to keep it charged.
 
 trait-language-signlanguage-name = Sign Language
 trait-language-signlanguage-desc =
     The use of body language, hand signs, and other forms of dexterous movements to get your point across.
-    You can understand and use Andromeda Standard Basic Sign Language (TCB-SL).
+    You can understand and use Orion Standard Basic Sign Language (TCB-SL).
     If you are mute for any reason, you can still communicate with sign language.
 
-trait-language-solcommon-name = Sol Common
+trait-language-solcommon-name = Persean Esperanto
 trait-language-solcommon-desc =
-    With its roots in Mandarin Chinese - Common evolved as the official language of the Trans-Solar Federation - with officials working to tie it together with a common tongue.
-    It's spoken by state officials, the armed forces, by those who either feel a sense of national pride in the Federation or otherwise fell sway to the culture.
+    After the Great Confederate Expansion took humanity to the Persean arm and subsequently collapsed, many mingled cultures birthed this monstrosity of Orion standard and old-earth Mandarin.
+    Today it is widely used across Federation territories, though as time has passed, it has become distinguished from other Orion standard-based languages and has established a significant language barrier between the two arms.
 
 trait-language-tradeband-name = Tradeband
 trait-language-tradeband-desc =
@@ -56,5 +56,5 @@ trait-language-azaziba-desc =
     While waning since Moghes entered the galactic stage - it enjoys popular use by Unathi that never fell to the Hegemony's cultural dominance.
 
 trait-language-SiikMaas-name = Siik'maas
-trait-language-SiikMaas-desc = 
+trait-language-SiikMaas-desc =
     The ancient religious tongue of the Tajara, now the most widely spoken and taught language on Adhomai.

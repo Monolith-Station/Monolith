@@ -67,7 +67,7 @@
   id: CanilunztTranslator
   parent: [ TranslatorPoweredBase ]
   name: canilunzt translator
-  description: Translates speech between Canilunzt and Andromeda Standard. # Mono: Andromeda Standard
+  description: Translates speech between Canilunzt and Orion Standard. # Mono: Orion Standard
   components:
   - type: HandheldTranslator
     spoken:
@@ -84,7 +84,7 @@
   id: BubblishTranslator
   parent: [ TranslatorPoweredBase ]
   name: bubblish translator
-  description: Translates speech between Bubblish and Andromeda Standard. # Mono: Andromeda Standard
+  description: Translates speech between Bubblish and Orion Standard. # Mono: Orion Standard
   components:
   - type: HandheldTranslator
     spoken:
@@ -101,7 +101,7 @@
   id: NekomimeticTranslator
   parent: [ TranslatorPoweredBase ]
   name: nekomimetic translator
-  description: Translates speech between Nekomimetic and Andromeda Standard. # Mono: Andromeda Standard
+  description: Translates speech between Nekomimetic and Orion Standard. # Mono: Orion Standard
   components:
   - type: HandheldTranslator
     spoken:
@@ -118,7 +118,7 @@
   id: DraconicTranslator
   parent: [ TranslatorPoweredBase ]
   name: draconic translator
-  description: Translates speech between Draconic and Andromeda Standard. # Mono: Andromeda Standard
+  description: Translates speech between Draconic and Orion Standard. # Mono: Orion Standard
   components:
   - type: HandheldTranslator
     spoken:
@@ -134,8 +134,8 @@
 - type: entity
   id: SolCommonTranslator
   parent: [ TranslatorPoweredBase ]
-  name: sol common translator
-  description: Translates speech between Sol Common and Andromeda Standard. # Mono: Andromeda Standard
+  name: persean esperanto translator
+  description: Translates speech between Persean Esperanto and Orion Standard. # Mono: Orion Standard
   components:
   - type: HandheldTranslator
     spoken:
@@ -152,7 +152,7 @@
   id: NovuNedericTranslator
   parent: [ TranslatorPoweredBase ]
   name: novu-nederic translator
-  description: Translates speech between Novu-Nederic and Andromeda Standard. # Mono: Andromeda Standard
+  description: Translates speech between Novu-Nederic and Orion Standard. # Mono: Orion Standard
   components:
   - type: HandheldTranslator
     spoken:
@@ -169,7 +169,7 @@
   id: RootSpeakTranslator
   parent: [ TranslatorPoweredBase ]
   name: rootspeak translator
-  description: Translates speech between Rootspeak and Andromeda Standard. # Mono: Andromeda Standard
+  description: Translates speech between Rootspeak and Orion Standard. # Mono: Orion Standard
   components:
   - type: HandheldTranslator
     spoken:
@@ -186,7 +186,7 @@
   id: MofficTranslator
   parent: [ TranslatorPoweredBase ]
   name: moffic translator
-  description: Translates speech between Moffic and Andromeda Standard. # Mono: Andromeda Standard
+  description: Translates speech between Moffic and Orion Standard. # Mono: Orion Standard
   components:
   - type: HandheldTranslator
     spoken:
@@ -203,7 +203,7 @@
   id: XenoTranslator
   parent: [ TranslatorPoweredBase ]
   name: xeno translator
-  description: Translates speech between Xeno and Andromeda Standard. # Mono: Andromeda Standard
+  description: Translates speech between Xeno and Orion Standard. # Mono: Orion Standard
   components:
   - type: HandheldTranslator
     spoken:
@@ -246,7 +246,7 @@
   id: ValyrianStandardTranslator
   parent: [ TranslatorPoweredBase ]
   name: valyrian standard translator
-  description: Translates speech between Valyrian Standard and Andromeda Standard. # Mono: Andromeda Standard
+  description: Translates speech between Valyrian Standard and Orion Standard. # Mono: Orion Standard
   components:
   - type: HandheldTranslator
     spoken:
@@ -263,7 +263,7 @@
   id: AzazibaTranslator
   parent: [ TranslatorPoweredBase ]
   name: azaziba translator
-  description: Translates speech between Azaziba and Andromeda Standard. # Mono: Who's fucking lore?
+  description: Translates speech between Azaziba and Orion Standard. # Mono: Who's fucking lore?
   components:
   - type: HandheldTranslator
     spoken:
@@ -280,7 +280,7 @@
   id: ChittinTranslator
   parent: [ TranslatorPoweredBase ]
   name: Chittin translator
-  description: Translates speech between Chittin and Andromeda Standard. # Mono: Andromeda Standard
+  description: Translates speech between Chittin and Orion Standard. # Mono: Orion Standard
   components:
   - type: HandheldTranslator
     spoken:
@@ -297,7 +297,7 @@
   id: SiikMaasTranslator
   parent: [ TranslatorPoweredBase ]
   name: Siik'maas translator
-  description: Translates speech between Siik'maas and Andromeda Standard. # Mono: Andromeda Standard
+  description: Translates speech between Siik'maas and Orion Standard. # Mono: Orion Standard
   components:
   - type: HandheldTranslator
     spoken:
@@ -314,7 +314,7 @@
   id: MarishTranslator
   parent: [ TranslatorPoweredBase ]
   name: Marish translator
-  description: Translates speech between Marish and Andromeda Standard. # Mono: Andromeda Standard
+  description: Translates speech between Marish and Orion Standard. # Mono: Orion Standard
   components:
   - type: HandheldTranslator
     spoken:
@@ -331,7 +331,7 @@
   id: NewKinPidginTranslator
   parent: [ TranslatorPoweredBase ]
   name: Ka'rakk translator
-  description: Translates speech between New Kin Pidgin and Andromeda Standard. # Mono: Andromeda Standard
+  description: Translates speech between New Kin Pidgin and Orion Standard. # Mono: Orion Standard
   components:
   - type: HandheldTranslator
     spoken:

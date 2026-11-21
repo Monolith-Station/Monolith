@@ -7,7 +7,7 @@ The [color=#44cc00]Safety Deposit Box System[/color] allows you to securely stor
   <Box>
     <GuideEntityEmbed Entity="SafetyDepositConsole"/>
   </Box>
-  The [color=#44cc00]Safety Deposit Console[/color] is your interface for managing your deposit boxes. Located at Camelot, Zvezda, and Caelestinius Central's shipyards, it allows you to:
+  The [color=#44cc00]Safety Deposit Console[/color] is your interface for managing your deposit boxes. Located at Camelot, Zvezda, and Caelestinus Central's shipyards, it allows you to:
   - [bold]Purchase[/bold] new safety deposit boxes
   - [bold]Deposit[/bold] boxes to store items in the database
   - [bold]Withdraw[/bold] stored boxes to retrieve your items
@@ -84,11 +84,11 @@ The safety deposit system preserves:
   - [bold]Box nicknames[/bold] - Custom labels on the boxes themselves
 
 [italic][color=gold]The following items are explicitly blacklisted (not an extensive list!):[/color][/italic]
-  - [bold]ID Cards[/bold]
+  - [bold]ID Cards or PDAs[/bold]
   - [bold]LPCs[/bold]
   - [bold]Uplinks[/bold]
   - [bold]Currency[/bold]
-  - [bold]Encryption Keys[/bold]
+  - [bold]Encryption Keys or Headsets[/bold]
   - [bold]Implanters[/bold]
   - [bold]Anything with storage[/bold]
   - [bold]Overwatch Consoles[/bold]
@@ -96,5 +96,12 @@ The safety deposit system preserves:
   - [bold]Anything with secret storage (such as plushies)[/bold]
   - [bold]Reagent storages (such as beakers)[/bold]
   - [bold]Iridite[/bold] <!--NOTE - I don't mind if someone adds a way to store Iridite, perhaps in a compressed form w/ much lower stack size?-->
+  - [bold]Adamantite[/bold]
   - [bold]Monolithic Crystals[/bold]
+  - [bold]Anything with a value in FMC or DC[/bold]
+  - [bold]Machine boards or flatpacks[/bold]
+  - [bold]Any exclusive piece of gear[/bold], for example the Colonel's commander shades, Judge's Lawbringer, Overseer's Dignity or Vizier's TPC Dragoon.
+
+[italic][color=gold]The following items are not blacklisted, but suffer adverse effects from being stored (not an extensive list!):[/color][/italic]
+  - [bold]Stamps[/bold] will dry up and become useless if stored in a deposit box.
 </Document>
