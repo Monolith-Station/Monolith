@@ -6,13 +6,11 @@ frontier-lobby-station-subtext = Wake up from cryosleep to become captain, find 
 frontier-lobby-crew-title = Crew
 frontier-lobby-crew-subtext = Start your round aboard a ship amongst a crew that is looking for new crewmembers to give them a helping hand, whether you are a new or seasoned pilot!
 
-frontier-lobby-frontier-subtext = Main hub for many space pioneers.
-frontier-lobby-frontier-description = Awaken from cryosleep here to:
-   - Start your own crew and become captain
-   - Find a crew to join
-   - Purchase ships
-   - Socialize with other pioneers
- Some of the roles on this station are whitelist-only and require an application in the discord to be accepted.
+frontier-lobby-frontier-subtext = A station maintained by an organisation committed to the safety of independence.
+frontier-lobby-frontier-description = 
+   Caelestinus Central, formerly a colonial outpost governed by the TSFMC, has broken away from their authoritarian control.
+   Caelestinus as an organisation is now committed to the safety of independent individuals within the Colossus sector, and their station reflects this.
+   While a welcoming place for most, Caelestinus' mission is no guarantee of a true safe haven.
 
 frontier-lobby-exped-subtext = Where seasoned mercenaries gather.
 frontier-lobby-exped-description = This is base camp for mercenaries and alike. Here you can:
@@ -31,7 +29,7 @@ frontier-lobby-medical-description = TSF civilian medical dispatch hub. Here you
  Some of the roles on this station are whitelist-only and require an application in the discord to be accepted.
 
 frontier-lobby-nfsd-subtext = The center of operations for the TSFMC.
-frontier-lobby-nfsd-description = The TFSMC-FOB is the center of operations for the TSF's armed expansion into the Colossus. Here you can:
+frontier-lobby-nfsd-description = The TSFMC-FOB is the center of operations for the TSF's armed expansion into the Colossus. Here you can:
    - Join the TSFMC department
    - Apply for a bounty hunting license
    - Report crimes
