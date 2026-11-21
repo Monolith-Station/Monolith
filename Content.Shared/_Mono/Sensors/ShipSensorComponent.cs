@@ -37,7 +37,7 @@ public sealed partial class ShipSensorComponent : Component
     public float PowerDrawActive = 200f;
 
     /// <summary>
-    /// Multiplier for effectiveness of jamming.
+    /// Resistance to jamming. Just a simple check if the strength is higher than the resistance * sensitivity.
     /// </summary>
     [DataField, AutoNetworkedField]
     public float JammingResistance = 0.25f;

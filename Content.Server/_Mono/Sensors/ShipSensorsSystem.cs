@@ -409,6 +409,10 @@ public sealed partial class ShipSensorsSystem : EntitySystem
                 continue;
             if (jamXform.GridUid != null && jamXform.GridUid == sensXform.GridUid)
                 continue;
+            if (jamXform.GridUid is { } jamGrid &&
+                sensXform.GridUid is { } sensGrid &&
+                SharesDatalink(jamGrid, sensGrid))
+                continue;
 
             var jamPos = _xform.GetWorldPosition(jamXform);
             var toSensor = sensorPos - jamPos;
@@ -418,7 +422,7 @@ public sealed partial class ShipSensorsSystem : EntitySystem
             if (!InArc(jam, jamXform, toSensor.ToWorldAngle()))
                 continue;
 
-            var resistance = sens.JammingResistance;
+            var resistance = sens.JammingResistance * sens.Sensitivity;
 
             if (jam.JamStrength > resistance)
                 return true;
@@ -427,14 +431,15 @@ public sealed partial class ShipSensorsSystem : EntitySystem
         return false;
     }
 
-    private bool InArc(ShipSensorComponent sens, TransformComponent sensXform, Angle targetBearing)
+    private bool InArc(ShipSensorComponent sens, TransformComponent sensXform, Angle targetWorldBearing)
     {
         if (sens.ArcDegrees >= 360f)
             return true;
 
-        var sensRot = _xform.GetWorldRotation(sensXform) + Angle.FromDegrees(sens.ArcOffset);
+        // world rotation instead of grid relative for ease of use i'd rather friend myself than adjust it for every little turn man
+        var center = Angle.FromDegrees(sens.ArcOffset);
         var half = Angle.FromDegrees(sens.ArcDegrees / 2f);
-        var delta = Angle.ShortestDistance(sensRot, targetBearing);
+        var delta = Angle.ShortestDistance(center, targetWorldBearing);
         return Math.Abs(delta.Theta) <= half.Theta;
     }
 
@@ -522,6 +527,23 @@ public sealed partial class ShipSensorsSystem : EntitySystem
         BuildBuiState(uid);
     }
 
+    private bool SharesDatalink(EntityUid aGrid, EntityUid bGrid)
+    {
+        if (!TryComp<GridSensorsComponent>(aGrid, out var a) ||
+            !TryComp<GridSensorsComponent>(bGrid, out var b))
+            return false;
+
+        if (a.DatalinkCodes.Count == 0 || b.DatalinkCodes.Count == 0)
+            return false;
+
+        foreach (var code in a.DatalinkCodes)
+        {
+            if (b.DatalinkCodes.Contains(code))
+                return true;
+        }
+        return false;
+    }
+
     private void OnToggleHardware(EntityUid uid, object component, SensorsToggleHardwareMessage args)
     {
         if (!TryGetEntity(args.Sensor, out var sensUid))
@@ -576,7 +598,7 @@ public sealed partial class ShipSensorsSystem : EntitySystem
                 continue;
             }
 
-            state.Contacts.Add(ToDto(contact, targetUid.Value, targetGrid));
+            state.Contacts.Add(ToDto(contact, targetUid.Value, targetGrid, consoleUid));
         }
 
         var query = EntityQueryEnumerator<ShipSensorComponent, TransformComponent, MetaDataComponent>();
@@ -651,13 +673,12 @@ public sealed partial class ShipSensorsSystem : EntitySystem
     public static float SensitivityToJamWatts(float jamStrength)
         => MathF.Max(0f, jamStrength) * 10_000f;
 
-    private SensorContactDto ToDto(SensorContact c, EntityUid targetUid, MapGridComponent targetGrid)
+    private SensorContactDto ToDto(SensorContact c, EntityUid targetUid, MapGridComponent targetGrid, EntityUid detectedBy)
     {
         var ir = 0f;
         if (TryComp<ThermalSignatureComponent>(targetUid, out var heat))
             ir = MathF.Max(heat.TotalHeat, 0f);
 
-        // If the target is actively jamming, surface that as emissions + strength.
         var jam = 0f;
         var jamEnum = EntityQueryEnumerator<ShipSensorComponent, TransformComponent>();
         while (jamEnum.MoveNext(out _, out var sens, out var xform))
@@ -671,9 +692,6 @@ public sealed partial class ShipSensorsSystem : EntitySystem
 
         var flags = c.Flags;
 
-        // Active radar watts: best guess from contact flags only (we don't know their hardware).
-        // If we have ARS on them as a track, show their *own* emission only if we also see E from active emitters —
-        // for display: if they have active radar hardware emitting, sum it; else 0.
         var arWatts = 0f;
         var sensEnum = EntityQueryEnumerator<ShipSensorComponent, TransformComponent>();
         while (sensEnum.MoveNext(out _, out var sens, out var xform))
@@ -689,11 +707,15 @@ public sealed partial class ShipSensorsSystem : EntitySystem
         if (TryComp<IFFComponent>(targetUid, out var iff))
             designation = iff.Address;
 
+        var bearing = (c.WorldPosition - _xform.GetWorldPosition(detectedBy)).ToWorldAngle();
+        var bearingDegrees = (int)((bearing.Degrees % 360f + 360f) % 360f);
+
         return new SensorContactDto
         {
             Target = c.TargetGrid,
             Name = designation,
             Range = c.Range,
+            BearingDegrees = bearingDegrees,
             Level = c.Level,
             Sources = BuildSourceString(flags),
             Rcs = targetGrid.LocalAABB.Width * targetGrid.LocalAABB.Height,

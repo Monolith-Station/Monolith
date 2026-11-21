@@ -13,6 +13,7 @@ gunnery-emcon-datalink = DATALINK
 gunnery-emcon-datalink-placeholder = CODES (seperate with spaces)
 
 gunnery-emcon-range = RNG
+gunnery-emcon-angle = ANG
 gunnery-emcon-source = SRC
 gunnery-emcon-cross-section = RCS
 gunnery-emcon-infrared = IR

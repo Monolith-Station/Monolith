@@ -24,6 +24,7 @@ public sealed class SensorContactDto
     public NetEntity Target;
     public string? Name;
     public float Range;
+    public float BearingDegrees;
     public string Sources = string.Empty;
     public DetectionLevel Level;
     public float Rcs;

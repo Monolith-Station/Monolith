@@ -132,7 +132,14 @@ public sealed partial class SensorsControl : BoxContainer
             row.AddChild(new Label
             {
                 Text = $"{c.Range:F0}m",
-                MinWidth = 70,
+                MinWidth = 80,
+                HorizontalAlignment = HAlignment.Left,
+                FontColorOverride = Color.Lime,
+            });
+            row.AddChild(new Label
+            {
+                Text = $"{c.BearingDegrees:F0}°",
+                MinWidth = 80,
                 HorizontalAlignment = HAlignment.Left,
                 FontColorOverride = Color.Lime,
             });
