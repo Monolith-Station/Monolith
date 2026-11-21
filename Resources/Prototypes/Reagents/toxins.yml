@@ -623,14 +623,14 @@
   desc: reagent-desc-pax
   physicalDesc: reagent-physical-desc-soothing
   color: "#AAAAAA"
-  metabolisms:
-    Poison:
-      effects:
-      - !type:GenericStatusEffect
-        key: Pacified
-        component: Pacified
-        type: Add
-        time: 4
+# metabolisms: # Mono: doesn't do anything
+#   Poison:
+#     effects:
+#     - !type:GenericStatusEffect
+#       key: Pacified
+#       component: Pacified
+#       type: Add
+#       time: 4
 
 - type: reagent
   id: Honk
