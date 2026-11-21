@@ -208,6 +208,7 @@ public sealed partial class SensorsControl : BoxContainer
             ContactsBox.AddChild(row);
         }
 
-        DatalinkEdit.Text = string.Join(' ', state.DatalinkCodes);
+        if (!DatalinkEdit.HasKeyboardFocus())
+            DatalinkEdit.Text = string.Join(' ', state.DatalinkCodes);
     }
 }

@@ -40,6 +40,7 @@ public sealed partial class DetectionSystem : EntitySystem
         if (comp.AlwaysDetect)
             return DetectionLevel.Detected;
 
+
         var gridAABB = grid.Comp.LocalAABB;
         var gridDiagonal = MathF.Sqrt(gridAABB.Width * gridAABB.Width + gridAABB.Height * gridAABB.Height);
         var visualRadius = gridDiagonal * comp.VisualMultiplier * _visualMul;
@@ -56,6 +57,7 @@ public sealed partial class DetectionSystem : EntitySystem
             visualRadius += compAt.VisualBias;
         }
 
+
         var outlineRadius = thermalRadius * comp.InfraredOutlinePortion;
         outlineRadius = MathF.Max(outlineRadius, visualRadius);
 
@@ -69,8 +71,19 @@ public sealed partial class DetectionSystem : EntitySystem
             return DetectionLevel.Detected;
         if (distance < thermalRadius || IsEsmDetected(byUid, grid, distance, byXform, xform))
             return DetectionLevel.PartialDetected;
+
+        if (TryComp<GridSensorsComponent>(byUid, out var gs))
+        {
+            var netTarget = GetNetEntity(grid.Owner);
+            if (gs.Contacts.TryGetValue(netTarget, out var c) && c.Level != DetectionLevel.Undetected)
+                level = BestLevel(level, c.Level);
+        }
+
         return level;
     }
+
+    private static DetectionLevel BestLevel(DetectionLevel a, DetectionLevel b)
+        => (int)a <= (int)b ? a : b;
 
     public DetectionLevel IsGridDetected(Entity<MapGridComponent?> grid, IEnumerable<EntityUid> byUids)
     {

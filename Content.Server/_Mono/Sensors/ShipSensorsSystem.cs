@@ -112,13 +112,19 @@ public sealed partial class ShipSensorsSystem : EntitySystem
 
         _nextUpdate = _timing.CurTime + UpdateInterval;
 
+        var grids = new List<EntityUid>();
+
         var gridQuery = EntityQueryEnumerator<GridSensorsComponent, MapGridComponent, TransformComponent, DetectionRangeMultiplierComponent>();
         while (gridQuery.MoveNext(out var gridUid, out var gridSensors, out _, out var xform, out var rangeMul))
         {
             UpdateGridSensors(gridUid, gridSensors, xform, rangeMul);
+            grids.Add(gridUid);
         }
 
         PropagateDatalinks();
+
+        foreach (var gridUid in grids)
+            RefreshOpenConsoles(gridUid);
     }
 
     private void UpdateGridSensors(
@@ -397,6 +403,7 @@ public sealed partial class ShipSensorsSystem : EntitySystem
 
     private void PropagateDatalinks()
     {
+        var now = _timing.CurTime;
         var byCode = new Dictionary<string, List<(EntityUid Uid, GridSensorsComponent Comp)>>();
 
         var q = EntityQueryEnumerator<GridSensorsComponent>();
@@ -423,12 +430,28 @@ public sealed partial class ShipSensorsSystem : EntitySystem
             if (members.Count < 2)
                 continue;
 
+            // Union of everyone's contacts (prefer stronger level if same target appears twice)
             var union = new Dictionary<NetEntity, SensorContact>();
             foreach (var (_, comp) in members)
             {
                 foreach (var (net, contact) in comp.Contacts)
                 {
-                    union.TryAdd(net, contact);
+                    if (union.TryGetValue(net, out var existing))
+                    {
+                        union[net] = existing with
+                        {
+                            Level = BestLevel(existing.Level, contact.Level),
+                            Flags = existing.Flags | contact.Flags,
+                            LastSeen = now,
+                            WorldPosition = contact.WorldPosition,
+                            Range = contact.Range,
+                            Designation = contact.Designation ?? existing.Designation,
+                        };
+                    }
+                    else
+                    {
+                        union[net] = contact with { LastSeen = now };
+                    }
                 }
             }
 
@@ -439,11 +462,38 @@ public sealed partial class ShipSensorsSystem : EntitySystem
 
                 foreach (var (net, contact) in union)
                 {
-                    if (net == selfNet || comp.Contacts.ContainsKey(net))
+                    if (net == selfNet)
                         continue;
 
-                    comp.Contacts[net] = contact with { Flags = contact.Flags | SensorContactFlags.Datalink };
-                    changed = true;
+                    var incoming = contact with
+                    {
+                        Flags = contact.Flags | SensorContactFlags.Datalink,
+                        LastSeen = now,
+                    };
+
+                    if (comp.Contacts.TryGetValue(net, out var existing))
+                    {
+                        var merged = existing with
+                        {
+                            Level = BestLevel(existing.Level, incoming.Level),
+                            Flags = existing.Flags | incoming.Flags,
+                            LastSeen = now,
+                            WorldPosition = incoming.WorldPosition,
+                            Range = incoming.Range,
+                            Designation = incoming.Designation ?? existing.Designation,
+                        };
+
+                        if (merged != existing)
+                        {
+                            comp.Contacts[net] = merged;
+                            changed = true;
+                        }
+                    }
+                    else
+                    {
+                        comp.Contacts[net] = incoming;
+                        changed = true;
+                    }
                 }
 
                 if (changed)
