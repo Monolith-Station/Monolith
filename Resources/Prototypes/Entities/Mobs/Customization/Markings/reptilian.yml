@@ -367,7 +367,7 @@
   bodyPart: Tail
   markingCategory: Tail
   companion: LizardTailSmooth # Mono
-  speciesRestriction: []
+  speciesRestriction: [Reptilian] # Mono
   sprites:
     - sprite: Mobs/Customization/reptilian_parts.rsi
       state: tail_smooth_wagging_primary
@@ -379,7 +379,7 @@
   bodyPart: Tail
   markingCategory: Tail
   companion: LizardTailSpikes # Mono
-  speciesRestriction: []
+  speciesRestriction: [Reptilian] # Mono
   sprites:
     - sprite: Mobs/Customization/reptilian_parts.rsi
       state: tail_spikes_wagging
@@ -389,7 +389,7 @@
   bodyPart: Tail
   markingCategory: Tail
   companion: LizardTailLTiger # Mono
-  speciesRestriction: []
+  speciesRestriction: [Reptilian] # Mono
   sprites:
     - sprite: Mobs/Customization/reptilian_parts.rsi
       state: tail_ltiger_wagging
@@ -399,7 +399,7 @@
   bodyPart: Tail
   markingCategory: Tail
   companion: LizardTailDTiger # Mono
-  speciesRestriction: []
+  speciesRestriction: [Reptilian] # Mono
   sprites:
     - sprite: Mobs/Customization/reptilian_parts.rsi
       state: tail_dtiger_wagging
