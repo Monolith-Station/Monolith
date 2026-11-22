@@ -27616,3 +27616,22 @@ Entries:
   id: 2962
   time: '2026-11-21T19:22:11.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/4890
+- author: SuperGDPWYL
+  changes:
+    - type: Tweak
+      message: >-
+        The CAWS-25 "Jackdaw" wield delay has been increased to 5 seconds (was
+        2.2)
+    - type: Tweak
+      message: The CAWS-25 "Jackdaw" no longer fires if not wielded.
+    - type: Tweak
+      message: The CAWS-25 "Jackdaw" fire rate has been reduced to 12 (was 13).
+    - type: Tweak
+      message: >-
+        The CAWS-25 "Jackdaw" wield slowdown has been increased to 20% (was
+        10%).
+    - type: Tweak
+      message: The CSW-25 "Adjudicator" now needs plastitanium.
+  id: 2963
+  time: '2026-11-22T17:46:13.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5078
