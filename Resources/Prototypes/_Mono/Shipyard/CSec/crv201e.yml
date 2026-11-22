@@ -33,7 +33,7 @@
         - CRV201Energy
       components:
       - type: StationNameSetup
-        mapNameTemplate: 'MUGINN CSEC{1}'
+        mapNameTemplate: 'Muninn CSEC{1}'
         nameGenerator:
           !type:NanotrasenNameGenerator
           prefixCreator: '14'
