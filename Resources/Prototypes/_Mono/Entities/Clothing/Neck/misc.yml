@@ -233,7 +233,7 @@
 - type: entity
   parent: ClothingNeckIFFNeutral
   id: ClothingNeckIFFMercenary
-  name: Mercenary IFF strobes
+  name: mercenary IFF strobes
   description: Adjustable LED IFF kit that has been tweaked to jam HUD units.
   components:
   - type: ChameleonClothing # Mono
@@ -294,6 +294,8 @@
       - state: equipped-NECK-on
         color: "#fca503"
         shader: unshaded
+
+# USSP Red
 
 - type: entity
   parent: ClothingNeckIFFNeutral
