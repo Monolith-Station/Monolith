@@ -1,4 +1,5 @@
 using System.Linq;
+using System.Numerics;
 using Content.Server._Mono.Detection;
 using Content.Server._Mono.Radar;
 using Content.Server.Power.Components;
@@ -461,7 +462,6 @@ public sealed partial class ShipSensorsSystem : EntitySystem
                             Flags = existing.Flags | contact.Flags,
                             LastSeen = now,
                             WorldPosition = contact.WorldPosition,
-                            Range = contact.Range,
                             Designation = contact.Designation ?? existing.Designation,
                         };
                     }
@@ -476,16 +476,25 @@ public sealed partial class ShipSensorsSystem : EntitySystem
             {
                 var changed = false;
                 var selfNet = GetNetEntity(uid);
+                var ourPos = _xform.GetWorldPosition(uid);
 
                 foreach (var (net, contact) in union)
                 {
                     if (net == selfNet)
                         continue;
 
+                    Vector2 targetPos = contact.WorldPosition;
+                    if (TryGetEntity(net, out var targetUid))
+                        targetPos = _xform.GetWorldPosition(targetUid.Value);
+
+                    var range = (targetPos - ourPos).Length();
+
                     var incoming = contact with
                     {
                         Flags = contact.Flags | SensorContactFlags.Datalink,
                         LastSeen = now,
+                        WorldPosition = targetPos,
+                        Range = range,
                     };
 
                     if (comp.Contacts.TryGetValue(net, out var existing))
@@ -495,8 +504,8 @@ public sealed partial class ShipSensorsSystem : EntitySystem
                             Level = BestLevel(existing.Level, incoming.Level),
                             Flags = existing.Flags | incoming.Flags,
                             LastSeen = now,
-                            WorldPosition = incoming.WorldPosition,
-                            Range = incoming.Range,
+                            WorldPosition = targetPos,
+                            Range = range,
                             Designation = incoming.Designation ?? existing.Designation,
                         };
 
@@ -703,6 +712,7 @@ public sealed partial class ShipSensorsSystem : EntitySystem
             designation = iff.Address;
 
         var delta = _xform.GetWorldPosition(targetUid) - _xform.GetWorldPosition(detectedBy);
+        var range = delta.Length();
         var bearing = delta.ToWorldAngle();
         var bearingDegrees = (int)((bearing.Degrees % 360f + 90f) % 360f);
 
@@ -710,7 +720,7 @@ public sealed partial class ShipSensorsSystem : EntitySystem
         {
             Target = c.TargetGrid,
             Name = designation,
-            Range = c.Range,
+            Range = range,
             BearingDegrees = bearingDegrees,
             Level = c.Level,
             Sources = BuildSourceString(flags),
