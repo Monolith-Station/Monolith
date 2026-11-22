@@ -123,7 +123,9 @@ highp vec3 shieldHexCoordinates(highp vec2 uv) {
 
 highp vec2 shieldHexCell(highp vec2 uv) {
     highp vec3 cell = shieldHexCoordinates(uv);
-    return vec2(cell.x, shieldHash21(cell.yz));
+    highp vec2 spacing = vec2(0.5, 0.8660255);
+    highp vec2 key = floor(cell.yz / spacing + 0.5);
+    return vec2(cell.x, shieldHash21(key * spacing));
 }
 
 highp vec2 shipShieldLattice(highp vec2 point) {

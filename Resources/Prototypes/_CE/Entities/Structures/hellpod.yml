@@ -13,7 +13,7 @@
     sprite: _Mono/Structures/Machines/hellpod_hatch.rsi
     drawdepth: FloorObjects
     layers:
-    - state: open
+    - state: closed
       map: ["hatch"]
   - type: Appearance
   - type: CEHellpodHatchVisuals
@@ -22,10 +22,35 @@
       occupant: !type:ContainerSlot {}
 
 - type: entity
+  parent: BaseComputer
+  id: CEHellpodConsole
+  name: hellpod targeting console
+  description: There's a golden skull and the words "FREEDOM NEVER SLEEPS" engraved on the side.
+  components:
+  - type: CEHellpodConsole
+  - type: OreSiloClient
+  - type: MaterialStorage
+    storageLimit: 0
+    insertOnInteract: false
+    canEjectStoredMaterials: false
+  - type: ActivatableUI
+    key: enum.CEHellpodConsoleKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.CEHellpodConsoleKey.Key:
+        type: CEHellpodConsoleBoundUserInterface
+
+- type: ceHellpodType
+  id: CEHellpodDefault
+  pod: CEHellpod
+  materials:
+    Steel: 2500
+
+- type: entity
   parent: BaseStructure
   id: CEHellpod
   name: hellpod
-  description: Freedom never sleeps.
+  description: Freedom never sleeps, does it?
   components:
   - type: CEHellpod
   - type: ExaminableDamage

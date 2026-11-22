@@ -1,5 +1,7 @@
 using System.Numerics;
 using System.Linq;
+using Content.Server._CE.Planets.Hellpods;
+using Content.Shared._CE.Planets.Hellpods;
 using Content.Shared._Mono.Detection;
 using Content.Shared._Mono.Radar;
 using Content.Shared.Maps;
@@ -28,6 +30,7 @@ public sealed partial class RadarTerrainSystem : EntitySystem
     [Dependency] private ITileDefinitionManager _tiles = default!;
     [Dependency] private SharedBiomeSystem _biomes = default!;
     [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private CEHellpodSystem _hellpods = default!;
 
 
     private sealed class Chart(int seed, List<IBiomeLayer> layers, RadarTerrainSampler sampler)
@@ -76,10 +79,10 @@ public sealed partial class RadarTerrainSystem : EntitySystem
             return false;
         console = consoleUid.Value;
         map = mapUid.Value;
-        return session.AttachedEntity is { } actor && Exists(console) && Exists(map) &&
-            HasComp<RadarConsoleComponent>(console) && HasComp<BiomeComponent>(map) &&
-            _detection.SharesRadarSpace(Transform(console).MapUid, map) &&
-            (_ui.IsUiOpen(console, ShuttleConsoleUiKey.Key, actor) || _ui.IsUiOpen(console, RadarConsoleUiKey.Key, actor));
+        return session.AttachedEntity is { } actor && Exists(console) && HasComp<BiomeComponent>(map) &&
+            (HasComp<CEHellpodConsoleComponent>(console) && _hellpods.CanPreviewTerrain(console, actor, map) ||
+             HasComp<RadarConsoleComponent>(console) && _detection.SharesRadarSpace(Transform(console).MapUid, map) &&
+             (_ui.IsUiOpen(console, ShuttleConsoleUiKey.Key, actor) || _ui.IsUiOpen(console, RadarConsoleUiKey.Key, actor)));
     }
 
     private void OnRequest(RequestRadarTerrainEvent request, EntitySessionEventArgs args)
@@ -120,6 +123,11 @@ public sealed partial class RadarTerrainSystem : EntitySystem
     {
         var center = ((Vector2)chunk.Origin + new Vector2(RadarTerrainChunk.Size * 0.5f)) * grid.TileSize;
         var worldCenter = Vector2.Transform(center, _transform.GetWorldMatrix(map));
+        if (HasComp<CEHellpodConsoleComponent>(console))
+        {
+            var limit = (CompOrNull<ToroidalMapComponent>(map)?.Size / 2f ?? 4096f) + RadarTerrainChunk.Size * grid.TileSize;
+            return MathF.Abs(worldCenter.X) <= limit && MathF.Abs(worldCenter.Y) <= limit;
+        }
         var range = Comp<RadarConsoleComponent>(console).MaxRange * 2f + RadarTerrainChunk.Size * grid.TileSize;
         return Vector2.DistanceSquared(worldCenter, _transform.GetWorldPosition(console)) <= range * range;
     }

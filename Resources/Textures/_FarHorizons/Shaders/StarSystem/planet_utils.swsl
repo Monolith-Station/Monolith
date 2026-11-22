@@ -1,6 +1,5 @@
 // Planet physical data
 uniform highp vec2 planetPos;
-uniform highp float planetRadius;
 uniform highp float rotationAngle;
 
 // Color data
@@ -36,8 +35,8 @@ uniform highp float perspectiveStrength;
 // Render data
 uniform highp vec2 viewportMin;
 uniform highp vec2 viewportSize;
-uniform highp vec2 parallaxCenter;
-uniform highp float transitProgress;
+uniform highp vec2 projectedCenter;
+uniform highp float projectedRadius;
 
 highp vec3 samplePlanetPalette(highp float t) {
     t = clamp(t, 0.0, 1.0);
@@ -70,18 +69,16 @@ highp vec3 applyColorShifts(
     return hsv2rgb(hsv);
 }
 
-void calculatePlanetParallax(
+void calculatePlanetProjection(
     in highp vec2 uv,
     out highp vec2 offset,
     out highp float dist,
     out highp float coreRadius
 ) {
     highp vec2 pixelWorldPos = viewportMin + (uv * viewportSize);
-    highp vec2 parallaxedPos = planetPos + (parallaxCenter - planetPos) * (1.0 - parallaxFactor);
-    parallaxedPos = mix(parallaxedPos, parallaxCenter, transitProgress);
-    offset = pixelWorldPos - parallaxedPos;
+    offset = pixelWorldPos - projectedCenter;
     dist = length(offset);
-    coreRadius = planetRadius * planetaryRadiusFactor * mix(1.0, 20.0, transitProgress * transitProgress);
+    coreRadius = projectedRadius;
 }
 
 void calculateLightingSetup(

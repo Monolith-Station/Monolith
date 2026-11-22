@@ -5,6 +5,7 @@
 
 using System.Numerics;
 using Content.Client._CE.ZLevels.Core.Overlays;
+using Content.Shared._CE.Planets.Hellpods;
 using Content.Shared._CE.ZLevels.Core.Components;
 using Content.Shared._CE.ZLevels.Core.EntitySystems;
 using Content.Shared.Camera;
@@ -40,11 +41,15 @@ public sealed partial class CEClientZLevelsSystem : CESharedZLevelsSystem
     private void OnZPhysicsState(Entity<CEZPhysicsComponent> ent, ref AfterAutoHandleStateEvent args) =>
         QueueGroundRefresh(ent);
 
+    internal EntityUid GetCameraAltitudeAnchor(TransformComponent xform) =>
+        CompOrNull<CEHellpodComponent>(xform.ParentUid) is { InFlight: true } ? xform.ParentUid : xform.Owner;
+
     private void OnEyeOffset(Entity<CEZPhysicsComponent> ent, ref GetEyeOffsetEvent args)
     {
         Angle rotation = _eye.CurrentEye.Rotation * -1;
-        var map = Transform(ent).MapUid;
-        var localPosition = HasComp<CEZMapComponent>(map) ? Math.Clamp(ent.Comp.LocalPosition, -1f, 1f) : 0f;
+        var xform = Transform(ent);
+        var height = CompOrNull<CEZPhysicsComponent>(GetCameraAltitudeAnchor(xform))?.LocalPosition ?? ent.Comp.LocalPosition;
+        var localPosition = HasComp<CEZMapComponent>(xform.MapUid) ? Math.Clamp(height, -1f, 1f) : 0f;
         var offset = rotation.RotateVec(new Vector2(0, localPosition * ZLevelOffset));
         args.Offset += offset;
     }

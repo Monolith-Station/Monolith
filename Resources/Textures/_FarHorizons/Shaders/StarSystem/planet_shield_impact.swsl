@@ -1,0 +1,38 @@
+#include "/Textures/_Mono/Shaders/shield_wave_common.swsl"
+
+uniform highp float planetImpactCount;
+uniform highp vec2[24] planetImpactCenters;
+uniform highp float[24] planetImpactAges;
+uniform highp float[24] planetImpactStrengths;
+
+highp vec4 samplePlanetShieldImpact(highp vec2 uv) {
+    if (planetImpactCount <= 0.0)
+        return vec4(0.0);
+
+    highp vec2 point = uv * 2.0 - 1.0;
+    highp float radius = length(point);
+    if (radius >= 1.0)
+        return vec4(0.0);
+
+    highp vec2 lattice = point * (asin(radius) * hex_density / max(radius, 0.0001));
+    highp vec2 hexCenter = shieldHexCoordinates(lattice).yz;
+    highp float hexRadius = length(hexCenter);
+    highp float angle = min(hexRadius / hex_density, 1.5707963);
+    highp vec3 surface = vec3(hexCenter * sin(angle) / max(hexRadius, 0.0001), cos(angle));
+    highp float energy = 0.0;
+    highp float peak = 0.0;
+    highp vec2 ripple = vec2(0.0);
+    for (int i = 0; i < 24; i++) {
+        if (float(i) >= planetImpactCount)
+            break;
+
+        highp vec2 entry = planetImpactCenters[i];
+        highp vec3 center = vec3(entry, sqrt(max(0.0, 1.0 - dot(entry, entry))));
+        highp float age = planetImpactAges[i];
+        accumulateShieldWave(point, surface, center, vec2(1.0), 0.95 * 2.5 * age,
+            2.5 * planetImpactStrengths[i] * (1.0 - smoothstep(0.0, 1.0, age)), energy, peak, ripple);
+    }
+
+    highp float mask = (1.0 - smoothstep(0.97, 1.0, radius)) * clamp(progress, 0.0, 1.0);
+    return vec4(shieldWaveEdge(lattice, ripple), energy, peak, mask);
+}

@@ -29,5 +29,5 @@ public sealed partial class CEHellpodExitAlertEvent : BaseAlertEvent;
 [Serializable, NetSerializable]
 public enum CEHellpodVisuals : byte
 {
-    Occupied,
+    Open,
 }

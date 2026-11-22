@@ -16,6 +16,7 @@ public record struct GetExplosionResistanceEvent(string ExplosionPrototype) : II
     public float DamageCoefficient = 1;
 
     public readonly string ExplosionPrototype = ExplosionPrototype;
+    public EntityUid? Cause { get; init; }
 
     SlotFlags IInventoryRelayEvent.TargetSlots =>  ~SlotFlags.POCKET;
 }

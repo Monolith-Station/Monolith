@@ -13,11 +13,11 @@ public sealed partial class CEHellpodHatchVisualizerSystem : VisualizerSystem<CE
         ref AppearanceChangeEvent args)
     {
         if (args.Sprite == null
-            || !AppearanceSystem.TryGetData<bool>(uid, CEHellpodVisuals.Occupied, out var occupied, args.Component)
-            || comp.Occupied == occupied)
+            || !AppearanceSystem.TryGetData<bool>(uid, CEHellpodVisuals.Open, out var open, args.Component)
+            || comp.Open == open)
             return;
 
-        comp.Occupied = occupied;
+        comp.Open = open;
         EnsureComp<AnimationPlayerComponent>(uid);
         _animations.Stop(uid, AnimationKey);
         _animations.Play(uid, new Animation
@@ -30,8 +30,8 @@ public sealed partial class CEHellpodHatchVisualizerSystem : VisualizerSystem<CE
                     LayerKey = "hatch",
                     KeyFrames =
                     {
-                        new AnimationTrackSpriteFlick.KeyFrame(occupied ? "closing" : "opening", 0f),
-                        new AnimationTrackSpriteFlick.KeyFrame(occupied ? "closed" : "open", 0.7f),
+                        new AnimationTrackSpriteFlick.KeyFrame(open ? "opening" : "closing", 0f),
+                        new AnimationTrackSpriteFlick.KeyFrame(open ? "open" : "closed", 0.7f),
                     },
                 },
             },

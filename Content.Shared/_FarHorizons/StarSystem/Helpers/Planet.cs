@@ -24,16 +24,30 @@ public sealed partial class Planet
     [ViewVariables] public PlanetaryRings? Rings;
     [ViewVariables] public int? ParentIndex;
 
+    private readonly (float Parallax, float RadiusScale) _projection;
+
     public const float NAV_PIXEL_SIZE = 50;
     public const float MAP_PIXEL_SIZE = 50;
     public const string PLANET_ENTITY = "PlanetEntity";
 
-    public float ApproachRadius => Radius * MAP_PIXEL_SIZE * BodyScale;
+    public float ApproachRadius
+    {
+        get
+        {
+            var (parallax, radiusScale) = GetProjection();
+            return parallax > 0f ? Radius * radiusScale / parallax : Radius * MAP_PIXEL_SIZE * BodyScale;
+        }
+    }
+
+    public (float Parallax, float RadiusScale) GetProjection() =>
+        (CustomData.Floats.GetValueOrDefault("parallaxFactor", _projection.Parallax),
+            CustomData.Floats.GetValueOrDefault("planetaryRadiusFactor", _projection.RadiusScale));
 
     public Planet(PlanetTypePrototype proto,
         IPrototypeManager protoMan,
         ProtoId<PlanetTypePrototype> type,
         Vector2 position,
+        (float Parallax, float RadiusScale) projection,
         int? parentIndex = null)
     {
         Position = position;
@@ -46,6 +60,8 @@ public sealed partial class Planet
         HueShift = proto.HueShift;
         SaturationShift = proto.SaturationShift;
         CustomData = proto.CustomData;
+
+        _projection = projection;
 
         EarthMass = proto.EarthMass;
         BodyScale = proto.BodyScale;

@@ -74,6 +74,11 @@ public partial class ShuttleNavControl
         if (surface is not { } terrain)
             return;
 
+        DrawTerrainPreview(handle, worldToView, terrain);
+    }
+
+    protected void DrawTerrainPreview(DrawingHandleScreen handle, Matrix3x2 worldToView, Entity<MapGridComponent> terrain)
+    {
         if (_terrainJob is { IsCompleted: true })
         {
             _terrainJob.GetAwaiter().GetResult();

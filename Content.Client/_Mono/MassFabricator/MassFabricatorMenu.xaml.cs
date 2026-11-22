@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Client.Materials.UI;
 using Content.Client.Stylesheets;
 using System.Numerics;
 using Content.Client.UserInterface.Controls;
@@ -151,24 +152,7 @@ public sealed partial class MassFabricatorMenu : RadialMenu
         heading.AddStyleClass(StyleBase.StyleClassLabelHeading);
         contents.AddChild(heading);
         foreach (var (id, amount) in materials)
-        {
-            var material = _prototypes.Index<MaterialPrototype>(id);
-            var row = new BoxContainer { SeparationOverride = 8 };
-            row.AddChild(new TextureRect
-            {
-                Texture = material.StackEntity is { } stack
-                    ? sprites.GetPrototypeIcon(stack).Default : sprites.Frame0(material.Icon),
-                SetSize = new Vector2(24),
-                Stretch = TextureRect.StretchMode.KeepAspectCentered,
-            });
-            row.AddChild(new Label
-            {
-                Text = Loc.GetString("mass-fabricator-display-name", ("name", Loc.GetString(material.Name))),
-                HorizontalExpand = true,
-            });
-            row.AddChild(new Label { Text = $"{amount:N0}" });
-            contents.AddChild(row);
-        }
+            contents.AddChild(new MaterialCostRow(_prototypes.Index<MaterialPrototype>(id), amount, sprites));
         return panel;
     }
 

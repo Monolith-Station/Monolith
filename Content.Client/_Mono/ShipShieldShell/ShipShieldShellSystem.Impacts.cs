@@ -84,7 +84,7 @@ public sealed partial class ShipShieldShellSystem
         var query = EntityQueryEnumerator<ShipShieldProjectorComponent>();
         while (query.MoveNext(out var uid, out var shield))
         {
-            UpdateColdStart(uid, shield, frame);
+            UpdateVisualSpool(uid, shield, frameTime);
             if (shield.IsShattering)
                 _shatters.TryAdd(uid, (frame, shield.StartedAt));
             else if (shield.State is not (ShipShieldShellState.Off or ShipShieldShellState.Standby) ||

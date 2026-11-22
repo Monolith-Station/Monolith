@@ -3,6 +3,7 @@ using Content.Shared._CE.Planets.Shields;
 using Content.Shared._CE.ZLevels.Core.Components;
 using Content.Shared._CE.ZLevels.Core.EntitySystems;
 using Content.Server._CE.ZLevels.PVS;
+using Robust.Shared.Audio.Components;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
@@ -141,7 +142,7 @@ public sealed partial class CEShieldBeamSystem : EntitySystem
 
     private void Vaporize(EntityUid victim, EntityUid beam, NetEntity generator)
     {
-        if (TerminatingOrDeleted(victim) || EntityManager.IsQueuedForDeletion(victim))
+        if (TerminatingOrDeleted(victim) || EntityManager.IsQueuedForDeletion(victim) || HasComp<AudioComponent>(victim))
             return;
         var ev = new CEShieldBeamVaporizingEvent(beam, generator);
         RaiseLocalEvent(victim, ref ev);

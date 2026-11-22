@@ -44,7 +44,7 @@ public abstract class CEShieldBeamOverlay : IDisposable
         var beamStart = PositionAt(sourceDepth);
         var top = PositionAt(topDepth);
         var topUp = PositionAt(topDepth + 1) - top;
-        if (topUp.LengthSquared() < 0.0001f)
+        if (topUp.LengthSquared() < 0.000001f)
             return;
         var beamEnd = top + Vector2.Normalize(topUp) * TipLength * pixelsPerMeter;
         var from = Math.Max(fromDepth ?? sourceDepth, sourceDepth);

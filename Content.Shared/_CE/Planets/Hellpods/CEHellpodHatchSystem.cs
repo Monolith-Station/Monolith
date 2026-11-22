@@ -5,6 +5,7 @@ namespace Content.Shared._CE.Planets.Hellpods;
 
 public sealed partial class CEHellpodHatchSystem : EntitySystem
 {
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -16,6 +17,7 @@ public sealed partial class CEHellpodHatchSystem : EntitySystem
         if (args.Handled)
             return;
         args.Handled = true;
-        args.CanDrop = args.User == args.Dragged && HasComp<BodyComponent>(args.User);
+        args.CanDrop = args.User == args.Dragged && HasComp<BodyComponent>(args.User) &&
+                       _appearance.TryGetData<bool>(ent, CEHellpodVisuals.Open, out var open) && open;
     }
 }

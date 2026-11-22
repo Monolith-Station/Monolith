@@ -24,7 +24,7 @@ public sealed partial class ShipShieldShellSystem : EntitySystem
     [Dependency] private ITileDefinitionManager _tiles = default!;
     [Dependency] private SharedShipShieldShellSystem _containment = default!;
 
-    private readonly Dictionary<EntityUid, TimeSpan?> _coldStarts = new();
+    private readonly Dictionary<EntityUid, (ShipShieldShellState State, float Phase)> _spools = new();
 
     public override void Initialize()
     {
@@ -34,27 +34,40 @@ public sealed partial class ShipShieldShellSystem : EntitySystem
     }
 
     private void OnProjectorShutdown(Entity<ShipShieldProjectorComponent> shield, ref ComponentShutdown args) =>
-        _coldStarts.Remove(shield.Owner);
+        _spools.Remove(shield.Owner);
 
-    private void UpdateColdStart(EntityUid uid, ShipShieldProjectorComponent shield, TimeSpan frame)
+    private void UpdateVisualSpool(EntityUid uid, ShipShieldProjectorComponent shield, float frameTime)
     {
-        if (shield.State == ShipShieldShellState.Starting && !shield.StartupSpoolAt.HasValue)
-            _coldStarts.TryAdd(uid, null);
-        else if (shield.State != ShipShieldShellState.Active)
-            _coldStarts.Remove(uid);
-        else if (_coldStarts.TryGetValue(uid, out var started) && !started.HasValue)
-            _coldStarts[uid] = frame;
+        var state = shield.State;
+        var target = state switch
+        {
+            ShipShieldShellState.Starting when shield.StartupSpoolAt.HasValue => 0.85f,
+            ShipShieldShellState.Active => 1f,
+            _ => 0f,
+        };
+
+        if (!_spools.TryGetValue(uid, out var previous))
+        {
+            _spools[uid] = (state, Math.Clamp(shield.AnimationPhase(_timing.CurTime), 0f, 1f));
+            return;
+        }
+
+        var phase = previous.Phase;
+        if (shield.IsShattering)
+            phase = 0f;
+        else if (previous.State == state)
+        {
+            // The phase already shown is the starting point for both predicted and received transitions.
+            var duration = shield.AnimationDuration(phase > target ? ShipShieldShellState.PoweringDown : state);
+            var step = frameTime / (float) duration.TotalSeconds;
+            phase = phase < target ? MathF.Min(target, phase + step) : MathF.Max(target, phase - step);
+        }
+
+        _spools[uid] = (state, phase);
     }
 
-    internal float GetVisualPhase(EntityUid uid, ShipShieldProjectorComponent shield)
-    {
-        // A cold start has no predicted animation to continue. Start it when power is first visible,
-        // not at the server tick in the past. Collision still uses the shared simulation clock.
-        if (shield.State == ShipShieldShellState.Active && _coldStarts.GetValueOrDefault(uid) is { } started)
-            return Math.Clamp((float) ((_timing.FrameStartTime - started) / shield.AnimationDuration(shield.State)), 0f, 1f);
-
-        return shield.AnimationPhase(_timing.CurTime);
-    }
+    internal float GetVisualPhase(EntityUid uid, ShipShieldProjectorComponent shield) =>
+        _spools.TryGetValue(uid, out var spool) ? spool.Phase : shield.AnimationPhase(_timing.CurTime);
 
     public override void Shutdown()
     {

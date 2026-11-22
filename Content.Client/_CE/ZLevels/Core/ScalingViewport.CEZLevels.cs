@@ -130,6 +130,13 @@ public sealed partial class ScalingViewport
             CESharedZLevelsSystem.ZLevelOffset * (1f - MathF.Pow(shrink, depth - anchorDepth)) / (1f - shrink));
     }
 
+    // A vertical beam still needs a visible axis if the shrink is 1f
+    private static void SetBeamRise(ZEye eye, float depth)
+    {
+        if (CESharedZLevelsSystem.ZLevelViewShrink == 1f)
+            eye.Offset += (-eye.Rotation).ToWorldVec() * (depth * 0.01f);
+    }
+
     private void RenderZLevels(IRenderHandle renderHandle, IClydeViewport viewport)
     {
         _lookUpAimEye = null; // Mono
@@ -165,6 +172,9 @@ public sealed partial class ScalingViewport
             RenderFallback(viewport);
             return;
         }
+
+        if (cameraAnchor == observer)
+            cameraAnchor = _zLevels.GetCameraAltitudeAnchor(playerXform);
 
         if (_entityManager.TryGetComponent<PlanetTransitMapComponent>(playerMap, out var planetMap))
         {
@@ -393,6 +403,7 @@ public sealed partial class ScalingViewport
                 Vector2 ProjectReference(float referenceDepth, Vector2 worldPosition)
                 {
                     var eye = MakeZEye(pointMap, referenceDepth)!;
+                    SetBeamRise(eye, referenceDepth - ownDepth);
                     eye.GetViewMatrix(out var matrix, viewport.RenderScale);
                     var local = Vector2.Transform(worldPosition, matrix) * EyeManager.PixelsPerMeter;
                     return (Vector2) viewport.Size / 2 + new Vector2(local.X, -local.Y);
@@ -712,6 +723,7 @@ public sealed partial class ScalingViewport
                 Vector2 Project(float depth, Vector2 worldPosition)
                 {
                     var eye = BackdropEye(originMap, backdropScale, false, depth);
+                    SetBeamRise(eye, depth);
                     eye.GetViewMatrix(out var matrix, viewport.RenderScale);
                     var local = Vector2.Transform(worldPosition, matrix) * EyeManager.PixelsPerMeter;
                     return (Vector2) viewport.Size / 2 + new Vector2(local.X, -local.Y);

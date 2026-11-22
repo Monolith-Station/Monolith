@@ -34,12 +34,12 @@ public partial class ShuttleNavControl
 
         handle.DrawCircle(starPos, starRadius, starSystem.StarSystem.Star.Color.WithAlpha(0.5f));
 
-        var bodies = new Dictionary<int, EntityUid>();
+        var bodies = new Dictionary<int, Entity<PlanetBodyComponent>>();
         var query = EntManager.AllEntityQueryEnumerator<PlanetBodyComponent>();
         while (query.MoveNext(out var uid, out var body))
         {
             if (body.StarSystemMap == mapUid)
-                bodies[body.Index] = uid;
+                bodies[body.Index] = (uid, body);
         }
 
         EntityUid? chargingPlanet = null;
@@ -58,12 +58,12 @@ public partial class ShuttleNavControl
 
         for (var i = 0; i < starSystem.StarSystem.Planets.Count; i++)
         {
-            var planet = starSystem.StarSystem.Planets[i];
-            if (!bodies.TryGetValue(i, out var body))
+            if (!bodies.TryGetValue(i, out var planetBody))
                 continue;
 
+            var body = planetBody.Owner;
             var planetPos = Vector2.Transform(_transform.GetWorldPosition(body), worldToView);
-            var planetRadius = Planet.NAV_PIXEL_SIZE * planet.Radius * planet.BodyScale * viewScale;
+            var planetRadius = planetBody.Comp.ApproachRadius * viewScale;
             handle.DrawCircle(planetPos, planetRadius, Color.Gray.WithAlpha(0.5f));
 
             var hitRadius = MathF.Max(planetRadius, 6f * UIScale);
@@ -72,11 +72,11 @@ public partial class ShuttleNavControl
                 EntManager.TryGetComponent<TransformComponent>(shuttleCoordinates.EntityId, out var shuttleXform) &&
                 shuttleXform.GridUid is { } shuttleGrid &&
                 EntManager.TryGetComponent<TransformComponent>(body, out var planetXform) &&
-                shuttleXform.MapUid == planetXform.MapUid &&
-                EntManager.TryGetComponent<PlanetBodyComponent>(body, out var planetBody))
+                shuttleXform.MapUid == planetXform.MapUid)
             {
                 var distance = _transform.GetWorldPosition(shuttleGrid) - _transform.GetWorldPosition(body);
-                inRange = distance.LengthSquared() <= planetBody.ApproachRadius * planetBody.ApproachRadius;
+                var radius = planetBody.Comp.ApproachRadius;
+                inRange = distance.LengthSquared() <= radius * radius;
             }
 
             _planetHitboxes.Add((body, planetPos / UIScale, hitRadius / UIScale, inRange));

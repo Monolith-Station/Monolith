@@ -1,0 +1,90 @@
+<hellpods:CEHellpodConsoleWindow xmlns="https://spacestation14.io"
+                                xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                                xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+                                xmlns:hellpods="clr-namespace:Content.Client._CE.Planets.Hellpods"
+                                SetSize="790 570"
+                                Resizable="False"
+                                MouseFilter="Stop">
+    <PanelContainer Name="Chassis">
+        <PanelContainer.PanelOverride>
+            <gfx:StyleBoxFlat />
+        </PanelContainer.PanelOverride>
+        <BoxContainer Orientation="Vertical" Margin="2">
+            <PanelContainer Name="Header">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#353535" />
+                </PanelContainer.PanelOverride>
+                <BoxContainer MinHeight="34" Margin="10 0 4 0">
+                    <Label Text="{Loc 'ce-hellpod-console-title'}" StyleClasses="ConsoleHeading" HorizontalExpand="True" />
+                    <Button Name="CloseButton" Text="X" MinWidth="30">
+                        <Button.StyleBoxOverride>
+                            <gfx:StyleBoxFlat BackgroundColor="#00000000" />
+                        </Button.StyleBoxOverride>
+                    </Button>
+                </BoxContainer>
+            </PanelContainer>
+            <BoxContainer VerticalExpand="True" SeparationOverride="10" Margin="10 10 10 0">
+                <BoxContainer Name="SiloColumn" Orientation="Vertical" SetWidth="172" SeparationOverride="6">
+                    <Label Name="SiloLabel" StyleClasses="ConsoleSubHeading" />
+                    <Label Text="{Loc 'ce-hellpod-console-materials'}" StyleClasses="ConsoleText" />
+                    <ScrollContainer MaxHeight="140" HScrollEnabled="False" ReturnMeasure="True">
+                        <BoxContainer Name="MaterialRows" Orientation="Vertical" SeparationOverride="3" />
+                    </ScrollContainer>
+                    <Control MinHeight="12" />
+                    <Label Name="RadiusLabel" StyleClasses="ConsoleText" />
+                    <BoxContainer SeparationOverride="4">
+                        <controls:MonotoneButton Name="SmallerButton" Text="-" />
+                        <controls:MonotoneButton Name="LargerButton" Text="+" />
+                    </BoxContainer>
+                </BoxContainer>
+                <BoxContainer Orientation="Vertical" HorizontalExpand="True" SeparationOverride="5">
+                    <Label Name="PlanetLabel" StyleClasses="ConsoleSubHeading"
+                           HorizontalAlignment="Center" ClipText="True" />
+                    <PanelContainer Name="ChartFrame" VerticalExpand="True">
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BorderThickness="1" />
+                        </PanelContainer.PanelOverride>
+                        <hellpods:CEHellpodChart Name="TargetChart" Margin="1" />
+                    </PanelContainer>
+                    <BoxContainer Name="AltitudeControls" HorizontalAlignment="Center" SeparationOverride="6">
+                        <Label Name="AltitudeLabel" StyleClasses="ConsoleText" />
+                        <controls:MonotoneButton Name="DescendButton" Text="-" />
+                        <controls:MonotoneButton Name="AscendButton" Text="+" />
+                    </BoxContainer>
+                    <Label Name="TargetLabel" StyleClasses="ConsoleText" HorizontalAlignment="Center" />
+                </BoxContainer>
+                <BoxContainer Orientation="Vertical" SetWidth="172" SeparationOverride="8">
+                    <BoxContainer Name="ProblemsPanel" Orientation="Vertical" SeparationOverride="6" Visible="False">
+                        <Label Text="{Loc 'ce-hellpod-console-problems'}" StyleClasses="ConsoleText" FontColorOverride="#ff9a36" />
+                        <Label Name="NoTargetWarning" Text="{Loc 'ce-hellpod-console-no-target'}" StyleClasses="ConsoleSubHeading" FontColorOverride="#ffda55" Visible="False" />
+                        <Label Name="NoSiloWarning" Text="{Loc 'ce-hellpod-console-no-silo'}" StyleClasses="ConsoleSubHeading" FontColorOverride="#ffda55" Visible="False" />
+                        <Label Name="UnfundedWarning" Text="{Loc 'ce-hellpod-console-unfunded'}" StyleClasses="ConsoleSubHeading" FontColorOverride="#ffda55" Visible="False" />
+                        <BoxContainer Name="PlanetShieldWarning" Orientation="Vertical" Visible="False">
+                            <Label Text="{Loc 'ce-hellpod-console-planet-shield'}" StyleClasses="ConsoleSubHeading" FontColorOverride="#ffda55" />
+                            <Label Text="{Loc 'ce-hellpod-console-planet-shield-detail'}" StyleClasses="ConsoleText" FontColorOverride="#ffda55" />
+                        </BoxContainer>
+                        <BoxContainer Name="RadialShieldWarning" Orientation="Vertical" Visible="False">
+                            <Label Name="RadialShieldHeading" StyleClasses="ConsoleSubHeading" FontColorOverride="#ffda55" />
+                            <Label Text="{Loc 'ce-hellpod-console-radial-shield-detail'}" StyleClasses="ConsoleText" FontColorOverride="#ffda55" />
+                        </BoxContainer>
+                        <BoxContainer Name="HullWarning" Orientation="Vertical" Visible="False">
+                            <Label Text="{Loc 'ce-hellpod-console-hull'}" StyleClasses="ConsoleSubHeading" FontColorOverride="#ffda55" />
+                        </BoxContainer>
+                    </BoxContainer>
+                    <Label Name="IntegrityLabel" StyleClasses="ConsoleSubHeading" />
+                </BoxContainer>
+            </BoxContainer>
+            <BoxContainer Name="LaunchControls" Orientation="Vertical" SeparationOverride="4" Margin="10 8 10 8">
+                <Control SetSize="430 22" HorizontalAlignment="Center">
+                    <Label Name="StageLabel" StyleClasses="ConsoleText" Margin="6 0" Align="Center" VerticalAlignment="Center" ClipText="True" />
+                </Control>
+                <Control Name="LaunchButtonArea" SetWidth="430" MinHeight="48" HorizontalAlignment="Center">
+                    <controls:MonotoneButton Name="ConfirmButton" />
+                </Control>
+            </BoxContainer>
+            <Control Name="Footer">
+                <Label Text="{Loc 'ce-hellpod-console-footer'}" StyleClasses="ConsoleText" Margin="10 5" />
+            </Control>
+        </BoxContainer>
+    </PanelContainer>
+</hellpods:CEHellpodConsoleWindow>

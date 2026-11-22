@@ -201,6 +201,7 @@ public sealed partial class CEShieldGeneratorSystem : EntitySystem
             return;
         }
 
+        ent.Comp.ChargeSoundStream = _audio.Stop(ent.Comp.ChargeSoundStream);
         _audio.PlayPvs(ent.Comp.FireSound, ent);
         _beam.Start(ent);
         SetStage(ent, CEShieldGeneratorStage.Active);

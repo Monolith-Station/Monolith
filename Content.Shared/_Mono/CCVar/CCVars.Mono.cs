@@ -14,6 +14,9 @@ public sealed partial class MonoCVars
     public static readonly CVarDef<int> RadarTerrainWorkers =
         CVarDef.Create("mono.radar.terrain_workers", 8, CVar.CLIENTONLY | CVar.ARCHIVE);
 
+    public static readonly CVarDef<float> HellpodRicochetPercent =
+        CVarDef.Create("mono.hellpod.ricochet_percent", 1f, CVar.SERVERONLY);
+
     #region Cleanup
 
     /// <summary>

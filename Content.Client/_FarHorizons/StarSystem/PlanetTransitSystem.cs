@@ -112,6 +112,29 @@ public sealed partial class PlanetTransitSystem : SharedPlanetTransitSystem
         return false;
     }
 
+    internal (int Index, float Progress) GetPlanetApproach(EntityUid systemMap)
+    {
+        if (_player.LocalEntity is not { } player ||
+            !TryComp<TransformComponent>(player, out var xform) ||
+            xform.GridUid is not { } grid ||
+            !TryGetTransit(grid, out var transit) ||
+            !TryComp<PlanetBodyComponent>(transit.Planet, out var body) ||
+            body.StarSystemMap != systemMap)
+            return (-1, 0f);
+
+        var duration = transit.PhaseEnd - transit.PhaseStart;
+        var progress = duration <= TimeSpan.Zero
+            ? 1f
+            : Math.Clamp((float) ((_timing.CurTime - transit.PhaseStart) / duration), 0f, 1f);
+
+        return (transit.Direction, transit.Phase) switch
+        {
+            (PlanetTransitDirection.Descent, PlanetTransitPhase.Departing) => (body.Index, progress),
+            (PlanetTransitDirection.Ascent, PlanetTransitPhase.Arriving) => (body.Index, 1f - progress),
+            _ => (-1, 0f),
+        };
+    }
+
     public bool TryGetFailure(EntityUid grid, out PlanetTransitFailureComponent failure)
     {
         if (TryComp<PlanetTransitFailureComponent>(grid, out var component))

@@ -84,6 +84,7 @@ public sealed partial class StarSystemMapSystem : SharedStarSystemMapSystem
                 body.Index = i;
                 body.Radius = planet.Radius;
                 body.BodyScale = planet.BodyScale;
+                body.ApproachRadius = planet.ApproachRadius;
                 body.ParentBody = planet.ParentIndex is { } parentIndex ? spawnedBodies[parentIndex] : null;
 
                 var planetProto = _protoMan.Index(planet.Type);

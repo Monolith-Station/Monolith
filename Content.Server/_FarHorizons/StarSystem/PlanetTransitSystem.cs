@@ -473,7 +473,7 @@ public sealed partial class PlanetTransitSystem : SharedPlanetTransitSystem
         }
 
         var center = _transform.GetWorldPosition(ent.Comp.Planet);
-        var target = PickPoint(center, planet.ApproachRadius);
+        var target = PickPoint(center, planet.OrbitalExitRadius);
         if (!_zLevels.TryRecenterDetachedTransit(grid, target))
             return false;
 

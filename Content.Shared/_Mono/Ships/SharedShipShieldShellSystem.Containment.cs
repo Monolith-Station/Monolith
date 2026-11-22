@@ -302,6 +302,11 @@ public sealed partial class SharedShipShieldShellSystem
                 {
                     var contact = new ShipShieldSurfaceContactEvent(surfaceHit, Transform(uid).MapID, false, mover, Warning: true);
                     RaiseLocalEvent(uid, ref contact);
+                    if (_net.IsServer)
+                    {
+                        var crossing = new ShipShieldCrossedEvent(uid);
+                        RaiseLocalEvent(mover, ref crossing);
+                    }
                 }
                 nearestHit = to;
             }
@@ -585,6 +590,9 @@ public sealed partial class SharedShipShieldShellSystem
 [ByRefEvent]
 public readonly record struct ShipShieldSurfaceContactEvent(Vector3 Point, MapId Map, bool Pushing,
     EntityUid? Source = null, float? BodyImpactSpeed = null, bool Warning = false);
+
+[ByRefEvent]
+public readonly record struct ShipShieldCrossedEvent(EntityUid Shield);
 
 [ByRefEvent]
 public readonly record struct ShipShieldHitscanImpactEvent(Vector2 Point, MapId Map, float Altitude, EntityUid Shot, DamageSpecifier Damage);
