@@ -30,7 +30,7 @@
         - Bronco
       components:
       - type: StationNameSetup
-        mapNameTemplate: 'BRONCOSAURUS CSEC{1}'
+        mapNameTemplate: 'Broncosaurus CSEC{1}'
         nameGenerator:
           !type:NanotrasenNameGenerator
           prefixCreator: '14'
