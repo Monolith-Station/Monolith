@@ -178,6 +178,7 @@ public sealed partial class ShipSensorsSystem : EntitySystem
         Dirty(gridUid, rangeMul);
 
         var newContacts = new Dictionary<NetEntity, SensorContact>();
+        var locallySensed = new HashSet<NetEntity>();
 
         var otherEnum = EntityQueryEnumerator<MapGridComponent, TransformComponent>();
         while (otherEnum.MoveNext(out var otherUid, out var otherGrid, out var otherXform))
@@ -283,6 +284,7 @@ public sealed partial class ShipSensorsSystem : EntitySystem
                 LastSeen = now,
                 Designation = MetaData(otherUid).EntityName
             };
+            locallySensed.Add(netOther);
         }
 
         ApplyOmniMultipliers(rangeMul, sensors, hardware);
@@ -297,6 +299,7 @@ public sealed partial class ShipSensorsSystem : EntitySystem
         }
 
         sensors.Contacts = newContacts;
+        sensors.LocallySensed = locallySensed;
         Dirty(gridUid, sensors);
     }
 
@@ -462,8 +465,7 @@ public sealed partial class ShipSensorsSystem : EntitySystem
             }
         }
 
-        // Sensor modes that mean "we saw this with our own hardware".
-        const SensorContactFlags LocalSensorMask =
+        const SensorContactFlags localSensorMask =
             SensorContactFlags.ActiveRadar
             | SensorContactFlags.PassiveRadar
             | SensorContactFlags.Infrared
@@ -477,22 +479,35 @@ public sealed partial class ShipSensorsSystem : EntitySystem
             var union = new Dictionary<NetEntity, SensorContact>();
             foreach (var (_, comp) in members)
             {
-                foreach (var (net, contact) in comp.Contacts)
+                foreach (var net in comp.LocallySensed)
                 {
+                    if (!comp.Contacts.TryGetValue(net, out var contact))
+                        continue;
+
+                    if ((contact.Flags & localSensorMask) == 0)
+                        continue;
+
+                    var export = contact with
+                    {
+                        Flags = contact.Flags & localSensorMask,
+                        LastSeen = now,
+                    };
+
                     if (union.TryGetValue(net, out var existing))
                     {
                         union[net] = existing with
                         {
-                            Level = BestLevel(existing.Level, contact.Level),
+                            Level = BestLevel(existing.Level, export.Level),
+                            Flags = existing.Flags | export.Flags,
                             LastSeen = now,
-                            WorldPosition = contact.WorldPosition,
-                            Designation = contact.Designation ?? existing.Designation,
-                            Range = contact.Range,
+                            WorldPosition = export.WorldPosition,
+                            Designation = export.Designation ?? existing.Designation,
+                            Range = export.Range,
                         };
                     }
                     else
                     {
-                        union[net] = contact with { LastSeen = now };
+                        union[net] = export;
                     }
                 }
             }
@@ -508,6 +523,23 @@ public sealed partial class ShipSensorsSystem : EntitySystem
                     if (net == selfNet)
                         continue;
 
+                    if (comp.LocallySensed.Contains(net))
+                    {
+                        if (!comp.Contacts.TryGetValue(net, out var own))
+                            continue;
+
+                        var tagged = own with
+                        {
+                            Flags = (own.Flags & localSensorMask) | SensorContactFlags.Datalink,
+                        };
+                        if (tagged != own)
+                        {
+                            comp.Contacts[net] = tagged;
+                            changed = true;
+                        }
+                        continue;
+                    }
+
                     var targetPos = contact.WorldPosition;
                     if (TryGetEntity(net, out var targetUid))
                         targetPos = _xform.GetWorldPosition(targetUid.Value);
@@ -516,13 +548,11 @@ public sealed partial class ShipSensorsSystem : EntitySystem
 
                     if (comp.Contacts.TryGetValue(net, out var existing))
                     {
-                        var localBits = existing.Flags & LocalSensorMask;
-                        var mergedFlags = localBits | SensorContactFlags.Datalink;
-
+                        var localBits = existing.Flags & localSensorMask;
                         var merged = existing with
                         {
                             Level = BestLevel(existing.Level, contact.Level),
-                            Flags = mergedFlags,
+                            Flags = localBits | SensorContactFlags.Datalink,
                             LastSeen = now,
                             WorldPosition = targetPos,
                             Range = range,

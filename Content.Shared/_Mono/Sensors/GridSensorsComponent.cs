@@ -29,6 +29,12 @@ public sealed partial class GridSensorsComponent : Component
     [DataField]
     public TimeSpan ContactStaleTime = TimeSpan.FromSeconds(8);
 
+    /// <summary>
+    /// contacts detected excluding datalink, since like, feedback loop
+    /// </summary>
+    [NonSerialized]
+    public HashSet<NetEntity> LocallySensed = new();
+
     [DataField, AutoNetworkedField]
     public HashSet<string> DatalinkCodes = new();
 
