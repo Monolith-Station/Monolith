@@ -57,9 +57,11 @@ public sealed class SensorsArcDisplay : Control
 
         foreach (var c in contacts)
         {
-            var threshold = c.IsDatalink ? 6.0 : 2.0;
+            var datalinkOnly = c.IsDatalink
+                               || string.Equals(c.Sources, "DL", StringComparison.OrdinalIgnoreCase);
+            var threshold = datalinkOnly ? 6.0 : 2.0;
             var stale = (now - c.LastSeen).TotalSeconds > threshold;
-            _contacts.Add((c.BearingDegrees, c.IsDatalink, stale));
+            _contacts.Add((c.BearingDegrees, datalinkOnly, stale));
         }
     }
 

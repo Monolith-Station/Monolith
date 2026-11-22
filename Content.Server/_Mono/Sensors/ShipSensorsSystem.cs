@@ -440,6 +440,7 @@ public sealed partial class ShipSensorsSystem : EntitySystem
 
     private void PropagateDatalinks()
     {
+        var now = _timing.CurTime;
         var byCode = new Dictionary<string, List<(EntityUid Uid, GridSensorsComponent Comp)>>();
 
         var q = EntityQueryEnumerator<GridSensorsComponent>();
@@ -456,26 +457,44 @@ public sealed partial class ShipSensorsSystem : EntitySystem
                     list = new List<(EntityUid, GridSensorsComponent)>();
                     byCode[key] = list;
                 }
+
                 list.Add((uid, comp));
             }
         }
+
+        // Sensor modes that mean "we saw this with our own hardware".
+        const SensorContactFlags LocalSensorMask =
+            SensorContactFlags.ActiveRadar
+            | SensorContactFlags.PassiveRadar
+            | SensorContactFlags.Infrared
+            | SensorContactFlags.Visual;
 
         foreach (var (_, members) in byCode)
         {
             if (members.Count < 2)
                 continue;
 
-            var snapshots = new List<(EntityUid Uid, Dictionary<NetEntity, SensorContact> Contacts)>();
-            foreach (var (uid, comp) in members)
+            var union = new Dictionary<NetEntity, SensorContact>();
+            foreach (var (_, comp) in members)
             {
-                var local = new Dictionary<NetEntity, SensorContact>();
-                foreach (var (net, c) in comp.Contacts)
+                foreach (var (net, contact) in comp.Contacts)
                 {
-                    if ((c.Flags & ~SensorContactFlags.Datalink) != 0 ||
-                        (c.Flags & SensorContactFlags.Datalink) == 0)
-                        local[net] = c;
+                    if (union.TryGetValue(net, out var existing))
+                    {
+                        union[net] = existing with
+                        {
+                            Level = BestLevel(existing.Level, contact.Level),
+                            LastSeen = now,
+                            WorldPosition = contact.WorldPosition,
+                            Designation = contact.Designation ?? existing.Designation,
+                            Range = contact.Range,
+                        };
+                    }
+                    else
+                    {
+                        union[net] = contact with { LastSeen = now };
+                    }
                 }
-                snapshots.Add((uid, local));
             }
 
             foreach (var (uid, comp) in members)
@@ -484,53 +503,48 @@ public sealed partial class ShipSensorsSystem : EntitySystem
                 var selfNet = GetNetEntity(uid);
                 var ourPos = _xform.GetWorldPosition(uid);
 
-                foreach (var (srcUid, srcContacts) in snapshots)
+                foreach (var (net, contact) in union)
                 {
-                    if (srcUid == uid)
+                    if (net == selfNet)
                         continue;
 
-                    foreach (var (net, contact) in srcContacts)
+                    var targetPos = contact.WorldPosition;
+                    if (TryGetEntity(net, out var targetUid))
+                        targetPos = _xform.GetWorldPosition(targetUid.Value);
+
+                    var range = (targetPos - ourPos).Length();
+
+                    if (comp.Contacts.TryGetValue(net, out var existing))
                     {
-                        if (net == selfNet)
-                            continue;
+                        var localBits = existing.Flags & LocalSensorMask;
+                        var mergedFlags = localBits | SensorContactFlags.Datalink;
 
-                        var targetPos = contact.WorldPosition;
-                        if (TryGetEntity(net, out var targetUid))
-                            targetPos = _xform.GetWorldPosition(targetUid.Value);
-
-                        var range = (targetPos - ourPos).Length();
-
-                        var incoming = contact with
+                        var merged = existing with
                         {
-                            Flags = contact.Flags | SensorContactFlags.Datalink,
+                            Level = BestLevel(existing.Level, contact.Level),
+                            Flags = mergedFlags,
+                            LastSeen = now,
+                            WorldPosition = targetPos,
+                            Range = range,
+                            Designation = contact.Designation ?? existing.Designation,
+                        };
+
+                        if (merged != existing)
+                        {
+                            comp.Contacts[net] = merged;
+                            changed = true;
+                        }
+                    }
+                    else
+                    {
+                        comp.Contacts[net] = contact with
+                        {
+                            Flags = SensorContactFlags.Datalink,
+                            LastSeen = now,
                             WorldPosition = targetPos,
                             Range = range,
                         };
-
-                        if (comp.Contacts.TryGetValue(net, out var existing))
-                        {
-                            var hasLocal = (existing.Flags & ~SensorContactFlags.Datalink) != 0;
-                            var merged = existing with
-                            {
-                                Level = BestLevel(existing.Level, incoming.Level),
-                                Flags = existing.Flags | incoming.Flags,
-                                LastSeen = hasLocal ? existing.LastSeen : incoming.LastSeen,
-                                WorldPosition = hasLocal ? existing.WorldPosition : targetPos,
-                                Range = hasLocal ? existing.Range : range,
-                                Designation = incoming.Designation ?? existing.Designation,
-                            };
-
-                            if (merged != existing)
-                            {
-                                comp.Contacts[net] = merged;
-                                changed = true;
-                            }
-                        }
-                        else
-                        {
-                            comp.Contacts[net] = incoming;
-                            changed = true;
-                        }
+                        changed = true;
                     }
                 }
 
