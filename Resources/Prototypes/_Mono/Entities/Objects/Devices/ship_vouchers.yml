@@ -202,6 +202,30 @@
     vessels:
     - Luda
 
+- type: entity
+  parent: BaseShipLPCRenewable
+  id: ShipVoucherFlyssa
+  name: TSFN Flyssa LPC [T4]
+  description: A small card that authorizes the procurement of a TSFN Flyssa-class destroyer.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/lpcnew.rsi
+    layers:
+    - state: icon_capital
+    - state: screen
+      color: "#05ffff"
+    - state: screen4
+      color: "#05ffff"
+      shader: unshaded
+  - type: Item
+    heldPrefix: tsf
+  - type: ShipyardVoucher
+    destroyOnEmpty: false
+    companyName: TSF
+    cooldown: 14400 # two hour
+    vessels:
+    - Flyssa
+
 # TSF Fujian Fighters
 
 - type: entity
@@ -258,6 +282,7 @@
     - Kresta
     - Kynda
     - Tethys
+    - Eris
 
 - type: entity
   parent: BaseShipLPCRenewable
