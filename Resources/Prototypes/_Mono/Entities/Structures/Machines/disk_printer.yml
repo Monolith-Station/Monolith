@@ -196,10 +196,10 @@
       color: red
   - type: RandomSpawner
     prototypes:
-    #- TechDiskBluespaceBags
+    - TechDiskBluespaceBags
     - TechDiskTranslationPreFracture
     chance: 0.95
     offset: 0.0
     rarePrototypes:
-    - TechDiskTranslationPreFracture # TechDiskSpeedBoots
+    - TechDiskSpeedBoots
     rareChance: 0.0

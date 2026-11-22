@@ -199,8 +199,8 @@
   id: SpawnLootTechDisksT3FractureTrunk
   table: !type:GroupSelector
     children:
-    #- id: TechDiskSpeedBoots
-    #- id: TechDiskBluespaceBags
+    - id: TechDiskSpeedBoots
+    - id: TechDiskBluespaceBags
     - id: TechDiskShields
     - id: TechDiskFtl
     - id: TechDiskTranslationPreFracture
