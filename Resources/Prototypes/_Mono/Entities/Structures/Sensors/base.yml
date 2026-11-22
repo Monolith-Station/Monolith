@@ -1,0 +1,30 @@
+- type: entity
+  parent: BaseGreeble
+  id: BaseSensor
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    offset: 0,1
+    sprite: _Mono/Structures/Decoration/Greeble/32x32.rsi
+    layers:
+    - state: elint1
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+  - type: ShipRepairable
+    repairTime: 15
+    repairCost: 150
+  - type: ApcPowerReceiver
+    powerLoad: 5000
+  - type: ExtensionCableReceiver
+    receptionRange: 7

@@ -1,0 +1,53 @@
+- type: entity
+  parent: BaseSensor
+  id: SensorPassiveRadarTSF
+  name: DianCi-492
+  description: The standard EM suite used across TSFN & TSFMC ships. Capable of identifying range, bearing, and output of detectable active radars.
+  suffix: TSF, passive radar
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: ShipSensor
+    sensorType: PassiveRadar
+    sensitivity: 200
+    arcDegrees: 360
+    powerDraw: 200
+    powerDrawActive: 1000
+  - type: ApcPowerReceiver
+    powerLoad: 200
+  - type: Sprite
+    offset: 0,-1
+    rotation: 270
+    sprite: _Mono/Structures/Sensors/passive_radar.rsi
+    layers:
+    - state: tsf
+
+- type: entity
+  parent: SensorPassiveRadarTSF
+  id: SensorPassiveRadarPDV
+  name: SPO-63/AK-M
+  description: An EM suite produced and exported in absurd amounts by USSP manufacturers, and used by both the PDV and USSP for their ships. Capable of identifying range, bearing, and output of detectable active radars.
+  suffix: PDV/USSP, passive radar
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    offset: 0,-1
+    rotation: 270
+    layers:
+    - state: pdv
+
+- type: entity
+  parent: SensorPassiveRadarTSF
+  id: SensorPassiveRadarCiv
+  name: AN/Sp-39
+  description: An EM suite produced by basically everyone. Capable of identifying range, bearing, and output of detectable active radars.
+  suffix: Generic/Civ, passive radar
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    offset: 0,-1
+    rotation: 90
+    layers:
+    - state: civ

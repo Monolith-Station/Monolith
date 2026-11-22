@@ -1,0 +1,48 @@
+- type: entity
+  parent: BaseSensor
+  id: SensorInfraredTSF
+  name: Yu-5K11
+  description: An IRST module commonly found on TSFN/TSFMC ships. Capable of identifying range, and bearing of thermal signatures.
+  suffix: TSF, infrared
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: ShipSensor
+    sensorType: Infrared
+    sensitivity: 200
+    arcDegrees: 360
+    powerDraw: 200
+    powerDrawActive: 3000
+  - type: ApcPowerReceiver
+    powerLoad: 200
+  - type: Sprite
+    offset: 0,1
+    sprite: _Mono/Structures/Sensors/infrared.rsi
+    layers:
+    - state: tsf
+
+- type: entity
+  parent: SensorInfraredTSF
+  id: SensorInfraredPDV
+  name: KOLS-4
+  description: An IRST module produced and exported in absurd amounts by USSP manufacturers, and used by both the PDV and USSP for their ships. Capable of identifying range, and bearing of thermal signatures.
+  suffix: PDV/USSP, infrared
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    layers:
+    - state: pdv
+
+- type: entity
+  parent: SensorInfraredTSF
+  id: SensorInfraredCiv
+  name: AN/AAA-9
+  description: An IRST module produced by basically everyone. Capable of identifying range, and bearing of thermal signatures.
+  suffix: Generic/Civ, infrared
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    layers:
+    - state: civ

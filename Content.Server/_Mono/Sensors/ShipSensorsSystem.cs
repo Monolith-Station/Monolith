@@ -648,16 +648,14 @@ public sealed partial class ShipSensorsSystem : EntitySystem
 
     private void UpdateSensorPowerLoad(Entity<ShipSensorComponent> ent)
     {
-        if (!_powerQuery.TryGetComponent(ent, out var receiver))
+        if (!_powerQuery.TryGetComponent(ent, out var reciever))
             return;
 
         if (!ent.Comp.Enabled)
-        {
-            receiver.Load = 0f;
-            return;
-        }
+            _power.SetLoad(reciever, 0);
 
-        receiver.Load = ent.Comp.ActiveMode ? ent.Comp.PowerDrawActive : ent.Comp.PowerDraw;
+        var newLoad = ent.Comp.ActiveMode ? ent.Comp.PowerDrawActive : ent.Comp.PowerDraw;
+            _power.SetLoad(reciever, newLoad);
     }
 
     private bool IsSensorPowered(EntityUid uid)

@@ -44,7 +44,7 @@ public sealed partial class ShipSensorComponent : Component
     public float ActiveThermalSignature;
 
     [DataField, AutoNetworkedField]
-    public bool Enabled = true;
+    public bool Enabled;
 
     /// <summary>
     /// if radars are in passive/active, or if jammers are on/off
