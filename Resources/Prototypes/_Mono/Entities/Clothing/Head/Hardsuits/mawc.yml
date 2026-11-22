@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ClothingHeadHardsuitBase , ShowMedicalIcons , ShowSecurityIcons]
+  parent: [ClothingHeadHardsuitBase, ShowMedicalIcons, ShowSecurityIcons, MonoEnergyShieldClothing]
   id: ClothingHelmetHardsuitMAWCWidowmaker
   name: M-WC E-767 Widowmaker helmet
   description: Its heavy, almost unwieldy, but damn does it have one hell of an EWAR kit. Comes with an onboard AI managing your shield! And all the other good sensors the Weaver had. No, the AI isnt chatty, Get a pAI instead.
@@ -16,6 +16,32 @@
         Slash: 0.8
         Piercing: 0.8
   - type: FlashImmunity
+  - type: PersonalShield
+    shield:
+      requiredSlot: HEAD
+      maxCharge: 65
+      spinupTime: 2
+    visuals:
+      color: "#ffc759"
+      brightness: 1.15
+      pixelGrid: 128
+      hexDensity: 3
+      scale: 2.5
+      coreFade: 0.65
+      fillLevel: 0.22
+      lineLevel: 0.75
+      rimLevel: 1
+      alphaBands: 4
+      breathDepth: 0.04
+      shardScale: 3
+  - type: ShieldLinkSource
+    linkId: MAWC
+    shieldBonusPerLink: 35
+  - type: ClothingSpeedModifier
+    walkModifier: 0.7
+    sprintModifier: 0.7
+  - type: ItemToggle
+    predictable: false
   - type: NightVision # Gen 4 wide
     relayOverlay: true
     goggleEffect: true
