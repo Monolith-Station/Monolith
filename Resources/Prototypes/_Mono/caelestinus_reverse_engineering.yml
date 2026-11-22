@@ -20,10 +20,6 @@
   name: gadget
 
 - type: reverseEngineeringCategory
-  id: HighTechMachineBoard # things like MS-250/500. this category gives itself once maxed out so set progressvalue to 0 always
-  name: high-tech shield machine board
-
-- type: reverseEngineeringCategory
   id: EncryptionKeyTsf
   name: TSFMC encryption key
 
