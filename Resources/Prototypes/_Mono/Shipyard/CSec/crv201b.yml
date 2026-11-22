@@ -33,7 +33,7 @@
         - CRV201Ballistic
       components:
       - type: StationNameSetup
-        mapNameTemplate: 'HUGINN CSEC{1}'
+        mapNameTemplate: 'Huginn CSEC{1}'
         nameGenerator:
           !type:NanotrasenNameGenerator
           prefixCreator: '14'
