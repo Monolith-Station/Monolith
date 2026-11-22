@@ -49,6 +49,7 @@
   id: SnakeLargeTail
   bodyPart: Tail
   markingCategory: Tail
+  companion: SnakeLargeTailAnimated # Mono
   speciesRestriction: [Reptilian]
   sprites:
     - sprite: _White/Mobs/Customization/reptilian_64x32.rsi
@@ -60,7 +61,8 @@
   id: SnakeLargeTailAnimated
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: []
+  companion: SnakeLargeTail # Mono
+  speciesRestriction: [Reptilian] # Mono
   sprites:
     - sprite: _White/Mobs/Customization/reptilian_64x32.rsi
       state: snake_large_wagging
