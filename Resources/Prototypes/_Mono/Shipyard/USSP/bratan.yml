@@ -32,7 +32,7 @@
         - Bratan
       components:
       - type: StationNameSetup
-        mapNameTemplate: 'BRATAN USSP{1}'
+        mapNameTemplate: 'Bratan USSP{1}'
         nameGenerator:
           !type:NanotrasenNameGenerator
           prefixCreator: '14'
