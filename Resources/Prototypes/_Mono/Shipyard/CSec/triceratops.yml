@@ -28,7 +28,7 @@
       stationProto: StandardFrontierVessel
       components:
       - type: StationNameSetup
-        mapNameTemplate: 'TRICERATOPS CSEC{1}'
+        mapNameTemplate: 'Triceratops CSEC{1}'
         nameGenerator:
           !type:NanotrasenNameGenerator
           prefixCreator: '14'
