@@ -48,9 +48,6 @@
       layers:
         - state: crypt_blue
         - state: pirate_label
-    - type: ReverseEngineerable # Mono
-      category: EncryptionKeyPdv
-      progressValue: 5
 
 # Overseer variant w/ no TSFMC or TSF command radio key
 
