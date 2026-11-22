@@ -37,6 +37,9 @@
       helmetattachment: ClothingHeadHelmetAttachmentBlock
   - type: StaminaDamageResistance
     coefficient: 0.40
+  - type: ReverseEngineerable
+    category: CombatHardsuit
+    progressValue: 45
 
 - type: entity
   parent: [ ClothingOuterHardsuitBaseNoPlateholder, MonoEnergyShieldClothing, BaseC3SyndicateContrabandT3 ]
@@ -133,6 +136,9 @@
       helmetattachment: ClothingHeadHelmetAttachmentBlock
   - type: StaminaDamageResistance
     coefficient: 0.8
+  - type: ReverseEngineerable
+    category: CombatHardsuit
+    progressValue: 15
 
 - type: entity
   parent: [ ClothingOuterHardsuitBase, BaseC3SyndicateContraband ]
@@ -173,6 +179,9 @@
       helmetattachment: ClothingHeadHelmetAttachmentBlock
   - type: StaminaDamageResistance
     coefficient: 0.7
+  - type: ReverseEngineerable
+    category: CombatHardsuit
+    progressValue: 15
 
 - type: entity
   parent: [ ClothingOuterHardsuitBase, BaseC3SyndicateContrabandT3 ]

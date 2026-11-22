@@ -60,6 +60,9 @@
       RadioEconomy2:
         amount: 1
         defaultPrototype: RadioEconomy2
+  - type: ReverseEngineerable # Mono
+    category: HighTechMachineBoard
+    progressValue: 0
 
 - type: entity
   id: MachineShieldMS500Circuitboard
@@ -93,3 +96,6 @@
       RadioEconomy2:
         amount: 1
         defaultPrototype: RadioEconomy2
+  - type: ReverseEngineerable # Mono
+    category: HighTechMachineBoard
+    progressValue: 0

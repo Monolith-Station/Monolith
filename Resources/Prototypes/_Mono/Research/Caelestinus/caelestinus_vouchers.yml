@@ -1,0 +1,12 @@
+- type: technology
+  id: CaelestinusArchon
+  name: research-technology-caelestinus-archon
+  entityIcon: ShipVoucherCaelestinusArchon
+  discipline: Caelestinus
+  tier: 3
+  cost: 1200000
+  recipeUnlocks:
+  - ShipVoucherCaelestinusArchonRecipe
+  technologyPrerequisites:
+  - UniversalMaterialResearchT3
+  position: 2, -30

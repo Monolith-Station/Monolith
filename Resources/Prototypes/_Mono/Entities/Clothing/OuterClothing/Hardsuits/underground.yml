@@ -69,3 +69,6 @@
     id: ClothingOuterHardsuitTacsuit
   - type: StaminaDamageResistance
     coefficient: 0.6
+  - type: ReverseEngineerable
+    category: CombatHardsuit
+    progressValue: 30

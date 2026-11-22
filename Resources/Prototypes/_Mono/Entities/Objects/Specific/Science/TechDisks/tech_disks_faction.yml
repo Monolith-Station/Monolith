@@ -3,8 +3,8 @@
 - type: entity
   parent: TechDiskBase
   id: TechDiskEnergyWeapons
-  name: pre-fracture energy weapon faction tech disk
-  description: A disk capable of adding energy weapons and shields to a server's recipes, for faction techfabs.
+  name: caelestinus melee energy weapon faction tech disk
+  description: A disk capable of adding energy swords and shields to a server's recipes, for faction techfabs.
   components:
   - type: Sprite
     layers:
@@ -19,6 +19,7 @@
     recipes:
     - EnergySwordRogue
     - EnergyDaggerRogue
+    - EnergyShieldCaelestinus
     - HeavyBallisticShield
     - TelescopicShield
 
@@ -126,6 +127,155 @@
     - Magazine556x45mmFMJ
     - Magazine556x45mmEmpty
     - AmmoBox556x45mmFMJ
+
+# caelestinus stuff
+
+- type: entity
+  parent: TechDiskBase
+  id: TechDiskCaelestinusIroh
+  name: caelestinus "Iroh" faction tech disk
+  description: A disk capable of adding the FG.J "Iroh" to a server's recipes, for faction techfabs.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      map: ["enum.DamageStateVisualLayers.Base"]
+      color: "#454545"
+    - state: label
+    - state: protect
+    - state: gun
+  - type: TechnologyDisk
+    recipes:
+    - WeaponRifleIrohCaelestinus
+
+- type: entity
+  parent: TechDiskBase
+  id: TechDiskCaelestinusJackdaw
+  name: caelestinus "Jackdaw" faction tech disk
+  description: A disk capable of adding the CAWS-25 "Jackdaw" and its ammo to a server's recipes, for faction techfabs.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      map: ["enum.DamageStateVisualLayers.Base"]
+      color: "#454545"
+    - state: label
+    - state: protect
+    - state: gun
+  - type: TechnologyDisk
+    recipes:
+    - WeaponRifleJackdawCaelestinus
+    - Magazine635x40mmCaseless
+
+- type: entity
+  parent: TechDiskBase
+  id: TechDiskCaelestinusJackdawBoxMagazine
+  name: caelestinus "Jackdaw" LMG conversion faction tech disk
+  description: A disk capable of adding the extended magazines of the CAWS-25 "Jackdaw" to a server's recipes, for faction techfabs.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      map: ["enum.DamageStateVisualLayers.Base"]
+      color: "#454545"
+    - state: label
+    - state: protect
+    - state: gun
+  - type: TechnologyDisk
+    recipes:
+    - Magazine635x40mmCaselessBigCaelestinus
+
+- type: entity
+  parent: TechDiskBase
+  id: TechDiskCaelestinusLondon
+  name: caelestinus "London" faction tech disk
+  description: A disk capable of adding the CAWS-35 "London" to a server's recipes, for faction techfabs.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      map: ["enum.DamageStateVisualLayers.Base"]
+      color: "#d4d4d4"
+    - state: label
+    - state: protect
+    - state: holo
+      shader: unshaded
+  - type: TechnologyDisk
+    recipes:
+    - EnergyDaggerLondonCaelestinus
+
+- type: entity
+  parent: TechDiskBase
+  id: TechDiskCaelestinusLawbringer
+  name: caelestinus "Lawbringer" faction tech disk
+  description: A disk capable of adding the DT-12 "Lawbringer" to a server's recipes, for faction techfabs.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      map: ["enum.DamageStateVisualLayers.Base"]
+      color: "#d4d4d4"
+    - state: label
+    - state: protect
+    - state: holo
+      shader: unshaded
+  - type: TechnologyDisk
+    recipes:
+    - WeaponEnergyGunLawbringerCaelestinus
+
+- type: entity
+  parent: TechDiskBase
+  id: TechDiskCaelestinusBootsTrauma
+  name: caelestinus ATU boots faction tech disk
+  description: A disk capable of adding ATU boots to a server's recipes, for faction techfabs.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      map: ["enum.DamageStateVisualLayers.Base"]
+      color: "#d4d4d4"
+    - state: label
+    - state: protect
+    - state: med
+  - type: TechnologyDisk
+    recipes:
+    - ClothingShoesBootsMagVoidTraumaCaelestinus
+
+- type: entity
+  parent: TechDiskBase
+  id: TechDiskCaelestinusThaumaturge
+  name: caelestinus "Thaumaturge" faction tech disk
+  description: A disk capable of adding the T-23 "Thaumaturge" to a server's recipes, for faction techfabs.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      map: ["enum.DamageStateVisualLayers.Base"]
+      color: "#d4d4d4"
+    - state: label
+    - state: protect
+    - state: med
+  - type: TechnologyDisk
+    recipes:
+    - ClothingOuterHardsuitTraumaCaelestinus
+
+- type: entity
+  parent: TechDiskBase
+  id: TechDiskCaelestinusAdjudicator
+  name: caelestinus "Adjudicator" faction tech disk
+  description: A disk capable of adding the CSW-25 "Adjudicator" to a server's recipes, for faction techfabs.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      map: ["enum.DamageStateVisualLayers.Base"]
+      color: "#454545"
+    - state: label
+    - state: protect
+    - state: sec
+  - type: TechnologyDisk
+    recipes:
+    - ClothingOuterHardsuitWardenCaelestinus
 
 # universal stuff
 

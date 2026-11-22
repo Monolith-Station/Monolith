@@ -741,6 +741,9 @@
     - WhitelistChameleon
   - type: StaminaDamageResistance # Mono - Stamres
     coefficient: 0.5
+  - type: ReverseEngineerable # Mono
+    category: CombatHardsuit
+    progressValue: 45
 
 # Syndicate Medic Hardsuit
 - type: entity
@@ -824,6 +827,9 @@
       head: ClothingHeadHelmetHardsuitSyndieElite
       helmetcover: ClothingHeadHelmetCoverBlock
       helmetattachment: ClothingHeadHelmetAttachmentBlock
+  - type: ReverseEngineerable # Mono
+    category: CombatHardsuit
+    progressValue: 45
 
 #Syndicate Commander Hardsuit
 - type: entity
@@ -910,6 +916,10 @@
   - type: FootstepModifier # Mono
     footstepSoundCollection:
       path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
+  - type: ReverseEngineerable # Mono
+    category: CombatHardsuit
+    value: 2
+    progressValue: 90
 
 #Wizard Hardsuit
 - type: entity

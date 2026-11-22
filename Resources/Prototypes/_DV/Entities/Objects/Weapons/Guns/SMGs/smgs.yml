@@ -54,3 +54,7 @@
 - type: entity
   parent: [WeaponSubMachineGunTypewriterBase, BaseC3SyndicateContraband]
   id: WeaponSubMachineGunTypewriter
+  components: # Mono: reverse-engineerable
+  - type: ReverseEngineerable
+    category: BallisticWeapon
+    progressValue: 30

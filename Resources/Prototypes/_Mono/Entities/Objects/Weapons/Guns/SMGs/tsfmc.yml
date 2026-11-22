@@ -135,3 +135,7 @@
     price: 525
   - type: PirateBountyItem # Mono
     id: StandardFactionLongarm
+  - type: ReverseEngineerable
+    category: BallisticWeapon
+    progressValue: 15
+    originCompany: TSF

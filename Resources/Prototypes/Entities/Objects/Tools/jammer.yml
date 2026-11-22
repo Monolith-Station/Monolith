@@ -51,6 +51,10 @@
           Low: {state: jammer_low_charge}
           Medium: {state: jammer_medium_charge}
           High: {state: jammer_high_charge}
+  - type: ReverseEngineerable # Mono
+    category: FactionTool
+    progressValue: 15
+    originCompany: PDV
 
 - type: entity
   parent: RadioJammer

@@ -69,3 +69,7 @@
   - type: EyeCursorOffset
     maxOffset: 12
     pvsIncrease: 1.5
+  - type: ReverseEngineerable # Mono
+    category: EnergyWeapon
+    progressValue: 90
+    originCompany: PDV

@@ -149,6 +149,10 @@
   - type: Appearance
   - type: StaticPrice
     price: 500
+  - type: ReverseEngineerable # Mono
+    category: BallisticWeapon
+    progressValue: 45
+    originCompany: PDV
 
 - type: entity
   name: double-barreled shotgun (12 gauge)
@@ -213,6 +217,10 @@
 #    id: Enforcer # Frontier - Mono
   - type: PirateBountyItem # Mono
     id: StandardFactionLongarm
+  - type: ReverseEngineerable # Mono
+    category: BallisticWeapon
+    progressValue: 15
+    originCompany: TSF
 
 - type: entity
   parent: WeaponShotgunEnforcer

@@ -5,3 +5,4 @@ research-technology-caelestinus-gear-basic = Caelestinus Armored Hardsuits
 research-technology-caelestinus-gear-advanced = Caelestinus Advanced Hardsuits
 research-technology-caelestinus-super-weaponry = Caelestinus Special Armament
 research-technology-caelestinus-jackdaw-box-magazine = "Jackdaw" LMG Conversion
+research-technology-caelestinus-archon = Flagship "Archon"

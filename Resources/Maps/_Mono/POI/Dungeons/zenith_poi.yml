@@ -5,7 +5,7 @@ meta:
   forkId: ""
   forkVersion: ""
   time: 08/25/2026 22:04:21
-  entityCount: 656
+  entityCount: 654
 maps: []
 grids:
 - 1
@@ -2796,20 +2796,6 @@ entities:
       canCollide: False
     - type: Fixtures
       fixtures: {}
-- proto: TechDiskFtl
-  entities:
-  - uid: 440
-    components:
-    - type: Transform
-      pos: -0.20697188,-0.14015603
-      parent: 1
-- proto: TechDiskShields
-  entities:
-  - uid: 441
-    components:
-    - type: Transform
-      pos: -1.441217,-0.46731663
-      parent: 1
 - proto: ThrusterSecurity
   entities:
   - uid: 442

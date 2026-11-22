@@ -301,6 +301,10 @@
     zeroVisible: true
   - type: Appearance
   - type: GunRequiresWield
+  - type: ReverseEngineerable
+    category: BallisticWeapon
+    progressValue: 15
+    originCompany: PDV
 
 - type: entity
   name: PA M-90 (7.62x51mm)
@@ -463,6 +467,10 @@
     zeroVisible: true
   - type: Appearance
   - type: GunRequiresWield
+  - type: ReverseEngineerable
+    category: BallisticWeapon
+    progressValue: 45
+    originCompany: PDV
 
 - type: entity
   name: CS Burner (12.7x99mm)
@@ -530,3 +538,7 @@
     pvsIncrease: 0.7
   - type: Appearance
   - type: GunRequiresWield
+  - type: ReverseEngineerable
+    category: BallisticWeapon
+    progressValue: 90
+    originCompany: PDV

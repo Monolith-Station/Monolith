@@ -8,6 +8,10 @@
     colorOptions:
       - "#bfdaff" # Mono
     blockHacking: true
+  - type: ReverseEngineerable # Mono
+    category: MeleeWeapon
+    progressValue: 30
+    originCompany: TSF
 
 - type: entity
   id: NFEnergyPickaxe

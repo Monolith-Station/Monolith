@@ -76,6 +76,11 @@
   - type: Tag  # Mono
     tags:
     - VT7
+  - type: ReverseEngineerable
+    category: MeleeWeapon
+    progressValue: 60
+    value: 2
+    originCompany: PDV
 
 - type: entity
   name: VT-7 HF blade "Murasama"
@@ -309,6 +314,9 @@
     doAfterDuration: 4.0
   - type: UseDelay
     delay: 1
+  - type: ReverseEngineerable
+    category: MeleeWeapon
+    progressValue: 30
 
 # Vizier's sword
 
@@ -364,3 +372,28 @@
     tags:
     - Shamshir
     - SafetyDepositBlacklist
+
+- type: entity
+  parent: EnergyDaggerLoud
+  id: EnergyDaggerLondon
+  name: CAWS-35 "London" energy switchblade
+  description: An energy dagger modified and wielded by Caelestinus, featuring a trigger which repeatedly stabs a target when held down. Developed to stand up to CQC weapons. Can be used alongside another "London" for twice the efficiency.
+  components:
+  - type: MeleeWeapon
+    attackRate: 3
+    autoAttack: true
+    animation: WeaponArcThrust
+    angle: 0
+  - type: Multihit
+    multihitWhitelist:
+      tags:
+      - EnergyDaggerLondon
+    multihitDelay: 0.16
+    damageMultiplier: 1 # fuck it.
+  - type: ItemToggleMeleeWeapon
+    activatedDamage:
+      types:
+        Slash: 35
+  - type: Tag
+    tags:
+    - EnergyDaggerLondon

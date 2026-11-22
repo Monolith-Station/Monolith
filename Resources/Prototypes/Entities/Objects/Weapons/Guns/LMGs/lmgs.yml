@@ -128,6 +128,11 @@
   - type: Gun # Mono change - Sound for L6 saw
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/l6_fire.ogg
+  - type: ReverseEngineerable # Mono
+    category: BallisticWeapon
+    progressValue: 90
+    value: 2
+    originCompany: PDV
 
 - type: entity
   name: PA L6C ROW (7.62x39mm)

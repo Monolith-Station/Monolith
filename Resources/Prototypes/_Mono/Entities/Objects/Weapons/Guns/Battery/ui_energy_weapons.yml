@@ -37,6 +37,9 @@
   - type: HitscanBatteryAmmoProvider
     proto: UllmanPulse
     fireCost: 100
+  - type: ReverseEngineerable # Mono
+    category: EnergyWeapon
+    progressValue: 45
 
 - type: entity
   parent: [ BaseWeaponBattery, BaseGunWieldable ]
@@ -89,6 +92,9 @@
     rsi:
       sprite: _RMC14/Interface/MousePointer/smartgun_mouse.rsi
       state: all
+  - type: ReverseEngineerable # Mono
+    category: EnergyWeapon
+    progressValue: 75
 
 - type: entity
   parent: [ BaseWeaponBattery, BaseGunWieldable ]
@@ -143,3 +149,6 @@
   - type: SpeedModifiedOnWield
     walkModifier: 0.4
     sprintModifier: 0.35
+  - type: ReverseEngineerable # Mono
+    category: EnergyWeapon
+    progressValue: 90

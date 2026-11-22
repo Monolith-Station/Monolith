@@ -1,0 +1,41 @@
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: BaseCaelestinusArchonActivator
+  name: caelestinus flagship "Archon" activation chip
+  description: The beginning of the end.
+  components:
+  - type: Item
+    size: Small
+    sprite: _Mono/Objects/Devices/caelestinus_activator.rsi
+  - type: Sprite
+    sprite: _Mono/Objects/Devices/caelestinus_activator.rsi
+    layers: 
+    - state: activator
+
+- type: entity
+  parent: BaseCaelestinusArchonActivator
+  id: CaelestinusArchonActivatorAlpha
+  name: caelestinus flagship "Archon" activation chip ALPHA
+  suffix: Spawns on Overseer # clarity
+  description: A small chip containing a checksum required for the validation of the Archon-class flagship. Serves as the Overseer's personal seal of approval on going ahead with its construction.
+  components:
+  - type: Sprite
+    layers: 
+    - state: activator
+    - state: alpha
+      shader: unshaded
+
+- type: entity
+  parent: BaseCaelestinusArchonActivator
+  id: CaelestinusArchonActivatorOmega
+  name: caelestinus flagship "Archon" activation chip OMEGA
+  suffix: Reverse-Engineered # clarity
+  description: A small chip containing the culmination of Caelestinus' reverse-engineering efforts, containing the data necessary to construct a blueprint of the Archon-class flagship.
+  components:
+  - type: Sprite
+    layers: 
+    - state: activator
+    - state: omega
+      shader: unshaded
+

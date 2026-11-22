@@ -462,6 +462,10 @@
     - type: ClothingSpeedModifier # Mono
       sprintModifier: 0.9
     - type: HeldSpeedModifier
+    - type: ReverseEngineerable # Mono
+      category: MeleeWeapon
+      progressValue: 45
+      originCompany: PDV
 
 - type: entity
   name: broken energy shield

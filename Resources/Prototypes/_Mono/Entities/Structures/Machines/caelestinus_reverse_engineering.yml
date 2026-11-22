@@ -1,0 +1,52 @@
+- type: entity
+  parent: [ BaseStructureDisableToolUse, BaseStructureIndestructible, BaseMachine ]
+  id: VendingMachineCaelestinusReverseEngineering
+  name: caelestinus reverse engineering station
+  description: A machine which is capable of deconstructing several notable military items to investigate their inner workings. Eventually spits out tech disks of new and improved blueprints created as a result.
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/rndpointsource.rsi
+    layers:
+    - state: rndpointsource-off
+    - state: rndpointsource
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+  - type: PointLight
+    radius: 1.5
+    energy: 1.3
+    color: "#1b8b2a"
+  - type: ReverseEngineeringStation
+    progressTree: 
+      BallisticWeapon:
+        1: TechDiskCaelestinusIroh
+        4: TechDiskCaelestinusJackdaw
+        5: TechDiskCaelestinusJackdawBoxMagazine
+      EnergyWeapon:
+        3: TechDiskCaelestinusLawbringer
+      MeleeWeapon:
+        2: TechDiskEnergyWeapons
+        4: TechDiskCaelestinusLondon
+      CombatHardsuit:
+        1: TechDiskCaelestinusThaumaturge
+        3: TechDiskCaelestinusAdjudicator
+      FactionTool:
+        2: TechDiskCaelestinusBootsTrauma
+        7: TechDiskSpeedBoots
+        10: TechDiskBluespaceBags
+      HighTechMachineBoard:
+        1: TechDiskFtl
+        3: TechDiskShields
+      EncryptionKeyTsf:
+        7: SolCommonTranslator
+        12: SolCommonTranslator
+        15: SolCommonTranslator
+      EncryptionKeyPdv:
+        5: AsherTranslator
+        8: AsherTranslator
+        10: AsherTranslator
+      EncryptionKeyUnderground:
+        5: UndergroundCodespeakTranslator
+        8: UndergroundCodespeakTranslator
+        10: UndergroundCodespeakTranslator
+    totalProgressTree: 
+      750: CaelestinusArchonActivatorOmega

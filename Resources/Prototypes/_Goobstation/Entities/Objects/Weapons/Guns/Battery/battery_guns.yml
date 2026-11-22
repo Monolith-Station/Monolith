@@ -63,6 +63,10 @@
     autoRechargeRate: 75 # Mono - 75 < 35
   - type: PirateBountyItem # Mono
     id: TSFLaserWeapon
+  - type: ReverseEngineerable # Mono
+    category: EnergyWeapon
+    progressValue: 35
+    originCompany: TSF
 
 - type: entity
   name: DT-12 "Lawbringer"

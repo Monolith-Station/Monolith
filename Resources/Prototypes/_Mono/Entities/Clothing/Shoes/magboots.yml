@@ -45,6 +45,10 @@
     state: icon
   - type: Clothing
     sprite: _Mono/Clothing/Shoes/Boots/magboots-ashen.rsi
+  - type: ReverseEngineerable # Mono
+    category: FactionTool
+    progressValue: 15
+    originCompany: PDV
 
 - type: entity
   parent: [ ClothingShoesBootsMagAdv, BaseFactionGearPDVT2, BaseJetpack ]
@@ -71,6 +75,10 @@
       moles:
       - 0.153853429 # oxygen
       - 0.153853429 # nitrogen
+  - type: ReverseEngineerable # Mono
+    category: FactionTool
+    progressValue: 90
+    originCompany: PDV
 
 - type: entity
   parent: [ClothingShoesBootsMagBase]

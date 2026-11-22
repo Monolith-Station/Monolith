@@ -67,6 +67,10 @@
     vendPrice: 9000
   - type: PirateBountyItem
     id: ExperimentalFactionWeapon
+  - type: ReverseEngineerable
+    category: BallisticWeapon
+    progressValue: 90
+    originCompany: TSF
 
 - type: entity
   name: TCA QBZ-410 Lecter (6.8x52mm Caseless)
@@ -235,6 +239,10 @@
     price: 750
   - type: PirateBountyItem
     id: StandardFactionLongarm
+  - type: ReverseEngineerable
+    category: BallisticWeapon
+    progressValue: 15
+    originCompany: TSF
 
 - type: entity
   name: TCA QBZ-430 Annie (7.62x39mm)
@@ -396,6 +404,10 @@
   - type: PirateBountyItem
     id: ExperimentalFactionWeapon
   - type: GunRequiresWield
+  - type: ReverseEngineerable
+    category: BallisticWeapon
+    progressValue: 45
+    originCompany: TSF
 
 # The Riversong, a bullpup ified lecter thing, fits in bag.
 
@@ -557,6 +569,10 @@
     price: 1750
   - type: PirateBountyItem
     id: StandardFactionLongarm
+  - type: ReverseEngineerable
+    category: BallisticWeapon
+    progressValue: 45
+    originCompany: TSF
 
 # The Bigger Riversong, Dragonfang, Think of the old M-90 but one handed. Also goes in bag.
 
@@ -718,3 +734,7 @@
     price: 2500
   - type: PirateBountyItem
     id: StandardFactionLongarm
+  - type: ReverseEngineerable
+    category: BallisticWeapon
+    progressValue: 45
+    originCompany: TSF

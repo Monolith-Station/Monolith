@@ -717,3 +717,20 @@
     Plastic: 900
   entities:
     MonolithicCrystalSmall: 2 # T3.
+
+- type: latheRecipe
+  id: WeaponEnergyGunLawbringerCaelestinus
+  parent: BaseWeaponRecipe
+  completetime: 5
+  categories:
+  - Weapons
+  - Energy
+  - Sidearms
+  result: WeaponEnergyGunLawbringer
+  materials:
+    Steel: 1500
+    Plastic: 2000
+    Silver: 500
+    Gold: 500
+    UraniumFissile: 50
+    Plasma: 500

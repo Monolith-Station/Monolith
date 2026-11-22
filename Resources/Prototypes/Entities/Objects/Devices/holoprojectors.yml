@@ -127,6 +127,10 @@
         - HolofanProjector
     - type: StaticPrice
       price: 130
+    - type: ReverseEngineerable # Mono
+      category: FactionTool
+      progressValue: 60
+      originCompany: TSF
 
 - type: entity
   parent: HoloprojectorField

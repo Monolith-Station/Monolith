@@ -92,7 +92,7 @@
     - id: TechDiskRogueToolsAdvanced
     - id: TechDiskTSFICWS
     - id: TechDiskTSFAnnie
-    - id: TechDiskEnergyWeapons
+  # - id: TechDiskEnergyWeapons
     - id: TechDiskBulldog
     - id: TechDiskHristov
     - id: SpawnLootTechDisksT3Fracture
@@ -199,8 +199,8 @@
   id: SpawnLootTechDisksT3FractureTrunk
   table: !type:GroupSelector
     children:
-    - id: TechDiskSpeedBoots
-    - id: TechDiskBluespaceBags
-    - id: TechDiskShields
-    - id: TechDiskFtl
+    #- id: TechDiskSpeedBoots
+    #- id: TechDiskBluespaceBags
+    #- id: TechDiskShields
+    #- id: TechDiskFtl
     - id: TechDiskTranslationPreFracture

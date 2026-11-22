@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Created by supergdpwyl (Discord) for Monolith. In-hand sprites are by _starch_ (Discord) for Monolith and modified by supergdpwyl.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "activator"
+    },
+    {
+      "name": "alpha"
+    },
+    {
+      "name": "omega"
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    }
+  ]
+}

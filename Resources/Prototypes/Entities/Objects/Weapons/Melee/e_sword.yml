@@ -123,6 +123,10 @@
       types:
         Slash: 50
         Structural: 100
+  - type: ReverseEngineerable # Mono
+    category: MeleeWeapon
+    progressValue: 30
+    originCompany: PDV
 
 - type: entity
   name: energy dagger

@@ -12,6 +12,10 @@
   - type: Item
     sprite: Objects/Tools/emag.rsi
     storedRotation: -90
+  - type: ReverseEngineerable # Mono
+    category: FactionTool
+    progressValue: 30
+    originCompany: PDV
 
 - type: entity
   parent: EmagUnlimited

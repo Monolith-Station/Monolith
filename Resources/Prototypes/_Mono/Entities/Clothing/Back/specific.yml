@@ -93,6 +93,11 @@
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Back/Backpacks/tarkhan.rsi
+  - type: ReverseEngineerable # Mono
+    category: FactionTool
+    progressValue: 30
+    value: 3
+    originCompany: PDV
 
 # Jackhammer
 

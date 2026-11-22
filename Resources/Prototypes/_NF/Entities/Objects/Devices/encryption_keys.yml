@@ -36,6 +36,9 @@
     - state: nfsd_label
   - type: PirateBountyItem # Mono
     id: EncryptionKeyFaction
+  - type: ReverseEngineerable # Mono
+    category: EncryptionKeyTsf
+    progressValue: 5
 
 - type: entity
   parent: EncryptionKey

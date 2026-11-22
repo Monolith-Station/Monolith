@@ -36,3 +36,40 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsMieyo ]
+
+# Caelestinus
+- type: entity
+  id: AirlockShuttleCaelestinusCapital
+  parent: AirlockShuttleNfsd
+  suffix: CAPITAL ONLY, Caelestinus, Docking
+  components:
+  - type: Destructible # Mono - buff docking port health
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 7000 # Almost equal to plastitanium. It doesnt make sense. It just works.
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      # TODO this should go to the broken node first
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+
+- type: entity
+  id: AirlockGlassShuttleCaelestinusCapital
+  parent: AirlockGlassShuttleNfsd
+  suffix: CAPITAL ONLY, Caelestinus, Glass, Docking
+  components:
+  - type: Destructible # Mono - buff docking port shealth
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 7000 # Almost equal to plastitanium. It doesnt make sense. It just works.
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      # TODO this should go to the broken node first
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam

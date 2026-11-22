@@ -104,6 +104,9 @@
     - state: com_label
   - type: PirateBountyItem # Mono
     id: EncryptionKeyFaction
+  - type: ReverseEngineerable # Mono
+    category: EncryptionKeyTsf
+    progressValue: 5
 
 - type: entity
   parent: [EncryptionKey, RecyclableItemDeviceTiny]
@@ -232,6 +235,9 @@
     layers:
     - state: crypt_red
     - state: synd_label
+  - type: ReverseEngineerable # Mono
+    category: EncryptionKeyUnderground
+    progressValue: 15
 
 #- type: entity
 #  parent: [EncryptionKey, RecyclableItemDeviceTiny]
@@ -278,3 +284,6 @@
       layers:
         - state: crypt_rusted
         - state: pirate_label
+    - type: ReverseEngineerable # Mono
+      category: EncryptionKeyPdv
+      progressValue: 10

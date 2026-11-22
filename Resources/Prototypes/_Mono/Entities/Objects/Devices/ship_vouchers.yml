@@ -773,3 +773,26 @@
     companyName: Colonial
     vessels:
     - Petra
+
+# Start Supercapital
+- type: entity
+  parent: BaseShipLPCOneUse
+  id: ShipVoucherCaelestinusArchon
+  name: caelestinus "Archon" LPC [FLAGSHIP]
+  description: For the people.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/lpcnew.rsi
+    layers:
+    - state: icon_capital
+    - state: screen
+      color: "#9c2f2f"
+    - state: screen4
+      color: "#c43a3a"
+      shader: unshaded
+  - type: ShipyardVoucher
+    destroyOnEmpty: false
+    cooldown: 10800 # 3 hours
+    companyName: Colonial
+    vessels:
+    - Archon

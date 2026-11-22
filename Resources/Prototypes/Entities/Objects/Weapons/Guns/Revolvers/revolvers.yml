@@ -150,6 +150,10 @@
     damageModifier: 1.2
   - type: StaticPrice
     price: 1
+  - type: ReverseEngineerable # Mono
+    category: BallisticWeapon
+    progressValue: 10
+    originCompany: PDV
 
 # Mono: Gatfruit revolver variant, little FMC worth
 - type: entity
