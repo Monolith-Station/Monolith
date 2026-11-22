@@ -17,6 +17,7 @@ using Content.Shared.Research.Prototypes;
 using Content.Shared.Stacks;
 using Content.Shared.Storage.Components;
 using Content.Shared.Storage.EntitySystems;
+using Content.Shared.Tag;
 using Content.Shared.Tools.Components;
 using Content.Shared.Wires;
 using JetBrains.Annotations;
@@ -39,6 +40,7 @@ public abstract partial class SharedLatheSystem : EntitySystem
     [Dependency] private EmagSystem _emag = default!;
     [Dependency] private SharedContainerSystem _container = default!;
     [Dependency] private SharedSolutionContainerSystem _solution = default!;
+    [Dependency] private TagSystem _tag = default!; // Mono
     [Dependency] protected EntityQuery<StackComponent> _stackQuery = default!;
 
     public readonly Dictionary<string, List<LatheRecipePrototype>> InverseRecipes = new();
@@ -284,6 +286,7 @@ public abstract partial class SharedLatheSystem : EntitySystem
         SharedEntityStorageComponent? storage = null;
 
         if (HasComp<ToolComponent>(inserting) ||
+            _tag.HasTag(inserting, "PartExchanger") ||
             !_storage.ResolveStorage(ent, ref storage)) // Don't insert tools.
             return;
 
