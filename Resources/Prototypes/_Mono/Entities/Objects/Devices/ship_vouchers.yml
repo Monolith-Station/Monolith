@@ -790,6 +790,9 @@
     - state: screen4
       color: "#c43a3a"
       shader: unshaded
+  - type: GuideHelp
+    guides:
+    - Caelestinus_Archon
   - type: ShipyardVoucher
     destroyOnEmpty: false
     cooldown: 10800 # 3 hours

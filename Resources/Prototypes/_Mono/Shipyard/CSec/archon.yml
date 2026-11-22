@@ -11,20 +11,20 @@
   access: Caelestinus
   mapchecker_group_override: Security
   shuttlePath: /SharedMaps/_Mono/Shuttles/CSec/archon.yml
-  guidebookPage: Null
+  guidebookPage: Caelestinus_Archon
   class:
   - Patrol
-  - Corvette
   - Brawler
   - Destroyer
   - EarlyWarning
-  - Capital
   engine:
   - AME
+  gameRuleOnPurchase: FlagshipArchonAnnouncementFiveToSixMinutes
   addComponents:
   - type: IFF
     readOnly: true # no hiding
     color: "#37946e"
+  
 
 - type: gameMap
   id: Archon

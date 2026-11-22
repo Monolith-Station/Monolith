@@ -146,6 +146,12 @@ public sealed partial class VesselPrototype : IPrototype, IInheritingPrototype
     /// </summary>
     [DataField]
     public List<string> Company = new();
+
+    /// <summary>
+    /// Game rule to run when this vessel is purchased.
+    /// </summary>
+    [DataField]
+    public EntProtoId? GameRuleOnPurchase;
 }
 
 public enum VesselSize : byte

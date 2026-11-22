@@ -1,0 +1,17 @@
+- type: entity
+  id: FlagshipArchonAnnouncementFiveToSixMinutes
+  components:
+  - type: GameRule
+    delay:
+      min: 300
+      max: 360
+  - type: BlankRule
+  - type: StationEvent
+    earliestStart: 0
+    endAnnouncement: gamerule-supercapital-in-sector-announcement
+    announceSender: gamerule-supercapital-announcement-sender
+    endAnnouncementColor: crimson
+    endAudio:
+      path: /Audio/Announcements/bloblarm.ogg
+      params:
+        volume: -2

@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 277.0.5
+  engineVersion: 277.0.6
   forkId: ""
   forkVersion: ""
-  time: 11/09/2026 01:28:52
-  entityCount: 10158
+  time: 11/22/2026 12:49:39
+  entityCount: 10159
 maps:
 - 1
 grids:
@@ -335,11 +335,11 @@ entities:
     - type: ThermalSignature
     - type: SpreaderGrid
       spreadQueues:
+        Smoke: []
         MetalFoam: []
         ESTileFire: []
-        Smoke: []
-        Kudzu: []
         Puddle: []
+        Kudzu: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: ImplicitRoof
@@ -21646,6 +21646,13 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -15.5,-0.5
+      parent: 2
+- proto: CaelestinusReverseEngineeringStation
+  entities:
+  - uid: 8626
+    components:
+    - type: Transform
+      pos: -10.5,37.5
       parent: 2
 - proto: Candle
   entities:

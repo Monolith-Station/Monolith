@@ -465,7 +465,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
             );
         }
 
-        var purchaseEv = new ShipyardShuttlePurchaseEvent(shuttleUid, player); // Mono: half of this shit could be an event.
+        var purchaseEv = new ShipyardShuttlePurchaseEvent(shuttleUid, player, args.Vessel); // Mono: half of this shit could be an event.
         RaiseLocalEvent(purchaseEv);
         RefreshState(shipyardConsoleUid, bank.Balance, cashBalance, true, name, sellValue, targetId, (ShipyardConsoleUiKey)args.UiKey, voucherUsed); // Mono
     }
