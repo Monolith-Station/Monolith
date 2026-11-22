@@ -51,7 +51,7 @@ public sealed partial class HeatAmmoProviderSystem : EntitySystem
             var fraction = heat.MaxHeat > 0 ? Math.Clamp(heat.Heat / heat.MaxHeat, 0f, 1f) : 0f;
             var rate = heat.HeatDissipation * Math.Max(0f, 1f + heat.HeatDissipationFactor * fraction);
             heat.Heat = Math.Max(0f, heat.Heat - rate * frameTime);
-            Dirty(uid);
+            Dirty(uid, heat);
         }
     }
 
