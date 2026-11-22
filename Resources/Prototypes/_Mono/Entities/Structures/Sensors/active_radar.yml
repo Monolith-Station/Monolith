@@ -27,7 +27,7 @@
 - type: entity
   parent: SensorRadarTSF
   id: SensorRadarPDV
-  name: KOLS-4 Grisha
+  name: KOLS-4 Orekh
   description: A simple AESA design for light ships manufactured in the USSP. Designed for ease of maintenance and addition onto preexisting hulls.
   suffix: PDV/USSP, T1, active radar
   placement:
@@ -88,7 +88,7 @@
 - type: entity
   parent: SensorRadarTSFT2
   id: SensorRadarPDVT2
-  name: KOLS-8 Udaloy
+  name: KOLS-8 Fregat-PMM
   description: A high-powered AESA design for light ships manufactured in the USSP. Designed for ease of maintenance and addition onto preexisting hulls.
   suffix: PDV/USSP, T2, active radar
   placement:
@@ -135,7 +135,8 @@
 
 - type: entity
   parent: BaseSensor
-  id: SensorRadarTSFT3
+  id: BaseSensorRadarTSFT3
+  abstract: true
   name: Type-940 BeiDou
   description: An extremely high-powered radar for TSF vessels. Can practically detect the entire sector, but has an insane power draw.
   suffix: TSF, T3, active radar
@@ -145,7 +146,7 @@
   - type: ShipSensor
     sensorType: ActiveRadar
     sensitivity: 1454
-    arcDegrees: 360
+    arcDegrees: 120
     powerDraw: 3500
     powerDrawActive: 50000
   - type: ApcPowerReceiver
@@ -159,7 +160,8 @@
 
 - type: entity
   parent: SensorRadarTSFT3
-  id: SensorRadarPDVT3
+  id: BaseSensorRadarPDVT3
+  abstract: true
   name: P-300 Mainstay
   description: An extremely high-powered radar manufactured in the USSP and exported to the PDV. Can practically detect the entire sector, but has an insane power draw.
   suffix: PDV/USSP, T3, active radar
@@ -169,7 +171,7 @@
   - type: ShipSensor
     sensorType: ActiveRadar
     sensitivity: 1400
-    arcDegrees: 360
+    arcDegrees: 120
     powerDraw: 3500
     powerDrawActive: 47000
   - type: ApcPowerReceiver
