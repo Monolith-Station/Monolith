@@ -11,6 +11,7 @@ gunnery-emcon-sensors = HARDWARE
 gunnery-emcon-contacts = CONTACTS
 gunnery-emcon-datalink = DATALINK
 gunnery-emcon-datalink-placeholder = CODES (seperate with spaces)
+gunnery-emcon-search-placeholder = SEARCH TRACK.ID
 
 gunnery-emcon-sensor-info-emitter = {$name} ({$type}) - OUTPUT:{ POWERWATTS($output) }
 gunnery-emcon-sensor-info-passive = {$name} ({$type}) - SENS:{$sensitivity}

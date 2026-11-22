@@ -7,8 +7,9 @@ namespace Content.Client._Mono.Sensors.UI;
 
 public sealed class SensorsArcDisplay : Control
 {
-    private readonly List<(float CenterDeg, float WidthDeg, Color Color)> _arcs = new();
-    private readonly List<float> _contactBearings = new();
+    private readonly List<(float CenterDeg, float WidthDeg, Color Color)> _arcs = [];
+    private readonly List<float> _contactBearings = [];
+    private readonly List<(float Bearing, bool Stale, bool Datalink)> _contacts = [];
 
     public SensorsArcDisplay()
     {
@@ -21,6 +22,7 @@ public sealed class SensorsArcDisplay : Control
         IEnumerable<SensorHardwareDto> hardware,
         IEnumerable<SensorContactDto> contacts,
         float gridWorldRotationDegrees,
+        TimeSpan curTime,
         IReadOnlyDictionary<NetEntity, float>? predictedOffsets = null)
     {
         _arcs.Clear();
@@ -52,9 +54,11 @@ public sealed class SensorsArcDisplay : Control
             _arcs.Add((displayCenter, h.ArcDegrees, color));
         }
 
+        _contacts.Clear();
         foreach (var c in contacts)
         {
-            _contactBearings.Add(c.BearingDegrees);
+            var stale = (curTime - c.LastSeen).TotalSeconds > 2.0;
+            _contacts.Add((c.BearingDegrees, stale, c.IsDatalink));
         }
     }
 
@@ -92,10 +96,21 @@ public sealed class SensorsArcDisplay : Control
             DrawCone(handle, center, arcRadius, centerDeg, widthDeg, color);
         }
 
-        foreach (var bearing in _contactBearings)
+        foreach (var (bearing, stale, datalink) in _contacts)
         {
             var dir = BearingToScreen(bearing);
-            handle.DrawLine(center, center + dir * radius, Color.Lime.WithAlpha(0.85f));
+            var color = stale ? Color.Red.WithAlpha(0.9f) : Color.Lime.WithAlpha(0.85f);
+
+            if (datalink)
+            {
+                var outer = radius;
+                var inner = radius * 0.9f;
+                handle.DrawLine(center + dir * inner, center + dir * outer, color);
+            }
+            else
+            {
+                handle.DrawLine(center, center + dir * radius, color);
+            }
         }
 
         handle.DrawCircle(center, 3f, Color.Lime, filled: true);

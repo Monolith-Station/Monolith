@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server._Mono.Detection;
 using Content.Server._Mono.Radar;
@@ -12,6 +13,8 @@ using Content.Shared.Shuttles.BUIStates;
 using Content.Shared.Shuttles.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Physics;
+using Robust.Shared.Physics.Components;
 using Robust.Shared.Timing;
 
 namespace Content.Server._Mono.Sensors;
@@ -58,6 +61,26 @@ public sealed partial class ShipSensorsSystem : EntitySystem
         {
             subs.Event<BoundUIOpenedEvent>(OnUIOpened);
             subs.Event<SensorsToggleHardwareMessage>(OnToggleHardware);
+        });
+
+        Subs.BuiEvents<RadarConsoleComponent>(RadarConsoleUiKey.Key,
+            subs =>
+        {
+            subs.Event<SensorsSetEmconMessage>((uid, _, args) =>
+            {
+                if (TrySetEmcon(uid, args))
+                    RaiseLocalEvent(uid, new SensorsConsoleRefreshEvent());
+            });
+            subs.Event<SensorsSetArcMessage>((uid, _, args) =>
+            {
+                if (TrySetArc(uid, args))
+                    RaiseLocalEvent(uid, new SensorsConsoleRefreshEvent());
+            });
+            subs.Event<SensorsSetDatalinkMessage>((uid, _, args) =>
+            {
+                if (TrySetDatalink(uid, args))
+                    RaiseLocalEvent(uid, new SensorsConsoleRefreshEvent());
+            });
         });
     }
 
@@ -419,7 +442,6 @@ public sealed partial class ShipSensorsSystem : EntitySystem
 
     private void PropagateDatalinks()
     {
-        var now = _timing.CurTime;
         var byCode = new Dictionary<string, List<(EntityUid Uid, GridSensorsComponent Comp)>>();
 
         var q = EntityQueryEnumerator<GridSensorsComponent>();
@@ -436,7 +458,6 @@ public sealed partial class ShipSensorsSystem : EntitySystem
                     list = new List<(EntityUid, GridSensorsComponent)>();
                     byCode[key] = list;
                 }
-
                 list.Add((uid, comp));
             }
         }
@@ -446,27 +467,17 @@ public sealed partial class ShipSensorsSystem : EntitySystem
             if (members.Count < 2)
                 continue;
 
-            var union = new Dictionary<NetEntity, SensorContact>();
-            foreach (var (_, comp) in members)
+            var snapshots = new List<(EntityUid Uid, Dictionary<NetEntity, SensorContact> Contacts)>();
+            foreach (var (uid, comp) in members)
             {
-                foreach (var (net, contact) in comp.Contacts)
+                var local = new Dictionary<NetEntity, SensorContact>();
+                foreach (var (net, c) in comp.Contacts)
                 {
-                    if (union.TryGetValue(net, out var existing))
-                    {
-                        union[net] = existing with
-                        {
-                            Level = BestLevel(existing.Level, contact.Level),
-                            Flags = existing.Flags | contact.Flags,
-                            LastSeen = now,
-                            WorldPosition = contact.WorldPosition,
-                            Designation = contact.Designation ?? existing.Designation,
-                        };
-                    }
-                    else
-                    {
-                        union[net] = contact with { LastSeen = now };
-                    }
+                    if ((c.Flags & ~SensorContactFlags.Datalink) != 0 ||
+                        (c.Flags & SensorContactFlags.Datalink) == 0)
+                        local[net] = c;
                 }
+                snapshots.Add((uid, local));
             }
 
             foreach (var (uid, comp) in members)
@@ -475,47 +486,53 @@ public sealed partial class ShipSensorsSystem : EntitySystem
                 var selfNet = GetNetEntity(uid);
                 var ourPos = _xform.GetWorldPosition(uid);
 
-                foreach (var (net, contact) in union)
+                foreach (var (srcUid, srcContacts) in snapshots)
                 {
-                    if (net == selfNet)
+                    if (srcUid == uid)
                         continue;
 
-                    var targetPos = contact.WorldPosition;
-                    if (TryGetEntity(net, out var targetUid))
-                        targetPos = _xform.GetWorldPosition(targetUid.Value);
-
-                    var range = (targetPos - ourPos).Length();
-
-                    var incoming = contact with
+                    foreach (var (net, contact) in srcContacts)
                     {
-                        Flags = contact.Flags | SensorContactFlags.Datalink,
-                        LastSeen = now,
-                        WorldPosition = targetPos,
-                        Range = range,
-                    };
+                        if (net == selfNet)
+                            continue;
 
-                    if (comp.Contacts.TryGetValue(net, out var existing))
-                    {
-                        var merged = existing with
+                        var targetPos = contact.WorldPosition;
+                        if (TryGetEntity(net, out var targetUid))
+                            targetPos = _xform.GetWorldPosition(targetUid.Value);
+
+                        var range = (targetPos - ourPos).Length();
+
+                        var incoming = contact with
                         {
-                            Level = BestLevel(existing.Level, incoming.Level),
-                            Flags = existing.Flags | incoming.Flags,
-                            LastSeen = now,
+                            Flags = contact.Flags | SensorContactFlags.Datalink,
                             WorldPosition = targetPos,
                             Range = range,
-                            Designation = incoming.Designation ?? existing.Designation,
                         };
 
-                        if (merged != existing)
+                        if (comp.Contacts.TryGetValue(net, out var existing))
                         {
-                            comp.Contacts[net] = merged;
+                            var hasLocal = (existing.Flags & ~SensorContactFlags.Datalink) != 0;
+                            var merged = existing with
+                            {
+                                Level = BestLevel(existing.Level, incoming.Level),
+                                Flags = existing.Flags | incoming.Flags,
+                                LastSeen = hasLocal ? existing.LastSeen : incoming.LastSeen,
+                                WorldPosition = hasLocal ? existing.WorldPosition : targetPos,
+                                Range = hasLocal ? existing.Range : range,
+                                Designation = incoming.Designation ?? existing.Designation,
+                            };
+
+                            if (merged != existing)
+                            {
+                                comp.Contacts[net] = merged;
+                                changed = true;
+                            }
+                        }
+                        else
+                        {
+                            comp.Contacts[net] = incoming;
                             changed = true;
                         }
-                    }
-                    else
-                    {
-                        comp.Contacts[net] = incoming;
-                        changed = true;
                     }
                 }
 
@@ -697,7 +714,10 @@ public sealed partial class ShipSensorsSystem : EntitySystem
             Sources = BuildSourceString(flags),
             Rcs = targetGrid.LocalAABB.Width * targetGrid.LocalAABB.Height,
             IrSignature = ir,
-            ActiveRadarWatts = arWatts
+            ActiveRadarWatts = arWatts,
+            LastSeen = c.LastSeen,
+            IsDatalink = (flags & SensorContactFlags.Datalink) != 0
+                         && (flags & ~SensorContactFlags.Datalink) == SensorContactFlags.None
         };
     }
 
@@ -785,5 +805,19 @@ public sealed partial class ShipSensorsSystem : EntitySystem
     private static string NormalizeCode(string code)
     {
         return code.Trim().ToUpperInvariant();
+    }
+
+    private bool CanAccessGridSensors(EntityUid consoleUid, [NotNullWhen(true)] out EntityUid? gridUid)
+    {
+        gridUid = null;
+        var xform = Transform(consoleUid);
+        if (xform.GridUid is not { } grid)
+            return false;
+
+        if (TryComp<PhysicsComponent>(consoleUid, out var body) && body.BodyType == BodyType.Dynamic && !xform.Anchored)
+            return false;
+
+        gridUid = grid;
+        return TryComp<GridSensorsComponent>(grid, out _);
     }
 }

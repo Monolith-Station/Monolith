@@ -17,6 +17,8 @@ public sealed class SensorsBuiState : BoundUserInterfaceState
     public List<SensorHardwareDto> Hardware = new();
     public List<string> DatalinkCodes = new();
     public float GridWorldRotationDegrees;
+    public bool ArcConfigurable;
+    public bool GridRelativeArc;
 }
 
 [Serializable, NetSerializable]
@@ -31,6 +33,8 @@ public sealed class SensorContactDto
     public float Rcs;
     public float IrSignature;
     public float ActiveRadarWatts;
+    public TimeSpan LastSeen;
+    public bool IsDatalink;
 }
 
 [Serializable, NetSerializable]

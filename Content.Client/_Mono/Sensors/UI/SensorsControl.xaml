@@ -32,6 +32,7 @@
     <controls:StripeBack MinSize="36 36" Margin="0 8 0 0">
         <Label Text="{Loc 'gunnery-emcon-contacts'}" HorizontalAlignment="Left" StyleClasses="StatusFieldTitle"/>
     </controls:StripeBack>
+    <LineEdit Name="ContactSearch" PlaceHolder="{Loc 'gunnery-emcon-search-placeholder'}" Margin="2"/>
 
     <BoxContainer Orientation="Horizontal" Margin="4 2">
         <Label Text="{Loc 'gunnery-emcon-range'}" MinWidth="80" StyleClasses="LabelKeyText" HorizontalAlignment="Left"/>
