@@ -456,7 +456,6 @@ public partial class SharedGunSystem
                 if (!_netManager.IsClient){
                     EjectCartridge(slot.Value);
                     if(TryComp<CartridgeAmmoComponent>(slot.Value, out var cartridge) && cartridge.Spent == true){ // Mono start - make sure the cartridges still despawn after we removed component earlier and get the proper despawn timer
-                        AddComp<TimedDespawnComponent>(slot.Value);
                         EnsureComp<TimedDespawnComponent>(slot.Value).Lifetime = cartridge.AutoTimedDespawn;
                     } // Mono end
                 }
