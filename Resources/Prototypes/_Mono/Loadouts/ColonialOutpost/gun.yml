@@ -3,24 +3,22 @@
   name: loadout-group-weapon-civilian
   minLimit: 1
   loadouts:
-  - CaelestinusIrohLoadout
   - CaelestinusFirestarterLoadout
   - SecurityGuardEnforcerLoadout
   - SecurityGuardDisablerSMGLoadout
   fallbacks:
-  - CaelestinusIrohLoadout
+  - CaelestinusFirestarterLoadout
 
 - type: loadoutGroup
   id: SecurityGuardFirearm
   name: loadout-group-weapon
   minLimit: 0
   loadouts:
-  - CaelestinusIrohLoadout
   - CaelestinusFirestarterLoadout
   - SecurityGuardEnforcerLoadout
   - SecurityGuardDisablerSMGLoadout
   fallbacks:
-  - CaelestinusIrohLoadout
+  - CaelestinusFirestarterLoadout
 
 - type: loadoutGroup
   id: SecurityGuardPistol
@@ -38,7 +36,6 @@
   minLimit: 1
   loadouts:
   - SecurityGuardBeanbagAmmoLoadout #Beanbag
-  - Caelestinus556x45mmAmmoLoadout # iroh
   - Caelestinus46x30mmAmmoLoadout # Firestarter
   fallbacks:
-  - Caelestinus556x45mmAmmoLoadout
+  - Caelestinus46x30mmAmmoLoadout
