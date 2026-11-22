@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.6
   forkId: ""
   forkVersion: ""
-  time: 11/21/2026 04:02:34
-  entityCount: 292
+  time: 11/22/2026 16:40:28
+  entityCount: 289
 maps: []
 grids:
 - 1
@@ -70,11 +70,11 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Kudzu: []
-        MetalFoam: []
-        Puddle: []
         Smoke: []
         ESTileFire: []
+        MetalFoam: []
+        Kudzu: []
+        Puddle: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -752,13 +752,13 @@ entities:
         255:
         - - AmmoLoaderLoad
           - SpaceArtilleryLoad
-        156:
+        155:
         - - AmmoLoaderLoad
           - SpaceArtilleryLoad
         116:
         - - AmmoLoaderLoad
           - SpaceArtilleryLoad
-        246:
+        156:
         - - AmmoLoaderLoad
           - SpaceArtilleryLoad
 - proto: APCBasic
@@ -2089,26 +2089,6 @@ entities:
       parent: 1
     - type: DeltaPressure
       gridUid: 1
-- proto: VanykMagazineAAM
-  entities:
-  - uid: 155
-    components:
-    - type: Transform
-      parent: 116
-    - type: Physics
-      canCollide: False
-  - uid: 167
-    components:
-    - type: Transform
-      parent: 156
-    - type: Physics
-      canCollide: False
-  - uid: 247
-    components:
-    - type: Transform
-      parent: 246
-    - type: Physics
-      canCollide: False
 - proto: VendingMachineTankDispenserEVA
   entities:
   - uid: 185
@@ -2532,34 +2512,16 @@ entities:
       rot: 3.141592653589793 rad
       pos: 0.5,0.5
       parent: 1
-    - type: ContainerContainer
-      containers:
-        gun_magazine: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: 155
+  - uid: 155
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 4.5,-0.5
+      parent: 1
   - uid: 156
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -3.5,-0.5
       parent: 1
-    - type: ContainerContainer
-      containers:
-        gun_magazine: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: 167
-  - uid: 246
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 4.5,-0.5
-      parent: 1
-    - type: ContainerContainer
-      containers:
-        gun_magazine: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: 247
 ...
