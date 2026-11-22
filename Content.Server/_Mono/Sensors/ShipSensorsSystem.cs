@@ -13,8 +13,6 @@ using Content.Shared.Shuttles.BUIStates;
 using Content.Shared.Shuttles.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map.Components;
-using Robust.Shared.Physics;
-using Robust.Shared.Physics.Components;
 using Robust.Shared.Timing;
 
 namespace Content.Server._Mono.Sensors;
@@ -586,11 +584,13 @@ public sealed partial class ShipSensorsSystem : EntitySystem
                     Target = contact.TargetGrid,
                     Name = contact.Designation,
                     Range = contact.Range,
-                    Level = contact.Level,
+                    BearingDegrees = 0f,
                     Sources = BuildSourceString(contact.Flags),
                     Rcs = 0f,
                     IrSignature = 0f,
                     ActiveRadarWatts = 0f,
+                    LastSeen = contact.LastSeen,
+                    IsDatalink = IsDatalinkOnly(contact.Flags),
                 });
                 continue;
             }
@@ -625,10 +625,16 @@ public sealed partial class ShipSensorsSystem : EntitySystem
             });
         }
 
-        if (TryComp<TransformComponent>(gridUid.Value, out var gridXform))
+        var gridXform = Transform(gridUid.Value);
             state.GridWorldRotationDegrees = (float)_xform.GetWorldRotation(gridXform).Degrees;
 
         return state;
+    }
+
+    private static bool IsDatalinkOnly(SensorContactFlags flags)
+    {
+        return (flags & SensorContactFlags.Datalink) != 0
+               && (flags & ~SensorContactFlags.Datalink) == SensorContactFlags.None;
     }
 
     private void UpdateSensorPowerLoad(Entity<ShipSensorComponent> ent)
@@ -710,14 +716,12 @@ public sealed partial class ShipSensorsSystem : EntitySystem
             Name = designation,
             Range = range,
             BearingDegrees = bearingDegrees,
-            Level = c.Level,
             Sources = BuildSourceString(flags),
             Rcs = targetGrid.LocalAABB.Width * targetGrid.LocalAABB.Height,
             IrSignature = ir,
             ActiveRadarWatts = arWatts,
             LastSeen = c.LastSeen,
-            IsDatalink = (flags & SensorContactFlags.Datalink) != 0
-                         && (flags & ~SensorContactFlags.Datalink) == SensorContactFlags.None
+            IsDatalink = IsDatalinkOnly(flags),
         };
     }
 
@@ -805,19 +809,5 @@ public sealed partial class ShipSensorsSystem : EntitySystem
     private static string NormalizeCode(string code)
     {
         return code.Trim().ToUpperInvariant();
-    }
-
-    private bool CanAccessGridSensors(EntityUid consoleUid, [NotNullWhen(true)] out EntityUid? gridUid)
-    {
-        gridUid = null;
-        var xform = Transform(consoleUid);
-        if (xform.GridUid is not { } grid)
-            return false;
-
-        if (TryComp<PhysicsComponent>(consoleUid, out var body) && body.BodyType == BodyType.Dynamic && !xform.Anchored)
-            return false;
-
-        gridUid = grid;
-        return TryComp<GridSensorsComponent>(grid, out _);
     }
 }

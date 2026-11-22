@@ -7,9 +7,10 @@ namespace Content.Client._Mono.Sensors.UI;
 
 public sealed class SensorsArcDisplay : Control
 {
-    private readonly List<(float CenterDeg, float WidthDeg, Color Color)> _arcs = [];
-    private readonly List<float> _contactBearings = [];
-    private readonly List<(float Bearing, bool Stale, bool Datalink)> _contacts = [];
+    private readonly List<(float CenterDeg, float WidthDeg, Color Color)> _arcs = new();
+    private readonly List<(float Bearing, bool DatalinkOnly, bool Stale)> _contacts = new();
+
+    private static readonly Color DatalinkColor = Color.FromHex("#FFAA33");
 
     public SensorsArcDisplay()
     {
@@ -22,11 +23,11 @@ public sealed class SensorsArcDisplay : Control
         IEnumerable<SensorHardwareDto> hardware,
         IEnumerable<SensorContactDto> contacts,
         float gridWorldRotationDegrees,
-        TimeSpan curTime,
+        TimeSpan now,
         IReadOnlyDictionary<NetEntity, float>? predictedOffsets = null)
     {
         _arcs.Clear();
-        _contactBearings.Clear();
+        _contacts.Clear();
 
         foreach (var h in hardware)
         {
@@ -54,11 +55,11 @@ public sealed class SensorsArcDisplay : Control
             _arcs.Add((displayCenter, h.ArcDegrees, color));
         }
 
-        _contacts.Clear();
         foreach (var c in contacts)
         {
-            var stale = (curTime - c.LastSeen).TotalSeconds > 2.0;
-            _contacts.Add((c.BearingDegrees, stale, c.IsDatalink));
+            var threshold = c.IsDatalink ? 6.0 : 2.0;
+            var stale = (now - c.LastSeen).TotalSeconds > threshold;
+            _contacts.Add((c.BearingDegrees, c.IsDatalink, stale));
         }
     }
 
@@ -96,16 +97,23 @@ public sealed class SensorsArcDisplay : Control
             DrawCone(handle, center, arcRadius, centerDeg, widthDeg, color);
         }
 
-        foreach (var (bearing, stale, datalink) in _contacts)
+        foreach (var (bearing, datalinkOnly, stale) in _contacts)
         {
             var dir = BearingToScreen(bearing);
-            var color = stale ? Color.Red.WithAlpha(0.9f) : Color.Lime.WithAlpha(0.85f);
 
-            if (datalink)
+            Color color;
+            if (stale)
+                color = Color.Red.WithAlpha(0.85f);
+            else if (datalinkOnly)
+                color = DatalinkColor.WithAlpha(0.9f);
+            else
+                color = Color.Lime.WithAlpha(0.85f);
+
+            if (datalinkOnly)
             {
-                var outer = radius;
-                var inner = radius * 0.9f;
-                handle.DrawLine(center + dir * inner, center + dir * outer, color);
+                var outer = center + dir * radius;
+                var inner = center + dir * (radius * 0.9f);
+                handle.DrawLine(inner, outer, color);
             }
             else
             {

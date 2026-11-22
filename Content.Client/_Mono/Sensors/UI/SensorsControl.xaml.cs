@@ -12,6 +12,7 @@ namespace Content.Client._Mono.Sensors.UI;
 public sealed partial class SensorsControl : BoxContainer
 {
     [Dependency] private IGameTiming _gameTiming = default!;
+
     public event Action<SensorsSetEmconMessage>? OnEmcon;
     public event Action<SensorsSetArcMessage>? OnArc;
     public event Action<SensorsSetDatalinkMessage>? OnDatalink;
@@ -23,19 +24,25 @@ public sealed partial class SensorsControl : BoxContainer
     private string _contactFilter = string.Empty;
     private bool _datalinkPending;
 
+    private static readonly Color DatalinkColor = Color.FromHex("#FFAA33");
+
     public SensorsControl()
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
+
         DatalinkApply.OnPressed += _ => SubmitDatalink();
         DatalinkEdit.OnTextEntered += _ => SubmitDatalink();
 
-        ContactSearch.OnTextChanged += args =>
+        if (ContactSearch != null)
         {
-            _contactFilter = args.Text.Trim();
-            if (_lastState != null)
-                RebuildContacts(_lastState);
-        };
+            ContactSearch.OnTextChanged += args =>
+            {
+                _contactFilter = args.Text.Trim();
+                if (_lastState != null)
+                    RebuildContacts(_lastState);
+            };
+        }
     }
 
     private void SubmitDatalink()
@@ -43,22 +50,21 @@ public sealed partial class SensorsControl : BoxContainer
         var codes = DatalinkEdit.Text
             .Split([' ', ',', ';'], StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
             .ToList();
-
-        OnDatalink?.Invoke(new SensorsSetDatalinkMessage { Codes = codes });
         _datalinkPending = true;
+        OnDatalink?.Invoke(new SensorsSetDatalinkMessage { Codes = codes });
     }
 
     public void UpdateState(SensorsBuiState? state)
     {
-        ContactsBox.RemoveAllChildren();
-
         if (state == null)
         {
+            ContactsBox.RemoveAllChildren();
             HardwareBox.RemoveAllChildren();
             _bearingEdits.Clear();
             _bearingFocusSensor = null;
             _predictedOffset.Clear();
             _lastState = null;
+            _datalinkPending = false;
             ArcDisplay.Update(
                 Array.Empty<SensorHardwareDto>(),
                 Array.Empty<SensorContactDto>(),
@@ -81,24 +87,120 @@ public sealed partial class SensorsControl : BoxContainer
         if (_bearingFocusSensor == null)
             RebuildHardware(state);
 
+        RebuildContacts(state);
 
-        if (!DatalinkEdit.HasKeyboardFocus() && !_datalinkPending)
+        if (_datalinkPending)
         {
-            DatalinkEdit.Text = string.Join(' ', state.DatalinkCodes);
-        }
-        else if (_datalinkPending)
-        {
-            var serverText = string.Join(' ', state.DatalinkCodes);
-            if (string.Equals(DatalinkEdit.Text.Trim(), serverText, StringComparison.OrdinalIgnoreCase))
+            var server = string.Join(' ', state.DatalinkCodes);
+            var local = string.Join(' ',
+                DatalinkEdit.Text
+                    .Split([' ', ',', ';'], StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries));
+            if (string.Equals(server, local, StringComparison.OrdinalIgnoreCase))
                 _datalinkPending = false;
         }
 
-        RebuildContacts(state);
+        if (!_datalinkPending && !DatalinkEdit.HasKeyboardFocus())
+            DatalinkEdit.Text = string.Join(' ', state.DatalinkCodes);
 
-        ArcDisplay.Update(state.Hardware, state.Contacts, state.GridWorldRotationDegrees, _gameTiming.CurTime, _predictedOffset);
+        ArcDisplay.Update(
+            state.Hardware,
+            state.Contacts,
+            state.GridWorldRotationDegrees,
+            _gameTiming.CurTime,
+            _predictedOffset);
     }
 
-        private void RebuildHardware(SensorsBuiState state)
+    private void RebuildContacts(SensorsBuiState state)
+    {
+        ContactsBox.RemoveAllChildren();
+        var now = _gameTiming.CurTime;
+
+        IEnumerable<SensorContactDto> list = state.Contacts.OrderBy(c => c.Range);
+        if (!string.IsNullOrEmpty(_contactFilter))
+        {
+            list = list.Where(c =>
+                (c.Name?.Contains(_contactFilter, StringComparison.OrdinalIgnoreCase) ?? false)
+                || c.Sources.Contains(_contactFilter, StringComparison.OrdinalIgnoreCase)
+                || c.Target.ToString().Contains(_contactFilter, StringComparison.OrdinalIgnoreCase));
+        }
+
+        foreach (var c in list)
+        {
+            var threshold = c.IsDatalink ? 6.0 : 2.0;
+            var stale = (now - c.LastSeen).TotalSeconds > threshold;
+
+            Color color;
+            if (stale)
+                color = Color.Red;
+            else if (c.IsDatalink)
+                color = DatalinkColor;
+            else
+                color = Color.Lime;
+
+            var row = new BoxContainer
+            {
+                Orientation = LayoutOrientation.Horizontal,
+                HorizontalExpand = true,
+                Margin = new Thickness(0, 1)
+            };
+
+            row.AddChild(new Label
+            {
+                Text = $"{c.Range:F0}m",
+                MinWidth = 80,
+                HorizontalAlignment = HAlignment.Left,
+                FontColorOverride = color,
+            });
+            row.AddChild(new Label
+            {
+                Text = $"{c.BearingDegrees:F0}°",
+                MinWidth = 80,
+                HorizontalAlignment = HAlignment.Left,
+                FontColorOverride = color,
+            });
+            row.AddChild(new Label
+            {
+                Text = c.Sources,
+                MinWidth = 110,
+                HorizontalAlignment = HAlignment.Left,
+                FontColorOverride = color,
+            });
+            row.AddChild(new Label
+            {
+                Text = $"{c.Rcs:F0}m^2",
+                MinWidth = 110,
+                HorizontalAlignment = HAlignment.Left,
+                FontColorOverride = color,
+            });
+            row.AddChild(new Label
+            {
+                Text = c.IrSignature > 0 ? $"{c.IrSignature:F0}" : "—",
+                MinWidth = 120,
+                HorizontalAlignment = HAlignment.Left,
+                FontColorOverride = color,
+            });
+            row.AddChild(new Label
+            {
+                Text = c.ActiveRadarWatts > 0
+                    ? Loc.GetString("gunnery-emcon-ars-value", ("output", c.ActiveRadarWatts))
+                    : "—",
+                MinWidth = 110,
+                HorizontalAlignment = HAlignment.Left,
+                FontColorOverride = color,
+            });
+            row.AddChild(new Label
+            {
+                Text = c.Name ?? c.Target.ToString(),
+                HorizontalExpand = true,
+                HorizontalAlignment = HAlignment.Left,
+                FontColorOverride = color,
+            });
+
+            ContactsBox.AddChild(row);
+        }
+    }
+
+    private void RebuildHardware(SensorsBuiState state)
     {
         HardwareBox.RemoveAllChildren();
         _bearingEdits.Clear();
@@ -237,89 +339,6 @@ public sealed partial class SensorsControl : BoxContainer
 
             HardwareBox.AddChild(row);
         }
-    }
-
-    private void RebuildContacts(SensorsBuiState state)
-    {
-        ContactsBox.RemoveAllChildren();
-        var now = _gameTiming.CurTime;
-
-        IEnumerable<SensorContactDto> list = state.Contacts.OrderBy(c => c.Range);
-        if (!string.IsNullOrEmpty(_contactFilter))
-        {
-            list = list.Where(c =>
-                (c.Name?.Contains(_contactFilter, StringComparison.OrdinalIgnoreCase) ?? false) ||
-                c.Target.ToString().Contains(_contactFilter, StringComparison.OrdinalIgnoreCase));
-        }
-
-        foreach (var c in list)
-        {
-            var stale = (now - c.LastSeen).TotalSeconds > 2.0;
-            var color = stale ? Color.Maroon : Color.Lime;
-
-            var row = new BoxContainer
-            {
-                Orientation = LayoutOrientation.Horizontal,
-                HorizontalExpand = true,
-                Margin = new Thickness(0, 1)
-            };
-
-            row.AddChild(new Label
-            {
-                Text = $"{c.Range:F0}m",
-                MinWidth = 80,
-                HorizontalAlignment = HAlignment.Left,
-                FontColorOverride = color,
-            });
-            row.AddChild(new Label
-            {
-                Text = $"{c.BearingDegrees:F0}°",
-                MinWidth = 80,
-                HorizontalAlignment = HAlignment.Left,
-                FontColorOverride = color,
-            });
-            row.AddChild(new Label
-            {
-                Text = c.Sources,
-                MinWidth = 110,
-                HorizontalAlignment = HAlignment.Left,
-                FontColorOverride = color,
-            });
-            row.AddChild(new Label
-            {
-                Text = $"{c.Rcs:F0}m^2",
-                MinWidth = 110,
-                HorizontalAlignment = HAlignment.Left,
-                FontColorOverride = color,
-            });
-            row.AddChild(new Label
-            {
-                Text = c.IrSignature > 0 ? $"{c.IrSignature:F0}" : "—",
-                MinWidth = 120,
-                HorizontalAlignment = HAlignment.Left,
-                FontColorOverride = color,
-            });
-            row.AddChild(new Label
-            {
-                Text = c.ActiveRadarWatts > 0
-                    ? Loc.GetString("gunnery-emcon-ars-value", ("output", c.ActiveRadarWatts))
-                    : "—",
-                MinWidth = 110,
-                HorizontalAlignment = HAlignment.Left,
-                FontColorOverride = color,
-            });
-            row.AddChild(new Label
-            {
-                Text = c.Name ?? c.Target.ToString(),
-                HorizontalExpand = true,
-                HorizontalAlignment = HAlignment.Left,
-                FontColorOverride = color,
-            });
-
-            ContactsBox.AddChild(row);
-        }
-
-        ArcDisplay.Update(state.Hardware, state.Contacts, state.GridWorldRotationDegrees, now, _predictedOffset);
     }
 
     private void CommitBearingEdit(LineEdit edit, SensorHardwareDto h, float gridWorldDeg)

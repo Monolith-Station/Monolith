@@ -1,5 +1,3 @@
-using System.Numerics;
-using Content.Shared._Mono.Detection;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._Mono.Sensors;
@@ -17,8 +15,6 @@ public sealed class SensorsBuiState : BoundUserInterfaceState
     public List<SensorHardwareDto> Hardware = new();
     public List<string> DatalinkCodes = new();
     public float GridWorldRotationDegrees;
-    public bool ArcConfigurable;
-    public bool GridRelativeArc;
 }
 
 [Serializable, NetSerializable]
@@ -26,14 +22,16 @@ public sealed class SensorContactDto
 {
     public NetEntity Target;
     public string? Name;
+    /// <summary>Server-computed range; kept so the client can still show contacts when the target is not in PVS.</summary>
     public float Range;
+    /// <summary>Display bearing (same convention the UI already uses).</summary>
     public float BearingDegrees;
     public string Sources = string.Empty;
-    public DetectionLevel Level;
     public float Rcs;
     public float IrSignature;
     public float ActiveRadarWatts;
     public TimeSpan LastSeen;
+    /// <summary>True only when the contact is datalink-only (no local ARS/E/IR/V).</summary>
     public bool IsDatalink;
 }
 
