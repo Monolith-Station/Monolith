@@ -33,7 +33,7 @@
         - Pegasus
       components:
       - type: StationNameSetup
-        mapNameTemplate: 'PEGASUS CSEC{1}'
+        mapNameTemplate: 'Pegasus CSEC{1}'
         nameGenerator:
           !type:NanotrasenNameGenerator
           prefixCreator: '14'
