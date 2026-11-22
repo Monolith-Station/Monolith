@@ -8,7 +8,7 @@ voucher-infinite-redemptions = This voucher has [color=yellow]infinite[/color] r
 voucher-current-cooldown-seconds = This voucher is on cooldown for [color=yellow]{NATURALFIXED($cooldown, 1)}[/color] seconds.
 voucher-current-cooldown-minutes = This voucher is on cooldown for [color=yellow]{NATURALFIXED($cooldown, 1)}[/color] minutes.
 
-shipyard-console-preview = Preview
+shipyard-console-preview = PRVW
 shipyard-preview-ui-title = Previewer 100
 
 shipyard-preview-data-label = Ship data:

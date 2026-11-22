@@ -42,7 +42,7 @@
 - type: entity
   id: 120mmBulletAPHEDS
   name: 100x650mm APHEDS projectile
-  parent: BaseBulletTriggerSpent
+  parent: [ BaseBulletTriggerSpent, BaseProjectileHitmarkerHeavy ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile

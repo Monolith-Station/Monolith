@@ -1,0 +1,24 @@
+- type: entity
+  id: MachineMaterialSiloFilled
+  parent: MachineMaterialSilo
+  suffix: Filled
+  components:
+  - type: MaterialStorage
+    whitelist:
+      tags:
+      - Sheet
+      - RawMaterial
+      - Ingot
+      - Ore
+    storage:
+      Steel: 50000
+      Plasteel: 25000
+      Plastic: 10000
+      Plasma: 15000
+      Glass: 30000
+      Uranium: 5000
+      Lithium: 10000
+      Copper: 10000
+      Gold: 10000
+      Silver: 10000
+      Cloth: 10000

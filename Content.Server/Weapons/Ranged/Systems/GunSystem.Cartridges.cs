@@ -19,18 +19,25 @@ public sealed partial class GunSystem
         SubscribeLocalEvent<CartridgeAmmoComponent, DamageExamineEvent>(OnCartridgeDamageExamine);
     }
 
+    // Mono - modified for handling aP
     private void OnCartridgeDamageExamine(EntityUid uid, CartridgeAmmoComponent component, ref DamageExamineEvent args)
     {
-        var damageSpec = GetProjectileDamage(component.Prototype, out var isHitscan); // mono
+        var damageT = GetProjectileDamage(component.Prototype, out var isHitscan); // mono
 
-        if (damageSpec == null)
+        if (damageT == null)
             return;
 
-        _damageExamine.AddDamageExamine(args.Message, Damageable.ApplyUniversalAllModifiers(damageSpec), Loc.GetString(
-            isHitscan ? "damage-hitscan" : "damage-projectile")); // mono
+        var damageSpec = damageT.Value.Item1;
+        var ap = damageT.Value.Item2;
+
+        _damageExamine.AddDamageExamine(args.Message,
+            Damageable.ApplyUniversalAllModifiers(damageSpec),
+            Loc.GetString(
+            isHitscan ? "damage-hitscan" : "damage-projectile"),
+            ap); // mono
     }
 
-    private DamageSpecifier? GetProjectileDamage(string proto, out bool isHitscan) // mono - isHitscan
+    private (DamageSpecifier, float)? GetProjectileDamage(string proto, out bool isHitscan) // mono - isHitscan
     {
         isHitscan = false; // mono
 
@@ -44,7 +51,7 @@ public sealed partial class GunSystem
 
             if (!p.Damage.Empty)
             {
-                return p.Damage * Damageable.UniversalProjectileDamageModifier;
+                return (p.Damage * Damageable.UniversalProjectileDamageModifier, p.ArmorPenetration); // Mono
             }
         }
         // mono
@@ -56,7 +63,7 @@ public sealed partial class GunSystem
                 return null;
 
             isHitscan = true;
-            return h.Damage;
+            return (h.Damage, h.ArmorPenetration); // Mono
         }
 
         return null;

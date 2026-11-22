@@ -4,8 +4,8 @@
   description: job-description-fugitive
   playTimeTracker: JobFugitive
   requirements:
-  - !type:OverallPlaytimeRequirement
-    time: 10800 # 3 hours # mono
+ # - !type:OverallPlaytimeRequirement
+  #  time: 10800 # 3 hours # mono
   - !type:TraitsRequirement # already a heretic by default
     inverted: true
     traits:
