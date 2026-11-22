@@ -27649,3 +27649,20 @@ Entries:
   id: 2965
   time: '2026-11-22T18:30:05.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/5080
+- author: DoubleHypercube
+  changes:
+    - type: Add
+      message: Vulpkanin and Tajaran can now wag their tails on command!
+    - type: Tweak
+      message: Switched over to Starlight vulpkanin tail sprites.
+    - type: Add
+      message: Added tips to Fennec and Fluffy vulpkanin tails!
+    - type: Add
+      message: Several more vulpkanin tails can now wag.
+    - type: Fix
+      message: Internally cleaned up how wagging works.
+    - type: Tweak
+      message: Vulpkanin tails now render underneath neck items.
+  id: 2966
+  time: '2026-11-22T19:04:54.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5067
