@@ -39,3 +39,37 @@
           mapNameTemplate: 'Derelict Drillsite'
         - type: StationDeadDrop
           maxDeadDrops: 6
+
+## Hyperwar
+
+- type: pointOfInterest
+  id: MiningHyperwar
+  parent: [BasePOI, BaseRepairablePOI]
+  name: 'Derelict Drillsite'
+  minimumDistance: 0
+  maximumDistance: 0
+  spawnGamePreset: [ MonoRogueTSFHyperwar ]
+  spawnGroup: Required
+  gridPath: /Maps/_Mono/POI/derelictdrillsite_hw.yml
+  addComponents:
+  - type: IFF
+    color: "#ccaa55"
+  - type: WorldGenDistanceCarver
+    distanceThresholds:
+    # Dead zone
+    - maxDistance: 800
+      prob: 0.0
+    - maxDistance: 1500
+      prob: 0.3
+
+- type: gameMap
+  id: MiningHyperwar
+  mapName: 'Derelict Drillsite'
+  mapPath: /Maps/_Mono/POI/derelictdrillsite_hw.yml
+  minPlayers: 0
+  stations:
+    MiningHyperwar:
+      stationProto: RecordsFrontierOutpost
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Derelict Drillsite'

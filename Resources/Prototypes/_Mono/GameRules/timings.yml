@@ -49,6 +49,15 @@
       max: 7200
 
 - type: entity
+  id: PortstrikeAnnounceRuleMinute80
+  parent: PortstrikeAnnounceRuleHour4
+  components:
+  - type: GameRule
+    delay:
+      min: 4800
+      max: 4800
+
+- type: entity
   id: PortstrikeAnnounceRuleHour1
   parent: PortstrikeAnnounceRuleHour4
   components:

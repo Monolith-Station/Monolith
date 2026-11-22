@@ -27579,3 +27579,40 @@ Entries:
   id: 2959
   time: '2026-11-20T20:10:06.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/5063
+- author: NazrinNya
+  changes:
+    - type: Add
+      message: Flyssa and Eris have returned (Hyperwar-exclusive).
+    - type: Tweak
+      message: Ore processors and Industrial ore processors are way faster now
+    - type: Fix
+      message: Fast lathes stacking sounds (MMC press for example)
+    - type: Fix
+      message: TSFMC now gets supplies on hyperwar properly
+    - type: Tweak
+      message: Reduced portstrike time on hyperwar to 1 hour and 20 minutes
+    - type: Tweak
+      message: Reduced hyperwar round time to 2 hours
+    - type: Tweak
+      message: Hyperwar respawn time is now 300 seconds.
+    - type: Add
+      message: Hyperwar factions now receive small batch of resources roundstart.
+  id: 2960
+  time: '2026-11-21T13:57:26.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5071
+- author: NazrinNya
+  changes:
+    - type: Fix
+      message: RPED being inserted when you're using it on lathe with container.
+  id: 2961
+  time: '2026-11-21T13:59:50.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5072
+- author: SuperGDPWYL
+  changes:
+    - type: Tweak
+      message: >-
+        Years of exposure has led to the populations of Colossus developing a
+        built-up immunity to pax. It is now completely inert.
+  id: 2962
+  time: '2026-11-21T19:22:11.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4890

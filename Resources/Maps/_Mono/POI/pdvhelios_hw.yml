@@ -27673,7 +27673,7 @@ entities:
     - type: Transform
       pos: -7.5,30.5
       parent: 1
-- proto: FactionLathe
+- proto: FactionLatheImmmovableHyperwar
   entities:
   - uid: 4254
     components:
@@ -42198,7 +42198,7 @@ entities:
     - type: Transform
       pos: -16.5,37.5
       parent: 1
-- proto: MachineMaterialSilo
+- proto: MachineMaterialSiloFilled
   entities:
   - uid: 6016
     components:
