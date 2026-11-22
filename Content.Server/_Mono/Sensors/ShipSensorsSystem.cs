@@ -1,5 +1,4 @@
 using System.Linq;
-using System.Numerics;
 using Content.Server._Mono.Detection;
 using Content.Server._Mono.Radar;
 using Content.Server.Power.Components;
@@ -22,7 +21,6 @@ namespace Content.Server._Mono.Sensors;
 /// </summary>
 public sealed partial class ShipSensorsSystem : EntitySystem
 {
-    [Dependency] private DetectionSystem _detection = default!;
     [Dependency] private SharedPowerReceiverSystem _power = default!;
     [Dependency] private SharedTransformSystem _xform = default!;
     [Dependency] private IGameTiming _timing = default!;
@@ -125,7 +123,9 @@ public sealed partial class ShipSensorsSystem : EntitySystem
         PropagateDatalinks();
 
         foreach (var gridUid in grids)
+        {
             RefreshOpenConsoles(gridUid);
+        }
     }
 
     private void UpdateGridSensors(
@@ -173,10 +173,19 @@ public sealed partial class ShipSensorsSystem : EntitySystem
             var bearing = delta.ToWorldAngle();
             ApplyDirectionalMultipliers(rangeMul, sensors, hardware, bearing);
 
-            var passiveSens = GetBestSensitivity(hardware, SensorType.PassiveRadar, bearing, activeOnly: false);
-            var activeSens = GetBestSensitivity(hardware, SensorType.ActiveRadar, bearing, activeOnly: true);
-            var standbyActive = GetBestSensitivity(hardware, SensorType.ActiveRadar, bearing,
-                activeOnly: false, requireInactive: true);
+            var passiveSens = GetBestSensitivity(hardware,
+                SensorType.PassiveRadar,
+                bearing,
+                activeOnly: false);
+            var activeSens = GetBestSensitivity(hardware,
+                SensorType.ActiveRadar,
+                bearing,
+                activeOnly: true);
+            var standbyActive = GetBestSensitivity(hardware,
+                SensorType.ActiveRadar,
+                bearing,
+                activeOnly: false,
+                requireInactive: true);
             passiveSens = MathF.Max(passiveSens, standbyActive * 0.5f);
 
             if (sensors.GrantBasicSensors)
@@ -199,10 +208,10 @@ public sealed partial class ShipSensorsSystem : EntitySystem
             var activeRange = activeSens > 0f ? diagonal * activeSens : 0f;
 
             // V
-            const float VisualRangeFloor = 500f;
+            const float visualRangeFloor = 500f;
             var visualMul = sensors.GrantBasicSensors ? sensors.BasicVisualMultiplier : 0f;
             var visualRange = visualMul > 0f
-                ? MathF.Max(VisualRangeFloor, diagonal * visualMul)
+                ? MathF.Max(visualRangeFloor, diagonal * visualMul)
                 : 0f;
 
             // IR
@@ -211,8 +220,8 @@ public sealed partial class ShipSensorsSystem : EntitySystem
                 : 0f;
 
             // EM
-            var esmRange = passiveSens > 0f && emissions.ActiveRadarWatts > 0f
-                ? passiveSens * emissions.ActiveRadarWatts
+            var esmRange = passiveSens > 0f && emissions > 0f
+                ? passiveSens * emissions
                 : 0f;
 
             var seenByArs = activeRange > 0f && dist <= activeRange;
@@ -314,7 +323,7 @@ public sealed partial class ShipSensorsSystem : EntitySystem
         var visual = sensors.GrantBasicSensors ? sensors.BasicVisualMultiplier : 0f;
         var infrared = sensors.GrantBasicSensors ? sensors.BasicInfraredMultiplier : 0f;
 
-        foreach (var (uid, sens, sensXform) in hardware)
+        foreach (var (_, sens, _) in hardware)
         {
             if (sens.SensorType is not (SensorType.Infrared))
                 continue;
@@ -336,7 +345,7 @@ public sealed partial class ShipSensorsSystem : EntitySystem
         var visual = sensors.GrantBasicSensors ? sensors.BasicVisualMultiplier : 0f;
         var infrared = sensors.GrantBasicSensors ? sensors.BasicInfraredMultiplier : 0f;
 
-        foreach (var (uid, sens, sensXform) in hardware)
+        foreach (var (_, sens, sensXform) in hardware)
         {
             if (sens.SensorType is not SensorType.Infrared)
                 continue;
@@ -350,29 +359,6 @@ public sealed partial class ShipSensorsSystem : EntitySystem
         rangeMul.InfraredMultiplier = infrared;
     }
 
-    private static float RadarRange(MapGridComponent grid, float multiplier)
-    {
-        if (multiplier <= 0f)
-            return 0f;
-
-        var aabb = grid.LocalAABB;
-        var diagonal = MathF.Sqrt(aabb.Width * aabb.Width + aabb.Height * aabb.Height);
-        return diagonal * multiplier;
-    }
-
-    private DetectionLevel EvaluateRadarLevel(
-        MapGridComponent targetGrid,
-        float distance,
-        float passiveMul,
-        float activeMul)
-    {
-        var range = MathF.Max(RadarRange(targetGrid, passiveMul), RadarRange(targetGrid, activeMul));
-        if (range <= 0f || distance > range)
-            return DetectionLevel.Undetected;
-
-        return DetectionLevel.Detected;
-    }
-
     private float GetBestSensitivity(
         List<(EntityUid Uid, ShipSensorComponent Sens, TransformComponent Xform)> hardware,
         SensorType type,
@@ -381,7 +367,7 @@ public sealed partial class ShipSensorsSystem : EntitySystem
         bool requireInactive = false)
     {
         var best = 0f;
-        foreach (var (uid, sens, sensXform) in hardware)
+        foreach (var (_, sens, sensXform) in hardware)
         {
             if (sens.SensorType != type)
                 continue;
@@ -402,10 +388,21 @@ public sealed partial class ShipSensorsSystem : EntitySystem
         if (sens.ArcDegrees >= 360f)
             return true;
 
-        // ArcOffset is absolute world angle (engine space, 0 = East)
-        var center = Angle.FromDegrees(sens.ArcOffset);
-        var half  = Angle.FromDegrees(sens.ArcDegrees * 0.5f);
+        Angle center;
+        if (sens.GridRelativeArc)
+        {
+            var gridUid = sensXform.GridUid;
+            var gridRot = gridUid != null
+                ? _xform.GetWorldRotation(gridUid.Value)
+                : _xform.GetWorldRotation(sensXform);
+            center = gridRot + Angle.FromDegrees(sens.ArcOffset+90);
+        }
+        else
+        {
+            center = Angle.FromDegrees(sens.ArcOffset+90);
+        }
 
+        var half = Angle.FromDegrees(sens.ArcDegrees * 0.5f);
         var delta = Angle.ShortestDistance(center, targetWorldBearing);
         return Math.Abs(delta.Theta) <= half.Theta;
     }
@@ -483,7 +480,7 @@ public sealed partial class ShipSensorsSystem : EntitySystem
                     if (net == selfNet)
                         continue;
 
-                    Vector2 targetPos = contact.WorldPosition;
+                    var targetPos = contact.WorldPosition;
                     if (TryGetEntity(net, out var targetUid))
                         targetPos = _xform.GetWorldPosition(targetUid.Value);
 
@@ -526,40 +523,6 @@ public sealed partial class ShipSensorsSystem : EntitySystem
                     Dirty(uid, comp);
             }
         }
-    }
-
-    private void OnSetDatalink(EntityUid uid, object component, SensorsSetDatalinkMessage args)
-    {
-        var gridUid = Transform(uid).GridUid;
-        if (gridUid == null || !TryComp<GridSensorsComponent>(gridUid, out var sensors))
-            return;
-
-        sensors.DatalinkCodes = args.Codes
-            .Select(NormalizeCode)
-            .Where(static c => c.Length > 0)
-            .Distinct()
-            .Take(MaxDatalinkCodes)
-            .ToHashSet();
-
-        Dirty(gridUid.Value, sensors);
-        BuildBuiState(uid);
-    }
-
-    public bool SharesDatalink(EntityUid aGrid, EntityUid bGrid)
-    {
-        if (!TryComp<GridSensorsComponent>(aGrid, out var a) ||
-            !TryComp<GridSensorsComponent>(bGrid, out var b))
-            return false;
-
-        if (a.DatalinkCodes.Count == 0 || b.DatalinkCodes.Count == 0)
-            return false;
-
-        foreach (var code in a.DatalinkCodes)
-        {
-            if (b.DatalinkCodes.Contains(code))
-                return true;
-        }
-        return false;
     }
 
     private void OnToggleHardware(EntityUid uid, object component, SensorsToggleHardwareMessage args)
@@ -635,6 +598,8 @@ public sealed partial class ShipSensorsSystem : EntitySystem
                 Sensitivity = sens.Sensitivity,
                 ArcDegrees = sens.ArcDegrees,
                 ArcOffset = sens.ArcOffset,
+                ArcConfigurable = sens.ArcConfigurable,
+                GridRelativeArc = sens.GridRelativeArc,
                 TransmitWatts = sens.SensorType switch
                 {
                     SensorType.ActiveRadar => SensitivityToRadarWatts(sens.Sensitivity),
@@ -642,6 +607,9 @@ public sealed partial class ShipSensorsSystem : EntitySystem
                 },
             });
         }
+
+        if (TryComp<TransformComponent>(gridUid.Value, out var gridXform))
+            state.GridWorldRotationDegrees = (float)_xform.GetWorldRotation(gridXform).Degrees;
 
         return state;
     }
@@ -660,10 +628,7 @@ public sealed partial class ShipSensorsSystem : EntitySystem
 
     private bool IsSensorPowered(EntityUid uid)
     {
-        if (!_powerQuery.HasComponent(uid))
-            return true;
-
-        return _power.IsPowered(uid);
+        return !_powerQuery.HasComponent(uid) || _power.IsPowered(uid);
     }
 
     private static string BuildSourceString(SensorContactFlags flags)
@@ -684,7 +649,9 @@ public sealed partial class ShipSensorsSystem : EntitySystem
 
     // me when i lie for larp
     public static float SensitivityToRadarWatts(float sensitivity)
-        => MathF.Max(0f, sensitivity) * 25_000f;
+    {
+        return MathF.Max(0f, sensitivity) * 25_000f;
+    }
 
     private SensorContactDto ToDto(SensorContact c, EntityUid targetUid, MapGridComponent targetGrid, EntityUid detectedBy)
     {
@@ -709,10 +676,16 @@ public sealed partial class ShipSensorsSystem : EntitySystem
         if (TryComp<IFFComponent>(targetUid, out var iff))
             designation = iff.Address;
 
-        var delta = _xform.GetWorldPosition(targetUid) - _xform.GetWorldPosition(detectedBy);
+        var fromUid = Transform(detectedBy).GridUid ?? detectedBy;
+        var delta = _xform.GetWorldPosition(targetUid) - _xform.GetWorldPosition(fromUid);
         var range = delta.Length();
-        var bearing = delta.ToWorldAngle();
-        var bearingDegrees = (int)((bearing.Degrees % 360f + 90f) % 360f);
+
+        var worldDeg = (float)delta.ToWorldAngle().Degrees;
+        var bearingDegrees = worldDeg;
+        bearingDegrees = -180f - bearingDegrees;
+        bearingDegrees %= 360f;
+        if (bearingDegrees < 0f)
+            bearingDegrees += 360f;
 
         return new SensorContactDto
         {
@@ -756,6 +729,9 @@ public sealed partial class ShipSensorsSystem : EntitySystem
         if (!_sensorQuery.TryGetComponent(sensUid.Value, out var sens))
             return false;
 
+        if (!sens.ArcConfigurable)
+            return false;
+
         var consoleGrid = Transform(consoleUid).GridUid;
         if (consoleGrid == null || Transform(sensUid.Value).GridUid != consoleGrid)
             return false;
@@ -763,7 +739,6 @@ public sealed partial class ShipSensorsSystem : EntitySystem
         var offset = msg.ArcOffsetDegrees % 360f;
         if (offset < 0f)
             offset += 360f;
-
         sens.ArcOffset = offset;
         Dirty(sensUid.Value, sens);
         return true;
@@ -786,12 +761,7 @@ public sealed partial class ShipSensorsSystem : EntitySystem
         return true;
     }
 
-    private readonly record struct TargetEmissions(float ActiveRadarWatts)
-    {
-        public bool IsEmitting => ActiveRadarWatts > 0f;
-    }
-
-    private TargetEmissions GetTargetEmissions(EntityUid targetGridUid)
+    private float GetTargetEmissions(EntityUid targetGridUid)
     {
         var arWatts = 0f;
 
@@ -809,8 +779,11 @@ public sealed partial class ShipSensorsSystem : EntitySystem
                 arWatts = MathF.Max(arWatts, SensitivityToRadarWatts(sens.Sensitivity));
         }
 
-        return new TargetEmissions(arWatts);
+        return arWatts;
     }
 
-    private static string NormalizeCode(string code) => code.Trim().ToUpperInvariant();
+    private static string NormalizeCode(string code)
+    {
+        return code.Trim().ToUpperInvariant();
+    }
 }

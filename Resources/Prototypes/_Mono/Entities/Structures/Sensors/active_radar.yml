@@ -78,6 +78,20 @@
     powerDrawActive: 25000
   - type: ApcPowerReceiver
     powerLoad: 1500
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 10000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+  - type: ShipRepairable
+    repairTime: 35
+    repairCost: 250
   - type: Sprite
     offset: -0.5,0
     rotation: 90
@@ -149,8 +163,24 @@
     arcDegrees: 120
     powerDraw: 3500
     powerDrawActive: 50000
+    arcConfigurable: false
+    gridRelativeArc: true
   - type: ApcPowerReceiver
     powerLoad: 3500
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 20000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+  - type: ShipRepairable
+    repairTime: 30
+    repairCost: 350
   - type: Sprite
     offset: -0.5,0
     rotation: 90
@@ -159,7 +189,7 @@
     - state: tsf
 
 - type: entity
-  parent: SensorRadarTSFT3
+  parent: BaseSensorRadarTSFT3
   id: BaseSensorRadarPDVT3
   abstract: true
   name: P-300 Mainstay
@@ -174,6 +204,8 @@
     arcDegrees: 120
     powerDraw: 3500
     powerDrawActive: 47000
+    arcConfigurable: false
+    gridRelativeArc: true
   - type: ApcPowerReceiver
     powerLoad: 3500
   - type: Sprite

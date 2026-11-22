@@ -16,6 +16,7 @@ public sealed class SensorsBuiState : BoundUserInterfaceState
     public List<SensorContactDto> Contacts = new();
     public List<SensorHardwareDto> Hardware = new();
     public List<string> DatalinkCodes = new();
+    public float GridWorldRotationDegrees;
 }
 
 [Serializable, NetSerializable]
@@ -45,9 +46,10 @@ public sealed class SensorHardwareDto
     public float ArcDegrees;
     public float ArcOffset;
     public float TransmitWatts;
+    public bool ArcConfigurable;
+    public bool GridRelativeArc;
 }
 
-/// <summary>EMCON: enable/standby and active emit for one sensor.</summary>
 [Serializable, NetSerializable]
 public sealed class SensorsSetEmconMessage : BoundUserInterfaceMessage
 {
@@ -56,7 +58,6 @@ public sealed class SensorsSetEmconMessage : BoundUserInterfaceMessage
     public bool ActiveMode;
 }
 
-/// <summary>Steer jammer / directed sensor cone (degrees, world-offset from entity facing).</summary>
 [Serializable, NetSerializable]
 public sealed class SensorsSetArcMessage : BoundUserInterfaceMessage
 {

@@ -2,7 +2,6 @@ using Content.Shared._Mono.CCVar;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
-using System;
 using Content.Shared._Mono.Sensors;
 
 namespace Content.Shared._Mono.Detection;
@@ -90,7 +89,9 @@ public sealed partial class DetectionSystem : EntitySystem
     }
 
     private static DetectionLevel BestLevel(DetectionLevel a, DetectionLevel b)
-        => (int)a <= (int)b ? a : b;
+    {
+        return (int)a <= (int)b ? a : b;
+    }
 
     public DetectionLevel IsGridDetected(Entity<MapGridComponent?> grid, IEnumerable<EntityUid> byUids)
     {
@@ -163,10 +164,22 @@ public sealed partial class DetectionSystem : EntitySystem
 
             if (sens.ArcDegrees < 360f)
             {
-                var center = Angle.FromDegrees(sens.ArcOffset);
+                Angle center;
+                    if (sens.GridRelativeArc)
+                    {
+                        var gridUid = sensXform.GridUid;
+                        var gridRot = gridUid != null
+                            ? _xform.GetWorldRotation(gridUid.Value)
+                            : _xform.GetWorldRotation(sensXform);
+                        center = gridRot + Angle.FromDegrees(sens.ArcOffset);
+                    }
+                    else
+                    {
+                        center = Angle.FromDegrees(sens.ArcOffset);
+                    }
                 var half = Angle.FromDegrees(sens.ArcDegrees * 0.5f);
-                if (Math.Abs(Angle.ShortestDistance(center, bearing).Theta) > half.Theta)
-                    continue;
+                var angularDelta = Angle.ShortestDistance(center, bearing);
+                return Math.Abs(angularDelta.Theta) <= half.Theta;
             }
 
             bestSens = MathF.Max(bestSens, sens.Sensitivity);
@@ -229,10 +242,10 @@ public sealed partial class DetectionSystem : EntitySystem
             if (!esens.Enabled || !esens.ActiveMode)
                 continue;
 
-            int watts = 0;
+            var watts = 0;
             if (esens.SensorType == SensorType.ActiveRadar)
                 watts = (int)(esens.Sensitivity * 25_000f);
-            float emRange = passiveSens * (watts);
+            var emRange = passiveSens * (watts);
 
             if (distance <= emRange)
                 return true;
@@ -242,19 +255,19 @@ public sealed partial class DetectionSystem : EntitySystem
     }
 }
 
-public enum DetectionLevel : int
+public enum DetectionLevel
 {
     Detected = 0,
     PartialDetected = 1,
-    Undetected = 2
+    Undetected = 2,
 }
 
-public enum MassLevel : int
+public enum MassLevel
 {
     Unknown = 0,
     Small = 1,
     Medium = 2,
     Large = 3,
     Huge = 4,
-    Supermassive = 5
+    Supermassive = 5,
 }

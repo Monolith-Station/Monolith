@@ -23,10 +23,23 @@ public sealed partial class ShipSensorComponent : Component
 
     /// <summary>
     /// Offset from the ent rotation for arc
-    /// Keep it on +90 default, 0 degrees is east instead of north.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float ArcOffset = 90f;
+    public float ArcOffset;
+
+    /// <summary>
+    /// If we can direct the arc at all.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool ArcConfigurable = true;
+
+    /// <summary>
+    /// If our arcs are stabilized or not.
+    /// If it's true, they rotate with the ship.
+    /// if it's false, it's stabilized and always faces it's directed bearing.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool GridRelativeArc;
 
     /// <summary>
     /// Power draw when disabled

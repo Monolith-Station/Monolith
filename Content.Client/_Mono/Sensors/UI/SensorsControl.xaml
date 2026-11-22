@@ -1,6 +1,7 @@
 <BoxContainer xmlns="https://spacestation14.io"
               xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
               xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+              xmlns:ui="clr-namespace:Content.Client._Mono.Sensors.UI"
               Orientation="Vertical"
               HorizontalExpand="True"
               VerticalExpand="True"
@@ -10,7 +11,8 @@
         <Label Text="{Loc 'gunnery-emcon-sensors'}" HorizontalAlignment="Left" StyleClasses="StatusFieldTitle"/>
     </controls:StripeBack>
 
-    <PanelContainer VerticalExpand="False" MinHeight="140">
+    <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+    <PanelContainer VerticalExpand="False" MinHeight="140" HorizontalExpand="True">
         <PanelContainer.PanelOverride>
             <gfx:StyleBoxFlat BackgroundColor="#000000"/>
         </PanelContainer.PanelOverride>
@@ -18,6 +20,14 @@
             <BoxContainer Name="HardwareBox" Orientation="Vertical" Margin="4"/>
         </ScrollContainer>
     </PanelContainer>
+
+    <PanelContainer MinSize="180 180" MaxSize="220 220" Margin="6 0 0 0">
+        <PanelContainer.PanelOverride>
+            <gfx:StyleBoxFlat BackgroundColor="#000000"/>
+        </PanelContainer.PanelOverride>
+        <ui:SensorsArcDisplay Name="ArcDisplay"/>
+    </PanelContainer>
+    </BoxContainer>
 
     <controls:StripeBack MinSize="36 36" Margin="0 8 0 0">
         <Label Text="{Loc 'gunnery-emcon-contacts'}" HorizontalAlignment="Left" StyleClasses="StatusFieldTitle"/>
