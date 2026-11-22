@@ -1,0 +1,17 @@
+- type: loadout
+  id: USSPClothingNeckIFFFreeport
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT2
+  price: 0 # Mono
+  equipment:
+    neck: ClothingNeckIFFFreeport
+
+- type: loadout
+  id: USSPClothingNeckIFFUSSPRed
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT2
+  price: 0 # Mono
+  equipment:
+    neck: ClothingNeckIFFUSSPRed
