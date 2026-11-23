@@ -69,6 +69,11 @@
   result: MachineShieldMS500Circuitboard
 
 - type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: MachineShieldDS50Circuitboard
+  result: MachineShieldDS50Circuitboard
+
+- type: latheRecipe
   parent: BaseCircuitboardRecipe
   id: CarpCallerMachineCircuitboard
   result: CarpCallerMachineCircuitboard

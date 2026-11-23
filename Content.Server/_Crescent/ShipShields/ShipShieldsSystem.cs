@@ -195,10 +195,13 @@ public sealed partial class ShipShieldsSystem : EntitySystem
         shieldComp.Source = source;
 
         // Copy shield color from the generator to the shield visuals
+        // AND shield arc + shield Direction -- Mono
         var shieldVisuals = EnsureComp<ShipShieldVisualsComponent>(shield);
         if (source != null && TryComp<ShipShieldEmitterComponent>(source.Value, out var emitter))
         {
             shieldVisuals.ShieldColor = emitter.ShieldColor;
+            shieldVisuals.ShieldArc = emitter.ShieldArc; // Mono
+            shieldVisuals.ShieldDirection = emitter.ShieldDirection; // Mono
             Dirty(shield, shieldVisuals);
         }
 
@@ -206,19 +209,27 @@ public sealed partial class ShipShieldsSystem : EntitySystem
         _transformSystem.SetCoordinates(shield, gridCenter);
         _transformSystem.SetWorldRotation(shield, _transformSystem.GetWorldRotation(entity));
 
-        var chain = GenerateOvalFixture(shield, "shield", shieldPhysics, mapGrid, shieldVisuals.Padding);
+        var chain = GenerateOvalFixture(shield, "shield", shieldPhysics, mapGrid, shieldVisuals.Padding, shieldVisuals.ShieldDirection, shieldVisuals.ShieldArc);
 
         List<Vector2> roughPoly = new();
 
         var interval = chain.Count / PhysicsConstants.MaxPolygonVertices;
 
-        int i = 0;
+        // Mono start - modified to work with arcs
+        // int i = 0;
 
-        while (i < PhysicsConstants.MaxPolygonVertices)
-        {
-            roughPoly.Add(chain.Vertices[i * interval]);
-            i++;
+        // while (i < PhysicsConstants.MaxPolygonVertices)
+        // {
+        //     roughPoly.Add(chain.Vertices[i * interval]);
+        //     i++;
+        // }
+        //
+        roughPoly.Add(Vector2.Zero); //add the centrepoint of the ship because otherwise collision is a bit fucked for thin arcs, slightly reduces poly count for circle shields but i think its fine
+        for(var i = 0; i < PhysicsConstants.MaxPolygonVertices - 1; i++){ //since we can only have X points in our polygon we have to spread them out evenly across our vertex chain for the hitbox
+            var vertIndex = (int) MathF.Round(i * (chain.Count - 1) / (float) (PhysicsConstants.MaxPolygonVertices - 2)); //this makes sure we will ALWAYS get the last vertex, and the first one at index 0 as well
+            roughPoly.Add(chain.Vertices[vertIndex]);
         }
+        // Mono end
 
         var internalPoly = new PolygonShape();
         internalPoly.Set(roughPoly);
@@ -250,7 +261,7 @@ public sealed partial class ShipShieldsSystem : EntitySystem
         return true;
     }
 
-    private ChainShape GenerateOvalFixture(EntityUid uid, string name, PhysicsComponent physics, MapGridComponent mapGrid, float padding)
+    private ChainShape GenerateOvalFixture(EntityUid uid, string name, PhysicsComponent physics, MapGridComponent mapGrid, float padding, float shieldDir, float shieldArc)
     {
         float radius;
         float scale;
@@ -272,9 +283,21 @@ public sealed partial class ShipShieldsSystem : EntitySystem
         }
 
         var chain = new ChainShape();
-
-        chain.CreateLoop(Vector2.Zero, radius);
-
+        // Mono start, made a separate case for arc shields
+        if(shieldArc < 360f && !(shieldArc > 180f)){ //Mono, use arc drawing function for noncircles, and circle func for circles, we do not want shield arcs between 180 and 360 as those cause unintended behaviour
+            CreateArc(chain, radius, shieldDir, shieldArc);
+                if(scaleX){ // because we gave it "ghost vertices" when drawing it so we have to scale those as well
+                chain.NextVertex.X *= scale;
+                chain.PrevVertex.X *= scale;
+                }
+                else{
+                chain.NextVertex.Y *= scale;
+                chain.PrevVertex.Y *= scale;
+                }
+        }
+        else{
+            chain.CreateLoop(Vector2.Zero, radius);
+        } // Mono end
         for (int i = 0; i < chain.Vertices.Length; i++)
         {
             if (scaleX)
@@ -300,4 +323,34 @@ public sealed partial class ShipShieldsSystem : EntitySystem
     {
 
     }
+    /// Mono
+    /// <summary>
+    /// Function to draw an arc, based heavily on the createLoop function from RT, had to make a new one
+    /// to add functionality for arcs for directional shields
+    /// </summary>
+    private static void CreateArc(ChainShape chain, float radius, float direction, float arcWidth, float count = 16f)
+    {
+
+        int divisions = Math.Max(4,(int)(radius * count * arcWidth / 360f)); //the number of chains we create to make the proper arc
+        arcWidth = MathHelper.DegreesToRadians(arcWidth); //convert here because we need it in radians for the startPos calculation
+        float stepWidth = arcWidth / divisions; // the width we give per chain we generate
+
+        float midPoint = MathF.PI / 2f - MathHelper.DegreesToRadians(direction);
+        float startPoint = midPoint - arcWidth / 2;
+
+        Span<Vector2> vertices = stackalloc Vector2[divisions + 1]; //because we start from 0 degrees so we end it at n+1 to account for the offset
+
+        for (int i = 0; i <= divisions; i++)
+        {
+            float startAngle = startPoint + stepWidth * i;
+            var startPos = new Vector2(MathF.Cos(startAngle) * radius, MathF.Sin(startAngle) * radius);
+            vertices[i] = startPos;
+        }
+
+        var v1 = new Vector2(MathF.Cos(startPoint - stepWidth) * radius, MathF.Sin(startPoint - stepWidth) * radius); // "beginning" vertex that is 1 step before the first one in vertices
+        var v2 = new Vector2(MathF.Cos(startPoint + arcWidth + stepWidth) * radius, MathF.Sin(startPoint + arcWidth + stepWidth) * radius); // "end" vertex that is 1 step after the last one in vertices
+        chain.CreateChain(vertices, v1, v2);
+    }
+
+
 }

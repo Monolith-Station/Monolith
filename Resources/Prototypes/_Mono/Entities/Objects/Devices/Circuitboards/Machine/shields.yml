@@ -93,3 +93,33 @@
       RadioEconomy2:
         amount: 1
         defaultPrototype: RadioEconomy2
+
+- type: entity
+  id: MachineShieldDS50Circuitboard
+  parent: BaseMachineCircuitboard
+  name: DS-50 shield generator board
+  description: A machine board for a DS-50 frontal shield generator.
+  components:
+    - type: Sprite
+      state: security
+    - type: MachineBoard
+      prototype: ShieldGeneratorDirectionalSmall
+      flatpackable: false
+      stackRequirements:
+        Glass: 10
+        Steel: 10
+        Plasma: 30
+        Plasteel: 10
+      tagRequirements:
+        ComponentBrickEconomy1:
+          amount: 1
+          defaultPrototype: ComponentBrickEconomy1
+        ElectromagnetEconomy1:
+          amount: 2
+          defaultPrototype: ElectromagnetEconomy1
+        MicroprocessorEconomy1:
+          amount: 2
+          defaultPrototype: MicroprocessorEconomy1
+        RadioEconomy1:
+          amount: 1
+          defaultPrototype: RadioEconomy1
