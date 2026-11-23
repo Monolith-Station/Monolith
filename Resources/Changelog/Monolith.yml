@@ -27666,3 +27666,30 @@ Entries:
   id: 2966
   time: '2026-11-22T19:04:54.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/5067
+- author: DoubleHypercube
+  changes:
+    - type: Add
+      message: Languages can now be written on paper. Ea-Nāṣir, count your days.
+  id: 2967
+  time: '2026-11-23T12:05:41.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5054
+- author: tonotom1
+  changes:
+    - type: Fix
+      message: Holopads can now hear and transmit chat-only emotes
+    - type: Fix
+      message: Tape recorders no longer act as ersatz universal translators
+  id: 2968
+  time: '2026-11-23T12:07:28.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4871
+- author: Mrrpip
+  changes:
+    - type: Tweak
+      message: Changes Prometheus flatpack description.
+    - type: Tweak
+      message: Changed Rubicon to be anchorable.
+    - type: Fix
+      message: Fixes default hardpoint and some door rotations on the Eris
+  id: 2969
+  time: '2026-11-23T12:11:30.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5081
