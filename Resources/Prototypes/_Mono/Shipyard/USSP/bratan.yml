@@ -69,6 +69,9 @@
     comp: Destructible
     data:
     - chance: 1
+      toReplace: SuitStorageSec
+      replaceWith: SuitStorageUssp
+    - chance: 1
       toReplace: WindowDirectional
       replaceWith: HardpointBallisticHeavy
     - chance: 1
