@@ -52,7 +52,8 @@
 
 - type: startingGear
   id: BailiffGear
-#  equipment:
+  equipment: # Mono
+    misc2: ClothingNeckWearableCameraTSF
 #    pocket1: WeaponPistolMk58 #WeaponPistolMk58Nonlethal
   storage:
     back:

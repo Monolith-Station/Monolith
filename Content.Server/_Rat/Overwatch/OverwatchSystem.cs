@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis; // Monolith
 using System.Linq;
 using System.Numerics;
 using Content.Server.Chat.Managers;
@@ -30,7 +31,7 @@ namespace Content.Server._Rat.Overwatch;
 /// <summary>
 /// Система для управления Overwatch.
 /// </summary>
-public sealed class OverwatchSystem : EntitySystem
+public sealed partial class OverwatchSystem : EntitySystem // Monolith: Systems must be partial
 {
     /// <summary>
     /// Интервал инвалидации кэша в секундах.
@@ -42,11 +43,6 @@ public sealed class OverwatchSystem : EntitySystem
     /// Интервал обновления UI в секундах.
     /// </summary>
     private const float UpdateInterval = 1.0f;
-
-    /// <summary>
-    /// ID слота экипировки для камеры наблюдения.
-    /// </summary>
-    private const string CameraSlotId = "neck";
 
     [Dependency] private InventorySystem _inventorySystem = default!;
     [Dependency] private MobStateSystem _mobStateSystem = default!;
@@ -117,6 +113,26 @@ public sealed class OverwatchSystem : EntitySystem
             subs.Event<OverwatchSendMessageAnnouncement>(OnSendAnnouncement);
         });
     }
+
+    // Monolith start
+    private bool TryGetCamera(EntityUid owner, [NotNullWhen(true)] out EntityUid? camera)
+    {
+        camera = null;
+        if (_inventorySystem.TryGetSlots(owner, out var slots))
+        {
+            foreach (var def in slots)
+            {
+                if (camera != null)
+                    break;
+
+                if (_inventorySystem.TryGetSlotEntity(owner, def.Name, out var temp) && HasComp<SurveillanceCameraComponent>(temp))
+                    camera = temp;
+            }
+        }
+
+        return camera != null;
+    }
+    // Monolith end
 
     /// <summary>
     /// Инвалидация кэша при инициализации компонента фракции.
@@ -286,7 +302,7 @@ public sealed class OverwatchSystem : EntitySystem
             Name(member),
             GetJobTitle(member),
             GetMemberStatus(member),
-            HasWearableCamera(member),
+            TryGetCamera(member, out _),
             GetSquadId(member),
             GetSquadName(member) ?? "",
             GetMemberCoordinates(member)
@@ -476,15 +492,10 @@ public sealed class OverwatchSystem : EntitySystem
             return;
 
         var target = GetEntity(args.Target);
-        if (!IsValidCameraTarget(target))
+        if (!TryGetCamera(target, out var camera)) // Monolith
             return;
 
-        if (!_inventorySystem.TryGetSlotEntity(target, CameraSlotId, out var neckItem))
-            return;
-
-        if (!TryComp<SurveillanceCameraComponent>(neckItem.Value, out var cameraComp))
-            return;
-
+        var cameraComp = Comp<SurveillanceCameraComponent>(camera.Value); // Monolith
         if (!TryComp<ActorComponent>(actor, out var actorComp) || actorComp.PlayerSession == null)
             return;
 
@@ -500,9 +511,9 @@ public sealed class OverwatchSystem : EntitySystem
         }
 
         if (!cameraComp.Active)
-            _cameraSystem.SetActive(neckItem.Value, true, cameraComp);
+            _cameraSystem.SetActive(camera.Value, true, cameraComp);
 
-        _cameraSystem.AddActiveViewer(neckItem.Value, actor, neckItem.Value, cameraComp);
+        _cameraSystem.AddActiveViewer(camera.Value, actor, camera.Value, cameraComp);
 
         var cameraCompTarget = EnsureComp<RatOverwatchCameraComponent>(target);
         cameraCompTarget.Watching.Add(actor);
@@ -539,10 +550,9 @@ public sealed class OverwatchSystem : EntitySystem
 
         var target = watchingComp.Watching.Value;
 
-        if (_inventorySystem.TryGetSlotEntity(target, CameraSlotId, out var neckItem) &&
-            TryComp<SurveillanceCameraComponent>(neckItem.Value, out var cameraComp))
+        if (TryGetCamera(target, out var camera) && TryComp<SurveillanceCameraComponent>(camera.Value, out var cameraComp)) // Monolith
         {
-            _cameraSystem.RemoveActiveViewer(neckItem.Value, watcher, component: cameraComp);
+            _cameraSystem.RemoveActiveViewer(camera.Value, watcher, component: cameraComp);
         }
 
         if (TryComp<RatOverwatchCameraComponent>(target, out var cameraCompTarget))
@@ -572,10 +582,9 @@ public sealed class OverwatchSystem : EntitySystem
 
         var target = ent.Comp.Watching.Value;
 
-        if (_inventorySystem.TryGetSlotEntity(target, CameraSlotId, out var neckItem) &&
-            TryComp<SurveillanceCameraComponent>(neckItem.Value, out var cameraComp))
+        if (TryGetCamera(target, out var camera) && TryComp<SurveillanceCameraComponent>(camera, out var cameraComp)) // Monolith
         {
-            _cameraSystem.RemoveActiveViewer(neckItem.Value, ent.Owner, component: cameraComp);
+            _cameraSystem.RemoveActiveViewer(camera.Value, ent.Owner, component: cameraComp);
         }
 
         if (TryComp<RatOverwatchCameraComponent>(target, out var cameraCompTarget))
@@ -755,17 +764,6 @@ public sealed class OverwatchSystem : EntitySystem
     }
 
     /// <summary>
-    /// Проверяет наличие носимой камеры на участнике.
-    /// </summary>
-    private bool HasWearableCamera(EntityUid member)
-    {
-        if (!_inventorySystem.TryGetSlotEntity(member, CameraSlotId, out var neckItem))
-            return false;
-
-        return HasComp<SurveillanceCameraComponent>(neckItem.Value);
-    }
-
-    /// <summary>
     /// Получает должность сущности.
     /// </summary>
     private string GetJobTitle(EntityUid entity)
@@ -799,14 +797,6 @@ public sealed class OverwatchSystem : EntitySystem
             return squadComp.SquadName;
 
         return "";
-    }
-
-    /// <summary>
-    /// Проверяет возможность использования сущности как цели для камеры.
-    /// </summary>
-    private bool IsValidCameraTarget(EntityUid target)
-    {
-        return HasWearableCamera(target);
     }
 
     /// <summary>

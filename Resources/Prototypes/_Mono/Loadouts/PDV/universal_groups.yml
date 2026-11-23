@@ -15,19 +15,10 @@
   - PDVClothingJumpsuitInfantryCrocus
 
 - type: loadoutGroup
-  id: PDVNeck
-  name: loadout-group-contractor-neck
-  hidden: false
-  minLimit: 1
-  loadouts:
-  - PDVClothingNeckWearableCameraPDV
-
-- type: loadoutGroup
   id: PDVCommanderNeck
   name: loadout-group-contractor-neck
   minLimit: 1
   loadouts:
-  - PDVClothingNeckWearableCameraPDV
   - PDVClothingNeckCloakCommander
   - PDVClothingNeckCloakVizier
   - PDVClothingNeckMantleVizier
