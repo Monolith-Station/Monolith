@@ -1,0 +1,72 @@
+- type: entity
+  parent: BaseSensor
+  id: SensorRadarCiv
+  name: AN/SP-300
+  description: A generic navigation radar for civilian ships. Low power draw, but poor range. Can't provide a targeting solution for weapons.
+  suffix: Generic/Civ, T1, active radar, search only
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: ShipSensor
+    ActiveThermalSignature: 90000
+    sensorType: ActiveRadar
+    sensitivity: 75
+    arcDegrees: 360
+    powerDraw: 200
+    powerDrawActive: 2000
+    arcConfigurable: true
+    gridRelativeArc: true
+    requireLineOfSight: false
+    chaffResistance: 0.05
+    canProvideLock: false
+    canProvideGuidance: false
+  - type: ApcPowerReceiver
+    powerLoad: 200
+  - type: Sprite
+    rotation: -180
+    offset: 0, -1
+    sprite: _Mono/Structures/Sensors/active_radar_1x1.rsi
+    layers:
+    - state: civ_t1
+
+- type: entity
+  parent: BaseSensor
+  id: SensorRadarCivT2
+  name: AN/SP-650
+  description: A low-grade search & FCR radar for civilian ships. Good range, poor chaff resistance.
+  suffix: Generic/Civ, T2, active radar, search & FCR
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: ShipSensor
+    ActiveThermalSignature: 80000
+    sensorType: ActiveRadar
+    sensitivity: 125
+    arcDegrees: 360
+    powerDraw: 900
+    powerDrawActive: 8000
+    arcConfigurable: true
+    gridRelativeArc: true
+    requireLineOfSight: false
+    chaffResistance: 0.25
+    canProvideLock: true
+    canProvideGuidance: true
+  - type: ApcPowerReceiver
+    powerLoad: 900
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 7500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+  - type: Sprite
+    rotation: -180
+    offset: 0, -1
+    sprite: _Mono/Structures/Sensors/active_radar_1x1.rsi
+    layers:
+    - state: civ_t2

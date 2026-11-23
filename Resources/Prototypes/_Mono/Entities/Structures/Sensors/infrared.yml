@@ -16,10 +16,11 @@
   - type: ApcPowerReceiver
     powerLoad: 200
   - type: Sprite
-    offset: 0,1
+    offset: 0,-1
+    rotation: 180
     sprite: _Mono/Structures/Sensors/infrared.rsi
     layers:
-    - state: tsf
+    - state: irst_hightech
 
 - type: entity
   parent: SensorInfraredTSF
@@ -32,7 +33,7 @@
   components:
   - type: Sprite
     layers:
-    - state: pdv
+    - state: irst_lowtech
 
 - type: entity
   parent: SensorInfraredTSF
@@ -42,7 +43,5 @@
   suffix: Generic/Civ, infrared
   placement:
     mode: SnapgridCenter
-  components:
-  - type: Sprite
     layers:
-    - state: civ
+    - state: irst_hightech

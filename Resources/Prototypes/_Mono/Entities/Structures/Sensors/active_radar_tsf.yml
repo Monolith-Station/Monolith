@@ -1,0 +1,215 @@
+- type: entity
+  parent: BaseSensor
+  id: SensorRadarTsfXiaoDou
+  name: Type-860 XiaoDou
+  description: A basic radar kit outfitted on most TSF vessels. Provides a combined FCR & search capability, with decent resistance to chaff, but poor range.
+  suffix: TSF/CSec, search & FCR
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: ShipSensor
+    ActiveThermalSignature: 20000
+    sensorType: ActiveRadar
+    sensitivity: 118
+    arcDegrees: 360
+    powerDraw: 600
+    powerDrawActive: 4000
+    arcConfigurable: true
+    gridRelativeArc: true
+    requireLineOfSight: false
+    chaffResistance: 0.8
+    canProvideLock: true
+    canProvideGuidance: true
+  - type: ShipRepairable
+    repairTime: 15
+    repairCost: 60
+  - type: ApcPowerReceiver
+    powerLoad: 600
+  - type: Sprite
+    rotation: -180
+    offset: 0, -1
+    sprite: _Mono/Structures/Sensors/active_radar_1x1.rsi
+    layers:
+    - state: tsf_t1
+
+- type: entity
+  parent: BaseSensor
+  id: SensorRadarTsfRenHai
+  name: Type-890 RenHai
+  description: A more advanced radar kit outfitted on most TSF vessels. Developed from the Type-860 - provides more sensitivity, but has a higher power draw & chaff resistance.
+  suffix: TSF/CSec, search & FCR
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: ShipSensor
+    ActiveThermalSignature: 80000
+    sensorType: ActiveRadar
+    sensitivity: 307
+    arcDegrees: 360
+    powerDraw: 900
+    powerDrawActive: 10000
+    arcConfigurable: true
+    gridRelativeArc: true
+    requireLineOfSight: false
+    chaffResistance: 0.4
+    canProvideLock: true
+    canProvideGuidance: true
+  - type: ApcPowerReceiver
+    powerLoad: 900
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 7500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+  - type: ShipRepairable
+    repairTime: 15
+    repairCost: 100
+  - type: Sprite
+    rotation: -180
+    offset: 0, -1
+    sprite: _Mono/Structures/Sensors/active_radar_1x1.rsi
+    layers:
+    - state: tsf_t2
+
+#2X1
+
+- type: entity
+  parent: BaseSensor
+  id: SensorRadarTsfLiuDou
+  name: Type-445 LiuDou
+  description: A large radar kit outfitted on most mid-sized TSF vessels. Very good, but very high power draw.
+  suffix: TSF/CSec, search & FCR
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: ShipSensor
+    ActiveThermalSignature: 130000
+    sensorType: ActiveRadar
+    sensitivity: 576
+    arcDegrees: 360
+    powerDraw: 1500
+    powerDrawActive: 35000
+    arcConfigurable: true
+    gridRelativeArc: true
+    requireLineOfSight: false
+    chaffResistance: 0.6
+    canProvideLock: false
+    canProvideGuidance: false
+  - type: ApcPowerReceiver
+    powerLoad: 1500
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 12500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+  - type: ShipRepairable
+    repairTime: 30
+    repairCost: 120
+  - type: Sprite
+    offset: 0, -1
+    rotation: 180
+    sprite: _Mono/Structures/Sensors/active_radar_2x1.rsi
+    layers:
+    - state: tsf_t1
+
+- type: entity
+  parent: BaseSensor
+  id: SensorRadarTsfSanDian
+  name: Type-550 SanDian
+  description: A large AESA radar kit operated primarily by the TSF. Practically perfect - if you can handle the thermal signature and power draw.
+  suffix: TSF/CSec, search & FCR
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: ShipSensor
+    ActiveThermalSignature: 1000000
+    sensorType: ActiveRadar
+    sensitivity: 957
+    arcDegrees: 140
+    powerDraw: 5000
+    powerDrawActive: 30000 # Lower than the T1 because it's not omnidirectional.
+    arcConfigurable: true
+    gridRelativeArc: true
+    requireLineOfSight: false
+    chaffResistance: 0.6
+    canProvideLock: true
+    canProvideGuidance: true
+  - type: ApcPowerReceiver
+    powerLoad: 5000
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 25000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+  - type: ShipRepairable
+    repairTime: 30
+    repairCost: 200
+  - type: Sprite
+    offset: 0, -0.5
+    rotation: 180
+    sprite: _Mono/Structures/Sensors/active_radar_2x1.rsi
+    layers:
+    - state: tsf_t2
+
+- type: entity
+  parent: BaseSensor
+  id: SensorRadarTsfBeiDou
+  name: Type-940 BeiDou
+  description: An extremely high-powered AESA radar for TSF vessels. Can practically detect the entire sector, but has an insane power draw.
+  suffix: TSF/CSec, search & FCR
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: ShipSensor
+    ActiveThermalSignature: 1000000
+    sensorType: ActiveRadar
+    sensitivity: 2054
+    arcDegrees: 360
+    powerDraw: 15000
+    powerDrawActive: 100000
+    arcConfigurable: true
+    gridRelativeArc: true
+    requireLineOfSight: false
+    chaffResistance: 0.55
+    canProvideLock: true
+    canProvideGuidance: true
+  - type: ApcPowerReceiver
+    powerLoad: 15000
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+  - type: ShipRepairable
+    repairTime: 60
+    repairCost: 350
+  - type: Sprite
+    offset: 0, -0.5
+    rotation: 180
+    sprite: _Mono/Structures/Sensors/active_radar_3x1.rsi
+    layers:
+    - state: tsf
