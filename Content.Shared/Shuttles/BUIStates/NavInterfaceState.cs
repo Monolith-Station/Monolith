@@ -43,12 +43,13 @@ public sealed class NavInterfaceState
     /// Frontier: settable coordinate visibility
     /// </summary>
     public bool HideCoords = false;
-
-    /// <summary>
-    /// Sensors tab state for this console's grid. Null if sensors system is unavailable.
-    /// </summary>
-    public SensorsBuiState? Sensors;
     // End Frontier fields
+
+    // Mono
+    public SensorsBuiState? Sensors;
+
+    // Mono
+    public RadarLockStateDto? Lock;
 
     public NavInterfaceState(
         float maxRange,
@@ -57,14 +58,16 @@ public sealed class NavInterfaceState
         Dictionary<NetEntity, List<DockingPortState>> docks,
         InertiaDampeningMode dampeningMode, // Frontier: add dampeningMode
         Dictionary<string, string>? networkPortNames = null,
-        SensorsBuiState? sensors = null)
+        SensorsBuiState? sensors = null, // Mono
+        RadarLockStateDto? lockState = null) // Mono
     {
         MaxRange = maxRange;
         Coordinates = coordinates;
         Angle = angle;
         Docks = docks;
         DampeningMode = dampeningMode; // Frontier
-        Sensors = sensors;
+        Sensors = sensors; // Mono
+        Lock = lockState; // Mono
         NetworkPortNames = networkPortNames ?? new Dictionary<string, string>();
     }
 }

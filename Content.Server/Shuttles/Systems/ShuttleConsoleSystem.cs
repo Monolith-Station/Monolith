@@ -55,6 +55,7 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
     [Dependency] private ILogManager _log = default!;
     [Dependency] private CrewedShuttleSystem _crewedShuttle = default!;
     [Dependency] private ShipSensorsSystem _sensors = default!; // Mono
+    [Dependency] private RadarLockSystem _radarLock = default!; // Mono
 
     private ISawmill _sawmill = default!;
 
@@ -428,6 +429,12 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
 
         // Mono
         var sensorsState = _sensors.BuildBuiState(consoleUid);
+        navState.Sensors = sensorsState;
+
+        if (TryComp<FireControlConsoleComponent>(consoleUid, out var fcc))
+            navState.Lock = _radarLock.BuildLockState(consoleUid, fcc);
+        else
+            navState.Lock = null;
 
         if (_ui.HasUi(consoleUid, ShuttleConsoleUiKey.Key))
         {

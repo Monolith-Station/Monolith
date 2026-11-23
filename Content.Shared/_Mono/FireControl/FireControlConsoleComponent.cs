@@ -21,4 +21,10 @@ public sealed partial class FireControlConsoleComponent : Component
 
     [DataField]
     public float LogGridLookupRange = 1024f;
+
+    [ViewVariables]
+    public EntityUid? LockedTarget;
+
+    [DataField]
+    public bool RadarTrackEnabled;
 }

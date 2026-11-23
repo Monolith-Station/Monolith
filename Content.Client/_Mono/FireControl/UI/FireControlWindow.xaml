@@ -60,8 +60,16 @@
                                         <PanelContainer.PanelOverride>
                                             <gfx:StyleBoxFlat BorderThickness="4" BorderColor="#2e2e2e" BackgroundColor="#1c1c1c" />
                                         </PanelContainer.PanelOverride>
+                                        <BoxContainer Orientation="Vertical">
                                         <Button Name="RefreshButton" Access="Public" Text="{Loc admin-logs-refresh}"
                                                 StyleClasses="ButtonSquare" Margin="2 2 2 2"/>
+                                        <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                                        <Button Name="RadarTrackToggle" Access="Public" Text="{Loc gunnery-sarh}"
+                                                StyleClasses="ButtonSquare" Margin="2 2 2 2" ToggleMode="True" HorizontalExpand="True"/>
+                                        <Button Name="LockModeToggle" Access="Public" Text="{Loc gunnery-lock}"
+                                                StyleClasses="ButtonSquare" Margin="2 2 2 2" ToggleMode="True" HorizontalExpand="True"/>
+                                        </BoxContainer>
+                                        </BoxContainer>
                                     </PanelContainer>
 
                                     <controls:StripeBack MinSize="48 48" Margin="0 0 0 0">

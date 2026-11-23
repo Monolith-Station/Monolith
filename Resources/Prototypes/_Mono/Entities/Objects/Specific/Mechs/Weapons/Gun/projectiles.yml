@@ -275,6 +275,10 @@
   - type: Tag
     tags:
     - AMMTarget
+  - type: RadarCountermeasure
+    radius: 20
+    strength: 0.85
+    maxEffectRange: 800
   - type: Projectile
     deleteOnCollide: false
     damage:

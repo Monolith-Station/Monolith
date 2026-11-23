@@ -67,6 +67,15 @@ public sealed partial class ShipSensorComponent : Component
 
     [DataField, AutoNetworkedField]
     public bool RequireLineOfSight;
+
+    [DataField, AutoNetworkedField]
+    public float ChaffResistance = 0.25f;
+
+    [DataField, AutoNetworkedField]
+    public bool CanProvideLock = true;
+
+    [DataField, AutoNetworkedField]
+    public bool CanProvideGuidance = true;
 }
 
 [Serializable, NetSerializable]

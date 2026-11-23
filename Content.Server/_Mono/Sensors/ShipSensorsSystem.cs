@@ -1,4 +1,3 @@
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server._Mono.Detection;
 using Content.Server._Mono.Radar;

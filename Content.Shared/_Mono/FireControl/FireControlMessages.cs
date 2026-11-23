@@ -16,6 +16,7 @@ public sealed class FireControlConsoleBoundInterfaceState : BoundUserInterfaceSt
     public bool Connected;
     public FireControllableEntry[] FireControllables;
     public NavInterfaceState NavState;
+    public RadarLockStateDto? Lock;
 
     /// <summary>
     /// Sensors tab state for this console's grid. Null if sensors system is unavailable.
