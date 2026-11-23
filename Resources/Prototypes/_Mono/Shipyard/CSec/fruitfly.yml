@@ -16,6 +16,7 @@
   class:
   - Patrol
   - Detainment
+  - Medical
   engine:
   - Uranium
   - APU
@@ -94,3 +95,6 @@
     - chance: 1
       toReplace: AirlockMercenary
       replaceWith: AirlockSeviceFrontierLocked
+    - chance: 1
+      toReplace: AirlockSecurity
+      replaceWith: AirlockSecurityLocked # Will likely disable the bolt button by the door but it's now locked.
