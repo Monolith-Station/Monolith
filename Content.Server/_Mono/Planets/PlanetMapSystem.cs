@@ -1,7 +1,9 @@
+using System.Linq;
 using Content.Server._CE.ZLevels.Core;
 using Content.Server._Mono.Mining;
 using Content.Server.Parallax;
 using Content.Shared._CE.ZLevels.Core.Components;
+using Content.Shared._FarHorizons.StarSystem.Prototypes;
 using Content.Shared._Mono.Planets;
 using Content.Shared.Light.Components;
 using Robust.Shared.EntitySerialization.Systems;
@@ -22,36 +24,61 @@ public sealed partial class PlanetMapSystem : EntitySystem
     [Dependency] private CEZLevelsSystem _levels = default!;
     [Dependency] private BiomeSystem _biomes = default!;
     [Dependency] private MetaDataSystem _metadata = default!;
+    [Dependency] private PlanetPersistenceSystem _persistence = default!;
 
     public EntityUid Create(ProtoId<PlanetMapPrototype> id, int? seed = null)
+        => Create(id, seed, null);
+
+    public EntityUid Create(PlanetTypePrototype planet)
+        => Create(planet.Surface ?? throw new ArgumentException($"Planet {planet.ID} has no surface."),
+            _persistence.GetSeed(planet), planet);
+
+    private EntityUid Create(ProtoId<PlanetMapPrototype> id, int? seed, PlanetTypePrototype? planet)
     {
         var definition = _prototypes.Index(id);
         if (definition.Layers.Count == 0)
             throw new ArgumentException($"Planet map {id} has no layers.");
 
-        var network = _levels.CreateMapNetwork(definition.Components);
-        var state = AddComp<PlanetMapGenerationComponent>(network);
+        var mapSeed = seed ?? _random.Next();
+        var saved = planet == null ? null : _persistence.LoadStack(planet, definition, mapSeed);
+        var network = saved?.Network ?? _levels.CreateMapNetwork(definition.Components);
+        var state = EnsureComp<PlanetMapGenerationComponent>(network);
         state.Definition = id;
-        state.Seed = seed ?? _random.Next();
-        _metadata.SetEntityName(network, definition.Name);
+        state.Seed = mapSeed;
+        if (saved?.Network == null)
+            _metadata.SetEntityName(network, definition.Name);
 
         try
         {
-            EnsureComp<LightCycleComponent>(network);
-            var maps = new Dictionary<EntityUid, int>();
-            for (var i = 0; i < definition.Layers.Count; i++)
+            if (saved?.Network == null)
+                EnsureComp<LightCycleComponent>(network);
+
+            if (saved is { } restored)
+                state.Layers = restored.Layers;
+            else
             {
-                var depth = definition.BaseDepth + definition.Layers.Count - 1 - i;
-                var map = CreateLayer(definition.Layers[i], state.Seed, false);
-                state.Layers.Add(depth, map);
-                maps.Add(map, depth);
-                _metadata.SetEntityName(map, $"{definition.Name} [{depth}]");
+                for (var i = 0; i < definition.Layers.Count; i++)
+                {
+                    var depth = definition.BaseDepth + definition.Layers.Count - 1 - i;
+                    var map = CreateLayer(definition.Layers[i], state.Seed, false);
+                    state.Layers.Add(depth, map);
+                    _metadata.SetEntityName(map, $"{definition.Name} [{depth}]");
+                }
             }
 
-            if (!_levels.TryAddMapsIntoNetwork(network, maps))
+            var maps = state.Layers.ToDictionary(pair => pair.Value, pair => pair.Key);
+            if (!_levels.TryAddMapsIntoNetwork(network, maps, applyComponents: saved == null))
                 throw new InvalidOperationException($"Could not link planet map {id}.");
 
             _levels.InitializeZNetwork(network);
+            if (saved is { } loaded)
+            {
+                foreach (var entity in loaded.Resets)
+                {
+                    if (TryComp<MetaDataComponent>(entity, out var meta) && meta.EntityLifeStage == EntityLifeStage.Initialized)
+                        EntityManager.RunMapInit(entity, meta);
+                }
+            }
             return network;
         }
         catch

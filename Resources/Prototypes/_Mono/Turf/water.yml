@@ -19,5 +19,6 @@
   # No, landing in water does not shatter thy kneecaps
   fallDamageMultiplier: 0
   fallStunMultiplier: 0.1 # You still do get a bit stunned though.
+  landingSound: /Audio/Effects/Fluids/watersplash.ogg
   entityShader: MonoSubmerged
   reagent: Water

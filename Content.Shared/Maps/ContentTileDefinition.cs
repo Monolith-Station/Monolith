@@ -188,6 +188,12 @@ namespace Content.Shared.Maps
         public float FallStunMultiplier { get; private set; } = 1f;
 
         /// <summary>
+        /// Sound played whenever someone has a hard landing on this tile.
+        /// </summary>
+        [DataField]
+        public SoundSpecifier? LandingSound { get; private set; }
+
+        /// <summary>
         /// Shader applied to entities standing on this tile, for things like looking submerged while wading.
         /// </summary>
         [DataField]

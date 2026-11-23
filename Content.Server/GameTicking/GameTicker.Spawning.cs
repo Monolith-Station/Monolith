@@ -66,6 +66,7 @@ namespace Content.Server.GameTicking
             // Allow game rules to spawn players by themselves if needed. (For example, nuke ops or wizard)
             RaiseLocalEvent(new RulePlayerSpawningEvent(readyPlayers, profiles, force));
 
+            RaiseLocalEvent(new RoundStartSpawnSelectionEvent(readyPlayers, profiles));
             var playerNetIds = readyPlayers.Select(o => o.UserId).ToHashSet();
 
             // RulePlayerSpawning feeds a readonlydictionary of profiles.
@@ -366,6 +367,15 @@ namespace Content.Server.GameTicking
                 }
             }
             // Mono/BF14 end
+
+            if (!silent && RunLevel == GameRunLevel.InRound)
+            {
+                var request = new PlayerLateJoinRequestEvent(player, station, jobId, () => SpawnPlayer(player, station, jobId));
+                RaiseLocalEvent(request);
+                if (request.Deferred)
+                    return;
+            }
+
             SpawnPlayer(player, station, jobId, silent: silent);
         }
 

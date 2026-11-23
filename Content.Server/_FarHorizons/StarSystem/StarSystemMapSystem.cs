@@ -16,6 +16,7 @@ namespace Content.Server._FarHorizons.StarSystem;
 public sealed partial class StarSystemMapSystem : SharedStarSystemMapSystem
 {
     [Dependency] private IPrototypeManager _protoMan = default!;
+    [Dependency] private PlanetPersistenceSystem _persistence = default!;
     [Dependency] private MapSystem _map = default!;
     [Dependency] private MetaDataSystem _metadata = default!;
     [Dependency] private PvsOverrideSystem _pvs = default!;
@@ -48,6 +49,7 @@ public sealed partial class StarSystemMapSystem : SharedStarSystemMapSystem
         EnsureComp<StarLightComponent>(ent);
 
         SpawnEntities(ent);
+        RaiseLocalEvent(new StarSystemPlanetsLoadedEvent());
     }
 
     private void SpawnEntities(Entity<StarSystemMapComponent> ent)
@@ -88,16 +90,30 @@ public sealed partial class StarSystemMapSystem : SharedStarSystemMapSystem
                 body.ParentBody = planet.ParentIndex is { } parentIndex ? spawnedBodies[parentIndex] : null;
 
                 var planetProto = _protoMan.Index(planet.Type);
-                if (planetProto.Surface is { } surface)
+                if (planetProto.Surface != null)
                 {
-                    var network = _planetMaps.Create(surface);
-                    _metadata.SetEntityName(network, planet.Name);
-                    body.SurfaceNetwork = network;
-                    var surfaceComp = EnsureComp<PlanetSurfaceComponent>(network);
-                    surfaceComp.Planet = spawnedPlanet;
-                    surfaceComp.SpaceMap = ent;
-                    Dirty(network, surfaceComp);
-                    _pvs.AddGlobalOverride(network);
+                    EntityUid? surface = null;
+                    try
+                    {
+                        surface = _planetMaps.Create(planetProto);
+                    }
+                    catch (Exception e)
+                    {
+                        body.SurfaceLoadFailed = true;
+                        Log.Error($"Planet {planetProto.ID} will have no landable surface this round: {e}");
+                        _persistence.AlertAdmins("planet-surface-load-failed-admin", planetProto.ID);
+                    }
+
+                    if (surface is { } network)
+                    {
+                        _metadata.SetEntityName(network, planet.Name);
+                        var surfaceComp = EnsureComp<PlanetSurfaceComponent>(network);
+                        surfaceComp.Planet = spawnedPlanet;
+                        surfaceComp.SpaceMap = ent;
+                        Dirty(network, surfaceComp);
+                        _pvs.AddGlobalOverride(network);
+                        body.SurfaceNetwork = network;
+                    }
                 }
 
                 Dirty(spawnedPlanet, body);
@@ -112,3 +128,5 @@ public sealed partial class StarSystemMapSystem : SharedStarSystemMapSystem
             _zLevels.DeleteMapNetwork(network);
     }
 }
+
+public sealed class StarSystemPlanetsLoadedEvent : EntityEventArgs;

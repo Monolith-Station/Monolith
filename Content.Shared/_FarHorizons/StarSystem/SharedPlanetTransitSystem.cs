@@ -23,7 +23,7 @@ public abstract partial class SharedPlanetTransitSystem : EntitySystem
             return;
 
         var planetUid = GetEntity(args.Planet);
-        if (!TryComp<PlanetBodyComponent>(planetUid, out var planet))
+        if (!TryComp<PlanetBodyComponent>(planetUid, out var planet) || planet.SurfaceLoadFailed)
             return;
 
         if (planet.SurfaceNetwork is not { } surface)

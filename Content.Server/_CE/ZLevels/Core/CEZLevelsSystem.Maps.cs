@@ -33,7 +33,8 @@ public sealed partial class CEZLevelsSystem
     /// Attempts to add the specified maps to the zNetwork network at the specified depths
     /// </summary>
     [PublicAPI]
-    public bool TryAddMapsIntoNetwork(Entity<CEZMapNetworkComponent> network, Dictionary<EntityUid, int> maps)
+    public bool TryAddMapsIntoNetwork(Entity<CEZMapNetworkComponent> network, Dictionary<EntityUid, int> maps,
+        bool applyComponents = true)
     {
         var success = true;
         foreach (var (mapUid, depth) in maps)
@@ -76,7 +77,7 @@ public sealed partial class CEZLevelsSystem
 
             Dirty(mapUid, levelMapComponent);
 
-            var ev = new CEMapAddedIntoZNetworkEvent(network, depth);
+            var ev = new CEMapAddedIntoZNetworkEvent(network, depth, applyComponents);
             RaiseLocalEvent(mapUid, ref ev);
         }
 
@@ -193,8 +194,9 @@ public sealed class CEZLevelMapNetworkUpdatedEvent : EntityEventArgs;
 /// Called on map, when it added to ZNetwork
 /// </summary>
 [ByRefEvent]
-public readonly struct CEMapAddedIntoZNetworkEvent(Entity<CEZMapNetworkComponent> network, int depth)
+public readonly struct CEMapAddedIntoZNetworkEvent(Entity<CEZMapNetworkComponent> network, int depth, bool applyComponents)
 {
     public readonly Entity<CEZMapNetworkComponent> Network = network;
     public readonly int Depth = depth;
+    public readonly bool ApplyComponents = applyComponents;
 }

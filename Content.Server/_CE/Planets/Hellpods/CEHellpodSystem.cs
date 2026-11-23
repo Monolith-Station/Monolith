@@ -15,6 +15,7 @@ using Content.Shared.Atmos;
 using Content.Shared.Damage;
 using Content.Shared.Explosion;
 using Content.Shared.FixedPoint;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Timing;
@@ -31,6 +32,8 @@ public sealed partial class CEHellpodSystem : EntitySystem
     [Dependency] private SharedDoAfterSystem _doAfter = default!;
     [Dependency] private AlertsSystem _alerts = default!;
     [Dependency] private ExplosionSystem _explosions = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private CEZLevelDamageSystem _fallDamage = default!;
     [Dependency] private DamageableSystem _damageable = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
 
@@ -219,6 +222,8 @@ public sealed partial class CEHellpodSystem : EntitySystem
             return;
         ent.Comp.InFlight = false;
         Dirty(ent);
+        _fallDamage.TryGetLandingTile(ent, out var tile);
+        var damagingImpact = tile?.FallDamageMultiplier != 0f;
         var rider = Seat(ent).ContainedEntity;
         if (rider is { } occupant)
         {
@@ -226,15 +231,18 @@ public sealed partial class CEHellpodSystem : EntitySystem
             _containers.Remove(occupant, Seat(ent));
             if (HasComp<CEZPhysicsComponent>(occupant))
                 _levels.SetZVelocity(occupant, 0f);
-            if (ent.Comp.Integrity < CEHellpodComponent.FullIntegrity)
+            if (damagingImpact && ent.Comp.Integrity < CEHellpodComponent.FullIntegrity)
             {
                 var damage = new DamageSpecifier();
                 damage.DamageDict["Blunt"] = FixedPoint2.New(CEHellpodComponent.FullIntegrity - ent.Comp.Integrity);
                 _damageable.TryChangeDamage(occupant, damage, ignoreResistances: true, ignoreGlobalModifiers: true);
             }
         }
-        _explosions.QueueExplosion(ent, ImpactExplosion,
-            ent.Comp.ImpactIntensity, 3f, 5f, canCreateVacuum: false);
+        if (tile?.LandingSound is { } sound)
+            _audio.PlayPvs(sound, ent);
+        if (damagingImpact)
+            _explosions.QueueExplosion(ent, ImpactExplosion,
+                ent.Comp.ImpactIntensity, 3f, 5f, canCreateVacuum: false);
         QueueDel(ent);
     }
 

@@ -72,11 +72,6 @@ namespace Content.Server.Database
                 .WithMany(e => e.Items)
                 .HasForeignKey(e => e.ProfileId)
                 .IsRequired();
-
-            modelBuilder.Entity<ProfileCryopod>()
-                .HasOne(e => e.Profile)
-                .WithOne(e => e.Cryopod)
-                .HasForeignKey<ProfileCryopod>(e => e.ProfileId);
             // Mono end
 
             modelBuilder.Entity<Antag>()
@@ -479,7 +474,6 @@ namespace Content.Server.Database
         public string[] Flags { get; set; } = [];
         public List<ProfileComponent> Components { get; } = [];
         public List<ProfileItem> Items { get; } = [];
-        public ProfileCryopod? Cryopod { get; set; }
         // Mono end
 
         public int PreferenceId { get; set; }
@@ -504,17 +498,6 @@ namespace Content.Server.Database
         public string Data { get; set; } = null!;
         public bool Sticky { get; set; }
     }
-
-    public class ProfileCryopod
-    {
-        [Key]
-        public int ProfileId { get; set; }
-        public Profile Profile { get; set; } = null!;
-        public Guid CryopodId { get; set; }
-        public string PlanetId { get; set; } = null!;
-        public string? PlayerData { get; set; }
-    }
-
     // Mono end
 
     public class Job

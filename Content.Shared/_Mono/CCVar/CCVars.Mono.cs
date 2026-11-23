@@ -17,6 +17,12 @@ public sealed partial class MonoCVars
     public static readonly CVarDef<float> HellpodRicochetPercent =
         CVarDef.Create("mono.hellpod.ricochet_percent", 1f, CVar.SERVERONLY);
 
+    public static readonly CVarDef<bool> PersistPlanets =
+        CVarDef.Create("mono.planet.persist_planets", true, CVar.SERVERONLY);
+
+    public static readonly CVarDef<int> PlanetPersistInterval =
+        CVarDef.Create("mono.planet.persist_interval", 10, CVar.SERVERONLY);
+
     #region Cleanup
 
     /// <summary>

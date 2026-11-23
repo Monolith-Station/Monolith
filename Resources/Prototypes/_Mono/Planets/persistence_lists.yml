@@ -1,0 +1,38 @@
+- type: planetPersistenceList
+  id: DefaultSemi
+  entities:
+    keep:
+    - BaseWall
+    - BaseLathe
+    - FloraRockSolid
+    - FloraTree
+    - FloraTreeLarge
+    - MachineCryoSleepPod
+    - MachineMaterialSilo
+    - ClosetSteelBase
+    - LockerSteel
+    - BaseBigBox
+    - BodyBag
+    - BooksBag
+    - ChemBag
+    - NFClothingBackpack
+    - OreBag
+    - PlantBag
+    - TrashBag
+    reset:
+    - Airlock
+    - CEPlanetShieldGenerator
+    - MAWCShieldGenerator
+  components:
+  - reset:
+    - ContainerContainer
+    - EntityStorage
+    - Storage
+    - MaterialStorage
+  - whitelist: [ClosetBase]
+    delete:
+    - StorageFill
+    - EntityTableContainerFill
+
+- type: planetPersistenceList
+  id: DefaultFull

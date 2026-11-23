@@ -21,6 +21,7 @@ public sealed partial class PlanetTypePrototype : IPrototype
     [DataField] public ProtoId<PlanetaryRingsTypePrototype>? Rings;
     [DataField] public ProtoId<PlanetMapPrototype>? Surface;
     [DataField] public PlanetPersistenceMode Persistence = PlanetPersistenceMode.None;
+    [DataField] public ProtoId<PlanetPersistenceListPrototype>? PersistenceList;
     [DataField] public List<PlanetPersistenceFlag> PersistenceFlags = new();
     [DataField] public float LandingRadius = 256f;
     [DataField] public PlanetCustomValues CustomData = new();

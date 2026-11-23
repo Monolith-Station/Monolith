@@ -2,11 +2,13 @@ using System.Numerics;
 using System.Linq;
 using Content.Server._CE.ZLevels.Core;
 using Content.Server._CE.ZLevels.Core.Components;
+using Content.Server.Chat.Managers;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
 using Content.Shared._CE.ZLevels.Core.Components;
 using Content.Shared.Damage;
 using Content.Shared._FarHorizons.StarSystem;
+using Content.Shared.Chat;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Stunnable;
@@ -14,6 +16,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -23,6 +26,7 @@ namespace Content.Server._FarHorizons.StarSystem;
 public sealed partial class PlanetTransitSystem : SharedPlanetTransitSystem
 {
     [Dependency] private CEZLevelsSystem _zLevels = default!;
+    [Dependency] private IChatManager _chat = default!;
     [Dependency] private ShuttleSystem _shuttle = default!;
     [Dependency] private DockingSystem _docking = default!;
     [Dependency] private ThrusterSystem _thruster = default!;
@@ -59,6 +63,18 @@ public sealed partial class PlanetTransitSystem : SharedPlanetTransitSystem
 
     private void OnDescentRequest(Entity<ShuttleConsoleComponent> ent, ref PlanetDescentRequestMessage args)
     {
+        if (TryComp<PlanetBodyComponent>(GetEntity(args.Planet), out var planet) && planet.SurfaceLoadFailed)
+        {
+            if (TryComp<ActorComponent>(args.Actor, out var actor))
+            {
+                var message = Loc.GetString("planet-descent-surface-load-failed");
+                var wrapped = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
+                _chat.ChatMessageToOne(ChatChannel.Server, message, wrapped, ent.Owner, false, actor.PlayerSession.Channel);
+            }
+
+            return;
+        }
+
         BeginPredictedDescent(ent, args);
     }
 

@@ -20,6 +20,9 @@ public sealed partial class PlanetBodyComponent : Component
     [DataField, AutoNetworkedField]
     public EntityUid? SurfaceNetwork;
 
+    [AutoNetworkedField]
+    public bool SurfaceLoadFailed;
+
     [DataField, AutoNetworkedField]
     public float Radius;
 

@@ -133,7 +133,7 @@ public sealed partial class CEZLevelDamageSystem : EntitySystem
     /// <summary>
     /// The tile an entity has just landed on, if it is over one at all.
     /// </summary>
-    private bool TryGetLandingTile(EntityUid uid, [NotNullWhen(true)] out ContentTileDefinition? tileDef)
+    public bool TryGetLandingTile(EntityUid uid, [NotNullWhen(true)] out ContentTileDefinition? tileDef)
     {
         tileDef = null;
 

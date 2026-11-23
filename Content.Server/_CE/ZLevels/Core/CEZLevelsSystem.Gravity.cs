@@ -13,6 +13,8 @@ using Content.Shared._FarHorizons.StarSystem;
 using Content.Shared._Mono.Ships; // Mono
 using Content.Shared.Gravity;
 using Content.Shared.Maps;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
@@ -22,6 +24,7 @@ namespace Content.Server._CE.ZLevels.Core;
 public sealed partial class CEZLevelsSystem
 {
     [Dependency] private ExplosionSystem _explosion = default!;
+    [Dependency] private SharedAudioSystem _landingAudio = default!;
     [Dependency] private GravitySystem _grav = default!;
     [Dependency] private ShipShieldsSystem _shipShields = default!;
     [Dependency] private SharedShipShieldShellSystem _shieldContainment = default!; // Mono
@@ -430,10 +433,15 @@ public sealed partial class CEZLevelsSystem
         // Only a landing that ended ON terrain is a crash; setting down over open sky isn't.
         if (impact < faller.GridCrashVelocity
             || Transform(grid).MapUid is not { } landedMap
-            || !HasGroundUnderFootprint(grid, landedMap))
+            || !HasGroundUnderFootprint(grid, landedMap, out var damagingImpact, out var landingSound, checkImpact: true))
         {
             return;
         }
+
+        if (landingSound != null)
+            _landingAudio.PlayPvs(landingSound, grid);
+        if (!damagingImpact)
+            return;
 
         var crashSet = CollectGridSet(grid);
         if (TryGetGridNetwork(grid, out var landedNetwork))
@@ -681,18 +689,36 @@ public sealed partial class CEZLevelsSystem
     /// people were standing on. Space is tile id 0, so it is empty here anyway.
     /// </summary>
     private bool HasGroundUnderFootprint(Entity<MapGridComponent> grid, EntityUid mapUid)
+        => HasGroundUnderFootprint(grid, mapUid, out _, out _);
+
+    private bool HasGroundUnderFootprint(
+        Entity<MapGridComponent> grid, EntityUid mapUid, out bool damagingImpact, out SoundSpecifier? landingSound,
+        bool checkImpact = false)
     {
+        damagingImpact = false;
+        landingSound = null;
         if (!TryComp<MapGridComponent>(mapUid, out var mapGrid))
             return false;
 
+        var hasGround = false;
         var worldAabb = _transform.GetWorldMatrix(grid).TransformBox(grid.Comp.LocalAABB);
         var tiles = _map.GetTilesEnumerator(mapUid, mapGrid, worldAabb);
         while (tiles.MoveNext(out var tileRef))
         {
-            if (!tileRef.Tile.IsEmpty)
+            if (tileRef.Tile.IsEmpty)
+                continue;
+
+            if (!checkImpact)
                 return true;
+
+            hasGround = true;
+            var tile = TilDefMan[tileRef.Tile.TypeId] as ContentTileDefinition;
+            damagingImpact |= tile?.FallDamageMultiplier != 0f;
+            landingSound ??= tile?.LandingSound;
+            if (damagingImpact && landingSound != null)
+                break;
         }
 
-        return false;
+        return hasGround;
     }
 }

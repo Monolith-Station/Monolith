@@ -20,3 +20,9 @@ public sealed class AcceptCryoChoiceMessage : EuiMessageBase
         Button = button;
     }
 }
+
+[Serializable, NetSerializable]
+public sealed class CryoSleepEuiState(bool savesRespawn) : EuiStateBase
+{
+    public readonly bool SavesRespawn = savesRespawn;
+}

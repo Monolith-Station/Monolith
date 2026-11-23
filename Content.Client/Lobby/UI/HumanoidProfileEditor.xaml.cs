@@ -5,6 +5,7 @@ using Content.Client.Humanoid;
 using Content.Client.Lobby.UI.Loadouts;
 using Content.Client.Lobby.UI.Roles;
 using Content.Client.Message;
+using Content.Client._Mono.Planets;
 using Content.Client.Players.PlayTimeTracking;
 using Content.Client.Sprite;
 using Content.Client.UserInterface.Systems.Guidebook;
@@ -58,6 +59,7 @@ namespace Content.Client.Lobby.UI
         private readonly CompanyManager _companyManager; // Mono
         // Mono start
         private readonly MapLoaderSystem _mapLoader;
+        private readonly CryopodSpawnClientSystem _cryopods;
         private readonly BoxContainer _savedItemsTab = new()
         {
             Orientation = LayoutOrientation.Vertical,
@@ -68,6 +70,7 @@ namespace Content.Client.Lobby.UI
             Orientation = LayoutOrientation.Vertical,
         };
         private readonly List<EntityUid> _savedItemEntities = [];
+        private readonly BoxContainer _savedCryopods = new() { Orientation = LayoutOrientation.Vertical };
         // Mono end
 
         private FlavorText.FlavorText? _flavorText;
@@ -150,9 +153,11 @@ namespace Content.Client.Lobby.UI
             _controller = UserInterfaceManager.GetUIController<LobbyUIController>();
             // Mono start
             _mapLoader = _entManager.System<MapLoaderSystem>();
+            _cryopods = _entManager.System<CryopodSpawnClientSystem>();
 
             var savedItemsScroll = new ScrollContainer { VerticalExpand = true };
             savedItemsScroll.AddChild(_savedItemsList);
+            _savedItemsTab.AddChild(_savedCryopods);
             _savedItemsTab.AddChild(savedItemsScroll);
             // Mono end
 
@@ -1233,6 +1238,10 @@ namespace Content.Client.Lobby.UI
             RefreshTraits();
             RefreshFlavorText();
             RefreshSavedItems(); // Mono
+            _savedCryopods.RemoveAllChildren(); // Mono
+            RefreshPersistenceTab(); // Mono
+            if (IsInsideTree)
+                _cryopods.RequestOptions();
             ReloadPreview();
 
             if (Profile != null)
@@ -1262,19 +1271,7 @@ namespace Content.Client.Lobby.UI
             }
 
             if (previews.Count == 0)
-            {
-                if (_savedItemsTab.Parent == TabContainer)
-                    TabContainer.RemoveChild(_savedItemsTab);
-
                 return;
-            }
-
-            if (_savedItemsTab.Parent == null)
-                TabContainer.AddChild(_savedItemsTab);
-
-            TabContainer.SetTabTitle(
-                _savedItemsTab,
-                Loc.GetString("humanoid-profile-editor-saved-items-tab"));
 
             _savedItemsList.AddChild(new Label
             {
@@ -1731,14 +1728,43 @@ namespace Content.Client.Lobby.UI
         protected override void EnteredTree()
         {
             base.EnteredTree();
+            _cryopods.OptionsReceived += RefreshSavedCryopods;
+            _cryopods.RequestOptions();
             ReloadPreview();
         }
 
         protected override void ExitedTree()
         {
             base.ExitedTree();
+            _cryopods.OptionsReceived -= RefreshSavedCryopods;
             _entManager.DeleteEntity(PreviewDummy);
             PreviewDummy = EntityUid.Invalid;
+        }
+
+        private void RefreshSavedCryopods(CryopodSpawnOption[] options)
+        {
+            _savedCryopods.RemoveAllChildren();
+            foreach (var option in options)
+            {
+                if (option.Slot == CharacterSlot)
+                    _cryopods.AddReservationNotice(_savedCryopods, option);
+            }
+
+            RefreshPersistenceTab();
+        }
+
+        private void RefreshPersistenceTab()
+        {
+            if (_savedItemEntities.Count == 0 && _savedCryopods.ChildCount == 0)
+            {
+                if (_savedItemsTab.Parent == TabContainer)
+                    TabContainer.RemoveChild(_savedItemsTab);
+            }
+            else if (_savedItemsTab.Parent == null)
+            {
+                TabContainer.AddChild(_savedItemsTab);
+                TabContainer.SetTabTitle(_savedItemsTab, Loc.GetString("humanoid-profile-editor-saved-items-tab"));
+            }
         }
 
         private void SetAge(int newAge)

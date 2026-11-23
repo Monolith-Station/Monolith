@@ -5,6 +5,7 @@ using Content.Client._Mono.Sensors.UI;
 using Content.Client.Station; // Frontier
 using Content.Shared._CE.ZLevels.Core.EntitySystems;
 using Content.Shared._Crescent.ShipShields;
+using Content.Shared._FarHorizons.StarSystem;
 using Content.Shared._Mono.Company;
 using Content.Shared._Mono.Detection;
 using Content.Shared._Mono.Radar;
@@ -502,7 +503,8 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
         if (TryGetPlanetAt(args.RelativePosition, out var planet, out var inRange))
         {
             _planetClickConsumed = true;
-            if (inRange)
+            var loadFailed = EntManager.TryGetComponent<PlanetBodyComponent>(planet, out var body) && body.SurfaceLoadFailed;
+            if (inRange && !loadFailed)
             {
                 _primingPlanet = planet;
                 _planetPrimingStart = IoCManager.Resolve<IGameTiming>().CurTime;

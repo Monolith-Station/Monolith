@@ -29,6 +29,9 @@ public sealed partial class CEZLevelMappingSystem : EntitySystem
 
     private void OnAddedIntoZNetwork(Entity<CEZMapComponent> ent, ref CEMapAddedIntoZNetworkEvent args)
     {
+        if (!args.ApplyComponents)
+            return;
+
         if (_map.IsInitialized(ent))
         {
             EntityManager.AddComponents(ent, args.Network.Comp.Components);
