@@ -1,0 +1,40 @@
+# Author Info
+# GitHub: TheScienceOfKSP
+# Discord: sweepergiles
+
+# Shuttle Notes:
+#
+- type: vessel
+  id: Sturnus
+  parent: BaseVessel
+  name: KSP Sturnus
+  description: A Escort Carrier made from an old salvaging hull, the Sturnus lacks the facilities to manufacture and deploy its own fighters, instead prospective captains hire squadrons straight at port and have them dock to the vessel, towed along until needed. To entice fighters to stick around, the Sturnus comes with decent PD and facilities to repair and rearm the ever popular QJ-series of surplus fighters, though on occasion even small corvettes may tag along.
+  price: 88000
+  category: Medium
+  group: Shipyard
+  shuttlePath: /SharedMaps/_Mono/Shuttles/CivilianMil/sturnus.yml
+  guidebookPage: Null
+  class:
+  - Mercenary
+  engine:
+  - Bananium
+
+- type: gameMap
+  id: Sternus
+  mapName: 'KSP Sturnus'
+  mapPath: /SharedMaps/_Mono/Shuttles/CivilianMil/sturnus.yml
+  minPlayers: 0
+  stations:
+    Femur:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Sturnus MIL{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            # Pilot: [ 0, 0 ]
+            # Mercenary: [ 0, 0 ]
