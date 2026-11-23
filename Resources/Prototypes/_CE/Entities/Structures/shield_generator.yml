@@ -9,10 +9,10 @@
     scale: 1, 1
     layers:
     - state: core
-    - state: awaiting
+    - state: idle
       map: ["enum.CEShieldGeneratorVisualLayers.Indicator"]
       shader: unshaded
-    - state: energy_start
+    - state: energyspool
       map: ["enum.CEShieldGeneratorVisualLayers.Energy"]
       shader: unshaded
       visible: false

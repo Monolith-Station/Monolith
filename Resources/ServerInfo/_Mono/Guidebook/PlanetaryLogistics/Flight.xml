@@ -1,5 +1,22 @@
 <Document>
   # Flight
 
-  This entry is under construction.
+  While on a planet, some additional flight controls and statistics are available.
+
+  The primary added functionality is the ability to fly upwards and downwards. By default, this is bound to your [bold]R[/bold] and [bold]F[/bold] keys.
+
+  Your on-grid thrusters determine your vertical acceleration, as well as any thrusters on ships docked to yours. The following math function is a rough approximation of your grid acceleration:
+
+  [bold]min(0.75, 0.05 × total thrust ÷ total grid mass) levels/s²[/bold]
+
+  Grid mass is solely based on tiles, [color=gray][italic]which most engineers assume is God's way of a joke.[/italic][/color]
+  Most standard tiles add an extra 0.5 to your ship's mass. Some tiles may be heavier.
+
+  No matter your acceleration, there is a limit of around [bold]0.5 levels/s[/bold] vertical velocity that your thrusters can sustain at any given time. The only exception is an initial launch after grounding to a planet floor.
+
+  While on a planet, your shuttle console also provides a readout of your current altitude and vertical [italic](heave)[/italic] velocity, as well as a readout of three primary modes:
+
+  - Flying: Ship is flying between layers on the planet.
+  - Grounded: Ship has settled on an area of terrain on the planet. [bold]Hold R to launch off the ground from this state.[/bold]
+  - Hovering: Ship has settled on open area.
 </Document>

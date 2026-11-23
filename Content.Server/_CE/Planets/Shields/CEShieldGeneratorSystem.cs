@@ -71,6 +71,7 @@ public sealed partial class CEShieldGeneratorSystem : EntitySystem
             consumer.DrawRate = gen.Stage switch
             {
                 CEShieldGeneratorStage.Charging => gen.MaxDrawRate,
+                CEShieldGeneratorStage.Active when gen.Charge < gen.MaxCharge => gen.MaxDrawRate,
                 CEShieldGeneratorStage.Cooldown => 0f,
                 _ => gen.DrawRate,
             };
@@ -89,13 +90,10 @@ public sealed partial class CEShieldGeneratorSystem : EntitySystem
                     break;
 
                 case CEShieldGeneratorStage.Active:
-                    var deficit = gen.DrawRate - consumer.ReceivedPower;
-                    if (deficit > 0f)
-                    {
-                        gen.Charge -= deficit * frameTime;
-                        if (gen.Charge <= 0f)
-                            Fail((uid, gen), now);
-                    }
+                    var surplus = consumer.ReceivedPower - gen.DrawRate;
+                    gen.Charge = Math.Clamp(gen.Charge + surplus * frameTime, 0f, gen.MaxCharge);
+                    if (surplus < 0f && gen.Charge <= 0f)
+                        Fail((uid, gen), now);
                     break;
 
                 case CEShieldGeneratorStage.Cooldown:

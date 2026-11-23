@@ -39,12 +39,7 @@ public sealed partial class ShipShieldShellSystem : EntitySystem
     private void UpdateVisualSpool(EntityUid uid, ShipShieldProjectorComponent shield, float frameTime)
     {
         var state = shield.State;
-        var target = state switch
-        {
-            ShipShieldShellState.Starting when shield.StartupSpoolAt.HasValue => 0.85f,
-            ShipShieldShellState.Active => 1f,
-            _ => 0f,
-        };
+        var target = state == ShipShieldShellState.Active ? 1f : 0f;
 
         if (!_spools.TryGetValue(uid, out var previous))
         {

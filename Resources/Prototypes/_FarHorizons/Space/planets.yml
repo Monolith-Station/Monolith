@@ -151,6 +151,7 @@
 - type: planetType
   id: PlanetMerak
   name: Merak
+  persistence: Terrain
   shader: RockyPlanet
   earthMass: 1.4
   rotation: 2.1
@@ -171,6 +172,8 @@
 - type: planetType
   id: PlanetAsclepiu
   name: Asclepiu
+  persistence: Semi
+  persistenceFlags: [AllowRespawns]
   shader: RockyPlanet
   earthMass: 1.05
   rotation: 5.3
@@ -231,6 +234,7 @@
 - type: planetType
   id: PlanetAerumna
   name: Aerumna
+  persistence: Terrain
   surface: Aerumna
   shader: RockyPlanet
   earthMass: 0.95

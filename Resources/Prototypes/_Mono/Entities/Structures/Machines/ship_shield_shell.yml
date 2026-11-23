@@ -7,9 +7,15 @@
     sprite: _Mono/Structures/ShuttleComponents/shield.rsi
     state: control
   - type: ShipShieldProjector
-  - type: ApcPowerReceiver
-    powerLoad: 0
-  - type: ExtensionCableReceiver
+  - type: PowerConsumer
+    voltage: High
+    drawRate: 0
+  - type: NodeContainer
+    examinable: true
+    nodes:
+      input:
+        !type:CableDeviceNode
+        nodeGroupID: HVPower
   - type: ActivatableUI
     key: enum.ShipShieldProjectorUiKey.Key
   - type: UserInterface

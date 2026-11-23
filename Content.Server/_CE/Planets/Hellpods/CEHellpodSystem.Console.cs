@@ -463,6 +463,7 @@ public sealed partial class CEHellpodSystem
             {
                 flight.Crossed = true;
                 var shielded = !TerminatingOrDeleted(flight.Top) && _planetShield.IsShielded(flight.Planet);
+                var breached = false;
                 foreach (var (pod, proxy, _, entry) in flight.Pods)
                 {
                     if (TerminatingOrDeleted(pod) || !TryComp<CEHellpodComponent>(pod, out var component))
@@ -484,8 +485,14 @@ public sealed partial class CEHellpodSystem
                     }
 
                     if (shielded && component.Ricochet == null)
+                    {
                         LoseIntegrity(component, CEHellpodComponent.ShieldIntegrityLoss);
+                        breached = true;
+                    }
                 }
+
+                if (breached)
+                    _planetShield.AnnounceBreach(flight.Planet);
             }
 
             for (var j = flight.Pods.Count - 1; j >= 0; j--)

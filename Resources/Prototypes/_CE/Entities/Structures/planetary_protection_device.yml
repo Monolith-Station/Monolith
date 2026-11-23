@@ -18,7 +18,7 @@
       visible: false
   - type: PowerConsumer
     voltage: High
-    drawRate: 2000000000
+    drawRate: 300000000
   - type: NodeContainer
     examinable: true
     nodes:
@@ -29,7 +29,7 @@
     moonOnly: true
     beamOverlay: MAWC
     drawRate: 150000000
-    maxDrawRate: 2000000000
+    maxDrawRate: 300000000
     maxCharge: 300000000000
   - type: ActivatableUI
     key: enum.CEShieldGeneratorUiKey.Key

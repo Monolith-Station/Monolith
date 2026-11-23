@@ -19,6 +19,8 @@ public sealed partial class CEPlanetShieldComponent : Component
     [AutoNetworkedField]
     public float TransitionFrom;
 
+    public TimeSpan NextBreachAlarm;
+
     public float PhaseAt(TimeSpan now)
     {
         var elapsed = MathF.Max(0f, (float) (now - TransitionAt).TotalSeconds);

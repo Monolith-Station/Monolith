@@ -14,10 +14,23 @@
   text: "/ServerInfo/_Mono/Guidebook/PlanetaryLogistics.xml"
   priority: 10
   children:
-  - PlanetaryShields
+  - PlanetaryMachinery
   - GravityGenerators
   - Flight
   - TerrainPreview
+
+- type: guideEntry
+  id: PlanetaryMachinery
+  name: Machinery
+  text: "/ServerInfo/_Mono/Guidebook/PlanetaryLogistics/Machinery.xml"
+  children:
+  - PlanetaryShields
+  - MassFabricator
+
+- type: guideEntry
+  id: MassFabricator
+  name: Mass Fabricator
+  text: "/ServerInfo/_Mono/Guidebook/PlanetaryLogistics/MassFabricator.xml"
 
 - type: guideEntry
   id: PlanetaryShields

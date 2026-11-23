@@ -51,6 +51,7 @@ public sealed partial class MassFabricatorClientSystem : MassFabricatorSystem
     private bool _placedThisPress;
     private readonly HashSet<NetCoordinates> _placedCoordinates = new();
     private readonly HashSet<EntityCoordinates> _stagedTiles = new();
+    private int _queuedBlueprintLoad;
     [Dependency] private MassFabricatorRejectionSystem _rejections = default!;
     private readonly Queue<EntityEventArgs> _queuedRequests = new();
 
@@ -62,7 +63,7 @@ public sealed partial class MassFabricatorClientSystem : MassFabricatorSystem
 
     public override void Shutdown()
     {
-        _queuedRequests.Clear();
+        ClearQueuedRequests();
         _overlays.RemoveOverlay<MassFabricatorEyeOverlay>();
         base.Shutdown();
     }
@@ -205,7 +206,9 @@ public sealed partial class MassFabricatorClientSystem : MassFabricatorSystem
         return null;
     }
 
-    public float PredictedBlueprintLoad => ActiveFabricator?.BlueprintLoad ?? 0f;
+    public int PredictedBlueprintLoad => ActiveFabricator is { } fabricator
+        ? fabricator.BlueprintLoad + _queuedBlueprintLoad
+        : 0;
 
     public void Select(ProtoId<MassFabricatorBlueprintPrototype>? blueprint, string? target, MassFabricatorEraseMode eraseMode)
     {
@@ -236,8 +239,11 @@ public sealed partial class MassFabricatorClientSystem : MassFabricatorSystem
         if (!TryGetPlacementCoordinates(user, blueprint.Kind, coordinates, out coordinates))
             return;
 
-        var staged = bulk && blueprint.Kind == MassFabricatorBlueprintKind.Tile ? _stagedTiles : null;
-        var result = CanPlacePlan(user, blueprint, target, coordinates, PredictedBlueprintLoad + (staged?.Count ?? 0) * blueprint.Load,
+        var staged = blueprint.Kind == MassFabricatorBlueprintKind.Tile ? _stagedTiles : null;
+        if (staged?.Contains(coordinates) == true)
+            return;
+
+        var result = CanPlacePlan(user, blueprint, target, coordinates, PredictedBlueprintLoad,
             component.MaxBlueprintLoad, staged);
         if (result == MassFabricatorPlacementResult.Invalid)
             return;
@@ -256,7 +262,10 @@ public sealed partial class MassFabricatorClientSystem : MassFabricatorSystem
         }
 
         staged?.Add(coordinates);
+        _queuedBlueprintLoad += blueprint.Load;
         _queuedRequests.Enqueue(new MassFabricatorPlaceEvent(GetNetEntity(uid), netCoords, rotation, id, target));
+        if (_placement is PlacementManager { CurrentMode: AlignMassFabricator mode })
+            mode.HoldPlacement(coordinates, rotation);
     }
 
     public bool CanPreviewTile(EntityUid user, EntityCoordinates coordinates) =>
@@ -285,7 +294,6 @@ public sealed partial class MassFabricatorClientSystem : MassFabricatorSystem
     {
         _placedThisPress = false;
         _placedCoordinates.Clear();
-        _stagedTiles.Clear();
     }
 
     public void ClearPlacement()
@@ -340,6 +348,8 @@ public sealed partial class MassFabricatorClientSystem : MassFabricatorSystem
                         break;
                 }
             }
+
+            ClearQueuedRequests();
         }
 
         base.Update(frameTime);
@@ -353,7 +363,7 @@ public sealed partial class MassFabricatorClientSystem : MassFabricatorSystem
         {
             ClearPlacement();
             EntityManager.System<MassFabricatorEraseSystem>().Clear();
-            _queuedRequests.Clear();
+            ClearQueuedRequests();
             _rejections.Clear();
             EraseMode = MassFabricatorEraseMode.None;
             _fabricator = fabricator;
@@ -376,6 +386,15 @@ public sealed partial class MassFabricatorClientSystem : MassFabricatorSystem
                      manager.Hijack is not MassFabricatorPlacementHijack hijack || !hijack.Matches(blueprint, target))
                 BeginPlacement();
         }
+    }
+
+    private void ClearQueuedRequests()
+    {
+        _queuedRequests.Clear();
+        _queuedBlueprintLoad = 0;
+        _stagedTiles.Clear();
+        if (_placement is PlacementManager { CurrentMode: AlignMassFabricator mode })
+            mode.FinishSubmission();
     }
 
 }

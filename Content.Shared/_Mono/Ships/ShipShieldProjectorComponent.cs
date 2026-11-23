@@ -50,8 +50,6 @@ public sealed partial class ShipShieldProjectorComponent : Component
     [DataField, AutoNetworkedField] public float Damage;
     [AutoNetworkedField] public float PoweredRechargeRate;
     [AutoNetworkedField] public bool HasOperatingPower;
-    [AutoNetworkedField] public bool StartupPowerAvailable;
-    [AutoNetworkedField, AutoPausedField] public TimeSpan? StartupSpoolAt;
     [AutoNetworkedField, AutoPausedField] public TimeSpan RespoolUntil;
     [AutoNetworkedField, AutoPausedField] public TimeSpan RechargeStalledUntil;
 
@@ -70,7 +68,7 @@ public sealed partial class ShipShieldProjectorComponent : Component
     {
         var seconds = state switch
         {
-            ShipShieldShellState.Starting or ShipShieldShellState.Active => Shield.SpinupTime,
+            ShipShieldShellState.Active => Shield.SpinupTime,
             ShipShieldShellState.PoweringDown or ShipShieldShellState.Brownout => Shield.ShutdownTime,
             ShipShieldShellState.Shattering or ShipShieldShellState.ShatteringOff => Visuals.ShatterTime,
             _ => 0f,
@@ -81,11 +79,6 @@ public sealed partial class ShipShieldProjectorComponent : Component
 
     public float AnimationPhase(TimeSpan now)
     {
-        if (State == ShipShieldShellState.Starting)
-            return StartupSpoolAt is { } start
-                ? Math.Clamp((float) ((now - start) / AnimationDuration(State)), 0f, 0.85f)
-                : 0f;
-
         var progress = Math.Clamp((float) ((now - StartedAt) / AnimationDuration(State)), 0f, 1f);
         return State switch
         {

@@ -22,7 +22,7 @@ public sealed partial class CEShieldGeneratorComponent : Component
     public float DrawRate = 2_000_000_000f;
 
     [DataField]
-    public float MaxDrawRate = 2_000_000_000f;
+    public float MaxDrawRate = 2_500_000_000f;
 
     [DataField]
     public bool MoonOnly;

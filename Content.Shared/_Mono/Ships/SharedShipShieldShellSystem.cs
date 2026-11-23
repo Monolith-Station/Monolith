@@ -38,7 +38,6 @@ public sealed partial class SharedShipShieldShellSystem : EntitySystem
         switch (projector.State)
         {
             case ShipShieldShellState.Active:
-            case ShipShieldShellState.Starting when projector.StartupSpoolAt != null:
                 BeginShutdown(ent, ShipShieldShellState.PoweringDown);
                 break;
             case ShipShieldShellState.Off:
@@ -112,21 +111,10 @@ public sealed partial class SharedShipShieldShellSystem : EntitySystem
                 _timing.CurTime - shield.StartedAt >= shield.AnimationDuration(shield.State))
                 SetState((uid, shield), shield.RequestsPower ? ShipShieldShellState.Standby : ShipShieldShellState.Off);
 
-            if (shield.State == ShipShieldShellState.Starting)
+            if (shield.HasOperatingPower)
             {
-                if (shield.HasOperatingPower)
-                {
-                    var elapsed = shield.StartupSpoolAt is { } start
-                        ? _timing.CurTime - start
-                        : TimeSpan.Zero;
-                    SetState((uid, shield), ShipShieldShellState.Active, elapsed);
-                }
-                else if (!shield.StartupPowerAvailable && shield.StartupSpoolAt.HasValue)
-                    BeginShutdown((uid, shield), ShipShieldShellState.Brownout);
-            }
-            else if (shield.HasOperatingPower)
-            {
-                if (shield.State == ShipShieldShellState.Standby && _timing.CurTime >= shield.RespoolUntil)
+                if (shield.State == ShipShieldShellState.Starting ||
+                    shield.State == ShipShieldShellState.Standby && _timing.CurTime >= shield.RespoolUntil)
                     SetState((uid, shield), ShipShieldShellState.Active);
             }
             else if (shield.State == ShipShieldShellState.Active)
@@ -169,9 +157,6 @@ public sealed partial class SharedShipShieldShellSystem : EntitySystem
     {
         shield.Comp.State = state;
         shield.Comp.StartedAt = _timing.CurTime - elapsed;
-        // Only preview on Raise. If power has to ramp, the first delivered base load starts the animation.
-        shield.Comp.StartupSpoolAt = state == ShipShieldShellState.Starting && shield.Comp.StartupPowerAvailable
-            ? _timing.CurTime : null;
         Dirty(shield);
     }
 }

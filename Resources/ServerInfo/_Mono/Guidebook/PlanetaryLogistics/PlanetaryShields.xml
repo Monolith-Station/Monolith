@@ -1,5 +1,74 @@
 <Document>
   # Planetary Shields
 
-  This entry is under construction.
+  While working on initial developments towards making planets more habitable, Horizon Energy initially concluded that some manner of preventing planetary landings was required.
+
+  Their chosen solution was the [italic]HZ-001 Planetary Shield Projection Device[/italic], more commonly known simply as the PSG or Planetary Shield Projector.
+
+  <Box Orientation="Vertical">
+    <GuideEntityEmbed Entity="CEPlanetShieldGenerator" Scale="1" Caption=""/>
+    <Box>
+      [color=gray][italic]A typical PSG.[/italic][/color]
+    </Box>
+  </Box>
+
+  The PSG is an incredibly high power device, drawing around [bold][color=red]2 gigawatts[/color][/bold] of power for operation. As such, a proper outpost capable of continually supplying that power is required, with an additional 500MW if the internal buffer needs recovering.
+
+  Additionally, the standard PSG has an energy buffer capable of lasting for around 2 minutes in order to prevent immediate shutoff. This also equates to requiring around 96 seconds to initially charge from a dead buffer at maximum power.
+
+  ## Operation Guide
+
+  - Accumulate around 2GW of continual power, 2.5GW in case you need to recharge the buffer mid-operation.
+  - Connect the PSG to high-voltage power cabling.
+  - Wait around 96 seconds for the buffer to fully charge, and then another ~80 seconds to finish it's startup sequence. [bold][color=yellow]Do not allow the PSG to be destroyed during this time.[/color][/bold]
+
+  ## Operation Notes
+  - While online, the PSG projects a beam of pure energy out of the planet atmosphere in order to keep the shield stable. This beam is capable of [color=red]instantly annihilating[/color] anything that comes in contact with it.
+  - The PSG prevents all ship landings while online. However, certain factions have manners of bypassing a shield, as described below.
+
+  ## Bypassing
+
+  MMC, upon learning about Horizon's new shielding technology, took it upon themselves to find a way to at least stabily bypass this new generation of shields.
+
+  The primary weakness of these new hardlight shields is that they are weak to high speeds, which MMC chose to target with development of the Hellpod.
+
+  ### Hellpods
+
+  <Box Orientation="Vertical">
+    <GuideEntityEmbed Entity="CEHellpod" Scale="1" Caption=""/>
+    <Box>
+      [color=gray][italic]Looking at this makes you feel like screaming about freedom.[/italic][/color]
+    </Box>
+  </Box>
+
+  Hellpods are a quickly fabricated transport method for getting down to a point quickly. Importantly, the specific method of fabrication allows them to take an impact from a planetary shield and keep the occupant [italic]mostly[/italic] safe from the hit.
+
+  The primary method of using a Hellpod is to simply fabricate a boarding hatch on a ship and entering it on a planet; this will fire you directly downwards after around 3 seconds.
+  The secondary method is through the use of a targetting console while in space in order to choose a specific place to drop down to planetside.
+
+  <Box Orientation="Horizontal">
+    <Box Orientation="Vertical" VerticalAlignment="Top">
+      <GuideEntityEmbed Entity="CEHellpodHatch" Scale="1" Caption=""/>
+      <Box>
+        [color=gray][italic]A boarding hatch,[/italic][/color]
+      </Box>
+    </Box>
+    <Box Orientation="Vertical" VerticalAlignment="Top">
+      <GuideEntityEmbed Entity="CEHellpodConsole" Scale="1" Caption=""/>
+      <Box>
+        [color=gray][italic]and control console.[/italic][/color]
+      </Box>
+    </Box>
+  </Box>
+
+  While using a control console, the map can be used to select a specific point on the planet map with the following controls:
+
+  - WASD moves the map with whatever your movement keybinds are set to.
+  - Scrolling changes the map size; holding Control changes the drop area size.
+  - Clicking on a location sets the console to drop to that place on the planet.
+
+  Preparing to launch pods requires a silo linked to a control console; there is no cost to firing pods on a planet, however. Once a launch location is locked in, all hatches will open and the required material shown on the left will be withdrawn to fabricate pods.
+  Once all hatches have been entered, or after 30 seconds, a seperate 3 second countdown is started to prepare to fire the pods; after which, all occupied pods are fired down towards the area specified.
+
+  [bold]Importantly, if any pods breach a PSG, an alarm is blared over planetary Common, which will alert [color=red]EVERYONE on-planet[/color] that there are intruders.[/bold] Be ready for immediate resistance.
 </Document>

@@ -1,3 +1,4 @@
+ce-planetary-shield-breach = ALERT: A SHIELD BREACH HAS BEEN DETECTED. ALL PLANET OCCUPANTS ARE ADVISED TO PREPARE FOR AN ASSAULT.
 ce-shield-generator-window-title = Planetary Shield Generator
 ce-shield-generator-descent-blocked = The planet's shield blocks descent!
 

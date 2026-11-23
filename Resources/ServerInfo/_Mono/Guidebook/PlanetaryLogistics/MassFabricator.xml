@@ -1,0 +1,34 @@
+<Document>
+  # Mass Fabricator
+
+  While working on the Planetary Shield Generator, an engineer at Horizon decided to build a prototype upgrade to the RCD building on the hardlight technology being used for the shields.
+
+  While the concept never actually made it to mass production, prototypes and schematics for the item are still within the sector.
+
+  <Box Orientation="Vertical">
+    <GuideEntityEmbed Entity="HZMassFabricator" Scale="2" Caption=""/>
+    <Box>
+      [color=gray][italic]The working engineers apparently used the chassis of some other handheld device as a stopgap.[/italic][/color]
+    </Box>
+  </Box>
+
+  The HZ Mass Fabricator is, at it's core, a sidegrade to the RCD that allows for planning builds on planets and grids and quickly fabricating them instead of manual placement. This comes at the cost of [bold]lacking support for compressed matter[/bold].
+
+  ## Usage
+
+  The Fabricator comes with a headset that allows remotely viewing an area around you and selecting blueprints to plan in a location. [color=gray][italic](In more practical terms, just activate the gun to swap to the planning mode.)[/italic][/color]
+
+  While in the Plan mode, you are effectively put into an AI camera until you exit by hitting ESC. Right-clicking will open a radial menu that allows you to select from 3 primary subcategories:
+
+  - Tiling, which allows placing tiles.
+  - Bulkheads, which allows placing entities such as walls or stairs.
+  - Erase, which removes unprinted plans.
+
+  Once you choose a blueprint from a category, placement works identically to when preparing a schematic for a ship, albeit instead of directly placing an object it creates a visible plan of that object.
+
+  Exiting the planning mode allows you to start printing any plan, assuming you have the required materials. For tiles specifically, build plans for the same tile adjacent automatically flood outwards.
+
+  ## Aquiring
+
+  [bold]This piece of equipment is not as of yet publically available to members of the Colossus sector.[/bold]
+</Document>

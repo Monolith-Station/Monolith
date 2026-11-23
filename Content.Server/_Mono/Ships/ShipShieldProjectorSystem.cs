@@ -1,5 +1,4 @@
 using Content.Server.Power.Components;
-using Content.Server.Power.EntitySystems;
 using Content.Shared._Mono.Ships;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
@@ -13,7 +12,6 @@ public sealed partial class ShipShieldProjectorSystem : EntitySystem
     [Dependency] private SharedShipShieldShellSystem _shells = default!;
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private LockSystem _locks = default!;
-    [Dependency] private PowerNetSystem _power = default!;
     [Dependency] private SharedUserInterfaceSystem _ui = default!;
 
     private TimeSpan _nextUiUpdate;
@@ -39,32 +37,29 @@ public sealed partial class ShipShieldProjectorSystem : EntitySystem
         var query = EntityQueryEnumerator<ShipShieldProjectorComponent>();
         while (query.MoveNext(out var uid, out var projector))
         {
+            TryComp(uid, out PowerConsumerComponent? consumer);
             TryComp(uid, out ApcPowerReceiverComponent? receiver);
-            var requested = projector.RequestsPower && receiver != null;
+            var requested = projector.RequestsPower && (consumer != null || receiver is { PowerDisabled: false });
             var recharging = requested && projector.CanRecharge(_timing.CurTime);
-            if (receiver != null)
-                receiver.Load = requested
-                    ? projector.BaseDraw + (recharging ? projector.RechargeDraw : 0f)
-                    : 0f;
+            var load = requested ? projector.BaseDraw + (recharging ? projector.RechargeDraw : 0f) : 0f;
+            if (consumer != null)
+                consumer.DrawRate = load;
+            else if (receiver != null)
+                receiver.Load = load;
 
-            var draw = receiver switch
+            var draw = consumer?.ReceivedPower ?? (receiver switch
             {
                 null or { PowerDisabled: true } => 0f,
                 { NeedsPower: false } => receiver.Load,
                 _ => receiver.PowerReceived,
-            };
+            });
             var rate = recharging && projector.RechargeDraw > 0f
                 ? projector.RechargeRate * Math.Clamp((draw - projector.BaseDraw) / projector.RechargeDraw, 0f, 1f)
                 : 0f;
-            var hasPower = requested && !receiver!.PowerDisabled && draw + 0.5f >= projector.BaseDraw;
-            var startupPower = (projector.State == ShipShieldShellState.Off ||
-                projector.State == ShipShieldShellState.Starting && projector.StartupSpoolAt.HasValue) &&
-                receiver != null && _power.CanSupplyApcLoad(receiver, projector.BaseDraw);
-            if (projector.HasOperatingPower != hasPower || projector.PoweredRechargeRate != rate ||
-                projector.StartupPowerAvailable != startupPower)
+            var hasPower = requested && draw + 0.5f >= projector.BaseDraw;
+            if (projector.HasOperatingPower != hasPower || projector.PoweredRechargeRate != rate)
             {
                 projector.HasOperatingPower = hasPower;
-                projector.StartupPowerAvailable = startupPower;
                 projector.PoweredRechargeRate = rate;
                 Dirty(uid, projector);
             }
@@ -83,9 +78,11 @@ public sealed partial class ShipShieldProjectorSystem : EntitySystem
         if (!_ui.IsUiOpen(ent.Owner, ShipShieldProjectorUiKey.Key))
             return;
 
+        TryComp(ent, out PowerConsumerComponent? consumer);
         TryComp(ent, out ApcPowerReceiverComponent? receiver);
         _ui.SetUiState(ent.Owner, ShipShieldProjectorUiKey.Key, new ShipShieldProjectorUiState(
-            _locks.IsLocked(ent.Owner), receiver?.PowerReceived ?? 0f, receiver?.Load ?? 0f));
+            _locks.IsLocked(ent.Owner), consumer?.ReceivedPower ?? receiver?.PowerReceived ?? 0f,
+            consumer?.DrawRate ?? receiver?.Load ?? 0f));
     }
 
     public void AbsorbHit(Entity<ShipShieldProjectorComponent> projector, DamageSpecifier damage, float empEnergy = 0f)

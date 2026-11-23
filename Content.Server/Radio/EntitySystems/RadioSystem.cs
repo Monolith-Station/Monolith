@@ -4,6 +4,7 @@ using Content.Server.Chat.Systems;
 using Content.Server._EinsteinEngines.Language;
 using Content.Server.Power.Components;
 using Content.Shared.Radio.Components;
+using Content.Shared._CE.ZLevels.Core.Components;
 using Content.Shared._Mono.Radio;
 using Content.Shared.Chat;
 using Content.Shared.Database;
@@ -13,7 +14,6 @@ using Content.Shared.Radio;
 using Content.Shared.Radio.Components;
 using Content.Shared.Speech;
 using Content.Shared.Ghost; // Nuclear-14
-using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -211,8 +211,8 @@ public sealed partial class RadioSystem : EntitySystem
 
         var canSend = !sendAttemptEv.Cancelled;
 
-        var sourceMapId = Transform(radioSource).MapID;
-        var hasActiveServer = HasActiveServer(sourceMapId, channel.ID);
+        var sourceMap = Transform(radioSource).MapUid;
+        var hasActiveServer = HasActiveServer(sourceMap, channel.ID);
         var sourceServerExempt = _exemptQuery.HasComp(radioSource);
 
         var radioQuery = EntityQueryEnumerator<ActiveRadioComponent, TransformComponent>();
@@ -232,7 +232,7 @@ public sealed partial class RadioSystem : EntitySystem
             if (!HasComp<GhostComponent>(receiver) && GetFrequency(receiver, channel) != frequency) // Nuclear-14
                 continue; // Nuclear-14
 
-            // if (!channel.LongRange && transform.MapID != sourceMapId && !radio.GlobalReceive)
+            // if (!channel.LongRange && transform.MapUid != sourceMap && !radio.GlobalReceive)
             //     continue;
 
             // Check if within range for range-limited channels
@@ -308,17 +308,19 @@ public sealed partial class RadioSystem : EntitySystem
     // Einstein Engines - Language end
 
     /// <inheritdoc cref="TelecomServerComponent"/>
-    private bool HasActiveServer(MapId mapId, string channelId)
+    private bool HasActiveServer(EntityUid? map, string channelId)
     {
+        if (map == null)
+            return false;
+
+        var stack = CompOrNull<CEZMapComponent>(map)?.NetworkUid;
         var servers = EntityQuery<TelecomServerComponent, EncryptionKeyHolderComponent, ApcPowerReceiverComponent, TransformComponent>();
         foreach (var (_, keys, power, transform) in servers)
         {
-            if (transform.MapID == mapId &&
-                power.Powered &&
-                keys.Channels.Contains(channelId))
-            {
+            if (power.Powered && keys.Channels.Contains(channelId) &&
+                (transform.MapUid == map ||
+                 stack is { } network && CompOrNull<CEZMapComponent>(transform.MapUid)?.NetworkUid == network))
                 return true;
-            }
         }
         return false;
     }

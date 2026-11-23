@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Numerics;
 using Content.Shared._Mono.MassFabricator;
+using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Client.Placement;
@@ -16,6 +17,7 @@ public sealed partial class AlignMassFabricator : PlacementMode
     [Dependency] private IPlayerManager _players = default!;
     [Dependency] private IInputManager _input = default!;
     private HashSet<EntityCoordinates>? _dragPreview;
+    private readonly List<(EntityCoordinates Coordinates, Angle Rotation)> _submitted = new();
     private static readonly Vector2[] Neighbors = [Vector2.UnitX, -Vector2.UnitX, Vector2.UnitY, -Vector2.UnitY];
 
     public AlignMassFabricator(PlacementManager manager) : base(manager)
@@ -26,9 +28,17 @@ public sealed partial class AlignMassFabricator : PlacementMode
 
     public override bool HasLineMode => true;
     public override bool HasGridMode => true;
+    public bool PlacementLocked => _submitted.Count != 0;
+
+    public void HoldPlacement(EntityCoordinates coordinates, Angle rotation) => _submitted.Add((coordinates, rotation));
+
+    public void FinishSubmission() => _submitted.Clear();
 
     public override void AlignPlacementMode(ScreenCoordinates mouseScreen)
     {
+        if (PlacementLocked)
+            return;
+
         var entities = pManager.EntityManager;
         var transform = entities.System<SharedTransformSystem>();
         var dragging = pManager.PlacementType != PlacementManager.PlacementTypes.None;
@@ -67,6 +77,12 @@ public sealed partial class AlignMassFabricator : PlacementMode
 
     public override void Render(in OverlayDrawArgs args)
     {
+        if (PlacementLocked)
+        {
+            RenderSubmittedPlans(args);
+            return;
+        }
+
         if (pManager.PlacementType != PlacementManager.PlacementTypes.None &&
             !HasValidDragCursor(_input.MouseScreenPosition))
             return;
@@ -86,6 +102,9 @@ public sealed partial class AlignMassFabricator : PlacementMode
 
     public void PlaceDragTiles()
     {
+        if (PlacementLocked)
+            return;
+
         var system = pManager.EntityManager.System<MassFabricatorClientSystem>();
         if (HasValidDragCursor(_input.MouseScreenPosition))
         {
@@ -94,6 +113,29 @@ public sealed partial class AlignMassFabricator : PlacementMode
         }
 
         pManager.PlacementType = PlacementManager.PlacementTypes.None;
+    }
+
+    private void RenderSubmittedPlans(in OverlayDrawArgs args)
+    {
+        var entities = pManager.EntityManager;
+        if (!entities.TryGetComponent(pManager.CurrentPlacementOverlayEntity, out SpriteComponent? sprite) || !sprite.Visible)
+            return;
+
+        var sprites = entities.System<SpriteSystem>();
+        var transform = entities.System<SharedTransformSystem>();
+        var color = sprite.Color;
+        sprite.Color = ValidPlaceColor;
+        foreach (var (coordinates, rotation) in _submitted)
+        {
+            if (!coordinates.IsValid(entities))
+                continue;
+
+            var world = transform.ToMapCoordinates(coordinates);
+            if (world.MapId == args.MapId)
+                sprites.RenderSprite((sprite.Owner, sprite), args.WorldHandle, args.Viewport.Eye?.Rotation ?? default,
+                    transform.GetWorldRotation(coordinates.EntityId) + rotation, world.Position);
+        }
+        sprite.Color = color;
     }
 
     private IEnumerable<EntityCoordinates> GetConnectedDragTiles()

@@ -20,6 +20,21 @@ public sealed partial class PlanetTypePrototype : IPrototype
     [DataField] public ProtoId<PlanetaryLiquidTypePrototype>? Liquid;
     [DataField] public ProtoId<PlanetaryRingsTypePrototype>? Rings;
     [DataField] public ProtoId<PlanetMapPrototype>? Surface;
+    [DataField] public PlanetPersistenceMode Persistence = PlanetPersistenceMode.None;
+    [DataField] public List<PlanetPersistenceFlag> PersistenceFlags = new();
     [DataField] public float LandingRadius = 256f;
     [DataField] public PlanetCustomValues CustomData = new();
+}
+
+public enum PlanetPersistenceMode : byte
+{
+    None,
+    Terrain,
+    Semi,
+    Full,
+}
+
+public enum PlanetPersistenceFlag : byte
+{
+    AllowRespawns,
 }

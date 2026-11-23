@@ -79,7 +79,7 @@ public sealed partial class MassFabricatorState : GameplayStateBase, IMainViewpo
             return;
 
         ((MassFabricatorScreen) UserInterfaceManager.ActiveScreen!).UpdateBars(
-            gun is { MaxBlueprintLoad: > 0 } ? client.PredictedBlueprintLoad / gun.MaxBlueprintLoad : 0f,
+            gun is { MaxBlueprintLoad: > 0 } ? (float) client.PredictedBlueprintLoad / gun.MaxBlueprintLoad : 0f,
             _entities.System<SharedMaterialStorageSystem>().GetStoredMaterials((uid, storage)), storage.StorageLimit ?? 0);
     }
 
@@ -122,6 +122,15 @@ public sealed partial class MassFabricatorState : GameplayStateBase, IMainViewpo
 
     protected override void OnKeyBindStateChanged(ViewportBoundKeyEventArgs args)
     {
+        if (args.KeyEventArgs.State == BoundKeyState.Down &&
+            _placement is PlacementManager { CurrentMode: AlignMassFabricator { PlacementLocked: true } } &&
+            (args.KeyEventArgs.Function == EngineKeyFunctions.EditorPlaceObject ||
+             args.KeyEventArgs.Function == EngineKeyFunctions.EditorGridPlace))
+        {
+            args.KeyEventArgs.Handle();
+            return;
+        }
+
         if (args.KeyEventArgs.Function == EngineKeyFunctions.EditorPlaceObject)
         {
             if (args.KeyEventArgs.State == BoundKeyState.Up && _singleTilePress)

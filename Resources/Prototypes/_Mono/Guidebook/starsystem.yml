@@ -23,6 +23,13 @@
   id: Asclepiu
   name: guide-entry-asclepiu
   text: "/ServerInfo/_Mono/Guidebook/StarSystem/Asclepiu.xml"
+  children:
+    - Marzanna
+
+- type: guideEntry
+  id: Marzanna
+  name: guide-entry-marzanna
+  text: "/ServerInfo/_Mono/Guidebook/StarSystem/Marzanna.xml"
 
 - type: guideEntry
   id: Thrascias
