@@ -109,7 +109,7 @@
       head: ClothingHeadHatHoodChaplainHood
 
 - type: entity
-  parent: ClothingNeckBase # Frontier - Change to neck
+  parent: ClothingMiscBase # Mono
   id: ClothingOuterPonchoClassic
   name: classic poncho
   description: A warm and comfy classic poncho.
@@ -144,7 +144,7 @@
     sprite: Clothing/OuterClothing/Misc/judge.rsi
 
 - type: entity
-  parent: ClothingNeckBase # Frontier - Change to neck
+  parent: ClothingMiscBase # Mono
   id: ClothingOuterPoncho
   name: poncho
   description: A warm and comfy poncho.

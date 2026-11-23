@@ -138,8 +138,8 @@
       - map: [ "id" ]
       - map: [ "back" ]
       - map: [ "neck" ]
-      - map: [ "neck2" ]
-      - map: [ "neck3" ]
+      - map: [ "misc" ] # Mono
+      - map: [ "misc2" ] # Mono
       - map: [ "enum.HumanoidVisualLayers.Tail" ] #in the utopian future we should probably have a wings enum inserted here so everyhting doesn't break
       - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
       - map: [ "enum.HumanoidVisualLayers.Hair" ]

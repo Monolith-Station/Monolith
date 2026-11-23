@@ -1,5 +1,5 @@
 - type: entity # Base Badge
-  parent: ClothingNeckBase
+  parent: ClothingMiscBase # Mono
   id: ClothingNeckNfsdBadge
   name: TSFMC badge
   description: Respect my authority!
@@ -108,7 +108,7 @@
     - PetWearable
     
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingMiscBase # Mono - Why is this not parented to ClothingNeckNfsdBadge?
   id: ClothingNeckPublicAffairsLiaisonBadge
   name: public affairs liaison badge
   description: A badge for grade 4 paperwork wizards affiliated with the TSFMC.

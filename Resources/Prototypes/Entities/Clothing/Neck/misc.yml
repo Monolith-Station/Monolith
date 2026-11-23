@@ -1,5 +1,5 @@
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingMiscBase # Mono
   id: ClothingNeckHeadphones
   name: headphones
   description: Quality headphones from Drunk Masters, with good sound insulation.
@@ -35,7 +35,7 @@
     - PetWearable
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingMiscBase # Mono
   id: ClothingNeckStethoscope
   name: stethoscope
   description: An outdated medical apparatus for listening to the sounds of the human body. It also makes you look like you know what you're doing.
@@ -50,7 +50,7 @@
     - PetWearable
     
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingMiscBase # Mono
   id: ClothingNeckBling
   name: bling
   description: Damn, it feels good to be a gangster.
@@ -64,7 +64,7 @@
     - PetWearable
     
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingMiscBase # Mono
   id: ClothingNeckLawyerbadge
   name: lawyer badge
   description: A badge to show that the owner is a 'legitimate' lawyer who passed the NT bar exam required to practice law.
@@ -92,7 +92,7 @@
     priority: -1
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingMiscBase # Mono
   id: Dinkystar
   name: star sticker
   description: A dinky lil star for only the hardest working security officers! It's not even sticky anymore.

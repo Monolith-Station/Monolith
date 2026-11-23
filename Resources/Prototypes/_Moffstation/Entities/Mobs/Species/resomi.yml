@@ -159,6 +159,11 @@
           32:
             sprite: _Moffstation/Mobs/Species/Resomi/displacement.rsi
             state: neck
+      misc: # Mono
+        sizeMaps:
+          32:
+            sprite: _Moffstation/Mobs/Species/Resomi/displacement.rsi
+            state: neck
       mask:
         sizeMaps:
           32:
@@ -220,6 +225,11 @@
           32:
             sprite: _Moffstation/Mobs/Species/Resomi/displacement.rsi
             state: neck
+      misc: # Mono
+        sizeMaps:
+          32:
+            sprite: _Moffstation/Mobs/Species/Resomi/displacement.rsi
+            state: neck
       mask:
         sizeMaps:
           32:
@@ -270,8 +280,8 @@
     - map: [ "belt" ]
     - map: [ "back" ]
     - map: [ "neck" ]
-    - map: [ "neck2" ]
-    - map: [ "neck3" ]
+    - map: [ "misc" ] # Mono
+    - map: [ "misc2" ] # Mono
     - map: [ "enum.HumanoidVisualLayers.TailExtras" ]
     - map: [ "enum.HumanoidVisualLayers.Tail" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
@@ -352,6 +362,11 @@
           32:
             sprite: _Moffstation/Mobs/Species/Resomi/displacement.rsi
             state: neck
+      misc: # Mono
+        sizeMaps:
+          32:
+            sprite: _Moffstation/Mobs/Species/Resomi/displacement.rsi
+            state: neck
       mask:
         sizeMaps:
           32:
@@ -409,6 +424,11 @@
             sprite: _Moffstation/Mobs/Species/Resomi/displacement.rsi
             state: feet
       neck:
+        sizeMaps:
+          32:
+            sprite: _Moffstation/Mobs/Species/Resomi/displacement.rsi
+            state: neck
+      misc: # Mono
         sizeMaps:
           32:
             sprite: _Moffstation/Mobs/Species/Resomi/displacement.rsi

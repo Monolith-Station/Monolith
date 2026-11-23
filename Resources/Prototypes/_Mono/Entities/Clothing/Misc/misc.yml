@@ -1,0 +1,131 @@
+- type: entity
+  abstract: true
+  parent: ClothingNeckBase
+  id: ClothingMiscBase
+  components:
+  - type: Clothing
+    slots:
+    - misc
+
+# Bodycams
+
+- type: entity
+  parent: ClothingMiscBase
+  id: ClothingNeckWearableCamera
+  name: wireless camera #bodycam but currently it has more use than that
+  description: A wireless camera made to observe the battlefield from the safety of your base. Can be worn in the neck slot.
+  components:
+    - type: Sprite
+      sprite: _Mono/Clothing/Neck/Misc/pir.rsi
+      layers:
+        - state: tsfbox
+    - type: DeviceNetwork
+      deviceNetId: Wireless
+      receiveFrequencyId: SurveillanceCameraSecurity
+      transmitFrequencyId: SurveillanceCamera
+    - type: SurveillanceCamera
+      networkSet: true
+      nameSet: True
+      id: Bodycam
+    - type: Eye
+    - type: WirelessNetworkConnection
+      range: 40000 # Modify this to change the range, make sure to change the range of the respective router to be the same
+    - type: SurveillanceCameraMicrophone
+      blacklist:
+        components:
+        - SurveillanceCamera
+        - RadioSpeaker
+        - SurveillanceCameraMonitor
+    - type: ActiveListener
+      range: 6
+    - type: ClothingGrantComponent
+      component:
+      - type: StationAiVision
+        range: 4
+
+- type: entity
+  parent: ClothingNeckWearableCamera
+  id: ClothingNeckWearableCameraPDV
+  name: PDV wireless camera
+  suffix: Chameleon
+  description: A wireless camera made to observe the battlefield from the safety of your base. Can be worn in the neck slot. This one has been installed with chameleon technology salvaged from one of the Sultan's caches, allowing you to wear it without giving your true allegiance away.
+  components:
+    - type: Sprite
+      sprite: _Mono/Clothing/Neck/Misc/pir.rsi
+      layers:
+        - state: pdvbox
+    - type: DeviceNetwork
+      receiveFrequencyId: SurveillanceCameraPDV
+    - type: ChameleonClothing
+      slot: [MISC]
+      default: ClothingNeckWearableCameraPDV
+    - type: UserInterface
+      interfaces:
+        enum.ChameleonUiKey.Key:
+          type: ChameleonBoundUserInterface
+
+- type: entity
+  parent: ClothingNeckWearableCamera
+  id: ClothingNeckWearableCameraTSF
+  name: TSF wireless camera
+  components:
+    - type: Sprite
+      sprite: _Mono/Clothing/Neck/Misc/pir.rsi
+      layers:
+        - state: tsfbox
+    - type: DeviceNetwork
+      receiveFrequencyId: SurveillanceCameraTSF
+
+- type: entity
+  parent: ClothingNeckWearableCamera
+  id: ClothingNeckWearableCameraMMC
+  name: MMC wireless camera
+  components:
+    - type: Sprite
+      sprite: _Mono/Clothing/Neck/Misc/pir.rsi
+      layers:
+        - state: civbox
+    - type: DeviceNetwork
+      receiveFrequencyId: SurveillanceCameraMMC
+
+# Clothing
+
+- type: entity
+  parent: ClothingMiscBase
+  id: ClothingNeckFormalTSF
+  name: TSFMC formal coat
+  description: A TSFMC officer's formal wear for special occasions.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Neck/Misc/tsfcoat.rsi
+
+- type: entity
+  parent: ClothingMiscBase
+  id: ClothingNeckFormalTSFColonel
+  name: TSFMC colonel's formal coat
+  description: A TSFMC high ranking officer's formal wear for special occasions.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Neck/Misc/tsfcolonelcoat.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckFormalTSFCaptain
+  name: TSFMC captain's formal coat
+  description: A TSFMC officer's formal wear for special occasions.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Neck/Misc/tsfsilvercoat.rsi
+
+- type: entity
+  parent: ClothingMiscBase
+  id: ClothingNeckViperGroupMantle
+  name: viper group mantle
+  description: A mantle bearing the colours and mark of a viper.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Neck/Misc/viper_group_mantle.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Neck/Misc/viper_group_mantle.rsi
+  - type: Item
+    size: Normal

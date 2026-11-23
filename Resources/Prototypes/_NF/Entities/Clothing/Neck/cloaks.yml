@@ -1,5 +1,5 @@
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingMiscBase # Mono
   id: ClothingNeckCloakSheriff
   name: colonel's cloak
   description: An exquisite cloak fitting for those who can assert dominance over wrongdoers. Take a stab at being civil in prosecution!
@@ -20,7 +20,7 @@
     sprite: _NF/Clothing/Neck/Cloaks/sr.rsi
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingMiscBase # Mono
   id: ClothingNeckCloakRosy
   name: rosy the maple mothroach cloak
   description: A cloak made of pink and floof and roach.
