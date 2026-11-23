@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.6
   forkId: ""
   forkVersion: ""
-  time: 11/23/2026 21:17:14
-  entityCount: 561
+  time: 11/23/2026 21:32:47
+  entityCount: 562
 maps: []
 grids:
 - 1
@@ -81,11 +81,11 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        MetalFoam: []
-        Kudzu: []
-        ESTileFire: []
         Smoke: []
+        MetalFoam: []
+        ESTileFire: []
         Puddle: []
+        Kudzu: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -346,7 +346,7 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: IFF
-      address: ' 4913-7AB3'
+      address: ' 3B7A-6FCF'
       color: '#F6CE9C9C'
       flags: IsPlayerShuttle
     - type: ShuttleDeed
@@ -461,6 +461,13 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 0.5,0.5
+      parent: 1
+- proto: AirlockMercenary
+  entities:
+  - uid: 375
+    components:
+    - type: Transform
+      pos: 2.5,-1.5
       parent: 1
 - proto: AirlockMercenaryGlass
   entities:
