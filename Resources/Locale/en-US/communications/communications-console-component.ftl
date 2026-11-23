@@ -26,7 +26,7 @@ comms-console-announcement-unknown-sender = Unknown
 # Comms console variant titles
 comms-console-announcement-title-station = Communications Console
 comms-console-announcement-title-centcom = Central Command
-comms-console-announcement-title-nukie = Syndicate Nuclear Operative
+comms-console-announcement-title-nukie = Unknown Source
 comms-console-announcement-title-station-ai = Station AI
 comms-console-announcement-title-wizard = Wizard
 

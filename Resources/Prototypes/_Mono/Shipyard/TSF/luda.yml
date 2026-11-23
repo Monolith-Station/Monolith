@@ -1,0 +1,44 @@
+- type: vessel
+  id: Luda
+  parent: BaseVesselIFFDisabled
+  name: TSFN Luda
+  description: Type-96 Luda-class destroyers are heavy backline strategic vessels. They carry multiple SS-N-40 launchers capable of firing long-range nuclear-capable cruise missiles, but they lack in any other anti-ship armaments compared to other capitals. If the war ever goes all-out, these are the ships that will end it in a week.
+  limit: 1
+  hyperwarLimit: 2
+  hyperwarTimelock: 3600
+  price: 750000
+  category: Large
+  purchasable: false # voucher only - T4
+  group: Security
+  access: Security
+  shuttlePath: /SharedMaps/_Mono/Shuttles/TSF/luda.yml
+  guidebookPage: Null
+  class:
+  - AntiShipMissileCarrier
+  - EarlyWarning
+  - Destroyer
+  engine:
+  - AME
+
+- type: gameMap
+  id: Luda
+  mapName: 'TSFN Luda'
+  mapPath: /SharedMaps/_Mono/Shuttles/TSF/luda.yml
+  minPlayers: 0
+  stations:
+    Luda:
+      stationProto: StandardFrontierSecurityVessel
+      gridComponents:
+      - type: VesselInfo
+        description: "Revelations, 0-1: “Look to the sky!” the unknowing ones chanted, looking at the skies.
+                      A brilliant streak of white light and plasma lit up the night and dark sky like a false star." # This is what we have a lore advisor for.
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Luda TSFN{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Deputy: [ 0, 0 ]
+            TsfBorg: [ 0, 0 ]

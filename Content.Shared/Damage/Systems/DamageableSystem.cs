@@ -208,7 +208,7 @@ namespace Content.Shared.Damage
             }
 
             var before = new BeforeDamageChangedEvent(damage, origin, targetPart, //Shitmed Change
-                false, originFlag); // Mono: originFlag
+                false, originFlag, tool); // Mono: originFlag, shield-breaking ammunition
             RaiseLocalEvent(uid.Value, ref before);
 
             if (before.Cancelled)
@@ -472,7 +472,11 @@ namespace Content.Shared.Damage
         EntityUid? Origin = null,
         TargetBodyPart? TargetPart = null, // Shitmed Change
         bool Cancelled = false,
-        DamageOriginFlag? OriginFlag = null); // Mono: OriginFlag
+        DamageOriginFlag? OriginFlag = null,
+        EntityUid? Tool = null) : IInventoryRelayEvent // Mono: early shield interception
+    {
+        public SlotFlags TargetSlots => ~SlotFlags.POCKET;
+    }
 
     /// <summary>
     ///     Shitmed Change: Raised on parts before damage is done so we can cancel the damage if they evade.

@@ -1,0 +1,654 @@
+- type: entity
+  name: emergency flare
+  parent: [BaseItem, RecyclableItemSteelTiny] # Frontier: added RecyclableItemSteelTiny
+  id: Flare
+  description: A flare that produces a very bright light for a short while. Point the flame away from yourself.
+  components:
+  - type: Tag
+    tags:
+    - Flare
+    - Trash
+    - SignalFlareLaunchable
+  - type: SpaceGarbage
+  - type: ExpendableLight
+    spentName: expendable-light-spent-flare-name
+    spentDesc: expendable-light-spent-flare-desc
+    glowDuration: 225
+    fadeOutDuration: 15
+    iconStateOn: flare_unlit
+    iconStateSpent: flare_spent
+    turnOnBehaviourID: turn_on
+    fadeOutBehaviourID: fade_out
+    litSound:
+      path: /Audio/Items/Flare/flare_on.ogg
+    loopedSound:
+      path: /Audio/Items/Flare/flare_burn.ogg
+      params:
+        loop: true
+        volume: -10
+        maxDistance: 5
+  - type: Sprite
+    sprite: Objects/Misc/flare.rsi
+    layers:
+    - map: [ enum.ExpendableLightVisualLayers.Base ]
+      state: flare_base
+    - map: [ enum.ExpendableLightVisualLayers.Glow ]
+      state: flare_burn
+      color: "#FFFFFF"
+      visible: false
+      shader: unshaded
+    - map: [ enum.ExpendableLightVisualLayers.Overlay ]
+      state: flare_unlit
+      color: "#FF0000"
+  - type: Icon
+    sprite: Objects/Misc/flare.rsi
+    state: icon
+  - type: Item
+    sprite: Objects/Misc/flare.rsi
+    heldPrefix: unlit
+    size: Tiny
+  - type: Appearance
+  - type: PointLight
+    enabled: false
+    color: "#FF8080"
+    radius: 1.0
+    energy: 9.0
+    netsync: false
+  - type: IgnitionSource
+    temperature: 1000
+  - type: LightBehaviour
+    behaviours:
+    - !type:FadeBehaviour # have the radius start small and get larger as it starts to burn
+      id: turn_on
+      maxDuration: 45.0
+      startValue: 2.5
+      endValue: 10.0
+    - !type:RandomizeBehaviour # weaker flicker as it fades out
+      id: fade_out
+      interpolate: Nearest
+      minDuration: 0.001
+      maxDuration: 0.001
+      startValue: 4.0
+      endValue: 8.0
+      property: Energy
+      isLooped: true
+    - !type:FadeBehaviour # fade out radius as it burns out
+      id: fade_out
+      maxDuration: 15.0
+      startValue: 10.0
+      endValue: 1.0
+  - type: Extractable
+    grindableSolutionName: flare
+  - type: SolutionContainerManager
+    solutions:
+      flare:
+        maxVol: 20
+        reagents:
+        # flare casing
+        - ReagentId: Iron
+          Quantity: 10
+        # red phosphorus = red flare trust
+        - ReagentId: Phosphorus
+          Quantity: 3
+        - ReagentId: Carbon
+          Quantity: 1
+        - ReagentId: Oxygen
+          Quantity: 2
+        # fuel or something
+        - ReagentId: Charcoal
+          Quantity: 2
+        - ReagentId: Sulfur
+          Quantity: 2
+  - type: EntityRadiusHeater # Mono
+    thermalEnergy: 1250
+    radius: 0.2
+    limit: 350
+    requireActivation: true
+  - type: CartridgeAmmo
+    proto: FlareActivated
+    deleteOnSpawn: true
+
+- type: entity
+  name: emergency flare
+  parent: Flare
+  id: FlareActivated
+  description: A flare that produces a very bright light for a short while. Point the flame away from yourself.
+  components:
+  - type: ExpendableLight
+    activateOnSpawn: true
+
+# Signal Flares
+
+- type: entity
+  name: signal flare
+  categories: [ HideSpawnMenu ]
+  parent: BaseItem
+  id: BaseSignalFlare
+  description: A flare that produces a very bright light and an IFF signal for a short while, used for communications in high-intensity situations.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/flare.rsi
+    layers:
+    - map: [ enum.ExpendableLightVisualLayers.Base ]
+      state: flare_base
+    - map: [ enum.ExpendableLightVisualLayers.Glow ]
+      state: flare_burn
+      color: "#FFFFFF"
+      visible: false
+      shader: unshaded
+    - map: [ enum.ExpendableLightVisualLayers.Overlay ]
+      state: flare_unlit
+      color: "#FF0000"
+  - type: Icon
+    sprite: Objects/Misc/flare.rsi
+    state: icon
+  - type: Item
+    sprite: Objects/Misc/flare.rsi
+    heldPrefix: unlit
+    size: Tiny
+  #- type: TriggerOnActivate
+  #- type: DeleteOnTrigger
+  #- type: SpawnOnTrigger
+  #  proto: BluespaceLifeline
+  - type: Tag
+    tags:
+    - SignalFlareLaunchable
+  - type: CartridgeAmmo
+    proto: SignalFlareGreenActivated
+    deleteOnSpawn: true
+  - type: ExtendDescription
+    descriptionList:
+    - description: Usage requires a dedicated flare launcher.
+      color: "#4f94ad"
+      requireDetailRange: true
+
+- type: entity
+  name: signal flare
+  categories: [ HideSpawnMenu ]
+  parent: Flare
+  id: BaseSignalFlareActivated
+  description: A flare that produces a very bright light and an IFF signal for a short while, used for communications in high-intensity situations.
+  components:
+  - type: ExpendableLight
+    activateOnSpawn: true
+    spentName: expendable-light-spent-flare-name
+    spentDesc: expendable-light-spent-flare-desc
+    glowDuration: 225
+    fadeOutDuration: 15
+    iconStateOn: flare_unlit
+    iconStateSpent: flare_spent
+    turnOnBehaviourID: turn_on
+    fadeOutBehaviourID: fade_out
+    litSound:
+      path: /Audio/Items/Flare/flare_on.ogg
+    loopedSound:
+      path: /Audio/Items/Flare/flare_burn.ogg
+      params:
+        loop: true
+        volume: -10
+        maxDistance: 5
+  - type: Sprite
+    sprite: Objects/Misc/flare.rsi
+    layers:
+    - map: [ enum.ExpendableLightVisualLayers.Base ]
+      state: flare_base
+    - map: [ enum.ExpendableLightVisualLayers.Glow ]
+      state: flare_burn
+      color: "#FFFFFF"
+      visible: false
+      shader: unshaded
+    - map: [ enum.ExpendableLightVisualLayers.Overlay ]
+      state: flare_unlit
+      color: "#FF0000"
+  - type: Icon
+    sprite: Objects/Misc/flare.rsi
+    state: icon
+  - type: Item
+    sprite: Objects/Misc/flare.rsi
+    heldPrefix: unlit
+    size: Tiny
+  - type: PointLight
+    enabled: false
+    color: "#FF8080"
+    radius: 1.0
+    energy: 9.0
+    netsync: false
+  - type: IgnitionSource
+    temperature: 1000
+  - type: LightBehaviour
+    behaviours:
+    - !type:FadeBehaviour # have the radius start small and get larger as it starts to burn
+      id: turn_on
+      maxDuration: 45.0
+      startValue: 2.5
+      endValue: 10.0
+    - !type:RandomizeBehaviour # weaker flicker as it fades out
+      id: fade_out
+      interpolate: Nearest
+      minDuration: 0.001
+      maxDuration: 0.001
+      startValue: 4.0
+      endValue: 8.0
+      property: Energy
+      isLooped: true
+    - !type:FadeBehaviour # fade out radius as it burns out
+      id: fade_out
+      maxDuration: 15.0
+      startValue: 10.0
+      endValue: 1.0
+  - type: RadarBlip
+    visibleFromOtherGrids: true
+    radarColor: "#3fc40a"
+    scale: 8
+    shape: star
+  - type: TimedDespawn
+    lifetime: 60
+
+# green
+
+- type: entity
+  name: signal flare (friendly)
+  categories: [ HideSpawnMenu ]
+  parent: BaseSignalFlareActivated
+  id: SignalFlareGreenActivated
+  description: A flare that produces a very bright light and an IFF signal for a short while. Indicates friendly intent.
+  components:
+  - type: ExpendableLight
+    iconStateOn: flare_unlit
+    iconStateSpent: flare_spent
+    turnOnBehaviourID: turn_on
+    fadeOutBehaviourID: fade_out
+  - type: Sprite
+    sprite: Objects/Misc/flare.rsi
+    layers:
+    - map: [ enum.ExpendableLightVisualLayers.Base ]
+      state: flare_base
+    - map: [ enum.ExpendableLightVisualLayers.Glow ]
+      state: flare_burn
+      color: "#FFFFFF"
+      visible: false
+      shader: unshaded
+    - map: [ enum.ExpendableLightVisualLayers.Overlay ]
+      state: flare_unlit
+      color: "#3fc40a"
+  - type: Icon
+    sprite: Objects/Misc/flare.rsi
+    state: icon
+  - type: Item
+    sprite: Objects/Misc/flare.rsi
+    heldPrefix: unlit
+    size: Tiny
+  - type: PointLight
+    enabled: false
+    color: "#3fc40a"
+    radius: 1.0
+    energy: 6.0
+    netsync: false
+  - type: RadarBlip
+    visibleFromOtherGrids: true
+    radarColor: "#3fc40a"
+    scale: 8
+    shape: star
+
+- type: entity
+  name: signal flare (friendly)
+  parent: BaseSignalFlare
+  id: SignalFlareGreen
+  description: A flare that produces a very bright light and an IFF signal for a short while. Indicates friendly intent.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/flare.rsi
+    layers:
+    - map: [ enum.ExpendableLightVisualLayers.Base ]
+      state: flare_base
+    - map: [ enum.ExpendableLightVisualLayers.Glow ]
+      state: flare_burn
+      color: "#FFFFFF"
+      visible: false
+      shader: unshaded
+    - map: [ enum.ExpendableLightVisualLayers.Overlay ]
+      state: flare_unlit
+      color: "#3fc40a"
+  - type: Icon
+    sprite: Objects/Misc/flare.rsi
+    state: icon
+  - type: Item
+    sprite: Objects/Misc/flare.rsi
+    heldPrefix: unlit
+    size: Tiny
+  #- type: SpawnOnTrigger
+  #  proto: SignalFlareGreenActivated
+  - type: CartridgeAmmo
+    proto: SignalFlareGreenActivated
+
+# white
+
+- type: entity
+  name: signal flare (neutral/surrender)
+  categories: [ HideSpawnMenu ]
+  parent: BaseSignalFlareActivated
+  id: SignalFlareWhiteActivated
+  description: A flare that produces a very bright light and an IFF signal for a short while. Indicates neutral intent, or, in combat, surrender.
+  components:
+  - type: ExpendableLight
+    iconStateOn: flare_unlit
+    iconStateSpent: flare_spent
+    turnOnBehaviourID: turn_on
+    fadeOutBehaviourID: fade_out
+  - type: Sprite
+    sprite: Objects/Misc/flare.rsi
+    layers:
+    - map: [ enum.ExpendableLightVisualLayers.Base ]
+      state: flare_base
+    - map: [ enum.ExpendableLightVisualLayers.Glow ]
+      state: flare_burn
+      color: "#FFFFFF"
+      visible: false
+      shader: unshaded
+    - map: [ enum.ExpendableLightVisualLayers.Overlay ]
+      state: flare_unlit
+      color: "#f5ffff"
+  - type: Icon
+    sprite: Objects/Misc/flare.rsi
+    state: icon
+  - type: Item
+    sprite: Objects/Misc/flare.rsi
+    heldPrefix: unlit
+    size: Tiny
+  - type: PointLight
+    enabled: false
+    color: "#f5ffff"
+    radius: 1.0
+    energy: 6.0
+    netsync: false
+  - type: RadarBlip
+    visibleFromOtherGrids: true
+    radarColor: "#f5ffff"
+    scale: 8
+    shape: star
+
+- type: entity
+  name: signal flare (neutral/surrender)
+  parent: BaseSignalFlare
+  id: SignalFlareWhite
+  description: A flare that produces a very bright light and an IFF signal for a short while. Indicates neutral intent, or, in combat, surrender.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/flare.rsi
+    layers:
+    - map: [ enum.ExpendableLightVisualLayers.Base ]
+      state: flare_base
+    - map: [ enum.ExpendableLightVisualLayers.Glow ]
+      state: flare_burn
+      color: "#FFFFFF"
+      visible: false
+      shader: unshaded
+    - map: [ enum.ExpendableLightVisualLayers.Overlay ]
+      state: flare_unlit
+      color: "#f5ffff"
+  - type: Icon
+    sprite: Objects/Misc/flare.rsi
+    state: icon
+  - type: Item
+    sprite: Objects/Misc/flare.rsi
+    heldPrefix: unlit
+    size: Tiny
+  #- type: SpawnOnTrigger
+  #  proto: SignalFlareWhiteActivated
+  - type: CartridgeAmmo
+    proto: SignalFlareWhiteActivated
+
+# red
+
+- type: entity
+  name: signal flare (hostile)
+  categories: [ HideSpawnMenu ]
+  parent: BaseSignalFlareActivated
+  id: SignalFlareRedActivated
+  description: A flare that produces a very bright light and an IFF signal for a short while. Indicates hostile intent.
+  components:
+  - type: ExpendableLight
+    iconStateOn: flare_unlit
+    iconStateSpent: flare_spent
+    turnOnBehaviourID: turn_on
+    fadeOutBehaviourID: fade_out
+  - type: Sprite
+    sprite: Objects/Misc/flare.rsi
+    layers:
+    - map: [ enum.ExpendableLightVisualLayers.Base ]
+      state: flare_base
+    - map: [ enum.ExpendableLightVisualLayers.Glow ]
+      state: flare_burn
+      color: "#FFFFFF"
+      visible: false
+      shader: unshaded
+    - map: [ enum.ExpendableLightVisualLayers.Overlay ]
+      state: flare_unlit
+      color: "#e62e43"
+  - type: Icon
+    sprite: Objects/Misc/flare.rsi
+    state: icon
+  - type: Item
+    sprite: Objects/Misc/flare.rsi
+    heldPrefix: unlit
+    size: Tiny
+  - type: PointLight
+    enabled: false
+    color: "#e62e43"
+    radius: 1.0
+    energy: 6.0
+    netsync: false
+  - type: RadarBlip
+    visibleFromOtherGrids: true
+    radarColor: "#e62e43"
+    scale: 8
+    shape: star
+
+- type: entity
+  name: signal flare (hostile)
+  parent: BaseSignalFlare
+  id: SignalFlareRed
+  description: A flare that produces a very bright light and an IFF signal for a short while. Indicates hostile intent.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/flare.rsi
+    layers:
+    - map: [ enum.ExpendableLightVisualLayers.Base ]
+      state: flare_base
+    - map: [ enum.ExpendableLightVisualLayers.Glow ]
+      state: flare_burn
+      color: "#FFFFFF"
+      visible: false
+      shader: unshaded
+    - map: [ enum.ExpendableLightVisualLayers.Overlay ]
+      state: flare_unlit
+      color: "#e62e43"
+  - type: Icon
+    sprite: Objects/Misc/flare.rsi
+    state: icon
+  - type: Item
+    sprite: Objects/Misc/flare.rsi
+    heldPrefix: unlit
+    size: Tiny
+  #- type: SpawnOnTrigger
+  #  proto: SignalFlareRedActivated
+  - type: CartridgeAmmo
+    proto: SignalFlareRedActivated
+
+# gold
+
+- type: entity
+  name: signal flare (other)
+  categories: [ HideSpawnMenu ]
+  parent: BaseSignalFlareActivated
+  id: SignalFlareGoldActivated
+  description: A flare that produces a very bright light and an IFF signal for a short while. Indicates a miscellaneous signal.
+  components:
+  - type: ExpendableLight
+    iconStateOn: flare_unlit
+    iconStateSpent: flare_spent
+    turnOnBehaviourID: turn_on
+    fadeOutBehaviourID: fade_out
+  - type: Sprite
+    sprite: Objects/Misc/flare.rsi
+    layers:
+    - map: [ enum.ExpendableLightVisualLayers.Base ]
+      state: flare_base
+    - map: [ enum.ExpendableLightVisualLayers.Glow ]
+      state: flare_burn
+      color: "#FFFFFF"
+      visible: false
+      shader: unshaded
+    - map: [ enum.ExpendableLightVisualLayers.Overlay ]
+      state: flare_unlit
+      color: "#f0b548"
+  - type: Icon
+    sprite: Objects/Misc/flare.rsi
+    state: icon
+  - type: Item
+    sprite: Objects/Misc/flare.rsi
+    heldPrefix: unlit
+    size: Tiny
+  - type: PointLight
+    enabled: false
+    color: "#f0b548"
+    radius: 1.0
+    energy: 6.0
+    netsync: false
+  - type: RadarBlip
+    visibleFromOtherGrids: true
+    radarColor: "#f0b548"
+    scale: 8
+    shape: star
+
+- type: entity
+  name: signal flare (other)
+  parent: BaseSignalFlare
+  id: SignalFlareGold
+  description: A flare that produces a very bright light and an IFF signal for a short while. Indicates a miscellaneous signal.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/flare.rsi
+    layers:
+    - map: [ enum.ExpendableLightVisualLayers.Base ]
+      state: flare_base
+    - map: [ enum.ExpendableLightVisualLayers.Glow ]
+      state: flare_burn
+      color: "#FFFFFF"
+      visible: false
+      shader: unshaded
+    - map: [ enum.ExpendableLightVisualLayers.Overlay ]
+      state: flare_unlit
+      color: "#f0b548"
+  - type: Icon
+    sprite: Objects/Misc/flare.rsi
+    state: icon
+  - type: Item
+    sprite: Objects/Misc/flare.rsi
+    heldPrefix: unlit
+    size: Tiny
+  #- type: SpawnOnTrigger
+  #  proto: SignalFlareGoldActivated
+  - type: CartridgeAmmo
+    proto: SignalFlareGoldActivated
+
+# boxes
+
+- type: entity
+  id: BoxDispenserFlare
+  parent: BaseAmmoProvider # this is for cycling flares out and not spawning 9 entities
+  name: emergency flare dispenser
+  description: Dispenses emergency flares.
+  components:
+  - type: Sprite
+    layers:
+    - state: boxwide
+    - state: flare
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - SignalFlareLaunchable
+    proto: Flare
+    capacity: 12
+  - type: StaticPrice
+    price: 10
+
+- type: entity
+  id: BoxDispenserFlareGreen
+  parent: BaseAmmoProvider # this is for cycling flares out and not spawning 9 entities
+  name: signal flare (friendly) dispenser
+  description: Dispenses signal flares, used for indicating friendly intent.
+  components:
+  - type: Sprite
+    layers:
+    - state: boxwide
+    - state: flare_grayscale
+      color: "#3fc40a"
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - SignalFlareLaunchable
+    proto: SignalFlareGreen
+    capacity: 12
+  - type: StaticPrice
+    price: 10
+
+- type: entity
+  id: BoxDispenserFlareRed
+  parent: BaseAmmoProvider # this is for cycling flares out and not spawning 9 entities
+  name: signal flare (hostile) dispenser
+  description: Dispenses signal flares, used for indicating hostile intent.
+  components:
+  - type: Sprite
+    layers:
+    - state: boxwide
+    - state: flare_grayscale
+      color: "#e62e43"
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - SignalFlareLaunchable
+    proto: SignalFlareRed
+    capacity: 12
+  - type: StaticPrice
+    price: 10
+
+- type: entity
+  id: BoxDispenserFlareWhite
+  parent: BaseAmmoProvider # this is for cycling flares out and not spawning 9 entities
+  name: signal flare (neutral/surrender) dispenser
+  description: Dispenses signal flares, used for indicating neutral intent or, in combat, surrender.
+  components:
+  - type: Sprite
+    layers:
+    - state: boxwide
+    - state: flare_grayscale
+      color: "#f5ffff"
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - SignalFlareLaunchable
+    proto: SignalFlareWhite
+    capacity: 12
+  - type: StaticPrice
+    price: 10
+
+- type: entity
+  id: BoxDispenserFlareGold
+  parent: BaseAmmoProvider # this is for cycling flares out and not spawning 9 entities
+  name: signal flare (other) dispenser
+  description: Dispenses signal flares, used for indicating a miscellaneous signal.
+  components:
+  - type: Sprite
+    layers:
+    - state: boxwide
+    - state: flare_grayscale
+      color: "#f0b548"
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - SignalFlareLaunchable
+    proto: SignalFlareGold
+    capacity: 12
+  - type: StaticPrice
+    price: 10

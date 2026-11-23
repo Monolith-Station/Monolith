@@ -7,11 +7,15 @@
   - type: Sprite
     sprite: _Mono/Objects/Weapons/Guns/Attachments/Grips/erebus_railmount.rsi
     state: vfg
-  - type: ESGunRecoilAttachment
-    recoilRecoveryModifier: 0.65
-    recoilIncreaseModifier: 0.35
-    minSpreadModifier: 0.8
-    maxSpreadModifier: 0.95
+  - type: ESGunRecoilAttachment # It's a handgrip. You hold onto it. Why would it ever help one-handed.
+    recoilRecoveryModifier: 1.2
+    recoilIncreaseModifier: 1.0
+    minSpreadModifier: 1.05
+    maxSpreadModifier: 1.05
+    wieldRecoilRecoveryModifier: 1.55
+    wieldRecoilIncreaseModifier: 2.8
+    wieldMinSpreadModifier: 1.25
+    wieldMaxSpreadModifier: 1.05
   - type: Tag
     tags:
     - MonoGrip
@@ -35,9 +39,13 @@
     storedRotation: -90
   - type: ESGunRecoilAttachment
     recoilRecoveryModifier: 1.2
-    recoilIncreaseModifier: 1.0
-    minSpreadModifier: 0.05
+    recoilIncreaseModifier: 1.1
+    minSpreadModifier: 0.7
     maxSpreadModifier: 1.0
+    wieldRecoilRecoveryModifier: 0.83 # rounded from the inverse
+    wieldRecoilIncreaseModifier: 0.9 # rounded from the inverse
+    wieldMinSpreadModifier: 20
+    wieldMaxSpreadModifier: 1
   - type: ESGunComponentAttachment
     component:
     - type: LaserPointer
@@ -64,11 +72,15 @@
   - type: Item
     size: Small
     storedRotation: -90
-  - type: ESGunRecoilAttachment
+  - type: ESGunRecoilAttachment # Near same values for both of these because most pistols can't be wielded.
     recoilRecoveryModifier: 1.2
-    recoilIncreaseModifier: 1.0
+    recoilIncreaseModifier: 1.1
     minSpreadModifier: 0.05
-    maxSpreadModifier: 1.0
+    maxSpreadModifier: 1
+    wieldRecoilRecoveryModifier: 0.83 # rounded from the inverse
+    wieldRecoilIncreaseModifier: 0.9 # rounded from the inverse
+    wieldMinSpreadModifier: 20
+    wieldMaxSpreadModifier: 1
   - type: ESGunComponentAttachment
     component:
     - type: LaserPointer
@@ -98,6 +110,10 @@
     recoilIncreaseModifier: 1.0
     minSpreadModifier: 1.0
     maxSpreadModifier: 1.0
+    wieldRecoilRecoveryModifier: 1.0
+    wieldRecoilIncreaseModifier: 1.0
+    wieldMinSpreadModifier: 1.0
+    wieldMaxSpreadModifier: 1.0
   - type: ESGunComponentAttachment
     component:
     - type: ItemTogglePointLight
@@ -105,7 +121,7 @@
       enabled: false
       mask: /Textures/Effects/LightMasks/cone.png
       autoRot: true
-      radius: 6
+      radius: 7
       netsync: true
     - type: ItemToggle # No sfx because its annoying (it triggers it when u wield)
       predictable: true

@@ -64,6 +64,9 @@
       capacity: 1
       count: 1
     - type: Gun
+      minAngle: 5
+      maxAngle: 20
+      damageModifier: 0.8
       showExamineText: false
       fireRate: 8
       selectedMode: FullAuto
@@ -103,7 +106,7 @@
 # Spawners
 
 - type: entity
-  name: PDV Mob spawner
+  name: PDV T1 Mob spawner
   id: SpawnMobPDV
   parent: MarkerBase
   suffix: AI, Hostile, PDV
@@ -178,6 +181,60 @@
     shoes: ClothingShoesBootsCombatFilled
     gloves: ClothingHandsGlovesColorBlackC20r
     neck: ClothingNeckIFFOrange
+    mask: ClothingMaskNeckGaiter
+    outerClothing: ClothingOuterHardsuitPDVMedic
+    back: ClothingBackpackPDV
+    pocket2: DoubleEmergencyAirTankFilled
+
+# Wayward Gear Loadouts
+
+- type: startingGear
+  id: PDVMobGearAWayward
+  equipment:
+    head: ClothingHeadHatNfsdBeretBrown
+    jumpsuit: ClothingUniformJumpsuitNfsdTacCream
+    shoes: ClothingShoesBootsCombatFilled
+    gloves: ClothingHandsGlovesColorBlackC20r
+    neck: ClothingNeckIFFPurple
+    mask: ClothingMaskNeckGaiter
+    outerClothing: ClothingOuterArmorBPVestMedium
+    back: ClothingBackpackPDV
+    pocket2: DoubleEmergencyAirTankFilled
+
+- type: startingGear
+  id: PDVMobGearBWayward
+  equipment:
+    head: ClothingHeadHelmetHardsuitAshen
+    jumpsuit: ClothingUniformJumpsuitNfsdTacCream
+    shoes: ClothingShoesBootsCombatFilled
+    gloves: ClothingHandsGlovesColorBlackC20r
+    neck: ClothingNeckIFFPurple
+    mask: ClothingMaskNeckGaiter
+    outerClothing: ClothingOuterHardsuitAshen
+    back: ClothingBackpackPDV
+    pocket2: DoubleEmergencyAirTankFilled
+
+- type: startingGear
+  id: PDVMobGearCWayward
+  equipment:
+    head: ClothingHeadHelmetHardsuitAshenElite
+    jumpsuit: ClothingUniformJumpsuitNfsdTacCream
+    shoes: ClothingShoesBootsCombatFilled
+    gloves: ClothingHandsGlovesColorBlackC20r
+    neck: ClothingNeckIFFPurple
+    mask: ClothingMaskNeckGaiter
+    outerClothing: ClothingOuterHardsuitAshenElite
+    back: ClothingBackpackPDV
+    pocket2: DoubleEmergencyAirTankFilled
+
+- type: startingGear
+  id: PDVMobGearDWayward
+  equipment:
+    head: ClothingHeadHelmetHardsuitPDVMedic
+    jumpsuit: ClothingUniformJumpsuitNfsdTacCream
+    shoes: ClothingShoesBootsCombatFilled
+    gloves: ClothingHandsGlovesColorBlackC20r
+    neck: ClothingNeckIFFPurple
     mask: ClothingMaskNeckGaiter
     outerClothing: ClothingOuterHardsuitPDVMedic
     back: ClothingBackpackPDV

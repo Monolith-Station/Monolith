@@ -1,0 +1,34 @@
+- type: vessel
+  id: Ontos
+  parent: BaseVesselIFFDisabled
+  name: PDV Ontos
+  description: Carries a large howitzer for fire-support and heavy anti-ship duties with 2 scattercannons for escort duty, but struggles against anything moving faster than a snail.
+  price: 49500
+  category: Small
+  group: BlackMarket
+  access: Pirate
+  shuttlePath: /SharedMaps/_Mono/Shuttles/PDV/ontos.yml
+  guidebookPage: Null
+  class:
+  - Escort
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Ontos
+  mapName: 'PDV Ontos'
+  mapPath: /SharedMaps/_Mono/Shuttles/PDV/ontos.yml
+  minPlayers: 0
+  stations:
+    Ontos:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Ontos PDV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Pirate: [ 0, 0 ]
+            PdvBorg: [ 0, 0 ]

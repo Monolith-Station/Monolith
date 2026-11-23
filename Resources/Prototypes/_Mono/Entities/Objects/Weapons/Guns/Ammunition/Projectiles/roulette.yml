@@ -1,0 +1,14 @@
+- type: entity
+  id: Pellet12_gaugeBlank
+  name: blank discharge
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  components:
+  - type: Sprite
+    layers:
+    - state: bullet
+      color: "#ffffff00"
+  - type: Projectile
+    impactEffect: null
+    damage: {}
+    soundHit: null

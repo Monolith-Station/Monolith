@@ -6,7 +6,7 @@
   tier: 1
   cost: 45000
   recipeUnlocks:
-  - ShipVoucherUsspRemontnik
+  - ShipVoucherUsspT0Recipe
   technologyPrerequisites:
   - UniversalMaterialResearchT1
   position: 3, -8
@@ -19,7 +19,6 @@
   tier: 2
   cost: 65000
   recipeUnlocks:
-  - ShipVoucherUsspAkula
   - ShipVoucherUsspDrakon
   - ShipVoucherUsspTayfun
   technologyPrerequisites:
@@ -35,22 +34,7 @@
   cost: 95000
   recipeUnlocks:
   - ShipVoucherUsspBuran
-  - ShipVoucherUsspSulak
   technologyPrerequisites:
   - UsspMediumShips
   - UniversalMaterialResearchT3
   position: 3, -26
-
-- type: technology
-  id: UsspLedokol
-  name: research-technology-ussp-ships-ledokol
-  entityIcon: ShipVoucherLedokol
-  discipline: Ussp
-  tier: 3
-  cost: 100000
-  recipeUnlocks:
-  - ShipVoucherUsspLedokol
-  - ShipVoucherUsspLedokolAttachment
-  technologyPrerequisites:
-  - UsspAdvancedShips
-  position: 4, -25

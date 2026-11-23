@@ -1,0 +1,273 @@
+# LPCs
+
+- type: listing
+  id: MMCShipVoucherMieyoYukikaze
+  productEntity: ShipVoucherMieyoYukikaze
+  cost:
+    MMCIndustrialCredit: 120
+  categories:
+  - UplinkMmcCorporateSuppliesFlatpacks # dont question
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+# Material supplies
+
+- type: listing
+  id: MMCSheetIridite1
+  productEntity: SheetIridite1
+  cost:
+    MMCIndustrialCredit: 200 # This shit is worth more to me than your family.
+  categories:
+  - UplinkMmcCorporateSuppliesFlatpacks
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
+  id: MMCSheetPlastitanium1
+  productEntity: SheetPlastitanium1
+  cost:
+    MMCIndustrialCredit: 20
+  categories:
+  - UplinkMmcCorporateSuppliesFlatpacks
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+# Armor/whatever
+
+- type: listing
+  id: MMCClothingOuterHardsuitMieyoCombat
+  productEntity: ClothingOuterHardsuitMieyoCombat
+  cost:
+    MMCIndustrialCredit: 30
+  categories:
+  - UplinkMmcGear
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
+  id: MMCClothingOuterHardsuitMieyoMining
+  productEntity: ClothingOuterHardsuitMieyoMining
+  cost:
+    MMCIndustrialCredit: 5
+  categories:
+  - UplinkMmcGear
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
+  id: MMCClothingShoesBootsMagSecurity
+  productEntity: ClothingShoesBootsMagSecurity
+  cost:
+    MMCIndustrialCredit: 2
+  categories:
+  - UplinkMmcGear
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
+  id: MMCClothingNeckWearableCameraMMC
+  productEntity: ClothingNeckWearableCameraMMC
+  cost:
+    MMCIndustrialCredit: 1
+  categories:
+  - UplinkMmcGear
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+# Tools
+
+- type: listing
+  id: MMCWelderExperimental
+  productEntity: WelderExperimental
+  cost:
+    MMCIndustrialCredit: 40
+  categories:
+  - UplinkMmcTools
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
+  id: MMCPowerDrill
+  productEntity: PowerDrill
+  cost:
+    MMCIndustrialCredit: 30
+  categories:
+  - UplinkMmcTools
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
+  id: MMCJawsOfLife
+  productEntity: JawsOfLife
+  cost:
+    MMCIndustrialCredit: 50
+  categories:
+  - UplinkMmcTools
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
+  id: MMCHolofanProjector
+  productEntity: HolofanProjector
+  cost:
+    MMCIndustrialCredit: 10
+  categories:
+  - UplinkMmcTools
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
+  id: MMCClothingBeltChiefEngineer
+  productEntity: ClothingBeltChiefEngineer
+  cost:
+    MMCIndustrialCredit: 50
+  categories:
+  - UplinkMmcTools
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
+  id: MMCRCDAmmo
+  productEntity: RCDAmmo
+  cost:
+    MMCIndustrialCredit: 3
+  categories:
+  - UplinkMmcTools
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
+  id: MMCShipRepairDeviceAmmo
+  productEntity: ShipRepairDeviceAmmo
+  cost:
+    MMCIndustrialCredit: 3
+  categories:
+  - UplinkMmcTools
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
+  id: MMCRCDMMC
+  productEntity: RCDMMC
+  cost:
+    MMCIndustrialCredit: 20
+  categories:
+  - UplinkMmcCorporateSuppliesFlatpacks
+  - UplinkMmcTools
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
+  id: MMCRPDMMC
+  productEntity: RPDMMC
+  cost:
+    MMCIndustrialCredit: 15
+  categories:
+  - UplinkMmcCorporateSuppliesFlatpacks
+  - UplinkMmcTools
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
+  id: MMCShipRepairDeviceMMC
+  productEntity: ShipRepairDeviceMMC
+  cost:
+    MMCIndustrialCredit: 25
+  categories:
+  - UplinkMmcCorporateSuppliesFlatpacks
+  - UplinkMmcTools
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
+  id: MMCAccessBreakerMMC
+  productEntity: AccessBreakerMMC
+  cost:
+    MMCIndustrialCredit: 15
+  categories:
+  - UplinkMmcCorporateSuppliesFlatpacks
+  - UplinkMmcTools
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
+  id: MMCMotionDetectorMMC
+  productEntity: MotionDetectorMMC
+  cost:
+    MMCIndustrialCredit: 15
+  categories:
+  - UplinkMmcCorporateSuppliesFlatpacks
+  - UplinkMmcTools
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
+  id: MMCNaniteApplicatorMMC
+  productEntity: NaniteApplicatorMMC
+  cost:
+    MMCIndustrialCredit: 15
+  categories:
+  - UplinkMmcCorporateSuppliesFlatpacks
+  - UplinkMmcTools
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink

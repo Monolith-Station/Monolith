@@ -1,0 +1,22 @@
+- type: entity
+  name: MMC VC/30 "Mayonaka" (12 gauge)
+  parent: [BaseWeaponShotgun, BaseGunWieldable]
+  id: WeaponShotgunMayonaka
+  description: A compact semi-automatic shotgun for MMC security forces and staff. Can fit in a bag easily, but suffers from a low tube size.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Shotguns/mayonaka.rsi
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/Shotguns/mayonaka_inhands_32x.rsi
+  - type: Item
+    sprite: _Mono/Objects/Weapons/Guns/Shotguns/mayonaka_inhands_64x.rsi
+    shape:
+    - 0,0,2,1
+  - type: BallisticAmmoProvider
+    capacity: 5
+  - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
+  - type: Gun
+    fireRate: 2
+    damageModifier: 1.5
+  - type: GunSpreadModifier
+    spread: 1.2 # Short barrel

@@ -1,0 +1,38 @@
+- type: vessel
+  id: Ocelot
+  parent: BaseVesselIFFDisabled
+  name: TSF-SKR Ocelot
+  description: A fast-moving strafer designed with the ability to reveal cloaked ships. Armed a hard-hitting but slow-recharging CQC armament.
+  price: 90000
+  category: Small
+  group: Security
+  access: Security
+  shuttlePath: /SharedMaps/_Mono/Shuttles/TSF/ocelot.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  engine:
+  - Uranium
+  cloakHunter: true
+  company:
+  - TSF
+
+- type: gameMap
+  id: Ocelot
+  mapName: 'Ocelot'
+  mapPath: /SharedMaps/_Mono/Shuttles/TSF/ocelot.yml
+  minPlayers: 0
+  stations:
+    Ocelot:
+      stationProto: StandardFrontierSecurityVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Ocelot TSF{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          Deputy: [ 0, 0 ]
+          TsfBorg: [ 0, 0 ]
+

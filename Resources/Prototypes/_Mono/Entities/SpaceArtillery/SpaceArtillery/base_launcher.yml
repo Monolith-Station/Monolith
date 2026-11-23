@@ -9,6 +9,8 @@
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: WallDefense2
+  - type: Sprite
+    drawdepth: OverMobs # Don't question me!
   - type: Clickable
   - type: InteractionOutline
   - type: Physics
@@ -87,7 +89,7 @@
   abstract: true
   components:
   - type: Anchorable
-    delay: 10
+    delay: 30
   - type: Pullable
   - type: PirateBountyItem # not putting this on the other, because like. how do you get a cyrexa for your bounty. thats stupid.
     id: ShipWeapon
