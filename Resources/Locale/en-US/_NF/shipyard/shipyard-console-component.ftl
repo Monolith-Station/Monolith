@@ -65,6 +65,7 @@ shipyard-console-class-Atmospherics = Atmospherics
 shipyard-console-class-Medical = Medical
 shipyard-console-class-Civilian = Civilian
 shipyard-console-class-Kitchen = Kitchen
+shipyard-console-class-Mercenary = Mercenary
 # Antag
 shipyard-console-class-Syndicate = Syndicate
 shipyard-console-class-Pirate = PDV

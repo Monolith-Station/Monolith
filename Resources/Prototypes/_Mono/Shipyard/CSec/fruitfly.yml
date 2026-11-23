@@ -1,0 +1,84 @@
+# Adapted from # Discord: memetasticproductions's Executioner on Ratgore
+
+- type: vessel
+  id: Fruitfly
+  parent: BaseVessel
+  name: GS Fruitfly
+  description: The QJ-441/B patrol vessel fast tracked into development following and taking advantage of the onset of rapid rearmament contracts. Comes with slightly heavier default weapons and improved cockpit armor compared to it's mercenary counterpart.
+  price: 138000 # appraised at 115K + 20%
+  minPriceMarkup: 0.1 # Arbitage workaround, manually confirmed the price.
+  category: Small
+  group: Sr
+  access: Caelestinus
+  mapchecker_group_override: Security
+  shuttlePath: /SharedMaps/_Mono/Shuttles/CivilianMil/qj441.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  - Detainment
+  engine:
+  - Uranium
+  - APU
+
+- type: gameMap
+  id: Fruitfly
+  mapName: 'Fruitfly'
+  mapPath: /SharedMaps/_Mono/Shuttles/CivilianMil/qj441.yml
+  minPlayers: 0
+  stations:
+    Fruitfly:
+      stationProto: StandardFrontierVessel
+      gridComponents:
+      - type: GridModifier
+        modifications:
+        - Fruitfly
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Fruitfly CSEC{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+
+
+- type: gridModifier
+  id: Fruitfly
+  modifiers:
+  - !type:GridModEntityReplace
+    comp: Occluder
+    data:
+    - chance: 1
+      toReplace: WallReinforced
+      replaceWith: WallShuttle
+    - chance: 1
+      toReplace: WallReinforcedDiagonal
+      replaceWith: WallShuttleDiagonal
+  - !type:GridModEntityReplace
+    comp: Hardpoint
+    data:
+    - chance: 1
+      toReplace: HardpointEnergyMedium
+      replaceWith: HardpointBallisticMedium
+    - chance: 1
+      toReplace: HardpointEnergyHeavy
+      replaceWith: HardpointEnergyHeavy # I swear, this is necessary.
+  - !type:GridModEntityReplace
+    comp: Gun
+    data:
+    - chance: 1
+      toReplace: WeaponTurretType35
+      replaceWith: WeaponTurretCerberus
+    - chance: 1
+      toReplace: WeaponTurretM220
+      replaceWith: WeaponTurretTarnyxReload
+    - chance: 1
+      toReplace: WeaponLaserTurretL1Phalanx
+      replaceWith: WeaponTurretL85Autocannon
+  - !type:GridModEntityReplace
+    comp: Thruster
+    data:
+    - chance: 1
+      toReplace: Thruster
+      replaceWith: ThrusterSecurity
+    - chance: 1
+      toReplace: Gyroscope
+      replaceWith: GyroscopeSecurity

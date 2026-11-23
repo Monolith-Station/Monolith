@@ -1,0 +1,39 @@
+# Adapted from # Discord: memetasticproductions's Executioner on Ratgore
+
+- type: vessel
+  id: QJ441
+  parent: BaseVessel
+  name: GS QJ-441/A
+  description: A patrol and detainment vessel sold on the mercenary market, comes with a cell for detainment, along with EMPs to assist with bringing any targets back in an identifiable state.
+  price: 78000 # Appraised at 66K
+  category: Small
+  shuttlePath: /SharedMaps/_Mono/Shuttles/CivilianMil/qj441.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  - Detainment
+  engine:
+  - Uranium
+  - APU
+
+- type: gameMap
+  id: QJ441
+  mapName: 'QJ-441/A'
+  mapPath: /SharedMaps/_Mono/Shuttles/CivilianMil/qj441.yml
+  minPlayers: 0
+  stations:
+    QJ441:
+      stationProto: StandardFrontierVessel
+      gridComponents:
+      - type: GridModifier
+        modifications:
+        - CosmeticRust
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'QJ-441/A MIL{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          Contractor: [ 0, 0 ]
