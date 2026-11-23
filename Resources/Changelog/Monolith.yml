@@ -27673,3 +27673,12 @@ Entries:
   id: 2967
   time: '2026-11-23T12:05:41.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/5054
+- author: tonotom1
+  changes:
+    - type: Fix
+      message: Holopads can now hear and transmit chat-only emotes
+    - type: Fix
+      message: Tape recorders no longer act as ersatz universal translators
+  id: 2968
+  time: '2026-11-23T12:07:28.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4871
