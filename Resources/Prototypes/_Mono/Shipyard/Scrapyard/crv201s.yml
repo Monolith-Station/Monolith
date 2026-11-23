@@ -116,3 +116,9 @@
     - chance: 1
       toReplace: ShieldGeneratorSmall
       replaceWith: MachineFrameDestroyed
+  - !type:GridModEntityReplace
+    comp: Destructible
+    data:
+    - chance: 1
+      toReplace: SuitStorageSec
+      replaceWith: SuitStorageBase

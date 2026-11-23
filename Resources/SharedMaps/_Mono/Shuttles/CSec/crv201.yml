@@ -4,7 +4,7 @@ meta:
   engineVersion: 277.0.6
   forkId: ""
   forkVersion: ""
-  time: 11/20/2026 14:51:31
+  time: 11/23/2026 17:13:50
   entityCount: 742
 maps: []
 grids:
@@ -83,11 +83,11 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Smoke: []
-        Puddle: []
         Kudzu: []
-        MetalFoam: []
         ESTileFire: []
+        Puddle: []
+        Smoke: []
+        MetalFoam: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -4153,14 +4153,14 @@ entities:
     - type: Transform
       pos: -2.5,-9.5
       parent: 1
-- proto: SuitStorageBase
+- proto: SuitStorageSec
   entities:
   - uid: 11
     components:
     - type: Transform
       pos: -1.5,7.5
       parent: 1
-  - uid: 603
+  - uid: 277
     components:
     - type: Transform
       pos: -1.5,9.5
