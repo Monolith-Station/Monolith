@@ -947,6 +947,31 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("profile_component", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.ProfileCryopod", b =>
+                {
+                    b.Property<int>("ProfileId")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("profile_id");
+
+                    b.Property<Guid>("CryopodId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("cryopod_id");
+
+                    b.Property<string>("PlanetId")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("planet_id");
+
+                    b.Property<string>("PlayerData")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("player_data");
+
+                    b.HasKey("ProfileId")
+                        .HasName("PK_profile_cryopod");
+
+                    b.ToTable("profile_cryopod", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.ProfileItem", b =>
                 {
                     b.Property<int>("Id")
@@ -1894,6 +1919,18 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Navigation("Profile");
                 });
 
+            modelBuilder.Entity("Content.Server.Database.ProfileCryopod", b =>
+                {
+                    b.HasOne("Content.Server.Database.Profile", "Profile")
+                        .WithOne("Cryopod")
+                        .HasForeignKey("Content.Server.Database.ProfileCryopod", "ProfileId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_profile_cryopod_profile_profile_id");
+
+                    b.Navigation("Profile");
+                });
+
             modelBuilder.Entity("Content.Server.Database.ProfileItem", b =>
                 {
                     b.HasOne("Content.Server.Database.Profile", "Profile")
@@ -2238,6 +2275,8 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Navigation("Antags");
 
                     b.Navigation("Components");
+
+                    b.Navigation("Cryopod");
 
                     b.Navigation("Items");
 
