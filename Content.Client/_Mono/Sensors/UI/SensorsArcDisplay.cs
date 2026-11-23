@@ -2,13 +2,15 @@ using System.Numerics;
 using Content.Shared._Mono.Sensors;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
+using Robust.Shared.Timing;
 
 namespace Content.Client._Mono.Sensors.UI;
 
 public sealed class SensorsArcDisplay : Control
 {
-    private readonly List<(float CenterDeg, float WidthDeg, Color Color)> _arcs = new();
-    private readonly List<(float Bearing, bool DatalinkOnly, bool Stale)> _contacts = new();
+    private readonly List<(float CenterDeg, float WidthDeg, Color Color)> _arcs = [];
+    private readonly List<(float Bearing, bool DatalinkOnly, bool Stale)> _contacts = [];
+    private readonly List<(float CenterDeg, float WidthDeg, float Intensity)> _chaffArcs = [];
 
     private static readonly Color DatalinkColor = Color.FromHex("#FFAA33");
 
@@ -23,11 +25,13 @@ public sealed class SensorsArcDisplay : Control
         IEnumerable<SensorHardwareDto> hardware,
         IEnumerable<SensorContactDto> contacts,
         float gridWorldRotationDegrees,
-        TimeSpan now,
-        IReadOnlyDictionary<NetEntity, float>? predictedOffsets = null)
+        TimeSpan curTime,
+        IReadOnlyDictionary<NetEntity, float>? predictedOffsets = null,
+        IReadOnlyList<ChaffInterferenceArcDto>? chaffArcs = null)
     {
         _arcs.Clear();
         _contacts.Clear();
+        _chaffArcs.Clear();
 
         foreach (var h in hardware)
         {
@@ -60,8 +64,18 @@ public sealed class SensorsArcDisplay : Control
             var datalinkOnly = c.IsDatalink
                                || string.Equals(c.Sources, "DL", StringComparison.OrdinalIgnoreCase);
             var threshold = datalinkOnly ? 6.0 : 2.0;
-            var stale = (now - c.LastSeen).TotalSeconds > threshold;
+            var stale = (curTime - c.LastSeen).TotalSeconds > threshold;
             _contacts.Add((c.BearingDegrees, datalinkOnly, stale));
+        }
+
+        if (chaffArcs != null)
+        {
+            foreach (var a in chaffArcs)
+            {
+                if (a.Intensity < 0.05f)
+                    continue;
+                _chaffArcs.Add((WorldToDisplay(a.CenterDegrees), a.WidthDegrees, a.Intensity));
+            }
         }
     }
 
@@ -121,6 +135,26 @@ public sealed class SensorsArcDisplay : Control
             {
                 handle.DrawLine(center, center + dir * radius, color);
             }
+        }
+        var currentTime = IoCManager.Resolve<IGameTiming>().CurTime.TotalSeconds;
+
+        foreach (var (centerDeg, widthDeg, intensity) in _chaffArcs)
+        {
+            var solid = intensity >= 0.92f;
+            var visible = solid;
+            if (!solid)
+            {
+                var period = MathHelper.Lerp(0.70f, 0.08f, intensity);
+                var phase = (float)(currentTime % period) / period;
+                visible = phase < 0.55f;
+            }
+
+            if (!visible)
+                continue;
+
+            var alpha = MathHelper.Lerp(0.20f, 0.55f, intensity);
+            var yellow = Color.FromHex("#FFCC00").WithAlpha(alpha);
+            DrawCone(handle, center, radius * 0.7f, centerDeg, widthDeg, yellow);
         }
 
         handle.DrawCircle(center, 3f, Color.Lime, filled: true);

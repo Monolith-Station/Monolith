@@ -13,6 +13,7 @@ public sealed class SensorsBuiState : BoundUserInterfaceState
 {
     public List<SensorContactDto> Contacts = new();
     public List<SensorHardwareDto> Hardware = new();
+    public List<ChaffInterferenceArcDto> ChaffArcs = new();
     public List<string> DatalinkCodes = new();
     public float GridWorldRotationDegrees;
 }
@@ -79,4 +80,12 @@ public sealed class SensorsToggleHardwareMessage : BoundUserInterfaceMessage
     public NetEntity Sensor;
     public bool? Enabled;
     public bool? ActiveMode;
+}
+
+[Serializable, NetSerializable]
+public sealed class ChaffInterferenceArcDto
+{
+    public float CenterDegrees;
+    public float WidthDegrees;
+    public float Intensity;
 }

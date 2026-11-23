@@ -25,6 +25,7 @@ public sealed partial class ShipSensorsSystem : EntitySystem
     [Dependency] private SharedTransformSystem _xform = default!;
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private UserInterfaceSystem _ui = default!;
+    [Dependency] private RadarCountermeasureSystem _chaff = default!;
 
     private static readonly TimeSpan UpdateInterval = TimeSpan.FromSeconds(0.5);
     private TimeSpan _nextUpdate = TimeSpan.Zero;
@@ -390,7 +391,7 @@ public sealed partial class ShipSensorsSystem : EntitySystem
         bool requireInactive = false)
     {
         var best = 0f;
-        foreach (var (_, sens, sensXform) in hardware)
+        foreach (var (uid, sens, sensXform) in hardware)
         {
             if (sens.SensorType != type)
                 continue;
@@ -401,8 +402,17 @@ public sealed partial class ShipSensorsSystem : EntitySystem
             if (!InArc(sens, sensXform, bearing))
                 continue;
 
-            best = MathF.Max(best, sens.Sensitivity);
+            var sensitivity = sens.Sensitivity;
+
+            if (type == SensorType.ActiveRadar)
+            {
+                var mult = _chaff.GetActiveRadarMultiplier(uid, bearing, sens.ChaffResistance);
+                sensitivity *= mult;
+            }
+
+            best = MathF.Max(best, sensitivity);
         }
+
         return best;
     }
 
@@ -670,6 +680,39 @@ public sealed partial class ShipSensorsSystem : EntitySystem
 
         var gridXform = Transform(gridUid.Value);
             state.GridWorldRotationDegrees = (float)_xform.GetWorldRotation(gridXform).Degrees;
+
+        EntityUid? bestRadar = null;
+        var bestResistance = float.MaxValue;
+        var sensQ = EntityQueryEnumerator<ShipSensorComponent, TransformComponent>();
+        while (sensQ.MoveNext(out var sensUid, out var sens, out var sx))
+        {
+            if (sx.GridUid != gridUid)
+                continue;
+            if (sens.SensorType != SensorType.ActiveRadar)
+                continue;
+            if (!sens.Enabled || !IsSensorPowered(sensUid))
+                continue;
+
+            // Prefer emitting ARS; still show interference if only standby exists
+            if (sens.ActiveMode)
+            {
+                if (sens.ChaffResistance < bestResistance || bestRadar == null)
+                {
+                    bestResistance = sens.ChaffResistance;
+                    bestRadar = sensUid;
+                }
+            }
+            else if (bestRadar == null)
+            {
+                bestResistance = sens.ChaffResistance;
+                bestRadar = sensUid;
+            }
+        }
+
+        if (bestRadar != null)
+            state.ChaffArcs = _chaff.BuildInterferenceArcs(bestRadar.Value, bestResistance);
+        else
+            state.ChaffArcs = _chaff.BuildInterferenceArcs(gridUid.Value, 0.25f);
 
         return state;
     }

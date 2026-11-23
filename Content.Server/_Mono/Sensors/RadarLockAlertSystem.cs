@@ -1,15 +1,13 @@
 using Content.Shared._Mono.Sensors;
 using Robust.Server.Audio;
-using Robust.Shared.Audio;
 using Robust.Shared.Timing;
 
 namespace Content.Server._Mono.Sensors;
 
-public sealed class RadarLockAlertSystem : EntitySystem
+public sealed partial class RadarLockAlertSystem : EntitySystem
 {
     [Dependency] private AudioSystem _audio = default!;
     [Dependency] private IGameTiming _timing = default!;
-    [Dependency] private RadarLockSystem _radarLock = default!;
 
     private readonly Dictionary<EntityUid, TimeSpan> _nextBeep = new();
 
@@ -20,18 +18,20 @@ public sealed class RadarLockAlertSystem : EntitySystem
 
     private void OnLock(RadarLockAcquiredEvent ev)
     {
-        if (!TryComp<ConsoleRadarLockToneComponent>(ev.Console, out var tone))
-            return;
+        var targetGrid = ev.TargetGrid;
 
-        if (_nextBeep.TryGetValue(ev.Console, out var next) && _timing.CurTime < next)
-            return;
+        var q = EntityQueryEnumerator<ConsoleRadarLockToneComponent, TransformComponent>();
+        while (q.MoveNext(out var consoleUid, out var tone, out var xform))
+        {
+            if (xform.GridUid != targetGrid)
+                continue;
 
-        _nextBeep[ev.Console] = _timing.CurTime + tone.Cooldown;
+            if (_nextBeep.TryGetValue(consoleUid, out var next) && _timing.CurTime < next)
+                continue;
 
-        var chaffed = _radarLock.IsBearingChaffedForConsole(ev.Console, ev.TargetGrid);
-        var volume = chaffed ? tone.LockAcquiredSound.Params.Volume - 4f : tone.LockAcquiredSound.Params.Volume;
+            _nextBeep[consoleUid] = _timing.CurTime + tone.Cooldown;
 
-        _audio.PlayPvs(tone.LockAcquiredSound, ev.TargetGrid,
-            AudioParams.Default.WithVolume(volume));
+            _audio.PlayPvs(tone.LockAcquiredSound, consoleUid);
+        }
     }
 }

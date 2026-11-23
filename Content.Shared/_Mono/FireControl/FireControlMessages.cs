@@ -84,6 +84,23 @@ public sealed class FireControlConsoleFireEvent : EntityEventArgs
 }
 
 [Serializable, NetSerializable]
+public sealed class FireControlReleaseLockMessage : BoundUserInterfaceMessage
+{
+}
+
+[Serializable, NetSerializable]
+public sealed class FireControlSetLockModeMessage(bool enabled) : BoundUserInterfaceMessage
+{
+    public bool Enabled = enabled;
+}
+
+[Serializable, NetSerializable]
+public sealed class FireControlLockTargetMessage(NetEntity? target) : BoundUserInterfaceMessage
+{
+    public NetEntity? Target = target; // null = clear
+}
+
+[Serializable, NetSerializable]
 public struct FireControllableEntry
 {
     /// <summary>

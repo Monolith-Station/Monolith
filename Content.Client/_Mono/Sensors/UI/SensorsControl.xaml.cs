@@ -69,7 +69,9 @@ public sealed partial class SensorsControl : BoxContainer
                 Array.Empty<SensorHardwareDto>(),
                 Array.Empty<SensorContactDto>(),
                 0f,
-                _gameTiming.CurTime);
+                _gameTiming.CurTime,
+                predictedOffsets: null,
+                chaffArcs: null);
             return;
         }
 
@@ -107,7 +109,8 @@ public sealed partial class SensorsControl : BoxContainer
             state.Contacts,
             state.GridWorldRotationDegrees,
             _gameTiming.CurTime,
-            _predictedOffset);
+            _predictedOffset,
+            state.ChaffArcs);
     }
 
     private void RebuildContacts(SensorsBuiState state)
@@ -380,7 +383,8 @@ public sealed partial class SensorsControl : BoxContainer
                 _lastState.Contacts,
                 _lastState.GridWorldRotationDegrees,
                 _gameTiming.CurTime,
-                _predictedOffset);
+                _predictedOffset,
+                _lastState.ChaffArcs);
         }
     }
 
