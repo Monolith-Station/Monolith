@@ -2,14 +2,116 @@
   id: DefaultSemi
   entities:
     keep:
-    - BaseWall
-    - BaseLathe
+    # Terrain
     - FloraRockSolid
     - FloraTree
     - FloraTreeLarge
-    - MachineCryoSleepPod
+
+    # Hull and access
+    - BaseWall
+    - BaseWindoor
+    - BaseFirelock
+    - BlastDoor
+    - BaseShutter
+    - BaseRailing
+    - Grille
+    - Window
+    - WindowDirectional
+    - PlastitaniumWindowBase
+    - Catwalk
+    - CatwalkMono
+    - DarkCatwalkMono
+    - WhiteCatwalkMono
+    - Stairs
+    - StairStage
+
+    # Flight and gravity
+    - ChairPilotSeat
+    - ComputerShuttle
+    - ComputerIFF
+    - ComputerRadar
+    - Thruster
+    - ThrusterLarge
+    - Gyroscope
+    - MachineFTLDrive
+    - MachineHeavyFTLDriveCore
+    - MachineHeavyFTLDriveConsole
+    - GravityGenerator
+    - GravityGeneratorMini
+
+    # Atmospherics
+    - AirAlarm
+    - AirSensor
+    - AtmosDeviceFanDirectional
+    - ComputerAtmosMonitoring
+    - GasPipeSansLayers
+    - GasPipeBase
+    - GasPipeSensor
+    - GasPort
+    - Gaslock
+    - GaslockFrame
+    - GasOutletInjector
+    - GasPassiveGate
+    - GasValve
+    - GasPressurePump
+    - GasVolumePump
+    - GasFilterBase
+    - GasFilterInline
+    - GasMixer
+    - GasThermoMachineFreezer
+    - GasThermoMachineHeater
+    - GasRecycler
+    - GasVentPump
+    - GasVentScrubber
+    - GasPassiveVent
+    - GasDualPortVentPump
+    - StorageCanister
+
+    # Power
+    - BaseAPC
+    - BaseSMES
+    - BaseSubstation
+    - BaseSubstationWall
+    - CableBase
+    - CableTerminal
+    - BaseGeneratorWallmount
+    - GeneratorBasic
+    - GeneratorBasic15kW
+    - GeneratorRTG
+    - GeneratorCRPinch
+    - PortableGeneratorBase
+    - AmeController
+    - AmeShielding
+    - ComputerPowerMonitoring
+    - PowerCellRecharger
+    - BorgCharger
+
+    # Safety, signals, and communications
+    - FireAlarm
+    - EmergencyLight
+    - ExtinguisherCabinet
+    - DefibrillatorCabinet
+    - SignalButton
+    - SignalSwitch
+    - TwoWayLever
+    - ButtonFrame
+    - NFHolopadShip
+    - FaxMachineBase
+    - TelecomServer
+    - ComputerStationRecords
+    - ComputerTabletopStationRecords
+    - ComputerWallmountStationRecords
+
+    # Cargo and storage
+    - BaseLathe
     - MachineMaterialSilo
+    - ConveyorBelt
+    - MaterialReclaimer
+    - Rack
+    - SmartFridge
+    - VendingMachine
     - ClosetSteelBase
+    - BaseWallCloset
     - LockerSteel
     - BaseBigBox
     - BodyBag
@@ -19,18 +121,92 @@
     - OreBag
     - PlantBag
     - TrashBag
+
+    # Medical, galley, and habitation
+    - MachineCryoSleepPod
+    - CryoPod
+    - MedicalBed
+    - StasisBed
+    - ChemMaster
+    - MachineThermobath
+    - MachineCentrifuge
+    - MachineElectrolysisUnit
+    - KitchenMicrowave
+    - KitchenAssembler
+    - KitchenElectricRange
+    - KitchenReagentGrinder
+    - SeedExtractor
+    - FloorDrain
+    - Sink
+    - SinkWide
+    - Bed
+    - BunkTop
+    - BunkBottom
+    - ChairOfficeDark
+    - ChairOfficeLight
+    - Table
+    - TableReinforced
+    - ShelfBar
+    - ShelfChemistry
+    - ShelfKitchen
+
     reset:
     - Airlock
     - CEPlanetShieldGenerator
     - MAWCShieldGenerator
+    - PoweredlightEmpty
+    - PoweredSmallLightEmpty
+    - HydroponicsTrayEmpty
+    replace:
+      # Factory-filled variants need empty counterparts.
+      hydroponicsTray: HydroponicsTrayEmpty
+      ChemDispenser: ChemDispenserEmpty
+      AirCanister: StorageCanister
+      OxygenCanister: StorageCanister
+      NitrogenCanister: StorageCanister
+      CarbonDioxideCanister: StorageCanister
+      PlasmaCanister: StorageCanister
+      TritiumCanister: StorageCanister
+      WaterVaporCanister: StorageCanister
+      AmmoniaCanister: StorageCanister
+      NitrousOxideCanister: StorageCanister
+      FrezonCanister: StorageCanister
+      GeneratorCRPinchShuttle: GeneratorCRPinch
+      PortableGeneratorPacmanShuttle: PortableGeneratorPacman
+      PortableGeneratorSuperPacmanShuttle: PortableGeneratorSuperPacman
+      PortableGeneratorJrPacmanShuttle: PortableGeneratorJrPacman
+      PortableGeneratorDKShuttle: PortableGeneratorDK
+      PortableGeneratorDKJrShuttle: PortableGeneratorDKJr
   components:
+  # General storage
   - reset:
     - ContainerContainer
     - EntityStorage
     - Storage
     - MaterialStorage
-  - whitelist: [ClosetBase]
+    - SolutionContainerManager
+
+  # Canisters and fuel
+  - whitelist: [StorageCanister]
+    reset:
+    - GasCanister
+  - whitelist: [PortableGeneratorBase, GeneratorCRPinch]
+    reset:
+    - FuelGenerator
+    - SolidFuelGeneratorAdapter
+    - ChemicalFuelGeneratorAdapter
+  - whitelist: [AmeController, AmeShielding]
+    reset:
+    - AmeController
+    - AmeShield
+
+  # Stocked fixtures and service machines
+  - whitelist: [VendingMachine]
+    reset:
+    - VendingMachine
+  - whitelist: [ClosetBase, BaseWallCloset, BaseItemCabinet, TelecomServer, SmartFridge]
     delete:
+    - ContainerFill
     - StorageFill
     - EntityTableContainerFill
 
