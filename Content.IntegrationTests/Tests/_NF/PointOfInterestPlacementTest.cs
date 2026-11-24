@@ -27,14 +27,15 @@ public sealed class PointOfInterestPlacementTest
 {
     private const int DefaultSeparation = 750;
     private const int OutpostSeparation = 1200;
-    private static readonly ProtoId<GameMapPrototype> Caelestinus = "Frontier";
-    private static readonly ProtoId<GamePresetPrototype> ExemptPoiPreset = "PoiPlacementExemptTest";
-    private static readonly ProtoId<PointOfInterestPrototype> StellarBlessing = "TSFMCIndustry";
+    // These IDs are resolved on the server. The client does not load these prototype kinds.
+    private const string CaelestinusId = "Frontier";
+    private const string ExemptPoiPresetId = "PoiPlacementExemptTest";
+    private const string StellarBlessingId = "TSFMCIndustry";
 
     [TestPrototypes]
-    private const string ExemptPoiPrototypes = """
+    private const string ExemptPoiPrototypes = $$"""
         - type: gamePreset
-          id: PoiPlacementExemptTest
+          id: {{ExemptPoiPresetId}}
 
         - type: pointOfInterest
           id: PoiPlacementExemptTestFirst
@@ -42,7 +43,7 @@ public sealed class PointOfInterestPlacementTest
           minimumDistance: 0
           maximumDistance: 0
           spawnGroup: Required
-          spawnGamePreset: [PoiPlacementExemptTest]
+          spawnGamePreset: [{{ExemptPoiPresetId}}]
           gridPath: /Maps/_Mono/POI/beaconstation_a.yml
           ignorePoiSeparation: true
 
@@ -52,7 +53,7 @@ public sealed class PointOfInterestPlacementTest
           minimumDistance: 0
           maximumDistance: 0
           spawnGroup: Optional
-          spawnGamePreset: [PoiPlacementExemptTest]
+          spawnGamePreset: [{{ExemptPoiPresetId}}]
           gridPath: /Maps/_Mono/POI/beaconstation_a.yml
 
         - type: pointOfInterest
@@ -61,7 +62,7 @@ public sealed class PointOfInterestPlacementTest
           minimumDistance: 0
           maximumDistance: 0
           spawnGroup: PoiPlacementExemptTestGroup
-          spawnGamePreset: [PoiPlacementExemptTest]
+          spawnGamePreset: [{{ExemptPoiPresetId}}]
           gridPath: /Maps/_Mono/POI/beaconstation_a.yml
           ignorePoiSeparation: true
 
@@ -73,7 +74,7 @@ public sealed class PointOfInterestPlacementTest
           posX: 4224
           posY: -3392
           spawnGroup: Required
-          spawnGamePreset: [PoiPlacementExemptTest]
+          spawnGamePreset: [{{ExemptPoiPresetId}}]
           gridPath: /Maps/_Mono/POI/beaconstation_a.yml
           ignorePoiSeparation: true
 
@@ -84,7 +85,7 @@ public sealed class PointOfInterestPlacementTest
           maximumDistance: 0
           posY: 7000
           spawnGroup: Required
-          spawnGamePreset: [PoiPlacementExemptTest]
+          spawnGamePreset: [{{ExemptPoiPresetId}}]
           gridPath: /Maps/_Mono/POI/beaconstation_a.yml
         """;
 
@@ -100,7 +101,7 @@ public sealed class PointOfInterestPlacementTest
             server.CfgMan.SetCVar(CCVars.GameMap, "");
             maps.SelectMapByConfigRules();
             var selected = maps.GetSelectedMap();
-            Assert.That(selected?.ID, Is.EqualTo(Caelestinus.Id));
+            Assert.That(selected?.ID, Is.EqualTo(CaelestinusId));
             Assert.That(selected?.MaxPlayers, Is.EqualTo(uint.MaxValue));
         });
 
@@ -117,13 +118,13 @@ public sealed class PointOfInterestPlacementTest
 
         await server.WaitAssertion(() =>
         {
-            var central = prototypes.Index(Caelestinus);
+            var central = prototypes.Index(new ProtoId<GameMapPrototype>(CaelestinusId));
             Assert.That(central.IgnorePoiSeparation, Is.True);
 
             var grids = entMan.System<GameTicker>().LoadGameMap(central, out var mapId);
             Assert.That(entMan.GetComponent<TransformComponent>(grids.Single()).LocalPosition, Is.EqualTo(Vector2.Zero));
 
-            var pois = entMan.System<PointOfInterestSystem>().Generate(mapId, ExemptPoiPreset);
+            var pois = entMan.System<PointOfInterestSystem>().Generate(mapId, ExemptPoiPresetId);
             var first = pois.Required.Single(grid => entMan.GetComponent<MetaDataComponent>(grid).EntityName == "First exempt site");
             Assert.That(entMan.GetComponent<TransformComponent>(first).LocalPosition, Is.EqualTo(Vector2.Zero));
             Assert.That(entMan.GetComponent<TransformComponent>(pois.Optionals.Single()).LocalPosition, Is.EqualTo(Vector2.Zero));
@@ -237,7 +238,7 @@ public sealed class PointOfInterestPlacementTest
             var exceptions = prototypes.EnumeratePrototypes<PointOfInterestPrototype>()
                 .Where(poi => PointOfInterestSystem.CanSpawnInDroneZone(poi.ID)).Select(poi => poi.ID);
             Assert.That(exceptions, Is.EquivalentTo(new[] { "HeliosFortress", "HeliosFortressHyperwar", "Underground" }));
-            var stellar = prototypes.Index(StellarBlessing);
+            var stellar = prototypes.Index(new ProtoId<PointOfInterestPrototype>(StellarBlessingId));
             Assert.That(PointOfInterestSystem.IsInDroneZone(new Vector2(stellar.PositionX, stellar.PositionY), rings), Is.True);
 
             var blocked = new Vector2(0, 7000);
