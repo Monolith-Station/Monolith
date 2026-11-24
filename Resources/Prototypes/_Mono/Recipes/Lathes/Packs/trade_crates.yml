@@ -1,0 +1,32 @@
+- type: latheRecipePack
+  id: MonoTradeCratesPrecisionAssembler
+  recipes:
+  - TradeGoodChemicalSupplies
+  - TradeGoodChemicalsVolatile
+  - TradeGoodComponents
+  - TradeGoodEquipment
+  - TradeGoodFabric
+  - TradeGoodFertilizer
+  - TradeGoodLuxuries
+  - TradeGoodMedicalSupplies
+  - TradeGoodShipComponents
+  - TradeGoodSupplies
+  - TradeGoodWeaponParts
+
+- type: latheRecipePack
+  id: MonoTradeCratesScrapProcessor
+  recipes:
+  - TradeGoodScrap
+
+- type: latheRecipePack
+  id: MonoTradeCratesArcFurnace
+  recipes:
+  - TradeGoodAmmo # felt tuff
+  - TradeGoodMetals
+  - TradeGoodScrap
+
+- type: latheRecipePack
+  id: MonoTradeCratesPrecisionAssemblerMMC
+  recipes:
+  - TradeGoodLuxuriesAlt
+  - TradeGoodFissionFuel

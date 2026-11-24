@@ -333,8 +333,8 @@
 - type: entity
   parent: BaseComputerCircuitboard
   id: SyndicateCommsComputerCircuitboard
-  name: syndicate communications computer board
-  description: A computer printed circuit board for a syndicate communications console.
+  name: ancient communications computer board
+  description: A computer printed circuit board for an old communications console.
   components:
     - type: Sprite
       state: cpu_syndicate

@@ -4,7 +4,7 @@
   minLimit: 1
   loadouts:
   - MMCMasamuneLoadout
-  - SecurityGuardEnforcerLoadout
+  - MMCMayonakaLoadout
 
 - type: loadoutGroup
   id: MieyoCorpSecPrimaryAmmo
@@ -20,6 +20,13 @@
   storage:
     back:
     - WeaponSubMachineGunMasamune
+
+- type: loadout
+  id: MMCMayonakaLoadout
+  price: 0
+  storage:
+    back:
+    - WeaponShotgunMayonaka
 
 - type: loadout
   id: MMCSMGAmmoLoadout

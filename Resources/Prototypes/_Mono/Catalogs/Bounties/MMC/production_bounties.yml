@@ -1,0 +1,212 @@
+- type: cargoBounty
+  id: MMCBountyT2IndustrialParts
+  reward: 750
+  rewardSuffix: MIC
+  rewardProto: MMCIndustrialCredit
+  description: mmc-bounty-desc-generic
+  idPrefix: HKD-PRD
+  entries:
+  - name: mmc-bounty-name-compbricks-t2
+    amount: 10
+    whitelist:
+      tags:
+      - ComponentBrickEconomy2
+  - name: mmc-bounty-name-processor-t2
+    amount: 20
+    whitelist:
+      tags:
+      - MicroprocessorEconomy2
+  - name: mmc-bounty-name-electromagnet-t2
+    amount: 8
+    whitelist:
+      tags:
+      - ElectromagnetEconomy2
+  - name: mmc-bounty-name-optics-t2
+    amount: 4
+    whitelist:
+      tags:
+      - OpticsEconomy2
+  - name: mmc-bounty-name-radio-t2
+    amount: 4
+    whitelist:
+      tags:
+      - RadioEconomy2
+
+- type: cargoBounty
+  id: MMCBountyT4ArmorPlates
+  reward: 500
+  rewardSuffix: MIC
+  rewardProto: MMCIndustrialCredit
+  description: mmc-bounty-desc-generic
+  idPrefix: HKD-PRD
+  entries:
+  - name: mmc-bounty-name-armor-t4
+    amount: 10
+    whitelist:
+      tags:
+      - ArmorPlateEconomy4
+
+- type: cargoBounty
+  id: MMCBountyT3Processors
+  reward: 300
+  rewardSuffix: MIC
+  rewardProto: MMCIndustrialCredit
+  description: mmc-bounty-desc-generic
+  idPrefix: HKD-PRD
+  entries:
+  - name: mmc-bounty-name-processor-t3
+    amount: 10
+    whitelist:
+      tags:
+      - MicroprocessorEconomy3
+
+- type: cargoBounty
+  id: MMCBountyT2Processors
+  reward: 150
+  rewardSuffix: MIC
+  rewardProto: MMCIndustrialCredit
+  description: mmc-bounty-desc-generic
+  idPrefix: HKD-PRD
+  entries:
+  - name: mmc-bounty-name-processor-t2
+    amount: 10
+    whitelist:
+      tags:
+      - MicroprocessorEconomy2
+
+- type: cargoBounty
+  id: MMCBountyT2ProcessorsBulk
+  reward: 1500
+  rewardSuffix: MIC
+  rewardProto: MMCIndustrialCredit
+  description: mmc-bounty-desc-generic
+  idPrefix: HKD-PRD
+  entries:
+  - name: mmc-bounty-name-processor-t2
+    amount: 100
+    whitelist:
+      tags:
+      - MicroprocessorEconomy2
+
+- type: cargoBounty
+  id: MMCBountyT1MotorsBulk
+  reward: 1000
+  rewardSuffix: MIC
+  rewardProto: MMCIndustrialCredit
+  description: mmc-bounty-desc-generic
+  idPrefix: HKD-PRD
+  entries:
+  - name: mmc-bounty-name-motor-t1
+    amount: 100
+    whitelist:
+      tags:
+      - MotorEconomy1
+
+- type: cargoBounty
+  id: MMCBountyT1SensorsBulk
+  reward: 500
+  rewardSuffix: MIC
+  rewardProto: MMCIndustrialCredit
+  description: mmc-bounty-desc-generic
+  idPrefix: HKD-PRD
+  entries:
+  - name: mmc-bounty-name-optics-t1
+    amount: 100
+    whitelist:
+      tags:
+      - OpticsEconomy1
+
+- type: cargoBounty
+  id: MMCBountyT1CamerasBulk
+  reward: 1000
+  rewardSuffix: MIC
+  rewardProto: MMCIndustrialCredit
+  description: mmc-bounty-desc-generic
+  idPrefix: HKD-PRD
+  entries:
+  - name: mmc-bounty-name-camera-t1
+    amount: 40
+    whitelist:
+      tags:
+      - OpticsEconomy1
+
+- type: cargoBounty
+  id: MMCBountyT3ArmorPlatesBulk
+  reward: 2000
+  rewardSuffix: MIC
+  rewardProto: MMCIndustrialCredit
+  description: mmc-bounty-desc-generic
+  idPrefix: HKD-PRD
+  entries:
+  - name: mmc-bounty-name-armor-t3
+    amount: 40
+    whitelist:
+      tags:
+      - ArmorPlateEconomy3
+
+- type: cargoBounty
+  id: MMCBountyT2ArmorPlatesBulk
+  reward: 1000
+  rewardSuffix: MIC
+  rewardProto: MMCIndustrialCredit
+  description: mmc-bounty-desc-generic
+  idPrefix: HKD-PRD
+  entries:
+  - name: mmc-bounty-name-armor-t2
+    amount: 40
+    whitelist:
+      tags:
+      - ArmorPlateEconomy2
+
+- type: cargoBounty
+  id: MMCBountyT2MiscCompsBulk
+  reward: 2000
+  rewardSuffix: MIC
+  rewardProto: MMCIndustrialCredit
+  description: mmc-bounty-desc-generic
+  idPrefix: HKD-PRD
+  entries:
+  - name: mmc-bounty-name-capacitors-t2
+    amount: 40
+    whitelist:
+      tags:
+      - CapacitorEconomy2
+  - name: mmc-bounty-name-compbins-t2
+    amount: 40
+    whitelist:
+      tags:
+      - MatterBinEconomy2
+  - name: mmc-bounty-name-compbricks-t2
+    amount: 10
+    whitelist:
+      tags:
+      - ComponentBrickEconomy2
+
+- type: cargoBounty
+  id: MMCBountyT3IndustrialParts
+  reward: 1500
+  rewardSuffix: MIC
+  rewardProto: MMCIndustrialCredit
+  description: mmc-bounty-desc-generic
+  idPrefix: HKD-PRD
+  entries:
+  - name: mmc-bounty-name-compbricks-t3
+    amount: 10
+    whitelist:
+      tags:
+      - ComponentBrickEconomy3
+  - name: mmc-bounty-name-processor-t3
+    amount: 25
+    whitelist:
+      tags:
+      - MicroprocessorEconomy3
+  - name: mmc-bounty-name-electromagnet-t3
+    amount: 10
+    whitelist:
+      tags:
+      - ElectromagnetEconomy3
+  - name: mmc-bounty-name-armor-t4
+    amount: 10
+    whitelist:
+      tags:
+      - ArmorPlateEconomy3

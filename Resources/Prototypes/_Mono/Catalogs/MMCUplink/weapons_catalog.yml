@@ -1,0 +1,217 @@
+# Weapons
+
+- type: listing
+  id: MMCMasamune
+  name: mmc-uplink-masamune-name
+  description: mmc-uplink-masamune-desc
+  productEntity: WeaponSubMachineGunMasamune
+  cost:
+    MMCIndustrialCredit: 10
+  categories:
+  - UplinkMmcProtection
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
+  id: MMCSakura
+  name: mmc-uplink-sakura-name
+  description: mmc-uplink-sakura-desc
+  productEntity: WeaponSubMachineGunSakura
+  cost:
+    MMCIndustrialCredit: 75
+  categories:
+  - UplinkMmcProtection
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
+  id: MMCMayonaka
+  name: mmc-uplink-mayonaka-name
+  description: mmc-uplink-mayonaka-desc
+  productEntity: WeaponShotgunMayonaka
+  cost:
+    MMCIndustrialCredit: 80
+  categories:
+  - UplinkMmcProtection
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
+  id: MMCOsaka
+  name: mmc-uplink-osaka-name
+  description: mmc-uplink-osaka-desc
+  productEntity: WeaponRifleOsaka
+  cost:
+    MMCIndustrialCredit: 100
+  categories:
+  - UplinkMmcProtection
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
+  id: MMCIzumo
+  name: mmc-uplink-izumo-name
+  description: mmc-uplink-izumo-desc
+  productEntity: WeaponRifleIzumo
+  cost:
+    MMCIndustrialCredit: 250
+  categories:
+  - UplinkMmcProtection
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
+  id: MMCMyoko
+  name: mmc-uplink-myoko-name
+  description: mmc-uplink-myoko-desc
+  productEntity: WeaponLauncherMyoko
+  cost:
+    MMCIndustrialCredit: 150
+  categories:
+  - UplinkMmcProtection
+  - UplinkMmcMunitions
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+### Ammo
+# Magazines
+
+- type: listing
+  id: MMC556Mag
+  name: mmc-uplink-556-mag-name
+  description: mmc-uplink-generic-mag-desc
+  productEntity: Magazine556x45mmFMJ
+  cost:
+    MMCIndustrialCredit: 2
+  categories:
+  - UplinkMmcMunitions
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
+  id: MMC57SMGMag
+  name: mmc-uplink-57-smg-mag-name
+  description: mmc-uplink-generic-mag-desc
+  productEntity: Magazine57x28mmSubMachineGunFMJ
+  cost:
+    MMCIndustrialCredit: 2
+  categories:
+  - UplinkMmcMunitions
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
+  id: MMC57PistolMag
+  name: mmc-uplink-57-pistol-mag-name
+  description: mmc-uplink-generic-mag-desc
+  productEntity: Magazine57x28mmPistolFMJ
+  cost:
+    MMCIndustrialCredit: 1
+  categories:
+  - UplinkMmcMunitions
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
+  id: MMC160Mag
+  name: mmc-uplink-160-mag-name
+  description: mmc-uplink-generic-mag-desc
+  productEntity: MagazineSmart
+  cost:
+    MMCIndustrialCredit: 3
+  categories:
+  - UplinkMmcMunitions
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+# Boxes
+
+- type: listing
+  id: MMC556Box
+  name: mmc-uplink-556-ammo-box-name
+  description: mmc-uplink-generic-ammo-box-desc
+  productEntity: AmmoBox556x45mmFMJ
+  cost:
+    MMCIndustrialCredit: 3
+  categories:
+  - UplinkMmcMunitions
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
+  id: MMC57Box
+  name: mmc-uplink-57-ammo-box-name
+  description: mmc-uplink-generic-ammo-box-desc
+  productEntity: AmmoBox57x28mmFMJ
+  cost:
+    MMCIndustrialCredit: 2
+  categories:
+  - UplinkMmcMunitions
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
+  id: MMC12GaugeBox
+  name: mmc-uplink-12ga-ammo-box-name
+  description: mmc-uplink-generic-shell-box-desc
+  productEntity: AmmoBox12_gaugeBuckshot
+  cost:
+    MMCIndustrialCredit: 2
+  categories:
+  - UplinkMmcMunitions
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
+  id: MMC12GaugeBoxSlugs
+  name: mmc-uplink-12ga-slug-ammo-box-name
+  description: mmc-uplink-generic-shell-box-desc
+  productEntity: AmmoBox12_gaugeSlug
+  cost:
+    MMCIndustrialCredit: 2
+  categories:
+  - UplinkMmcMunitions
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink

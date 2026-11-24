@@ -129,6 +129,7 @@
   - type: Tag
     tags:
     - Sidearm
+    - SafetyDepositBlacklist # Mono: can't be lockboxed -- encourages role abandonment to get lawbringer as tsf/pdv/vagrant
   - type: StaticPrice
     price: 750
   - type: BatterySelfRecharger

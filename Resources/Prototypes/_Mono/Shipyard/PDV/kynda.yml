@@ -1,0 +1,36 @@
+- type: vessel
+  id: Kynda
+  parent: BaseVesselIFFDisabled
+  name: PDV Kynda
+  description: Kyndas are equipped with 2 heavy torpedo racks and 4 AK570 racks, but lack any way to reload torpedos from the inside, requiring a EVA to do so and limiting the possible time-on-target.
+  price: 95000
+  category: Small
+  group: BlackMarket
+  access: Pirate
+  shuttlePath: /SharedMaps/_Mono/Shuttles/PDV/kynda.yml
+  guidebookPage: Null
+  class:
+  - Brawler
+  - AntiShipMissileCarrier
+  - Pursuit
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Kynda
+  mapName: 'PDV Kynda'
+  mapPath: /SharedMaps/_Mono/Shuttles/PDV/kynda.yml
+  minPlayers: 0
+  stations:
+    Kynda:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Kynda PDV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Pirate: [ 0, 0 ]
+            PdvBorg: [ 0, 0 ]

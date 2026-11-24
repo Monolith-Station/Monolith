@@ -64,5 +64,19 @@
             #Mercenary: [0, -1]
           tags:
           - USSPCommand
+        - type: StationCargoBountyDatabase
+          availableBounties:
+          - USSPBountyArtifact
+          - USSPBountyBread
+          - USSPBountySoup
+          - USSPBountyPizza
+          - USSPBountyVodka
+          - USSPBountyCivilianMech
+          - USSPBountyPotato
+          - USSPBountyBiomass
+          - USSPBountyMilitaryMech
+          - USSPKevlarVest
+          - USSPVT7
+          - USSPBountyLaserGun
         - type: StationDeadDrop
           maxDeadDrops: 2 # Fewer here, players start here.

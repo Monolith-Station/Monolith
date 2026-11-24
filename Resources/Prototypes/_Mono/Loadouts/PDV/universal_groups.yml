@@ -32,6 +32,16 @@
   - PDVClothingOuterArmorBPVestMedium
   fallbacks:
   - PDVClothingOuterArmorBPVestLight
+
+- type: loadoutGroup
+  id: PDVOuterClothingVizier
+  name: loadout-group-contractor-outerclothing
+  minLimit: 1
+  loadouts:
+  - PDVClothingOuterArmorCV67
+  fallbacks:
+  - PDVClothingOuterArmorCV67
+
 - type: loadoutGroup
   id: PDVGloves
   name: loadout-group-contractor-gloves
@@ -57,6 +67,14 @@
   - PDVJackboots
   fallbacks:
   - PDVCombatBoots
+- type: loadoutGroup
+  id: PDVShoesVizier
+  name: loadout-group-contractor-shoes
+  minLimit: 1
+  loadouts:
+  - PDVAdvancedTacticalMagboots
+  fallbacks:
+  - PDVAdvancedTacticalMagboots
 - type: loadoutGroup
   id: PDVFace
   name: loadout-group-contractor-face

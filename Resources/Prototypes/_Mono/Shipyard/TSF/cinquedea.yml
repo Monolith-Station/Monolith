@@ -1,0 +1,40 @@
+#original concept by kasature90 (github)/_starch_ (discord)
+#internals refit by harrow/waphun
+- type: vessel
+  id: Cinquedea
+  parent: BaseVesselIFFDisabled
+  name: TSF-ELF Cinquedea
+  description: Moderately armed and heavily armored multipurpose corvette. Armed with 6 Prometheus laser cannons and 2 L-1 Phalanxes for Point Defence. Quick and Agile, perfect for pursuing and finishing off damaged enemy vessels.
+  price: 250000 #242609 baseline. Marked up to an even 250k for being a millitary vessel.
+  purchasable: false # voucher only - T2
+  category: Medium
+  group: Security
+  access: Security
+  shuttlePath: /SharedMaps/_Mono/Shuttles/TSF/cinquedea.yml
+  guidebookPage: Null
+  class:
+  - Pursuit
+  - Brawler
+  - Corvette
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: Cinquedea
+  mapName: 'Cinquedea'
+  mapPath: /SharedMaps/_Mono/Shuttles/TSF/cinquedea.yml
+  minPlayers: 0
+  stations:
+    Cinquedea:
+      stationProto: StandardFrontierSecurityVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Cinquedea TSF{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          Deputy: [ 0, 0 ]
+          TsfBorg: [ 0, 0 ]
+

@@ -1,0 +1,37 @@
+# Made by harrow/waphun
+- type: vessel
+  id: Seax
+  parent: BaseVesselIFFDisabled
+  name: TSF-ELF Seax
+  description: Fast moving, low profile medical ship. Equipped with twin TOVEKs for deterrence.
+  price: 120000
+  category: Small
+  group: Security
+  access: Security
+  shuttlePath: /SharedMaps/_Mono/Shuttles/TSF/seax.yml
+  guidebookPage: Null
+  class:
+  - Medical
+  engine:
+  - Bananium
+  company:
+  - TSF
+
+- type: gameMap
+  id: Seax
+  mapName: 'Seax'
+  mapPath: /SharedMaps/_Mono/Shuttles/TSF/seax.yml
+  minPlayers: 0
+  stations:
+    Seax:
+      stationProto: StandardFrontierSecurityVessel
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Seax TSF{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          Deputy: [ 0, 0 ]
+          TsfBorg: [ 0, 0 ]
