@@ -38,6 +38,8 @@
     - MachineHeavyFTLDriveConsole
     - GravityGenerator
     - GravityGeneratorMini
+    - CEHellpodHatch
+    - CEHellpodConsole
 
     # Atmospherics
     - AirAlarm
@@ -69,26 +71,51 @@
 
     # Power
     - BaseAPC
+    - APCFrame
+    - ApcNetSwitch
+    - LargeAPC
     - BaseSMES
     - BaseSubstation
     - BaseSubstationWall
+    - BaseSubstationWallFrame
     - CableBase
     - CableTerminal
     - BaseGeneratorWallmount
+    - BaseGeneratorWallmountFrame
     - GeneratorBasic
     - GeneratorBasic15kW
     - GeneratorRTG
     - GeneratorCRPinch
+    - GeneratorSterling
     - PortableGeneratorBase
+    - SolarPanelBasePhysSprite
+    - SolarAssembly
+    - SolarTracker
+    - ComputerSolarControl
     - AmeController
     - AmeShielding
+    - TegCenter
+    - TegCirculator
+    - MachineOutpostCore
     - ComputerPowerMonitoring
-    - PowerCellRecharger
-    - BorgCharger
+    - BaseRecharger
+
+    # Ship gunnery and shields
+    - BaseHardpoint
+    - BallisticArtilleryBase
+    - BallisticArtilleryBaseCartridge
+    - BallisticArtilleryBaseMagazine
+    - ComputerGunneryConsole
+    - GunneryServerBase
+    - ShieldGeneratorSmall
+    - ShieldGeneratorMedium
+    - ShieldGenerator
+    - ShieldGeneratorTSFCapital
 
     # Safety, signals, and communications
     - FireAlarm
     - EmergencyLight
+    - AlwaysPoweredWallLight
     - ExtinguisherCabinet
     - DefibrillatorCabinet
     - SignalButton
@@ -169,6 +196,8 @@
     - MAWCShieldGenerator
     - PoweredlightEmpty
     - PoweredSmallLightEmpty
+    - PoweredLightPostSmallEmpty
+    - PoweredStrobeLightEmpty
     - HydroponicsTrayEmpty
     replace:
       # Factory-filled variants need empty counterparts.
@@ -185,6 +214,8 @@
       NitrousOxideCanister: StorageCanister
       FrezonCanister: StorageCanister
       GeneratorCRPinchShuttle: GeneratorCRPinch
+      GeneratorSterlingShuttle: GeneratorSterling
+      GeneratorSterlingPDVShuttle: GeneratorSterlingPDV
       PortableGeneratorPacmanShuttle: PortableGeneratorPacman
       PortableGeneratorSuperPacmanShuttle: PortableGeneratorSuperPacman
       PortableGeneratorJrPacmanShuttle: PortableGeneratorJrPacman
@@ -206,7 +237,7 @@
   - whitelist: [DisposalUnitBase]
     reset:
     - DisposalUnit
-  - whitelist: [PortableGeneratorBase, GeneratorCRPinch]
+  - whitelist: [PortableGeneratorBase, GeneratorCRPinch, GeneratorSterling]
     reset:
     - FuelGenerator
     - SolidFuelGeneratorAdapter
@@ -215,6 +246,11 @@
     reset:
     - AmeController
     - AmeShield
+
+  # Clear internal ammo counters as well as loaded magazines.
+  - whitelist: [BallisticArtilleryBase, BallisticArtilleryBaseCartridge, BallisticArtilleryBaseMagazine]
+    reset:
+    - BallisticAmmoProvider
 
   # Stocked fixtures and service machines
   - whitelist: [VendingMachine]
