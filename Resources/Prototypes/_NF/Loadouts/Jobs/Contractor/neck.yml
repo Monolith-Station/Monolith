@@ -253,7 +253,7 @@
     neck: ClothingNeckPonchoArctic
 
 - type: loadout
-  id: ContractorClothingNeckUIOvercoat # Monolith
+  id: ContractorClothingNeckOvercoat # Monolith
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT2
@@ -262,7 +262,7 @@
     neck: ClothingNeckOvercoat
 
 - type: loadout
-  id: ContractorClothingNeckHeavyUIOvercoat # Monolith
+  id: ContractorClothingNeckHeavyOvercoat # Monolith
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT2

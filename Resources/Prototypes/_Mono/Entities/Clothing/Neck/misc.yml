@@ -4,7 +4,7 @@
   id: ClothingNeckStorageBase
   components:
   - type: Storage
-    grid:
+    grid: # 2x 1x2
     - 0,0,0,1
     - 2,0,2,1
   - type: ContainerContainer
@@ -36,8 +36,8 @@
 - type: entity
   parent: ClothingNeckStorageBase
   id: ClothingNeckOvercoat
-  name: smuggler's overcoat
-  description: A speciallly made overcoat, able to fit over most hardsuits & made purely for style. The logo on the back has been unceremoniously torn out and patched over.
+  name: lucrative overcoat
+  description: A speciallly made overcoat, able to fit over most hardsuits & made purely for style.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Neck/Misc/overcoat.rsi
@@ -63,7 +63,7 @@
     heatingCoefficient: 1.05 # shouldn't be as thick as a winter coat...
     coolingCoefficient: 0.2 # it's thicker than the normal one
   - type: Storage
-    grid:
+    grid: # 2x 2x2
     - 0,0,1,1
     - 3,0,4,1
 
