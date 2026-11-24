@@ -1,10 +1,7 @@
 using System.Numerics;
 using Content.Server._Mono.Projectiles.TargetGuided;
 using Content.Server._Mono.Projectiles.TargetSeeking;
-using Content.Server.Power.Components;
 using Content.Shared._Mono.Radar;
-using Content.Shared._Mono.Sensors;
-using Content.Shared.Power.EntitySystems;
 using Content.Shared.Shuttles.Components;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
@@ -15,7 +12,6 @@ public sealed partial class RadarBlipSystem : EntitySystem
 {
     [Dependency] private SharedTransformSystem _xform = default!;
     [Dependency] private SharedPhysicsSystem _physics = default!;
-    [Dependency] private SharedPowerReceiverSystem _power = default!;
 
     // Pooled collections to avoid per-request heap churn
     private readonly List<BlipNetData> _tempBlipsCache = new();
