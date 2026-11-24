@@ -67,10 +67,18 @@ public sealed partial class RadarGuidanceSystem : EntitySystem
                     HasComp<FTLComponent>(sg))
                     continue;
 
-                var speed = guided.CurrentSpeed > 1f ? guided.CurrentSpeed : guided.MaxSpeed;
-                var mPos = _xform.GetWorldPosition(missile);
+                var speed = MathF.Max(guided.CurrentSpeed, guided.LaunchSpeed);
+                if (speed < 1f)
+                    speed = guided.MaxSpeed;
                 var mVel = mphys.LinearVelocity;
-                var (lead, _) = RadarLockSystem.ComputeLeadPoint(mPos, mVel, tgtPos, tgtVel, speed);
+                var mPos = _xform.GetWorldPosition(missile);
+                var (lead, tti) = RadarLockSystem.ComputeMissileLeadPoint(mPos, mVel, tgtPos, tgtVel, speed);
+                var range = (tgtPos - mPos).Length();
+                if (range < 40f)
+                {
+                    var blend = Math.Clamp(range / 40f, 0f, 1f);
+                    lead = Vector2.Lerp(tgtPos, lead, blend); // terminal phase
+                }
 
                 var mapCoords = new MapCoordinates(lead, mapId);
                 var entityCoords = _xform.ToCoordinates(mapUid.Value, mapCoords);

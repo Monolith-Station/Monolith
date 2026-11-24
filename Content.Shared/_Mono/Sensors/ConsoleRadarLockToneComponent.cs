@@ -10,5 +10,8 @@ public sealed partial class ConsoleRadarLockToneComponent : Component
     public SoundSpecifier LockAcquiredSound = new SoundPathSpecifier("/Audio/_Mono/Effects/Alerts/rwr_beep.ogg");
 
     [DataField]
+    public SoundSpecifier MissileTone = new SoundPathSpecifier("/Audio/_Mono/Effects/Alerts/an_alr63_missile.ogg");
+
+    [DataField]
     public TimeSpan Cooldown = TimeSpan.FromSeconds(3);
 }

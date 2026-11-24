@@ -689,6 +689,7 @@ public sealed partial class ShipSensorsSystem : EntitySystem
                     ActiveRadarWatts = 0f,
                     LastSeen = contact.LastSeen,
                     IsDatalink = IsDatalinkOnly(contact.Flags),
+                    IsIlluminator = IsIlluminatingUs(gridUid.Value, contact.TargetGrid),
                 });
                 continue;
             }
@@ -850,7 +851,31 @@ public sealed partial class ShipSensorsSystem : EntitySystem
             ActiveRadarWatts = arWatts,
             LastSeen = c.LastSeen,
             IsDatalink = IsDatalinkOnly(flags),
+            IsIlluminator = IsIlluminatingUs(fromUid, c.TargetGrid)
         };
+    }
+
+    private bool IsIlluminatingUs(EntityUid ourGrid, NetEntity contactNet)
+    {
+        if (!TryGetEntity(contactNet, out var other))
+            return false;
+
+        var otherGrid = Transform(other.Value).GridUid ?? other.Value;
+
+        var q = EntityQueryEnumerator<FireControlConsoleComponent, TransformComponent>();
+        while (q.MoveNext(out _, out var console, out var xform))
+        {
+            if (xform.GridUid != otherGrid)
+                continue;
+            if (console.LockedTarget is not { } locked)
+                continue;
+
+            var lockedGrid = Transform(locked).GridUid ?? locked;
+            if (lockedGrid == ourGrid)
+                return true;
+        }
+
+        return false;
     }
 
     public bool TrySetEmcon(EntityUid consoleUid, SensorsSetEmconMessage msg)

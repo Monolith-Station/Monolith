@@ -23,17 +23,15 @@ public sealed class SensorContactDto
 {
     public NetEntity Target;
     public string? Name;
-    /// <summary>Server-computed range; kept so the client can still show contacts when the target is not in PVS.</summary>
     public float Range;
-    /// <summary>Display bearing (same convention the UI already uses).</summary>
     public float BearingDegrees;
     public string Sources = string.Empty;
     public float Rcs;
     public float IrSignature;
     public float ActiveRadarWatts;
     public TimeSpan LastSeen;
-    /// <summary>True only when the contact is datalink-only (no local ARS/E/IR/V).</summary>
     public bool IsDatalink;
+    public bool IsIlluminator;
 }
 
 [Serializable, NetSerializable]

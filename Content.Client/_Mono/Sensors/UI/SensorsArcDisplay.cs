@@ -9,10 +9,11 @@ namespace Content.Client._Mono.Sensors.UI;
 public sealed class SensorsArcDisplay : Control
 {
     private readonly List<(float CenterDeg, float WidthDeg, Color Color)> _arcs = [];
-    private readonly List<(float Bearing, bool DatalinkOnly, bool Stale)> _contacts = [];
+    private readonly List<(float Bearing, bool IlluminatorOnly, bool DatalinkOnly, bool Stale)> _contacts = [];
     private readonly List<(float CenterDeg, float WidthDeg, float Intensity)> _chaffArcs = [];
 
     private static readonly Color DatalinkColor = Color.FromHex("#FFAA33");
+    private static readonly Color IlluminatorColor = Color.FromHex("#4488FF");
 
     public SensorsArcDisplay()
     {
@@ -65,7 +66,7 @@ public sealed class SensorsArcDisplay : Control
                                || string.Equals(c.Sources, "DL", StringComparison.OrdinalIgnoreCase);
             var threshold = datalinkOnly ? 6.0 : 2.0;
             var stale = (curTime - c.LastSeen).TotalSeconds > threshold;
-            _contacts.Add((c.BearingDegrees, datalinkOnly, stale));
+            _contacts.Add((c.BearingDegrees, c.IsIlluminator, datalinkOnly, stale));
         }
 
         if (chaffArcs != null)
@@ -113,13 +114,15 @@ public sealed class SensorsArcDisplay : Control
             DrawCone(handle, center, arcRadius, centerDeg, widthDeg, color);
         }
 
-        foreach (var (bearing, datalinkOnly, stale) in _contacts)
+        foreach (var (bearing, illuminatorOnly, datalinkOnly, stale) in _contacts)
         {
             var dir = BearingToScreen(bearing);
 
             Color color;
             if (stale)
                 color = Color.Red.WithAlpha(0.85f);
+            else if (illuminatorOnly)
+                color = IlluminatorColor.WithAlpha(0.9f);
             else if (datalinkOnly)
                 color = DatalinkColor.WithAlpha(0.9f);
             else

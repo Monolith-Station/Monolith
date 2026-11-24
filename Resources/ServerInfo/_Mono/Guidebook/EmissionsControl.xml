@@ -72,9 +72,9 @@
 
   ## Contact List
   The contact panel shows everything you can see.
-  If a track has gone [color=#FFAA33][bold]orange[/bold][/color], you're only seeing it because of an allied datalink sharing it's info.
-
-  If a track has gone [color=red][bold]red[/bold][/color], it's stale (you haven't succesfully picked up that track for 2 seconds - for tracks from datalink, the threshold is 6 seconds, but both kinds will disappear at 8 seconds w/o a successful track)
+  - If a track has gone [color=#FFAA33][bold]orange[/bold][/color], you're only seeing it because of an allied datalink sharing it's info.
+  - If a track has gone [color=#4488FF][bold]blue[/bold][/color] - [bold]it's illuminating you with a fire-control radar![/bold]
+  - If a track has gone [color=red][bold]red[/bold][/color], it's stale (you haven't succesfully picked up that track for 2 seconds - for tracks from datalink, the threshold is 6 seconds, but both kinds will disappear at 8 seconds w/o a successful track)
 
   There's a few columns here.
   - [bold]RNG:[/bold] The range to the target in meters.

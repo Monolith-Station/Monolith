@@ -355,8 +355,8 @@ public sealed partial class RadarLockSystem : EntitySystem
             jitter = MathF.Max(jitter, Math.Clamp(range * 0.35f, 80f, 500f));
 
         var (avgLead, avgT) = ComputeLeadPoint(avgOrigin, ourVel, tgtPos, tgtVel, avgSpeed);
-        dto.AverageLeadWorld = Jitter(avgLead, console);
-        dto.TimeToIntercept = avgT;
+        dto.AverageLeadWorld = avgLead;
+        dto.TimeToIntercept = avgT > 0.05f && avgT < 120f ? avgT : null;
 
         dto.WeaponLeads = new List<RadarWeaponLeadDto>(pairs.Count);
         foreach (var (origin, speed, weapon) in CollectLeadWeapons(console, consoleComp))
@@ -366,7 +366,7 @@ public sealed partial class RadarLockSystem : EntitySystem
             {
                 Weapon = GetNetEntity(weapon),
                 ProjectileSpeed = speed,
-                LeadWorld = Jitter(lead, weapon),
+                LeadWorld = lead,
                 TimeToIntercept = tti,
             });
         }
@@ -482,5 +482,42 @@ public sealed partial class RadarLockSystem : EntitySystem
             return (targetPos, 0f);
 
         return (targetPos + (targetVel - shooterVel) * t, t);
+    }
+
+    public static (Vector2 Lead, float Time) ComputeMissileLeadPoint(
+        Vector2 shooterPos,
+        Vector2 shooterVel,
+        Vector2 targetPos,
+        Vector2 targetVel,
+        float projectileSpeed)
+    {
+        if (projectileSpeed < 0.01f)
+            return (targetPos, 0f);
+
+        var relPos = targetPos - shooterPos;
+        var relVel = targetVel;
+        var a = Vector2.Dot(relVel, relVel) - projectileSpeed * projectileSpeed;
+        var b = 2f * Vector2.Dot(relPos, relVel);
+        var c = Vector2.Dot(relPos, relPos);
+
+        float t;
+        if (MathF.Abs(a) < 1e-4f)
+            t = MathF.Abs(b) < 1e-4f ? 0f : -c / b;
+        else
+        {
+            var disc = b * b - 4f * a * c;
+            if (disc < 0f)
+                return (targetPos, 0f);
+            var sqrt = MathF.Sqrt(disc);
+            var t1 = (-b + sqrt) / (2f * a);
+            var t2 = (-b - sqrt) / (2f * a);
+            t = t1 > 0f && t2 > 0f ? MathF.Min(t1, t2) : MathF.Max(t1, t2);
+        }
+
+        if (t < 0f || float.IsNaN(t) || float.IsInfinity(t))
+            return (targetPos, 0f);
+
+        t = MathF.Min(t, 30f);
+        return (targetPos + targetVel * t, t);
     }
 }

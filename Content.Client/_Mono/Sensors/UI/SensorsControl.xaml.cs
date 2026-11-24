@@ -27,6 +27,7 @@ public sealed partial class SensorsControl : BoxContainer
     private bool _datalinkPending;
 
     private static readonly Color DatalinkColor = Color.FromHex("#FFAA33");
+    private static readonly Color IlluminatorColor = Color.FromHex("#4488FF");
 
     public SensorsControl()
     {
@@ -137,6 +138,8 @@ public sealed partial class SensorsControl : BoxContainer
             Color color;
             if (stale)
                 color = Color.Red;
+            else if (c.IsIlluminator)
+                color = IlluminatorColor;
             else if (c.IsDatalink)
                 color = DatalinkColor;
             else
