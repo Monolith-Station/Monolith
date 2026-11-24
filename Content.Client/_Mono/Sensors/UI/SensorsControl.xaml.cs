@@ -175,7 +175,9 @@ public sealed partial class SensorsControl : BoxContainer
             });
             row.AddChild(new Label
             {
-                Text = $"{c.Rcs:F0}m^2",
+                Text = c.Rcs > 0
+                    ? $"{c.Rcs:F0}m^2"
+                    : "—",
                 MinWidth = 110,
                 HorizontalAlignment = HAlignment.Left,
                 FontColorOverride = color,

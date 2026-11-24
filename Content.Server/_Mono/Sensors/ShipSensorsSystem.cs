@@ -839,6 +839,17 @@ public sealed partial class ShipSensorsSystem : EntitySystem
         if (bearingDegrees < 0f)
             bearingDegrees += 360f;
 
+        // only send what u can see
+        var sentRcs = 0f;
+        if ((c.Flags & SensorContactFlags.ActiveRadar) != 0)
+            sentRcs = targetGrid.LocalAABB.Width * targetGrid.LocalAABB.Height;
+        var sentIr = 0f;
+        if ((c.Flags & SensorContactFlags.Infrared) != 0)
+            sentIr = ir;
+        var sentEm = 0f;
+        if ((c.Flags & SensorContactFlags.PassiveRadar) != 0)
+            sentEm = arWatts;
+
         return new SensorContactDto
         {
             Target = c.TargetGrid,
@@ -846,9 +857,9 @@ public sealed partial class ShipSensorsSystem : EntitySystem
             Range = range,
             BearingDegrees = bearingDegrees,
             Sources = BuildSourceString(flags),
-            Rcs = targetGrid.LocalAABB.Width * targetGrid.LocalAABB.Height,
-            IrSignature = ir,
-            ActiveRadarWatts = arWatts,
+            Rcs = sentRcs,
+            IrSignature = sentIr,
+            ActiveRadarWatts = sentEm,
             LastSeen = c.LastSeen,
             IsDatalink = IsDatalinkOnly(flags),
             IsIlluminator = IsIlluminatingUs(fromUid, c.TargetGrid)
