@@ -8,7 +8,7 @@
     mode: SnapgridCenter
   components:
   - type: ShipSensor
-    ActiveThermalSignature: 20000
+    activeThermalSignature: 20000
     sensorType: ActiveRadar
     sensitivity: 176
     arcDegrees: 360
@@ -42,7 +42,7 @@
     mode: SnapgridCenter
   components:
   - type: ShipSensor
-    ActiveThermalSignature: 60000
+    activeThermalSignature: 60000
     sensorType: ActiveRadar
     sensitivity: 143
     arcDegrees: 20
@@ -78,7 +78,7 @@
     mode: SnapgridCenter
   components:
   - type: ShipSensor
-    ActiveThermalSignature: 130000
+    activeThermalSignature: 130000
     sensorType: ActiveRadar
     sensitivity: 500
     arcDegrees: 360
@@ -123,7 +123,7 @@
     mode: SnapgridCenter
   components:
   - type: ShipSensor
-    ActiveThermalSignature: 1000000
+    activeThermalSignature: 1000000
     sensorType: ActiveRadar
     sensitivity: 945
     arcDegrees: 140
@@ -168,7 +168,7 @@
     mode: SnapgridCenter
   components:
   - type: ShipSensor
-    ActiveThermalSignature: 1000000
+    activeThermalSignature: 1000000
     sensorType: ActiveRadar
     sensitivity: 2036
     arcDegrees: 360

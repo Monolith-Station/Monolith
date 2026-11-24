@@ -43,5 +43,7 @@
   suffix: Generic/Civ, infrared
   placement:
     mode: SnapgridCenter
+  components:
+  - type: Sprite
     layers:
     - state: irst_hightech
