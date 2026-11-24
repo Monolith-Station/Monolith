@@ -53,7 +53,7 @@
   parent: ClothingNeckOvercoat
   id: ClothingNeckHeavyOvercoat
   name: heavy overcoat
-  description: A thick & heavy overcoat. This is sure to keep you warm in even the coldest reaches.
+  description: A thick & heavy overcoat. The synthetic fur gives it some light armour, but it won't stop a bullet.
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Neck/Misc/heavyovercoat.rsi
@@ -66,6 +66,14 @@
     grid: # 2x 2x2
     - 0,0,1,1
     - 3,0,4,1
+  - type: ClothingSpeedModifier # it's two whole extra big ammo boxes
+    sprintModifier: 0.95
+  - type: Armor
+    modifiers: # Just for flavour. No piercing reduction.
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Heat: 0.95
 
 # Bomb Collars
 
