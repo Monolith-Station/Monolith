@@ -27579,3 +27579,126 @@ Entries:
   id: 2959
   time: '2026-11-20T20:10:06.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/5063
+- author: NazrinNya
+  changes:
+    - type: Add
+      message: Flyssa and Eris have returned (Hyperwar-exclusive).
+    - type: Tweak
+      message: Ore processors and Industrial ore processors are way faster now
+    - type: Fix
+      message: Fast lathes stacking sounds (MMC press for example)
+    - type: Fix
+      message: TSFMC now gets supplies on hyperwar properly
+    - type: Tweak
+      message: Reduced portstrike time on hyperwar to 1 hour and 20 minutes
+    - type: Tweak
+      message: Reduced hyperwar round time to 2 hours
+    - type: Tweak
+      message: Hyperwar respawn time is now 300 seconds.
+    - type: Add
+      message: Hyperwar factions now receive small batch of resources roundstart.
+  id: 2960
+  time: '2026-11-21T13:57:26.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5071
+- author: NazrinNya
+  changes:
+    - type: Fix
+      message: RPED being inserted when you're using it on lathe with container.
+  id: 2961
+  time: '2026-11-21T13:59:50.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5072
+- author: SuperGDPWYL
+  changes:
+    - type: Tweak
+      message: >-
+        Years of exposure has led to the populations of Colossus developing a
+        built-up immunity to pax. It is now completely inert.
+  id: 2962
+  time: '2026-11-21T19:22:11.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4890
+- author: SuperGDPWYL
+  changes:
+    - type: Tweak
+      message: >-
+        The CAWS-25 "Jackdaw" wield delay has been increased to 5 seconds (was
+        2.2)
+    - type: Tweak
+      message: The CAWS-25 "Jackdaw" no longer fires if not wielded.
+    - type: Tweak
+      message: The CAWS-25 "Jackdaw" fire rate has been reduced to 12 (was 13).
+    - type: Tweak
+      message: >-
+        The CAWS-25 "Jackdaw" wield slowdown has been increased to 20% (was
+        10%).
+    - type: Tweak
+      message: The CSW-25 "Adjudicator" now needs plastitanium.
+  id: 2963
+  time: '2026-11-22T17:46:13.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5078
+- author: 10kee
+  changes:
+    - type: Add
+      message: Vox sprites for Tarkhan/CC/MMC
+  id: 2964
+  time: '2026-11-22T18:14:17.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5079
+- author: Mrrpip
+  changes:
+    - type: Tweak
+      message: The standard RnD server can research shipguns.
+  id: 2965
+  time: '2026-11-22T18:30:05.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5080
+- author: DoubleHypercube
+  changes:
+    - type: Add
+      message: Vulpkanin and Tajaran can now wag their tails on command!
+    - type: Tweak
+      message: Switched over to Starlight vulpkanin tail sprites.
+    - type: Add
+      message: Added tips to Fennec and Fluffy vulpkanin tails!
+    - type: Add
+      message: Several more vulpkanin tails can now wag.
+    - type: Fix
+      message: Internally cleaned up how wagging works.
+    - type: Tweak
+      message: Vulpkanin tails now render underneath neck items.
+  id: 2966
+  time: '2026-11-22T19:04:54.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5067
+- author: DoubleHypercube
+  changes:
+    - type: Add
+      message: Languages can now be written on paper. Ea-Nāṣir, count your days.
+  id: 2967
+  time: '2026-11-23T12:05:41.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5054
+- author: tonotom1
+  changes:
+    - type: Fix
+      message: Holopads can now hear and transmit chat-only emotes
+    - type: Fix
+      message: Tape recorders no longer act as ersatz universal translators
+  id: 2968
+  time: '2026-11-23T12:07:28.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4871
+- author: Mrrpip
+  changes:
+    - type: Tweak
+      message: Changes Prometheus flatpack description.
+    - type: Tweak
+      message: Changed Rubicon to be anchorable.
+    - type: Fix
+      message: Fixes default hardpoint and some door rotations on the Eris
+  id: 2969
+  time: '2026-11-23T12:11:30.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5081
+- author: waphun
+  changes:
+    - type: Fix
+      message: >-
+        Fixed the seax's reverse thrusters, generator access and the accidental
+        rad bombs that it caused.
+  id: 2970
+  time: '2026-11-23T21:59:20.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5086

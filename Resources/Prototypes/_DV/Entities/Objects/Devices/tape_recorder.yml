@@ -16,6 +16,8 @@
   - type: TapeRecorder
   - type: ActiveListener
     range: 4
+  - type: LanguageSpeaker # Mono
+  - type: UniversalLanguageSpeaker # Mono
   - type: UseDelay
     delay: 1
   - type: Speech

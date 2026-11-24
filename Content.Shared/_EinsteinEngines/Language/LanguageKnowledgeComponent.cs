@@ -1,8 +1,7 @@
-using Content.Shared._EinsteinEngines.Language;
-using Robust.Shared.Prototypes;
 using Content.Shared._NF.Cloning;
+using Robust.Shared.Prototypes;
 
-namespace Content.Server._EinsteinEngines.Language;
+namespace Content.Shared._EinsteinEngines.Language;
 
 /// <summary>
 ///     Stores data about entities' intrinsic language knowledge.

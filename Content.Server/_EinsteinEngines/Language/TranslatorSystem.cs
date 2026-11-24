@@ -2,7 +2,6 @@ using System.Linq;
 using Content.Server.Popups;
 using Content.Server.PowerCell;
 using Content.Shared.Interaction;
-using Content.Shared.Interaction.Events;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.PowerCell;
 using Content.Shared.PowerCell.Components;
@@ -89,7 +88,8 @@ public sealed partial class TranslatorSystem : SharedTranslatorSystem
         // Update the translator on the next tick - this is necessary because there's a good chance the removal from a container.
         // Was caused by the player moving the translator within their inventory rather than removing it.
         // If that is not the case, then OnProxyDetermineLanguages will remove this translator from HoldsTranslatorComponent.Translators.
-        Timer.Spawn(0, () =>
+        Timer.Spawn(0,
+        () =>
         {
             if (Exists(args.OldParent) && HasComp<LanguageSpeakerComponent>(args.OldParent))
                 _language.UpdateEntityLanguages(args.OldParent.Value);
@@ -167,12 +167,20 @@ public sealed partial class TranslatorSystem : SharedTranslatorSystem
         var addUnderstood = CheckLanguagesMatch(from.RequiredLanguages, knowledge.UnderstoodLanguages, from.RequiresAllLanguages);
 
         if (addSpoken)
+        {
             foreach (var language in from.SpokenLanguages)
+            {
                 to.SpokenLanguages.Add(language);
+            }
+        }
 
         if (addUnderstood)
+        {
             foreach (var language in from.UnderstoodLanguages)
+            {
                 to.UnderstoodLanguages.Add(language);
+            }
+        }
     }
 
     /// <summary>
