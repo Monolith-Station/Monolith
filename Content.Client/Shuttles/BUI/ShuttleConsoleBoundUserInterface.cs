@@ -1,4 +1,5 @@
 using Content.Client.Shuttles.UI;
+using Content.Shared._Mono.Sensors;
 using Content.Shared.Shuttles.BUIStates;
 using Content.Shared.Shuttles.Events;
 using JetBrains.Annotations;
@@ -38,6 +39,8 @@ public sealed partial class ShuttleConsoleBoundUserInterface : BoundUserInterfac
         _window.Sensors.OnEmcon += msg => SendMessage(msg);
         _window.Sensors.OnArc += msg => SendMessage(msg);
         _window.Sensors.OnDatalink += msg => SendMessage(msg);
+        _window.Sensors.OnContactLock += net =>
+            SendMessage(new SensorsSetLockMessage { Target = net });
 
         NfOpen(); // Frontier
     }

@@ -27,6 +27,8 @@ public sealed class FireControlConsoleBoundUserInterface : BoundUserInterface
         _window.Sensors.OnEmcon += msg => SendMessage(msg);
         _window.Sensors.OnArc += msg => SendMessage(msg);
         _window.Sensors.OnDatalink += msg => SendMessage(msg);
+        _window.Sensors.OnContactLock += net =>
+            SendMessage(new SensorsSetLockMessage { Target = net });
 
         _window.OnLock += msg => SendMessage(msg);
         _window.OnRadarTrack += msg => SendMessage(msg);
