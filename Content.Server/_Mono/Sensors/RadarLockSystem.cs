@@ -8,17 +8,21 @@ using Robust.Shared.Physics.Components;
 
 namespace Content.Server._Mono.Sensors;
 
-public sealed class RadarLockSystem : EntitySystem
+public sealed partial class RadarLockSystem : EntitySystem
 {
     [Dependency] private SharedTransformSystem _xform = default!;
     [Dependency] private RadarCountermeasureSystem _chaff = default!;
     [Dependency] private PowerReceiverSystem _power = default!;
 
     public bool HasLockCapableRadar(EntityUid grid)
-        => HasCapableRadar(grid, requireLock: true, requireGuidance: false);
+    {
+        return HasCapableRadar(grid, requireLock: true, requireGuidance: false);
+    }
 
     public bool HasGuidanceCapableRadar(EntityUid grid)
-        => HasCapableRadar(grid, requireLock: false, requireGuidance: true);
+    {
+        return HasCapableRadar(grid, requireLock: false, requireGuidance: true);
+    }
 
     private bool HasCapableRadar(EntityUid grid, bool requireLock, bool requireGuidance)
     {
@@ -83,7 +87,7 @@ public sealed class RadarLockSystem : EntitySystem
         if (consoleComp.LockedTarget is not { } target)
             return false;
 
-        if (!EntityManager.EntityExists(target))
+        if (!Exists(target))
         {
             consoleComp.LockedTarget = null;
             return false;
@@ -100,7 +104,7 @@ public sealed class RadarLockSystem : EntitySystem
 
     public bool IsBearingChaffed(EntityUid ourGrid, EntityUid targetGrid)
     {
-        if (!EntityManager.EntityExists(ourGrid) || !EntityManager.EntityExists(targetGrid))
+        if (!Exists(ourGrid) || !Exists(targetGrid))
             return false;
 
         var ourPos = _xform.GetWorldPosition(ourGrid);
@@ -173,7 +177,9 @@ public sealed class RadarLockSystem : EntitySystem
 
         var avg = 0f;
         foreach (var (_, speed) in pairs)
+        {
             avg += speed;
+        }
         avg /= pairs.Count;
 
         dto.AverageLeadWorld = ComputeLeadPoint(ourPos, ourVel, tgtPos, tgtVel, avg);
@@ -203,7 +209,7 @@ public sealed class RadarLockSystem : EntitySystem
 
         foreach (var weapon in server.Controlled)
         {
-            if (!EntityManager.EntityExists(weapon))
+            if (!Exists(weapon))
                 continue;
             if (HasComp<BallisticLeadIgnoreComponent>(weapon))
                 continue;
@@ -258,6 +264,6 @@ public sealed class RadarLockSystem : EntitySystem
         if (t < 0f || float.IsNaN(t) || float.IsInfinity(t))
             return targetPos;
 
-        return targetPos + targetVel * t;
+        return targetPos + (targetVel - shooterVel) * t;
     }
 }
