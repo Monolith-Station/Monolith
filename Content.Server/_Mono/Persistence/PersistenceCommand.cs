@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Server._Mono.Planets;
 using Content.Server.Administration;
+using Content.Shared._Mono.Persistence;
 using Content.Shared.Administration;
 using Robust.Shared.Toolshed;
 
@@ -10,6 +11,55 @@ namespace Content.Server._Mono.Persistence;
 public sealed class PersistenceCommand : ToolshedCommand
 {
     private PersistentProfileSystem? _persistence;
+
+    [CommandImplementation("copy")]
+    public void CopyItem(IInvocationContext ctx, [PipedArgument] EntityUid item)
+    {
+        var persistence = _persistence ??= GetSys<PersistentProfileSystem>();
+        CopyYaml(ctx, () => persistence.TrySerializeEntity(item, out var data) ? data : null);
+    }
+
+    [CommandImplementation("copy")]
+    public void CopyComponent(IInvocationContext ctx, [PipedArgument] IComponent? component)
+    {
+        var persistence = _persistence ??= GetSys<PersistentProfileSystem>();
+        CopyYaml(ctx, () => component == null ? null : persistence.SerializeComponent(component));
+    }
+
+    private void CopyYaml(IInvocationContext ctx, Func<string?> serialize)
+    {
+        if (ctx.Session is not { } session)
+        {
+            ctx.WriteLine(Loc.GetString("shell-cannot-run-command-from-server"));
+            return;
+        }
+
+        string? yaml;
+        try
+        {
+            yaml = serialize();
+        }
+        catch (Exception e)
+        {
+            ctx.WriteLine(Loc.GetString("persistence-copy-failed-detail", ("error", e.Message)));
+            return;
+        }
+
+        if (yaml == null)
+        {
+            ctx.WriteLine(Loc.GetString("persistence-copy-failed"));
+            return;
+        }
+
+        if (yaml.Length > AddPersistenceEntry.MaxBlobLength)
+        {
+            ctx.WriteLine(Loc.GetString("persistence-copy-too-large"));
+            return;
+        }
+
+        GetSys<PersistentProfileSystem>().SendClipboardYaml(session, yaml);
+        ctx.WriteLine(Loc.GetString("persistence-copy-ok"));
+    }
 
     [CommandImplementation("planet")]
     public string Planet([CommandArgument(typeof(LoadedPlanetNameParser))] string planetName,

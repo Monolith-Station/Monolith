@@ -23,6 +23,9 @@ public sealed partial class MonoCVars
     public static readonly CVarDef<int> PlanetPersistInterval =
         CVarDef.Create("mono.planet.persist_interval", 10, CVar.SERVERONLY);
 
+    public static readonly CVarDef<int> PlanetMaxSaves =
+        CVarDef.Create("mono.planet.max_saves", 3, CVar.SERVERONLY);
+
     #region Cleanup
 
     /// <summary>

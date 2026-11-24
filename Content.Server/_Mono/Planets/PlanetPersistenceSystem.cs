@@ -1,6 +1,7 @@
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using Content.Server._FarHorizons.StarSystem;
 using Content.Server.Administration.Managers;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
@@ -45,6 +46,7 @@ public sealed partial class PlanetPersistenceSystem : EntitySystem
     private readonly Dictionary<string, TimeSpan> _lastSaves = new();
     private readonly Dictionary<string, TimeSpan> _nextSaveOverrides = new();
     private readonly HashSet<string> _finalSaves = new();
+    private readonly Dictionary<string, TimeSpan> _pausedSaves = new();
     private ISawmill _sawmill = default!;
     private DateTime? _roundStartedAt;
     private bool _persistPlanets;
@@ -55,8 +57,18 @@ public sealed partial class PlanetPersistenceSystem : EntitySystem
     public override void Initialize()
     {
         _sawmill = _logManager.GetSawmill("persistence::planet");
-        Subs.CVar(_cfg, MonoCVars.PersistPlanets, enabled => _persistPlanets = enabled, true);
-        Subs.CVar(_cfg, MonoCVars.PlanetPersistInterval, minutes => _saveInterval = TimeSpan.FromMinutes(minutes), true);
+        Subs.CVar(_cfg, MonoCVars.PersistPlanets, enabled =>
+        {
+            _persistPlanets = enabled;
+            PanelChanged?.Invoke();
+        }, true);
+        Subs.CVar(_cfg, MonoCVars.PlanetPersistInterval, minutes =>
+        {
+            _saveInterval = TimeSpan.FromMinutes(minutes);
+            PanelChanged?.Invoke();
+        }, true);
+        SubscribeLocalEvent<StarSystemPlanetsLoadedEvent>(_ => PanelChanged?.Invoke());
+        SubscribeLocalEvent<PlanetMapGenerationComponent, EntityTerminatingEvent>(OnSurfaceTerminating);
         SubscribeLocalEvent<RoundStartedEvent>(OnRoundStarted);
         SubscribeLocalEvent<RoundEndedEvent>(OnRoundEnded);
         SubscribeLocalEvent<RoundRestartingEvent>(_ => SaveFinalPlanets());
@@ -94,6 +106,7 @@ public sealed partial class PlanetPersistenceSystem : EntitySystem
     {
         _roundStartedAt = DateTime.UtcNow;
         _roundStartTime = _timing.CurTime;
+        PanelChanged?.Invoke();
     }
 
     private void OnRoundEnded(RoundEndedEvent ev)
@@ -103,6 +116,7 @@ public sealed partial class PlanetPersistenceSystem : EntitySystem
 
         _roundEnded = true;
         SaveFinalPlanets();
+        PanelChanged?.Invoke();
     }
 
     private void OnRoundCleanup(RoundRestartCleanupEvent ev)
@@ -113,6 +127,7 @@ public sealed partial class PlanetPersistenceSystem : EntitySystem
         _lastSaves.Clear();
         _nextSaveOverrides.Clear();
         _finalSaves.Clear();
+        PanelChanged?.Invoke();
     }
 
     public override void Update(float frameTime)
@@ -185,12 +200,11 @@ public sealed partial class PlanetPersistenceSystem : EntitySystem
         while (planets.MoveNext(out var body))
         {
             var id = body.Type.Id;
-            if (onlyPlanet != null && id != onlyPlanet || final && _finalSaves.Contains(id))
+            if (_pausedSaves.ContainsKey(id) || onlyPlanet != null && id != onlyPlanet || final && _finalSaves.Contains(id))
                 continue;
 
-            var interval = _nextSaveOverrides.GetValueOrDefault(id, _saveInterval);
-            if (!final && onlyPlanet == null && (interval <= TimeSpan.Zero ||
-                _timing.CurTime - _lastSaves.GetValueOrDefault(id, _roundStartTime) < interval))
+            if (!final && onlyPlanet == null &&
+                (NextSaveAt(id) is not { } due || _timing.CurTime < due))
                 continue;
 
             if (body.SurfaceNetwork is not { } network || TerminatingOrDeleted(network) ||
@@ -212,10 +226,11 @@ public sealed partial class PlanetPersistenceSystem : EntitySystem
             if (saved)
                 AnnounceSave(planet.Name, final ? TimeSpan.Zero : overrideInterval ?? _saveInterval);
 #endif
-            if (onlyPlanet != null)
-                return saved;
             if (saved && final)
                 _finalSaves.Add(id);
+            PanelChanged?.Invoke();
+            if (onlyPlanet != null)
+                return saved;
         }
 
         return false;
@@ -239,30 +254,16 @@ public sealed partial class PlanetPersistenceSystem : EntitySystem
             if (!data.IsDir(planetFolder))
                 return Loc.GetString("planet-save-delete-not-found");
 
-            var suffix = FormattableString.Invariant($"-{roundId}");
             var matches = data.DirectoryEntries(planetFolder).Where(name =>
-                name.EndsWith(suffix, StringComparison.Ordinal) &&
-                DateTime.TryParseExact(name[..^suffix.Length], "yyyyMMddTHHmmssfffffff'Z'",
-                    CultureInfo.InvariantCulture, DateTimeStyles.None, out _) &&
+                TryGetRoundId(name, out var savedRound) && savedRound == roundId &&
                 data.IsDir(planetFolder / name)).ToArray();
             if (matches.Length == 0)
                 return Loc.GetString("planet-save-delete-not-found");
             if (matches.Length > 1)
                 return Loc.GetString("planet-save-delete-ambiguous");
 
-            var name = matches[0];
-            if (_roundStartedAt is { } startedAt && name == RoundFolder(startedAt, _ticker.RoundId) &&
-                !_finalSaves.Contains(planetId))
-                return Loc.GetString("planet-save-delete-current");
-
-            var folder = planetFolder / name;
-            if (!confirm)
-                return Loc.GetString("planet-save-delete-confirm", ("folder", folder.ToString()));
-
-            data.Delete(folder);
-            if (_saves.TryGetValue(planetId, out var cached) && cached.Folder == folder)
-                _saves.Remove(planetId);
-            return Loc.GetString("planet-save-delete-ok", ("folder", folder.ToString()));
+            return DeleteSave(planetId, matches[0], confirm) ??
+                Loc.GetString("planet-save-delete-ok", ("folder", (planetFolder / matches[0]).ToString()));
         }
         catch (Exception e) when (e is IOException or UnauthorizedAccessException or ArgumentException)
         {
@@ -271,8 +272,41 @@ public sealed partial class PlanetPersistenceSystem : EntitySystem
         }
     }
 
+    private bool CanDeleteSave(string planetId, string folder) =>
+        _roundStartedAt is not { } startedAt || folder != RoundFolder(startedAt, _ticker.RoundId) ||
+        _finalSaves.Contains(planetId);
+
+    private string? DeleteSave(string planetId, string name, bool confirm, ICommonSession? admin = null)
+    {
+        if (!CanDeleteSave(planetId, name))
+            return Loc.GetString("planet-save-delete-current");
+
+        var folder = Root / planetId / name;
+        if (!confirm)
+            return Loc.GetString("planet-save-delete-confirm", ("folder", folder.ToString()));
+
+        _resources.UserData.Delete(folder);
+        if (_saves.TryGetValue(planetId, out var cached) && cached.Folder == folder)
+            _saves.Remove(planetId);
+        if (admin != null && TryGetRoundId(name, out var round))
+            _chat.SendAdminAnnouncement(Loc.GetString("persistence-panel-delete-admin",
+                ("admin", admin.Name), ("planet", planetId), ("round", round)));
+        PanelChanged?.Invoke();
+        return null;
+    }
+
     private static string RoundFolder(DateTime startedAt, int roundId) =>
         FormattableString.Invariant($"{startedAt:yyyyMMddTHHmmssfffffffZ}-{roundId}");
+
+    private static bool TryGetRoundId(string folderName, out int roundId)
+    {
+        roundId = default;
+        var separator = folderName.LastIndexOf('-');
+        return separator > 0 &&
+               DateTime.TryParseExact(folderName.AsSpan(0, separator), "yyyyMMddTHHmmssfffffff'Z'",
+                   CultureInfo.InvariantCulture, DateTimeStyles.None, out _) &&
+               int.TryParse(folderName.AsSpan(separator + 1), NumberStyles.None, CultureInfo.InvariantCulture, out roundId);
+    }
 
     private bool SavePlanet(PlanetTypePrototype planet, PlanetMapGenerationComponent generation, DateTime startedAt, int roundId, bool final)
     {
@@ -312,7 +346,45 @@ public sealed partial class PlanetPersistenceSystem : EntitySystem
             return false;
         }
 
+        var maxSaves = planet.Persistence == PlanetPersistenceMode.Terrain
+            ? 1
+            : Math.Max(1, _cfg.GetCVar(MonoCVars.PlanetMaxSaves));
+        PruneSaves(planet.ID, folder, generation.Seed, maxSaves);
         return true;
+    }
+
+    private void PruneSaves(string planetId, ResPath current, int seed, int maxSaves)
+    {
+        var data = _resources.UserData;
+        var planetFolder = current.Directory;
+        try
+        {
+            var expired = data.DirectoryEntries(planetFolder)
+                .Where(name => TryGetRoundId(name, out _))
+                .OrderByDescending(name => name, StringComparer.Ordinal)
+                .Select(name => planetFolder / name)
+                .Where(folder => folder != current && data.IsDir(folder) && data.Exists(folder / "metadata.yml"))
+                .Skip(maxSaves - 1)
+                .ToArray();
+
+            foreach (var folder in expired)
+            {
+                try
+                {
+                    data.Delete(folder);
+                    if (_saves.TryGetValue(planetId, out var cached) && cached.Folder == folder)
+                        _saves[planetId] = (seed, current);
+                }
+                catch (Exception e) when (e is IOException or UnauthorizedAccessException or ArgumentException)
+                {
+                    _sawmill.Warning($"Could not prune planet save at {folder}: {e.Message}");
+                }
+            }
+        }
+        catch (Exception e) when (e is IOException or UnauthorizedAccessException or ArgumentException)
+        {
+            _sawmill.Warning($"Could not list planet saves for retention in {planetFolder}: {e.Message}");
+        }
     }
 
 #if DEBUG
