@@ -55,13 +55,16 @@
   - type: ShipRepairable
     repairTime: 30
     repairCost: 100
+  - type: HardpointAnchorableOnly
+    class: Ballistic
+    size: Medium
 
 # limited ammo for ships
 
 - type: entity
   id: WeaponTurretTarnyxReload
   name: ADBX-31 TARNYX 150mm EMP Cannon
-  parent: BallisticArtilleryUnanchorableCartridge
+  parent: BallisticArtilleryCartridge
   suffix: Medium, T2 - Infinite EMP
   description: A heavy EMP cannon made by Aetherion Dynamics, designed to disable large sections of enemy ships with a single, powerful shot. Effective in asymmetric combat. Can be remotely activated or linked up to a GCS.
   components:
@@ -111,3 +114,34 @@
   - type: ShipRepairable
     repairTime: 30
     repairCost: 100
+  - type: HardpointAnchorableOnly
+    class: Ballistic
+    size: Medium
+
+- type: entity
+  id: WeaponTurretTarnyxReloadAP
+  name: GS-001 EQUINOX 150mm AP Cannon
+  parent: WeaponTurretTarnyxReload
+  suffix: Ship, Infinite Standard AP Ammo
+  description: A knockoff heavy cannon made by GS, unlike the ABDX-31, it automatically loads AP shells. Effective in asymmetric combat. Can be remotely activated or linked up to a GCS.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/ShuttleWeapons/equinox.rsi
+    layers:
+    - state: space_artillery
+  - type: Gun
+    fireRate: 0.075 # 3.96 rpm > 4.5
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - 150mmShell
+    capacity: 3
+    infiniteUnspawned: true
+    proto: 150mmApShell
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+  - type: ShipGunType
+    shipType: Ballistic
+  - type: HardpointAnchorableOnly
+    class: Ballistic
+    size: Medium

@@ -97,3 +97,11 @@
   - type: Machine
     partOverrides:
       Capacitor: AdvancedCapacitorStockPart
+
+- type: entity
+  id: ThrusterLargeSecurity #Wasn't sure if it was better to make a file for one thruster.
+  parent: ThrusterLarge
+  suffix: Security
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Shuttles/thrustersecurity_large.rsi

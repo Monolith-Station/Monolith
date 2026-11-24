@@ -47,14 +47,11 @@
 - type: technology
   id: RogueAdvancedGuns
   name: research-technology-rogue-advanced-guns
-  entityIcon: WeaponRifleM90
+  entityIcon: WeaponLauncherPanzero
   discipline: RogueWeaponry
   tier: 2
-  cost: 55000
+  cost: 15000
   recipeUnlocks:
-  - WeaponSubMachineGunAtreidesRogue
-  - WeaponRifleM90Rogue
-  - WeaponShotgunBulldogRogue
   - WeaponLauncherPanzeroRogue
   technologyPrerequisites:
   - UniversalMaterialResearchT2
@@ -64,21 +61,17 @@
 - type: technology
   id: RogueHeavyWeapons
   name: research-technology-rogue-heavy-weapons
-  entityIcon: WeaponLightMachineGunL6
+  entityIcon: WeaponSniperHristov
   discipline: RogueWeaponry
   tier: 3
-  cost: 75000
+  cost: 20000
   recipeUnlocks:
-  - WeaponSniperHristovRogue
-  - WeaponLightMachineGunL6Rogue
-  - WeaponRifleBurnerRogue
   - Magazine762x39mmBox
   - Magazine127x99mm
   - AmmoBox127x99mm
   - AmmoBox145x114mm
   - AmmoBox145x114mmEMP
   - AmmoBox145x114mmBig
-  - WeaponDEWBasilisk
   - Magazine10Phz # for basilisk
   - AmmoBox10Phz # for basilisk
   technologyPrerequisites:
@@ -92,12 +85,10 @@
   entityIcon: WeaponSubMachineGunMla73
   discipline: RogueWeaponry
   tier: 2
-  cost: 35000
+  cost: 10000
   recipeUnlocks:
-  - WeaponRifleWSPRRogue
   - Magazine762x39mmSubsonic
   - AmmoBox762x39mmSubsonic
-  - WeaponSubMachineGunMla73Rogue
   - Magazine635x40mmCaseless
   - AmmoBox635x40mmCaseless
   - MagazineAsmgtUniversal635x40mm

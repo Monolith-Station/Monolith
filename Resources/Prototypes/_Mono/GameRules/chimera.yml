@@ -2,10 +2,14 @@
   id: ChimeraShipsTable
   table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
     children:
-      - id: UnknownShuttleChimeraSakuratsu
-      - id: UnknownShuttleChimeraOlympus
-      - id: UnknownShuttleChimeraTethys
-      - id: UnknownShuttleChimeraLegionnaire
+      - id: UnknownShuttleChimeraYukikaze
+      - id: UnknownShuttleChimeraPebble
+      - id: UnknownShuttleChimeraNeptune
+      - id: UnknownShuttleChimeraKite
+      - id: UnknownShuttleChimeraCinqueda
+      - id: UnknownShuttleChimeraMudskipper
+      - id: UnknownShuttleChimeraGadfly
+      - id: UnknownShuttleChimeraFracture
 
 - type: entity
   parent: BaseRandomShuttleRule
@@ -67,3 +71,122 @@
   - type: LoadMapRule
     gridPath: /Maps/_Mono/ShuttleEvent/legionnaire_chimera.yml
 
+- type: entity
+  parent: BaseRandomShuttleRule
+  id: UnknownShuttleChimeraYukikaze
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-unknown-shuttle-detected #station-event-chimera-shuttle-detected
+    startAudio:
+      path: /Audio/Misc/notice1.ogg
+    weight: 2
+    maxOccurrences: 4 # You may think this is absurd, but it can only spawn 4 events max in normal schedulers anyways.
+  - type: GameRule
+    minPlayers: 40
+  - type: LoadMapRule
+    gridPath: /Maps/_Mono/ShuttleEvent/yukikaze_chimera.yml
+
+- type: entity
+  parent: BaseRandomShuttleRule
+  id: UnknownShuttleChimeraPebble
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-unknown-shuttle-detected #station-event-chimera-shuttle-detected
+    startAudio:
+      path: /Audio/Misc/notice1.ogg
+    weight: 2
+    maxOccurrences: 4 # You may think this is absurd, but it can only spawn 4 events max in normal schedulers anyways.
+  - type: GameRule
+    minPlayers: 40
+  - type: LoadMapRule
+    gridPath: /Maps/_Mono/ShuttleEvent/pebble_chimera.yml
+
+- type: entity
+  parent: BaseRandomShuttleRule
+  id: UnknownShuttleChimeraNeptune
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-unknown-shuttle-detected #station-event-chimera-shuttle-detected
+    startAudio:
+      path: /Audio/Misc/notice1.ogg
+    weight: 2
+    maxOccurrences: 4 # You may think this is absurd, but it can only spawn 4 events max in normal schedulers anyways.
+  - type: GameRule
+    minPlayers: 40
+  - type: LoadMapRule
+    gridPath: /Maps/_Mono/ShuttleEvent/neptune_chimera.yml
+
+- type: entity
+  parent: BaseRandomShuttleRule
+  id: UnknownShuttleChimeraKite
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-unknown-shuttle-detected #station-event-chimera-shuttle-detected
+    startAudio:
+      path: /Audio/Misc/notice1.ogg
+    weight: 2
+    maxOccurrences: 4 # You may think this is absurd, but it can only spawn 4 events max in normal schedulers anyways.
+  - type: GameRule
+    minPlayers: 40
+  - type: LoadMapRule
+    gridPath: /Maps/_Mono/ShuttleEvent/kite_chimera.yml
+
+- type: entity
+  parent: BaseRandomShuttleRule
+  id: UnknownShuttleChimeraCinqueda
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-unknown-shuttle-detected #station-event-chimera-shuttle-detected
+    startAudio:
+      path: /Audio/Misc/notice1.ogg
+    weight: 2
+    maxOccurrences: 4 # You may think this is absurd, but it can only spawn 4 events max in normal schedulers anyways.
+  - type: GameRule
+    minPlayers: 40
+  - type: LoadMapRule
+    gridPath: /Maps/_Mono/ShuttleEvent/cinqueda_chimera.yml
+
+- type: entity
+  parent: BaseRandomShuttleRule
+  id: UnknownShuttleChimeraMudskipper
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-unknown-shuttle-detected #station-event-chimera-shuttle-detected
+    startAudio:
+      path: /Audio/Misc/notice1.ogg
+    weight: 2
+    maxOccurrences: 4 # You may think this is absurd, but it can only spawn 4 events max in normal schedulers anyways.
+  - type: GameRule
+    minPlayers: 40
+  - type: LoadMapRule
+    gridPath: /Maps/_Mono/ShuttleEvent/mudskipper_chimera.yml
+
+- type: entity
+  parent: BaseRandomShuttleRule
+  id: UnknownShuttleChimeraGadfly
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-unknown-shuttle-detected #station-event-chimera-shuttle-detected
+    startAudio:
+      path: /Audio/Misc/notice1.ogg
+    weight: 2
+    maxOccurrences: 4 # You may think this is absurd, but it can only spawn 4 events max in normal schedulers anyways.
+  - type: GameRule
+    minPlayers: 40
+  - type: LoadMapRule
+    gridPath: /Maps/_Mono/ShuttleEvent/gadfly_chimera.yml
+
+- type: entity
+  parent: BaseRandomShuttleRule
+  id: UnknownShuttleChimeraFracture
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-unknown-shuttle-detected #station-event-chimera-shuttle-detected
+    startAudio:
+      path: /Audio/Misc/notice1.ogg
+    weight: 2
+    maxOccurrences: 4 # You may think this is absurd, but it can only spawn 4 events max in normal schedulers anyways.
+  - type: GameRule
+    minPlayers: 40
+  - type: LoadMapRule
+    gridPath: /Maps/_Mono/ShuttleEvent/fracture_chimera.yml

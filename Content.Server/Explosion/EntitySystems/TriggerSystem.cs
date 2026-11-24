@@ -1,3 +1,4 @@
+using Content.Server._Mono.Deathrattle.Components;
 using Content.Server._Mono.Planets;
 using Content.Server.Administration.Logs;
 using Content.Server.Body.Systems;
@@ -256,6 +257,11 @@ namespace Content.Server.Explosion.EntitySystems
             // Frontier: Gets station location of the implant
             var grid = ownerXform.GridUid;
             var gridText = grid is null ? "" : MetaData(grid.Value).EntityName;
+
+            // Mono: Check if this place is actively jamming deathrattles.
+            var implantProto = MetaData(uid).EntityPrototype;
+            if (TryComp<JamDeathrattlesComponent>(grid, out var jamComp) && implantProto != null && !jamComp.Exclusions.Contains(implantProto.ID))
+                return;
 
             if (HasComp<MapComponent>(grid) && !HasComp<PlanetMapComponent>(grid))
                 gridText = "";

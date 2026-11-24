@@ -1,0 +1,43 @@
+# Author Info
+# GitHub: Corrupt142
+# Discord: Chu-d
+
+# Shuttle Notes:
+# nothing mutch tbh, its just a bigger, less ugly arrbane :godo:
+- type: vessel
+  id: Windreign
+  parent: BaseVessel
+  name: HES Windreign
+  description: A large, purpose-built shuttle designed for atmospheric technicians. Armed with 3x AK570, some PD and a heavy ballistic mount.
+  price: 220000
+  category: Large
+  group: Shipyard
+  shuttlePath: /SharedMaps/_Mono/Shuttles/Civilian/windreign.yml
+  guidebookPage: Null
+  class:
+  - Atmospherics
+  engine:
+  - AME
+
+- type: gameMap
+  id: Windreign
+  mapName: 'HES Windreign'
+  mapPath: /SharedMaps/_Mono/Shuttles/Civilian/windreign.yml
+  minPlayers: 0
+  stations:
+    Windreign:
+      stationProto: StandardFrontierVessel
+      gridComponents:
+      - type: VesselInfo
+        description: "The air smells of plasma and sulfur.."
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Windreign CIV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            # Pilot: [ 0, 0 ]
+            # Mercenary: [ 0, 0 ]

@@ -19,9 +19,9 @@
   - type: PhysicalComposition
     materialComposition:
       IriditeSlag: 1
-  - type: GuideHelp
-    guides:
-    - ArcFurnace
+  #- type: GuideHelp
+#    guides:
+#    - ArcFurnace
   - type: Stack
     stackType: IriditeSlag
     count: 1
@@ -56,9 +56,9 @@
   - type: Tag
     tags:
     - IriditePowder
-  - type: GuideHelp
-    guides:
-    - ArcFurnace
+  #- type: GuideHelp
+  #  guides:
+  #  - ArcFurnace
 
 - type: entity
   id: IriditeCrystal
@@ -74,6 +74,6 @@
   - type: Tag
     tags:
     - IriditeCrystal
-  - type: GuideHelp
-    guides:
-    - ArcFurnace
+  #- type: GuideHelp
+  #  guides:
+  #  - ArcFurnace

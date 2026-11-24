@@ -1,0 +1,83 @@
+- type: cargoBounty
+  id: MMCBountySpaceCashT1
+  reward: 300 # 1.5x input
+  rewardSuffix: MIC
+  rewardProto: MMCIndustrialCredit
+  description: mmc-bounty-desc-money
+  idPrefix: HKD-VLE
+  entries:
+  - name: mmc-bounty-name-credits
+    amount: 200000
+    whitelist:
+      tags:
+      - SpaceCash
+
+- type: cargoBounty
+  id: MMCBountySpaceCashT2
+  reward: 800 # 2x input
+  rewardSuffix: MIC
+  rewardProto: MMCIndustrialCredit
+  description: mmc-bounty-desc-money
+  idPrefix: HKD-VLE
+  entries:
+  - name: mmc-bounty-name-credits
+    amount: 400000
+    whitelist:
+      tags:
+      - SpaceCash
+
+- type: cargoBounty
+  id: MMCBountySpaceCashT3
+  reward: 1600 # 2x input
+  rewardSuffix: MIC
+  rewardProto: MMCIndustrialCredit
+  description: mmc-bounty-desc-money
+  idPrefix: HKD-VLE
+  entries:
+  - name: mmc-bounty-name-credits
+    amount: 800000
+    whitelist:
+      tags:
+      - SpaceCash
+
+- type: cargoBounty
+  id: MMCBountyIridite
+  reward: 500
+  rewardSuffix: MIC
+  rewardProto: MMCIndustrialCredit
+  description: mmc-bounty-desc-generic
+  idPrefix: HKD-VLE
+  entries:
+  - name: mmc-bounty-name-iridite
+    amount: 5
+    whitelist:
+      tags:
+      - IriditeSheet
+
+- type: cargoBounty
+  id: MMCBountyPlastitanium
+  reward: 500
+  rewardSuffix: MIC
+  rewardProto: MMCIndustrialCredit
+  description: mmc-bounty-desc-generic
+  idPrefix: HKD-VLE
+  entries:
+  - name: mmc-bounty-name-plastitanium
+    amount: 50
+    whitelist:
+      tags:
+      - PlastitaniumSheet
+
+- type: cargoBounty
+  id: MMCBountyIriditeBulk # For the atmos setups.
+  reward: 10000
+  rewardSuffix: MIC
+  rewardProto: MMCIndustrialCredit
+  description: mmc-bounty-desc-generic
+  idPrefix: HKD-VLE
+  entries:
+  - name: mmc-bounty-name-iridite
+    amount: 200
+    whitelist:
+      tags:
+      - IriditeSheet

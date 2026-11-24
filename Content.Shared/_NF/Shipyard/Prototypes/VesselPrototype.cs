@@ -191,6 +191,15 @@ public enum VesselClass : byte
     Destroyer,
     Cruiser,
     // i doubt we'll ever get to cruisers
+    Escort, // PD heavy, decent manueverability
+    Brawler, // good firing arcs and anti-ship weapons, poor PD
+    MissileCarrier, // ships armed with primarly LIGHT missiles like vesperas/vanyks for SMALL SHIPS
+    AntiShipMissileCarrier, // hello slava-class guided missile cruiser - use this for ships that carry a heavy armament of AShMs like paladins/tridents
+    Carrier, // carriers w/ crewed fighters
+    DroneCarrier, // carriers w/ drone fighters
+    MechCarrier, // carriers w/ mech bays
+    EarlyWarning, // elite+ radar
+    Stealth, // stealth thrusters and generators
 }
 
 public enum VesselEngine : byte

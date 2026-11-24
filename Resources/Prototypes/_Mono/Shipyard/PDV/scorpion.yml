@@ -1,0 +1,36 @@
+- type: vessel
+  id: Scorpion
+  parent: BaseVesselIFFDisabled
+  name: PDV-VI Scorpion
+  description: A light corvette armed with missile launchers for all kinds of ships.
+  price: 150000
+  purchasable: false # Voucher only - T1
+  category: Large
+  group: BlackMarket
+  shuttlePath: /SharedMaps/_Mono/Shuttles/PDV/scorpion.yml
+  guidebookPage: Null
+  class:
+  - AntiShipMissileCarrier
+  - MissileCarrier
+  - Corvette
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Scorpion
+  mapName: 'Scorpion'
+  mapPath: /SharedMaps/_Mono/Shuttles/PDV/scorpion.yml
+  minPlayers: 0
+  stations:
+    Scorpion:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Scorpion PDV{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Pirate: [ 0, 0 ]
+            PdvBorg: [ 0, 0 ]

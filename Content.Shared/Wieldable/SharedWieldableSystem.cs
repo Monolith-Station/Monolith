@@ -60,6 +60,7 @@ public abstract partial class SharedWieldableSystem : EntitySystem
         SubscribeLocalEvent<GunWieldBonusComponent, ItemUnwieldedEvent>(OnGunUnwielded);
         SubscribeLocalEvent<GunWieldBonusComponent, GunRefreshModifiersEvent>(OnGunRefreshModifiers);
         SubscribeLocalEvent<GunWieldBonusComponent, ExaminedEvent>(OnExamine);
+        SubscribeLocalEvent<GunWieldBonusComponent, MapInitEvent>(OnBonusInit); // Mono
         SubscribeLocalEvent<SpeedModifiedOnWieldComponent, ItemWieldedEvent>(OnSpeedModifierWielded);
         SubscribeLocalEvent<SpeedModifiedOnWieldComponent, ItemUnwieldedEvent>(OnSpeedModifierUnwielded);
         SubscribeLocalEvent<SpeedModifiedOnWieldComponent, HeldRelayedEvent<RefreshMovementSpeedModifiersEvent>>(OnRefreshSpeedWielded);
@@ -134,18 +135,11 @@ public abstract partial class SharedWieldableSystem : EntitySystem
              noWieldNeeded.GetBonus)
            )
         {
-            // Mono start - do all this stupid bullshit because i'm too lazy to make attachments modify the wieldcomp
-            if (TryComp<GunComponent>(args.Gun, out var gunComp))
-            {
-                var minAngleAdd = bonus.Comp.MinAngle * (gunComp.MinAngleModified / gunComp.MinAngle);
-                var maxAngleAdd = bonus.Comp.MaxAngle * (gunComp.MaxAngleModified / gunComp.MaxAngle);
-                var angleDecayAdd = bonus.Comp.AngleDecay * (gunComp.AngleDecayModified / gunComp.AngleDecay);
-                var angleIncreaseAdd = bonus.Comp.AngleIncrease * (gunComp.AngleIncreaseModified / gunComp.AngleIncrease);
-                args.MinAngle += minAngleAdd;
-                args.MaxAngle += maxAngleAdd;
-                args.AngleDecay += angleDecayAdd;
-                args.AngleIncrease += angleIncreaseAdd;
-            }
+            // Mono - change it to get from modified angles for attachments. also adds a floor for 0 angle
+                args.MinAngle = Math.Max(args.MinAngle + bonus.Comp.MinAngleModified, 0);
+                args.MaxAngle = Math.Max(args.MaxAngle + bonus.Comp.MaxAngleModified, 0);
+                args.AngleDecay += bonus.Comp.AngleDecayModified;
+                args.AngleIncrease += bonus.Comp.AngleIncreaseModified;
             // Mono end
         }
     }
@@ -172,6 +166,15 @@ public abstract partial class SharedWieldableSystem : EntitySystem
     {
         if (entity.Comp.WieldRequiresExamineMessage != null)
             args.PushText(Loc.GetString(entity.Comp.WieldRequiresExamineMessage));
+    }
+
+    // Mono
+    private void OnBonusInit(EntityUid uid, GunWieldBonusComponent component, ref MapInitEvent args)
+    {
+        component.MaxAngleModified = component.MaxAngle;
+        component.MinAngleModified = component.MinAngle;
+        component.AngleDecayModified = component.AngleDecay;
+        component.AngleIncreaseModified = component.AngleIncrease;
     }
 
     private void OnExamine(EntityUid uid, GunWieldBonusComponent component, ref ExaminedEvent args)

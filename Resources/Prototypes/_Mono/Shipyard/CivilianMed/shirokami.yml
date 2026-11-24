@@ -1,0 +1,36 @@
+- type: vessel
+  id: Shirokami
+  parent: BaseVessel
+  name: SKR-MMC Shirokami
+  description: Compact plastitanium-hulled medical vessel outfitted with chemistry, cryo, and basic treatment options for SAR. Poorly armed for self defence with only 2 57mm autocannons.
+  price: 112000
+  category: Medium
+  group: Medical
+  shuttlePath: /SharedMaps/_Mono/Shuttles/CivilianMed/shirokami.yml
+  guidebookPage: null
+  class:
+  - Medical
+  - Chemistry
+  engine:
+  - AME
+
+- type: gameMap
+  id: Shirokami
+  mapName: 'SKR-MMC Shirokami'
+  mapPath: /SharedMaps/_Mono/Shuttles/CivilianMed/shirokami.yml
+  minPlayers: 0
+  stations:
+    Shirokami:
+      stationProto: StandardFrontierVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Shirokami MED{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            Contractor: [ 0, 0 ]
+            MdMedic: [ 0, 0 ]
+            # Pilot: [ 0, 0 ]
+            # Mercenary: [ 0, 0 ]

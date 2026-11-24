@@ -79,7 +79,7 @@
     mode: SnapgridCenter
   components:
   - type: Sprite
-    offset: 2,0
+    offset: 1,0
     sprite: _Mono/Structures/Decoration/Greeble/32x96.rsi
     layers:
     - state: antenna3
@@ -95,7 +95,7 @@
     mode: SnapgridCenter
   components:
   - type: Sprite
-    offset: 0,2
+    offset: 0,-2
     sprite: _Mono/Structures/Decoration/Greeble/32x96.rsi
     layers:
     - state: radiator1
@@ -109,7 +109,7 @@
     mode: SnapgridCenter
   components:
   - type: Sprite
-    offset: 0,1
+    offset: 0,-2
     sprite: _Mono/Structures/Decoration/Greeble/32x96.rsi
     layers:
     - state: radiator2
