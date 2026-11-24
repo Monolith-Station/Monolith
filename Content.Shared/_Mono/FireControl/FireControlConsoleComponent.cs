@@ -1,3 +1,5 @@
+using System.Numerics;
+
 namespace Content.Shared._Mono.FireControl;
 
 /// <summary>
@@ -27,4 +29,16 @@ public sealed partial class FireControlConsoleComponent : Component
 
     [DataField]
     public bool RadarTrackEnabled;
+
+    [ViewVariables]
+    public float LockQuality;
+
+    [ViewVariables]
+    public TimeSpan? CoastUntil;
+
+    [ViewVariables]
+    public Vector2 CoastPos;
+
+    [ViewVariables]
+    public Vector2 CoastVel;
 }

@@ -7,28 +7,39 @@ namespace Content.Client._Mono.Sensors.UI;
 public static class RadarLockOverlay
 {
     private static readonly Color LockColor = Color.FromHex("#33FF66");
+    private static readonly Color CoastColor = Color.FromHex("#88AA88");
     private static readonly Color LeadColor = Color.FromHex("#FFCC33");
-    private static readonly Color LineColor = Color.FromHex("#FFCC33").WithAlpha(0.55f);
 
     public static void Draw(DrawingHandleScreen handle, RadarLockStateDto? lockState, Matrix3x2 worldToView, float uiScale)
     {
         if (lockState is not { LockValid: true, TargetWorldPosition: { } tgtWorld })
             return;
 
+        var q = Math.Clamp(lockState.Quality, 0f, 1f);
+        var lockCol = (lockState.Coasting ? CoastColor : LockColor).WithAlpha(0.35f + 0.65f * q);
         var tgtScreen = Vector2.Transform(tgtWorld, worldToView);
-        DrawCornerBrackets(handle, tgtScreen, 14f * uiScale, 6f * uiScale, LockColor);
+        DrawCornerBrackets(handle, tgtScreen, 14f * uiScale, 6f * uiScale, lockCol);
+
+        if (q < 0.25f)
+            return;
+
+        var leadAlpha = 0.25f + 0.75f * q;
+        var lineCol = LeadColor.WithAlpha(0.55f * leadAlpha);
+        var leadCol = LeadColor.WithAlpha(leadAlpha);
 
         void DrawOneLead(Vector2 leadWorld)
         {
             var leadScreen = Vector2.Transform(leadWorld, worldToView);
-            handle.DrawLine(tgtScreen, leadScreen, LineColor);
-            DrawDiamond(handle, leadScreen, 5f * uiScale, LeadColor);
+            handle.DrawLine(tgtScreen, leadScreen, lineCol);
+            DrawDiamond(handle, leadScreen, 5f * uiScale, leadCol);
         }
 
         if (lockState.WeaponLeads is { Count: > 0 })
         {
             foreach (var w in lockState.WeaponLeads)
+            {
                 DrawOneLead(w.LeadWorld);
+            }
         }
         else if (lockState.AverageLeadWorld is { } avg)
         {

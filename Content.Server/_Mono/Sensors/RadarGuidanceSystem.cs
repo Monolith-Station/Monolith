@@ -29,18 +29,30 @@ public sealed partial class RadarGuidanceSystem : EntitySystem
                 continue;
             if (console.LockedTarget is not { } target)
                 continue;
+            if (console.LockQuality < 0.2f)
+                continue;
 
-            var tgtPos = _xform.GetWorldPosition(target);
-            var tgtVel = TryComp<PhysicsComponent>(target, out var tp) ? tp.LinearVelocity : Vector2.Zero;
-            var ourPos = _xform.GetWorldPosition(ourGrid);
-            var ourVel = TryComp<PhysicsComponent>(ourGrid, out var op) ? op.LinearVelocity : Vector2.Zero;
+            var live = _lock.CanLock(consoleUid, target);
+            Vector2 tgtPos;
+            Vector2 tgtVel;
+            if (live)
+            {
+                tgtPos = _xform.GetWorldPosition(target);
+                tgtVel = TryComp<PhysicsComponent>(target, out var tp) ? tp.LinearVelocity : Vector2.Zero;
+            }
+            else
+            {
+                tgtPos = console.CoastPos;
+                tgtVel = console.CoastVel;
+            }
+
             var mapId = Transform(ourGrid).MapID;
             var mapUid = Transform(ourGrid).MapUid;
             if (mapUid == null)
                 continue;
 
-            var missileQ = EntityQueryEnumerator<TargetGuidedComponent, ProjectileComponent, TransformComponent>();
-            while (missileQ.MoveNext(out var missile, out var guided, out var proj, out _))
+            var missileQ = EntityQueryEnumerator<TargetGuidedComponent, ProjectileComponent, TransformComponent, PhysicsComponent>();
+            while (missileQ.MoveNext(out var missile, out var guided, out var proj, out var mxform, out var mphys))
             {
                 if (guided.ControllingConsole != consoleUid)
                     continue;
@@ -56,7 +68,9 @@ public sealed partial class RadarGuidanceSystem : EntitySystem
                     continue;
 
                 var speed = guided.CurrentSpeed > 1f ? guided.CurrentSpeed : guided.MaxSpeed;
-                var lead = RadarLockSystem.ComputeLeadPoint(ourPos, ourVel, tgtPos, tgtVel, speed);
+                var mPos = _xform.GetWorldPosition(missile);
+                var mVel = mphys.LinearVelocity;
+                var (lead, _) = RadarLockSystem.ComputeLeadPoint(mPos, mVel, tgtPos, tgtVel, speed);
 
                 var mapCoords = new MapCoordinates(lead, mapId);
                 var entityCoords = _xform.ToCoordinates(mapUid.Value, mapCoords);
@@ -73,7 +87,7 @@ public sealed partial class RadarGuidanceSystem : EntitySystem
                 continue;
             if (!TryComp<FireControlConsoleComponent>(c, out var console))
                 continue;
-            if (console.RadarTrackEnabled && _lock.IsLockValid(c, console))
+            if (console.RadarTrackEnabled && _lock.IsLockValid(c, console) && console.LockQuality >= 0.2f)
                 continue;
 
             _targetGuided.SetGuidanceMode(missile, false, guided);
