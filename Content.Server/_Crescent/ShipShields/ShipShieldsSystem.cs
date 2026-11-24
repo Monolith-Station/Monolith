@@ -212,27 +212,60 @@ public sealed partial class ShipShieldsSystem : EntitySystem
         var chain = GenerateOvalFixture(shield, "shield", shieldPhysics, mapGrid, shieldVisuals.Padding, shieldVisuals.ShieldDirection, shieldVisuals.ShieldArc);
 
         List<Vector2> roughPoly = new();
-
-        var interval = chain.Count / PhysicsConstants.MaxPolygonVertices;
-
-        // Mono start - modified to work with arcs
-        // int i = 0;
-
-        // while (i < PhysicsConstants.MaxPolygonVertices)
-        // {
-        //     roughPoly.Add(chain.Vertices[i * interval]);
-        //     i++;
-        // }
-        //
-        roughPoly.Add(Vector2.Zero); //add the centrepoint of the ship because otherwise collision is a bit fucked for thin arcs, slightly reduces poly count for circle shields but i think its fine
-        for(var i = 0; i < PhysicsConstants.MaxPolygonVertices - 1; i++){ //since we can only have X points in our polygon we have to spread them out evenly across our vertex chain for the hitbox
-            var vertIndex = (int) MathF.Round(i * (chain.Count - 1) / (float) (PhysicsConstants.MaxPolygonVertices - 2)); //this makes sure we will ALWAYS get the last vertex, and the first one at index 0 as well
-            roughPoly.Add(chain.Vertices[vertIndex]);
-        }
-        // Mono end
-
         var internalPoly = new PolygonShape();
-        internalPoly.Set(roughPoly);
+        var secondaryInternalPoly = new PolygonShape();
+        List<Vector2> secondRoughPoly = new();
+        var offsetZero = Vector2.Zero; //the shield center vertex we will offset by height/width of the grid towards the direction of the shield front to make for fairer hitboxes
+        float midPoint = MathF.PI / 2f - MathHelper.DegreesToRadians(shieldVisuals.ShieldDirection); //taken from createArc
+
+
+        offsetZero = new Vector2(MathF.Cos(midPoint), MathF.Sin(midPoint));
+        if(mapGrid.LocalAABB.Height < mapGrid.LocalAABB.Width){ //oval shield scale X
+            Log.Debug($"OFFSET X: {offsetZero.X}");
+            offsetZero *= (mapGrid.LocalAABB.Width / 2);
+            Log.Debug($"MULT OFFSET X: {offsetZero.X}");
+
+        }
+        else{ //oval shield scale Y
+            Log.Debug($"OFFSET Y: {offsetZero.Y}");
+            offsetZero *= (mapGrid.LocalAABB.Height / 2);
+            Log.Debug($"MULT OFFSET Y: {offsetZero.X}");
+        }
+
+        if(shieldVisuals.ShieldArc <= 180 || shieldVisuals.ShieldArc == 360){ //for single polygon shields
+            roughPoly.Add(Vector2.Zero); //add the centrepoint of the ship because otherwise collision is a bit fucked for thin arcs, slightly reduces poly count for circle shields but i think its fine
+            for(var i = 0; i < PhysicsConstants.MaxPolygonVertices - 1; i++){ //since we can only have X points in our polygon we have to spread them out evenly across our vertex chain for the hitbox
+                var vertIndex = (int) MathF.Round(i * (chain.Count - 1) / (float) (PhysicsConstants.MaxPolygonVertices - 2)); //this makes sure we will ALWAYS get the last vertex, and the first one at index 0 as well
+                roughPoly.Add(chain.Vertices[vertIndex]);
+            }
+            // Mono end
+
+            internalPoly.Set(roughPoly);
+        }
+        else{ //for >180 degree shield arcs we use TWO polygons so we make sure the shield arc doesnt lie about its hitbox
+            roughPoly.Add(offsetZero); //offset centrepoint to make hitboxes more consistent
+            secondRoughPoly.Add(offsetZero); //offset centrepoint to make hitboxes more consistent
+            var vertIndex = 0;
+            // Log.Debug($"[3] MAXVERTINDEX: {chain.Vertices.Length}");
+            for(var i = 0; i < PhysicsConstants.MaxPolygonVertices - 1; i++){ //POLYGON ONE
+                vertIndex = (int) MathF.Round(i * ((chain.Count / 2) - 1) / (float) (PhysicsConstants.MaxPolygonVertices - 2)); //this makes sure we will ALWAYS get the last vertex, and the first one at index 0 as well
+                roughPoly.Add(chain.Vertices[vertIndex]);
+                // Log.Debug($"[1] VERTINDEX: {vertIndex}");
+
+                vertIndex = (int) MathF.Round((i + (PhysicsConstants.MaxPolygonVertices - 2)) * ((chain.Count / 2) - 1) / (float) (PhysicsConstants.MaxPolygonVertices - 2));
+                // Log.Debug($"[2] VERTINDEX: {vertIndex}");
+                secondRoughPoly.Add(chain.Vertices[vertIndex]);
+            }
+            secondaryInternalPoly.Set(secondRoughPoly);
+
+            _fixtureSystem.TryCreateFixture(shield, secondaryInternalPoly, "secondaryInternalShield",
+            hard: true,
+            collisionLayer: (int)CollisionGroup.BulletImpassable + (int)CollisionGroup.LaserImpassable, // Mono - Only try to block bullets AND LASERS
+            body: shieldPhysics);
+
+            }
+
+            internalPoly.Set(roughPoly);
 
         _fixtureSystem.TryCreateFixture(shield, internalPoly, "internalShield",
             hard: true,
@@ -284,7 +317,7 @@ public sealed partial class ShipShieldsSystem : EntitySystem
 
         var chain = new ChainShape();
         // Mono start, made a separate case for arc shields
-        if(shieldArc < 360f && !(shieldArc > 180f)){ //Mono, use arc drawing function for noncircles, and circle func for circles, we do not want shield arcs between 180 and 360 as those cause unintended behaviour
+        if(shieldArc < 360f){ //Mono, use arc drawing function for noncircles, and circle func for circles, we do not want shield arcs between 180 and 360 as those cause unintended behaviour
             CreateArc(chain, radius, shieldDir, shieldArc);
                 if(scaleX){ // because we gave it "ghost vertices" when drawing it so we have to scale those as well
                 chain.NextVertex.X *= scale;
