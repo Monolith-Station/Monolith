@@ -269,7 +269,7 @@
   id: WeaponTurretM220
   name: M220 RUBICON EMP launcher
   parent:
-  - BallisticArtilleryUnanchorable
+  - BallisticArtillery
   - BallisticArtilleryTier2HP
   suffix: Medium, T2
   description: Launches EMP projectiles at ships, disabling systems with powerful electromagnetic pulses. Ideal for non-lethal engagements and can be remotely activated or linked to a GCS.
@@ -690,7 +690,7 @@
   - BallisticArtilleryTier5HP
   suffix: Supercapital, T5
   name: CWZS-2048 "Retribution"
-  description: A result of the reverse-engineering efforts of Caelestinus and the apex of their military armaments programme. A heavy weapon designed to deliver a piercing beam for the heaviest of ship encounters in-sector, however it finds itself mostly neutralised by strong ship shielding.   
+  description: A result of the reverse-engineering efforts of Caelestinus and the apex of their military armaments programme. A heavy weapon designed to deliver a piercing beam for the heaviest of ship encounters in-sector, however it finds itself mostly neutralised by strong ship shielding.
   components:
   - type: StaticPrice
     price: 125000

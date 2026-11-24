@@ -58,4 +58,12 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
         RaiseLocalEvent(localPlayer, new LanguagesUpdateEvent(), broadcast: true);
         OnLanguagesChanged?.Invoke();
     }
+
+    // Mono
+    public bool CanLocalPlayerUnderstand(ProtoId<LanguagePrototype> language)
+    {
+        if (_playerManager.LocalEntity is not { } player)
+            return false;
+        return CanUnderstand(player, language);
+    }
 }
