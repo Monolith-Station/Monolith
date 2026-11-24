@@ -87,14 +87,6 @@ public sealed partial class CEZLevelsSystem
                     _gravgenCapacity.GetValueOrDefault(gravgenXform.ParentUid) + rated;
             }
 
-            // Mapping anchors are unlimited lift: a grid hosting one holds its whole network
-            // aloft regardless of mass (see CEZMappingAnchorComponent).
-            var anchorQuery = EntityQueryEnumerator<CEZMappingAnchorGridComponent>();
-            while (anchorQuery.MoveNext(out var anchorGrid, out _))
-            {
-                _gravgenCapacity[anchorGrid] = float.PositiveInfinity;
-            }
-
             var levelQuery = EntityQueryEnumerator<CEZGridFallerComponent, MapGridComponent>();
             while (levelQuery.MoveNext(out var uid, out var faller, out var grid))
             {
@@ -141,11 +133,6 @@ public sealed partial class CEZLevelsSystem
             {
                 continue;
             }
-
-            // Convoy follower layers don't integrate — they mirror the lead layer's
-            // velocity inside IntegrateFallingGrid.
-            if ((transit.TransitAbove != null || transit.TransitBelow != null) && !transit.ConvoyLead)
-                continue;
 
             _gravityQueue.Add((primary, primaryGrid));
         }
@@ -203,7 +190,8 @@ public sealed partial class CEZLevelsSystem
                 var prevDelta = prevA - prevB;
                 var curDelta = a.Progress - b.Progress;
 
-                if (prevDelta * curDelta > 0f)
+                // Clusters split from one gap start at the same height. Separating isn't a collision.
+                if (prevDelta == 0f || prevDelta * curDelta > 0f)
                     continue;
 
                 if (!TryGetGridSetAabb(a.Primary, out var setA, out var aabbA) ||
@@ -238,7 +226,7 @@ public sealed partial class CEZLevelsSystem
     /// </summary>
     private bool TryGetGridSetAabb(EntityUid primary, out HashSet<EntityUid> set, out Box2 aabb)
     {
-        set = CollectGridSet(primary);
+        set = CollectTransitSet(primary);
         aabb = default;
 
         var first = true;
@@ -285,8 +273,8 @@ public sealed partial class CEZLevelsSystem
             return;
         }
 
-        var xform = Transform(grid);
-        if (!TryComp<CEZTransitMapComponent>(xform.MapUid, out var transit) ||
+        if (Transform(grid).MapUid is not { } transitMap ||
+            !TryComp<CEZTransitMapComponent>(transitMap, out var transit) ||
             transit.LowerMap is not { } lowerMap ||
             !TryComp<CEZMapComponent>(lowerMap, out var lowerZ))
         {
@@ -298,14 +286,8 @@ public sealed partial class CEZLevelsSystem
         var distanceBelow = progress * span;
         var distanceAbove = span - distanceBelow;
 
-        // Convoy-aware bounds: the stack lands on whatever is under its BOTTOM layer
-        // and settles up against whatever is above its TOP layer; any member's
-        // gravgen keeps the whole thing aloft (the connectors carry the load).
-        var convoy = GetConvoyMaps(xform.MapUid!.Value);
-        var groundMapBelow = Comp<CEZTransitMapComponent>(convoy[0]).LowerMap ?? lowerMap;
-        var topUpperMap = Comp<CEZTransitMapComponent>(convoy[^1]).UpperMap;
-
-        var transitSet = CollectTransitSet(grid);
+        var transitSet = CollectGridsOnMap(transitMap);
+        var input = GetTransitVerticalInput(transitMap);
 
         TryComp<PlanetTransitComponent>(grid, out var planetTransit);
         if (planetTransit != null &&
@@ -332,7 +314,6 @@ public sealed partial class CEZLevelsSystem
         }
         else
         {
-            var input = GetConvoyVerticalInput(convoy);
             var accel = GetVerticalThrustAccel(grid);
             var damp = Math.Max(accel, HoverDampAccel);
 
@@ -341,9 +322,9 @@ public sealed partial class CEZLevelsSystem
                 // Flight.
                 faller.Velocity = ApproachTerminal(faller.Velocity, -input * accel, MaxPilotVerticalSpeed, frameTime);
             }
-            else if ((topUpperMap == null || transit.AutoLand) &&
+            else if ((transit.UpperMap == null || transit.AutoLand) &&
                      (distanceBelow > SettleZone ||
-                      transit.AutoLand && !ConvoyBlockedByPlane(convoy[0], groundMapBelow)))
+                      transit.AutoLand && !TransitBlockedByPlane(transitMap, lowerMap)))
             {
                 var target = Math.Clamp(distanceBelow * ApproachGain, TouchdownSpeed, MaxPilotVerticalSpeed);
                 faller.Velocity = MoveTowards(faller.Velocity, target, damp * frameTime);
@@ -357,24 +338,21 @@ public sealed partial class CEZLevelsSystem
                     if (distanceBelow <= TouchdownProgress && MathF.Abs(faller.Velocity) <= ExitTransitMaxSpeed)
                     {
                         faller.Velocity = 0f;
-                        TryExitTransit(grid);
+                        TryExitTransit(grid, up: false);
                         return;
                     }
 
                     target = MathF.Max(TouchdownSpeed, distanceBelow * ApproachGain);
                 }
-                // Only settle up onto the level above if the convoy can actually get through it.
-                // Pinned under solid terrain the ship just hovers against the underside; without
-                // this it would drift into the touchdown band and pop out on top of the ceiling
-                // that was blocking it.
+                // A solid ceiling stops ascent rather than letting a ship settle on top of it.
                 else if (!transit.AutoLand && distanceAbove <= SettleZone
-                         && topUpperMap is { } upper
-                         && !ConvoyBlockedByPlane(convoy[^1], upper))
+                         && transit.UpperMap is { } upper
+                         && !TransitBlockedByPlane(transitMap, upper))
                 {
                     if (distanceAbove <= TouchdownProgress && MathF.Abs(faller.Velocity) <= ExitTransitMaxSpeed)
                     {
                         faller.Velocity = 0f;
-                        TryExitTransit(grid);
+                        TryExitTransit(grid, up: true);
                         return;
                     }
 
@@ -385,7 +363,7 @@ public sealed partial class CEZLevelsSystem
             }
 
             // Slow down when approaching terrain so people under you got some time to move.
-            if (faller.Velocity > 0f && ConvoyBlockedByPlane(convoy[0], groundMapBelow))
+            if (faller.Velocity > 0f && TransitBlockedByPlane(transitMap, lowerMap))
             {
                 var cap = MathF.Max(TouchdownSpeed, distanceBelow * ApproachGain);
                 if (faller.Velocity > cap)
@@ -403,9 +381,9 @@ public sealed partial class CEZLevelsSystem
 
         var currentAltitude = lowerZ.Depth + distanceBelow;
         var altitude = currentAltitude - faller.Velocity * frameTime;
-        // Mono Start: Clamp the whole convoy at the first shell contact.
+        // Clamp the docked set at the first shield contact.
         var delta = altitude - currentAltitude;
-        var pushing = GetConvoyVerticalInput(convoy) != 0f;
+        var pushing = input != 0f;
         foreach (var member in transitSet)
         {
             var from = GetAbsoluteAltitude(member);
@@ -448,14 +426,7 @@ public sealed partial class CEZLevelsSystem
         if (!damagingImpact)
             return;
 
-        var crashSet = CollectGridSet(grid);
-        if (TryGetGridNetwork(grid, out var landedNetwork))
-        {
-            foreach (var member in landedNetwork.Comp.Grids)
-                crashSet.UnionWith(CollectGridSet(member));
-        }
-
-        foreach (var landedUid in crashSet)
+        foreach (var landedUid in transitSet)
         {
             if (TryComp<MapGridComponent>(landedUid, out var landedGrid) && TryComp<CEZGridFallerComponent>(landedUid, out var landedFaller))
                 CrashGrid((landedUid, landedGrid, landedFaller));
@@ -526,85 +497,13 @@ public sealed partial class CEZLevelsSystem
         return capacity > 0f && mass <= capacity;
     }
 
-    /// <summary>
-    /// The full rigid body a grid falls (or is held) as one with: the transitive closure over
-    /// both welds — docking ports and z-network connectors — so two stacks docked together fold
-    /// into a single set, no matter how many network-then-dock-then-network hops apart. Support
-    /// is pooled across the whole union. A lone, undocked, networkless grid yields just itself.
-    /// </summary>
-    private HashSet<EntityUid> CollectRigidSet(EntityUid uid)
-    {
-        // Transitive flood over BOTH welds: docking ports and network connectors. One level
-        // isn't enough — a docked partner can itself be a member of another z-network whose own
-        // members are docked to yet more, and so on. Following only the starting grid's network
-        // (and its members' docks) would miss the far side of a stack-to-stack dock, and worse,
-        // give a different set depending on which grid you started from — so the same rigid body
-        // could be judged supported from one end and falling from the other. The flood closes
-        // over the whole connected body, so every grid in it yields the identical set.
-        //
-        // `set` guards enqueueing: each grid enters the queue only the first time it's seen, so
-        // the flood always terminates and docking/network cycles are safe. `dockWalked` and
-        // `netWalked` additionally guard the EXPENSIVE expansions: a docked component (returned
-        // whole by GetAllDockedShuttles) and a network are each walked exactly once, instead of
-        // re-walking the same cluster once per member.
-        var set = new HashSet<EntityUid>();
-        var queue = new Queue<EntityUid>();
-        var dockWalked = new HashSet<EntityUid>();
-        var netWalked = new HashSet<EntityUid>();
-
-        void Add(EntityUid g)
-        {
-            if (set.Add(g))
-                queue.Enqueue(g);
-        }
-
-        Add(uid);
-
-        while (queue.Count > 0)
-        {
-            var g = queue.Dequeue();
-
-            // Docking: GetAllDockedShuttles hands back g's whole docked component at once, and
-            // every grid in it shares that same component — so walk it once, marking the lot.
-            if (dockWalked.Add(g))
-            {
-                foreach (var docked in CollectGridSet(g))
-                {
-                    dockWalked.Add(docked);
-                    Add(docked);
-                }
-            }
-
-            // Connectors weld g to its z-network members; each may open onto a new docked
-            // component, which the loop then walks. Expand each network only once.
-            if (TryGetGridNetwork(g, out var network) && netWalked.Add(network.Owner))
-            {
-                foreach (var member in network.Comp.Grids)
-                    Add(member);
-            }
-        }
-
-        return set;
-    }
-
-    /// <summary>
-    /// Whether a grid's whole rigid set is held aloft: its generators' pooled capacity covers
-    /// the set's pooled mass (so a docked tug or a networked gravgen carries the rest, and every
-    /// member's weight counts against that lift), or any member rests on ground under its
-    /// footprint. Subsumes the old per-grid gravgen check and network-only pooling — for a lone
-    /// grid the set is just itself, giving the identical result.
-    ///
-    /// Memoized per sweep: every grid in one rigid body shares this verdict, so the first grid
-    /// floods + pools once and caches the answer for every member; the rest hit the cache. The
-    /// fall gate calls this once per grid, so without the cache an N-grid body would recompute
-    /// the whole flood N times (O(N²)); with it, once (O(N)).
-    /// </summary>
+    /// <summary>Checks lift and ground support once per same-map docked set per sweep.</summary>
     private bool RigidSetHasSupport(EntityUid uid)
     {
         if (_rigidSupportCache.TryGetValue(uid, out var cached))
             return cached;
 
-        var set = CollectRigidSet(uid);
+        var set = CollectGridSet(uid);
         var supported = SetHasSupport(set);
 
         foreach (var member in set)
@@ -643,9 +542,7 @@ public sealed partial class CEZLevelsSystem
         if (!HasComp<MapGridComponent>(gridUid))
             return false;
 
-        // A z-grid network shares its generators' lift across every member, so the
-        // load is pooled over the whole network; a lone grid answers for itself.
-        var networkGrids = TryGetGridNetwork(gridUid, out var network) ? network.Comp.Grids : null;
+        var grids = CollectTransitSet(gridUid);
 
         var query = EntityQueryEnumerator<GravityGeneratorComponent, TransformComponent>();
         while (query.MoveNext(out _, out var gravgen, out var xform))
@@ -653,26 +550,16 @@ public sealed partial class CEZLevelsSystem
             if (!gravgen.GravityActive)
                 continue;
 
-            var onSet = networkGrids != null
-                ? networkGrids.Contains(xform.ParentUid)
-                : xform.ParentUid == gridUid;
-            if (!onSet)
+            if (!grids.Contains(xform.ParentUid))
                 continue;
 
             capacity += gravgen.MaxHandledMass < 0f ? float.PositiveInfinity : gravgen.MaxHandledMass;
         }
 
-        if (networkGrids != null)
+        foreach (var member in grids)
         {
-            foreach (var member in networkGrids)
-            {
-                if (_physQuery.TryComp(member, out var memberBody))
-                    gridMass += memberBody.FixturesMass;
-            }
-        }
-        else if (_physQuery.TryComp(gridUid, out var body))
-        {
-            gridMass = body.FixturesMass;
+            if (_physQuery.TryComp(member, out var body))
+                gridMass += body.FixturesMass;
         }
 
         return true;

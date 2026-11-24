@@ -83,14 +83,8 @@ public sealed partial class CECableVerticalNode : Node
     {
         neighbourMap = default;
 
-        if (entMan.TryGetComponent<CEZTransitMapComponent>(mapUid, out var transit))
-        {
-            if ((up ? transit.TransitAbove : transit.TransitBelow) is not { } transitNeighbour)
-                return false;
-
-            neighbourMap = transitNeighbour;
-            return true;
-        }
+        if (entMan.HasComponent<CEZTransitMapComponent>(mapUid))
+            return false;
 
         var zLevels = entMan.System<CEZLevelsSystem>();
         if (!(up ? zLevels.TryMapUp(mapUid, out var neighbour) : zLevels.TryMapDown(mapUid, out neighbour)))

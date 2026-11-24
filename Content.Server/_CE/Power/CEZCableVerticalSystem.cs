@@ -12,7 +12,7 @@ using Robust.Shared.Map.Components;
 namespace Content.Server._CE.Power;
 
 /// <summary>
-/// Keeps <see cref="CECableVerticalNode"/> connections in sync with the z-grid network.
+/// Refreshes vertical cable connections when a grid changes Z-level.
 /// </summary>
 public sealed partial class CEZCableVerticalSystem : EntitySystem
 {
@@ -22,22 +22,10 @@ public sealed partial class CEZCableVerticalSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<MapGridComponent, CEGridAddedIntoZNetworkEvent>(OnGridLinked);
-        SubscribeLocalEvent<MapGridComponent, CEGridRemovedFromZNetworkEvent>(OnGridUnlinked);
         SubscribeLocalEvent<MapGridComponent, CEZLevelMapMoveEvent>(OnGridZMoved);
     }
 
     private void OnGridZMoved(Entity<MapGridComponent> grid, ref CEZLevelMapMoveEvent args)
-    {
-        RefloodVerticalNodes(grid.Owner);
-    }
-
-    private void OnGridLinked(Entity<MapGridComponent> grid, ref CEGridAddedIntoZNetworkEvent args)
-    {
-        RefloodVerticalNodes(grid.Owner);
-    }
-
-    private void OnGridUnlinked(Entity<MapGridComponent> grid, ref CEGridRemovedFromZNetworkEvent args)
     {
         RefloodVerticalNodes(grid.Owner);
     }

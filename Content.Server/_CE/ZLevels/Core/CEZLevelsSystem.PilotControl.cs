@@ -73,7 +73,7 @@ public sealed partial class CEZLevelsSystem
     private const float ExitTransitMaxSpeed = 0.1f;
 
     /// <summary>
-    /// Gap held between a convoy and the solid ceiling it's pinned against, as a fraction of the
+    /// Gap held between a ship and the solid ceiling it's pinned against, as a fraction of the
     /// gap. Flush at 1.0 the ceiling sits exactly at the ship's own z and stops drawing over it,
     /// so the terrain you're pressed against appears to vanish; backing off a hair keeps it
     /// rendering overhead where it belongs.
@@ -130,18 +130,6 @@ public sealed partial class CEZLevelsSystem
             if (!TerminatingOrDeleted(grid) && Transform(grid).MapUid == transitMap)
                 total += input;
         }
-
-        return Math.Clamp(total, -1f, 1f);
-    }
-
-    /// <summary>
-    /// Net vertical input across every layer of a transit convoy.
-    /// </summary>
-    private float GetConvoyVerticalInput(List<EntityUid> convoyMaps)
-    {
-        var total = 0f;
-        foreach (var convoyMap in convoyMaps)
-            total += GetTransitVerticalInput(convoyMap);
 
         return Math.Clamp(total, -1f, 1f);
     }

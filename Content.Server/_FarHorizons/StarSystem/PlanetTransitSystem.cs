@@ -134,11 +134,6 @@ public sealed partial class PlanetTransitSystem : SharedPlanetTransitSystem
             return;
         }
 
-        var set = _zLevels.CollectTransitSet(ent);
-        var currentMap = Transform(ent).MapUid;
-        if (currentMap == null || set.Any(grid => Transform(grid).MapUid != currentMap))
-            return;
-
         var transit = AddComp<PlanetTransitComponent>(ent);
         transit.Planet = surface.Planet;
         transit.Direction = PlanetTransitDirection.Ascent;
@@ -381,10 +376,6 @@ public sealed partial class PlanetTransitSystem : SharedPlanetTransitSystem
                     RemComp<PlanetTransitComponent>(uid);
                 continue;
             }
-
-            var set = _zLevels.CollectTransitSet(uid);
-            if (set.Any(member => Transform(member).MapUid != currentMap))
-                continue;
 
             _ascentPriming.Remove(uid);
             IsolateGrid(uid, transit);

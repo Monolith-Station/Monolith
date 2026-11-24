@@ -35,9 +35,7 @@ public sealed partial class ProjectileSystem
                 : null;
         }
 
-        if ((!_zLevels.TryMapDown(map, out _) &&
-            (!TryComp<CEZTransitMapComponent>(map, out var transit) || transit.TransitBelow == null)) ||
-            HasZShotFloor(map, aim.Position))
+        if (!_zLevels.TryMapDown(map, out _) || HasZShotFloor(map, aim.Position))
             return null;
 
         return new ZShot(map, null, aim.Position, delta / length);
@@ -126,12 +124,6 @@ public sealed partial class ProjectileSystem
             if (sourceTransit.UpperMap is { } upperAnchor)
                 upper = upperAnchor;
             maxProgress = _zLevels.GetTransitProgress(sourceTransit);
-
-            // The linked deck is below the fixed lower anchor. Only reach it through a gap in that anchor.
-            if (sourceTransit.TransitBelow is { } linked && !TerminatingOrDeleted(linked) &&
-                (lower == null || !HasZShotFloor(lower.Value, position)) &&
-                TryComp<MapComponent>(linked, out var linkedMap) && HasZShotFloor(linked, position))
-                destination = linkedMap.MapId;
         }
 
         var bestProgress = -1f;

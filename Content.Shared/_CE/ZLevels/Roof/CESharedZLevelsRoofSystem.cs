@@ -47,8 +47,6 @@ public abstract partial class CESharedZLevelsRoofSystem : EntitySystem
 
         if (ZMapQuery.TryComp(ent, out var zLevelMapComp))
             OnMapTileChanged(ent, currentMapGrid, currentRoof, zLevelMapComp, args);
-        else
-            OnGridTileChanged(ent, currentMapGrid, currentRoof, args);
     }
 
     /// <summary>
@@ -86,48 +84,6 @@ public abstract partial class CESharedZLevelsRoofSystem : EntitySystem
 
                 if (Map.TryGetTile(mapGridBelow, indices, out var tile) && !tile.IsEmpty)
                     roofMap[indices] = true;
-            }
-        }
-    }
-
-    /// <summary>
-    /// Space grid path: propagate roof state to sibling grids in the z-grid network using world tile coords.
-    /// </summary>
-    private void OnGridTileChanged(
-        EntityUid gridUid,
-        MapGridComponent currentMapGrid,
-        RoofComponent currentRoof,
-        TileChangedEvent args)
-    {
-        if (!ZLevel.TryGetGridNetwork(gridUid, out var network))
-            return;
-
-        Dictionary<Vector2i, bool> worldRoofMap = new();
-        foreach (var change in args.Changes)
-        {
-            var worldTile = ZLevel.GridTileToWorldTile(gridUid, currentMapGrid, change.GridIndices);
-            var tileDef = (ContentTileDefinition)TilDefMan[change.NewTile.TypeId];
-            var roovedAbove = Roof.IsRooved((gridUid, currentMapGrid, currentRoof), change.GridIndices);
-            worldRoofMap[worldTile] = roovedAbove || !tileDef.Transparent;
-        }
-
-        foreach (var otherGrid in network.Comp.Grids)
-        {
-            if (otherGrid == gridUid)
-                continue;
-
-            if (!GridQuery.TryComp(otherGrid, out var otherMapGrid))
-                continue;
-
-            var otherRoof = EnsureComp<RoofComponent>(otherGrid);
-            var enumerator = Map.GetAllTilesEnumerator(otherGrid, otherMapGrid);
-            while (enumerator.MoveNext(out var tileRef))
-            {
-                var worldTile = ZLevel.GridTileToWorldTile(otherGrid, otherMapGrid, tileRef.Value.GridIndices);
-                if (!worldRoofMap.TryGetValue(worldTile, out var rooved))
-                    continue;
-
-                Roof.SetRoof((otherGrid, otherMapGrid, otherRoof), tileRef.Value.GridIndices, rooved);
             }
         }
     }

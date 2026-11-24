@@ -3,6 +3,7 @@
  * https://github.com/space-wizards/space-station-14/blob/master/LICENSE.TXT
  */
 
+using System.Linq;
 using System.Numerics;
 using Content.Server._CE.ZLevels.Core.Components;
 using Content.Server.Shuttles.Systems;
@@ -29,7 +30,6 @@ public sealed partial class CEZLevelsSystem
     {
         SubscribeLocalEvent<GridAddEvent>(OnGridAdd);
         SubscribeLocalEvent<MapGridComponent, EntParentChangedMessage>(OnGridParentChanged);
-        SubscribeLocalEvent<CEZTransitMapComponent, ComponentShutdown>(OnTransitMapShutdown);
     }
 
     private bool HasTransitMapReference(EntityUid map)
@@ -134,7 +134,6 @@ public sealed partial class CEZLevelsSystem
 
         var other = lostLower ? gap.Comp.UpperMap : gap.Comp.LowerMap;
         var destination = TryGetLiveTransitAnchor(other, out var surviving) ? surviving : below ?? above;
-        UnlinkTransitLayer(gap);
         if (destination is not { } target)
         {
             Log.Warning($"Transit {gap.Owner} lost its anchors and there is literally nowhere to put it in the stack. Giving up and erasing it from existence.");
@@ -143,7 +142,6 @@ public sealed partial class CEZLevelsSystem
         }
 
         var grids = CollectGridsOnMap(gap);
-        grids.RemoveWhere(grid => TerminatingOrDeleted(grid) || EntityManager.IsQueuedForDeletion(grid));
         MoveGridSetToMap(grids, target, target.Comp.Depth - depth, target.Comp.Depth);
         foreach (var grid in grids)
             ResetGridTransitState(grid);
@@ -167,64 +165,9 @@ public sealed partial class CEZLevelsSystem
         _transitLastProgress.Remove(gap);
 
         var span = GetTransitSpan(gap.Comp);
-        if (span != oldSpan)
-            UnlinkTransitLayer(gap);
-
         var progress = Math.Clamp((altitude - lower.Comp.Depth) / span, 0f, 1f);
         foreach (var grid in CollectGridsOnMap(gap))
             SetZPosition(grid, progress);
-    }
-
-    private void UnlinkTransitLayer(Entity<CEZTransitMapComponent> gap)
-    {
-        var below = gap.Comp.TransitBelow;
-        var above = gap.Comp.TransitAbove;
-        if (below == null && above == null)
-            return;
-
-        if (TryComp<CEZTransitMapComponent>(below, out var belowComp))
-        {
-            belowComp.TransitAbove = null;
-            Dirty(below.Value, belowComp);
-        }
-        if (TryComp<CEZTransitMapComponent>(above, out var aboveComp))
-        {
-            aboveComp.TransitBelow = null;
-            Dirty(above.Value, aboveComp);
-        }
-
-        gap.Comp.TransitBelow = null;
-        gap.Comp.TransitAbove = null;
-        gap.Comp.ConvoyLead = false;
-        Dirty(gap, gap.Comp);
-
-        if (below is { } lowerLayer)
-            EnsureConvoyLead(lowerLayer);
-        if (above is { } upperLayer)
-            EnsureConvoyLead(upperLayer);
-    }
-
-    /// <summary>
-    /// A convoy layer map is going away: unlink its neighbours so the stack doesn't
-    /// dangle, and promote a survivor to lead if the departing layer was driving.
-    /// </summary>
-    private void OnTransitMapShutdown(Entity<CEZTransitMapComponent> ent, ref ComponentShutdown args)
-    {
-        if (ent.Comp.TransitBelow is { } below && TryComp<CEZTransitMapComponent>(below, out var belowComp))
-        {
-            belowComp.TransitAbove = null;
-            if (ent.Comp.ConvoyLead)
-                belowComp.ConvoyLead = true;
-            Dirty(below, belowComp);
-        }
-
-        if (ent.Comp.TransitAbove is { } above && TryComp<CEZTransitMapComponent>(above, out var aboveComp))
-        {
-            aboveComp.TransitBelow = null;
-            if (ent.Comp.ConvoyLead && ent.Comp.TransitBelow == null)
-                aboveComp.ConvoyLead = true;
-            Dirty(above, aboveComp);
-        }
     }
 
     private void OnGridAdd(GridAddEvent ev)
@@ -292,87 +235,10 @@ public sealed partial class CEZLevelsSystem
         var movedGrids = new HashSet<EntityUid>();
         _shuttle.GetAllDockedShuttles(grid, movedGrids);
         movedGrids.Add(grid);
-        movedGrids.RemoveWhere(uid => Transform(uid).MapUid != sourceMap);
+        movedGrids.RemoveWhere(uid => TerminatingOrDeleted(uid) || EntityManager.IsQueuedForDeletion(uid) ||
+            Transform(uid).MapUid != sourceMap);
 
         return movedGrids;
-    }
-
-    /// <summary>
-    /// One z-level's worth of a convoy about to enter transit: the source map, its
-    /// depth, the grid that will define the layer's transit map progress, and every
-    /// grid moving with it.
-    /// </summary>
-    private readonly record struct CEConvoyEntryLayer(EntityUid SourceMap, int Depth, EntityUid Primary, HashSet<EntityUid> Grids);
-
-    /// <summary>
-    /// Groups the driving grid's z-network (plus every member's docked set) into
-    /// layers by source z-level, ordered bottom-up. A grid without a network yields
-    /// a single layer — identical to the old docked-set behaviour.
-    /// </summary>
-    private List<CEConvoyEntryLayer> CollectConvoyLayers(Entity<MapGridComponent> grid)
-    {
-        var layers = new Dictionary<EntityUid, CEConvoyEntryLayer>();
-
-        void AddMember(EntityUid member)
-        {
-            if (Transform(member).MapUid is not { } map || !TryComp<CEZMapComponent>(map, out var zMap))
-                return;
-
-            if (!layers.TryGetValue(map, out var layer))
-                layers[map] = layer = new CEConvoyEntryLayer(map, zMap.Depth, member, new HashSet<EntityUid>());
-
-            layer.Grids.UnionWith(CollectGridSet(member));
-
-            // The driving grid always fronts its own layer.
-            if (member == grid.Owner)
-                layers[map] = layer with { Primary = member };
-        }
-
-        if (TryGetGridNetwork(grid, out var network))
-        {
-            foreach (var member in network.Comp.Grids)
-                AddMember(member);
-        }
-
-        // Ensures the driving grid's layer exists even without a network, and claims
-        // layer-primary for it when it does have one.
-        AddMember(grid);
-
-        var result = new List<CEConvoyEntryLayer>(layers.Values);
-        result.Sort((a, b) => a.Depth.CompareTo(b.Depth));
-        return result;
-    }
-
-    /// <summary>
-    /// Every transit map in the convoy containing <paramref name="transitMap"/>,
-    /// ordered bottom-up. A lone transit map yields a single-element list.
-    /// </summary>
-    private List<EntityUid> GetConvoyMaps(EntityUid transitMap)
-    {
-        var maps = new List<EntityUid> { transitMap };
-        var seen = new HashSet<EntityUid> { transitMap };
-
-        var cursor = transitMap;
-        while (TryComp<CEZTransitMapComponent>(cursor, out var t)
-               && t.TransitBelow is { } below
-               && !TerminatingOrDeleted(below)
-               && seen.Add(below))
-        {
-            maps.Insert(0, below);
-            cursor = below;
-        }
-
-        cursor = transitMap;
-        while (TryComp<CEZTransitMapComponent>(cursor, out var t)
-               && t.TransitAbove is { } above
-               && !TerminatingOrDeleted(above)
-               && seen.Add(above))
-        {
-            maps.Add(above);
-            cursor = above;
-        }
-
-        return maps;
     }
 
     /// <summary>Every grid currently on a map (a transit map hosts exactly one set).</summary>
@@ -382,131 +248,17 @@ public sealed partial class CEZLevelsSystem
         var children = Transform(mapUid).ChildEnumerator;
         while (children.MoveNext(out var child))
         {
-            if (_mapGridQuery.HasComp(child))
+            if (_mapGridQuery.HasComp(child) && !TerminatingOrDeleted(child) && !EntityManager.IsQueuedForDeletion(child))
                 grids.Add(child);
         }
 
         return grids;
     }
 
-    /// <summary>
-    /// The full set a grid moves with: every grid on every layer of its transit
-    /// convoy when in convoy transit, otherwise its same-map docked set.
-    /// </summary>
-    public HashSet<EntityUid> CollectTransitSet(EntityUid grid)
-    {
-        if (Transform(grid).MapUid is { } map
-            && TryComp<CEZTransitMapComponent>(map, out var transit)
-            && (transit.TransitAbove != null || transit.TransitBelow != null))
-        {
-            var set = new HashSet<EntityUid>();
-            foreach (var convoyMap in GetConvoyMaps(map))
-                set.UnionWith(CollectGridsOnMap(convoyMap));
-            return set;
-        }
-
-        return CollectGridSet(grid);
-    }
-
-    /// <summary>
-    /// Re-checks every transit convoy against current z-grid-network membership and splits
-    /// any stack whose layers are no longer held together — a connector destroyed mid-flight,
-    /// a hull tile blown out. Each severed fragment gets its own lead and falls independently
-    /// from there (its followers already track the lead's velocity, so the split doesn't reset
-    /// their speed). Called by <see cref="CEZGridConnectorSystem"/> after it reconciles networks.
-    /// </summary>
-    public void RevalidateTransitConvoys()
-    {
-        // 1. Sever the link between any two stacked transit layers whose grids no longer
-        //    share a z-grid network — the connector that bridged them is gone.
-        var query = EntityQueryEnumerator<CEZTransitMapComponent>();
-        while (query.MoveNext(out var uid, out var transit))
-        {
-            if (transit.TransitBelow is not { } below ||
-                TerminatingOrDeleted(below) ||
-                !TryComp<CEZTransitMapComponent>(below, out var belowComp))
-            {
-                continue;
-            }
-
-            if (SameConvoyNetwork(uid, below))
-                continue;
-
-            transit.TransitBelow = null;
-            belowComp.TransitAbove = null;
-            Dirty(uid, transit);
-            Dirty(below, belowComp);
-        }
-
-        // 2. Every resulting sub-stack needs exactly one lead to drive its fall.
-        var leadQuery = EntityQueryEnumerator<CEZTransitMapComponent>();
-        while (leadQuery.MoveNext(out var uid, out var transit))
-        {
-            // Walk each stack once, from its bottom (the layer with nothing linked below).
-            if (transit.TransitBelow == null)
-                EnsureConvoyLead(uid);
-        }
-    }
-
-    /// <summary>Whether the grid layers on two transit maps are still in the same z-grid network.</summary>
-    private bool SameConvoyNetwork(EntityUid mapA, EntityUid mapB)
-    {
-        if (!TryGetAnyGrid(mapA, out var gridA) || !TryGetAnyGrid(mapB, out var gridB))
-            return false; // a layer with no grids can't hold the stack together
-
-        return TryGetGridNetwork(gridA, out var netA)
-               && TryGetGridNetwork(gridB, out var netB)
-               && netA.Owner == netB.Owner;
-    }
-
-    private bool TryGetAnyGrid(EntityUid mapUid, out EntityUid grid)
-    {
-        var children = Transform(mapUid).ChildEnumerator;
-        while (children.MoveNext(out var child))
-        {
-            if (_mapGridQuery.HasComp(child))
-            {
-                grid = child;
-                return true;
-            }
-        }
-
-        grid = default;
-        return false;
-    }
-
-    /// <summary>Ensures the transit sub-stack rooted at <paramref name="bottomMap"/> has exactly one lead.</summary>
-    private void EnsureConvoyLead(EntityUid bottomMap)
-    {
-        var maps = GetConvoyMaps(bottomMap);
-
-        var haveLead = false;
-        foreach (var m in maps)
-        {
-            if (!TryComp<CEZTransitMapComponent>(m, out var t) || !t.ConvoyLead)
-                continue;
-
-            if (!haveLead)
-            {
-                haveLead = true; // keep the first
-            }
-            else
-            {
-                t.ConvoyLead = false; // a split can strand two leads in one stack — demote extras
-                Dirty(m, t);
-            }
-        }
-
-        if (haveLead || maps.Count == 0)
-            return;
-
-        // No lead survived in this fragment — promote its bottom layer to drive the fall.
-        if (TryComp<CEZTransitMapComponent>(maps[0], out var lead))
-        {
-            lead.ConvoyLead = true;
-            Dirty(maps[0], lead);
-        }
-    }
+    public HashSet<EntityUid> CollectTransitSet(EntityUid grid) =>
+        Transform(grid).MapUid is { } map && HasComp<CEZTransitMapComponent>(map)
+            ? CollectGridsOnMap(map)
+            : CollectGridSet(grid);
 
     /// <summary>
     /// Moves a set of grids to another map.
@@ -590,80 +342,24 @@ public sealed partial class CEZLevelsSystem
         if (!HasComp<CEZMapComponent>(currentMap))
             return false;
 
-        var layers = CollectConvoyLayers(grid);
-        if (layers.Count == 0)
+        var goDown = !preferUpperGap && TryMapDown(currentMap, out _);
+        if (!(goDown ? TryMapDown(currentMap, out var neighbor) : TryMapUp(currentMap, out neighbor)) ||
+            !TryGetLiveTransitAnchor(neighbor.Owner, out _))
             return false;
 
-        // Direction is decided for the whole convoy: descending needs a level below
-        // the BOTTOM layer, climbing needs one above the TOP layer. Every interior
-        // layer's gap is bounded by its neighbours' source maps, so only the two
-        // extremes can fail.
-        var hasBelow = TryMapDown(layers[0].SourceMap, out _);
-        var hasAbove = TryMapUp(layers[^1].SourceMap, out _);
-
-        var goDown = !preferUpperGap && hasBelow;
-        if (!goDown && !hasAbove)
+        var grids = CollectGridSet(grid);
+        if (grids.Count == 0)
             return false;
 
-        var defaultProgress = goDown ? 1f : 0f;
-
-        // Resolve every layer's gap up front — all-or-nothing, nothing moves on failure.
-        var plans = new List<(CEConvoyEntryLayer Layer, EntityUid LowerMap, EntityUid UpperMap, int Offset, int Depth)>();
-        foreach (var layer in layers)
+        var transitMap = CreateTransitMap(goDown ? neighbor.Owner : currentMap, goDown ? currentMap : neighbor.Owner, grid);
+        var progress = Math.Clamp(startProgress ?? (goDown ? 1f : 0f), 0f, 1f);
+        MoveGridSetToMap(grids, transitMap, goDown ? -1 : 1, neighbor.Comp.Depth);
+        foreach (var uid in grids)
         {
-            if (goDown)
-            {
-                if (!TryMapDown(layer.SourceMap, out var layerBelow))
-                    return false; // Non-consecutive stack — shouldn't happen with connector-built networks.
-
-                plans.Add((layer, layerBelow.Owner, layer.SourceMap, -1, layerBelow.Comp.Depth));
-            }
-            else
-            {
-                if (!TryMapUp(layer.SourceMap, out var layerAbove))
-                    return false;
-
-                plans.Add((layer, layer.SourceMap, layerAbove.Owner, 1, layerAbove.Comp.Depth));
-            }
-        }
-
-        var progress = Math.Clamp(startProgress ?? defaultProgress, 0f, 1f);
-
-        // Create + link the transit stack bottom-up, then move each layer into its map.
-        EntityUid? prevTransit = null;
-        foreach (var plan in plans)
-        {
-            var transitMap = CreateTransitMap(plan.LowerMap, plan.UpperMap, plan.Layer.Primary);
-            var transit = Comp<CEZTransitMapComponent>(transitMap);
-
-            if (prevTransit is { } belowTransit)
-            {
-                transit.TransitBelow = belowTransit;
-                var belowComp = Comp<CEZTransitMapComponent>(belowTransit);
-                belowComp.TransitAbove = transitMap;
-                Dirty(belowTransit, belowComp);
-            }
-
-            // The layer that initiated transit drives the whole convoy.
-            transit.ConvoyLead = plan.Layer.Grids.Contains(grid.Owner);
-            Dirty(transitMap, transit);
-
-            MoveGridSetToMap(plan.Layer.Grids, transitMap, plan.Offset, plan.Depth);
-
-            foreach (var gridUid in plan.Layer.Grids)
-            {
-                var zPhys = EnsureComp<CEZPhysicsComponent>(gridUid);
-                SetZPosition((gridUid, zPhys), progress);
-
-                // Everyone gets to watch, not just PVS neighbours.
-                _pvsOverride.AddGlobalOverride(gridUid);
-
-                // In transit = airborne: engines are live regardless of direction. Grids mapped
-                // in Static (station anchors and the like) need this to fly at all.
-                _shuttle.Enable(gridUid);
-            }
-
-            prevTransit = transitMap;
+            var zPhys = EnsureComp<CEZPhysicsComponent>(uid);
+            SetZPosition((uid, zPhys), progress);
+            _pvsOverride.AddGlobalOverride(uid);
+            _shuttle.Enable(uid);
         }
 
         return true;
@@ -693,12 +389,7 @@ public sealed partial class CEZLevelsSystem
 
         while (progress > span)
         {
-            // The whole convoy hops together, so the TOP layer needs a level above
-            // its gap; every interior layer's destination exists by construction.
-            var convoy = GetConvoyMaps(transitMapUid);
-            var topTransit = Comp<CEZTransitMapComponent>(convoy[^1]);
-
-            if (topTransit.UpperMap is not { } topUpper)
+            if (transit.UpperMap is not { } upper)
             {
                 progress = span;
                 break;
@@ -707,23 +398,23 @@ public sealed partial class CEZLevelsSystem
             // Terrain overhead is a solid ceiling from below: a ship rises through a hole in it
             // but never punches through the tiles themselves. Mirror of the descent rule (which
             // lands ON terrain, never past it). Clamp to the underside and stop.
-            if (ConvoyBlockedByPlane(convoy[^1], topUpper))
+            if (TransitBlockedByPlane(transitMapUid, upper))
             {
                 progress = span;
                 break;
             }
 
-            if (!TryMapUp(topUpper, out _))
+            if (!TryMapUp(upper, out var above))
             {
                 // Top of the network: give on-demand generation a chance to extend it
                 // upward before clamping.
-                RaiseExpandEvent(topUpper, up: true);
+                RaiseExpandEvent(upper, up: true);
 
-                if (!TryMapUp(topUpper, out _))
+                if (!TryMapUp(upper, out above))
                 {
-                    if (topTransit.PrimaryGrid is { } primary && !TerminatingOrDeleted(primary))
+                    if (transit.PrimaryGrid is { } primary && !TerminatingOrDeleted(primary))
                     {
-                        var ev = new CEZOpenSkyExitAttemptEvent(topUpper, GetConvoyVerticalInput(convoy) > 0f);
+                        var ev = new CEZOpenSkyExitAttemptEvent(upper, GetTransitVerticalInput(transitMapUid) > 0f);
                         RaiseLocalEvent(primary, ref ev);
                     }
 
@@ -732,71 +423,52 @@ public sealed partial class CEZLevelsSystem
                 }
             }
 
-            if (!TryHopConvoyGap(convoy, ref transitMapUid, up: true))
-            {
-                progress = span;
-                break;
-            }
-
             progress -= span;
-            span = GetTransitSpan(Comp<CEZTransitMapComponent>(transitMapUid));
+            transitMapUid = HopTransitGap((transitMapUid, transit), upper, above.Owner, above.Comp.Depth, up: true);
+            transit = Comp<CEZTransitMapComponent>(transitMapUid);
+            span = GetTransitSpan(transit);
         }
 
         while (progress < 0f)
         {
-            var convoy = GetConvoyMaps(transitMapUid);
-            var bottomTransit = Comp<CEZTransitMapComponent>(convoy[0]);
+            if (transit.LowerMap is not { } lower || TransitBlockedByPlane(transitMapUid, lower))
+                return TryExitTransit(grid, up: false);
 
-            // You can't fly below terrain — the convoy sets down on it instead.
-            if (bottomTransit.LowerMap is not { } bottomLower || ConvoyBlockedByPlane(convoy[0], bottomLower))
-                return LandTransitSet(grid);
-
-            if (!TryMapDown(bottomLower, out _))
+            if (!TryMapDown(lower, out var below))
             {
                 // Once again, give procgen a chance.
-                RaiseExpandEvent(bottomLower, up: false);
+                RaiseExpandEvent(lower, up: false);
 
-                if (!TryMapDown(bottomLower, out _))
-                    return LandTransitSet(grid);
+                if (!TryMapDown(lower, out below))
+                    return TryExitTransit(grid, up: false);
             }
 
-            if (!TryHopConvoyGap(convoy, ref transitMapUid, up: false))
-                return LandTransitSet(grid);
-
-            span = GetTransitSpan(Comp<CEZTransitMapComponent>(transitMapUid));
+            transitMapUid = HopTransitGap((transitMapUid, transit), below.Owner, lower, below.Comp.Depth, up: false);
+            transit = Comp<CEZTransitMapComponent>(transitMapUid);
+            span = GetTransitSpan(transit);
             progress += span;
         }
-
-        var convoyMaps = GetConvoyMaps(transitMapUid);
 
         // Hold a hair clear of a ceiling we're pinned under, so it keeps drawing overhead.
         // Applied here rather than inside the climb loop above because progress also creeps
         // into the top of the gap without ever exceeding 1f — clamping only on overshoot
         // would let the ship drift flush, then snap back down, once per overshoot.
         if (progress > span - CeilingClearance
-            && Comp<CEZTransitMapComponent>(convoyMaps[^1]).UpperMap is { } ceiling
-            && ConvoyBlockedByPlane(convoyMaps[^1], ceiling))
+            && transit.UpperMap is { } ceiling
+            && TransitBlockedByPlane(transitMapUid, ceiling))
         {
             progress = span - CeilingClearance;
         }
 
-        foreach (var convoyMap in convoyMaps)
-        {
-            foreach (var gridUid in CollectGridsOnMap(convoyMap))
-            {
-                if (ZPhysicsQuery.TryComp(gridUid, out var zPhys))
-                    SetZPosition((gridUid, zPhys), progress / span);
-            }
-        }
+        foreach (var uid in CollectGridsOnMap(transitMapUid))
+            SetZPosition(uid, progress / span);
 
         return true;
     }
 
-    /// <summary>
-    /// If a transit map's grid is somehow wiped, delete the transit map.
-    /// </summary>
     private void CleanupOrphanedTransitMaps()
     {
+        List<Entity<CEZTransitMapComponent>>? orphaned = null;
         var query = EntityQueryEnumerator<CEZTransitMapComponent>();
         while (query.MoveNext(out var uid, out var transit))
         {
@@ -805,28 +477,69 @@ public sealed partial class CEZLevelsSystem
 
             if (transit.PrimaryGrid is { } primary &&
                 !TerminatingOrDeleted(primary) &&
+                !EntityManager.IsQueuedForDeletion(primary) &&
                 Transform(primary).MapUid == uid)
             {
                 continue;
             }
 
-            QueueDel(uid);
-            QueueAllViewerUpdates();
+            (orphaned ??= new()).Add((uid, transit));
         }
+
+        if (orphaned == null)
+            return;
+
+        foreach (var gap in orphaned)
+        {
+            var remaining = CollectGridsOnMap(gap);
+            while (remaining.Count > 0)
+            {
+                var primary = remaining.First();
+                var cluster = TakeDockedCluster(primary, remaining);
+                var next = CreateTransitMap(gap.Comp.LowerMap, gap.Comp.UpperMap, primary);
+                Comp<CEZTransitMapComponent>(next).AutoLand = gap.Comp.AutoLand;
+                var depth = ZPhysicsQuery.TryComp(primary, out var zPhysics) ? zPhysics.CurrentZLevel : 0;
+                MoveGridSetToMap(cluster, next, 0, depth);
+            }
+
+            _transitLastProgress.Remove(gap);
+            QueueDel(gap);
+        }
+
+        QueueAllViewerUpdates();
+    }
+
+    private HashSet<EntityUid> TakeDockedCluster(EntityUid primary, HashSet<EntityUid> remaining)
+    {
+        var cluster = new HashSet<EntityUid> { primary };
+        var pending = new Queue<EntityUid>();
+        remaining.Remove(primary);
+        pending.Enqueue(primary);
+
+        while (pending.TryDequeue(out var grid))
+        {
+            foreach (var dock in _dockSystem.GetDocks(grid))
+            {
+                if (!TryComp<TransformComponent>(dock.Comp.DockedWith, out var otherDock) ||
+                    otherDock.GridUid is not { } neighbor || !remaining.Remove(neighbor))
+                {
+                    continue;
+                }
+
+                cluster.Add(neighbor);
+                pending.Enqueue(neighbor);
+            }
+        }
+
+        return cluster;
     }
 
     /// <summary>
-    /// Whether the z-level <paramref name="plane"/> stops the convoy's edge layer from passing
-    /// through it: true if any of that layer's grids has solid terrain directly across its
-    /// footprint. A footprint clear of terrain (open sky, or a hole punched through a platform)
-    /// lets the convoy pass.
-    ///
-    /// Direction-agnostic — the same test decides whether a floor below catches a descent and
-    /// whether a ceiling above halts a climb, so the two can never disagree about one plane.
+    /// Whether terrain on the plane blocks any grid in this transit map.
     /// </summary>
-    private bool ConvoyBlockedByPlane(EntityUid edgeTransitMap, EntityUid plane)
+    private bool TransitBlockedByPlane(EntityUid transitMap, EntityUid plane)
     {
-        foreach (var grid in CollectGridsOnMap(edgeTransitMap))
+        foreach (var grid in CollectGridsOnMap(transitMap))
         {
             if (TryComp<MapGridComponent>(grid, out var gridComp)
                 && HasGroundUnderFootprint((grid, gridComp), plane))
@@ -836,23 +549,6 @@ public sealed partial class CEZLevelsSystem
         }
 
         return false;
-    }
-
-    private bool LandTransitSet(Entity<MapGridComponent> grid)
-    {
-        if (Transform(grid).MapUid is { } transitMap && HasComp<CEZTransitMapComponent>(transitMap))
-        {
-            foreach (var convoyMap in GetConvoyMaps(transitMap))
-            {
-                foreach (var gridUid in CollectGridsOnMap(convoyMap))
-                {
-                    if (ZPhysicsQuery.TryComp(gridUid, out var zPhys))
-                        SetZPosition((gridUid, zPhys), 0f);
-                }
-            }
-        }
-
-        return TryExitTransit(grid);
     }
 
     private void RaiseExpandEvent(EntityUid edgeMap, bool up)
@@ -865,88 +561,27 @@ public sealed partial class CEZLevelsSystem
     }
 
     /// <summary>
-    /// Hops every convoy layer one gap up or down, sweeping each hull through the
-    /// level plane it crosses (FTL-style flattening) and relinking the new transit
-    /// stack. All destination gaps are validated before anything moves.
-    /// <paramref name="trackedMap"/> is rewritten to the new transit map of the layer
-    /// it pointed at.
+    /// Moves the docked set into the next gap and sweeps it through the crossed plane.
     /// </summary>
-    private bool TryHopConvoyGap(List<EntityUid> convoy, ref EntityUid trackedMap, bool up)
+    private EntityUid HopTransitGap(Entity<CEZTransitMapComponent> old, EntityUid lower, EntityUid upper, int depth, bool up)
     {
-        var plans = new List<(EntityUid OldMap, EntityUid Lower, EntityUid Upper, int Offset, int Depth)>();
+        var next = CreateTransitMap(lower, upper, old.Comp.PrimaryGrid ?? EntityUid.Invalid);
+        Comp<CEZTransitMapComponent>(next).AutoLand = old.Comp.AutoLand;
+        var grids = CollectGridsOnMap(old);
+        MoveGridSetToMap(grids, next, up ? 1 : -1, depth);
 
-        foreach (var oldMap in convoy)
-        {
-            var old = Comp<CEZTransitMapComponent>(oldMap);
+        foreach (var uid in grids)
+            _shuttle.Smimsh(uid, crushMap: up ? lower : upper, explodeGrids: true);
 
-            if (up)
-            {
-                if (old.UpperMap is not { } newLower || !TryMapUp(newLower, out var above))
-                    return false;
-
-                plans.Add((oldMap, newLower, above.Owner, 1, above.Comp.Depth));
-            }
-            else
-            {
-                if (old.LowerMap is not { } newUpper || !TryMapDown(newUpper, out var below))
-                    return false;
-
-                plans.Add((oldMap, below.Owner, newUpper, -1, below.Comp.Depth));
-            }
-        }
-
-        var tracked = trackedMap;
-        EntityUid? prevNew = null;
-
-        foreach (var (oldMap, lower, upper, offset, depth) in plans)
-        {
-            var old = Comp<CEZTransitMapComponent>(oldMap);
-            var newTransitMap = CreateTransitMap(lower, upper, old.PrimaryGrid ?? EntityUid.Invalid);
-
-            var newTransit = Comp<CEZTransitMapComponent>(newTransitMap);
-            newTransit.ConvoyLead = old.ConvoyLead;
-            newTransit.AutoLand = old.AutoLand;
-
-            if (prevNew is { } belowNew)
-            {
-                newTransit.TransitBelow = belowNew;
-                var belowComp = Comp<CEZTransitMapComponent>(belowNew);
-                belowComp.TransitAbove = newTransitMap;
-                Dirty(belowNew, belowComp);
-            }
-
-            Dirty(newTransitMap, newTransit);
-
-            var movedGrids = CollectGridsOnMap(oldMap);
-            MoveGridSetToMap(movedGrids, newTransitMap, offset, depth);
-
-            // Someone neglected to check for other ships.
-            var crossedPlane = up ? lower : upper;
-            foreach (var gridUid in movedGrids)
-            {
-                _shuttle.Smimsh(gridUid, crushMap: crossedPlane, explodeGrids: true);
-            }
-
-            if (oldMap == trackedMap)
-                tracked = newTransitMap;
-
-            old.TransitAbove = null;
-            old.TransitBelow = null;
-            old.ConvoyLead = false;
-
-            QueueDel(oldMap);
-            prevNew = newTransitMap;
-        }
-
+        QueueDel(old);
         QueueAllViewerUpdates();
-        trackedMap = tracked;
-        return true;
+        return next;
     }
 
     /// <summary>
     /// Land whatever's on this transit map to the closest normal layer.
     /// </summary>
-    public bool TryExitTransit(Entity<MapGridComponent> grid)
+    public bool TryExitTransit(Entity<MapGridComponent> grid, bool? up = null)
     {
         var xform = Transform(grid);
 
@@ -956,52 +591,29 @@ public sealed partial class CEZLevelsSystem
         if (!TryComp<CEZTransitMapComponent>(transitMap, out var transit))
             return false;
 
-        var up = !transit.AutoLand && ZPhysicsQuery.TryComp(grid, out var gridZPhys) && gridZPhys.LocalPosition >= 0.5f;
+        var goingUp = !transit.AutoLand && (up ?? GetTransitProgress(transit) >= 0.5f);
+        if (!TryGetLiveTransitAnchor(goingUp ? transit.UpperMap : transit.LowerMap, out var destination))
+            return false;
 
-        // Validate every layer's arrival level first — the convoy lands all-or-nothing.
-        var convoy = GetConvoyMaps(transitMap);
-        var plans = new List<(EntityUid ConvoyMap, EntityUid Destination, int Depth)>();
-        var transitSet = CollectTransitSet(grid); // Mono
-        foreach (var convoyMap in convoy)
+        var grids = CollectGridsOnMap(transitMap);
+        var depth = destination.Comp.Depth;
+        foreach (var member in grids)
         {
-            var layerTransit = Comp<CEZTransitMapComponent>(convoyMap);
-            var arrivalMap = up ? layerTransit.UpperMap : layerTransit.LowerMap;
-            if (arrivalMap is not { } destination ||
-                !TryComp<CEZMapComponent>(destination, out var destZMap))
-            {
+            var from = GetAbsoluteAltitude(member);
+            if (_shieldContainment.ClampVertical(member, transitMap, from, depth, false,
+                    gridFootprint: true, grids) != depth)
                 return false;
-            }
-
-            // Mono Start: A touchdown snap must not skip the last fraction of a shield crossing.
-            foreach (var member in CollectGridsOnMap(convoyMap))
-            {
-                var from = GetAbsoluteAltitude(member);
-                if (_shieldContainment.ClampVertical(member, convoyMap, from, destZMap.Depth, false,
-                        gridFootprint: true, transitSet) != destZMap.Depth)
-                    return false;
-            }
-            // Mono End
-
-            plans.Add((convoyMap, destination, destZMap.Depth));
         }
 
-        foreach (var (convoyMap, destination, depth) in plans)
+        MoveGridSetToMap(grids, destination, goingUp ? 1 : -1, depth);
+        foreach (var uid in grids)
         {
-            var movedGrids = CollectGridsOnMap(convoyMap);
-            MoveGridSetToMap(movedGrids, destination, up ? 1 : -1, depth);
-
-            foreach (var gridUid in movedGrids)
-            {
-                ResetGridTransitState(gridUid);
-
-                // Landing on a grid causes an explosion. Don't do that.
-                _shuttle.Smimsh(gridUid, explodeGrids: true, ignoredGrids: movedGrids);
-            }
-
-            // The set has left; a transit map only ever hosts one set.
-            QueueDel(convoyMap);
+            ResetGridTransitState(uid);
+            // Landing on a grid causes an explosion. Don't do that.
+            _shuttle.Smimsh(uid, explodeGrids: true, ignoredGrids: grids);
         }
 
+        QueueDel(transitMap);
         QueueAllViewerUpdates();
         return true;
     }
@@ -1073,13 +685,7 @@ public sealed partial class CEZLevelsSystem
         if (Transform(grid).MapUid is not { } sourceMap)
             return false;
 
-        var movedGrids = CollectGridSet(grid);
-        if (TryComp<CEZTransitMapComponent>(sourceMap, out _))
-        {
-            if (GetConvoyMaps(sourceMap).Count != 1 ||
-                !CollectGridsOnMap(sourceMap).SetEquals(movedGrids))
-                return false;
-        }
+        var movedGrids = CollectTransitSet(grid);
 
         if (movedGrids.Count == 0)
             return false;
@@ -1181,10 +787,6 @@ public sealed partial class CEZLevelsSystem
             return false;
         }
 
-        var convoy = GetConvoyMaps(transitMap);
-        if (convoy.Count != 1)
-            return false;
-
         var movedGrids = CollectGridsOnMap(transitMap);
         if (movedGrids.Count == 0)
             return false;
@@ -1210,7 +812,7 @@ public sealed partial class CEZLevelsSystem
         }
     }
 
-    private EntityUid CreateTransitMap(EntityUid lowerMap, EntityUid? upperMap, EntityUid primaryGrid)
+    private EntityUid CreateTransitMap(EntityUid? lowerMap, EntityUid? upperMap, EntityUid primaryGrid)
     {
         var mapUid = _map.CreateMap(out _);
 
@@ -1221,7 +823,8 @@ public sealed partial class CEZLevelsSystem
         Dirty(mapUid, transit);
 
         // Same environment as the network's z-levels (eg. atmosphere); this should really become configurable with real planets.
-        if (TryGetMapNetwork(lowerMap, out var network) && network.Comp.Components.Count > 0)
+        if ((lowerMap ?? upperMap) is { } anchor &&
+            TryGetMapNetwork(anchor, out var network) && network.Comp.Components.Count > 0)
             EntityManager.AddComponents(mapUid, network.Comp.Components, removeExisting: false);
 
         // Copy the lighting from the upper level (or lower if there isn't any above) so you can see.
@@ -1232,7 +835,9 @@ public sealed partial class CEZLevelsSystem
             light.AmbientLightColor = lowerLight.AmbientLightColor;
         Dirty(mapUid, light);
 
-        _meta.SetEntityName(mapUid, $"Z-Transit above {MetaData(lowerMap).EntityName}");
+        _meta.SetEntityName(mapUid, TryComp<MetaDataComponent>(lowerMap, out var lowerMeta)
+            ? $"Z-Transit above {lowerMeta.EntityName}"
+            : "Z-Transit");
 
         QueueAllViewerUpdates();
 
