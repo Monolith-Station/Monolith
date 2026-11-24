@@ -42,10 +42,12 @@ shuttle-console-nav-settings = Settings
 shuttle-console-iff-toggle = Show IFF
 shuttle-console-iff-detailed = Detailed IFF
 shuttle-console-dock-toggle = Show Docks
+shuttle-console-markers-toggle = Show Markers
 shuttle-console-iffshuttles-toggle = Show Shuttles
 shuttle-console-iff-toggle-short = IFF
 shuttle-console-iff-detailed-short = D.IFF
 shuttle-console-dock-toggle-short = DOCKS
+shuttle-console-markers-toggle-short = MARK
 
 # MAP
 

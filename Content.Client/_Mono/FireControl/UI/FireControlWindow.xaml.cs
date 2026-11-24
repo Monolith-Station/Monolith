@@ -60,14 +60,16 @@ public sealed partial class FireControlWindow : FancyWindow
 
         IFFToggle.OnToggled += OnIFFTogglePressed;
         IFFToggle.Pressed = NavRadar.ShowIFF;
-
         IFFDetailedToggle.OnToggled += OnIFFDetailedTogglePressed; // Mono
-        IFFDetailedToggle.Pressed = NavRadar.ShowIFFDetailed; // Mono
+        IFFDetailedToggle.Pressed = NavRadar.ShowIFFDetailed;
+        MarkersToggle.OnToggled += OnMarkersTogglePressed;
+        MarkersToggle.Pressed = NavRadar.ShowMarkers;
+        DockToggle.OnToggled += OnDockTogglePressed;
+        DockToggle.Pressed = NavRadar.ShowDocks;
+
         LockModeToggle.OnToggled += OnLockModeToggle;
         LockModeToggle.Pressed = LockModeActive;
 
-        DockToggle.OnToggled += OnDockTogglePressed;
-        DockToggle.Pressed = NavRadar.ShowDocks;
         SwitchMode(GunneryMode.Gunnery); // default
     }
 
@@ -194,6 +196,12 @@ public sealed partial class FireControlWindow : FancyWindow
     {
         NavRadar.ShowDocks ^= true;
         args.Button.Pressed = NavRadar.ShowDocks;
+    }
+
+    private void OnMarkersTogglePressed(BaseButton.ButtonEventArgs args)
+    {
+        NavRadar.ShowMarkers ^= true;
+        args.Button.Pressed = NavRadar.ShowMarkers;
     }
 
     private void OnLockModeToggle(BaseButton.ButtonEventArgs args)

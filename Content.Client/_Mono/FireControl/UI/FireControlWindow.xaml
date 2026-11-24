@@ -135,6 +135,13 @@
                                                 <Button Name="DockToggle" Access="Public" Text="{Loc 'shuttle-console-dock-toggle-short'}"
                                                         StyleClasses="ButtonSquare" HorizontalExpand="True" Margin="4 4" ToggleMode="True"/>
                                             </PanelContainer>
+                                            <PanelContainer VerticalExpand="False" HorizontalExpand="True">
+                                                <PanelContainer.PanelOverride>
+                                                    <gfx:StyleBoxFlat BorderThickness="4" BorderColor="#2e2e2e" BackgroundColor="#1c1c1c" />
+                                                </PanelContainer.PanelOverride>
+                                                <Button Name="MarkersToggle" Access="Public" Text="{Loc 'shuttle-console-markers-toggle-short'}"
+                                                        StyleClasses="ButtonSquare" HorizontalExpand="True" Margin="4 4" ToggleMode="True"/>
+                                            </PanelContainer>
                                         </BoxContainer>
                                     </PanelContainer>
 
