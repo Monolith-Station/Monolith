@@ -49,6 +49,9 @@ public sealed partial class FireControlWindow : FancyWindow
 
         DockToggle.OnToggled += OnDockTogglePressed;
         DockToggle.Pressed = NavRadar.ShowDocks;
+
+        MarkersToggle.OnToggled += OnMarkersTogglePressed; // Mono
+        MarkersToggle.Pressed = NavRadar.ShowMarkers; // Mono
     }
 
     private void SelectAllWeapons(BaseButton.ButtonEventArgs args)
@@ -153,6 +156,7 @@ public sealed partial class FireControlWindow : FancyWindow
         args.Button.Pressed = NavRadar.ShowIFF;
     }
 
+    // Mono
     private void OnIFFDetailedTogglePressed(BaseButton.ButtonEventArgs args)
     {
         NavRadar.ShowIFFDetailed ^= true;
@@ -164,6 +168,14 @@ public sealed partial class FireControlWindow : FancyWindow
         NavRadar.ShowDocks ^= true;
         args.Button.Pressed = NavRadar.ShowDocks;
     }
+
+    // Mono
+    private void OnMarkersTogglePressed(BaseButton.ButtonEventArgs args)
+    {
+        NavRadar.ShowMarkers ^= true;
+        args.Button.Pressed = NavRadar.ShowMarkers;
+    }
+
 
     /// <summary>
     /// Updates the text of a weapon button based on its selection state and manual reload status.
