@@ -7,6 +7,7 @@
   components:
   - type: Sprite
     offset: 0,1
+    drawdepth: Overdoors
     sprite: _Mono/Structures/Decoration/Greeble/32x32.rsi
     layers:
     - state: elint1
