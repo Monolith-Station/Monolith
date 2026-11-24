@@ -63,4 +63,5 @@ public enum SensorContactFlags : byte
     PassiveRadar = 1 << 2,
     ActiveRadar = 1 << 3,
     Datalink = 1 << 4,
+    Decoy = 1 << 5,
 }

@@ -95,8 +95,8 @@
   Locking is powerful for 2 reasons:
   - It can show the lead of ballistics (the diamonds).
   - It can be used to guide SACLOS munitions to the target automatically (the [mono]"TOGGLE SARH"[/mono] button).
-  A radar lock requires an [color=#55FF55][bold]active radar detection[/bold][/color]. Passive systems & visual detection is insufficient for a firing solution.
-  Radar locks can work off of datalinks too, which can be useful for long-range missile systems.
+  A radar lock requires an [color=#55FF55][bold]active radar detection[/bold][/color], and that ARS detection needs to be done by a FCR capable radar. Some poor-quality radars can't provide guidance or lock capabilities. Passive systems & visual detection is insufficient for a firing solution.
+  Chaff can throw off your lead by quite a bit though, so don't assume it's perfect.
 
   ## Visualizer
   The visualizer at the top right of the screen shows radar contacts, sensors (for non-omnidirectional systems), and datalink contacts.

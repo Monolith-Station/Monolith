@@ -287,6 +287,51 @@ public sealed partial class ShipSensorsSystem : EntitySystem
             locallySensed.Add(netOther);
         }
 
+        var decoyQ = EntityQueryEnumerator<RadarCountermeasureComponent, TransformComponent>();
+        while (decoyQ.MoveNext(out var decoyUid, out var cm, out var decoyXform))
+        {
+            if (!cm.Active || cm.DecoyContacts <= 0)
+                continue;
+            if (decoyXform.MapID != xform.MapID)
+                continue;
+
+            var decoyCenter = _xform.GetWorldPosition(decoyXform);
+            var toCloud = decoyCenter - ourPos;
+            var distCloud = toCloud.Length();
+            if (distCloud < 0.01f || distCloud > cm.MaxEffectRange * 1.5f)
+                continue;
+
+            var bearingCloud = toCloud.ToWorldAngle();
+            ApplyDirectionalMultipliers(rangeMul, sensors, hardware, bearingCloud);
+
+            var activeSens = GetBestSensitivity(hardware, SensorType.ActiveRadar, bearingCloud, activeOnly: true);
+            if (activeSens <= 0f)
+                continue;
+
+            var decoyRange = cm.DecoyRadarSize * activeSens;
+            if (distCloud > decoyRange)
+                continue;
+
+            // Primary contact on the cloud entity itself.
+            var netDecoy = GetNetEntity(decoyUid);
+            newContacts[netDecoy] = new SensorContact
+            {
+                TargetGrid = netDecoy,
+                WorldPosition = decoyCenter,
+                Range = distCloud,
+                Level = DetectionLevel.Detected,
+                Flags = SensorContactFlags.ActiveRadar | SensorContactFlags.Decoy,
+                LastSeen = now,
+                Designation = "UNK",
+            };
+            locallySensed.Add(netDecoy);
+
+            // Extra ghost pips around the cloud (share same entity key offset in designation only).
+            // Additional independent lock targets would need separate entities; one lockable cloud is enough.
+            _ = cm.DecoyContacts;
+            _ = cm.DecoySpread;
+        }
+
         ApplyOmniMultipliers(rangeMul, sensors, hardware);
         Dirty(gridUid, rangeMul);
 
@@ -742,8 +787,8 @@ public sealed partial class ShipSensorsSystem : EntitySystem
 
     private static string BuildSourceString(SensorContactFlags flags)
     {
-        var parts = new List<string>(4);
-        if ((flags & SensorContactFlags.ActiveRadar) != 0)
+        var parts = new List<string>(5);
+        if ((flags & SensorContactFlags.ActiveRadar) != 0 || (flags & SensorContactFlags.Decoy) != 0)
             parts.Add("ARS");
         if ((flags & SensorContactFlags.PassiveRadar) != 0)
             parts.Add("E");

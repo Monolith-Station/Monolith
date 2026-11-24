@@ -1,6 +1,7 @@
 using System.Numerics;
 using Content.Shared._Mono.Sensors;
 using Robust.Client.Graphics;
+using Robust.Shared.Timing;
 
 namespace Content.Client._Mono.Sensors.UI;
 
@@ -10,14 +11,25 @@ public static class RadarLockOverlay
     private static readonly Color CoastColor = Color.FromHex("#88AA88");
     private static readonly Color LeadColor = Color.FromHex("#FFCC33");
 
-    public static void Draw(DrawingHandleScreen handle, RadarLockStateDto? lockState, Matrix3x2 worldToView, float uiScale)
+    public static void Draw(
+        DrawingHandleScreen handle,
+        RadarLockStateDto? lockState,
+        Matrix3x2 worldToView,
+        float uiScale)
     {
         if (lockState is not { LockValid: true, TargetWorldPosition: { } tgtWorld })
             return;
 
+        var timing = IoCManager.Resolve<IGameTiming>();
+        var dt = Math.Clamp((float)(timing.CurTime - lockState.ServerTime).TotalSeconds, 0f, 0.75f);
+
+        var predTgt = tgtWorld;
+        if (lockState.TargetWorldVelocity is { } vel)
+            predTgt += vel * dt;
+
         var q = Math.Clamp(lockState.Quality, 0f, 1f);
         var lockCol = (lockState.Coasting ? CoastColor : LockColor).WithAlpha(0.35f + 0.65f * q);
-        var tgtScreen = Vector2.Transform(tgtWorld, worldToView);
+        var tgtScreen = Vector2.Transform(predTgt, worldToView);
         DrawCornerBrackets(handle, tgtScreen, 14f * uiScale, 6f * uiScale, lockCol);
 
         if (q < 0.25f)
@@ -29,7 +41,11 @@ public static class RadarLockOverlay
 
         void DrawOneLead(Vector2 leadWorld)
         {
-            var leadScreen = Vector2.Transform(leadWorld, worldToView);
+            var predLead = leadWorld;
+            if (lockState.TargetWorldVelocity is { } lv)
+                predLead += lv * dt;
+
+            var leadScreen = Vector2.Transform(predLead, worldToView);
             handle.DrawLine(tgtScreen, leadScreen, lineCol);
             DrawDiamond(handle, leadScreen, 5f * uiScale, leadCol);
         }

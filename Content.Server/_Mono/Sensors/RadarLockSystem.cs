@@ -3,6 +3,7 @@ using Content.Server._Mono.FireControl;
 using Content.Server.Power.EntitySystems;
 using Content.Shared._Mono.FireControl;
 using Content.Shared._Mono.Sensors;
+using Content.Shared.Coordinates;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Timing;
@@ -67,7 +68,7 @@ public sealed partial class RadarLockSystem : EntitySystem
     {
         return TryGetContact(console, targetEntity, out _, out var contact)
                && HasLocalFcr(Transform(console).GridUid)
-               && (contact.Flags & SensorContactFlags.ActiveRadar) != 0
+               && ((contact.Flags & SensorContactFlags.ActiveRadar) != 0 || (contact.Flags & SensorContactFlags.Decoy) != 0)
                && !IsHardChaffed(console, targetEntity, contact);
     }
 
@@ -250,6 +251,11 @@ public sealed partial class RadarLockSystem : EntitySystem
                 var leadOk = CanProvideLead(uid, target);
 
                 var targetQ = leadOk ? Math.Clamp(atten, 0f, 1f) : Math.Clamp(atten * 0.35f, 0f, 0.35f);
+                if (TryGetContact(uid, target, out _, out var contact)
+                    && (contact.Flags & SensorContactFlags.Decoy) != 0)
+                {
+                    targetQ = MathF.Min(targetQ, 0.4f);
+                }
                 console.LockQuality = console.LockQuality < targetQ ? Math.Min(targetQ, console.LockQuality + QualityRecoverPerSec * frameTime) : Math.Max(targetQ, console.LockQuality - QualityDropPerSec * frameTime);
 
                 console.CoastPos = _xform.GetWorldPosition(target);
@@ -333,8 +339,23 @@ public sealed partial class RadarLockSystem : EntitySystem
         avgSpeed /= pairs.Count;
         avgOrigin /= pairs.Count;
 
+        var atten = GetBearingAttenuation(ourGrid, Transform(target).GridUid ?? target);
+        var q = Math.Clamp(consoleComp.LockQuality, 0f, 1f);
+        var track = Math.Clamp(q * atten, 0f, 1f);
+        var jam = 1f - track;
+
+        var range = (tgtPos - ourGrid.ToCoordinates().Position).Length();
+        var jitter = jam * Math.Clamp(range * 0.22f, 40f, 400f);
+        if (atten < 0.55f)
+            jitter *= 2f;
+        var contactFlags = SensorContactFlags.None;
+        if (TryGetContact(console, target, out _, out var contact))
+            contactFlags = contact.Flags;
+        if ((contactFlags & SensorContactFlags.Decoy) != 0)
+            jitter = MathF.Max(jitter, Math.Clamp(range * 0.35f, 80f, 500f));
+
         var (avgLead, avgT) = ComputeLeadPoint(avgOrigin, ourVel, tgtPos, tgtVel, avgSpeed);
-        dto.AverageLeadWorld = avgLead;
+        dto.AverageLeadWorld = Jitter(avgLead, console);
         dto.TimeToIntercept = avgT;
 
         dto.WeaponLeads = new List<RadarWeaponLeadDto>(pairs.Count);
@@ -345,12 +366,24 @@ public sealed partial class RadarLockSystem : EntitySystem
             {
                 Weapon = GetNetEntity(weapon),
                 ProjectileSpeed = speed,
-                LeadWorld = lead,
+                LeadWorld = Jitter(lead, weapon),
                 TimeToIntercept = tti,
             });
         }
 
         return dto;
+
+        Vector2 Jitter(Vector2 lead, EntityUid seedEnt)
+        {
+            if (jitter < 1f)
+                return lead;
+
+            var seed = seedEnt.GetHashCode() ^ (int)(_timing.CurTick.Value * 397);
+            var rng = new Random(seed);
+            var ang = (float)(rng.NextDouble() * Math.PI * 2.0);
+            var mag = jitter * (0.5f + (float)rng.NextDouble() * 0.5f);
+            return lead + new Vector2(MathF.Cos(ang), MathF.Sin(ang)) * mag;
+        }
     }
 
     private List<(Vector2 Origin, float Speed)> CollectLeadOrigins(
@@ -390,7 +423,8 @@ public sealed partial class RadarLockSystem : EntitySystem
             if (speed < 0.01f)
                 continue;
 
-            result.Add((_xform.GetWorldPosition(weapon), speed, weapon));
+            var origin = _xform.GetWorldPosition(weapon);
+            result.Add((origin, speed, weapon));
         }
 
         return result;
