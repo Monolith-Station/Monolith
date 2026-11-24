@@ -774,3 +774,12 @@
   - type: StaticPrice
     price: 1500
     vendPrice: 15000
+
+- type: entity
+  parent: BaseFlatpack
+  id: BallisticTurretHeavyAICaelestinusFlatpack
+  name: caelestinus heavy remote sentry turret flatpack # replacement for the problematic ASMGTs
+  description: A flatpack used for constructing a Caelestinus heavy remote sentry turret. Remember to set it up with a multitool!
+  components:
+  - type: Flatpack
+    entity: BallisticTurretHeavyAICaelestinus

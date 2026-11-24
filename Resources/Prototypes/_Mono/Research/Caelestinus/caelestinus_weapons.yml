@@ -15,6 +15,20 @@
   position: 2, -12
 
 - type: technology
+  id: CaelestinusTurrets
+  name: research-technology-caelestinus-turrets
+  entityIcon: BallisticTurretHeavyAICaelestinus
+  discipline: Caelestinus
+  tier: 1
+  cost: 25000
+  recipeUnlocks:
+  - BallisticTurretHeavyAICaelestinusFlatpack
+  technologyPrerequisites:
+  - CaelestinusBasicGuns
+  - UniversalMaterialResearchT1
+  position: 3, -12
+
+- type: technology
   id: CaelestinusSuperGuns
   name: research-technology-caelestinus-super-weaponry
   entityIcon: WeaponRifleJackdaw
