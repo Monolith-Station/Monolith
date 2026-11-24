@@ -746,9 +746,9 @@
     - OrganHarvesterMachineCircuitboard
     chance: 0.95
     offset: 0.0
-    rarePrototypes:
-    - ComputerIFFCircuitboard
-    rareChance: 0.03
+  # rarePrototypes:
+  # - ComputerIFFCircuitboard
+  # rareChance: 0.03
 
 - type: entity
   name: random flatpack
