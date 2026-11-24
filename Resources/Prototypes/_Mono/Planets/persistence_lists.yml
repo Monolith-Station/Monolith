@@ -93,7 +93,6 @@
     - DefibrillatorCabinet
     - SignalButton
     - SignalSwitch
-    - TwoWayLever
     - ButtonFrame
     - NFHolopadShip
     - FaxMachineBase
@@ -102,11 +101,25 @@
     - ComputerTabletopStationRecords
     - ComputerWallmountStationRecords
 
-    # Cargo and storage
+    # Mining and automation
+    - LaserDrillBase
+    - GasMiningDrill
+    - ConveyorBelt
+    - TwoWayLever
+    - SignalTimer
+    - BaseLogicItem
+    - RoboticArm
+    - Interactor
+    - StorageBin
+    - DisposalPipeBase
+    - DisposalUnitBase
     - BaseLathe
     - MachineMaterialSilo
-    - ConveyorBelt
+    - MachineFlatpacker
     - MaterialReclaimer
+
+    # Cargo and storage
+    - OreBox
     - Rack
     - SmartFridge
     - VendingMachine
@@ -190,6 +203,9 @@
   - whitelist: [StorageCanister]
     reset:
     - GasCanister
+  - whitelist: [DisposalUnitBase]
+    reset:
+    - DisposalUnit
   - whitelist: [PortableGeneratorBase, GeneratorCRPinch]
     reset:
     - FuelGenerator
