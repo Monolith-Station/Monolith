@@ -284,17 +284,18 @@ public sealed partial class ScalingViewport
         // always render your own map
         _zPasses.Add((playerMap, ownDepth, true, false));
 
-        // Mono Start: Use the full Look Up pass even while riding a transit map.
-        if (zLevelViewer.LookUp && aboveMap != null)
+        var visibleAbove = zLevelViewer.LookUp ? _zLevels.GetVisibleZLevelsAbove(cameraAnchor, playerMap) : 0;
+        for (var i = 1; i <= visibleAbove; i++)
         {
-            _zPasses.Add((aboveMap.Value, aboveDepth, true, false));
+            if (!_zLevels.TryMapOffset(playerMap, i, out var upper))
+                break;
+
+            _zPasses.Add((upper.Owner, aboveDepth + i - 1, true, false));
         }
-        else if (riderTransit != null)
-        {
-            if (aboveMap != null && aboveDepth > 0.001f && TransitFade(aboveDepth) > 0.01f)
-                _zPasses.Add((aboveMap.Value, aboveDepth, false, true));
-        }
-        // Mono End
+
+        if (visibleAbove == 0 && riderTransit != null && aboveMap != null &&
+            aboveDepth > 0.001f && TransitFade(aboveDepth) > 0.01f)
+            _zPasses.Add((aboveMap.Value, aboveDepth, false, true));
 
         // transit maps also render
         var altitudeAnchor = riderTransit?.LowerMap ?? playerMap;

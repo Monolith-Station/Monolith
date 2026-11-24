@@ -28,6 +28,9 @@ public sealed partial class CEZPhysicsComponent : Component
     [DataField, AutoNetworkedField]
     public float LocalPosition;
 
+    [AutoNetworkedField]
+    public bool ProjectileFlight;
+
     /// <summary>
     /// Seconds left in a ground-liftoff spool-up, for the shuttle console countdown.
     /// Zero when not launching.

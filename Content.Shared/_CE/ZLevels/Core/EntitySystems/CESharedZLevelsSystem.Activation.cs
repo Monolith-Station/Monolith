@@ -4,6 +4,7 @@
  */
 
 using Content.Shared._CE.ZLevels.Core.Components;
+using Content.Shared.Projectiles;
 using JetBrains.Annotations;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Events;
@@ -25,6 +26,8 @@ public abstract partial class CESharedZLevelsSystem
         SubscribeLocalEvent<CEZPhysicsComponent, PhysicsBodyTypeChangedEvent>(OnPhysicsBodyTypeChanged);
 
         SubscribeLocalEvent<CEZPhysicsComponent, EntParentChangedMessage>(OnParentChanged);
+        SubscribeLocalEvent<CEZPhysicsComponent, ProjectileShotEvent>(OnProjectileShot);
+        SubscribeLocalEvent<CEZPhysicsComponent, EmbedEvent>(OnProjectileEmbed);
     }
 
     private void OnMapInit(Entity<CEZPhysicsComponent> entity, ref MapInitEvent args)
@@ -63,6 +66,7 @@ public abstract partial class CESharedZLevelsSystem
         RefreshBody(entity);
         if (!IsDirectlyOnGridOrMap(Transform(entity)))
         {
+            SetProjectileFlight(entity, false);
             ResetZState(entity);
             return;
         }
@@ -126,11 +130,37 @@ public abstract partial class CESharedZLevelsSystem
         if (!TryComp<CEZTransitMapComponent>(xform.MapUid, out var transit))
             return;
 
-        if (ZPhysicsQuery.TryComp(transit.PrimaryGrid, out var primaryPhysics))
+        if (!entity.Comp.ProjectileFlight && ZPhysicsQuery.TryComp(transit.PrimaryGrid, out var primaryPhysics))
             SetZPosition((entity, entity), primaryPhysics.LocalPosition);
 
         if (TryMove(entity, -1))
-            WakeBody((entity, entity));
+        {
+            if (entity.Comp.ProjectileFlight)
+                ResetZState(entity);
+            else
+                WakeBody((entity, entity));
+        }
+    }
+
+    private void OnProjectileShot(Entity<CEZPhysicsComponent> entity, ref ProjectileShotEvent args)
+    {
+        // A shot spawned or offset past the hull may already have dropped out of transit.
+        if (HasComp<CEZTransitMapComponent>(args.LaunchMap) && Transform(entity).MapUid != args.LaunchMap)
+            ResetZState(entity);
+
+        SetProjectileFlight(entity, true);
+    }
+
+    private void OnProjectileEmbed(Entity<CEZPhysicsComponent> entity, ref EmbedEvent args) =>
+        SetProjectileFlight(entity, false);
+
+    private void SetProjectileFlight(Entity<CEZPhysicsComponent> entity, bool flying)
+    {
+        if (entity.Comp.ProjectileFlight == flying)
+            return;
+
+        entity.Comp.ProjectileFlight = flying;
+        DirtyField(entity, entity.Comp, nameof(CEZPhysicsComponent.ProjectileFlight));
     }
 
     [PublicAPI]

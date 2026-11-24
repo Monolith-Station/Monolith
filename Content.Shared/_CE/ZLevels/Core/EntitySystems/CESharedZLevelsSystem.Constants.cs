@@ -8,6 +8,7 @@ namespace Content.Shared._CE.ZLevels.Core.EntitySystems;
 public abstract partial class CESharedZLevelsSystem
 {
     public static int MaxZLevelsBelowRendering = 10;
+    public const int MaxZLevelsAboveRendering = 3;
     public const float ZLevelOffset = 0.7f;
 
     /// <summary>

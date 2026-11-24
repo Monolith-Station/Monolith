@@ -56,6 +56,10 @@ public abstract partial class CESharedZLevelsSystem
             if (_net.IsClient && !physics.Predict)
                 continue;
 
+            // Keep a launched projectile airborne even when transit hands it off to another map.
+            if (zPhysicsComponent.ProjectileFlight)
+                continue;
+
             ProcessZPhysics((uid, zPhysicsComponent, physics), frameTime);
         }
     }

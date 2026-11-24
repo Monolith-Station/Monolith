@@ -217,9 +217,12 @@ public sealed partial class CEZLevelsSystem
             coveredMaps.Add(mapUidBelow);
         }
 
-        // We constantly load the upper z-level for the client so that you can quickly look up and climb stairs without PVS lag.
-        if (TryMapUp(map.Value, out var aboveMapUid))
+        // Preload upper levels so looking up and climbing don't wait for PVS.
+        for (var i = 1; i <= MaxZLevelsAboveRendering; i++)
         {
+            if (!TryMapOffset(map.Value, i, out var aboveMapUid))
+                break;
+
             SpawnViewerEye(eyes, actor, map.Value, aboveMapUid, globalPos, pvsScale);
             coveredMaps.Add(aboveMapUid);
         }

@@ -7,7 +7,6 @@ using System.Diagnostics.CodeAnalysis;
 using Content.Shared._CE.ZLevels.Core.Components;
 using Content.Shared.ActionBlocker;
 using Content.Shared.CCVar;
-using Content.Shared.Popups;
 using JetBrains.Annotations;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
@@ -34,7 +33,6 @@ public abstract partial class CESharedZLevelsSystem : EntitySystem
     [Dependency] private ActionBlockerSystem _blocker = null!;
     [Dependency] private EntityLookupSystem _lookup = null!;
     [Dependency] private SharedMapSystem _map = null!;
-    [Dependency] private SharedPopupSystem _popup = null!;
 
     [Dependency] protected EntityQuery<CEZPhysicsComponent> ZPhysicsQuery = default!;
 

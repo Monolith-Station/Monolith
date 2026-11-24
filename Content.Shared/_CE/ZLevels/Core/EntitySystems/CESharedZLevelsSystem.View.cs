@@ -6,6 +6,7 @@
 using System.Numerics;
 using Content.Shared._CE.ZLevels.Core.Components;
 using Content.Shared._CE.ZLevels.Core.Events;
+using Content.Shared.Actions;
 using Content.Shared.Maps;
 using JetBrains.Annotations;
 using Robust.Shared.Map;
@@ -15,23 +16,11 @@ namespace Content.Shared._CE.ZLevels.Core.EntitySystems;
 public abstract partial class CESharedZLevelsSystem
 {
     [Dependency] protected ITileDefinitionManager TilDefMan = null!;
+    [Dependency] private SharedActionsSystem _lookUpActions = default!;
 
     private void InitializeView()
     {
-        SubscribeLocalEvent<CEZLevelViewerComponent, MoveEvent>(OnViewerMove);
         SubscribeLocalEvent<CEZLevelViewerComponent, CEToggleZLevelLookUpAction>(OnToggleLookUp);
-    }
-
-    protected virtual void OnViewerMove(Entity<CEZLevelViewerComponent> entity, ref MoveEvent args)
-    {
-        if (!entity.Comp.LookUp)
-            return;
-
-        if (!HasOpaqueAbove(entity))
-            return;
-
-        entity.Comp.LookUp = false;
-        DirtyField(entity, entity.Comp, nameof(CEZLevelViewerComponent.LookUp));
     }
 
     private void OnToggleLookUp(Entity<CEZLevelViewerComponent> entity, ref CEToggleZLevelLookUpAction args)
@@ -41,48 +30,39 @@ public abstract partial class CESharedZLevelsSystem
 
         args.Handled = true;
 
-        if (HasOpaqueAbove(entity))
-        {
-            _popup.PopupClient(Loc.GetString("ce-zlevel-look-up-fail"), entity, entity);
-            return;
-        }
-
         entity.Comp.LookUp = !entity.Comp.LookUp;
         DirtyField(entity, entity.Comp, nameof(CEZLevelViewerComponent.LookUp));
+        _lookUpActions.SetToggled(entity.Comp.ActionEntity, entity.Comp.LookUp);
     }
 
-    public bool HasOpaqueAbove(EntityUid ent, Entity<CEZMapComponent?>? currentMapUid = null)
+    public int GetVisibleZLevelsAbove(EntityUid observer, EntityUid map)
     {
-        currentMapUid ??= Transform(ent).MapUid;
+        var worldPos = _transform.GetWorldPosition(observer);
+        var visible = 0;
+        for (var i = 1; i <= MaxZLevelsAboveRendering; i++)
+        {
+            if (!TryMapOffset(map, i, out var above) || HasOpaqueTile(worldPos, above))
+                break;
 
-        if (currentMapUid is null)
-            return false;
+            visible++;
+        }
 
-        if (!TryMapUp(currentMapUid.Value, out var mapAboveUid))
-            return false;
-
-        var worldPos = _transform.GetWorldPosition(ent);
-        if (!_map.TryFindGridAt(mapAboveUid, worldPos, out var gridUid, out var grid))
-            return false;
-
-        if (!_map.TryGetTileRef(gridUid, grid, worldPos, out var tileRef))
-            return false;
-
-        var tileDef = (ContentTileDefinition)TilDefMan[tileRef.Tile.TypeId];
-        return !tileDef.Transparent;
+        return visible;
     }
 
     /// <summary>
-    /// Checks whether any grid on the map above has an opaque (non-transparent) tile at the given world position.
-    /// World-position overload; see also <see cref="HasOpaqueAbove(EntityUid, Entity{CEZMapComponent?}?)"/>.
+    /// Checks for an opaque tile on the map above, optionally limited to a maximum Z-depth.
     /// </summary>
     [PublicAPI]
-    public bool HasOpaqueAbove(Vector2 worldPos, Entity<CEZMapComponent?> currentMap)
+    public bool HasOpaqueAbove(Vector2 worldPos, Entity<CEZMapComponent?> currentMap, float maxDepth = float.PositiveInfinity)
     {
-        if (!TryMapUp(currentMap, out var mapAboveUid))
-            return false;
+        return TryMapUp(currentMap, out var above) && above.Comp.Depth <= maxDepth &&
+            HasOpaqueTile(worldPos, above);
+    }
 
-        if (!_map.TryFindGridAt(mapAboveUid, worldPos, out var gridUid, out var grid))
+    private bool HasOpaqueTile(Vector2 worldPos, EntityUid map)
+    {
+        if (!_map.TryFindGridAt(map, worldPos, out var gridUid, out var grid))
             return false;
 
         if (!_map.TryGetTileRef(gridUid, grid, worldPos, out var tileRef))
