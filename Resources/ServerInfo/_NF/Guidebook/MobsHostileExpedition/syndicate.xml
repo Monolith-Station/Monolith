@@ -1,15 +1,14 @@
 <Document>
-  # Syndicate Naval Forces
+  # Wayward Naval Forces
 
-  In the far-off Rogue Space, a coalition of corporate entities allied against TSF intrusions into Rogue Space
-  In the expansive Rogue Space, a covert force known as the Spinward Syndicate came into existence a few decades ago, guided by Cybersun Industries. It is a diverse coalition of groups united in their determination to challenge the dominance of the TSF in the region. The Syndicate's United Naval (SUN) branch primarily consists of Gorlex Marauders and is responsible for undermining the TSF's expansion in the Rogue Frontier.
+  Temporal anomalies within the Colossus Radius sometimes cause "shades", mere echoes of what used to be people, to appear and inhabit washed up wreckages. For some reason, there appears to be a pattern of red-clothed shades winding up on planetary bases.
 
   [bold][color=#a4885c]________________________________________________________________________[/color]
 
   # Known Variants
-  # "Syndicate deckhand"
+  # "deckhand"
 
-  Lowest ranking member of the Syndicate Naval Forces. Your regular "Johnny-on-the-spot" when it comes to menial tasks.
+  Doomed to repeat the same menial tasks evermore.
 
   <Box>
   <GuideEntityEmbed Entity="MobSyndicateNavalDeckhandA"/>
@@ -25,9 +24,9 @@
 
   [bold][color=#a4885c]________________________________________________________________________[/color]
 
-  # "Syndicate engineer"
+  # "engineer"
 
-  On a shuttle, the engineer has the annoying job of making sure absolutely everything is running correctly. Syndicate shuttles are no different.
+  They were supposed to make sure everything ran correctly. Something must've gone wrong for them to end up like this.
 
   <Box>
   <GuideEntityEmbed Entity="MobSyndicateNavalEngineerA"/>
@@ -41,9 +40,9 @@
 
   [bold][color=#a4885c]________________________________________________________________________[/color]
 
-  # "Syndicate saboteur"
+  # "saboteur"
 
-  Specialist trained in the art of sabotaging NT shuttles and facilities. Equipped with EMP rounds, take caution.
+  Likely used to be trained in the art of sabotage. Equipped with EMP rounds, take caution.
 
   <Box>
   <GuideEntityEmbed Entity="MobSyndicateNavalSaboteurA"/>
@@ -56,9 +55,9 @@
 
   [bold][color=#a4885c]________________________________________________________________________[/color]
 
-  # "Syndicate medic"
+  # "medic"
 
-  Medical specialist. Knows how to treat patients humanely and how to treat prisoners inhumanely. Uses darts laced with harmful chemicals - impedrezene or chloral hydrate.
+  The remains of a medical specialist, the anomaly has stripped them of any semblance of Hippocrates' oath. Uses darts laced with harmful chemicals - impedrezene or chloral hydrate.
 
   <Box>
   <GuideEntityEmbed Entity="MobSyndicateNavalMedicA"/>
@@ -75,9 +74,9 @@
 
   [bold][color=#a4885c]________________________________________________________________________[/color]
 
-  # "Syndicate operative"
+  # "operative"
 
-  "Everything is a nail if you have a hammer." In this case, everything is a target because he has an SMG and an itchy trigger finger.
+  A shade carrying a submachine gun. They likely weren't any more sane in life, to be honest.
 
   <Box>
   <GuideEntityEmbed Entity="MobSyndicateNavalOperatorA"/>
@@ -91,9 +90,9 @@
 
   [bold][color=#a4885c]________________________________________________________________________[/color]
 
-  # "Syndicate grenadier"
+  # "grenadier"
 
-  "Huh? Say it louder! I can't hear you!" Equipped with the infamous China Lake, grenadiers have immense destructive capability, and should be priority targets.
+  A shade carrying a china lake. They likely weren't any more sane in life, to be honest.
 
   <Box>
   <GuideEntityEmbed Entity="MobSyndicateNavalGrenadierA"/>
@@ -106,9 +105,9 @@
 
   [bold][color=#a4885c]________________________________________________________________________[/color]
 
-  # "Syndicate chemwarrior"
+  # "chemwarrior"
 
-  Carrying tanks filled with dangerous chemicals, chemwarriors attack their enemies with a noxious spray.
+  A shade carrying a spray nozzle in an antiquated form of warfare. Perhaps the shades are older than we think?
 
   <Box>
   <GuideEntityEmbed Entity="MobSyndicateNavalChemwarriorA"/>
@@ -134,9 +133,9 @@
 
   [bold][color=#a4885c]________________________________________________________________________[/color]
 
-  # "Syndicate second officer"
+  # "second officer"
 
-  The captain's right hand is entrusted with relaying the captain's orders to the crew and ensuring they are carried out promptly. Carries a laser pistol for self-defense.
+  The captain's right hand was entrusted with relaying the captain's orders to the crew, but now they're just yet another trigger-happy monster. Carries a laser pistol.
 
   <Box>
   <GuideEntityEmbed Entity="MobSyndicateNavalSecondOfficerA"/>
@@ -150,9 +149,9 @@
 
   [bold][color=#a4885c]________________________________________________________________________[/color]
 
-  # "Syndicate captain"
+  # "captain"
 
-  The executive officer in lieu of the commander, syndicate captains ensure operations onboard go smoothly. Equipped with a 357_magnum revolver.
+  The executive officer in lieu of the commander, or at least they used to be. Equipped with a 357_magnum revolver.
 
   <Box>
   <GuideEntityEmbed Entity="MobSyndicateNavalCaptainA"/>
@@ -166,9 +165,9 @@
 
   [bold][color=#a4885c]________________________________________________________________________[/color]
 
-  # "Syndicate commander"
+  # "commander"
 
-  A regional commander of Syndicate operations, this officer holds ultimate local command and responsibility. Armed with an assault rifle and heavily armored.
+  What used to be a regional commander. Armed with an assault rifle and heavily armored.
 
   <Box>
   <GuideEntityEmbed Entity="MobSyndicateNavalCommanderA"/>
@@ -186,11 +185,11 @@
   <Box>
   <GuideEntityEmbed Entity="MobSyndicateNavalCommanderA"/>
   </Box>
-  Eliminate a large and dangerous creature - a [color=#a4885c]syndicate commander[/color] within given time constraints to earn a monetary reward.
+  Eliminate a large and dangerous creature - a [color=#a4885c]wayward commander[/color] within given time constraints to earn a monetary reward.
 
   ## Destruction
   <Box>
   <GuideEntityEmbed Entity="CybersunDataMiner"/>
   </Box>
-  Destroy a certain number of [color=#a4885c]cybersun data miners[/color] within given time constraints to earn a monetary reward.
+  Destroy a certain number of [color=#a4885c]data miners[/color] within given time constraints to earn a monetary reward.
 </Document>

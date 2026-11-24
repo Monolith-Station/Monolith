@@ -135,7 +135,7 @@
 - type: entity
   id: BorgModuleRedactedRCD
   parent: [ BaseBorgModule, BaseProviderBorgModule, BaseFactionGearOtherFactionT3 ]
-  name: pre-fracture RCD module
+  name: advanced RCD module
   components:
   - type: Sprite
     layers:
@@ -155,7 +155,7 @@
 - type: entity
   id: BorgModuleRedactedWeapon
   parent: [ BaseBorgModule, BaseProviderBorgModule ]
-  name: pre-fracture weapon cyborg module
+  name: advanced cyborg weapon module
   components:
   - type: Sprite
     sprite: _Mono/Objects/Specific/Robotics/borgmodule.rsi

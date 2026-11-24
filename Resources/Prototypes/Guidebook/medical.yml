@@ -3,18 +3,21 @@
   name: guide-entry-medical
   text: "/ServerInfo/Guidebook/Medical/Medical.xml"
   children:
-  - DirectorOfCare # Frontier
-  - MedicalDoctor
-  - Chemist
+  #- DirectorOfCare # Frontier
+  #- MedicalDoctor
+  #- Chemist
+  - Botanicals
+  - AdvancedBrute
   - Cloning
   - Cryogenics # Note: Frontier changes inside
   - Surgery # Shitmed Change
   - MedicalBounties # Frontier
 
-- type: guideEntry
-  id: MedicalDoctor
-  name: guide-entry-medicaldoctor
-  text: "/ServerInfo/Guidebook/Medical/MedicalDoctor.xml"
+# Mono - commented out
+#- type: guideEntry
+#  id: MedicalDoctor
+#  name: guide-entry-medicaldoctor
+#  text: "/ServerInfo/Guidebook/Medical/MedicalDoctor.xml"
 
 - type: guideEntry
   id: Cloning
@@ -26,16 +29,17 @@
   name: guide-entry-cryogenics
   text: "/ServerInfo/_NF/Guidebook/Medical/Cryogenics.xml" # Frontier: added _NF prefix
 
-- type: guideEntry
-  id: Chemist
-  name: guide-entry-chemist
-  text: "/ServerInfo/Guidebook/Medical/Chemist.xml"
-  children:
+# Mono - commented out
+#- type: guideEntry
+#  id: Chemist
+#  name: guide-entry-chemist
+#  text: "/ServerInfo/Guidebook/Medical/Chemist.xml"
+#  children:
   # - Medicine
   # Duplicate guide entries are currently not supported
   # TODO GUIDEBOOK Maybe allow duplicate entries?
-  - Botanicals
-  - AdvancedBrute
+#  - Botanicals
+#  - AdvancedBrute
 
 - type: guideEntry
   id: Medicine

@@ -62,18 +62,18 @@
 #  languagesUnderstood:
 #    - SolCommon
 
-- type: trait
-  id: Tradeband
-  name: trait-language-tradeband-name
-  description: trait-language-tradeband-desc
-  category: LanguageTraits
-  cost: 1
-  components:
-  - type: LanguageSpeaker
-  languagesSpoken:
-    - Tradeband
-  languagesUnderstood:
-    - Tradeband
+#- type: trait
+#  id: Tradeband
+#  name: trait-language-tradeband-name
+#  description: trait-language-tradeband-desc
+#  category: LanguageTraits
+#  cost: 1
+#  components:
+#  - type: LanguageSpeaker
+#  languagesSpoken:
+#    - Tradeband
+#  languagesUnderstood:
+#    - Tradeband
 
 # Uncomment when loadout points let you actually equip this w/ foreigner.
 #- type: trait
@@ -116,18 +116,18 @@
 #       languagesUnderstood:
 #         - ValyrianStandard
 
-- type: trait
-  id: NovuNederic
-  name: trait-language-novunederic-name
-  description: trait-language-novunederic-desc
-  category: LanguageTraits
-  cost: 1
-  components:
-  - type: LanguageSpeaker
-  languagesSpoken:
-    - NovuNederic
-  languagesUnderstood:
-    - NovuNederic
+#- type: trait
+#  id: NovuNederic
+#  name: trait-language-novunederic-name
+#  description: trait-language-novunederic-desc
+#  category: LanguageTraits
+#  cost: 1
+#  components:
+#  - type: LanguageSpeaker
+#  languagesSpoken:
+#    - NovuNederic
+#  languagesUnderstood:
+#    - NovuNederic
 
 # Commented out since it's species-specific.
 # - type: trait

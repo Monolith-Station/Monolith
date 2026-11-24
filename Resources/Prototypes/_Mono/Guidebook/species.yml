@@ -1,0 +1,97 @@
+- type: guideEntry
+  id: Species
+  name: guide-entry-species
+  text: "/ServerInfo/Guidebook/Mobs/Species.xml"
+  children:
+  - Humankind
+  - Diona # Note: Frontier changes inside
+  - SlimePerson
+  - Vox
+  - Resomi # Floof
+  - IPC # EE
+  - Hydrakin # Monolith/Obelisk
+  - Flight # CE
+
+- type: guideEntry
+  id: Humankind
+  name: Humankind
+  text: "/ServerInfo/_Mono/Guidebook/Species/Humankind.xml"
+  children:
+  - Human
+  - Dwarf # Note: Frontier changes inside
+  - Moth
+  - Chitinid # DeltaV
+  - Reptilian # Monolith changes inside
+  - Rodentia # DeltaV
+  - Harpy # DeltaV
+  - Vulpkanin # DeltaV
+  - Oni # DeltaV
+  - Goblin # Frontier
+  - Tajaran # Goobstation
+  - Feroxi
+  - Arachnid
+
+- type: guideEntry
+  id: Arachnid
+  name: species-name-arachnid
+  text: "/ServerInfo/Guidebook/Mobs/Arachnid.xml"
+
+- type: guideEntry
+  id: Diona
+  name: species-name-diona
+  text: "/ServerInfo/_NF/Guidebook/Mobs/Diona.xml" # Frontier: moved to _NF folder
+
+- type: guideEntry
+  id: Dwarf
+  name: species-name-dwarf
+  text: "/ServerInfo/_NF/Guidebook/Mobs/Dwarf.xml" # Frontier: moved to _NF folder
+
+- type: guideEntry
+  id: Human
+  name: species-name-human
+  text: "/ServerInfo/Guidebook/Mobs/Human.xml"
+
+- type: guideEntry
+  id: Moth
+  name: species-name-moth
+  text: "/ServerInfo/Guidebook/Mobs/Moth.xml"
+
+- type: guideEntry
+  id: Reptilian
+  name: species-name-reptilian
+  text: "/ServerInfo/Guidebook/Mobs/_Mono/MonoReptilian.xml" # Mono
+
+- type: guideEntry
+  id: SlimePerson
+  name: species-name-slime
+  text: "/ServerInfo/Guidebook/Mobs/SlimePerson.xml"
+
+- type: guideEntry
+  id: Vox
+  name: species-name-vox
+  text: "/ServerInfo/Guidebook/Mobs/Vox.xml"
+
+- type: guideEntry
+  id: Resomi
+  name: species-name-resomi
+  text: "/ServerInfo/Guidebook/Mobs/Resomi.xml"
+
+#- type: guideEntry
+#  id: Protogen # Mono: Outdated
+#  name: species-name-protogen
+#  text: "/ServerInfo/Guidebook/Mobs/Protogen.xml"
+
+- type: guideEntry
+  id: IPC
+  name: species-name-ipc
+  text: "/ServerInfo/Guidebook/Mobs/IPCs.xml"
+
+- type: guideEntry
+  id: Tajaran
+  name: species-name-tajaran
+  text: "/ServerInfo/Guidebook/Mobs/Tajaran.xml"
+
+- type: guideEntry
+  id: Hydrakin
+  name: species-name-hydrakin
+  text: "/ServerInfo/Guidebook/Mobs/Hydrakin.xml"

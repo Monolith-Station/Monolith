@@ -1,6 +1,6 @@
 - type: entity
   parent: ReagentDispenserBase
-  id: CondimentDispenser  
+  id: CondimentDispenser
   name: condiment dispenser
   suffix: Filled
   description: A condiment dispenser with a single slot for a condiment cup.
@@ -35,7 +35,7 @@
     board: CondimentDispenserCircuitboard
   - type: GuideHelp
     guides:
-    - Bartender
+    #- Bartender
     - Drinks
 
 - type: entity

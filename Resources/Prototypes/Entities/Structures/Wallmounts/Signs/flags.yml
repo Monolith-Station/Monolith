@@ -21,8 +21,8 @@
 - type: entity
   parent: BaseFlag
   id: NTFlag
-  name: Nanotrasen flag
-  description: Glory to NT! Wait, they really made a flag for a corporation?
+  name: old flag
+  description: Glory to... whose is this, anyway?
   components:
   - type: Sprite
     state: NT_flag
@@ -30,12 +30,12 @@
 - type: entity
   parent: BaseFlag
   id: SyndieFlag
-  name: syndicate flag
-  description: Smells bloody. Death to NT!
+  name: ancient flag
+  description: Smells bloody, and old.
   components:
   - type: Sprite
     state: syndie_flag
-    
+
 - type: entity
   parent: BaseFlag
   id: LGBTQFlag
@@ -44,7 +44,7 @@
   components:
   - type: Sprite
     state: lgbtq_flag
-    
+
 - type: entity
   parent: BaseFlag
   id: PirateFlag

@@ -1,7 +1,7 @@
 - type: entity
   name: NTCS-101 hypospray
   parent: BaseItem
-  description: A commercial hypospray designed by Nanotrasen Chemical Supply. It has two built in safety features for the consumer market, a small chemical reservoir and an injection delay.
+  description: A commercial hypospray. It has two built in safety features for the consumer market, a small chemical reservoir and an injection delay.
   id: HypoMini
   components:
   - type: Sprite
@@ -30,7 +30,7 @@
 - type: entity
   name: NTCS-102 hypospray
   parent: HypoMini
-  description: A commercial hypospray designed by Nanotrasen Chemical Supply. It has a larger chemical reservoir compared to its commercial version and a slightly lowered injection delay. # Mono
+  description: A commercial hypospray. It has a larger chemical reservoir compared to its commercial version and a slightly lowered injection delay. # Mono
   id: HypoBrigmedic
   components:
   - type: Sprite
@@ -56,7 +56,7 @@
 - type: entity
   name: NTCS-103 hypospray
   parent: HypoMini
-  description: A modified, experimental hypospray designed as a limited edition by the Nanotrasen Chemical Supply. It has a lowered injection delay and a slighlty modified chemical reservoir.
+  description: A modified, experimental hypospray. It has a lowered injection delay and a slighlty modified chemical reservoir.
   id: HypoMiniLimitedEdition
   components:
   - type: Sprite
@@ -69,11 +69,11 @@
     vendPrice: 10000
   - type: UseDelay
     delay: 0.65
-    
+
 - type: entity
   name: empty medipen
   parent: BaseItem
-  description: A empty medipen with endless potential. Does not allow for deviation from Nanotrasen recipes.
+  description: A empty medipen with endless potential. Does not allow for deviation from standard recipes.
   id: BlankMediPen
   components:
   - type: Sprite
