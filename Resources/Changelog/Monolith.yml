@@ -27702,3 +27702,20 @@ Entries:
   id: 2970
   time: '2026-11-23T21:59:20.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/5086
+- author: pizzay30tyd
+  changes:
+    - type: Tweak
+      message: IFF and Detailed IFF can now render separately
+    - type: Tweak
+      message: >-
+        Detailed IFF is now turned off by default (when you first open
+        console/mass scanner)
+    - type: Tweak
+      message: >-
+        Radar Blips (the triangles) are now off by default, can be toggled via a
+        new button in shuttle/gunnery consoles
+    - type: Tweak
+      message: Radar Blips are 25% smaller
+  id: 2971
+  time: '2026-11-24T19:19:05.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5010
