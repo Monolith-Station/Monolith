@@ -39,14 +39,14 @@
     maxIntensity: 3
     tileBreakScale: 3
   - type: TargetSeeking
-    acceleration: 40
-    detectionRange: 2000
+    acceleration: 20
+    detectionRange: 500
     scanArc: 35
     launchSpeed: 10
-    maxSpeed: 300
+    maxSpeed: 150
     trackDelay: 0.1
   - type: EmpOnTrigger
-    range: 2
+    range: 1
     energyConsumption: 2700000
     disableDuration: 20
   - type: TargetSeekingTarget
@@ -88,11 +88,11 @@
     color: orange
     energy: 0.5
   - type: TargetSeeking # This is just for the acceleration and rocket shit, to make it, you know, be an actual rocket.
-    acceleration: 30
+    acceleration: 15
     detectionRange: 0
     scanArc: 0
     launchSpeed: 10
-    maxSpeed: 300
+    maxSpeed: 150
     trackDelay: 0
     exposesTracking: false
   - type: ExplodeOnTrigger

@@ -5,6 +5,7 @@
   description: A basic gas-harvesting (not processing!) ship. Equipped with a pulser to strip asteroids, a boom for exporting and importing gas, and the equipment to setup a drilling rig. The internal gas tank has a volume of 67.5kL (not counting piping), and is equipped with coolers for condensation & a canister port.
   price: 46000
   category: Small
+  maximumPilotSpeed: 35
   group: Mieyo
   access: Mieyo
   shuttlePath: /SharedMaps/_Mono/Shuttles/MMC/akasono.yml

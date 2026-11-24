@@ -17,17 +17,17 @@
   - type: FireControlRotate
   - type: AmmoCounter
   - type: WirelessNetworkConnection
-    range: 500
+    range: 250
   - type: GunSignalControl
   - type: Gun
     damageModifier: 0.5
     selectedMode: Burst
     availableModes: Burst
     burstCooldown: 15
-    burstFireRate: 14
-    shotsPerBurst: 72
-    fireRate: 0.8
-    recoil: 5
+    burstFireRate: 7
+    shotsPerBurst: 36
+    fireRate: 0.4
+    recoil: 2.5
     minAngle: 0
     maxAngle: 6
     shootThermalSignature: 8000000

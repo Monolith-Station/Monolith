@@ -7,7 +7,7 @@
     shape: star
     radarColor: "#FCBA03"
     visibleFromOtherGrids: true
-    maxDistance: 8192
+    maxDistance: 4096
   - type: TimedDespawn
     lifetime: 0.4
   - type: Physics
@@ -64,7 +64,7 @@
   components:
   - type: RadarBlip
     scale: 11
-    maxDistance: 16384 # I NEED to see my orbital strike hitmarkers.
+    maxDistance: 8192 # I NEED to see my orbital strike hitmarkers.
   - type: TimedDespawn
     lifetime: 0.65
 

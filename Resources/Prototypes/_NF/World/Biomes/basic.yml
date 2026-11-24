@@ -243,7 +243,7 @@
   id: NFAsteroidsFar
   parent: NFBiomeBase
   priority: 0
-  distanceRange: 9500, 18000 # Mono
+  distanceRange: 4750, 9000 # Mono
   noiseRanges: {}
   chunkComponents:
   - type: SimpleDebrisSelector

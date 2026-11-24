@@ -202,8 +202,8 @@
   - type: Thruster
     thrusterType: Angular
     requireSpace: false
-    baseThrust: 2000
-    thrust: 2000
+    baseThrust: 18000
+    thrust: 18000
     machinePartThrust: Manipulator
     heatSignatureRatio: 0.5 # Mono
   - type: Sprite
@@ -329,8 +329,8 @@
   - type: Thruster
     thrusterType: Angular
     requireSpace: false
-    baseThrust: 100
-    thrust: 100
+    baseThrust: 450
+    thrust: 450
   - type: ApcPowerReceiver
     needsPower: false
     powerLoad: 0

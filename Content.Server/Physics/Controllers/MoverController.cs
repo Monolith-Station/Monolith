@@ -3,12 +3,14 @@ using System.Numerics;
 using System.Runtime.CompilerServices;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
+using Content.Shared._Mono.CCVar;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Shuttles.Systems;
 using Content.Shared.Ghost; // Frontier
 using Prometheus;
+using Robust.Shared.Configuration;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
@@ -27,6 +29,10 @@ public sealed partial class MoverController : SharedMoverController
 
     [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private ThrusterSystem _thruster = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+
+    private bool _driveThrustNormalizationEnabled;
+    private float _driveThrustNormalizationStrength;
 
     private Dictionary<EntityUid, (ShuttleComponent, List<(EntityUid, PilotComponent, InputMoverComponent, TransformComponent)>)> _shuttlePilots = new();
 
@@ -43,6 +49,10 @@ public sealed partial class MoverController : SharedMoverController
     public override void Initialize()
     {
         base.Initialize();
+
+        Subs.CVar(_cfg, MonoCVars.DriveThrustNormalizationEnabled, enabled => _driveThrustNormalizationEnabled = enabled, true);
+        Subs.CVar(_cfg, MonoCVars.DriveThrustNormalizationStrength, strength =>
+            _driveThrustNormalizationStrength = float.IsFinite(strength) ? Math.Clamp(strength, 0f, 1f) : 0f, true);
 
         SubscribeLocalEvent<ActiveInputMoverComponent, EntityPausedEvent>(OnEntityPaused);
         SubscribeLocalEvent<InputMoverComponent, EntityUnpausedEvent>(OnEntityUnpaused);
@@ -166,7 +176,8 @@ public sealed partial class MoverController : SharedMoverController
             return;
 
         args.Input = input;
-        args.SetMaxVelocity = entity.Comp.SetMaxVelocity;
+        if (TryComp<ShuttleComponent>(args.ShuttleUid, out var shuttle))
+            args.SetMaxVelocity = MathF.Min(entity.Comp.SetMaxVelocity ?? shuttle.MaximumPilotSetLinearVelocity, shuttle.MaximumPilotSetLinearVelocity);
     }
 
     private void PilotedShuttleRelayEvent<TEvent>(Entity<PilotedShuttleComponent> entity, ref TEvent args)
@@ -414,15 +425,21 @@ public sealed partial class MoverController : SharedMoverController
 
         dir.Normalize();
 
-        var horizIndex = dir.X > 0 ? 1 : 3; // east else west
-        var vertIndex = dir.Y > 0 ? 2 : 0; // north else south
-        var horizThrust = shuttle.LinearThrust[horizIndex];
-        var vertThrust = shuttle.LinearThrust[vertIndex];
+        var (horizThrust, vertThrust) = GetDirectionalThrustLimits(dir, shuttle, out var normalizationStrength);
 
         var horizScale = MathF.Abs(horizThrust / dir.X);
         var vertScale = MathF.Abs(vertThrust / dir.Y);
         // prevent NaNs
-        dir *= dir.X == 0 ? vertScale : dir.Y == 0 ? horizScale : MathF.Min(horizScale, vertScale);
+        var thrust = dir.X == 0 ? vertScale : dir.Y == 0 ? horizScale : MathF.Min(horizScale, vertScale);
+
+        // Blend out the extra diagonal thrust from firing both sets of thrusters together.
+        if (normalizationStrength > 0f && dir.X != 0f && dir.Y != 0f)
+        {
+            var diagonalLimit = MathF.Max(horizThrust, vertThrust);
+            thrust -= MathF.Max(thrust - diagonalLimit, 0f) * normalizationStrength;
+        }
+
+        dir *= thrust;
 
         var northAngle = xform.LocalRotation;
         var localVel = (-northAngle).RotateVec(body.LinearVelocity);
@@ -441,6 +458,52 @@ public sealed partial class MoverController : SharedMoverController
         }
 
         return dir * shuttle.AccelerationMultiplier;
+    }
+
+    /// <summary>
+    /// Gets the usable thrust on each local axis for the requested direction.
+    /// </summary>
+    internal (float Horizontal, float Vertical) GetDirectionalThrustLimits(Vector2 dir, ShuttleComponent shuttle, out float normalizationStrength)
+    {
+        var horizontalIndex = dir.X > 0f ? 1 : 3;
+        var verticalIndex = dir.Y > 0f ? 2 : 0;
+        var horizontal = shuttle.LinearThrust[horizontalIndex];
+        var vertical = shuttle.LinearThrust[verticalIndex];
+        normalizationStrength = 0f;
+
+        if (!_driveThrustNormalizationEnabled || _driveThrustNormalizationStrength <= 0f || !ShuttleSystem.IsDriveMode(shuttle))
+            return (horizontal, vertical);
+
+        var total = 0f;
+        var count = 0;
+        for (var i = 0; i < shuttle.LinearThrust.Length; i++)
+        {
+            var thrust = shuttle.LinearThrust[i];
+            if (thrust <= 0f || shuttle.LinearThrusters[i].Count == 0)
+                continue;
+
+            total += thrust;
+            count++;
+        }
+
+        if (count == 0)
+            return (0f, 0f);
+
+        var average = total / count;
+        normalizationStrength = _driveThrustNormalizationStrength;
+        // The thruster lists also rule out residual force from adding and subtracting floats in the cache.
+        if (shuttle.LinearThrusters[horizontalIndex].Count == 0)
+            horizontal = 0f;
+        if (shuttle.LinearThrusters[verticalIndex].Count == 0)
+            vertical = 0f;
+
+        return (NormalizeThrust(horizontal, average, normalizationStrength), NormalizeThrust(vertical, average, normalizationStrength));
+    }
+
+    private static float NormalizeThrust(float thrust, float average, float strength)
+    {
+        // Keep directions with no active thrust unavailable.
+        return thrust > 0f ? thrust + (average - thrust) * strength : 0f;
     }
 
     /// <summary>

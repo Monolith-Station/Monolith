@@ -137,11 +137,11 @@
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 15
-    detectionRange: 1250
+    acceleration: 7.5
+    detectionRange: 312.5
     scanArc: 35
     launchSpeed: 20
-    maxSpeed: 70
+    maxSpeed: 35
     trackDelay: 0.5
   - type: Destructible
     thresholds:
@@ -248,11 +248,11 @@
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 200
-    detectionRange: 1
+    acceleration: 100
+    detectionRange: 0.25
     scanArc: 1
     launchSpeed: 500
-    maxSpeed: 500
+    maxSpeed: 250
     trackDelay: 1
 
 - type: entity

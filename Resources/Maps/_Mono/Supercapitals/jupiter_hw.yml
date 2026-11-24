@@ -36787,14 +36787,14 @@ entities:
     - type: Transform
       pos: 11.5,10.5
       parent: 1
-- proto: MachineHeavyFTLDriveConsole
+- proto: MachineHeavyFTLDrive3750Console
   entities:
   - uid: 4972
     components:
     - type: Transform
       pos: 2.5,52.5
       parent: 1
-- proto: MachineHeavyFTLDriveCore
+- proto: MachineHeavyFTLDrive3750Core
   entities:
   - uid: 4973
     components:

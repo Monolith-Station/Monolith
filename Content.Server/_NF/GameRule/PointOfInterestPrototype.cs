@@ -53,6 +53,19 @@ public sealed partial class PointOfInterestPrototype : IPrototype, IInheritingPr
     public int MaximumDistance { get; private set; } = 10000;
 
     /// <summary>
+    ///     Minimum distance in meters between this POI and other generated POIs, measured from their grid origins.
+    ///     The global minimum and the other POI's minimum still apply if either is greater.
+    /// </summary>
+    [DataField]
+    public int MinimumSeparation { get; private set; }
+
+    /// <summary>
+    /// Places this POI without checking or reserving space for separation from other POIs.
+    /// </summary>
+    [DataField]
+    public bool IgnorePoiSeparation { get; private set; }
+
+    /// <summary>
     ///     Offset X axis of the spawning range in meters.
     /// </summary>
     [DataField("posX")]
@@ -77,6 +90,11 @@ public sealed partial class PointOfInterestPrototype : IPrototype, IInheritingPr
     /// </summary>
     [DataField]
     public ProtoId<GamePresetPrototype>[] SpawnGamePreset { get; private set; } = [];
+
+    public bool CanSpawnIn(ProtoId<GamePresetPrototype> preset)
+    {
+        return SpawnGamePreset.Length == 0 || Array.IndexOf(SpawnGamePreset, preset) >= 0;
+    }
 
     /// <summary>
     ///     If the POI does not belong to a pre-defined group, it will default to the "unique" internal category and will

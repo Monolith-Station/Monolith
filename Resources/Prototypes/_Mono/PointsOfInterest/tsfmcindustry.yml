@@ -9,10 +9,10 @@
   id: TSFMCIndustry
   parent: [BasePOI, BaseRepairablePOI]
   name: 'TSF-CIV "Stellar Blessing"'
-  minimumDistance: 1 # Mono
-  maximumDistance: 200 # Mono
-  posX: 3500
-  posY: -5000
+  minimumDistance: 0
+  maximumDistance: 200
+  posX: 5000
+  posY: -6000
   spawnGamePreset: [ NFAdventure, NFPirate, MonoStandard, MonoRogueTSF, MonoTSFUSSP, MonoADS, MonoChimera, MonoMixed, MonoAllAtOnce, MonoChimeraTsf ]
   spawnGroup: Required
   gridPath: /Maps/_Mono/POI/tsfmc_industry.yml
@@ -25,9 +25,9 @@
   - type: WorldGenDistanceCarver
     distanceThresholds:
     # Dead zone
-    - maxDistance: 800
+    - maxDistance: 400
       prob: 0.0
-    - maxDistance: 1500
+    - maxDistance: 750
       prob: 0.3
 
 - type: gameMap

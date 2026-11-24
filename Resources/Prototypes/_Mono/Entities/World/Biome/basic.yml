@@ -135,10 +135,10 @@
   id: MonoWildsCore
   parent: NFBiomeBase
   priority: 700
-  minX: 68 # 8448m
-  maxX: 72 # 9728m
-  minY: -63 # -8578
-  maxY: -55 # -6528
+  minX: 34 # 4352m
+  maxX: 36 # 4608m
+  minY: -31 # -3968m
+  maxY: -27 # -3456m
   noiseRanges: {}
   chunkComponents:
   - type: DebrisFeaturePlacerController
@@ -243,11 +243,11 @@
 - type: spaceBiome
   id: MonoWilds
   parent: NFBiomeBase
-  priority: 500 # avg center coords is about 9088, -7552
-  minX: 64 # 8448m
-  maxX: 76 # 9728m
-  minY: -67 # -8578
-  maxY: -51 # -6528
+  priority: 500 # avg center coords is about 4480, -3712
+  minX: 32 # 4096m
+  maxX: 38 # 4864m
+  minY: -33 # -4224m
+  maxY: -25 # -3200m
   noiseRanges: {}
   chunkComponents:
   - type: DebrisFeaturePlacerController
@@ -356,10 +356,10 @@
   id: MonoWildsOutskirts
   parent: NFBiomeBase
   priority: 100
-  minX: 56
-  maxX: 84
-  minY: -75
-  maxY: -43
+  minX: 28
+  maxX: 42
+  minY: -37
+  maxY: -21
   noiseRanges: {}
   chunkComponents:
   - type: DebrisFeaturePlacerController
@@ -410,7 +410,7 @@
 - type: spaceBiome
   id: MonoEmptyFallback # We need nothing to generate under 18000, but Far Reaches 4 would generate instead, so we need a useless thing.
   priority: 1
-  distanceRange: 0, 18000
+  distanceRange: 0, 9000
   noiseRanges: {}
 
 # 9km Ring
@@ -418,7 +418,7 @@
   id: MonoWorldgenAsteroidRing9km
   parent: NFBiomeBase
   priority: 50
-  distanceRange: 8750, 9000
+  distanceRange: 4375, 4500
   chunkComponents:
   - type: DebrisFeaturePlacerController
     densityNoiseChannel: DensityHigh
@@ -570,7 +570,7 @@
 - type: spaceBiome
   id: MonoRareAsteroidsFallback
   priority: 1
-  distanceRange: 0, 18000
+  distanceRange: 0, 9000
   noiseRanges: {}
   chunkComponents:
   - type: DebrisFeaturePlacerController
@@ -619,7 +619,7 @@
   id: MonoWorldgenVeryFarT1
   parent: NFBiomeBase
   priority: -1
-  distanceRange: 18000, 22000
+  distanceRange: 9000, 11000
   chunkComponents:
   - type: DebrisFeaturePlacerController
     densityNoiseChannel: DensityRare
@@ -747,7 +747,7 @@
   id: MonoWorldgenVeryFarT2Inner
   parent: MonoWorldgenVeryFarT1
   priority: -2
-  distanceRange: 22000, 25000
+  distanceRange: 11000, 12500
   chunkComponents:
   - type: NoiseDrivenDebrisSelector
     noiseChannel: WreckRare
@@ -775,7 +775,7 @@
   id: MonoWorldgenVeryFarT2Middle
   parent: MonoWorldgenVeryFarT1
   priority: -3
-  distanceRange: 25000, 30000
+  distanceRange: 12500, 15000
   chunkComponents:
   - type: NoiseDrivenDebrisSelector
     noiseChannel: WreckRare

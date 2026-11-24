@@ -402,6 +402,9 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
 
         EntityManager.AddComponents(shuttleUid, vessel.AddComponents);
 
+        if (TryComp<ShuttleComponent>(shuttleUid, out var shuttleSpeed))
+            shuttleSpeed.MaximumPilotSetLinearVelocity = vessel.MaximumPilotSpeed;
+
         // Add ship access control
         AddShipAccessToEntities(shuttleUid);
 

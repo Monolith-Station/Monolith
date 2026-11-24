@@ -17,9 +17,10 @@
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
   - type: DetectionRangeMultiplier
-    infraredMultiplier: 1.5
-    visualMultiplier: 2
+    infraredMultiplier: 0.75
+    visualMultiplier: 1
   - type: RadarConsole
+    maxRange: 1024
   - type: Computer
     board: EliteRadarCircuitboard
   - type: PointLight
@@ -34,8 +35,9 @@
   description: A visual uplink to a station's advanced, long-range intelligence suite, allowing commanders to have eyes on unfolding combat at all times.
   components:
   - type: DetectionRangeMultiplier
-    infraredMultiplier: 2
-    visualMultiplier: 4
+    infraredMultiplier: 1
+    visualMultiplier: 1
   - type: RadarConsole
+    maxRange: 1024
   - type: Computer
     board: StationRadarCircuitboard

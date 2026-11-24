@@ -211,7 +211,7 @@
 - type: entity
   id: 90mmMagazineMinelayer
   name: "57x460mm minelayer ammo loader"
-  description: "An ammunition loader containing 400 57x460mm minelayer rounds. Usable by 57x460mm vessel-mounted artillery pieces."
+  description: "An ammunition loader containing 200 57x460mm minelayer rounds. Usable by 57x460mm vessel-mounted artillery pieces."
   parent: [BaseItem, RecyclableItemSteelTiny]
   components:
   - type: Tag
@@ -222,7 +222,7 @@
   - type: BallisticAmmoProvider
     infiniteUnspawned: false
     proto: 90mmCartridgeMinelayer
-    capacity: 12 # for balance
+    capacity: 6 # for balance
     mayTransfer: true
     whitelist:
       tags:

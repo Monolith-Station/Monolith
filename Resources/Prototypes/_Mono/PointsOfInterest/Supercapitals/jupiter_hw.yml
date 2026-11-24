@@ -8,8 +8,8 @@
   id: Jupiter_HW
   parent: [BaseMobilePOI, BaseRepairablePOI]
   name: 'PDV Jupiter'
-  minimumDistance: 12000
-  maximumDistance: 15000
+  minimumDistance: 2400
+  maximumDistance: 3500
   spawnGamePreset: [ MonoRogueTSFHyperwar ]
   spawnGroup: Required
   gridPath: /Maps/_Mono/Supercapitals/jupiter_hw.yml

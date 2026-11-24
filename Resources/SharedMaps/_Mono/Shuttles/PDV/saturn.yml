@@ -18928,14 +18928,14 @@ entities:
     - type: Transform
       pos: 8.99447,19.59675
       parent: 1
-- proto: MachineHeavyFTLDriveConsole
+- proto: MachineHeavyFTLDrive3750Console
   entities:
   - uid: 2878
     components:
     - type: Transform
       pos: -8.5,2.5
       parent: 1
-- proto: MachineHeavyFTLDriveCore
+- proto: MachineHeavyFTLDrive3750Core
   entities:
   - uid: 2879
     components:

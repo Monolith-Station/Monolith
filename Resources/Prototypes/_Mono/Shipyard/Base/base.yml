@@ -6,6 +6,7 @@
   description: Questionably spaceworthy.
   price: 50000
   category: Medium
+  maximumPilotSpeed: 30
   group: Shipyard
   addComponents:
   - type: IFF
@@ -14,6 +15,7 @@
 
 - type: vessel
   id: BaseVesselIFFDisabled
+  maximumPilotSpeed: 30
   abstract: true
   parent: BaseVessel
   addComponents:

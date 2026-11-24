@@ -22,7 +22,7 @@
   - type: Ammo
     muzzleFlash: null
   - type: RadarBlip
-    maxDistance: 16384
+    maxDistance: 8192
     radarColor: "#00ffdd"
     scale: 5
     shape: Triangle
@@ -43,9 +43,9 @@
   - type: MiningGatheringHard
   - type: TargetGuided
     turnRate: 70
-    acceleration: 60
+    acceleration: 30
     launchSpeed: 150
-    maxSpeed: 400
+    maxSpeed: 200
     maxLifetime: 60
     fallbackTime: 60
   # destructible components below
@@ -145,7 +145,7 @@
   - type: Ammo
     muzzleFlash: null
   - type: RadarBlip
-    maxDistance: 16384
+    maxDistance: 8192
     radarColor: "#00ffdd"
     scale: 5
     shape: Triangle
@@ -167,9 +167,9 @@
   - type: MiningGatheringHard
   - type: TargetGuided
     turnRate: 70
-    acceleration: 60
+    acceleration: 30
     launchSpeed: 150
-    maxSpeed: 300
+    maxSpeed: 150
     maxLifetime: 120
     fallbackTime: 120
   # destructible components below

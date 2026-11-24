@@ -34,7 +34,6 @@ public sealed partial class NFAdventureRuleSystem : GameRuleSystem<NFAdventureRu
 {
     [Dependency] private IConfigurationManager _cfg = default!;
     [Dependency] private IPlayerManager _player = default!;
-    [Dependency] private IPrototypeManager _proto = default!;
     [Dependency] private BankSystem _bank = default!;
     [Dependency] private GameTicker _ticker = default!;
     [Dependency] private PointOfInterestSystem _poi = default!;
@@ -44,7 +43,7 @@ public sealed partial class NFAdventureRuleSystem : GameRuleSystem<NFAdventureRu
 
     private readonly HttpClient _httpClient = new();
 
-    private readonly ProtoId<GamePresetPrototype> _fallbackPresetID = "NFPirates";
+    private readonly ProtoId<GamePresetPrototype> _fallbackPresetID = "NFPirate";
 
     private const int LeaderboardLimit = 20;
 
@@ -315,53 +314,9 @@ public sealed partial class NFAdventureRuleSystem : GameRuleSystem<NFAdventureRu
             return;
         }
 
-        var mapUid = GameTicker.DefaultMap;
-
-        //First, we need to grab the list and sort it into its respective spawning logics
-        List<PointOfInterestPrototype> depotProtos = [];
-        List<PointOfInterestPrototype> marketProtos = [];
-        List<PointOfInterestPrototype> requiredProtos = [];
-        List<PointOfInterestPrototype> optionalProtos = [];
-        Dictionary<string, List<PointOfInterestPrototype>> remainingUniqueProtosBySpawnGroup = new();
-
         var currentPreset = _ticker.CurrentPreset?.ID ?? _fallbackPresetID;
-
-        foreach (var location in _proto.EnumeratePrototypes<PointOfInterestPrototype>())
-        {
-            // Check if any preset is accepted (empty) or if current preset is supported.
-            var protoIds = location.SpawnGamePreset.ToList();
-            if (location.SpawnGamePreset.Length > 0 && !protoIds.Contains(currentPreset))
-                continue;
-
-            switch (location.SpawnGroup)
-            {
-                case "CargoDepot":
-                    depotProtos.Add(location);
-                    break;
-                case "MarketStation":
-                    marketProtos.Add(location);
-                    break;
-                case "Required":
-                    requiredProtos.Add(location);
-                    break;
-                case "Optional":
-                    optionalProtos.Add(location);
-                    break;
-                // the remainder are done on a per-poi-per-group basis
-                default:
-                {
-                    if (!remainingUniqueProtosBySpawnGroup.ContainsKey(location.SpawnGroup))
-                        remainingUniqueProtosBySpawnGroup[location.SpawnGroup] = new();
-                    remainingUniqueProtosBySpawnGroup[location.SpawnGroup].Add(location);
-                    break;
-                }
-            }
-        }
-        _poi.GenerateDepots(mapUid, depotProtos, out component.CargoDepots);
-        _poi.GenerateMarkets(mapUid, marketProtos, out component.MarketStations);
-        _poi.GenerateRequireds(mapUid, requiredProtos, out component.RequiredPois);
-        _poi.GenerateOptionals(mapUid, optionalProtos, out component.OptionalPois);
-        _poi.GenerateUniques(mapUid, remainingUniqueProtosBySpawnGroup, out component.UniquePois);
+        (component.RequiredPois, component.CargoDepots, component.MarketStations, component.OptionalPois,
+            component.UniquePois) = _poi.Generate(GameTicker.DefaultMap, currentPreset);
 
         base.Started(uid, component, gameRule, args);
 

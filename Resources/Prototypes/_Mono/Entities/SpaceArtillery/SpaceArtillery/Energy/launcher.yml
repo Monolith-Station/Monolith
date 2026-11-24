@@ -22,13 +22,13 @@
     startingCharge: 40000
   - type: ExaminableBattery
   - type: WirelessNetworkConnection
-    range: 500
+    range: 250
   - type: Gun
-    fireRate: 0.7
-    recoil: 5 # 1/5x
+    fireRate: 0.35
+    recoil: 2.5 # 1/5x
     minAngle: 0
     maxAngle: 0
-    projectileSpeed: 180
+    projectileSpeed: 63
     shootThermalSignature: 4000000 # ~2.8km with continuous fire
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon2.ogg
@@ -70,7 +70,7 @@
   - BallisticArtillery
   - BallisticArtilleryTier3HP
   suffix: Medium, T3
-  description: Borrowing from the design of the Marauder, the Cerberus fires very similar shots, but in a tight spread of 3 blasts
+  description: Borrowing from the design of the Marauder, the Cerberus fires very similar shots, but in a tight spread of 2 blasts
   components:
   - type: StaticPrice
     price: 2000
@@ -85,13 +85,13 @@
     startingCharge: 40000
   - type: ExaminableBattery
   - type: WirelessNetworkConnection
-    range: 500
+    range: 250
   - type: Gun
-    fireRate: 0.5
-    recoil: 8
+    fireRate: 0.25
+    recoil: 4
     minAngle: 0
     maxAngle: 0
-    projectileSpeed: 180
+    projectileSpeed: 63
     shootThermalSignature: 4000000 # ~2.8km with continuous fire
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon2.ogg
@@ -147,14 +147,14 @@
     startingCharge: 18000
   - type: ExaminableBattery
   - type: WirelessNetworkConnection
-    range: 500
+    range: 250
   - type: Gun
     damageModifier: 2
-    fireRate: 20
-    recoil: 5 # 1/5x
+    fireRate: 10
+    recoil: 2.5 # 1/5x
     minAngle: 0
     maxAngle: 5
-    projectileSpeed: 320
+    projectileSpeed: 112
     shootThermalSignature: 500000 # ~5.6km with continuous fire
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/Gunshots/autopulse_laser_fire_01.ogg
@@ -211,13 +211,13 @@
     startingCharge: 2250
   - type: ExaminableBattery
   - type: WirelessNetworkConnection
-    range: 500
+    range: 250
   - type: FireControlRotate
   - type: Gun
     damageModifier: 1
-    fireRate: 5
-    recoil: 2 # 2/25x
-    projectileSpeed: 20
+    fireRate: 2.5
+    recoil: 1 # 2/25x
+    projectileSpeed: 7
     minAngle: 0
     maxAngle: 5
     shootThermalSignature: 10000 # 400m - intentionally relatively low
@@ -288,10 +288,10 @@
   - type: ExaminableBattery
   - type: FireControlRotate
   - type: WirelessNetworkConnection
-    range: 500
+    range: 250
   - type: Gun
-    fireRate: 0.2
-    projectileSpeed: 170
+    fireRate: 0.1
+    projectileSpeed: 59.5
     shootThermalSignature: 2000000 # ~1414m after firing - relatively low
     soundGunshot:
       collection: ShipGunMjolnir
@@ -347,17 +347,17 @@
     startingCharge: 200000
   - type: ExaminableBattery
   - type: WirelessNetworkConnection
-    range: 500
+    range: 250
   - type: Gun
     damageModifier: 2
-    projectileSpeed: 350
+    projectileSpeed: 122.5
     minAngle: 0
     maxAngle: 6
-    fireRate: 1
-    recoil: 10 # 2/5x
+    fireRate: 0.5
+    recoil: 5 # 2/5x
     burstCooldown: 4.5
-    burstFireRate: 15
-    shotsPerBurst: 35
+    burstFireRate: 7.5
+    shotsPerBurst: 18
     selectedMode: Burst
     availableModes: Burst
     shootThermalSignature: 500000 # ~5.6km with continuous fire
@@ -423,7 +423,7 @@
     startingCharge: 40800
   - type: ExaminableBattery
   - type: WirelessNetworkConnection
-    range: 500
+    range: 250
   - type: Fixtures
     fixtures:
       fix1:
@@ -436,9 +436,9 @@
         layer:
         - MachineLayer
   - type: Gun
-    projectileSpeed: 295
-    fireRate: 0.75
-    recoil: 500 # 20x - station weapon
+    projectileSpeed: 103.25
+    fireRate: 0.375
+    recoil: 250 # 20x - station weapon
     shootThermalSignature: 12000000 # ~6km after firing
     soundGunshot:
       collection: ShipGunMjolnir
@@ -510,9 +510,9 @@
     autoRechargeRate: 500
   - type: ExaminableBattery
   - type: WirelessNetworkConnection
-    range: 500
+    range: 250
   - type: Gun
-    fireRate: 15
+    fireRate: 7.5
     recoil: 0
     minAngle: 0
     maxAngle: 0
@@ -568,10 +568,10 @@
     autoRechargeRate: 4002
   - type: ExaminableBattery
   - type: WirelessNetworkConnection
-    range: 500
+    range: 250
   - type: Gun
-    fireRate: 0.8
-    recoil: 5
+    fireRate: 0.4
+    recoil: 2.5
     minAngle: 0
     maxAngle: 0
     shootThermalSignature: 2000000
@@ -638,9 +638,9 @@
   - type: FireControlRotate
   - type: ExaminableBattery
   - type: WirelessNetworkConnection
-    range: 500
+    range: 250
   - type: Gun
-    fireRate: 25
+    fireRate: 12.5
     recoil: 0
     minAngle: 0
     maxAngle: 0
@@ -712,10 +712,10 @@
   - type: FireControlRotate
   - type: ExaminableBattery
   - type: WirelessNetworkConnection
-    range: 500
+    range: 250
   - type: Gun
-    fireRate: 25
-    burstFireRate: 25
+    fireRate: 12.5
+    burstFireRate: 12.5
     recoil: 0
     minAngle: 0
     maxAngle: 0
@@ -727,7 +727,7 @@
     selectedMode: Burst
     availableModes:
     - Burst
-    shotsPerBurst: 750 # the entire magazine
+    shotsPerBurst: 375 # the entire magazine
   - type: ShipGunClass
     shipClass: Superheavy
   - type: HitscanBatteryAmmoProvider
@@ -797,7 +797,7 @@
     startingCharge: 40800
   - type: ExaminableBattery
   - type: WirelessNetworkConnection
-    range: 500
+    range: 250
   - type: Fixtures
     fixtures:
       fix1:
@@ -810,14 +810,14 @@
         layer:
         - MachineLayer
   - type: Gun
-    projectileSpeed: 170
-    fireRate: 13
+    projectileSpeed: 59.5
+    fireRate: 6.5
     recoil: 0
     minAngle: 0
     maxAngle: 0
     burstCooldown: 60
-    burstFireRate: 13
-    shotsPerBurst: 136
+    burstFireRate: 6.5
+    shotsPerBurst: 68
     selectedMode: Burst
     availableModes: Burst
     shootThermalSignature: 2000000 # ~10km while firing
@@ -889,9 +889,9 @@
     startingCharge: 40000
   - type: ExaminableBattery
   - type: WirelessNetworkConnection
-    range: 500
+    range: 250
   - type: Gun
-    fireRate: 0.066 # 15s
+    fireRate: 0.033 # ~30s
     recoil: 0
     minAngle: 0
     maxAngle: 0
@@ -972,13 +972,13 @@
     startingCharge: 40000
   - type: ExaminableBattery
   - type: WirelessNetworkConnection
-    range: 500
+    range: 250
   - type: Gun
-    fireRate: 0.04 # 25s
-    recoil: 50 # 2x
+    fireRate: 0.02 # 50s
+    recoil: 25 # 2x
     minAngle: 0
     maxAngle: 0
-    projectileSpeed: 800
+    projectileSpeed: 280
     shootThermalSignature: 18000000 # ~8.5km after firing
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/Gunshots/leviathan_fire.ogg
@@ -1055,12 +1055,12 @@
     startingCharge: 50000
   - type: ExaminableBattery
   - type: WirelessNetworkConnection
-    range: 500
+    range: 250
   - type: Gun
-    fireRate: 0.4
+    fireRate: 0.2
     minAngle: 0
     maxAngle: 4
-    projectileSpeed: 465
+    projectileSpeed: 162.75
     shootThermalSignature: 18000000 # ~8.5km with continuous fire
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/Gunshots/leviathan_fire.ogg
@@ -1131,9 +1131,9 @@
     startingCharge: 40000
   - type: ExaminableBattery
   - type: WirelessNetworkConnection
-    range: 500
+    range: 250
   - type: Gun
-    fireRate: 1.2
+    fireRate: 0.6
     recoil: 0
     minAngle: 0
     maxAngle: 4
@@ -1197,15 +1197,15 @@
     startingCharge: 30000
   - type: ExaminableBattery
   - type: WirelessNetworkConnection
-    range: 500
+    range: 250
   - type: Gun
-    recoil: 10 # 2/5x
-    projectileSpeed: 180
+    recoil: 5 # 2/5x
+    projectileSpeed: 63
     minAngle: 0
     maxAngle: 4
     burstCooldown: 2
-    burstFireRate: 20
-    shotsPerBurst: 3
+    burstFireRate: 10
+    shotsPerBurst: 2
     selectedMode: Burst
     availableModes: Burst
     shootThermalSignature: 500000 # ~5.6km with continuous fire
@@ -1271,10 +1271,10 @@
     autoRechargeRate: 500
   - type: ExaminableBattery
   - type: WirelessNetworkConnection
-    range: 500
+    range: 250
   - type: Gun
-    fireRate: 25
-    recoil: 2 # 2/25x
+    fireRate: 12.5
+    recoil: 1 # 2/25x
     minAngle: 0
     maxAngle: 4
     shootThermalSignature: 2000000

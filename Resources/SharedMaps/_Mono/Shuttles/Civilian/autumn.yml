@@ -9161,7 +9161,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 1.5,2.5
       parent: 1
-- proto: MachineHeavyFTLDriveConsole
+- proto: MachineHeavyFTLDrive3750Console
   entities:
   - uid: 1388
     components:
@@ -9169,7 +9169,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 3.5,19.5
       parent: 1
-- proto: MachineHeavyFTLDriveCore
+- proto: MachineHeavyFTLDrive3750Core
   entities:
   - uid: 1389
     components:

@@ -121,12 +121,12 @@
     damageContainer: Inorganic
     damageModifierSet: Metallic
 
-# Boxes because I hate manually loading 24 shells
+# Boxes because I hate manually loading 12 shells
 
 - type: entity
   id: Box220mmAPHE
   name: "130x820mm APHE ammo box"
-  description: "A big box containing 24 130x820mm APHE rounds. Usable by vessel-mounted artillery pieces."
+  description: "A big box containing 12 130x820mm APHE rounds. Usable by vessel-mounted artillery pieces."
   parent: [BaseItem, RecyclableItemSteelTiny]
   components:
   - type: Item
@@ -134,7 +134,7 @@
   - type: BallisticAmmoProvider
     infiniteUnspawned: false
     proto: 220mmCartridgeAPHE
-    capacity: 24
+    capacity: 12
     mayTransfer: true
     whitelist:
       tags:
@@ -158,7 +158,7 @@
 - type: entity
   id: Box220mmHECluster
   name: "130x820mm HE-CLST ammo box"
-  description: "A big box containing 24 130x820mm high-explosive cluster rounds. Usable by vessel-mounted artillery pieces."
+  description: "A big box containing 12 130x820mm high-explosive cluster rounds. Usable by vessel-mounted artillery pieces."
   parent: [BaseItem, RecyclableItemSteelTiny]
   components:
   - type: Item
@@ -166,7 +166,7 @@
   - type: BallisticAmmoProvider
     infiniteUnspawned: false
     proto: 220mmCartridgeHECluster
-    capacity: 24
+    capacity: 12
     mayTransfer: true
     whitelist:
       tags:
@@ -190,7 +190,7 @@
 - type: entity
   id: Box220mmSmartCluster
   name: "130x820mm HMNG-CLST ammo box"
-  description: "A big box containing 24 130x820mm homing-cluster rounds. Usable by vessel-mounted artillery pieces."
+  description: "A big box containing 12 130x820mm homing-cluster rounds. Usable by vessel-mounted artillery pieces."
   parent: [BaseItem, RecyclableItemSteelTiny]
   components:
   - type: Item
@@ -198,7 +198,7 @@
   - type: BallisticAmmoProvider
     infiniteUnspawned: false
     proto: 220mmCartridgeSmartCluster
-    capacity: 24
+    capacity: 12
     mayTransfer: true
     whitelist:
       tags:

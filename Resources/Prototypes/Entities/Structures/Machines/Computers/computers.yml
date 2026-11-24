@@ -244,20 +244,20 @@
       params:
         volume: 1.55
     distanceAlertSettings:
-    - maximumDistance: 250
+    - maximumDistance: 125
       sound:
         path: /Audio/_Mono/Effects/Alerts/launchwarning.ogg
         params:
           loop: true
           volume: 0.9
-    - maximumDistance: 600
+    - maximumDistance: 300
       sound:
         path: /Audio/_Mono/Effects/Alerts/master_caution.ogg
         params:
           loop: true
           volume: 1.2
           pitch: 1.15
-    - maximumDistance: 1000
+    - maximumDistance: 500
       sound:
         path: /Audio/_Mono/Effects/Alerts/master_caution.ogg
         params:

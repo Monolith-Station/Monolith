@@ -5472,14 +5472,14 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -2.5,-0.5
       parent: 1
-- proto: MachineHeavyFTLDriveConsole
+- proto: MachineHeavyFTLDrive3750Console
   entities:
   - uid: 974
     components:
     - type: Transform
       pos: 5.5,2.5
       parent: 1
-- proto: MachineHeavyFTLDriveCore
+- proto: MachineHeavyFTLDrive3750Core
   entities:
   - uid: 975
     components:

@@ -12,8 +12,8 @@
   id: USSPCamelot
   parent: [BasePOI, BaseRepairablePOI]
   name: 'Freeport Camelot'
-  minimumDistance: 10650
-  maximumDistance: 12400
+  minimumDistance: 2400
+  maximumDistance: 3500
   spawnGamePreset: [ NFAdventure, NFPirate, MonoStandard, MonoRogueUSSP, MonoTSFUSSP, MonoADS, MonoChimera, MonoMixed, MonoAllAtOnce, MonoChimeraTsf, MonoChimeraPdv ]
   spawnGroup: Required
   gridPath: /Maps/_Mono/POI/camelot.yml
@@ -23,9 +23,9 @@
   - type: WorldGenDistanceCarver
     distanceThresholds:
     # Dead zone
-    - maxDistance: 800
+    - maxDistance: 400
       prob: 0.0
-    - maxDistance: 1500
+    - maxDistance: 750
       prob: 0.3
 
 - type: gameMap

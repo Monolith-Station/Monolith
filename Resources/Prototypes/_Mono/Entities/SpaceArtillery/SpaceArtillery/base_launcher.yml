@@ -144,7 +144,7 @@
       rotate: true
       bounds: "-1,-1,1,1"
   - type: Gun
-    fireRate: 3
+    fireRate: 1.5
     selectedMode: FullAuto
     availableModes:
     - FullAuto
@@ -160,7 +160,7 @@
     whitelist:
       tags:
       - Grenade
-    capacity: 2
+    capacity: 1
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
   - type: ExaminableDamage
@@ -242,7 +242,7 @@
       rotate: true
       bounds: "-1,-1,1,1"
   - type: Gun
-    fireRate: 3
+    fireRate: 1.5
     selectedMode: FullAuto
     availableModes:
     - FullAuto

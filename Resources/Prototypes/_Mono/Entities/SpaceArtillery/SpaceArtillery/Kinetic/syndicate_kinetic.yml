@@ -27,14 +27,14 @@
   - type: AutoShootGun
   - type: GunSignalControl
   - type: WirelessNetworkConnection
-    range: 700
+    range: 350
   - type: DeviceLinkSink
     ports:
     - Toggle
   - type: Gun
-    fireRate: 5
-    recoil: 10 # 2/5x
-    projectileSpeed: 230
+    fireRate: 2.5
+    recoil: 5 # 2/5x
+    projectileSpeed: 80.5
     minAngle: 0
     maxAngle: 5
     shootThermalSignature: 10000 # relatively low for a shipgun, ~693m signature if firing continuously
@@ -95,16 +95,16 @@
     startingCharge: 40000
   - type: ExaminableBattery
   - type: WirelessNetworkConnection
-    range: 500
+    range: 250
   - type: Gun
-    fireRate: 2.5
-    recoil: 10 # 2/5x
-    projectileSpeed: 240
+    fireRate: 1.25
+    recoil: 5 # 2/5x
+    projectileSpeed: 84
     minAngle: 0
     maxAngle: 4
     burstCooldown: 2
-    burstFireRate: 5
-    shotsPerBurst: 5
+    burstFireRate: 2.5
+    shotsPerBurst: 3
     selectedMode: Burst
     availableModes: Burst
     shootThermalSignature: 2000000 # ~4.5km signature if firing continuously
@@ -176,7 +176,7 @@
     startingCharge: 12000
   - type: ExaminableBattery
   - type: WirelessNetworkConnection
-    range: 500
+    range: 250
   - type: Fixtures
     fixtures:
       fix1:
@@ -190,14 +190,14 @@
         - MachineLayer
   - type: Gun
     damageModifier: 1.3
-    projectileSpeed: 410
-    recoil: 50 # 2x
+    projectileSpeed: 143.5
+    recoil: 25 # 2x
     minAngle: 0
     maxAngle: 3
-    fireRate: 0.3
+    fireRate: 0.15
     burstCooldown: 10
-    burstFireRate: 2
-    shotsPerBurst: 3
+    burstFireRate: 1
+    shotsPerBurst: 2
     selectedMode: Burst
     availableModes: Burst
     shootThermalSignature: 48000000 # ~7km after firing
@@ -278,7 +278,7 @@
     startingCharge: 15000
   - type: ExaminableBattery
   - type: WirelessNetworkConnection
-    range: 500
+    range: 250
   - type: Fixtures
     fixtures:
       fix1:
@@ -291,11 +291,11 @@
         layer:
         - MachineLayer
   - type: Gun
-    projectileSpeed: 450
-    recoil: 100 # 4x
+    projectileSpeed: 157.5
+    recoil: 50 # 4x
     minAngle: 0
     maxAngle: 1
-    fireRate: 0.05
+    fireRate: 0.025
     shootThermalSignature: 48000000 # ~7km after firing
     soundGunshot:
       collection: ShipGunGenericBig

@@ -39,7 +39,7 @@ namespace Content.Shared.Shuttles.Components
 
         // Mono
         [ViewVariables]
-        public float? SetMaxVelocity = null;
+        public float? SetMaxVelocity;
 
         public override bool SendOnlyToOwner => true;
     }

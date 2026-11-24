@@ -142,6 +142,12 @@ public sealed partial class VesselPrototype : IPrototype, IInheritingPrototype
     public bool CloakHunter;
 
     /// <summary>
+    /// Pilot speed limit in tiles per second, set directly on each vessel prototype.
+    /// </summary>
+    [DataField(required: true)]
+    public float MaximumPilotSpeed = 30f;
+
+    /// <summary>
     /// List of company names whose ships this vessel will not suppress IFF flags for.
     /// </summary>
     [DataField]

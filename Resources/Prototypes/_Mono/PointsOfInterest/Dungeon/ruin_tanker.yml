@@ -11,8 +11,8 @@
   id: AutomatedTanker
   parent: BaseMobilePOI
   name: 'Automated Inter Sector Tanker'
-  minimumDistance: 10000
-  maximumDistance: 20000
+  minimumDistance: 2400
+  maximumDistance: 3500
   spawnGroup: Optional
   gridPath: /Maps/_Mono/POI/Dungeons/ruin_tanker.yml
   addComponents:

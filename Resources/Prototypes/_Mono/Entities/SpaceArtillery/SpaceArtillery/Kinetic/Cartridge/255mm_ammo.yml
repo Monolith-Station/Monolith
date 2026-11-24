@@ -128,7 +128,7 @@
 - type: entity
   id: Box255mmAPHE
   name: "203x940mm APHE ammo box"
-  description: "A big box containing 16 203x940mm APHE rounds. Usable by vessel-mounted artillery pieces."
+  description: "A big box containing 8 203x940mm APHE rounds. Usable by vessel-mounted artillery pieces."
   parent: [BaseItem, RecyclableItemSteelTiny]
   components:
   - type: Item
@@ -136,7 +136,7 @@
   - type: BallisticAmmoProvider
     infiniteUnspawned: false
     proto: 255mmCartridgeAPHE
-    capacity: 16
+    capacity: 8
     mayTransfer: true
     whitelist:
       tags:
@@ -160,7 +160,7 @@
 - type: entity
   id: Box255mmEMP
   name: "203x940mm EMP ammo box"
-  description: "A big box containing 16 203x940mm EMP rounds. Usable by vessel-mounted artillery pieces."
+  description: "A big box containing 8 203x940mm EMP rounds. Usable by vessel-mounted artillery pieces."
   parent: [BaseItem, RecyclableItemSteelTiny]
   components:
   - type: Item
@@ -168,7 +168,7 @@
   - type: BallisticAmmoProvider
     infiniteUnspawned: false
     proto: 255mmCartridgeEMP
-    capacity: 16
+    capacity: 8
     mayTransfer: true
     whitelist:
       tags:
@@ -192,7 +192,7 @@
 - type: entity
   id: Box255mmMine
   name: "203x940mm minelayer ammo box"
-  description: "A big box containing 16 203x940mm minelayer rounds. Usable by vessel-mounted artillery pieces."
+  description: "A big box containing 8 203x940mm minelayer rounds. Usable by vessel-mounted artillery pieces."
   parent: [BaseItem, RecyclableItemSteelTiny]
   components:
   - type: Item
@@ -200,7 +200,7 @@
   - type: BallisticAmmoProvider
     infiniteUnspawned: false
     proto: 255mmCartridgeMinelayer
-    capacity: 16
+    capacity: 8
     mayTransfer: true
     whitelist:
       tags:

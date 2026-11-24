@@ -394,34 +394,34 @@
 
 - type: entity
   parent: BaseFlatpack
-  id: FTLDriveFlatpack
-  name: CTLA-25 bluespace drive flatpack
-  description: A flatpack used for constructing a CTLA-25 bluespace drive.
+  id: FTLDrive750Flatpack
+  name: CTLA-750 bluespace drive flatpack
+  description: A flatpack used for constructing a CTLA-750 bluespace drive.
   components:
   - type: Flatpack
-    entity: MachineFTLDrive
+    entity: MachineFTLDrive750
   - type: StaticPrice
     price: 1700
 
 - type: entity
   parent: BaseFlatpack
-  id: FTLDrive50Flatpack
-  name: CTLA-50 bluespace drive flatpack
-  description: A flatpack used for constructing a CTLA-50 bluespace drive.
+  id: FTLDrive1500Flatpack
+  name: CTLA-1500 bluespace drive flatpack
+  description: A flatpack used for constructing a CTLA-1500 bluespace drive.
   components:
   - type: Flatpack
-    entity: MachineFTLDrive50
+    entity: MachineFTLDrive1500
   - type: StaticPrice
     price: 3000
 
 - type: entity
   parent: BaseFlatpack
-  id: FTLDrive25SFlatpack
-  name: CTLA-25s bluespace drive flatpack
-  description: A flatpack used for constructing a CTLA-25s bluespace drive.
+  id: FTLDrive750SFlatpack
+  name: CTLA-750s bluespace drive flatpack
+  description: A flatpack used for constructing a CTLA-750s bluespace drive.
   components:
   - type: Flatpack
-    entity: MachineFTLDrive25S
+    entity: MachineFTLDrive750S
   - type: StaticPrice
     price: 5000
 

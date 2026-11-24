@@ -1,8 +1,8 @@
 - type: entity
-  id: MachineHeavyFTLDriveCore
+  id: MachineHeavyFTLDrive3750Core
   parent: [BaseStructureDisableToolUse, BaseStructureDestructible, BaseMachinePowered]
-  name: CTLA-160 heavy bluespace core
-  description: A FTL drive that extends a ship's FTL range to ~25 kilometers.
+  name: CTLA-3750 heavy bluespace core
+  description: An FTL drive that extends a ship's FTL range to 3.75 kilometers.
   placement:
     mode: SnapgridCenter
   components:
@@ -28,12 +28,12 @@
     layers:
     - state: control
   - type: FTLDrive
-    range: 25000
+    range: 3750
     cooldown: 60
     hyperSpaceTime: 25
     startupTime: 6.4
     driveMassMultiplier: 0.25
-    thermalSignature: 6000000 # ~4900m range
+    thermalSignature: 6000000 # ~2449m range after detection scaling
   - type: ThermalSignature
   - type: ApcPowerReceiver
     powerLoad: 15000
@@ -50,10 +50,10 @@
     repairCost: 120
 
 - type: entity
-  id: MachineHeavyFTLDriveConsole
+  id: MachineHeavyFTLDrive3750Console
   parent: [BaseStructureDisableToolUse, BaseStructureDestructible, BaseMachinePowered]
-  name: CTLA-160 heavy bluespace console
-  description: A console for a CTLA-160 heavy BSD. Just a power monitoring console to you, since you can't understand the rest.
+  name: CTLA-3750 heavy bluespace console
+  description: A power monitoring console for a CTLA-3750 heavy bluespace drive.
   placement:
     mode: SnapgridCenter
   components:

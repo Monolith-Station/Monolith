@@ -24,17 +24,17 @@
   - type: AutoShootGun
   - type: GunSignalControl
   - type: WirelessNetworkConnection
-    range: 500
+    range: 250
   - type: Gun
     damageModifier: 1.1
-    fireRate: 3
-    recoil: 10 # 2/5x
-    projectileSpeed: 320
+    fireRate: 1.5
+    recoil: 5 # 2/5x
+    projectileSpeed: 112
     minAngle: 0
     maxAngle: 3
     burstCooldown: 0.6
-    burstFireRate: 10
-    shotsPerBurst: 2
+    burstFireRate: 5
+    shotsPerBurst: 1
     selectedMode: Burst
     availableModes: Burst
     shootThermalSignature: 2000000 # ~4.5km signature if firing continuously
@@ -100,12 +100,12 @@
   - type: AutoShootGun
   - type: GunSignalControl
   - type: WirelessNetworkConnection
-    range: 500
+    range: 250
   - type: Gun
     damageModifier: 4
-    fireRate: 1.5
-    recoil: 10 # 2/5x
-    projectileSpeed: 300
+    fireRate: 0.75
+    recoil: 5 # 2/5x
+    projectileSpeed: 105
     minAngle: 0
     maxAngle: 2
     shootThermalSignature: 2000000 # ~3.5km signature if firing continuously
@@ -185,11 +185,11 @@
   - type: AutoShootGun
   - type: GunSignalControl
   - type: WirelessNetworkConnection
-    range: 500
+    range: 250
   - type: Gun
-    fireRate: 14
-    recoil: 5 # 1/5x
-    projectileSpeed: 390
+    fireRate: 7
+    recoil: 2.5 # 1/5x
+    projectileSpeed: 136.5
     minAngle: 0
     maxAngle: 2
     shootThermalSignature: 200000 # ~4.5km signature if firing continuously

@@ -5,8 +5,9 @@
   id: Underground
   parent: [BasePOI, BaseRepairablePOI]
   name: 'Underground Black Market'
-  minimumDistance: 18000
-  maximumDistance: 25000
+  minimumDistance: 6000
+  maximumDistance: 7500
+  minimumSeparation: 1200
   spawnGroup: SyndicateFOB
   gridPath: /Maps/_Mono/POI/underground.yml
   addComponents:
@@ -18,9 +19,9 @@
   - type: WorldGenDistanceCarver
     distanceThresholds:
     # Dead zone
-    - maxDistance: 800
+    - maxDistance: 400
       prob: 0.0
-    - maxDistance: 1500
+    - maxDistance: 750
       prob: 0.3
   - type: SyndicateFOB
 
@@ -34,7 +35,7 @@
       stationProto: RecordsFrontierOutpostCargo
       gridComponents:
       - type: DeleteNearbyDrones
-        distance: 5000
+        distance: 2500
       - type: JamDeathrattles
         exclusions:
         - DeathRattleImplant

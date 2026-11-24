@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: NFBaseWreckDebris
   parent: NFBaseDebris
   abstract: true
@@ -156,7 +156,7 @@
           prob: 0.04
         - id: SpawnBrassLootShipGunFlatpacks
           prob: 0.05
-        - id: FTLDrive50Flatpack
+        - id: FTLDrive1500Flatpack
           prob: 0.01
         - id: GeneratorRTG
           prob: 0.02

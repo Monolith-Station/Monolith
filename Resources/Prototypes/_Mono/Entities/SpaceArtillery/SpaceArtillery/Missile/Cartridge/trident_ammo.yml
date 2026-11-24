@@ -39,11 +39,11 @@
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 100
-    detectionRange: 3000
+    acceleration: 50
+    detectionRange: 750
     scanArc: 15
     launchSpeed: 60
-    maxSpeed: 250
+    maxSpeed: 125
     trackDelay: 3
   # destructible components below
   - type: Destructible
@@ -154,9 +154,9 @@
   - type: MiningGatheringHard
   - type: TargetGuided
     turnRate: 30
-    acceleration: 100
+    acceleration: 50
     launchSpeed: 70
-    maxSpeed: 300
+    maxSpeed: 150
     maxLifetime: 50
     fallbackTime: 50
   # destructible components below
@@ -260,11 +260,11 @@
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 120
-    detectionRange: 2000
+    acceleration: 60
+    detectionRange: 500
     scanArc: 10
     launchSpeed: 60
-    maxSpeed: 275
+    maxSpeed: 137.5
     trackDelay: 1.4
   - type: Explosive
     explosionType: Default
@@ -379,14 +379,14 @@
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 100
-    detectionRange: 3500
+    acceleration: 50
+    detectionRange: 875
     scanArc: 25
     launchSpeed: 50
-    maxSpeed: 170
+    maxSpeed: 85
     trackDelay: 1
   - type: EmpOnTrigger
-    range: 7
+    range: 3.5
     energyConsumption: 2900000
     disableDuration: 10
   - type: Destructible
@@ -437,7 +437,7 @@
     sprite: Mobs/Effects/onfire.rsi
     normalState: Generic_mob_burning
   - type: EmpDescription
-    range: 12
+    range: 6
     energyConsumption: 2900000
     disableDuration: 10
   - type: Destructible

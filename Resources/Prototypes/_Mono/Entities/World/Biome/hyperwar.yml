@@ -2,7 +2,7 @@
   id: MonoWorldgenHyperwarAsteroidRing
   parent: NFBiomeBase
   priority: 2
-  distanceRange: 12250, 12450
+  distanceRange: 6125, 6225
   chunkComponents:
   - type: DebrisFeaturePlacerController
     densityNoiseChannel: DensityExtreme

@@ -2,10 +2,11 @@
   id: Frontier
   mapName: 'Caelestinus Central'
   mapPath: /Maps/_Mono/Outpost/caelestinus_central.yml # Mono
+  # The sole map in the default pool must support every population the server admits.
   minPlayers: 0
-  maxPlayers: 100
   randomRotation: true
   maxRandomOffset: 0
+  ignorePoiSeparation: true
   stations:
     Frontier:
       stationProto: StandardFrontierStation

@@ -16,17 +16,17 @@
   - type: Appearance
   - type: AmmoCounter
   - type: WirelessNetworkConnection
-    range: 700
+    range: 350
   - type: GunSignalControl
   - type: Gun
-    fireRate: 3
-    recoil: 1
-    projectileSpeed: 75
+    fireRate: 1.5
+    recoil: 0.5
+    projectileSpeed: 26.25
     minAngle: 50
     maxAngle: 300
     burstCooldown: 15
-    burstFireRate: 3
-    shotsPerBurst: 15
+    burstFireRate: 1.5
+    shotsPerBurst: 8
     selectedMode: Burst
     availableModes: Burst
     shootThermalSignature: 10000 # relatively low for a shipgun, ~693m signature if firing continuously - Used because it's harmless.

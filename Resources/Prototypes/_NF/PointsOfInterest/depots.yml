@@ -12,7 +12,7 @@
   id: CargoDepot
   parent: [BasePOI, BaseRepairablePOI]
   name: Cargo Depot
-  minimumDistance: 8000
+  minimumDistance: 7500
   maximumDistance: 10000
   spawnGroup: CargoDepot
   gridPath: /Maps/_NF/POI/cargodepot.yml
@@ -36,7 +36,7 @@
   id: CargoDepotAlt
   parent: [BasePOI, BaseRepairablePOI]
   name: Cargo Depot
-  minimumDistance: 8000
+  minimumDistance: 7500
   maximumDistance: 10000
   spawnGroup: CargoDepot
   gridPath: /Maps/_NF/POI/cargodepotalt.yml

@@ -14,11 +14,11 @@
   - type: FireControlRotate
   - type: AmmoCounter
   - type: WirelessNetworkConnection
-    range: 500
+    range: 250
   - type: GunSignalControl
   - type: Gun
-    fireRate: 0.2
-    recoil: 5
+    fireRate: 0.1
+    recoil: 2.5
     shootThermalSignature: 8000000 # ~2828m
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/Gunshots/towfire.ogg
@@ -38,7 +38,7 @@
     whitelist:
       tags:
       - TovekCartridge
-    capacity: 2
+    capacity: 1
     proto: TovekCartridge
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg

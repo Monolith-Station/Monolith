@@ -14,8 +14,8 @@
   id: TSFMCHalcyon
   parent: [BasePOI, BaseRepairablePOI]
   name: 'TSFMC Flagship Halcyon'
-  minimumDistance: 2500 # Mono
-  maximumDistance: 3500 # Mono
+  minimumDistance: 1500 # Mono
+  maximumDistance: 2800 # Mono
   spawnGamePreset: [ NFAdventure, NFPirate, MonoStandard, MonoRogueTSF, MonoTSFUSSP, MonoADS, MonoChimera, MonoMixed, MonoAllAtOnce, MonoChimeraTsf ]
   spawnGroup: Required
   gridPath: /Maps/_Mono/POI/tsfmchalcyon.yml
@@ -28,9 +28,9 @@
   - type: WorldGenDistanceCarver
     distanceThresholds:
     # Dead zone
-    - maxDistance: 800
+    - maxDistance: 400
       prob: 0.0
-    - maxDistance: 1500
+    - maxDistance: 750
       prob: 0.3
 
 - type: gameMap
@@ -78,8 +78,8 @@
   id: TSFMCHalcyonHyperwar
   parent: [BasePOI, BaseRepairablePOI]
   name: 'TSFMC Flagship Halcyon'
-  minimumDistance: 4500
-  maximumDistance: 5500
+  minimumDistance: 1500
+  maximumDistance: 2800
   spawnGamePreset: [ MonoRogueTSFHyperwar ]
   spawnGroup: Required
   gridPath: /Maps/_Mono/POI/tsfmchalcyon_hw.yml

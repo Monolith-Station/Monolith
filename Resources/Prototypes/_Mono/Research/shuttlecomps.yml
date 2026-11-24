@@ -14,7 +14,7 @@
   - MachineGCSHighCircuitboard
   - AdvancedRadarConsoleCircuitboard
   - ComputerIFFCircuitboard
-  - MachineDriveCTLA25Circuitboard
+  - MachineDriveCTLA750Circuitboard
   - LargeThrusterMachineCircuitboard
   technologyPrerequisites:
   - Shuttlecraft
@@ -25,13 +25,13 @@
 - type: technology
   id: ShuttleCtlaAdvancedDriveResearch
   name: research-technology-bluespace-drive-ctla-advanced
-  entityIcon: MachineFTLDrive50
+  entityIcon: MachineFTLDrive1500
   discipline: Experimental
   tier: 3
   cost: 45000
   recipeUnlocks:
-  - MachineDriveCTLA25sCircuitboard
-  - MachineDriveCTLA50Circuitboard
+  - MachineDriveCTLA750sCircuitboard
+  - MachineDriveCTLA1500Circuitboard
   technologyPrerequisites:
   - ShuttleAdvancedComponents
   - PortableFission

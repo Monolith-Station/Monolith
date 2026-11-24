@@ -7,10 +7,11 @@
   - type: Computer
     board: AdvancedRadarConsoleCircuitboard
   - type: DetectionRangeMultiplier
-    infraredMultiplier: 1.2
-    visualMultiplier: 1.5
+    infraredMultiplier: 0.6
+    visualMultiplier: 0.75
   - type: RadarConsole
     maxIffRange: null # Frontier
+    maxRange: 1024
   - type: Sprite
     layers:
     - map: ["computerLayerBody"]
@@ -398,8 +399,8 @@
   components:
   - type: RadarConsole
   - type: DetectionRangeMultiplier
-    infraredMultiplier: 1
-    visualMultiplier: 3
+    infraredMultiplier: 0.5
+    visualMultiplier: 1.5
   - type: Computer
     board: Null
   - type: Sprite

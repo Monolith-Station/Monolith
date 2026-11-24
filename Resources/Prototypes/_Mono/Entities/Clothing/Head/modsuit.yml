@@ -284,8 +284,8 @@
     followEntity: true
     noRotate: true
   - type: DetectionRangeMultiplier
-    infraredMultiplier: 0.5
-    visualMultiplier: 0.75
+    infraredMultiplier: 0.25
+    visualMultiplier: 0.375
   - type: ActivatableUI
     key: enum.RadarConsoleUiKey.Key
     singleUser: true

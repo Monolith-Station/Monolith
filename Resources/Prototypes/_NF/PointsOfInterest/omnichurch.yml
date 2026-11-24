@@ -13,7 +13,7 @@
   parent: [BasePOI, BaseRepairablePOI]
   name: "Omnichurch Beacon"
   minimumDistance: 4200
-  maximumDistance: 6900
+  maximumDistance: 7500
   gridPath: /Maps/_NF/POI/beacon.yml
   addComponents:
   - type: SolarPoweredGrid

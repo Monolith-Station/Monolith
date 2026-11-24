@@ -17,11 +17,11 @@
   - type: FireControlRotate
   - type: AmmoCounter
   - type: WirelessNetworkConnection
-    range: 500
+    range: 250
   - type: Gun
-    fireRate: 0.4
-    recoil: 10 # 2/5x
-    projectileSpeed: 350
+    fireRate: 0.2
+    recoil: 5 # 2/5x
+    projectileSpeed: 122.5
     minAngle: 0
     maxAngle: 0
     shootThermalSignature: 300000
@@ -70,11 +70,11 @@
   - type: Sprite
     sprite: _Mono/Objects/ShuttleWeapons/fragment.rsi
   - type: Gun
-    fireRate: 1
-    recoil: 20 # gooo
+    fireRate: 0.5
+    recoil: 10 # gooo
     minAngle: 0
     maxAngle: 2
-    projectileSpeed: 250 # lower a bit
+    projectileSpeed: 87.5 # lower a bit
   - type: GunRandomFirerate
     asTime: false
     # 1/s average
@@ -126,17 +126,17 @@
   - type: FireControlRotate
   - type: AmmoCounter
   - type: WirelessNetworkConnection
-    range: 500
+    range: 250
   - type: Gun
-    fireRate: 0.1
-    recoil: 25 # 1x
-    projectileSpeed: 600
+    fireRate: 0.05
+    recoil: 12.5 # 1x
+    projectileSpeed: 210
     minAngle: 0
     maxAngle: 0
     shootThermalSignature: 1200000
     burstCooldown: 10
-    burstFireRate: 2
-    shotsPerBurst: 3
+    burstFireRate: 1
+    shotsPerBurst: 2
     selectedMode: Burst
     availableModes: Burst
     soundGunshot:

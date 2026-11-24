@@ -240,11 +240,11 @@
     maxTileBreak: 1
     tileBreakScale: 3
   - type: TargetSeeking
-    acceleration: 350
-    detectionRange: 1000
+    acceleration: 175
+    detectionRange: 250
     scanArc: 20
     launchSpeed: 204
-    maxSpeed: 250
+    maxSpeed: 125
     trackDelay: 0.1
     trackingAlgorithm: Direct
 
@@ -284,9 +284,9 @@
     tileBreakScale: 3
   - type: TargetGuided
     turnRate: 15
-    acceleration: 30
+    acceleration: 15
     launchSpeed: 220
-    maxSpeed: 250
+    maxSpeed: 125
     maxLifetime: 7
     fallbackTime: 5
 
@@ -372,7 +372,7 @@
     color: orange
   - type: ProjectileGrenade
     fillPrototype: Shrapnel90mmFlak
-    capacity: 12 # lag!
+    capacity: 6 # lag!
     minVelocity: 8
     maxVelocity: 8
     randomAngle: true
@@ -461,7 +461,7 @@
     examinable: false
   - type: ProjectileGrenade
     fillPrototype: NavalMine90mm
-    capacity: 3
+    capacity: 2
     minVelocity: 2
     maxVelocity: 2
     randomAngle: true
@@ -534,7 +534,7 @@
     arcLines: false
     scanArc: 0
     launchSpeed: 0
-    maxSpeed: 3
+    maxSpeed: 1.5
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Missile
@@ -638,9 +638,9 @@
   - type: MiningGatheringHard
   - type: TargetGuided
     turnRate: 15
-    acceleration: 20
+    acceleration: 10
     launchSpeed: 220
-    maxSpeed: 250
+    maxSpeed: 125
     maxLifetime: 8
     fallbackTime: 5
 
@@ -770,7 +770,7 @@
   components:
   - type: ProjectileSpread
     proto: 220mmPelletHE
-    count: 6
+    count: 3
     spread: 3
 
 - type: entity
@@ -811,11 +811,11 @@
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 150
-    detectionRange: 1000
+    acceleration: 75
+    detectionRange: 250
     scanArc: 20
     launchSpeed: 200
-    maxSpeed: 200
+    maxSpeed: 100
     trackDelay: 0
     trackingAlgorithm: Direct
 
@@ -826,7 +826,7 @@
   components:
   - type: ProjectileSpread
     proto: 220mmPelletSmart
-    count: 6
+    count: 3
     spread: 6
 
 # 203x940mm
@@ -907,7 +907,7 @@
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: EmpOnTrigger
-    range: 10
+    range: 5
     energyConsumption: 2000000
     disableDuration: 5
 
@@ -942,7 +942,7 @@
     examinable: false
   - type: ProjectileGrenade
     fillPrototype: NavalMine255mm
-    capacity: 6
+    capacity: 3
     minVelocity: 2
     maxVelocity: 2
     randomAngle: true
@@ -1014,7 +1014,7 @@
     arcLines: false
     scanArc: 0
     launchSpeed: 0
-    maxSpeed: 3
+    maxSpeed: 1.5
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Missile
@@ -1106,7 +1106,7 @@
     color: "#2e50d9"
   - type: LightningOnTrigger
     chance: 1
-    range: 15
+    range: 7.5
     arcDepth: 3
     lightningProto: LightningEMPCharon
     lightningEffects: false
@@ -1219,7 +1219,7 @@
   components:
   - type: ProjectileSpread
     proto: AdderBullet
-    count: 6
+    count: 3
     spread: 5
 
 # 380x1120mm LEVIATHAN Shells

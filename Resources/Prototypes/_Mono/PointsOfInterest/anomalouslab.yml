@@ -12,8 +12,8 @@
   id: AnomalousLab
   parent: BasePOI
   name: 'Anomalous Lab'
-  minimumDistance: 7000
-  maximumDistance: 10800
+  minimumDistance: 1750
+  maximumDistance: 3000
   spawnGroup: ScienceLab
   gridPath: /Maps/_Mono/POI/anomalouslab.yml
   addComponents:

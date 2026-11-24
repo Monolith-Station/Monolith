@@ -10,7 +10,7 @@
     size: Small
   - type: BallisticAmmoProvider
     proto: VanykCartridge
-    capacity: 30
+    capacity: 15
     mayTransfer: true
     whitelist:
       tags:
@@ -43,7 +43,7 @@
     size: Small
   - type: BallisticAmmoProvider
     proto: VanykCartridgeUnguided
-    capacity: 288
+    capacity: 144
     mayTransfer: true
     whitelist:
       tags:
@@ -71,7 +71,7 @@
   - type: BallisticAmmoProvider
     infiniteUnspawned: true
     proto: VanykCartridgeUnguided
-    capacity: 288
+    capacity: 144
     mayTransfer: true
     whitelist:
       tags:

@@ -18,9 +18,12 @@ public sealed partial class ShuttleSystem
     private const float DampenDampingStrength = 0.25f;
     private const float AnchorDampingStrength = 2.5f;
 
-    public readonly float CruiseModeLinearAccelerationMultiplier = 4f;
-    public readonly float DriveModeThrusterMultiplier = 3.5f;
-    public readonly float DriveModeGyroscopeMultiplier = 1.125f;
+    internal static bool IsDriveMode(ShuttleComponent shuttle) =>
+        shuttle.BodyModifier > SpaceFrictionStrength && shuttle.BodyModifier < AnchorDampingStrength;
+
+    public readonly float CruiseModeLinearAccelerationMultiplier = 1.3f; //fix literally everything
+    public readonly float DriveModeThrusterMultiplier = 1.5f;
+    public readonly float DriveModeGyroscopeMultiplier = 1f;
     public readonly float CruiseModeGyroscopeMultiplier = 1f;
     private void NfInitialize()
     {
@@ -110,11 +113,8 @@ public sealed partial class ShuttleSystem
             return;
         }
 
-        var maxSpeed = args.MaxSpeed;
-        if (maxSpeed is { } speed)
-            maxSpeed = Math.Max(speed, 0f);
-
-        pilot.SetMaxVelocity = maxSpeed;
+        // Keep player controlled shuttles within the normalized 40 tile/s top speed.
+        pilot.SetMaxVelocity = args.MaxSpeed is { } speed ? Math.Max(0f, speed) : null;
 
         // Refresh the shuttle consoles to update the UI
         _console.RefreshShuttleConsoles(xform.GridUid.Value);

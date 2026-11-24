@@ -21,7 +21,7 @@
   - type: FireControlRotate
   - type: AmmoCounter
   - type: WirelessNetworkConnection
-    range: 500
+    range: 250
   - type: GunSignalControl
   - type: Fixtures
     fixtures:
@@ -36,14 +36,14 @@
         - MachineLayer
   - type: Gun
     damageModifier: 2
-    projectileSpeed: 380
+    projectileSpeed: 133
     minAngle: 0
     maxAngle: 1
-    fireRate: 0.2
-    recoil: 50 # 2x
+    fireRate: 0.1
+    recoil: 25 # 2x
     burstCooldown: 10
-    burstFireRate: 2
-    shotsPerBurst: 2
+    burstFireRate: 1
+    shotsPerBurst: 1
     selectedMode: Burst
     availableModes: Burst
     shootThermalSignature: 48000000 # ~7km after firing
@@ -73,7 +73,7 @@
     whitelist:
       tags:
       - 220mmCartridge
-    capacity: 24
+    capacity: 12
     proto: 220mmCartridgeAPHE
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
@@ -98,7 +98,7 @@
     whitelist:
       tags:
       - 220mmCartridge
-    capacity: 24
+    capacity: 12
     proto: 220mmCartridgeSmartCluster
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
@@ -113,7 +113,7 @@
     whitelist:
       tags:
       - 220mmCartridge
-    capacity: 24
+    capacity: 12
     proto: 220mmCartridgeHECluster
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
@@ -127,7 +127,7 @@
   - BallisticArtilleryCartridge
   - BallisticArtilleryTier4HP
   suffix: Large, T4
-  description: Large hard hitting naval gun for steady damage. Fires APHEDS rounds, allowing for enhanced penetration, but not as much explosive power as full-sized APHE rounds. Feeds from an 96 round internal magazine.
+  description: Large hard hitting naval gun for steady damage. Fires APHEDS rounds, allowing for enhanced penetration, but not as much explosive power as full-sized APHE rounds. Feeds from a 48-round internal magazine.
   components:
   - type: StaticPrice
     price: 16000
@@ -142,7 +142,7 @@
   - type: FireControlRotate
   - type: AmmoCounter
   - type: WirelessNetworkConnection
-    range: 500
+    range: 250
   - type: GunSignalControl
   - type: Fixtures
     fixtures:
@@ -156,11 +156,11 @@
         layer:
         - MachineLayer
   - type: Gun
-    projectileSpeed: 360
+    projectileSpeed: 126
     minAngle: 0
     maxAngle: 0.5
-    fireRate: 3.5
-    recoil: 10
+    fireRate: 1.75
+    recoil: 5
     selectedMode: FullAuto
     availableModes: FullAuto
     shootThermalSignature: 12000000
@@ -186,7 +186,7 @@
     whitelist:
       tags:
       - 120mmCartridge
-    capacity: 96
+    capacity: 48
     proto: 120mmCartridgeAPHEDS
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
@@ -207,14 +207,14 @@
   parent:
   - WeaponTurretAk820
   suffix: Large, T4
-  description: A single-barreled variant of the AK820 autocannon, with less GCS strain but lower firerate. Large hard hitting naval gun for steady damage. Fires APHEDS rounds, allowing for enhanced penetration, but not as much explosive power as full-sized APHE rounds. Feeds from an 96 round internal magazine.
+  description: A single-barreled variant of the AK820 autocannon, with less GCS strain but lower firerate. Large hard hitting naval gun for steady damage. Fires APHEDS rounds, allowing for enhanced penetration, but not as much explosive power as full-sized APHE rounds. Feeds from a 48-round internal magazine.
   components:
   - type: StaticPrice
     price: 8000
   - type: Sprite
     sprite: _Mono/Objects/ShuttleWeapons/ak800.rsi
   - type: Gun
-    fireRate: 1.75
+    fireRate: 0.875
     muzzleFlash: MuzzleFlashEffect120mmAK800
   - type: ShipGunClass
     shipClass: Heavy
@@ -241,7 +241,7 @@
   - type: FireControlRotate
   - type: AmmoCounter
   - type: WirelessNetworkConnection
-    range: 500
+    range: 250
   - type: GunSignalControl
   - type: Fixtures
     fixtures:
@@ -255,11 +255,11 @@
         layer:
         - MachineLayer
   - type: Gun
-    projectileSpeed: 550
+    projectileSpeed: 192.5
     minAngle: 0
     maxAngle: 1
-    fireRate: 0.1
-    recoil: 75 # 3x
+    fireRate: 0.05
+    recoil: 37.5 # 3x
     shootThermalSignature: 80000000 # ~9km after firing
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/Gunshots/cannon.ogg
@@ -275,7 +275,7 @@
     whitelist:
       tags:
       - 255mmCartridge
-    capacity: 8
+    capacity: 4
     proto: 255mmCartridgeAPHE
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
@@ -326,7 +326,7 @@
     startingCharge: 12000
   - type: ExaminableBattery
   - type: WirelessNetworkConnection
-    range: 500
+    range: 250
   - type: Fixtures
     fixtures:
       fix1:
@@ -339,14 +339,14 @@
         layer:
         - MachineLayer
   - type: Gun
-    projectileSpeed: 550
+    projectileSpeed: 192.5
     minAngle: 0
     maxAngle: 0
-    fireRate: 0.2
-    recoil: 50 # 2x
+    fireRate: 0.1
+    recoil: 25 # 2x
     burstCooldown: 10
-    burstFireRate: 2
-    shotsPerBurst: 2
+    burstFireRate: 1
+    shotsPerBurst: 1
     selectedMode: Burst
     availableModes: Burst
     shootThermalSignature: 160000000 # now all of china knows you're here (12.6km)
@@ -411,7 +411,7 @@
   - type: FireControlRotate
   - type: AmmoCounter
   - type: WirelessNetworkConnection
-    range: 500
+    range: 250
   - type: Fixtures
     fixtures:
       fix1:
@@ -424,11 +424,11 @@
         layer:
         - MachineLayer
   - type: Gun
-    projectileSpeed: 150
+    projectileSpeed: 52.5
     minAngle: 0
     maxAngle: 0
-    fireRate: 0.05
-    recoil: 300
+    fireRate: 0.025
+    recoil: 150
     selectedMode: SemiAuto
     availableModes: SemiAuto
     shootThermalSignature: 160000000
@@ -505,7 +505,7 @@
   - BallisticArtilleryMagazine
   - BallisticArtilleryTier5HP
   suffix: Capital/Station, T4
-  description: Fires 85mm shells in a 15 round burst from an internal autoloader.
+  description: Fires 85mm shells in an 8-round burst from an internal autoloader.
   components:
   - type: StaticPrice
     price: 30000
@@ -518,7 +518,7 @@
   - type: FireControlRotate
   - type: AmmoCounter
   - type: WirelessNetworkConnection
-    range: 500
+    range: 250
   - type: Fixtures
     fixtures:
       fix1:
@@ -531,14 +531,14 @@
         layer:
         - MachineLayer
   - type: Gun
-    projectileSpeed: 290
+    projectileSpeed: 101.5
     minAngle: 0
     maxAngle: 7
-    fireRate: 6
-    recoil: 15
+    fireRate: 3
+    recoil: 7.5
     burstCooldown: 4
-    burstFireRate: 6
-    shotsPerBurst: 15
+    burstFireRate: 3
+    shotsPerBurst: 8
     selectedMode: Burst
     availableModes: Burst
     shootThermalSignature: 48000000 # ~7km after firing

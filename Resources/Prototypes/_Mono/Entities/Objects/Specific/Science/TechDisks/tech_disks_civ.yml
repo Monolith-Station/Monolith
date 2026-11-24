@@ -125,14 +125,14 @@
     - state: civilian
   - type: TechnologyDisk
     recipes:
-    - MachineDriveCTLA25Circuitboard
+    - MachineDriveCTLA750Circuitboard
     - MachineShieldMS100Circuitboard
 
 - type: entity
   parent: TechDiskBase
-  id: TechDiskCivCTLA50
-  name: civilian CTLA-50 tech disk
-  description: A disk capable of adding CTLA-50/25 FTL drives to a server's recipes.
+  id: TechDiskCivCTLA1500
+  name: civilian CTLA-1500 tech disk
+  description: A disk capable of adding CTLA-1500/750 FTL drives to a server's recipes.
   components:
   - type: Sprite
     layers:
@@ -144,8 +144,8 @@
     - state: civilian
   - type: TechnologyDisk
     recipes:
-    - MachineDriveCTLA50Circuitboard
-    - MachineDriveCTLA25Circuitboard
+    - MachineDriveCTLA1500Circuitboard
+    - MachineDriveCTLA750Circuitboard
 
 - type: entity
   parent: TechDiskBase
@@ -202,9 +202,9 @@
       shader: unshaded
   - type: TechnologyDisk
     recipes:
-    - MachineDriveCTLA25sCircuitboard
-    - MachineDriveCTLA50Circuitboard
-    - MachineDriveCTLA25Circuitboard
+    - MachineDriveCTLA750sCircuitboard
+    - MachineDriveCTLA1500Circuitboard
+    - MachineDriveCTLA750Circuitboard
 
 - type: entity
   parent: TechDiskBase

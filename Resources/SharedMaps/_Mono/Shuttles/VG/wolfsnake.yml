@@ -5778,7 +5778,7 @@ entities:
       currentLabel: AUTOMATED SECURITY LIGHTS
     - type: NameModifier
       baseName: logic gate
-- proto: MachineHeavyFTLDriveConsole
+- proto: MachineHeavyFTLDrive3750Console
   entities:
   - uid: 710
     components:
@@ -5786,7 +5786,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 1.5,-15.5
       parent: 1
-- proto: MachineHeavyFTLDriveCore
+- proto: MachineHeavyFTLDrive3750Core
   entities:
   - uid: 711
     components:

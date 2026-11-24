@@ -4,8 +4,8 @@
   name: small thruster
   components:
   - type: Thruster
-    baseThrust: 67
-    thrust: 67
+    baseThrust: 603
+    thrust: 603
     damage:
       types:
         Heat: 40
@@ -54,8 +54,8 @@
   - type: Thruster
     thrusterType: Angular
     requireSpace: false
-    baseThrust: 250
-    thrust: 250
+    baseThrust: 2250
+    thrust: 2250
   - type: ApcPowerReceiver
     powerLoad: 200
   - type: Sprite

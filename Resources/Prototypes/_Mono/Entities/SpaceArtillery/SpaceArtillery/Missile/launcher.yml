@@ -22,10 +22,10 @@
     startingCharge: 40000
   - type: ExaminableBattery
   - type: WirelessNetworkConnection
-    range: 500
+    range: 250
   - type: Gun
-    fireRate: 0.5
-    recoil: 10
+    fireRate: 0.25
+    recoil: 5
     shootThermalSignature: 32000000 # ~5.6km
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/Gunshots/launcher_alt.ogg
@@ -81,9 +81,9 @@
     startingCharge: 40000
   - type: ExaminableBattery
   - type: WirelessNetworkConnection
-    range: 500
+    range: 250
   - type: Gun
-    fireRate: 0.1
+    fireRate: 0.05
     shootThermalSignature: 32000000 # ~5.6km
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/rocket_launcher.ogg

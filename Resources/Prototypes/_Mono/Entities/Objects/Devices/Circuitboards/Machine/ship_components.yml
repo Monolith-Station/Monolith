@@ -39,15 +39,15 @@
 #      Plasteel: 10
 
 - type: entity
-  id: MachineDriveCTLA25Circuitboard
+  id: MachineDriveCTLA750Circuitboard
   parent: BaseMachineCircuitboard
-  name: CTLA-25 bluespace drive board
+  name: CTLA-750 bluespace drive board
   description: A machine board for a bluespace drive.
   components:
   - type: Sprite
     state: security
   - type: MachineBoard
-    prototype: MachineFTLDrive
+    prototype: MachineFTLDrive750
     flatpackable: false
     requirements:
       Capacitor: 4
@@ -188,15 +188,15 @@
         defaultPrototype: RadioEconomy2
 
 - type: entity
-  id: MachineDriveCTLA25sCircuitboard
+  id: MachineDriveCTLA750sCircuitboard
   parent: BaseMachineCircuitboard
-  name: CTLA-25s bluespace drive board
+  name: CTLA-750s bluespace drive board
   description: A machine board for an advanced bluespace drive.
   components:
   - type: Sprite
     state: security
   - type: MachineBoard
-    prototype: MachineFTLDrive25S
+    prototype: MachineFTLDrive750S
     flatpackable: false
     requirements:
       Capacitor: 8
@@ -220,15 +220,15 @@
         defaultPrototype: RadioEconomy1
 
 - type: entity
-  id: MachineDriveCTLA50Circuitboard
+  id: MachineDriveCTLA1500Circuitboard
   parent: BaseMachineCircuitboard
-  name: CTLA-50 bluespace drive board
+  name: CTLA-1500 bluespace drive board
   description: A machine board for an advanced bluespace drive.
   components:
   - type: Sprite
     state: security
   - type: MachineBoard
-    prototype: MachineFTLDrive50
+    prototype: MachineFTLDrive1500
     flatpackable: false
     requirements:
       Capacitor: 8

@@ -1,8 +1,8 @@
 - type: entity
-  id: MachineFTLDrive
+  id: MachineFTLDrive750
   parent: BaseMachinePowered
-  name: CTLA-25 bluespace drive
-  description: A FTL drive that extends a ship's FTL range to ~5 kilometers. Does not stack.
+  name: CTLA-750 bluespace drive
+  description: An FTL drive that extends a ship's FTL range to 750 meters. Does not stack.
   placement:
     mode: SnapgridCenter
   components:
@@ -21,8 +21,8 @@
         shader: unshaded
         color: "#349BEB"
     - type: FTLDrive
-      range: 5000
-      thermalSignature: 2000000 # ~2828m range
+      range: 750
+      thermalSignature: 2000000 # ~1414m range after detection scaling
     - type: ThermalSignature
     - type: Destructible
       thresholds:
@@ -81,7 +81,7 @@
             True: { visible: true }
             False: { visible: false }
     - type: Machine
-      board: MachineDriveCTLA25Circuitboard
+      board: MachineDriveCTLA750Circuitboard
     - type: Construction # Mono
       graph: Machine
       node: machine
@@ -115,10 +115,10 @@
       normalState: Generic_mob_burning
 
 - type: entity
-  parent: MachineFTLDrive
-  id: MachineFTLDrive50
-  name: CTLA-50 bluespace drive
-  description: A FTL drive that extends a ship's FTL range to ~10 kilometers. Does not stack.
+  parent: MachineFTLDrive750
+  id: MachineFTLDrive1500
+  name: CTLA-1500 bluespace drive
+  description: An FTL drive that extends a ship's FTL range to 1.5 kilometers. Does not stack.
   components:
   - type: Sprite
     sprite: _Mono/Structures/ShuttleComponents/drive.rsi
@@ -131,8 +131,8 @@
       shader: unshaded
       color: "#E6173E"
   - type: FTLDrive
-    range: 10000
-    thermalSignature: 4000000 # ~4000m range
+    range: 1500
+    thermalSignature: 4000000 # ~2000m range after detection scaling
   - type: ThermalSignature
   - type: ApcPowerReceiver
     powerLoad: 4000
@@ -142,7 +142,7 @@
     radius: 2.0
     energy: 1.5
   - type: Machine
-    board: MachineDriveCTLA50Circuitboard
+    board: MachineDriveCTLA1500Circuitboard
   - type: ShipRepairable
     repairTime: 30
     repairCost: 220
@@ -152,10 +152,10 @@
       - ADSRepairTool
 
 - type: entity
-  parent: MachineFTLDrive
-  id: MachineFTLDrive25S
-  name: CTLA-25s bluespace drive
-  description: An advanced FTL drive that extends a ship's FTL range to ~5 kilometers, but with upgrades to allow for faster recharge and flight times. Does not stack.
+  parent: MachineFTLDrive750
+  id: MachineFTLDrive750S
+  name: CTLA-750s bluespace drive
+  description: An advanced FTL drive that extends a ship's FTL range to 750 meters, with faster recharge and flight times. Does not stack.
   components:
   - type: Sprite
     sprite: _Mono/Structures/ShuttleComponents/drive.rsi
@@ -168,11 +168,11 @@
       shader: unshaded
       color: "#7E16F7"
   - type: FTLDrive
-    range: 5000
+    range: 750
     cooldown: 7.5
     hyperSpaceTime: 15
     startupTime: 4.2
-    thermalSignature: 4000000 # ~4000m range but for smaller ships it might not have time to get to full heat signature
+    thermalSignature: 4000000 # ~2000m range after detection scaling but for smaller ships it might not have time to get to full heat signature
   - type: ThermalSignature
   - type: ApcPowerReceiver
     powerLoad: 4000
@@ -182,7 +182,7 @@
     radius: 2.0
     energy: 1.5
   - type: Machine
-    board: MachineDriveCTLA25sCircuitboard
+    board: MachineDriveCTLA750sCircuitboard
   - type: ShipRepairable
     repairTime: 25
     repairCost: 180

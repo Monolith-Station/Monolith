@@ -2,6 +2,21 @@ CrescentMothershipComputer: null # missing from map
 ShipyardLiquidatorInfo: null # missing from map
 ShipyardCeresInfo: null
 StationEfficiencyCircuitBoard : null # item removed by wizden
+
+# 2026-11 - bluespace drive prototype IDs renamed to match their ranges in meters.
+MachineFTLDrive: MachineFTLDrive750
+MachineFTLDrive50: MachineFTLDrive1500
+MachineFTLDrive25S: MachineFTLDrive750S
+MachineDriveCTLA25Circuitboard: MachineDriveCTLA750Circuitboard
+MachineDriveCTLA50Circuitboard: MachineDriveCTLA1500Circuitboard
+MachineDriveCTLA25sCircuitboard: MachineDriveCTLA750sCircuitboard
+FTLDriveFlatpack: FTLDrive750Flatpack
+FTLDrive50Flatpack: FTLDrive1500Flatpack
+FTLDrive25SFlatpack: FTLDrive750SFlatpack
+MachineHeavyFTLDriveCore: MachineHeavyFTLDrive3750Core
+MachineHeavyFTLDriveConsole: MachineHeavyFTLDrive3750Console
+TechDiskCivCTLA50: TechDiskCivCTLA1500
+
 40mmGrenadeIncendiary: 40mmGrenadeThermobaric # item removed
 40mmGrenadeStinger: 40mmGrenadeBaton # item removed
 40mmGrenadeShrapnel: 40mmGrenadeFragmentation # item removed

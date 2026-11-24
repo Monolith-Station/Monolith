@@ -15,6 +15,11 @@ namespace Content.Server.Shuttles.Components
         /// Thrust gets multiplied by this value if it's for braking.
         /// </summary>
         public const float BrakeCoefficient = 1.5f;
+        /// <summary>
+        /// Maximum velocity available to pilots on this shuttle.
+        /// </summary>
+        [DataField]
+        public float MaximumPilotSetLinearVelocity = 40f;
 
         /// <summary>
         /// Mono - velocity that 2x slowdown will be applied at. (4x at 2x this, 8x at 3x this, etc.)
@@ -28,8 +33,8 @@ namespace Content.Server.Shuttles.Components
         /// Mono start
         /// Drive mode values because drive mode is the default mode
         public float MaxLinearVelocityMultiplier = 1f;
-        public float BaseThrusterMultiplier = 3.5f;
-        public float BaseGyroscopeMultiplier = 1.125f;
+        public float BaseThrusterMultiplier = 1f;
+        public float BaseGyroscopeMultiplier = 1f;
         /// Mono end
 
         /// <summary>

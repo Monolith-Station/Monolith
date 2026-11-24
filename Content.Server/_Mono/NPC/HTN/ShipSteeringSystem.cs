@@ -681,10 +681,7 @@ public sealed partial class ShipSteeringSystem : EntitySystem
     {
         var res = NormalizedOrZero(wish);
 
-        var horizIndex = wish.X > 0 ? 1 : 3; // east else west
-        var vertIndex = wish.Y > 0 ? 2 : 0; // north else south
-        var horizThrust = shuttle.LinearThrust[horizIndex];
-        var vertThrust = shuttle.LinearThrust[vertIndex];
+        var (horizThrust, vertThrust) = _mover.GetDirectionalThrustLimits(wish, shuttle, out _);
 
         var wishX = MathF.Abs(res.X);
         var wishY = MathF.Abs(res.Y);

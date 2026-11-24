@@ -30,8 +30,8 @@
     followEntity: true
     noRotate: true
   - type: DetectionRangeMultiplier # upgraded thermal sensors
-    infraredMultiplier: 1.5
-    visualMultiplier: 2
+    infraredMultiplier: 0.75
+    visualMultiplier: 1
   - type: ActivatableUI
     key: enum.RadarConsoleUiKey.Key
     singleUser: true

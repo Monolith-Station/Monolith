@@ -14784,7 +14784,7 @@ entities:
       currentLabel: AUTOMATIC STATOR LOAD CONTROL
     - type: NameModifier
       baseName: logic gate
-- proto: MachineHeavyFTLDriveConsole
+- proto: MachineHeavyFTLDrive3750Console
   entities:
   - uid: 51
     components:
@@ -14792,7 +14792,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -0.5,8.5
       parent: 1
-- proto: MachineHeavyFTLDriveCore
+- proto: MachineHeavyFTLDrive3750Core
   entities:
   - uid: 50
     components:

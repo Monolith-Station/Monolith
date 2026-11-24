@@ -15,7 +15,7 @@
       params:
         volume: 0.9
     distanceAlertSettings:
-    - maximumDistance: 1000
+    - maximumDistance: 500
       sound:
         path: /Audio/_Mono/Effects/Alerts/tsfn_launchwarning.ogg
         params:
@@ -75,14 +75,14 @@
         volume: 0.7
         pitch: 1.2
     distanceAlertSettings:
-    - maximumDistance: 256
+    - maximumDistance: 128
       sound:
         path: /Audio/_Mono/Effects/Alerts/spo15_lock.ogg
         params:
           loop: true
           volume: 1.0
           pitch: 1.8
-    - maximumDistance: 1024
+    - maximumDistance: 512
       sound:
         path: /Audio/_Mono/Effects/Alerts/kpv63_long_range.ogg
         params:
@@ -142,14 +142,14 @@
         volume: 0.7
         pitch: 1.2
     distanceAlertSettings:
-    - maximumDistance: 256
+    - maximumDistance: 128
       sound:
         path: /Audio/_Mono/Effects/Alerts/an_alr63_missile.ogg
         params:
           loop: true
           volume: 1.0
           pitch: 1.0
-    - maximumDistance: 1024
+    - maximumDistance: 512
       sound:
         path: /Audio/_Mono/Effects/Alerts/an_alr63_radar_lock.ogg
         params:

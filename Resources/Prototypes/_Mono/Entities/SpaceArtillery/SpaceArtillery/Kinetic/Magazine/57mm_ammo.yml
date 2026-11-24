@@ -70,7 +70,7 @@
 - type: entity
   id: Magazine57mmSmart
   name: "40x360mm HMNG ammo loader"
-  description: "An ammunition loader containing 600 40x360mm homing rounds. Usable by vessel-mounted artillery pieces."
+  description: "An ammunition loader containing 300 40x360mm homing rounds. Usable by vessel-mounted artillery pieces."
   parent: [BaseItem, RecyclableItemSteelTiny]
   components:
   - type: Tag
@@ -81,7 +81,7 @@
   - type: BallisticAmmoProvider
     infiniteUnspawned: false
     proto: 57mmCartridgeSmart
-    capacity: 600
+    capacity: 300
     mayTransfer: true
     whitelist:
       tags:
@@ -165,7 +165,7 @@
 - type: entity
   id: Magazine57mmSACLOS
   name: "40x360mm LG-SACLOS ammo loader"
-  description: "An ammunition loader containing 600 40x360mm laser-guided semi-automatic-command-line-of-sight rounds. Thats a mouthful, but it just means it's guided by you directly mid-flight. Usable by vessel-mounted artillery pieces."
+  description: "An ammunition loader containing 300 40x360mm laser-guided semi-automatic-command-line-of-sight rounds. Thats a mouthful, but it just means it's guided by you directly mid-flight. Usable by vessel-mounted artillery pieces."
   parent: [BaseItem, RecyclableItemSteelTiny]
   components:
   - type: Tag
@@ -176,7 +176,7 @@
   - type: BallisticAmmoProvider
     infiniteUnspawned: false
     proto: 57mmCartridgeSACLOS
-    capacity: 600
+    capacity: 300
     mayTransfer: true
     whitelist:
       tags:

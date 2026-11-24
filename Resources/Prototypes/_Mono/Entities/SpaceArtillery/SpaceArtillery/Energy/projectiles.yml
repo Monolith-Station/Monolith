@@ -79,7 +79,7 @@
   components:
   - type: ProjectileSpread
     proto: ShipCerberusPlasma
-    count: 3
+    count: 2
     spread: 8
 
 # Autopulser
@@ -256,7 +256,7 @@
   - type: PointLight
     color: "#FB00FF"
   - type: EmpOnTrigger
-    range: 4
+    range: 2
     energyConsumption: 2700000
     disableDuration: 10
 
@@ -366,13 +366,13 @@
   - type: PointLight
     color: "#FB00FF"
   - type: EmpOnTrigger
-    range: 4
+    range: 2
     energyConsumption: 6000000
     disableDuration: 15
   - type: LightningOnTrigger
     chance: 1
-    count: 6
-    range: 24
+    count: 3
+    range: 12
     lightningProto: LightningEMP
     lightningEffects: false
 
@@ -448,7 +448,7 @@
       Heat: 35
       Structural: 35
   - type: HitscanBasicRaycast
-    maxDistance: 512
+    maxDistance: 256
 
 
 # Apollo
@@ -476,7 +476,7 @@
       Heat: 80
       Structural: 35
   - type: HitscanBasicRaycast
-    maxDistance: 600
+    maxDistance: 300
   - type: HitscanGathering
 
 # Prometheus
@@ -496,7 +496,7 @@
   - type: HitscanSpawnEntity
     spawnedEntity: PrometheusExplosion
   - type: HitscanBasicRaycast
-    maxDistance: 1000
+    maxDistance: 500
 
 # Retribution
 
@@ -510,7 +510,7 @@
     lineThickness: 5
     lifeTime: 0.1 # 5 lasers visible at once
   - type: HitscanBasicRaycast
-    maxDistance: 3500
+    maxDistance: 1750
 
 
 
@@ -543,7 +543,7 @@
   - type: HitscanSpawnEntity
     spawnedEntity: TachyonExplosion
   - type: HitscanBasicRaycast
-    maxDistance: 1500
+    maxDistance: 750
 
 # Sunder
 
@@ -572,7 +572,7 @@
   - type: HitscanSpawnEntity
     spawnedEntity: SunderExplosion
   - type: HitscanBasicRaycast
-    maxDistance: 900
+    maxDistance: 450
 
 # Flayer
 
@@ -601,7 +601,7 @@
       Heat: 5
       Structural: 75
   - type: HitscanBasicRaycast
-    maxDistance: 500
+    maxDistance: 250
 
 # Hitscan Explosions
 

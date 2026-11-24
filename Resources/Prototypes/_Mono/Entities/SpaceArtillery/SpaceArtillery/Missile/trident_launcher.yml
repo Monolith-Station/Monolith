@@ -15,10 +15,10 @@
   - type: Appearance
   - type: AmmoCounter
   - type: WirelessNetworkConnection
-    range: 500
+    range: 250
   - type: Gun
-    fireRate: 0.1
-    recoil: 10
+    fireRate: 0.05
+    recoil: 5
     shootThermalSignature: 16000000 # 4000m after firing
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/Gunshots/towfire.ogg
@@ -32,7 +32,7 @@
     whitelist:
       tags:
       - Asm220Torpedo
-    capacity: 4
+    capacity: 2
     soundInsert:
       path: /Audio/Items/rped.ogg
   - type: Actions
@@ -62,7 +62,7 @@
     whitelist:
       tags:
       - Asm220Torpedo
-    capacity: 4
+    capacity: 2
     soundInsert:
       path: /Audio/Items/rped.ogg
     infiniteUnspawned: True

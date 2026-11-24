@@ -3,9 +3,9 @@
   parent: [BasePOI, BaseRepairablePOI]
   name: 'INSO-357k Asteroid Cluster'
   minimumDistance: 0
-  maximumDistance: 100
-  posX: 5056
-  posY: 4480
+  maximumDistance: 25
+  posX: 1264
+  posY: 1120
   spawnGroup: Required
   gridPath: /Maps/_Mono/POI/beaconstation_a.yml
   addComponents:
@@ -31,9 +31,9 @@
   parent: [BasePOI, BaseRepairablePOI]
   name: 'LINEAR-21 Asteroid Cluster'
   minimumDistance: 0
-  maximumDistance: 100
-  posX: 9088
-  posY: -7552
+  maximumDistance: 25
+  posX: 1840
+  posY: -1530
   spawnGroup: Required
   gridPath: /Maps/_Mono/POI/beaconstation_wilds.yml
   addComponents:

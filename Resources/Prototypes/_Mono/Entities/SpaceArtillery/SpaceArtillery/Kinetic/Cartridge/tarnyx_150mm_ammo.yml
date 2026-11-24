@@ -24,7 +24,7 @@
   - type: PointLight
     color: "#FB00FF"
   - type: EmpOnTrigger
-    range: 10
+    range: 5
     energyConsumption: 500000
     disableDuration: 5.5
 
@@ -50,7 +50,7 @@
   - type: Appearance
   - type: SpentAmmoVisuals
   - type: EmpDescription
-    range: 10
+    range: 5
     energyConsumption: 500000
     disableDuration: 5.5
   - type: Destructible

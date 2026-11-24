@@ -15,12 +15,12 @@
   - type: Appearance
   - type: AmmoCounter
   - type: WirelessNetworkConnection
-    range: 700
+    range: 350
   - type: GunSignalControl
   - type: Gun
-    projectileSpeed: 50
-    fireRate: 0.8
-    recoil: 5
+    projectileSpeed: 17.5
+    fireRate: 0.4
+    recoil: 2.5
     shootThermalSignature: 8000000 # ~2.8km
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/rocket_launcher.ogg
@@ -34,7 +34,7 @@
     whitelist:
       tags:
       - LightFighterOrdinance
-    capacity: 2
+    capacity: 1
     soundInsert:
       path: /Audio/Items/rped.ogg
   - type: Actions

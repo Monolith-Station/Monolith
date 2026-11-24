@@ -4,8 +4,8 @@
   suffix: Debug Strength
   components:
   - type: Thruster
-    baseThrust: 20000
-    thrust: 20000 # 100x
+    baseThrust: 180000
+    thrust: 180000 # 200x
 
 - type: entity
   id: GyroscopeDebugStrength
@@ -13,8 +13,8 @@
   suffix: Debug Strength
   components:
   - type: Thruster
-    baseThrust: 200000
-    thrust: 200000 # 100x
+    baseThrust: 1800000
+    thrust: 1800000 # 2000x
 
 - type: entity
   parent: Thruster

@@ -10,7 +10,7 @@
     size: Small
   - type: BallisticAmmoProvider
     proto: MissileCartridge50mmHE
-    capacity: 78
+    capacity: 39
     mayTransfer: true
     whitelist:
       tags:
@@ -95,7 +95,7 @@
     size: Small
   - type: BallisticAmmoProvider
     proto: MissileCartridge50mmAAM
-    capacity: 78
+    capacity: 39
     mayTransfer: true
     whitelist:
       tags:

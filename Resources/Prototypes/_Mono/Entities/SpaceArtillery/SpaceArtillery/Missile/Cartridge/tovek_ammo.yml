@@ -10,7 +10,7 @@
     size: Small
   - type: BallisticAmmoProvider
     proto: MissileCartridge250mm
-    capacity: 24
+    capacity: 12
     mayTransfer: true
     whitelist:
       tags:
@@ -38,7 +38,7 @@
   - type: BallisticAmmoProvider
     infiniteUnspawned: true
     proto: MissileCartridge250mm
-    capacity: 24
+    capacity: 12
     mayTransfer: true
     whitelist:
       tags:
@@ -51,7 +51,7 @@
   components:
   - type: BallisticAmmoProvider
     proto: TovekCartridge
-    capacity: 24
+    capacity: 12
     mayTransfer: true
     whitelist:
       tags:
@@ -64,7 +64,7 @@
   - type: BallisticAmmoProvider
     infiniteUnspawned: true
     proto: TovekCartridge
-    capacity: 24
+    capacity: 12
     mayTransfer: true
     whitelist:
       tags:
@@ -77,7 +77,7 @@
   components:
   - type: BallisticAmmoProvider
     proto: MissileCartridge250mmHV
-    capacity: 24
+    capacity: 12
     mayTransfer: true
     whitelist:
       tags:
@@ -90,7 +90,7 @@
   - type: BallisticAmmoProvider
     infiniteUnspawned: true
     proto: MissileCartridge250mmHV
-    capacity: 24
+    capacity: 12
     mayTransfer: true
     whitelist:
       tags:

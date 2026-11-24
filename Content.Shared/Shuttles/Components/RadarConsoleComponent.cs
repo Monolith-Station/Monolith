@@ -18,7 +18,7 @@ public sealed partial class RadarConsoleComponent : Component
     }
 
     [DataField, AutoNetworkedField]
-    public float MaxRange = 3072f; // Mono - 256->3072
+    public float MaxRange = 512f;
 
     /// <summary>
     /// If true, the radar will be centered on the entity. If not - on the grid on which it is located.
@@ -42,7 +42,7 @@ public sealed partial class RadarConsoleComponent : Component
 
     // <Mono>
     [DataField]
-    public bool Pannable = true;
+    public bool Pannable = false; //pannable was a failure
 
     /// <summary>
     /// Whether to still follow the console after being panned.

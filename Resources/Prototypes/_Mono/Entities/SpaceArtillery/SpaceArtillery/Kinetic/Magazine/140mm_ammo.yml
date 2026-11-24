@@ -67,7 +67,7 @@
 - type: entity
   id: Magazine140mmSACLOS
   name: "85x680mm SACLOS ammo loader"
-  description: "An ammunition loader containing 120 85x680mm laser-guided semi-automatic-command-line-of-sight rounds. Thats a mouthful, but it just means it's guided by you directly mid-flight. Usable by vessel-mounted artillery pieces."
+  description: "An ammunition loader containing 60 85x680mm laser-guided semi-automatic-command-line-of-sight rounds. Thats a mouthful, but it just means it's guided by you directly mid-flight. Usable by vessel-mounted artillery pieces."
   parent: [BaseItem, RecyclableItemSteelTiny]
   components:
   - type: Tag
@@ -78,7 +78,7 @@
   - type: BallisticAmmoProvider
     infiniteUnspawned: false
     proto: 140mmCartridgeSACLOS
-    capacity: 120
+    capacity: 60
     mayTransfer: true
     whitelist:
       tags:

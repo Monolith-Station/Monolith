@@ -23,19 +23,19 @@
     startingCharge: 40000
   - type: ExaminableBattery
   - type: WirelessNetworkConnection
-    range: 500
+    range: 250
   - type: GunSignalControl #I'm not certain why a station only gun has it in the description.
   - type: Gun
-    fireRate: 0.1
-    recoil: 2500 # 100x
+    fireRate: 0.05
+    recoil: 1250 # 100x
     minAngle: 0
     maxAngle: 0
     burstCooldown: 20
-    burstFireRate: 2
-    shotsPerBurst: 2
+    burstFireRate: 1
+    shotsPerBurst: 1
     selectedMode: Burst
     availableModes: Burst
-    projectileSpeed: 1100
+    projectileSpeed: 385
     soundGunshot:
       path: /Audio/_Mono/Weapons/Guns/Gunshots/leviathan_fire.ogg
     soundEmpty:

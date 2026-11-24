@@ -70,7 +70,7 @@
         - !type:DoActsBehavior
           acts: ["Destruction"]
   - type: Gun
-    fireRate: 3
+    fireRate: 1.5
     useKey: false
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/ship_svalinn.ogg
@@ -126,7 +126,7 @@
         - !type:DoActsBehavior
           acts: ["Destruction"]
   - type: Gun
-    fireRate: 1
+    fireRate: 0.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/ship_perforator.ogg
       params:
@@ -158,7 +158,7 @@
   id: ShuttleGunFriendship
   parent: [ShuttleGunBase] # Frontier: Removed ConstructibleMachine
   name: EXP-320g "Friendship"
-  description: A small stationary grenade launcher that holds 2 grenades.
+  description: A small stationary grenade launcher that holds 1 grenade.
   categories: [ DoNotMap ]
   components:
   - type: Sprite
@@ -183,8 +183,8 @@
         - !type:DoActsBehavior
           acts: ["Destruction"]
   - type: Gun
-    projectileSpeed: 80
-    fireRate: 1
+    projectileSpeed: 28
+    fireRate: 0.5
     angleDecay: 45
     minAngle: 0
     maxAngle: 15
@@ -198,7 +198,7 @@
     whitelist:
       tags:
         - Grenade
-    capacity: 2
+    capacity: 1
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
   - type: Machine
@@ -237,8 +237,8 @@
         - !type:DoActsBehavior
           acts: ["Destruction"]
   - type: Gun
-    projectileSpeed: 40
-    fireRate: 0.3
+    projectileSpeed: 14
+    fireRate: 0.15
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/ship_duster.ogg
       params:
@@ -294,7 +294,7 @@
     layers:
     - state: base
   - type: Gun
-    fireRate: 1
+    fireRate: 0.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/mateba.ogg
   - type: BallisticAmmoProvider
@@ -338,8 +338,8 @@
         - !type:DoActsBehavior
           acts: ["Destruction"]
   - type: Gun
-    projectileSpeed: 80
-    fireRate: 2
+    projectileSpeed: 28
+    fireRate: 1
     selectedMode: SemiAuto
     angleDecay: 45
     minAngle: 5
@@ -359,8 +359,8 @@
         variation: 0.08
   - type: BasicEntityAmmoProvider
     proto: BulletKineticShuttle
-    capacity: 100 # Mono 10->100
-    count: 100 # Mono 10->100
+    capacity: 50 # Mono 10->100, halved for saturation control
+    count: 50 # Mono 10->100, halved for saturation control
   - type: Machine
     board: ShuttleGunKineticCircuitboard
   - type: ExtensionCableReceiver # Frontier

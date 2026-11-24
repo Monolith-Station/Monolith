@@ -8,8 +8,8 @@
   id: Chengdu
   parent: [BaseMobilePOI, BaseRepairablePOI]
   name: 'TSFN Chengdu'
-  minimumDistance: 4500
-  maximumDistance: 5500
+  minimumDistance: 1500
+  maximumDistance: 2800
   spawnGamePreset: [ MonoRogueTSFHyperwar ]
   spawnGroup: Required
   gridPath: /Maps/_Mono/Supercapitals/chengdu.yml

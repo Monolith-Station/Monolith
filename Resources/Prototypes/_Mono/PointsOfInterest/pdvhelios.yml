@@ -9,8 +9,9 @@
   id: HeliosFortress
   parent: [BasePOI, BaseRepairablePOI]
   name: 'PDV Helios Fortress'
-  minimumDistance: 22000
-  maximumDistance: 27000 # somewhere in far reaches 1 or 2
+  minimumDistance: 6000
+  maximumDistance: 7500
+  minimumSeparation: 1200
   spawnGamePreset: [ NFAdventure, NFPirate, MonoStandard, MonoRogueTSF, MonoRogueUSSP, MonoADS, MonoChimera, MonoMixed, MonoAllAtOnce, MonoChimeraPdv ]
   spawnGroup: Required
   gridPath: /Maps/_Mono/POI/pdvhelios.yml
@@ -23,9 +24,9 @@
   - type: WorldGenDistanceCarver
     distanceThresholds:
     # drones no droning
-    - maxDistance: 5000
+    - maxDistance: 2500
       prob: 0.0
-    - maxDistance: 6500
+    - maxDistance: 3250
       prob: 0.3
 
 - type: gameMap
@@ -46,7 +47,7 @@
         excludedFactions:
         - PDV
       - type: DeleteNearbyDrones
-        distance: 5000
+        distance: 2500
       - type: ApplyIFFFlagsToDockedShips
         flags:
         - HideLabelAlways # hide all docked ships
@@ -78,8 +79,9 @@
   id: HeliosFortressHyperwar
   parent: [BasePOI, BaseRepairablePOI]
   name: 'PDV Helios Fortress'
-  minimumDistance: 7500
-  maximumDistance: 9500
+  minimumDistance: 6000
+  maximumDistance: 7500
+  minimumSeparation: 1200
   spawnGamePreset: [ MonoRogueTSFHyperwar ]
   spawnGroup: Required
   gridPath: /Maps/_Mono/POI/pdvhelios_hw.yml

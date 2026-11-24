@@ -78,7 +78,7 @@
 - type: entity
   id: Magazine35mmHE
   name: "25x170mm HE ammo loader"
-  description: "An ammunition loader containing 2000 25x170mm HE rounds. Usable by vessel-mounted artillery pieces."
+  description: "An ammunition loader containing 1000 25x170mm HE rounds. Usable by vessel-mounted artillery pieces."
   parent: [BaseItem, RecyclableItemSteelTiny]
   components:
   - type: Tag
@@ -89,7 +89,7 @@
   - type: BallisticAmmoProvider
     infiniteUnspawned: false # Take note.
     proto: 35mmCartridgeHE
-    capacity: 2000
+    capacity: 1000
     mayTransfer: true
     whitelist:
       tags:

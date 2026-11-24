@@ -77,7 +77,7 @@
 - type: entity
   id: Magazine20mmAS
   name: "14x97mm AS ammo loader"
-  description: "An ammunition loader containing 1250 14x97mm anti-shield rounds. Usable by vessel-mounted artillery pieces."
+  description: "An ammunition loader containing 625 14x97mm anti-shield rounds. Usable by vessel-mounted artillery pieces."
   parent: [BaseItem, RecyclableItemSteelTiny]
   components:
   - type: Tag
@@ -88,7 +88,7 @@
   - type: BallisticAmmoProvider
     infiniteUnspawned: false
     proto: 20mmCartridgeAS
-    capacity: 1250
+    capacity: 625
     mayTransfer: true
     whitelist:
       tags:

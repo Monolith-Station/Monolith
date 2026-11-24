@@ -60,7 +60,7 @@
         shutdownState: PlanFinished
         removeKeyOnFinish: false
         alwaysFaceTarget: true
-        inRangeMaxSpeed: 20
+        inRangeMaxSpeed: 10
         avoidProjectiles: true
         range: 45
         rangeTolerance: 15
@@ -100,7 +100,7 @@
         shutdownState: PlanFinished
         removeKeyOnFinish: false
         alwaysFaceTarget: true
-        inRangeMaxSpeed: 50
+        inRangeMaxSpeed: 25
         avoidProjectiles: true
         #Mildly lobotomized the dodging
         evasionSectorDepth: 2
@@ -143,7 +143,7 @@
         shutdownState: PlanFinished
         removeKeyOnFinish: false
         alwaysFaceTarget: true
-        inRangeMaxSpeed: 4
+        inRangeMaxSpeed: 2
         avoidProjectiles: true
         range: 750
         rangeTolerance: 150
@@ -186,7 +186,7 @@
         shutdownState: PlanFinished
         removeKeyOnFinish: false
         alwaysFaceTarget: true
-        inRangeMaxSpeed: 4
+        inRangeMaxSpeed: 2
         avoidProjectiles: true
         range: 750
         rangeTolerance: 150
@@ -231,7 +231,7 @@
         alwaysFaceTarget: true
         targetRotation: 90
         removeKeyOnFinish: false
-        inRangeMaxSpeed: 20
+        inRangeMaxSpeed: 10
         range: 200
         rangeTolerance: 20
         targetKey: TargetCoordinates
@@ -272,7 +272,7 @@
         shutdownState: TaskFinished
         avoidProjectiles: true
         removeKeyOnFinish: false
-        inRangeMaxSpeed: 0.1
+        inRangeMaxSpeed: 0.05
         range: 700
         rangeTolerance: 0
         alwaysFaceTarget: true
@@ -315,7 +315,7 @@
         shutdownState: PlanFinished
         removeKeyOnFinish: false
         alwaysFaceTarget: true
-        inRangeMaxSpeed: 4
+        inRangeMaxSpeed: 2
         avoidProjectiles: true
         range: 400
         rangeTolerance: 50

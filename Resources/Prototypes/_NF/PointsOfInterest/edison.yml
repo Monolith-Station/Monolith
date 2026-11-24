@@ -12,8 +12,8 @@
   id: Edison
   parent: [BasePOI, BaseRepairablePOI]
   name: 'Edison Power Plant'
-  minimumDistance: 5650
-  maximumDistance: 7400
+  minimumDistance: 4000
+  maximumDistance: 5000
   spawnGroup: Required
   gridPath: /Maps/_NF/POI/edison.yml
   addComponents:

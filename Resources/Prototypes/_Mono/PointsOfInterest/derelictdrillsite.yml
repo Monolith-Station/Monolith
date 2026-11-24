@@ -11,8 +11,8 @@
   id: Mining
   parent: [BasePOI, BaseRepairablePOI]
   name: 'Derelict Drillsite'
-  minimumDistance: 5500
-  maximumDistance: 9500
+  minimumDistance: 1500
+  maximumDistance: 2800
   spawnGroup: Required
   gridPath: /Maps/_Mono/POI/derelictdrillsite.yml
   addComponents:
@@ -21,9 +21,9 @@
   - type: WorldGenDistanceCarver
     distanceThresholds:
     # Dead zone
-    - maxDistance: 800
+    - maxDistance: 400
       prob: 0.0
-    - maxDistance: 1500
+    - maxDistance: 750
       prob: 0.3
 
 - type: gameMap
@@ -46,8 +46,8 @@
   id: MiningHyperwar
   parent: [BasePOI, BaseRepairablePOI]
   name: 'Derelict Drillsite'
-  minimumDistance: 0
-  maximumDistance: 0
+  minimumDistance: 1500
+  maximumDistance: 2800
   spawnGamePreset: [ MonoRogueTSFHyperwar ]
   spawnGroup: Required
   gridPath: /Maps/_Mono/POI/derelictdrillsite_hw.yml
@@ -57,9 +57,9 @@
   - type: WorldGenDistanceCarver
     distanceThresholds:
     # Dead zone
-    - maxDistance: 800
+    - maxDistance: 400
       prob: 0.0
-    - maxDistance: 1500
+    - maxDistance: 750
       prob: 0.3
 
 - type: gameMap

@@ -76,7 +76,7 @@
 - type: entity
   id: Magazine30mmHE
   name: "20x141mm HE ammo loader"
-  description: "An ammunition loader containing 2000 20x141mm HE rounds. Usable by vessel-mounted artillery pieces."
+  description: "An ammunition loader containing 1000 20x141mm HE rounds. Usable by vessel-mounted artillery pieces."
   parent: [BaseItem, RecyclableItemSteelTiny]
   components:
   - type: Tag
@@ -87,7 +87,7 @@
   - type: BallisticAmmoProvider
     infiniteUnspawned: false # Take note.
     proto: 30mmCartridgeHE
-    capacity: 2000
+    capacity: 1000
     mayTransfer: true
     whitelist:
       tags:

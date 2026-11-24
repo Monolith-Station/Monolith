@@ -95,16 +95,16 @@ public sealed class NFCCVars
         CVarDef.Create("nf14.worldgen.distance_modifier", 1f, CVar.SERVERONLY);
 
     /// <summary>
-    /// The rough minimum distance between POIs in meters.
+    /// The minimum distance in meters between generated POI positions and from each POI to the sector origin.
     /// </summary>
     public static readonly CVarDef<float> MinPOIDistance =
-        CVarDef.Create("nf14.worldgen.min_poi_distance", 400f, CVar.SERVERONLY);
+        CVarDef.Create("nf14.worldgen.min_poi_distance", 750f, CVar.SERVERONLY);
 
     /// <summary>
-    /// The maximum number of times to retry POI placement during world generation.
+    /// The number of retries per POI in each placement pass.
     /// </summary>
     public static readonly CVarDef<int> POIPlacementRetries =
-        CVarDef.Create("nf14.worldgen.poi_placement_retries", 10, CVar.SERVERONLY);
+        CVarDef.Create("nf14.worldgen.poi_placement_retries", 40, CVar.SERVERONLY);
 
     /*
     * Shipyard

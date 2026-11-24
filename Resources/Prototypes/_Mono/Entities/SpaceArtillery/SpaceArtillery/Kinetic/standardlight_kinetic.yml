@@ -21,14 +21,14 @@
   - type: AutoShootGun
   - type: GunSignalControl
   - type: WirelessNetworkConnection
-    range: 700
+    range: 350
   - type: DeviceLinkSink
     ports:
     - Toggle
   - type: Gun
-    fireRate: 10
-    recoil: 5 # 1/5x
-    projectileSpeed: 192
+    fireRate: 5
+    recoil: 2.5 # 1/5x
+    projectileSpeed: 67.2
     minAngle: 0
     maxAngle: 5
     shootThermalSignature: 10000 # relatively low for a shipgun, ~693m signature if firing continuously
@@ -114,15 +114,15 @@
   - type: AutoShootGun
   - type: GunSignalControl
   - type: WirelessNetworkConnection
-    range: 700
+    range: 350
   - type: DeviceLinkSink
     ports:
     - Toggle
   - type: Gun
     damageModifier: 1
-    fireRate: 25
-    recoil: 5 # 1/5x
-    projectileSpeed: 160
+    fireRate: 12.5
+    recoil: 2.5 # 1/5x
+    projectileSpeed: 56
     minAngle: 0
     maxAngle: 4
     shootThermalSignature: 100000 # ~4.5km if firing continuously

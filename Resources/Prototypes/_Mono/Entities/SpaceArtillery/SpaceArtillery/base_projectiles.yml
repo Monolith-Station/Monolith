@@ -4,7 +4,7 @@
   id: BaseBulletShip
   components:
   - type: RadarBlip
-    maxDistance: 4096
+    maxDistance: 2048
 
 - type: entity
   abstract: true

@@ -21,7 +21,7 @@
         nameDatasetType: Nanotrasen # they're shuttles
         minCount: 3 #Mono: 2 >> 3
         maxCount: 3
-        minimumDistance: 1000
+        minimumDistance: 1500
         maximumDistance: 2000
         addComponents:
         - type: IFF

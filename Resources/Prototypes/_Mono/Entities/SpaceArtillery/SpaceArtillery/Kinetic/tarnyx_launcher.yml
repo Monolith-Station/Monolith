@@ -23,11 +23,11 @@
     startingCharge: 40000
   - type: ExaminableBattery
   - type: WirelessNetworkConnection
-    range: 500
+    range: 250
   - type: GunSignalControl
   - type: Gun
-    fireRate: 0.066
-    projectileSpeed: 400
+    fireRate: 0.033
+    projectileSpeed: 140
     shootThermalSignature: 8000000 # ~2.8km after firing - relatively low
     soundGunshot:
       collection: ShipGunGenericBig
@@ -79,11 +79,11 @@
   - type: AmmoCounter
   - type: ExaminableBattery
   - type: WirelessNetworkConnection
-    range: 500
+    range: 250
   - type: GunSignalControl
   - type: Gun
-    fireRate: 0.066
-    projectileSpeed: 400
+    fireRate: 0.033
+    projectileSpeed: 140
     shootThermalSignature: 8000000 # ~2.8km after firing - relatively low
     soundGunshot:
       collection: ShipGunGenericBig
@@ -106,7 +106,7 @@
     whitelist:
       tags:
       - 150mmShell
-    capacity: 3
+    capacity: 2
     infiniteUnspawned: true
     proto: 150mmEmpShell
     soundInsert:
@@ -130,12 +130,12 @@
     layers:
     - state: space_artillery
   - type: Gun
-    fireRate: 0.075 # 3.96 rpm > 4.5
+    fireRate: 0.0375 # 2.25 rpm
   - type: BallisticAmmoProvider
     whitelist:
       tags:
       - 150mmShell
-    capacity: 3
+    capacity: 2
     infiniteUnspawned: true
     proto: 150mmApShell
     soundInsert:
