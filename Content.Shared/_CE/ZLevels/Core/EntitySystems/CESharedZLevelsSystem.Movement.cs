@@ -418,6 +418,26 @@ public abstract partial class CESharedZLevelsSystem
     [PublicAPI]
     public bool TryMove(EntityUid ent, int offset, Entity<CEZMapComponent?>? map = null)
     {
+        return TryMove(ent, offset, map, null);
+    }
+
+    public bool TryMoveToZDestination(EntityUid ent, int offset, MapId expectedDestination)
+    {
+        // A follower can cross from the ship's edge without first becoming map-parented.
+        var transit = CompOrNull<CEZTransitMapComponent>(Transform(ent).MapUid);
+        if (!TryMove(ent, offset, null, expectedDestination))
+            return false;
+
+        if (offset < 0 && transit != null &&
+            ZPhysicsQuery.TryComp(ent, out var physics) && !physics.ProjectileFlight &&
+            ZPhysicsQuery.TryComp(transit.PrimaryGrid, out var primaryPhysics))
+            SetZPosition((ent, physics), primaryPhysics.LocalPosition);
+
+        return true;
+    }
+
+    private bool TryMove(EntityUid ent, int offset, Entity<CEZMapComponent?>? map, MapId? expectedDestination)
+    {
         var xform = Transform(ent);
         if (!IsDirectlyOnGridOrMap(xform))
             return false;
@@ -435,7 +455,8 @@ public abstract partial class CESharedZLevelsSystem
 
         // pzn: Transit maps have their own path.
         if (_gridQuery.TryComp(ent, out var gridComp) && !_mapQuery.HasComp(ent))
-            return TryMoveGrid((ent, gridComp), (targetMap.Owner, targetMap.Comp, targetMapComp), offset);
+            return expectedDestination == null &&
+                   TryMoveGrid((ent, gridComp), (targetMap.Owner, targetMap.Comp, targetMapComp), offset);
 
         var worldRot = _transform.GetWorldRotation(ent);
         var destMapId = targetMapComp.MapId;
@@ -443,6 +464,12 @@ public abstract partial class CESharedZLevelsSystem
         // If there's a transitting grid below, land on it instead of just noclipping through it like that guy from the Backrooms movie.
         if (offset < 0 && TryFindTransitLanding(ent, map.Value.Owner, targetMap.Owner, out var transitMapId))
             destMapId = transitMapId;
+
+        if (expectedDestination is { } destination && destination != destMapId)
+            return false;
+
+        var beforeEv = new CEZLevelBeforeMapMoveEvent(offset, targetMap.Comp.Depth, destMapId);
+        RaiseLocalEvent(ent, ref beforeEv);
 
         _transform.SetMapCoordinates(ent, new MapCoordinates(_transform.GetWorldPosition(ent), destMapId));
         _transform.SetWorldRotation(ent, worldRot);
@@ -513,7 +540,7 @@ public abstract partial class CESharedZLevelsSystem
 /// </summary>
 /// <param name="offset">How many levels were crossed. If negative, it means there was a downward movement. If positive, it means an upward movement.</param>
 [ByRefEvent]
-public struct CEZLevelBeforeMapMoveEvent(int offset, int level)
+public struct CEZLevelBeforeMapMoveEvent(int offset, int level, MapId? destination = null)
 {
     /// <summary>
     /// How many levels were crossed. If negative, it means there was a downward movement. If positive, it means an upward movement.
@@ -521,6 +548,8 @@ public struct CEZLevelBeforeMapMoveEvent(int offset, int level)
     public int Offset = offset;
 
     public int CurrentZLevel = level;
+
+    public MapId? Destination = destination;
 }
 
 /// <summary>
