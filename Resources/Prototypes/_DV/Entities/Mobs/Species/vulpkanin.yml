@@ -97,13 +97,14 @@
       - map: [ "belt" ]
       - map: [ "back" ]
       - map: [ "neck" ]
-      - map: [ "misc" ] # Mono
-      - map: [ "misc2" ] # Mono
       - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
       - map: [ "enum.HumanoidVisualLayers.Hair" ]
       - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
       - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
       - map: [ "enum.HumanoidVisualLayers.Tail" ]
+      - map: [ "neck" ] # Monolith: Move after tail
+      - map: [ "misc" ] # Mono
+      - map: [ "misc2" ] # Mono
       - map: [ "mask" ]
       - map: [ "head" ]
       - map: [ "helmetcover" ]
@@ -140,6 +141,7 @@
     interactSuccessString: pat-success-generic
     interactSuccessSound: /Audio/Effects/thudswoosh.ogg
     messagePerceivedByOthers: pat-success-generic-others
+  - type: Wagging # Mono
   - type: ShortWhitelist # Frontier
     scale: 0.8 # Frontier
     density: 140 # Frontier
