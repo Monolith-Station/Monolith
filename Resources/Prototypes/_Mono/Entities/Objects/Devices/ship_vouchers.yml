@@ -819,7 +819,6 @@
   - type: ShipyardVoucher
     destroyOnEmpty: false
     cooldown: 1800 # 30 minutes
-    consoleType: Mawc
     companyName: MAWC
     vessels:
     - Icarus
@@ -845,7 +844,6 @@
   - type: ShipyardVoucher
     destroyOnEmpty: false
     cooldown: 3600 # one hour
-    consoleType: Mawc
     companyName: MAWC
     vessels:
     - Spectre
@@ -868,7 +866,6 @@
   - type: ShipyardVoucher
     destroyOnEmpty: false
     cooldown: 5400 # 1.5 hours
-    consoleType: Mawc
     companyName: MAWC
     vessels:
     - Phantom
