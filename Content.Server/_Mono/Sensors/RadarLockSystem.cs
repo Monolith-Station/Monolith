@@ -33,6 +33,54 @@ public sealed partial class RadarLockSystem : EntitySystem
         return HasCapableRadar(grid, requireLock: false, requireGuidance: true);
     }
 
+    public bool HasIllumination(EntityUid ourGrid, EntityUid target)
+    {
+        if (HasGuidanceCapableRadar(ourGrid) && CanLockFromGrid(ourGrid, target))
+            return true;
+
+        if (!TryComp<GridSensorsComponent>(ourGrid, out var us))
+            return false;
+
+        foreach (var code in us.DatalinkCodes)
+        {
+            var q = EntityQueryEnumerator<GridSensorsComponent, TransformComponent>();
+            while (q.MoveNext(out var otherGrid, out var otherSens, out _))
+            {
+                if (otherGrid == ourGrid)
+                    continue;
+                if (!otherSens.DatalinkCodes.Contains(code))
+                    continue;
+                if (!HasGuidanceCapableRadar(otherGrid))
+                    continue;
+                if (CanLockFromGrid(otherGrid, target))
+                    return true;
+            }
+        }
+
+        return false;
+    }
+
+    public bool CanLockFromGrid(EntityUid ourGrid, EntityUid targetEntity)
+    {
+        if (!HasLockCapableRadar(ourGrid))
+            return false;
+        if (!TryComp<GridSensorsComponent>(ourGrid, out var sensors))
+            return false;
+
+        var targetGrid = Transform(targetEntity).GridUid ?? targetEntity;
+        var net = GetNetEntity(targetGrid);
+        if (!sensors.Contacts.TryGetValue(net, out var contact))
+            return false;
+
+        if ((contact.Flags & (SensorContactFlags.ActiveRadar | SensorContactFlags.Datalink)) == 0)
+            return false;
+
+        if (!IsBearingChaffed(ourGrid, targetGrid))
+            return false;
+
+        return true;
+    }
+
     private bool HasCapableRadar(EntityUid grid, bool requireLock, bool requireGuidance)
     {
         var q = EntityQueryEnumerator<ShipSensorComponent, TransformComponent>();

@@ -25,11 +25,11 @@ public sealed partial class RadarGuidanceSystem : EntitySystem
                 continue;
             if (Transform(consoleUid).GridUid is not { } ourGrid)
                 continue;
-            if (!_lock.HasGuidanceCapableRadar(ourGrid))
-                continue;
             if (console.LockedTarget is not { } target)
                 continue;
             if (console.LockQuality < 0.2f)
+                continue;
+            if (!_lock.HasIllumination(ourGrid, target))
                 continue;
 
             var live = _lock.CanLock(consoleUid, target);
