@@ -18,7 +18,7 @@
   id: NFAsteroidsNear
   parent: NFBiomeBase
   priority: 2
-  distanceRange: 0, 5000
+  distanceRange: 0, 1250
   chunkComponents:
   - type: SimpleDebrisSelector
     debrisTable:
@@ -91,7 +91,7 @@
   id: NFAsteroidsMid
   parent: NFBiomeBase
   priority: 1
-  distanceRange: 5000, 9500
+  distanceRange: 1250, 2375
   chunkComponents:
   - type: SimpleDebrisSelector
     debrisTable:
@@ -241,9 +241,10 @@
 # region Outer Ring
 - type: spaceBiome
   id: NFAsteroidsFar
+  hostileDroneZone: true
   parent: NFBiomeBase
   priority: 0
-  distanceRange: 4750, 9000 # Mono
+  distanceRange: 2375, 4500 # Mono
   noiseRanges: {}
   chunkComponents:
   - type: SimpleDebrisSelector

@@ -11,10 +11,11 @@
   components:
   - type: WorldController
   - type: BiomeSelection
+    randomAsteroidBeltBiome: MonoInnerAsteroidBelts
     biomes:
     - MonoEmptyFallback
     - MonoClusterA
-    - MonoWorldgenAsteroidRing9km
+    - MonoLinearAsteroidCluster
     - MonoWildsCore
     - MonoWilds
     - MonoWildsOutskirts
@@ -22,3 +23,4 @@
     - MonoWorldgenVeryFarT2Inner
     - MonoWorldgenVeryFarT2Middle
     - MonoWorldgenVeryFarT2Far
+    - Failsafe # Empty space beyond the outermost biome.

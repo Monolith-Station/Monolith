@@ -100,6 +100,66 @@ public sealed partial class BiomePrototype : IPrototype, IInheritingPrototype
     public int? MaxY;
     // Mono / EE end
 
+    /// <summary>Additional rectangular options in chunk coordinates, with exclusive right and top edges.</summary>
+    [DataField]
+    [NeverPushInheritance]
+    public List<Box2i> ChunkRegions { get; private set; } = [];
+
+    /// <summary>Debris generation can place hostile drone spawners in this biome.</summary>
+    [DataField]
+    public bool HostileDroneZone { get; private set; }
+
+    /// <summary>Permits POI placement in this biome's band by carving a gap in its hostile chunks.</summary>
+    [DataField]
+    public bool AllowPoiClearings { get; private set; }
+
+    public bool HasFixedChunkRange => MinX.HasValue && MaxX.HasValue && MinY.HasValue && MaxY.HasValue;
+
+    public bool MatchesGeometry(Vector2i chunk, float centerLengthSquared)
+    {
+        if (DistanceRangeSquared is { } range && (centerLengthSquared < range.X || centerLengthSquared > range.Y))
+            return false;
+
+        if (HasFixedChunkRange && (chunk.X < MinX || chunk.X > MaxX || chunk.Y < MinY || chunk.Y > MaxY))
+            return false;
+
+        if (ChunkRegions.Count == 0)
+            return true;
+
+        foreach (var region in ChunkRegions)
+        {
+            if (chunk.X >= region.Left && chunk.X < region.Right && chunk.Y >= region.Bottom && chunk.Y < region.Top)
+                return true;
+        }
+
+        return false;
+    }
+
+    /// <summary>Returns a radius enclosing every world coordinate belonging to this biome's chunks.</summary>
+    public double GetOuterGeometryRadius()
+    {
+        var radius = DistanceRange is { } range ? range.Y + Math.Sqrt(2) * WorldGen.ChunkSize / 2 : double.PositiveInfinity;
+        if (HasFixedChunkRange)
+            radius = Math.Min(radius, GetRadius(MinX!.Value, MaxX!.Value + 1, MinY!.Value, MaxY!.Value + 1));
+
+        if (ChunkRegions.Count > 0)
+        {
+            var outermost = 0d;
+            foreach (var region in ChunkRegions)
+                outermost = Math.Max(outermost, GetRadius(region.Left, region.Right, region.Bottom, region.Top));
+            radius = Math.Min(radius, outermost);
+        }
+
+        return radius;
+
+        static double GetRadius(int left, int right, int bottom, int top)
+        {
+            var x = Math.Max(Math.Abs((double) left), Math.Abs((double) right)) * WorldGen.ChunkSize;
+            var y = Math.Max(Math.Abs((double) bottom), Math.Abs((double) top)) * WorldGen.ChunkSize;
+            return Math.Sqrt(x * x + y * y);
+        }
+    }
+
     //TODO: Get someone to make this a method on componentregistry that does it Correctly.
     /// <summary>
     ///     Applies the worldgen config to the given target (presumably a map.)

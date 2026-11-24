@@ -1,5 +1,6 @@
 ﻿using Content.Server.Worldgen.Systems.Biomes;
 using Content.Server.Worldgen.Prototypes;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 
 namespace Content.Server.Worldgen.Components;
@@ -17,5 +18,12 @@ public sealed partial class BiomeSelectionComponent : Component
     /// <remarks>This is always sorted by priority after ComponentStartup.</remarks>
     [DataField("biomes", required: true,
         customTypeSerializer: typeof(PrototypeIdListSerializer<BiomePrototype>))] public List<string> Biomes = new();
+
+    /// <summary>Debris biome for the asteroid regions generated after POI placement, if enabled.</summary>
+    [DataField]
+    public ProtoId<BiomePrototype>? RandomAsteroidBeltBiome;
+
+    internal List<SectorAsteroidBelt> AsteroidBelts = [];
+    internal HashSet<Vector2i> AsteroidBeltChunks = [];
 }
 

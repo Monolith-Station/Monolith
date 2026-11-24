@@ -5,7 +5,11 @@ using Content.Server._NF.Trade;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Presets;
 using Content.Server.Station.Systems;
+using Content.Server.Worldgen;
+using Content.Server.Worldgen.Prototypes;
+using Content.Server.Worldgen.Systems.Biomes;
 using Content.Shared._NF.CCVar;
+using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
 using Content.Shared.Maps;
 using Robust.Shared.Configuration;
@@ -32,6 +36,7 @@ public sealed partial class PointOfInterestSystem : EntitySystem
     [Dependency] private StationRenameWarpsSystems _renameWarps = default!;
     [Dependency] private StationSystem _station = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private BiomeSelectionSystem _biomes = default!;
 
     private readonly Dictionary<MapId, List<PoiPlacement>> _poiPositions = new();
 
@@ -52,6 +57,9 @@ public sealed partial class PointOfInterestSystem : EntitySystem
     {
         if (ev.GameMap.IgnorePoiSeparation)
             _poiPositions.TryAdd(ev.Map, []);
+
+        foreach (var grid in ev.Grids)
+            _biomes.RegisterPoiSite(ev.Map, grid, CanSpawnInDroneZone(ev.GameMap.ID));
     }
 
     internal (
@@ -143,15 +151,17 @@ public sealed partial class PointOfInterestSystem : EntitySystem
             ? Math.Max(0f, configuredDistance)
             : NFCCVars.MinPOIDistance.DefaultValue;
         var maxAttempts = Math.Max(0, _cfg.GetCVar(NFCCVars.POIPlacementRetries)) + 1L;
+        var droneBiomes = _biomes.GetPoiExclusionBiomes(mapId, _cfg.GetCVar(CCVars.WorldgenConfig));
 
         // Give every selected POI a turn in its authored band. Retry the deferred sites together
-        // with progressively more room. The final pass can always find space in the open sector.
+        // with progressively more room. The final pass uses an unbounded search for ordinary POIs
+        // and searches within the authored range for cargo depots.
         for (var pass = 0; pass < PlacementPasses && requests.Count > 0; pass++)
         {
             var deferred = new List<PoiPlacementRequest>();
             foreach (var request in requests)
             {
-                if (TryPlacePoi(mapId, request, positions, minDistance, maxAttempts, pass) == PlacementResult.Deferred)
+                if (TryPlacePoi(mapId, request, positions, minDistance, maxAttempts, pass, droneBiomes) == PlacementResult.Deferred)
                     deferred.Add(request);
             }
 
@@ -165,13 +175,15 @@ public sealed partial class PointOfInterestSystem : EntitySystem
         List<PoiPlacement> positions,
         float globalMinDistance,
         long maxAttempts,
-        int pass)
+        int pass,
+        IReadOnlyList<BiomePrototype> droneBiomes)
     {
         var proto = request.Prototype;
         var center = new Vector2(proto.PositionX, proto.PositionY);
         var outerPass = pass == PlacementPasses - 1;
         var minDistance = Math.Max(globalMinDistance, proto.MinimumSeparation);
-        var expandedMax = proto.MaximumDistance + pass * minDistance;
+        var expandedMax = request.Depot != null ? proto.MaximumDistance : proto.MaximumDistance + pass * minDistance;
+        IReadOnlyList<BiomePrototype> avoidDroneBiomes = CanSpawnInDroneZone(proto.ID) ? [] : droneBiomes;
         for (long attempt = 0; attempt < (outerPass ? 1 : maxAttempts); attempt++)
         {
             var angle = outerPass ? new Angle(center) : _random.NextAngle();
@@ -182,11 +194,18 @@ public sealed partial class PointOfInterestSystem : EntitySystem
                     angle += _random.NextAngle(-depot.HalfSectorWidth, depot.HalfSectorWidth);
             }
 
-            var upperRadius = Math.Max(proto.MinimumDistance, expandedMax);
-            var candidate = outerPass
-                ? GetOuterPoiPosition(center, positions, minDistance, upperRadius, angle)
-                : center + angle.ToVec() * _random.NextFloat(proto.MinimumDistance, upperRadius);
-            if (!proto.IgnorePoiSeparation && !IsPositionClear(candidate, positions, minDistance))
+            // Keep a small margin inside a depot's hard cap to absorb vector rounding.
+            var upperRadius = Math.Max(proto.MinimumDistance, expandedMax - (request.Depot != null ? 0.01f : 0f));
+            var position = !outerPass
+                ? center + angle.ToVec() * _random.NextFloat(proto.MinimumDistance, upperRadius)
+                : request.Depot != null
+                    ? FindBoundedDepotPosition(center, positions, minDistance, proto.MinimumDistance, upperRadius, angle, avoidDroneBiomes)
+                    : FindOuterPoiOutsideDroneZones(center, positions, minDistance, upperRadius, angle, avoidDroneBiomes);
+            if (position is not { } candidate)
+                break;
+
+            if (IsInDroneZone(candidate, avoidDroneBiomes) ||
+                !proto.IgnorePoiSeparation && !IsPositionClear(candidate, positions, minDistance))
                 continue;
 
             var rotation = outerPass ? Angle.Zero : _random.NextAngle();
@@ -198,12 +217,13 @@ public sealed partial class PointOfInterestSystem : EntitySystem
 
             EntityUid grid = loadedGrid.Value;
             var transform = Transform(grid);
-            // The loader can add a saved root offset. The outer pass commits the proven
-            // position even for those assets, before attaching station components.
-            if (outerPass && transform.LocalPosition != candidate)
+            // The loader can add a saved root offset. Commit the checked position for the final
+            // pass and keep depots inside their authored ranges before attaching station components.
+            if ((outerPass || request.Depot != null) && transform.LocalPosition != candidate)
                 _transform.SetCoordinates(grid, transform, new EntityCoordinates(transform.ParentUid, candidate));
 
-            if (!proto.IgnorePoiSeparation && !IsPositionClear(transform.LocalPosition, positions, minDistance))
+            if (IsInDroneZone(transform.LocalPosition, avoidDroneBiomes) ||
+                !proto.IgnorePoiSeparation && !IsPositionClear(transform.LocalPosition, positions, minDistance))
             {
                 Del(grid);
                 continue;
@@ -212,6 +232,7 @@ public sealed partial class PointOfInterestSystem : EntitySystem
             if (!proto.IgnorePoiSeparation)
                 positions.Add(new(transform.LocalPosition, proto.MinimumSeparation));
             InitializePoi(grid, proto, request.Depot?.GetName(proto.Name));
+            _biomes.RegisterPoiSite(mapId, grid, CanSpawnInDroneZone(proto.ID));
             if (request.Depot is { } depotSlot)
             {
                 var station = _station.GetOwningStation(grid);
@@ -220,7 +241,7 @@ public sealed partial class PointOfInterestSystem : EntitySystem
             }
 
             request.Destination.Add(grid);
-            if (outerPass)
+            if (outerPass && request.Depot == null)
                 Log.Info($"Placed deferred POI {proto.ID} at {transform.LocalPosition} in the outer search band.");
 
             return PlacementResult.Placed;
@@ -229,8 +250,80 @@ public sealed partial class PointOfInterestSystem : EntitySystem
         if (!outerPass)
             return PlacementResult.Deferred;
 
-        Log.Error($"Could not find finite coordinates satisfying the separation rules for POI {proto.ID} on map {mapId}.");
+        var range = request.Depot == null ? "" : $" within its {proto.MinimumDistance}–{proto.MaximumDistance}m spawn band";
+        Log.Error($"Could not find coordinates satisfying POI separation and drone-zone rules for {proto.ID} on map {mapId}{range}.");
         return PlacementResult.Unplaceable;
+    }
+
+    internal static bool CanSpawnInDroneZone(string poiId) => poiId is "HeliosFortress" or "HeliosFortressHyperwar" or "Underground";
+
+    internal static bool IsInDroneZone(Vector2 position, IReadOnlyList<BiomePrototype> droneBiomes)
+    {
+        if (droneBiomes.Count == 0)
+            return false;
+
+        var chunk = WorldGen.WorldToChunkCoords(position).Floored();
+        var lengthSquared = WorldGen.ChunkToWorldCoordsCentered(chunk).LengthSquared();
+        foreach (var biome in droneBiomes)
+        {
+            if (biome.MatchesGeometry(chunk, lengthSquared))
+                return true;
+        }
+
+        return false;
+    }
+
+    internal static Vector2? FindBoundedDepotPosition(
+        Vector2 center,
+        IReadOnlyList<PoiPlacement> positions,
+        float minDistance,
+        float minRadius,
+        float maxRadius,
+        Angle preferredAngle,
+        IReadOnlyList<BiomePrototype>? droneBiomes = null)
+    {
+        const int bearingSamples = 96;
+        const int radialSteps = 8;
+        for (var radialStep = 0; radialStep <= radialSteps; radialStep++)
+        {
+            var radius = maxRadius - radialStep * (maxRadius - minRadius) / radialSteps;
+            for (var bearing = 0; bearing < bearingSamples; bearing++)
+            {
+                var angle = preferredAngle + new Angle(Math.Tau * bearing / bearingSamples);
+                var candidate = center + angle.ToVec() * radius;
+                if (IsPositionClear(candidate, positions, minDistance) &&
+                    (droneBiomes == null || !IsInDroneZone(candidate, droneBiomes)))
+                    return candidate;
+            }
+        }
+
+        return null;
+    }
+
+    internal static Vector2? FindOuterPoiOutsideDroneZones(
+        Vector2 center,
+        IReadOnlyList<PoiPlacement> positions,
+        float minDistance,
+        double minimumRadius,
+        Angle preferredAngle,
+        IReadOnlyList<BiomePrototype> droneBiomes)
+    {
+        const int bearingSamples = 96;
+        for (var bearing = 0; bearing < bearingSamples; bearing++)
+        {
+            var angle = preferredAngle + new Angle(Math.Tau * bearing / bearingSamples);
+            var candidate = GetOuterPoiPosition(center, positions, minDistance, minimumRadius, angle);
+            if (!IsInDroneZone(candidate, droneBiomes))
+                return candidate;
+        }
+
+        var outermostDroneRadius = droneBiomes.Max(biome => biome.GetOuterGeometryRadius());
+        if (!double.IsFinite(outermostDroneRadius))
+            return null;
+
+        // Beyond this radius from the spawn center, no chunk can belong to a drone biome at any bearing.
+        var clearRadius = outermostDroneRadius + center.Length();
+        return GetOuterPoiPosition(center, positions, minDistance, Math.Max(minimumRadius, clearRadius), preferredAngle);
     }
 
     /// <summary>

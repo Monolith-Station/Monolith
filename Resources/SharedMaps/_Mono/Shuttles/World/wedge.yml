@@ -62,6 +62,7 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
+      maximumPilotSetLinearVelocity: 30
       dampingModifier: 0.25
     - type: HostileDroneGrid
     - type: GridPathfinding

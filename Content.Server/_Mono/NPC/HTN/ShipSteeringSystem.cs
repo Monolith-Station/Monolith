@@ -1,3 +1,4 @@
+using Content.Server._Mono.Drone.Components;
 using Content.Server._Mono.Projectiles.TargetSeeking;
 using Content.Server.Emp;
 using Content.Server.Physics.Controllers;
@@ -77,6 +78,10 @@ public sealed partial class ShipSteeringSystem : EntitySystem
 
         var shipXform = Transform(shipUid.Value);
         args.GotInput = true;
+        // Hostile drone steering bypasses PilotComponent, so it must request the
+        // shuttle's velocity cap here to participate in MoverController's limit.
+        if (HasComp<HostileDroneGridComponent>(shipUid.Value))
+            args.SetMaxVelocity = shuttle.MaximumPilotSetLinearVelocity;
 
         var targetXform = Transform(targetUid);
         var targetGrid = targetXform.GridUid;

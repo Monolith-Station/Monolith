@@ -78,6 +78,7 @@ entities:
         MetalFoam: []
         Puddle: []
     - type: Shuttle
+      maximumPilotSetLinearVelocity: 30
       dampingModifier: 0.25
     - type: HostileDroneGrid
     - type: GridPathfinding

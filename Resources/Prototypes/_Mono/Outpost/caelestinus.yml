@@ -19,7 +19,7 @@
       - type: VesselInfo
         description: "The closest thing to civilization in this sector. You almost feel safe."
       - type: DeleteNearbyDrones
-        distance: 4000
+        distance: 1500
       components:
         - type: StationNameSetup
           mapNameTemplate: 'Caelestinus Central'

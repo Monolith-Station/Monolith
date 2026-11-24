@@ -1,0 +1,8 @@
+# Asteroid field around the LINEAR-21 beacon. The drone-rich Wilds are farther out.
+- type: spaceBiome
+  id: MonoLinearAsteroidCluster
+  parent: MonoInnerAsteroidBelts
+  priority: 55
+  distanceRange: null
+  chunkRegions:
+  - 10, -16, 18, -7

@@ -83,11 +83,12 @@
 - type: spaceBiome
   id: MonoClusterA
   parent: NFBiomeBase
-  priority: 50 # avg center coords is about 5056, 4480
-  minX: 34 # 4352m
-  maxX: 45 # 5760m
-  minY: 28 # 3584m
-  maxY: 42 # 5376m
+  priority: 50
+  # Inclusive 128m chunks around the INSO-357k beacon.
+  minX: 8
+  maxX: 11
+  minY: 7
+  maxY: 10
   noiseRanges: {}
   chunkComponents:
   - type: DebrisFeaturePlacerController
@@ -135,10 +136,9 @@
   id: MonoWildsCore
   parent: NFBiomeBase
   priority: 700
-  minX: 34 # 4352m
-  maxX: 36 # 4608m
-  minY: -31 # -3968m
-  maxY: -27 # -3456m
+  hostileDroneZone: true
+  chunkRegions:
+  - 32, -28, 34, -25
   noiseRanges: {}
   chunkComponents:
   - type: DebrisFeaturePlacerController
@@ -243,11 +243,10 @@
 - type: spaceBiome
   id: MonoWilds
   parent: NFBiomeBase
-  priority: 500 # avg center coords is about 4480, -3712
-  minX: 32 # 4096m
-  maxX: 38 # 4864m
-  minY: -33 # -4224m
-  maxY: -25 # -3200m
+  priority: 500
+  hostileDroneZone: true
+  chunkRegions:
+  - 30, -30, 36, -24
   noiseRanges: {}
   chunkComponents:
   - type: DebrisFeaturePlacerController
@@ -356,10 +355,9 @@
   id: MonoWildsOutskirts
   parent: NFBiomeBase
   priority: 100
-  minX: 28
-  maxX: 42
-  minY: -37
-  maxY: -21
+  hostileDroneZone: true
+  chunkRegions:
+  - 28, -33, 40, -23
   noiseRanges: {}
   chunkComponents:
   - type: DebrisFeaturePlacerController
@@ -408,17 +406,17 @@
       orGroup: wreck
 
 - type: spaceBiome
-  id: MonoEmptyFallback # We need nothing to generate under 18000, but Far Reaches 4 would generate instead, so we need a useless thing.
+  id: MonoEmptyFallback # Keep space clear between the inner biomes.
   priority: 1
-  distanceRange: 0, 9000
+  distanceRange: 0, 4500
   noiseRanges: {}
 
-# 9km Ring
+# Debris profile and placement band for the inner belts generated after POIs.
 - type: spaceBiome
-  id: MonoWorldgenAsteroidRing9km
+  id: MonoInnerAsteroidBelts
   parent: NFBiomeBase
   priority: 50
-  distanceRange: 4375, 4500
+  distanceRange: 1500, 4500
   chunkComponents:
   - type: DebrisFeaturePlacerController
     densityNoiseChannel: DensityHigh
@@ -570,7 +568,7 @@
 - type: spaceBiome
   id: MonoRareAsteroidsFallback
   priority: 1
-  distanceRange: 0, 9000
+  distanceRange: 0, 4500
   noiseRanges: {}
   chunkComponents:
   - type: DebrisFeaturePlacerController
@@ -619,7 +617,9 @@
   id: MonoWorldgenVeryFarT1
   parent: NFBiomeBase
   priority: -1
-  distanceRange: 9000, 11000
+  distanceRange: 4500, 5500
+  hostileDroneZone: true
+  allowPoiClearings: true
   chunkComponents:
   - type: DebrisFeaturePlacerController
     densityNoiseChannel: DensityRare
@@ -747,7 +747,7 @@
   id: MonoWorldgenVeryFarT2Inner
   parent: MonoWorldgenVeryFarT1
   priority: -2
-  distanceRange: 11000, 12500
+  distanceRange: 5500, 6250
   chunkComponents:
   - type: NoiseDrivenDebrisSelector
     noiseChannel: WreckRare
@@ -775,7 +775,7 @@
   id: MonoWorldgenVeryFarT2Middle
   parent: MonoWorldgenVeryFarT1
   priority: -3
-  distanceRange: 12500, 15000
+  distanceRange: 6250, 7500
   chunkComponents:
   - type: NoiseDrivenDebrisSelector
     noiseChannel: WreckRare
@@ -803,7 +803,7 @@
   id: MonoWorldgenVeryFarT2Far
   parent: MonoWorldgenVeryFarT1
   priority: -4
-  distanceRange: null
+  distanceRange: 7500, 10000
   chunkComponents:
   - type: DebrisFeaturePlacerController
     densityNoiseChannel: DensityVeryRare

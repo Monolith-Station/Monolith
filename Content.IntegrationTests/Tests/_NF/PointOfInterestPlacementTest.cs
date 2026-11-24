@@ -5,12 +5,20 @@ using Content.Server._NF.GameRule;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Presets;
 using Content.Server.Maps;
+using Content.Server.Worldgen;
+using Content.Server.Worldgen.Components;
+using Content.Server.Worldgen.Prototypes;
+using Content.Server.Worldgen.Systems.Biomes;
 using Content.Shared.CCVar;
 using Content.Shared._NF.CCVar;
 using Content.Shared.Maps;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Maths;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.Manager;
+using Robust.Shared.Serialization.Markdown.Mapping;
+using Robust.Shared.Serialization.Markdown.Sequence;
+using Robust.Shared.Serialization.Markdown.Value;
 
 namespace Content.IntegrationTests.Tests._NF;
 
@@ -21,6 +29,7 @@ public sealed class PointOfInterestPlacementTest
     private const int OutpostSeparation = 1200;
     private static readonly ProtoId<GameMapPrototype> Caelestinus = "Frontier";
     private static readonly ProtoId<GamePresetPrototype> ExemptPoiPreset = "PoiPlacementExemptTest";
+    private static readonly ProtoId<PointOfInterestPrototype> StellarBlessing = "TSFMCIndustry";
 
     [TestPrototypes]
     private const string ExemptPoiPrototypes = """
@@ -55,6 +64,28 @@ public sealed class PointOfInterestPlacementTest
           spawnGamePreset: [PoiPlacementExemptTest]
           gridPath: /Maps/_Mono/POI/beaconstation_a.yml
           ignorePoiSeparation: true
+
+        - type: pointOfInterest
+          id: PoiPlacementExemptTestDrone
+          name: Site with a blocked drone zone position
+          minimumDistance: 0
+          maximumDistance: 0
+          posX: 4224
+          posY: -3392
+          spawnGroup: Required
+          spawnGamePreset: [PoiPlacementExemptTest]
+          gridPath: /Maps/_Mono/POI/beaconstation_a.yml
+          ignorePoiSeparation: true
+
+        - type: pointOfInterest
+          id: PoiPlacementExemptTestOuterPoi
+          name: Ordinary site in an outer ring
+          minimumDistance: 0
+          maximumDistance: 0
+          posY: 7000
+          spawnGroup: Required
+          spawnGamePreset: [PoiPlacementExemptTest]
+          gridPath: /Maps/_Mono/POI/beaconstation_a.yml
         """;
 
     [Test]
@@ -93,9 +124,28 @@ public sealed class PointOfInterestPlacementTest
             Assert.That(entMan.GetComponent<TransformComponent>(grids.Single()).LocalPosition, Is.EqualTo(Vector2.Zero));
 
             var pois = entMan.System<PointOfInterestSystem>().Generate(mapId, ExemptPoiPreset);
-            Assert.That(entMan.GetComponent<TransformComponent>(pois.Required.Single()).LocalPosition, Is.EqualTo(Vector2.Zero));
+            var first = pois.Required.Single(grid => entMan.GetComponent<MetaDataComponent>(grid).EntityName == "First exempt site");
+            Assert.That(entMan.GetComponent<TransformComponent>(first).LocalPosition, Is.EqualTo(Vector2.Zero));
             Assert.That(entMan.GetComponent<TransformComponent>(pois.Optionals.Single()).LocalPosition, Is.EqualTo(Vector2.Zero));
             Assert.That(entMan.GetComponent<TransformComponent>(pois.Uniques.Single()).LocalPosition, Is.EqualTo(Vector2.Zero));
+
+            var biomes = entMan.System<BiomeSelectionSystem>();
+            var droneBiomes = biomes.GetPoiExclusionBiomes(mapId, "MonoDefault");
+            Assert.That(PointOfInterestSystem.IsInDroneZone(new Vector2(4224, -3392), droneBiomes), Is.True);
+            var displaced = pois.Required.Single(grid => entMan.GetComponent<MetaDataComponent>(grid).EntityName == "Site with a blocked drone zone position");
+            Assert.That(PointOfInterestSystem.IsInDroneZone(entMan.GetComponent<TransformComponent>(displaced).LocalPosition, droneBiomes), Is.False);
+
+            var ringSite = pois.Required.Single(grid => entMan.GetComponent<MetaDataComponent>(grid).EntityName == "Ordinary site in an outer ring");
+            var ringPosition = entMan.GetComponent<TransformComponent>(ringSite).LocalPosition;
+            Assert.That(Vector2.DistanceSquared(ringPosition, new Vector2(0, 7000)), Is.LessThan(128 * 128));
+            Assert.That(entMan.System<SharedMapSystem>().TryGetMap(mapId, out var map), Is.True);
+            Assert.That(biomes.GetAsteroidBelts(map!.Value), Is.Empty);
+            prototypes.Index(new ProtoId<WorldgenConfigPrototype>("MonoDefault"))
+                .Apply(map.Value, server.ResolveDependency<ISerializationManager>(), entMan);
+            var siteChunk = WorldGen.WorldToChunkCoords(ringPosition).Floored();
+            Assert.That(biomes.SelectBiome(map.Value, siteChunk)?.HostileDroneZone, Is.False);
+            Assert.That(biomes.SelectBiome(map.Value, new Vector2i(54, 0))?.HostileDroneZone, Is.True);
+            Assert.That(biomes.GetAsteroidBelts(map.Value), Is.Not.Empty);
         });
 
         await pair.CleanReturnAsync();
@@ -111,6 +161,8 @@ public sealed class PointOfInterestPlacementTest
         await server.WaitAssertion(() =>
         {
             Assert.That(NFCCVars.MinPOIDistance.DefaultValue, Is.EqualTo(DefaultSeparation));
+            var droneBiomes = server.EntMan.System<BiomeSelectionSystem>()
+                .GetConfiguredBiomes("MonoDefault").Where(biome => biome.HostileDroneZone && !biome.AllowPoiClearings).ToArray();
             var pois = prototypes.EnumeratePrototypes<PointOfInterestPrototype>().OrderBy(p => p.ID).ToArray();
             foreach (var id in new[] { "HeliosFortress", "HeliosFortressHyperwar", "Underground" })
                 Assert.That(pois.Single(p => p.ID == id).MinimumSeparation, Is.EqualTo(OutpostSeparation), id);
@@ -127,13 +179,15 @@ public sealed class PointOfInterestPlacementTest
                 for (var rotation = 0; rotation < rotations; rotation++)
                 {
                     var bands = SelectBands(groups, rotation);
-                    Assert.That(TryFindLayout(bands, DefaultSeparation, out var positions), Is.True,
+                    Assert.That(TryFindLayout(bands, DefaultSeparation, out var positions, droneBiomes), Is.True,
                         $"{preset.ID}: no {DefaultSeparation}m layout found on the test lattice for " +
                         $"{bands.Count} POIs in their authored bands: {string.Join(", ", bands.Select(band => band.Id))}");
 
                     for (var i = 0; i < positions.Length; i++)
                     {
                         Assert.That(bands[i].Contains(positions[i]), Is.True, $"{preset.ID}: {bands[i].Id} outside its band.");
+                        if (!PointOfInterestSystem.CanSpawnInDroneZone(bands[i].Id))
+                            Assert.That(PointOfInterestSystem.IsInDroneZone(positions[i], droneBiomes), Is.False, bands[i].Id);
                         var originDistance = Math.Max(DefaultSeparation, bands[i].MinimumSeparation);
                         Assert.That(positions[i].LengthSquared(), Is.AtLeast(originDistance * originDistance));
                         for (var j = 0; j < i; j++)
@@ -142,6 +196,95 @@ public sealed class PointOfInterestPlacementTest
                             Assert.That(Vector2.DistanceSquared(positions[i], positions[j]),
                                 Is.AtLeast(pairDistance * pairDistance), $"{preset.ID}: {bands[i].Id} and {bands[j].Id}.");
                         }
+                    }
+                }
+            }
+        });
+
+        await pair.CleanReturnAsync();
+    }
+
+    [Test]
+    public async Task MonoSectorBeltsAndDroneZonesUseTheConfiguredGeometry()
+    {
+        await using var pair = await PoolManager.GetServerClient();
+        var server = pair.Server;
+        var prototypes = server.ResolveDependency<IPrototypeManager>();
+
+        await server.WaitAssertion(() =>
+        {
+            var biomes = server.EntMan.System<BiomeSelectionSystem>().GetConfiguredBiomes("MonoDefault");
+            var droneBiomes = biomes.Where(biome => biome.HostileDroneZone).ToArray();
+            foreach (var biome in biomes)
+            {
+                Assert.That(prototypes.TryGetMapping(typeof(BiomePrototype), biome.ID, out var data), Is.True);
+                var hasDroneSpawner = data!.TryGet<SequenceDataNode>("chunkComponents", out var components) &&
+                     components.OfType<MappingDataNode>().Any(component =>
+                         component.TryGet<SequenceDataNode>("debrisTable", out var table) &&
+                         table.OfType<MappingDataNode>().Any(entry =>
+                             entry.TryGet<ValueDataNode>("id", out var id) &&
+                             id.Value.StartsWith("MonoDroneSpawnerT", StringComparison.Ordinal)));
+                Assert.That(biome.HostileDroneZone, Is.EqualTo(hasDroneSpawner), biome.ID);
+            }
+
+            var rings = droneBiomes.Where(biome => biome.AllowPoiClearings).ToArray();
+            Assert.That(rings.Select(ring => ring.DistanceRange), Is.EqualTo(new Vector2?[]
+            {
+                new(4500, 5500), new(5500, 6250), new(6250, 7500), new(7500, 10000),
+            }));
+            Assert.That(rings.All(ring => ring.ChunkRegions.Count == 0 && !ring.HasFixedChunkRange), Is.True);
+
+            var exceptions = prototypes.EnumeratePrototypes<PointOfInterestPrototype>()
+                .Where(poi => PointOfInterestSystem.CanSpawnInDroneZone(poi.ID)).Select(poi => poi.ID);
+            Assert.That(exceptions, Is.EquivalentTo(new[] { "HeliosFortress", "HeliosFortressHyperwar", "Underground" }));
+            var stellar = prototypes.Index(StellarBlessing);
+            Assert.That(PointOfInterestSystem.IsInDroneZone(new Vector2(stellar.PositionX, stellar.PositionY), rings), Is.True);
+
+            var blocked = new Vector2(0, 7000);
+            Assert.That(PointOfInterestSystem.IsInDroneZone(blocked, droneBiomes), Is.True);
+            var fallback = PointOfInterestSystem.FindOuterPoiOutsideDroneZones(blocked, [], DefaultSeparation, 0, Angle.Zero, droneBiomes);
+            Assert.That(fallback.HasValue, Is.True);
+            Assert.That(PointOfInterestSystem.IsInDroneZone(fallback!.Value, droneBiomes), Is.False);
+            Assert.That(fallback.Value.Length(), Is.GreaterThan(droneBiomes.Max(biome => biome.GetOuterGeometryRadius())));
+        });
+
+        await pair.CleanReturnAsync();
+    }
+
+    [Test]
+    public async Task MonoInnerBeltsVaryBySeedAndFitBetweenOccupiedSites()
+    {
+        await using var pair = await PoolManager.GetServerClient();
+        var server = pair.Server;
+        var prototypes = server.ResolveDependency<IPrototypeManager>();
+
+        await server.WaitAssertion(() =>
+        {
+            var inner = prototypes.Index(new ProtoId<BiomePrototype>("MonoInnerAsteroidBelts"));
+            var reserved = server.EntMan.System<BiomeSelectionSystem>().GetConfiguredBiomes("MonoDefault")
+                .Where(biome => biome.Priority >= inner.Priority || biome.HostileDroneZone).ToArray();
+            SectorPoiSite[] sites = [new(new(1000, 1200), 500, false), new(new(-2300, -1900), 550, false)];
+            var previous = Array.Empty<Box2i>();
+            for (var seed = 0; seed < 32; seed++)
+            {
+                var belts = BiomeSelectionSystem.GenerateAsteroidBelts(seed, inner.DistanceRange!.Value, reserved, sites);
+                Assert.That(belts.Count(belt => belt.Bounds.Bottom >= 0), Is.InRange(6, 8));
+                Assert.That(belts.Count(belt => belt.Bounds.Top <= 0), Is.InRange(6, 8));
+                Assert.That(belts.Any(belt => belt.Bounds.Area > belt.Chunks.Count), Is.True);
+                var bounds = belts.Select(belt => belt.Bounds).ToArray();
+                Assert.That(bounds, Is.Not.EqualTo(previous));
+                previous = bounds;
+                var sharedChunks = new HashSet<Vector2i>();
+                foreach (var belt in belts)
+                {
+                    Assert.That(Math.Max(belt.Bounds.Width, belt.Bounds.Height) * WorldGen.ChunkSize, Is.AtMost(800));
+                    foreach (var chunk in belt.Chunks)
+                    {
+                        Assert.That(sharedChunks.Add(chunk), Is.True);
+                        Assert.That(belt.Bounds.ContainsTile(chunk), Is.True);
+                        Assert.That(BiomeSelectionSystem.IntersectsPoiClearance(chunk, sites, hostileOnly: false), Is.False);
+                        var lengthSquared = WorldGen.ChunkToWorldCoordsCentered(chunk).LengthSquared();
+                        Assert.That(reserved.Any(biome => biome.MatchesGeometry(chunk, lengthSquared)), Is.False);
                     }
                 }
             }
@@ -166,6 +309,21 @@ public sealed class PointOfInterestPlacementTest
         Assert.That(TryFindLayout(bands, DefaultSeparation, out _), Is.False);
         Assert.That(PointOfInterestSystem.IsPositionClear(secondPosition, [new(firstPosition, firstMinimum)],
             Math.Max(DefaultSeparation, secondMinimum)), Is.False);
+    }
+
+    [Test]
+    public void DepotFallbackFindsAnInRangePositionWhenItsBearingIsBlocked()
+    {
+        const int minimumRadius = 3000;
+        const int maximumRadius = 4000;
+        List<PointOfInterestSystem.PoiPlacement> occupied = [new(new Vector2(3500, 0), OutpostSeparation)];
+
+        var result = PointOfInterestSystem.FindBoundedDepotPosition(
+            Vector2.Zero, occupied, DefaultSeparation, minimumRadius, maximumRadius - 0.01f, Angle.Zero);
+
+        Assert.That(result.HasValue, Is.True);
+        Assert.That(result.Value.Length(), Is.InRange(minimumRadius, maximumRadius));
+        Assert.That(PointOfInterestSystem.IsPositionClear(result.Value, occupied, DefaultSeparation), Is.True);
     }
 
     [Test]
@@ -206,6 +364,7 @@ public sealed class PointOfInterestPlacementTest
             for (var i = 0; i < depotCount; i++)
             {
                 var depot = depots[(rotation + i) % depots.Length];
+                Assert.That(depot.MaximumDistance, Is.AtMost(4000), depot.ID);
                 bands.Add(SpawnBand.FromPrototype(depot, i * sectorWidth, sectorWidth / 2));
             }
         }
@@ -230,7 +389,8 @@ public sealed class PointOfInterestPlacementTest
         }
     }
 
-    private static bool TryFindLayout(List<SpawnBand> bands, int separation, out Vector2[] positions)
+    private static bool TryFindLayout(List<SpawnBand> bands, int separation, out Vector2[] positions,
+        IReadOnlyList<BiomePrototype> droneBiomes = null)
     {
         positions = new Vector2[bands.Count];
         var layout = positions;
@@ -247,7 +407,7 @@ public sealed class PointOfInterestPlacementTest
             }
 
             // Use the center as a witness for a beacon or other POI with a tight, authored offset.
-            if (!IsClear(band.Center, band.MinimumSeparation))
+            if (!IsClear(band.Center, band))
                 return false;
 
             positions[i] = band.Center;
@@ -321,17 +481,21 @@ public sealed class PointOfInterestPlacementTest
                 for (var y = (int) MathF.Ceiling(min.Y); y <= (int) MathF.Floor(max.Y); y++)
                 {
                     var position = new Vector2(x, y) * separation;
-                    if (band.Contains(position) && IsClear(position, band.MinimumSeparation))
+                    if (band.Contains(position) && IsClear(position, band))
                         yield return position;
                 }
             }
         }
 
-        bool IsClear(Vector2 position, int minimumSeparation)
+        bool IsClear(Vector2 position, SpawnBand band)
         {
+            if (droneBiomes != null && !PointOfInterestSystem.CanSpawnInDroneZone(band.Id) &&
+                PointOfInterestSystem.IsInDroneZone(position, droneBiomes))
+                return false;
+
             foreach (var other in fixedPositions)
             {
-                var pairDistance = Math.Max(separation, Math.Max(minimumSeparation, other.MinimumSeparation));
+                var pairDistance = Math.Max(separation, Math.Max(band.MinimumSeparation, other.MinimumSeparation));
                 if (Vector2.DistanceSquared(position, other.Position) < pairDistance * pairDistance)
                     return false;
             }
