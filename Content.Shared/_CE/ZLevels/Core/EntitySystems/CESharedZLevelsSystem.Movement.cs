@@ -50,10 +50,8 @@ public abstract partial class CESharedZLevelsSystem
     {
         var xform = Transform(uid);
 
-        // Open air between two levels: the gap's progress is the altitude above its
-        // lower anchor.
         if (TryComp<CEZTransitMapComponent>(xform.MapUid, out var transit))
-            return GetTransitProgress(transit);
+            return GetTransitProgress(transit) * GetTransitSpan(transit);
 
         if (ZPhysicsQuery.TryComp(uid, out var zPhys) && zPhys.LocalPosition > 0f)
             return Math.Clamp(zPhys.LocalPosition, 0f, 1f);
@@ -68,7 +66,7 @@ public abstract partial class CESharedZLevelsSystem
     /// <summary>
     /// Absolute altitude of an entity within its z-stack: the depth of the level it
     /// occupies plus its fractional local altitude above that level's floor. Entities
-    /// riding a transit gap report the lower anchor's depth plus the gap's progress,
+    /// riding a transit gap interpolate between its anchor depths,
     /// so the value climbs continuously through a two-level ride. Distance between
     /// two entities in the same stack is just the difference of their absolute
     /// altitudes.
@@ -86,11 +84,21 @@ public abstract partial class CESharedZLevelsSystem
             var lowerDepth = transit.LowerMap is { } lower && _zMapQuery.TryComp(lower, out var lowerMap)
                 ? lowerMap.Depth
                 : 0;
-            return lowerDepth + GetTransitProgress(transit);
+            return lowerDepth + GetTransitProgress(transit) * GetTransitSpan(transit);
         }
 
         var depth = _zMapQuery.TryComp(mapUid, out var map) ? map.Depth : 0;
         return depth + GetLocalAltitude(uid);
+    }
+
+    [PublicAPI]
+    public int GetTransitSpan(CEZTransitMapComponent transit)
+    {
+        if (_zMapQuery.TryComp(transit.LowerMap, out var lower) &&
+            _zMapQuery.TryComp(transit.UpperMap, out var upper))
+            return Math.Max(1, upper.Depth - lower.Depth);
+
+        return 1;
     }
 
     /// <summary>
@@ -410,7 +418,11 @@ public abstract partial class CESharedZLevelsSystem
     [PublicAPI]
     public bool TryMove(EntityUid ent, int offset, Entity<CEZMapComponent?>? map = null)
     {
-        map ??= Transform(ent).MapUid;
+        var xform = Transform(ent);
+        if (!IsDirectlyOnGridOrMap(xform))
+            return false;
+
+        map ??= xform.MapUid;
 
         if (map is null)
             return false;

@@ -125,7 +125,7 @@ public sealed partial class CEZLightProjectionSystem : EntitySystem
         if (transit.LowerMap is { } lower && TryComp<CEZMapComponent>(lower, out var lowerMap))
         {
             network = lowerMap.NetworkUid;
-            altitude = lowerMap.Depth + _zLevels.GetTransitProgress(transit);
+            altitude = lowerMap.Depth + _zLevels.GetTransitProgress(transit) * _zLevels.GetTransitSpan(transit);
             return true;
         }
 

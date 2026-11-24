@@ -61,6 +61,12 @@ public abstract partial class CESharedZLevelsSystem
     private void OnParentChanged(Entity<CEZPhysicsComponent> entity, ref EntParentChangedMessage args)
     {
         RefreshBody(entity);
+        if (!IsDirectlyOnGridOrMap(Transform(entity)))
+        {
+            ResetZState(entity);
+            return;
+        }
+
         SnapOutOfTransitMap(entity);
 
         // Drop leftover altitude that can no longer resolve to the ground here, before the
@@ -77,13 +83,30 @@ public abstract partial class CESharedZLevelsSystem
         var leftZNetwork = !_zMapQuery.HasComp(landedMap) && !HasComp<CEZTransitMapComponent>(landedMap);
 
         if (entity.Comp.LocalPosition != 0f && (leftZNetwork || !entity.Comp.VelocityGravity))
+            ResetZState(entity);
+    }
+
+    private void ResetZState(Entity<CEZPhysicsComponent> entity)
+    {
+        if (entity.Comp.LocalPosition != 0f)
         {
-            entity.Comp.Velocity = 0f;
             entity.Comp.LocalPosition = 0f;
-            DirtyField(entity, entity.Comp, nameof(CEZPhysicsComponent.Velocity));
             DirtyField(entity, entity.Comp, nameof(CEZPhysicsComponent.LocalPosition));
         }
+
+        if (entity.Comp.Velocity != 0f)
+        {
+            entity.Comp.Velocity = 0f;
+            DirtyField(entity, entity.Comp, nameof(CEZPhysicsComponent.Velocity));
+        }
     }
+
+    private static bool IsDirectlyOnGridOrMap(TransformComponent xform) =>
+        xform.ParentUid == xform.GridUid || xform.ParentUid == xform.MapUid;
+
+    private bool CanBeActive(EntityUid uid, TransformComponent xform) =>
+        IsDirectlyOnGridOrMap(xform) && !xform.Anchored &&
+        (!_physicsQuery.TryComp(uid, out var physics) || physics.BodyType != BodyType.Static);
 
     /// <summary>
     /// If an entity falls off of a transit map, put it back onto a normal one.
@@ -116,7 +139,8 @@ public abstract partial class CESharedZLevelsSystem
         if (!Resolve(entity, ref entity.Comp, false))
             return;
 
-        if (_activeBodies.Contains(entity))
+        if (_activeBodies.Contains(entity) ||
+            !_transformQuery.TryComp(entity, out var xform) || !CanBeActive(entity, xform))
             return;
 
         entity.Comp.Sleeping = false;
@@ -146,15 +170,7 @@ public abstract partial class CESharedZLevelsSystem
             return;
         }
 
-        var transform = Transform(entity);
-        var parent = transform.ParentUid;
-
-        var onMap = parent == transform.GridUid || parent == transform.MapUid;
-
-        if (!onMap
-            || transform.Anchored
-            || _physicsQuery.TryComp(entity, out var physics)
-            && physics.BodyType == BodyType.Static)
+        if (!CanBeActive(entity, Transform(entity)))
         {
             SleepBody((entity, entity));
             return;

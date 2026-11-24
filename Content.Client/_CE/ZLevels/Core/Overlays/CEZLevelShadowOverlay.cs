@@ -72,12 +72,14 @@ public sealed partial class CEZLevelShadowOverlay : Overlay
         _shadowMapGaps.Clear();
         _shadowMapGaps[args.MapUid] = 0f;
 
-        var gap = 1f;
         foreach (var aboveMap in _zLevel.GetAllMapsAbove((args.MapUid, zComp)))
         {
+            if (!_entManager.TryGetComponent(aboveMap, out CEZMapComponent? above))
+                continue;
+
+            var gap = above.Depth - zComp.Depth;
             _shadowMapGaps[aboveMap] = gap;
             CollectShadowGrids(aboveMap, gap, args.WorldBounds, requireAirborne: false);
-            gap += 1f;
         }
 
         // Grids in transit shadow this level from whatever gap they're crossing:
@@ -91,7 +93,7 @@ public sealed partial class CEZLevelShadowOverlay : Overlay
                 continue;
             }
 
-            CollectShadowGrids(transitUid, lowerGap, args.WorldBounds, requireAirborne: false);
+            CollectShadowGrids(transitUid, lowerGap, args.WorldBounds, requireAirborne: false, _zLevel.GetTransitSpan(transit));
         }
 
         if (_shadowGrids.Count == 0)
@@ -142,7 +144,8 @@ public sealed partial class CEZLevelShadowOverlay : Overlay
     private void CollectShadowGrids(EntityUid mapUid,
         float gap,
         Box2Rotated bounds,
-        bool requireAirborne)
+        bool requireAirborne,
+        int span = 1)
     {
         if (!_entManager.TryGetComponent(mapUid, out MapComponent? mapComp))
             return;
@@ -159,7 +162,7 @@ public sealed partial class CEZLevelShadowOverlay : Overlay
             if (requireAirborne && localPos <= 0.01f)
                 continue;
 
-            _shadowGrids.Add((grid, gap + localPos));
+            _shadowGrids.Add((grid, gap + localPos * span));
         }
     }
 }

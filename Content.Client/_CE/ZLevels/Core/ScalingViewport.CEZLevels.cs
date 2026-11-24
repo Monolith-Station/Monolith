@@ -202,11 +202,12 @@ public sealed partial class ScalingViewport
 
         if (_entityManager.TryGetComponent(playerMap, out CEZTransitMapComponent? riderTransit))
         {
-            frac = GetTransitProgress(riderTransit);
+            var span = _zLevels.GetTransitSpan(riderTransit);
+            frac = GetTransitProgress(riderTransit) * span;
             belowChainStart = riderTransit.LowerMap;
             belowChainStartDepth = -frac;
             aboveMap = riderTransit.UpperMap;
-            aboveDepth = 1f - frac;
+            aboveDepth = span - frac;
         }
         else
         {
@@ -779,12 +780,13 @@ public sealed partial class ScalingViewport
         var isShipTransit = _entityManager.TryGetComponent(transitMap, out CEZTransitMapComponent? transit);
         if (transit != null)
         {
-            var progress = GetTransitProgress(transit);
+            var span = _zLevels!.GetTransitSpan(transit);
+            var progress = GetTransitProgress(transit) * span;
 
             if (transit.UpperMap is { } upper &&
                 _entityManager.TryGetComponent(upper, out CEZCloudLayerComponent? cloudAbove))
             {
-                cloud = CloudCoverage(1f - progress);
+                cloud = CloudCoverage(span - progress);
                 var color = GetLitCloudColor(upper, cloudAbove.CloudColor);
                 cloudColor = new Vector3(color.R, color.G, color.B);
             }

@@ -46,7 +46,7 @@ public abstract partial class CESharedZLevelsSystem
                 continue;
             }
 
-            if (!_zMapQuery.HasComp(xform.MapUid))
+            if (!_zMapQuery.HasComp(xform.MapUid) || !IsDirectlyOnGridOrMap(xform))
             {
                 _activeBodies.RemoveAt(i);
                 continue;

@@ -3,14 +3,16 @@
  * https://github.com/space-wizards/space-station-14/blob/master/LICENSE.TXT
  */
 
-using Content.Shared._CE.ZLevels.Core.EntitySystems;
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared._CE.ZLevels.Core;
+using Content.Shared._CE.ZLevels.Core.EntitySystems;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Map;
 using Content.Shared.Maps;
 using Content.Shared.CCVar;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
+using Content.Shared.Effects;
 using Content.Shared.Stunnable;
 using Robust.Shared.Configuration;
 using Robust.Shared.Network;
@@ -31,6 +33,7 @@ public sealed partial class CEZLevelDamageSystem : EntitySystem
     [Dependency] private ITileDefinitionManager _tileDefManager = default!;
     [Dependency] private SharedMapSystem _maps = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedColorFlashEffectSystem _colorFlash = default!;
 
     public float BaseFallingDamage { get; private set; }
     public float BaseFallingOtherDamage { get; private set; }
@@ -56,6 +59,7 @@ public sealed partial class CEZLevelDamageSystem : EntitySystem
     {
         var damageModifier = 1f;
         var stunModifier = 1f;
+        List<EntityUid>? flashTargets = null;
 
         var damageToOtherEv = new CEZFallingOnTargetDamageCalculateEvent(args.ImpactPower);
         RaiseLocalEvent(ent, damageToOtherEv);
@@ -107,7 +111,8 @@ public sealed partial class CEZLevelDamageSystem : EntitySystem
             {
                 var otherDmgSpec = new DamageSpecifier();
                 otherDmgSpec.DamageDict.Add(PhysicalDamageType, (int)otherDamage);
-                _damageable.TryChangeDamage(victim, otherDmgSpec);
+                if (_damageable.TryChangeDamage(victim, otherDmgSpec) is { Empty: false })
+                    (flashTargets ??= new()).Add(victim);
             }
         }
 
@@ -119,8 +124,12 @@ public sealed partial class CEZLevelDamageSystem : EntitySystem
         {
             var selfDmgSpec = new DamageSpecifier();
             selfDmgSpec.DamageDict.Add(PhysicalDamageType, (int)damageAmount);
-            _damageable.TryChangeDamage(ent.Owner, selfDmgSpec);
+            if (_damageable.TryChangeDamage(ent.Owner, selfDmgSpec) is { Empty: false })
+                (flashTargets ??= new()).Add(ent);
         }
+
+        if (flashTargets != null)
+            _colorFlash.RaiseEffect(Color.Red, flashTargets, CEFilter.ZPvsExcept(ent, EntityManager));
 
         var knockdownTime = MathF.Min(args.ImpactPower * args.ImpactPower * BaseFallingStunTime * stunModifier, 5f);
         if (knockdownTime > 0)

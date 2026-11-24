@@ -120,7 +120,8 @@ public sealed partial class CEZLevelsSystem
     /// </summary>
     private float GetTransitVerticalInput(EntityUid transitMap)
     {
-        if (_pilotVerticalInput.Count == 0)
+        if (_pilotVerticalInput.Count == 0 ||
+            TryComp<CEZTransitMapComponent>(transitMap, out var transit) && transit.AutoLand)
             return 0f;
 
         var total = 0f;

@@ -8,6 +8,7 @@ using Content.Server._CE.ZLevels.Core.Components;
 using Content.Server.Shuttles.Systems;
 using Content.Shared._CE.ZLevels.Core.Components;
 using Content.Shared._CE.ZLevels.Core.EntitySystems;
+using Content.Shared._FarHorizons.StarSystem;
 using Robust.Server.GameStates;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -29,6 +30,178 @@ public sealed partial class CEZLevelsSystem
         SubscribeLocalEvent<GridAddEvent>(OnGridAdd);
         SubscribeLocalEvent<MapGridComponent, EntParentChangedMessage>(OnGridParentChanged);
         SubscribeLocalEvent<CEZTransitMapComponent, ComponentShutdown>(OnTransitMapShutdown);
+    }
+
+    private bool HasTransitMapReference(EntityUid map)
+    {
+        var gaps = AllEntityQuery<CEZTransitMapComponent>();
+        while (gaps.MoveNext(out var uid, out var gap))
+        {
+            if ((gap.LowerMap == map || gap.UpperMap == map) &&
+                !TerminatingOrDeleted(uid) && !EntityManager.IsQueuedForDeletion(uid))
+                return true;
+        }
+
+        var visuals = AllEntityQuery<PlanetTransitMapComponent>();
+        while (visuals.MoveNext(out var uid, out var visual))
+        {
+            if (visual.OriginMap == map && !TerminatingOrDeleted(uid) && !EntityManager.IsQueuedForDeletion(uid))
+                return true;
+        }
+
+        var ships = AllEntityQuery<PlanetTransitComponent>();
+        while (ships.MoveNext(out var uid, out var ship))
+        {
+            if (ship.OriginMap == map && !TerminatingOrDeleted(uid) && !EntityManager.IsQueuedForDeletion(uid))
+                return true;
+        }
+
+        return false;
+    }
+
+    private void RefreshTransitMapLinks(Entity<CEZMapNetworkComponent> network, (EntityUid Map, int Depth)? removedMap)
+    {
+        var query = AllEntityQuery<CEZTransitMapComponent>();
+        while (query.MoveNext(out var uid, out var gap))
+        {
+            if (TerminatingOrDeleted(uid) || EntityManager.IsQueuedForDeletion(uid))
+                continue;
+
+            if (removedMap is { } removed && (gap.LowerMap == removed.Map || gap.UpperMap == removed.Map))
+            {
+                RecoverTransitAnchor((uid, gap), network, removed.Map, removed.Depth);
+            }
+            else if ((!gap.AutoLand || gap.UpperMap != null) &&
+                     TryGetLiveTransitAnchor(gap.LowerMap, out var lower) && lower.Comp.NetworkUid == network.Owner &&
+                     lower.Comp.MapAbove != gap.UpperMap &&
+                     TryGetLiveTransitAnchor(lower.Comp.MapAbove, out var upper))
+            {
+                ReanchorTransit((uid, gap), lower, upper);
+            }
+        }
+    }
+
+    private bool TryGetLiveTransitAnchor(EntityUid? map, out Entity<CEZMapComponent> anchor)
+    {
+        if (map is { } uid && !TerminatingOrDeleted(uid) && !EntityManager.IsQueuedForDeletion(uid) &&
+            TryComp<CEZMapComponent>(uid, out var level))
+        {
+            anchor = (uid, level);
+            return true;
+        }
+
+        anchor = default;
+        return false;
+    }
+
+    private void RecoverTransitAnchor(Entity<CEZTransitMapComponent> gap, Entity<CEZMapNetworkComponent> network,
+        EntityUid removed, int depth)
+    {
+        Entity<CEZMapComponent>? below = null;
+        Entity<CEZMapComponent>? above = null;
+        foreach (var map in network.Comp.SortedZLevels)
+        {
+            if (!TryGetLiveTransitAnchor(map, out var anchor))
+                continue;
+
+            if (anchor.Comp.Depth > depth)
+            {
+                above = anchor;
+                break;
+            }
+
+            below = anchor;
+        }
+
+        var lostLower = gap.Comp.LowerMap == removed;
+        if (lostLower && gap.Comp.AutoLand && gap.Comp.UpperMap == null && (below ?? above) is { } entry)
+        {
+            ReanchorTransit(gap, entry, null);
+            return;
+        }
+
+        if (lostLower && below is { } newLower && TryGetLiveTransitAnchor(gap.Comp.UpperMap, out var upper))
+        {
+            ReanchorTransit(gap, newLower, upper);
+            return;
+        }
+
+        if (!lostLower && above is { } newUpper && TryGetLiveTransitAnchor(gap.Comp.LowerMap, out var lower))
+        {
+            ReanchorTransit(gap, lower, newUpper);
+            return;
+        }
+
+        var other = lostLower ? gap.Comp.UpperMap : gap.Comp.LowerMap;
+        var destination = TryGetLiveTransitAnchor(other, out var surviving) ? surviving : below ?? above;
+        UnlinkTransitLayer(gap);
+        if (destination is not { } target)
+        {
+            Log.Warning($"Transit {gap.Owner} lost its anchors and there is literally nowhere to put it in the stack. Giving up and erasing it from existence.");
+            QueueDel(gap);
+            return;
+        }
+
+        var grids = CollectGridsOnMap(gap);
+        grids.RemoveWhere(grid => TerminatingOrDeleted(grid) || EntityManager.IsQueuedForDeletion(grid));
+        MoveGridSetToMap(grids, target, target.Comp.Depth - depth, target.Comp.Depth);
+        foreach (var grid in grids)
+            ResetGridTransitState(grid);
+
+        QueueDel(gap);
+        Log.Warning($"Transit {gap.Owner} lost an anchor; moved grids to {target.Owner}.");
+    }
+
+    private void ReanchorTransit(Entity<CEZTransitMapComponent> gap, Entity<CEZMapComponent> lower,
+        Entity<CEZMapComponent>? upper)
+    {
+        var oldSpan = GetTransitSpan(gap.Comp);
+        var oldDepth = TryComp<CEZMapComponent>(gap.Comp.LowerMap, out var previousLower)
+            ? previousLower.Depth
+            : lower.Comp.Depth;
+        var altitude = oldDepth + GetTransitProgress(gap.Comp) * oldSpan;
+
+        gap.Comp.LowerMap = lower;
+        gap.Comp.UpperMap = upper?.Owner;
+        Dirty(gap, gap.Comp);
+        _transitLastProgress.Remove(gap);
+
+        var span = GetTransitSpan(gap.Comp);
+        if (span != oldSpan)
+            UnlinkTransitLayer(gap);
+
+        var progress = Math.Clamp((altitude - lower.Comp.Depth) / span, 0f, 1f);
+        foreach (var grid in CollectGridsOnMap(gap))
+            SetZPosition(grid, progress);
+    }
+
+    private void UnlinkTransitLayer(Entity<CEZTransitMapComponent> gap)
+    {
+        var below = gap.Comp.TransitBelow;
+        var above = gap.Comp.TransitAbove;
+        if (below == null && above == null)
+            return;
+
+        if (TryComp<CEZTransitMapComponent>(below, out var belowComp))
+        {
+            belowComp.TransitAbove = null;
+            Dirty(below.Value, belowComp);
+        }
+        if (TryComp<CEZTransitMapComponent>(above, out var aboveComp))
+        {
+            aboveComp.TransitBelow = null;
+            Dirty(above.Value, aboveComp);
+        }
+
+        gap.Comp.TransitBelow = null;
+        gap.Comp.TransitAbove = null;
+        gap.Comp.ConvoyLead = false;
+        Dirty(gap, gap.Comp);
+
+        if (below is { } lowerLayer)
+            EnsureConvoyLead(lowerLayer);
+        if (above is { } upperLayer)
+            EnsureConvoyLead(upperLayer);
     }
 
     /// <summary>
@@ -516,8 +689,9 @@ public sealed partial class CEZLevelsSystem
         }
 
         var progress = altitude - anchorZ.Depth;
+        var span = GetTransitSpan(transit);
 
-        while (progress > 1f)
+        while (progress > span)
         {
             // The whole convoy hops together, so the TOP layer needs a level above
             // its gap; every interior layer's destination exists by construction.
@@ -526,7 +700,7 @@ public sealed partial class CEZLevelsSystem
 
             if (topTransit.UpperMap is not { } topUpper)
             {
-                progress = 1f;
+                progress = span;
                 break;
             }
 
@@ -535,7 +709,7 @@ public sealed partial class CEZLevelsSystem
             // lands ON terrain, never past it). Clamp to the underside and stop.
             if (ConvoyBlockedByPlane(convoy[^1], topUpper))
             {
-                progress = 1f;
+                progress = span;
                 break;
             }
 
@@ -553,18 +727,19 @@ public sealed partial class CEZLevelsSystem
                         RaiseLocalEvent(primary, ref ev);
                     }
 
-                    progress = 1f;
+                    progress = span;
                     break;
                 }
             }
 
             if (!TryHopConvoyGap(convoy, ref transitMapUid, up: true))
             {
-                progress = 1f;
+                progress = span;
                 break;
             }
 
-            progress -= 1f;
+            progress -= span;
+            span = GetTransitSpan(Comp<CEZTransitMapComponent>(transitMapUid));
         }
 
         while (progress < 0f)
@@ -588,7 +763,8 @@ public sealed partial class CEZLevelsSystem
             if (!TryHopConvoyGap(convoy, ref transitMapUid, up: false))
                 return LandTransitSet(grid);
 
-            progress += 1f;
+            span = GetTransitSpan(Comp<CEZTransitMapComponent>(transitMapUid));
+            progress += span;
         }
 
         var convoyMaps = GetConvoyMaps(transitMapUid);
@@ -597,11 +773,11 @@ public sealed partial class CEZLevelsSystem
         // Applied here rather than inside the climb loop above because progress also creeps
         // into the top of the gap without ever exceeding 1f — clamping only on overshoot
         // would let the ship drift flush, then snap back down, once per overshoot.
-        if (progress > 1f - CeilingClearance
+        if (progress > span - CeilingClearance
             && Comp<CEZTransitMapComponent>(convoyMaps[^1]).UpperMap is { } ceiling
             && ConvoyBlockedByPlane(convoyMaps[^1], ceiling))
         {
-            progress = 1f - CeilingClearance;
+            progress = span - CeilingClearance;
         }
 
         foreach (var convoyMap in convoyMaps)
@@ -609,7 +785,7 @@ public sealed partial class CEZLevelsSystem
             foreach (var gridUid in CollectGridsOnMap(convoyMap))
             {
                 if (ZPhysicsQuery.TryComp(gridUid, out var zPhys))
-                    SetZPosition((gridUid, zPhys), progress);
+                    SetZPosition((gridUid, zPhys), progress / span);
             }
         }
 
@@ -729,6 +905,7 @@ public sealed partial class CEZLevelsSystem
 
             var newTransit = Comp<CEZTransitMapComponent>(newTransitMap);
             newTransit.ConvoyLead = old.ConvoyLead;
+            newTransit.AutoLand = old.AutoLand;
 
             if (prevNew is { } belowNew)
             {
@@ -779,7 +956,7 @@ public sealed partial class CEZLevelsSystem
         if (!TryComp<CEZTransitMapComponent>(transitMap, out var transit))
             return false;
 
-        var up = ZPhysicsQuery.TryComp(grid, out var gridZPhys) && gridZPhys.LocalPosition >= 0.5f;
+        var up = !transit.AutoLand && ZPhysicsQuery.TryComp(grid, out var gridZPhys) && gridZPhys.LocalPosition >= 0.5f;
 
         // Validate every layer's arrival level first — the convoy lands all-or-nothing.
         var convoy = GetConvoyMaps(transitMap);
@@ -815,13 +992,7 @@ public sealed partial class CEZLevelsSystem
 
             foreach (var gridUid in movedGrids)
             {
-                if (ZPhysicsQuery.TryComp(gridUid, out var zPhys))
-                {
-                    SetZPosition((gridUid, zPhys), 0f);
-                    SetZVelocity((gridUid, zPhys), 0f);
-                }
-
-                _pvsOverride.RemoveGlobalOverride(gridUid);
+                ResetGridTransitState(gridUid);
 
                 // Landing on a grid causes an explosion. Don't do that.
                 _shuttle.Smimsh(gridUid, explodeGrids: true, ignoredGrids: movedGrids);
@@ -833,6 +1004,17 @@ public sealed partial class CEZLevelsSystem
 
         QueueAllViewerUpdates();
         return true;
+    }
+
+    private void ResetGridTransitState(EntityUid grid)
+    {
+        if (ZPhysicsQuery.TryComp(grid, out var zPhys))
+        {
+            SetZPosition((grid, zPhys), 0f);
+            SetZVelocity((grid, zPhys), 0f);
+        }
+
+        _pvsOverride.RemoveGlobalOverride(grid);
     }
 
     public bool TryInsertIntoOpenSky(Entity<MapGridComponent> grid,
@@ -867,6 +1049,7 @@ public sealed partial class CEZLevelsSystem
 
         RecenterGridSet(movedGrids, grid, target);
         var transitMap = CreateTransitMap(top, null, grid);
+        Comp<CEZTransitMapComponent>(transitMap).AutoLand = true;
         MoveGridSetToMap(movedGrids, transitMap, 0, topZ.Depth);
 
         foreach (var gridUid in movedGrids)
@@ -874,6 +1057,8 @@ public sealed partial class CEZLevelsSystem
             var zPhys = EnsureComp<CEZPhysicsComponent>(gridUid);
             SetZPosition((gridUid, zPhys), 1f);
             SetZVelocity((gridUid, zPhys), 0f);
+            if (TryComp<CEZGridFallerComponent>(gridUid, out var faller))
+                faller.Velocity = 0f;
 
             _pvsOverride.AddGlobalOverride(gridUid);
             _shuttle.Enable(gridUid);

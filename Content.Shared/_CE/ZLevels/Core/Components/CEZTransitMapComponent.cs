@@ -25,6 +25,9 @@ public sealed partial class CEZTransitMapComponent : Component
     [DataField, AutoNetworkedField]
     public EntityUid? UpperMap;
 
+    [DataField(serverOnly: true)]
+    public bool AutoLand; // Your right to move has been revoked
+
     /// <summary>
     /// The grid whose CEZPhysics LocalPosition defines this map's visual progress between the two levels.
     /// </summary>

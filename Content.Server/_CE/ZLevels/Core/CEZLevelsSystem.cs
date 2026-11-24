@@ -34,6 +34,7 @@ public sealed partial class CEZLevelsSystem : CESharedZLevelsSystem
         InitializeGroundFriction();
 
         SubscribeLocalEvent<CEStationZLevelsComponent, StationPostInitEvent>(OnStationPostInit);
+        SubscribeLocalEvent<CEZMapComponent, EntityTerminatingEvent>(OnZMapTerminating);
     }
 
     private void OnStationPostInit(Entity<CEStationZLevelsComponent> ent, ref StationPostInitEvent args)

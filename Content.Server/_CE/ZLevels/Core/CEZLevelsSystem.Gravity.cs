@@ -171,7 +171,7 @@ public sealed partial class CEZLevelsSystem
             if (TerminatingOrDeleted(uid) || EntityManager.IsQueuedForDeletion(uid))
                 continue;
 
-            if (transit.PrimaryGrid is not { } primary ||
+            if (transit.LowerMap == null || transit.PrimaryGrid is not { } primary ||
                 TerminatingOrDeleted(primary) ||
                 !ZPhysicsQuery.TryComp(primary, out var zPhys))
             {
@@ -294,6 +294,9 @@ public sealed partial class CEZLevelsSystem
         }
 
         var progress = zPhys.LocalPosition;
+        var span = GetTransitSpan(transit);
+        var distanceBelow = progress * span;
+        var distanceAbove = span - distanceBelow;
 
         // Convoy-aware bounds: the stack lands on whatever is under its BOTTOM layer
         // and settles up against whatever is above its TOP layer; any member's
@@ -338,42 +341,44 @@ public sealed partial class CEZLevelsSystem
                 // Flight.
                 faller.Velocity = ApproachTerminal(faller.Velocity, -input * accel, MaxPilotVerticalSpeed, frameTime);
             }
-            else if (topUpperMap == null && progress > SettleZone)
+            else if ((topUpperMap == null || transit.AutoLand) &&
+                     (distanceBelow > SettleZone ||
+                      transit.AutoLand && !ConvoyBlockedByPlane(convoy[0], groundMapBelow)))
             {
-                var target = Math.Clamp(progress * ApproachGain, TouchdownSpeed, MaxPilotVerticalSpeed);
+                var target = Math.Clamp(distanceBelow * ApproachGain, TouchdownSpeed, MaxPilotVerticalSpeed);
                 faller.Velocity = MoveTowards(faller.Velocity, target, damp * frameTime);
             }
             else
             {
                 var target = 0f;
 
-                if (progress <= SettleZone)
+                if (distanceBelow <= SettleZone)
                 {
-                    if (progress <= TouchdownProgress && MathF.Abs(faller.Velocity) <= ExitTransitMaxSpeed)
+                    if (distanceBelow <= TouchdownProgress && MathF.Abs(faller.Velocity) <= ExitTransitMaxSpeed)
                     {
                         faller.Velocity = 0f;
                         TryExitTransit(grid);
                         return;
                     }
 
-                    target = MathF.Max(TouchdownSpeed, progress * ApproachGain);
+                    target = MathF.Max(TouchdownSpeed, distanceBelow * ApproachGain);
                 }
                 // Only settle up onto the level above if the convoy can actually get through it.
                 // Pinned under solid terrain the ship just hovers against the underside; without
                 // this it would drift into the touchdown band and pop out on top of the ceiling
                 // that was blocking it.
-                else if (progress >= 1f - SettleZone
+                else if (!transit.AutoLand && distanceAbove <= SettleZone
                          && topUpperMap is { } upper
                          && !ConvoyBlockedByPlane(convoy[^1], upper))
                 {
-                    if (progress >= 1f - TouchdownProgress && MathF.Abs(faller.Velocity) <= ExitTransitMaxSpeed)
+                    if (distanceAbove <= TouchdownProgress && MathF.Abs(faller.Velocity) <= ExitTransitMaxSpeed)
                     {
                         faller.Velocity = 0f;
                         TryExitTransit(grid);
                         return;
                     }
 
-                    target = -MathF.Max(TouchdownSpeed, (1f - progress) * ApproachGain);
+                    target = -MathF.Max(TouchdownSpeed, distanceAbove * ApproachGain);
                 }
 
                 faller.Velocity = MoveTowards(faller.Velocity, target, damp * frameTime);
@@ -382,7 +387,7 @@ public sealed partial class CEZLevelsSystem
             // Slow down when approaching terrain so people under you got some time to move.
             if (faller.Velocity > 0f && ConvoyBlockedByPlane(convoy[0], groundMapBelow))
             {
-                var cap = MathF.Max(TouchdownSpeed, progress * ApproachGain);
+                var cap = MathF.Max(TouchdownSpeed, distanceBelow * ApproachGain);
                 if (faller.Velocity > cap)
                     faller.Velocity = MoveTowards(faller.Velocity, cap, damp * frameTime);
             }
@@ -396,9 +401,9 @@ public sealed partial class CEZLevelsSystem
                 memberFaller.Velocity = faller.Velocity;
         }
 
-        var altitude = lowerZ.Depth + progress - faller.Velocity * frameTime;
+        var currentAltitude = lowerZ.Depth + distanceBelow;
+        var altitude = currentAltitude - faller.Velocity * frameTime;
         // Mono Start: Clamp the whole convoy at the first shell contact.
-        var currentAltitude = lowerZ.Depth + progress;
         var delta = altitude - currentAltitude;
         var pushing = GetConvoyVerticalInput(convoy) != 0f;
         foreach (var member in transitSet)
