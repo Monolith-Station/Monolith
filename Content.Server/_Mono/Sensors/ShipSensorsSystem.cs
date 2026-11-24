@@ -754,10 +754,7 @@ public sealed partial class ShipSensorsSystem : EntitySystem
             }
         }
 
-        if (bestRadar != null)
-            state.ChaffArcs = _chaff.BuildInterferenceArcs(bestRadar.Value, bestResistance);
-        else
-            state.ChaffArcs = _chaff.BuildInterferenceArcs(gridUid.Value, 0.25f);
+        state.ChaffArcs = bestRadar != null ? _chaff.BuildInterferenceArcs(bestRadar.Value, bestResistance) : _chaff.BuildInterferenceArcs(gridUid.Value, 0.25f);
 
         return state;
     }
