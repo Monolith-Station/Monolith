@@ -84,11 +84,12 @@
     minAngle: 14
     maxAngle: 41
     availableModes:
-    - Burst
-    - FullAuto
-    selectedMode: FullAuto
+    - Burst # 214.3 DPS, on par with Annie/Iroh
+    - FullAuto # 187.5 DPS, decent but not a serial killer like annie/iroh/m90
+    selectedMode: Burst # Burst is what makes it not just a worse Annie, so default to it. fullauto is still an option
     burstFireRate: 20
-    burstCooldown: 0.6
+    burstCooldown: 0.2
+    shotsPerBurst: 3
     projectileSpeed: 45
     fireRate: 7.5
     soundGunshot:
@@ -468,7 +469,7 @@
   name: CS Burner (12.7x99mm)
   parent: BaseWeaponRifle
   id: WeaponRifleBurner
-  description: A high caliber syndicate gun chambered in 12.7x99mm, capable of firing anti-material and high explosive rounds.
+  description: A high caliber Dynasty DMR chambered in 12.7x99mm, capable of firing anti-material and high explosive rounds.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Rifles/burner.rsi

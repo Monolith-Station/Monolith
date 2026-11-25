@@ -4,9 +4,10 @@
   minLimit: 1
   loadouts:
   - FactionFrostLoadout
+  - FactionLecterLoadout
   - FactionDrozdLoadout
-  - FactionRiversongLoadout
-  - FactionDragonfangLoadout
+  #- FactionRiversongLoadout
+  #- FactionDragonfangLoadout
   fallbacks:
   - FactionFrostLoadout
 
@@ -15,7 +16,8 @@
   name: loadout-group-weapon
   minLimit: 0
   loadouts:
-  - FactionRiversongLoadout
+  - FactionLecterLoadout
+  #- FactionRiversongLoadout
   - FactionDrozdLoadout
   - SecurityGuardEnforcerLoadout
 
