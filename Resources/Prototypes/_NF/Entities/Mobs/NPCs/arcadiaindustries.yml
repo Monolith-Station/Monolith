@@ -67,8 +67,10 @@
       angle: 0
       animation: WeaponArcBite
       damage:
-        groups:
-          Brute: 4
+        types:
+          Blunt: 1.33
+          Slash: 1.33
+          Piercing: 1.34
     - type: Damageable
       damageContainer: Inorganic
     - type: Bloodstream

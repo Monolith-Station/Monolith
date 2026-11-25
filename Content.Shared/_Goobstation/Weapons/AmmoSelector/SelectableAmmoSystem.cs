@@ -90,7 +90,7 @@ public sealed partial class SelectableAmmoSystem : EntitySystem
 
     private string? GetProviderProtoName(EntityUid uid)
     {
-        if (TryComp(uid, out BasicEntityAmmoProviderComponent? basic) && basic.Proto != null)
+        if (TryComp(uid, out BasicEntityAmmoProviderComponent? basic) && basic.Proto.Id != null)
             return _protoManager.TryIndex(basic.Proto, out var index) ? index.Name : null;
 
         if (TryComp(uid, out HitscanBatteryAmmoProviderComponent? hitscanBattery))

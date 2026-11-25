@@ -113,8 +113,7 @@ public sealed class ShipyardConsoleBoundUserInterface : BoundUserInterface
             return;
         }
 
-        var vessel = row.Vessel;
-        SendMessage(new ShipyardConsolePreviewMessage());
-        _preview.TryPreviewGrid(vessel);
+        if (_preview.TryPreviewGrid(row.Vessel))
+            SendMessage(new ShipyardConsolePreviewMessage());
     }
 }

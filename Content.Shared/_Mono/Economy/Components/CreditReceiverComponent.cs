@@ -1,11 +1,11 @@
 ﻿using Robust.Shared.GameStates;
 using Content.Shared.Containers.ItemSlots;
 
-namespace Content.Shared._Mono.Economy.Component;
+namespace Content.Shared._Mono.Economy.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
 [Access(typeof(SharedCreditReceiverSystem))]
-public sealed partial class CreditReceiverComponent : Robust.Shared.GameObjects.Component
+public sealed partial class CreditReceiverComponent : Component
 {
     /// <summary>
     /// Item slot for cash.</summary>

@@ -137,8 +137,10 @@
     damageContainers:
     - Biological
     damage:
-      groups:
-        Brute: -45 # was 5 for each, Buffed due to limb damage changes (Goobstation)
+      types: # Goobstation: buffed for limb damage.
+        Blunt: -15
+        Slash: -15
+        Piercing: -15
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
       params:
@@ -192,8 +194,10 @@
     damageContainers:
     - Biological
     damage:
-      groups:
-        Brute: -60 # was 10 for each, now 20 for each type in the group, Buffed due to surgery changes (Goobstation)
+      types: # Goobstation: buffed for surgery changes.
+        Blunt: -20
+        Slash: -20
+        Piercing: -20
     bloodlossModifier: -10 # a suture should stop ongoing bleeding
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
@@ -280,10 +284,11 @@
       damageContainers:
         - Biological
       damage:
-        groups:
-          Brute: 5 # Tourniquets HURT!
         types:
           Asphyxiation: 5 # Essentially Stopping all blood reaching a part of your body
+          Blunt: 1.66 # Tourniquets HURT!
+          Slash: 1.67
+          Piercing: 1.67
       bloodlossModifier: -10 # Tourniquets stop bleeding
       delay: 0.5
       healingBeginSound:
@@ -380,10 +385,16 @@
     damageContainers:
     - Biological
     damage:
-      groups: # these are all split across multiple types
-        Brute: -150
-        Burn: -150
-        Toxin: -150
+      types:
+        Blunt: -50
+        Slash: -50
+        Piercing: -50
+        Heat: -37.5
+        Shock: -37.5
+        Cold: -37.5
+        Caustic: -37.5
+        Poison: -75
+        Radiation: -75
     bloodlossModifier: -20
     delay: 1
     selfHealPenaltyMultiplier: 0

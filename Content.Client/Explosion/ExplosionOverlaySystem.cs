@@ -19,7 +19,7 @@ public sealed partial class ExplosionOverlaySystem : EntitySystem
     [Dependency] private IResourceCache _resCache = default!;
     [Dependency] private IOverlayManager _overlayMan = default!;
     [Dependency] private SharedPointLightSystem _lights = default!;
-    [Dependency] private IMapManager _mapMan = default!;
+    [Dependency] private SharedMapSystem _maps = default!;
     [Dependency] private SharedAppearanceSystem _appearance = default!;
 
     public override void Initialize()
@@ -69,7 +69,7 @@ public sealed partial class ExplosionOverlaySystem : EntitySystem
         }
 
         // Map may have been deleted.
-        if (_mapMan.MapExists(component.Epicenter.MapId))
+        if (_maps.MapExists(component.Epicenter.MapId))
         {
             // spawn in a client-side light source at the epicenter
             var lightEntity = Spawn("ExplosionLight", component.Epicenter);
