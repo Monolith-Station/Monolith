@@ -1,6 +1,7 @@
 using System.Numerics;
 using Content.Client.CombatMode;
 using Content.Client.Gameplay;
+using Content.Client.Graphics;
 using Content.Client.Outline;
 using Content.Shared.ActionBlocker;
 using Content.Shared.CCVar;
@@ -43,6 +44,7 @@ public sealed partial class DragDropSystem : SharedDragDropSystem
     [Dependency] private EntityLookupSystem _lookup = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private SharedTransformSystem _transformSystem = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     // how often to recheck possible targets (prevents calling expensive
     // check logic each update)
@@ -456,15 +458,12 @@ public sealed partial class DragDropSystem : SharedDragDropSystem
                         && _interactionSystem.InRangeUnobstructed(user.Value, entity);
             }
 
-            if (inRangeSprite.PostShader != null &&
-                inRangeSprite.PostShader != _dropTargetInRangeShader &&
-                inRangeSprite.PostShader != _dropTargetOutOfRangeShader)
-            {
-                continue;
-            }
-
             // highlight depending on whether its in or out of range
-            inRangeSprite.PostShader = valid.Value ? _dropTargetInRangeShader : _dropTargetOutOfRangeShader;
+            _sprite.SetPostShader((entity, inRangeSprite), new SpriteComponent.PostShaderArgs(ContentPostShaderIds.DragDropOutline,
+                (valid.Value ? _dropTargetInRangeShader : _dropTargetOutOfRangeShader)!)
+            {
+                After = ContentPostShaderIds.AfterBaseEffects,
+            });
             inRangeSprite.RenderOrder = EntityManager.CurrentTick.Value;
             _highlightedSprites.Add(inRangeSprite);
         }
@@ -474,10 +473,7 @@ public sealed partial class DragDropSystem : SharedDragDropSystem
     {
         foreach (var highlightedSprite in _highlightedSprites)
         {
-            if (highlightedSprite.PostShader != _dropTargetInRangeShader && highlightedSprite.PostShader != _dropTargetOutOfRangeShader)
-                continue;
-
-            highlightedSprite.PostShader = null;
+            _sprite.RemovePostShader(highlightedSprite, ContentPostShaderIds.DragDropOutline);
             highlightedSprite.RenderOrder = 0;
         }
 
