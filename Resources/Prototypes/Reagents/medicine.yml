@@ -40,8 +40,10 @@
         - !type:ReagentThreshold
           min: 20
         damage:
-          groups:
-            Brute: 2
+          types:
+            Blunt: 0.66
+            Slash: 0.67
+            Piercing: 0.67
       - !type:Jitter
         conditions:
         - !type:ReagentThreshold
@@ -138,8 +140,9 @@
         damage:
           types:
             Radiation: -4 # Mono 3 >> 4
-          groups:
-            Brute: 1.5
+            Blunt: 0.5
+            Slash: 0.5
+            Piercing: 0.5
 
 - type: reagent
   id: Bicaridine
@@ -243,9 +246,10 @@
             max: 213.0
           damage:
             types:
-             Cellular: -4 # Frontier: -2<-4
-            groups: # Frontier
-                Brute: 1 # Frontier
+              Cellular: -4 # Frontier: -2<-4
+              Blunt: 0.33 # Frontier: 1 total brute
+              Slash: 0.33
+              Piercing: 0.34
         - !type:GenericStatusEffect # Mono edit
           conditions:
           - !type:OrganType #
@@ -286,8 +290,9 @@
           types:
             Asphyxiation: 1
             Cold: 2
-          groups:
-            Brute: 0.5
+            Blunt: 0.16
+            Slash: 0.17
+            Piercing: 0.17
       - !type:Jitter
         conditions:
         - !type:ReagentThreshold

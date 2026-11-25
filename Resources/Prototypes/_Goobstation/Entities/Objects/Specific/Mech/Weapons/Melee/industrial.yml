@@ -22,10 +22,11 @@
       path: "/Audio/Items/drill_hit.ogg"
     attackRate: 3.5
     damage:
-      groups:
-        Brute: 9
       types:
         Structural: 150 # ~7 secods for reinforced wall - 40->150 - Mono
+        Blunt: 3
+        Slash: 3
+        Piercing: 3
   - type: MiningGatheringSoft
   - type: MiningGatheringHard # Mono
 
@@ -53,9 +54,10 @@
       path: "/Audio/Items/drill_hit.ogg"
     attackRate: 4.5 # Mono - salvage buffs
     damage:
-      groups:
-        Brute: 18
       types:
         Structural: 290 # ~3 seconds for reinforced wall - 60->290 - Mono
+        Blunt: 6
+        Slash: 6
+        Piercing: 6
   - type: MiningGatheringSoft
   - type: MiningGatheringHard

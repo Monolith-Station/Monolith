@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared.Damage.Prototypes;
 using Content.Shared.Roles;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
@@ -253,7 +254,7 @@ namespace Content.Shared.GameTicking
 
             public MobState EntMobState;
 
-            public Dictionary<string, FixedPoint2> DamagePerGroup;
+            public Dictionary<ProtoId<DamageGroupPrototype>, FixedPoint2> DamagePerGroup;
             #endregion
         }
 

@@ -1,5 +1,11 @@
 using Content.Shared.Damage;
 using Content.Shared.Spreader;
+using Content.Shared.Tag;
+using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
+using Robust.Shared.Physics;
+using Robust.Shared.Physics.Components;
+using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -14,8 +20,13 @@ public sealed partial class KudzuSystem : EntitySystem
     [Dependency] private SharedMapSystem _map = default!;
     [Dependency] private SharedAppearanceSystem _appearance = default!;
     [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private FixtureSystem _fixtures = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private TagSystem _tag = default!;
 
     private static readonly ProtoId<EdgeSpreaderPrototype> KudzuGroup = "Kudzu";
+    private static readonly ProtoId<TagPrototype> WallTag = "Wall";
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -48,6 +59,8 @@ public sealed partial class KudzuSystem : EntitySystem
         if (component.GrowthLevel < 3)
             return;
 
+        // Mono: Usually Kudzu can't get into an occupied tile, I think.
+        args.NeighborFreeTiles.RemoveAll(IsWallAtTileCenter);
         if (args.NeighborFreeTiles.Count == 0)
         {
             RemCompDeferred<ActiveEdgeSpreaderComponent>(uid);
@@ -75,6 +88,31 @@ public sealed partial class KudzuSystem : EntitySystem
             if (args.Updates <= 0)
                 return;
         }
+    }
+
+    private bool IsWallAtTileCenter((MapGridComponent Grid, TileRef Tile) neighbor)
+    {
+        var (grid, tile) = neighbor;
+        var anchored = _map.GetAnchoredEntitiesEnumerator(tile.GridUid, grid, tile.GridIndices);
+        var center = _transform.ToWorldPosition(_map.GridTileToLocal(tile.GridUid, grid, tile.GridIndices));
+
+        while (anchored.MoveNext(out var wall))
+        {
+            if (!_tag.HasTag(wall.Value, WallTag)
+                || !TryComp<PhysicsComponent>(wall, out var body)
+                || !body.CanCollide
+                || !TryComp<FixturesComponent>(wall, out var fixtures))
+                continue;
+
+            var transform = _physics.GetPhysicsTransform(wall.Value);
+            foreach (var fixture in fixtures.Fixtures.Values)
+            {
+                if (fixture.Hard && _fixtures.TestPoint(fixture.Shape, transform, center))
+                    return true;
+            }
+        }
+
+        return false;
     }
 
     private void SetupKudzu(EntityUid uid, KudzuComponent component, ComponentStartup args)

@@ -257,8 +257,10 @@
   # half damage, spread evenly
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 15 # Frontier: 12<15
+      types:
+        Blunt: 5 # Frontier: 12<15 total brute
+        Slash: 5
+        Piercing: 5
   - type: ActionGun #Frontier
     action: ActionDragonsBreath #Frontier
     gunProto: DragonsBreathGun #Frontier

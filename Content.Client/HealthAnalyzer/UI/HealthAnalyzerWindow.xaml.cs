@@ -223,7 +223,7 @@ namespace Content.Client.HealthAnalyzer.UI
                 damageable.DamagePerGroup.OrderByDescending(damage => damage.Value)
                     .ToDictionary(x => x.Key, x => x.Value);
 
-            IReadOnlyDictionary<string, FixedPoint2> damagePerType = damageable.Damage.DamageDict;
+            var damagePerType = damageable.Damage.DamageDict;
 
             DrawDiagnosticGroups(damageSortedGroups, damagePerType);
         }
@@ -240,8 +240,8 @@ namespace Content.Client.HealthAnalyzer.UI
         }
 
         private void DrawDiagnosticGroups(
-            Dictionary<string, FixedPoint2> groups,
-            IReadOnlyDictionary<string, FixedPoint2> damageDict)
+            Dictionary<ProtoId<DamageGroupPrototype>, FixedPoint2> groups,
+            IReadOnlyDictionary<ProtoId<DamageTypePrototype>, FixedPoint2> damageDict)
         {
             GroupsContainer.RemoveAllChildren();
 

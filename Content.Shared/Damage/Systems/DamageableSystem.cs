@@ -162,7 +162,7 @@ namespace Content.Shared.Damage
 
             if (_appearanceQuery.TryGetComponent(uid, out var appearance) && damageDelta != null)
             {
-                var data = new DamageVisualizerGroupData(component.DamagePerGroup.Keys.ToList());
+                var data = new DamageVisualizerGroupData(component.DamagePerGroup.Keys.Select(id => id.Id).ToList());
                 _appearance.SetData(uid, DamageVisualizerKeys.DamageUpdateGroups, data, appearance);
             }
             RaiseLocalEvent(uid, new DamageChangedEvent(component, damageDelta, interruptsDoAfters, origin, canSever ?? true)); // Shitmed Change
