@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 277.0.0
+  engineVersion: 277.0.6
   forkId: ""
   forkVersion: ""
-  time: 09/21/2026 13:51:36
-  entityCount: 8555
+  time: 11/25/2026 01:59:56
+  entityCount: 8594
 maps: []
 grids:
 - 1
@@ -4547,8 +4547,9 @@ entities:
             470: 4,49
     - type: SpreaderGrid
       spreadQueues:
-        Kudzu: []
         Smoke: []
+        ESTileFire: []
+        Kudzu: []
         Puddle: []
         MetalFoam: []
     - type: GridAtmosphere
@@ -6331,7 +6332,7 @@ entities:
       pos: 1.5,30.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -7223.692
+      secondsUntilStateChange: -7541.0317
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -28985,10 +28986,222 @@ entities:
       parent: 1
 - proto: ExtinguisherCabinetFilled
   entities:
+  - uid: 3667
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -16.5,-5.5
+      parent: 1
+  - uid: 3668
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 17.5,-5.5
+      parent: 1
+  - uid: 3669
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -11.5,86.5
+      parent: 1
+  - uid: 3670
+    components:
+    - type: Transform
+      pos: 23.5,11.5
+      parent: 1
+  - uid: 3671
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -15.5,5.5
+      parent: 1
+  - uid: 3672
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 16.5,5.5
+      parent: 1
   - uid: 4335
     components:
     - type: Transform
       pos: -7.5,30.5
+      parent: 1
+  - uid: 6677
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 5.5,17.5
+      parent: 1
+  - uid: 6678
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -13.5,16.5
+      parent: 1
+  - uid: 6679
+    components:
+    - type: Transform
+      pos: -22.5,11.5
+      parent: 1
+  - uid: 8566
+    components:
+    - type: Transform
+      pos: -18.5,25.5
+      parent: 1
+  - uid: 8567
+    components:
+    - type: Transform
+      pos: 10.5,26.5
+      parent: 1
+  - uid: 8568
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 6.5,26.5
+      parent: 1
+  - uid: 8569
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 21.5,40.5
+      parent: 1
+  - uid: 8570
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -3.5,35.5
+      parent: 1
+  - uid: 8571
+    components:
+    - type: Transform
+      pos: -1.5,47.5
+      parent: 1
+  - uid: 8572
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -8.5,36.5
+      parent: 1
+  - uid: 8573
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -11.5,40.5
+      parent: 1
+  - uid: 8574
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -17.5,31.5
+      parent: 1
+  - uid: 8575
+    components:
+    - type: Transform
+      pos: -35.5,33.5
+      parent: 1
+  - uid: 8576
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -35.5,29.5
+      parent: 1
+  - uid: 8577
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -17.5,52.5
+      parent: 1
+  - uid: 8578
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -20.5,36.5
+      parent: 1
+  - uid: 8579
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -7.5,56.5
+      parent: 1
+  - uid: 8580
+    components:
+    - type: Transform
+      pos: -14.5,74.5
+      parent: 1
+  - uid: 8581
+    components:
+    - type: Transform
+      pos: -4.5,74.5
+      parent: 1
+  - uid: 8582
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -0.5,65.5
+      parent: 1
+  - uid: 8583
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -0.5,65.5
+      parent: 1
+  - uid: 8584
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 4.5,50.5
+      parent: 1
+  - uid: 8585
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 17.5,52.5
+      parent: 1
+  - uid: 8586
+    components:
+    - type: Transform
+      pos: 37.5,33.5
+      parent: 1
+  - uid: 8587
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 37.5,29.5
+      parent: 1
+  - uid: 8588
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 9.5,46.5
+      parent: 1
+  - uid: 8589
+    components:
+    - type: Transform
+      pos: 9.5,50.5
+      parent: 1
+  - uid: 8590
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -1.5,79.5
+      parent: 1
+  - uid: 8591
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 15.5,70.5
+      parent: 1
+  - uid: 8592
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 12.5,86.5
+      parent: 1
+  - uid: 8593
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 5.5,76.5
       parent: 1
 - proto: FactionLathe
   entities:
@@ -29272,6 +29485,13 @@ entities:
       - 4361
       - 4365
       - 5637
+- proto: FireExtinguisher
+  entities:
+  - uid: 8565
+    components:
+    - type: Transform
+      pos: -7.5176945,26.286942
+      parent: 1
 - proto: Firelock
   entities:
   - uid: 4361
@@ -47008,6 +47228,13 @@ entities:
     components:
     - type: Transform
       pos: 1.5,66.5
+      parent: 1
+- proto: SpawnMobFireBot
+  entities:
+  - uid: 8594
+    components:
+    - type: Transform
+      pos: -16.5,15.5
       parent: 1
 - proto: SpawnMobMedibot
   entities:
