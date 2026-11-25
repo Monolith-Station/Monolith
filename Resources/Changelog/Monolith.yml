@@ -27757,3 +27757,21 @@ Entries:
   id: 2973
   time: '2026-11-25T21:27:21.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/5107
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Added support for starsector-style two-type hardpoint types
+        (synergy/composite/hybrid)
+    - type: Fix
+      message: Fixed visual range not scaling with size.
+    - type: Fix
+      message: >-
+        Fixed target leading/SACLOS guidance being able to work without ARS
+        detection if it had a datalink (that also didn't have ARS detection, but
+        detected it anyways via IR/EM)
+    - type: Fix
+      message: Fixed SACLOS missiles being word I can't say.
+  id: 2974
+  time: '2026-11-25T23:12:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5108
