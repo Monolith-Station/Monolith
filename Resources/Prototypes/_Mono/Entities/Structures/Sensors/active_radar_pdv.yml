@@ -10,7 +10,7 @@
   - type: ShipSensor
     activeThermalSignature: 20000
     sensorType: ActiveRadar
-    sensitivity: 176
+    sensitivity: 74.42
     arcDegrees: 360
     powerDraw: 800
     powerDrawActive: 8000
@@ -44,7 +44,7 @@
   - type: ShipSensor
     activeThermalSignature: 60000
     sensorType: ActiveRadar
-    sensitivity: 143
+    sensitivity: 143.32
     arcDegrees: 20
     powerDraw: 100
     powerDrawActive: 6000
@@ -80,7 +80,7 @@
   - type: ShipSensor
     activeThermalSignature: 130000
     sensorType: ActiveRadar
-    sensitivity: 500
+    sensitivity: 316.54
     arcDegrees: 360
     powerDraw: 1500
     powerDrawActive: 9000
@@ -125,7 +125,7 @@
   - type: ShipSensor
     activeThermalSignature: 1000000
     sensorType: ActiveRadar
-    sensitivity: 945
+    sensitivity: 379.47
     arcDegrees: 140
     powerDraw: 5000
     powerDrawActive: 30000 # Lower than the T1 because it's not omnidirectional.
@@ -170,7 +170,7 @@
   - type: ShipSensor
     activeThermalSignature: 1000000
     sensorType: ActiveRadar
-    sensitivity: 2036
+    sensitivity: 790.57
     arcDegrees: 360
     powerDraw: 15000
     powerDrawActive: 100000

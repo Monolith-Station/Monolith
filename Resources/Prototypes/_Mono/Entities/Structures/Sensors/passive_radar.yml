@@ -9,7 +9,7 @@
   components:
   - type: ShipSensor
     sensorType: PassiveRadar
-    sensitivity: 200
+    sensitivity: 50
     arcDegrees: 360
     powerDraw: 200
     powerDrawActive: 1000

@@ -10,7 +10,7 @@
   - type: ShipSensor
     activeThermalSignature: 90000
     sensorType: ActiveRadar
-    sensitivity: 75
+    sensitivity: 25.57
     arcDegrees: 360
     powerDraw: 200
     powerDrawActive: 2000
@@ -41,7 +41,7 @@
   - type: ShipSensor
     activeThermalSignature: 80000
     sensorType: ActiveRadar
-    sensitivity: 125
+    sensitivity: 87.44
     arcDegrees: 360
     powerDraw: 900
     powerDrawActive: 8000

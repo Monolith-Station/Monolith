@@ -9,7 +9,7 @@
   components:
   - type: ShipSensor
     sensorType: Infrared
-    sensitivity: 200
+    sensitivity: 4
     arcDegrees: 360
     powerDraw: 200
     powerDrawActive: 3000
