@@ -4,8 +4,13 @@ meta:
   engineVersion: 277.0.6
   forkId: ""
   forkVersion: ""
+<<<<<<< HEAD
   time: 11/23/2026 10:34:24
   entityCount: 756
+=======
+  time: 11/24/2026 22:32:58
+  entityCount: 755
+>>>>>>> 26ee1bbe9a59f5833f96a6696c7d3a4d90813d0e
 maps: []
 grids:
 - 1
@@ -85,10 +90,17 @@ entities:
     - type: SpreaderGrid
       spreadQueues:
         Smoke: []
+<<<<<<< HEAD
         Kudzu: []
         ESTileFire: []
         MetalFoam: []
         Puddle: []
+=======
+        MetalFoam: []
+        ESTileFire: []
+        Puddle: []
+        Kudzu: []
+>>>>>>> 26ee1bbe9a59f5833f96a6696c7d3a4d90813d0e
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -580,6 +592,7 @@ entities:
       locked: False
     - type: Roof
       data: {}
+<<<<<<< HEAD
 - proto: ActionToggleLight
   entities:
   - uid: 343
@@ -591,6 +604,11 @@ entities:
     - type: InstantAction
       originalIconColor: '#FFFFFFFF'
       container: 342
+=======
+    - type: GridSensors
+      datalinkCodes: []
+    - type: DetectionRangeMultiplier
+>>>>>>> 26ee1bbe9a59f5833f96a6696c7d3a4d90813d0e
 - proto: AirAlarm
   entities:
   - uid: 2
@@ -2362,7 +2380,11 @@ entities:
       pos: -5.5,-0.5
       parent: 1
     - type: Door
+<<<<<<< HEAD
       secondsUntilStateChange: -3136.322
+=======
+      secondsUntilStateChange: -2451.1543
+>>>>>>> 26ee1bbe9a59f5833f96a6696c7d3a4d90813d0e
       state: Closing
   - uid: 311
     components:
@@ -4468,6 +4490,22 @@ entities:
       parent: 1
     - type: DeltaPressure
       gridUid: 1
+- proto: SensorInfraredCiv
+  entities:
+  - uid: 755
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 7.5,1.5
+      parent: 1
+- proto: SensorRadarCiv
+  entities:
+  - uid: 754
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -6.5,1.5
+      parent: 1
 - proto: ShuttersNormal
   entities:
   - uid: 600

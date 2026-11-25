@@ -27666,3 +27666,70 @@ Entries:
   id: 2966
   time: '2026-11-22T19:04:54.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/5067
+- author: DoubleHypercube
+  changes:
+    - type: Add
+      message: Languages can now be written on paper. Ea-Nāṣir, count your days.
+  id: 2967
+  time: '2026-11-23T12:05:41.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5054
+- author: tonotom1
+  changes:
+    - type: Fix
+      message: Holopads can now hear and transmit chat-only emotes
+    - type: Fix
+      message: Tape recorders no longer act as ersatz universal translators
+  id: 2968
+  time: '2026-11-23T12:07:28.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4871
+- author: Mrrpip
+  changes:
+    - type: Tweak
+      message: Changes Prometheus flatpack description.
+    - type: Tweak
+      message: Changed Rubicon to be anchorable.
+    - type: Fix
+      message: Fixes default hardpoint and some door rotations on the Eris
+  id: 2969
+  time: '2026-11-23T12:11:30.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5081
+- author: waphun
+  changes:
+    - type: Fix
+      message: >-
+        Fixed the seax's reverse thrusters, generator access and the accidental
+        rad bombs that it caused.
+  id: 2970
+  time: '2026-11-23T21:59:20.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5086
+- author: pizzay30tyd
+  changes:
+    - type: Tweak
+      message: IFF and Detailed IFF can now render separately
+    - type: Tweak
+      message: >-
+        Detailed IFF is now turned off by default (when you first open
+        console/mass scanner)
+    - type: Tweak
+      message: >-
+        Radar Blips (the triangles) are now off by default, can be toggled via a
+        new button in shuttle/gunnery consoles
+    - type: Tweak
+      message: Radar Blips are 25% smaller
+  id: 2971
+  time: '2026-11-24T19:19:05.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5010
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Added a really cool sensors system. All radar consoles (shuttle/nav/mass
+        scanner) on ships now share the same detected objects, sensors are now
+        physical entities on the hull with their own power draws, you can now
+        lock targets in the gunnery console to provide lead for weapons &
+        guidance for SACLOS missiles, you can now do datalinks with other ships
+        to share detected objects, etc etc. Look in the guidebook page for more
+        detailed explanations.
+  id: 2972
+  time: '2026-11-25T18:02:12.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5074

@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 277.0.0
+  engineVersion: 277.0.6
   forkId: ""
   forkVersion: ""
-  time: 09/03/2026 16:09:30
-  entityCount: 295
+  time: 11/24/2026 22:56:31
+  entityCount: 297
 maps: []
 grids:
 - 1
@@ -67,10 +67,11 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Kudzu: []
-        Puddle: []
-        MetalFoam: []
         Smoke: []
+        MetalFoam: []
+        ESTileFire: []
+        Puddle: []
+        Kudzu: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -234,36 +235,36 @@ entities:
         tiles:
           0,0:
             0: 13115
-            2: 2048
+            1: 2048
           0,-1:
             0: 48959
           -1,0:
             0: 2184
-            1: 16400
-            2: 32
+            2: 16400
+            1: 32
           -1,1:
-            1: 8
+            2: 8
           0,1:
-            1: 4
+            2: 4
           1,0:
             0: 17
-            2: 4384
+            1: 4384
           1,1:
-            2: 1
+            1: 1
           0,-2:
-            2: 2096
+            1: 2096
             0: 12288
-            1: 64
+            2: 64
           -1,-2:
-            1: 160
-            2: 5120
+            2: 160
+            1: 5120
           -1,-1:
             0: 63645
           1,-2:
-            1: 16
+            2: 16
             0: 8704
           1,-1:
-            2: 514
+            1: 514
         uniqueMixes:
         - volume: 2500
           temperature: 293.15
@@ -271,10 +272,10 @@ entities:
             Oxygen: 21.824879
             Nitrogen: 82.10312
         - volume: 2500
-          immutable: True
+          temperature: 293.15
           moles: {}
         - volume: 2500
-          temperature: 293.15
+          immutable: True
           moles: {}
         chunkSize: 4
     - type: GasTileOverlay
@@ -285,6 +286,9 @@ entities:
     - type: ThermalSignature
     - type: ImplicitRoof
     - type: ExplosionAirtightGrid
+    - type: GridSensors
+      datalinkCodes: []
+    - type: DetectionRangeMultiplier
 - proto: AirAlarm
   entities:
   - uid: 2
@@ -1696,6 +1700,22 @@ entities:
     components:
     - type: Transform
       pos: 1.5,-2.5
+      parent: 1
+- proto: SensorInfraredCiv
+  entities:
+  - uid: 297
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 4.5,4.5
+      parent: 1
+- proto: SensorRadarCiv
+  entities:
+  - uid: 296
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 0.5,4.5
       parent: 1
 - proto: SignalSwitchDirectional
   entities:

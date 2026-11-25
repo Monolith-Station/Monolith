@@ -1,39 +1,45 @@
 <controls:FancyWindow xmlns="https://spacestation14.io"
                       xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
                       xmlns:ui="clr-namespace:Content.Client.Shuttles.UI"
+                      xmlns:ui1="clr-namespace:Content.Client._Mono.Sensors.UI"
                       Title="{Loc 'radar-console-window-title'}"
-                      SetSize="648 672"
+                      SetSize="740 700"
                       MinSize="256 256">
-    <LayoutContainer Margin="4">
-        <!-- Mono - wrap -->
-        <ui:ShuttleNavControl Name="RadarScreen"
-                         HorizontalExpand = "True"
-                         VerticalExpand = "True"/>
-    </LayoutContainer>
-    <!-- Mono - IFF Settings -->
-    <BoxContainer Orientation="Vertical"
-                Margin="2 2 2 2"
-                VerticalExpand="True"
-                HorizontalExpand="True">
+    <TabContainer Name="MainTabs" VerticalExpand="True" HorizontalExpand="True">
+        <LayoutContainer HorizontalAlignment="Center">
+            <LayoutContainer Margin="4">
+                <!-- Mono - wrap -->
+                <ui:ShuttleNavControl Name="RadarScreen"
+                                 HorizontalExpand = "True"
+                                 VerticalExpand = "True"/>
+            </LayoutContainer>
+            <!-- Mono - IFF Settings -->
+            <BoxContainer Orientation="Vertical"
+                        Margin="2 2 2 2"
+                        VerticalExpand="True"
+                        HorizontalExpand="True">
 
-        <Button Name="IFFDetailedToggle"
-        Text="{Loc 'shuttle-console-iff-detailed-short'}"
-        TextAlign="Center"
-        StyleClasses="ButtonSquare"
-        ToggleMode="True"
-        VerticalExpand="False"
-        HorizontalAlignment="Left"
-        Pressed="True"/>
+                <Button Name="IFFDetailedToggle"
+                Text="{Loc 'shuttle-console-iff-detailed-short'}"
+                TextAlign="Center"
+                StyleClasses="ButtonSquare"
+                ToggleMode="True"
+                VerticalExpand="False"
+                HorizontalAlignment="Left"
+                Pressed="True"/>
 
-        <Button Name="IFFToggle"
-        Text="{Loc 'shuttle-console-iff-toggle-short'}"
-        TextAlign="Center"
-        StyleClasses="ButtonSquare"
-        ToggleMode="True"
-        VerticalExpand="False"
-        HorizontalAlignment="Left"
-        Pressed="True"/>
+                <Button Name="IFFToggle"
+                Text="{Loc 'shuttle-console-iff-toggle-short'}"
+                TextAlign="Center"
+                StyleClasses="ButtonSquare"
+                ToggleMode="True"
+                VerticalExpand="False"
+                HorizontalAlignment="Left"
+                Pressed="True"/>
 
 
-    </BoxContainer>
+            </BoxContainer>
+        </LayoutContainer>
+            <ui1:SensorsControl Name="SensorsTab" Access="Public"/>
+    </TabContainer>
 </controls:FancyWindow>

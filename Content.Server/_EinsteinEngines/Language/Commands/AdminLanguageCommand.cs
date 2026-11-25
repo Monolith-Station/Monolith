@@ -5,16 +5,13 @@ using Content.Shared._EinsteinEngines.Language.Components;
 using Content.Shared._EinsteinEngines.Language.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Toolshed;
-using Robust.Shared.Toolshed.Syntax;
-using Robust.Shared.Toolshed.TypeParsers;
 
 namespace Content.Server._EinsteinEngines.Language.Commands;
 
 [ToolshedCommand(Name = "language"), AdminCommand(AdminFlags.Admin)]
 public sealed class AdminLanguageCommand : ToolshedCommand
 {
-    private LanguageSystem? _languagesField;
-    private LanguageSystem Languages => _languagesField ??= GetSys<LanguageSystem>();
+    private LanguageSystem Languages => field ??= GetSys<LanguageSystem>();
 
     [CommandImplementation("add")]
     public EntityUid AddLanguage(
