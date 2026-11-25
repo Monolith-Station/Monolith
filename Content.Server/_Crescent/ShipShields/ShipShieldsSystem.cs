@@ -118,6 +118,7 @@ public sealed partial class ShipShieldsSystem : EntitySystem
         _projectileQuery = GetEntityQuery<ProjectileComponent>();
         _shipWeaponProjectileQuery = GetEntityQuery<ShipWeaponProjectileComponent>();
 
+        SubscribeLocalEvent<ShipShieldComponent, ProjectileReflectAttemptEvent>(OnReflectAttempt); // dont use StartCollideEvent cause projectiles already use that
         SubscribeLocalEvent<ShipShieldComponent, PreventCollideEvent>(OnPreventCollide);
         SubscribeLocalEvent<ShipShieldEmitterComponent, ComponentShutdown>(OnEmitterShutdown); // Mono
 
@@ -125,6 +126,27 @@ public sealed partial class ShipShieldsSystem : EntitySystem
         InitializeEmitters();
     }
 
+    // Mono - to make sure we check for POLYGON collision and not bounding box collision because RT optimization sucks
+    private void OnReflectAttempt(EntityUid uid, ShipShieldComponent component, ref ProjectileReflectAttemptEvent args)
+    {
+
+        if (!_shipWeaponProjectileQuery.HasComponent(args.ProjUid) ||
+        args.Component.ProjectileSpent) // check if projectile isnt valid
+        {
+        args.Cancelled = true;
+        return;
+        }
+
+        if(component.Source is { } source){ //if block taken from OnPreventCollide
+            var ev = new ShieldDeflectedEvent(args.ProjUid, args.Component);
+            RaiseLocalEvent(source, ref ev);
+            args.Cancelled = true; //dont want the projectile to trigger an explosion on the shield
+            return;
+        }
+
+        args.Cancelled = true; // just incase both if checks fail
+        return;
+    }
     private void OnPreventCollide(EntityUid uid, ShipShieldComponent component, ref PreventCollideEvent args)
     {
         // only handle ship weapons for now. engine update introduced physics regressions. Let's polish everything else and circle back yeah?
@@ -154,11 +176,13 @@ public sealed partial class ShipShieldsSystem : EntitySystem
         // why shoot the projectile again when you can just 180 its physics, tho?
         //_gun.ShootProjectile(args.OtherEntity, deflectionVector, _physicsSystem.GetMapLinearVelocity(uid), uid, null, velocity.Length());
 
-        if (component.Source is { } source)
-        {
-            var ev = new ShieldDeflectedEvent(args.OtherEntity, projectile);
-            RaiseLocalEvent(source, ref ev);
-        }
+
+        // Mono - handle collision in OnReflectAttempt instead because FUCK preventCollide collision logic
+        // if (component.Source is { } source)
+        // {
+        //     var ev = new ShieldDeflectedEvent(args.OtherEntity, projectile);
+        //     RaiseLocalEvent(source, ref ev);
+        // }
     }
 
     private void OnEmitterShutdown(EntityUid uid, ShipShieldEmitterComponent emitter, ComponentShutdown args) // Mono
@@ -222,13 +246,13 @@ public sealed partial class ShipShieldsSystem : EntitySystem
         offsetZero = new Vector2(MathF.Cos(midPoint), MathF.Sin(midPoint));
         if(mapGrid.LocalAABB.Height < mapGrid.LocalAABB.Width){ //oval shield scale X
             Log.Debug($"OFFSET X: {offsetZero.X}");
-            offsetZero *= (mapGrid.LocalAABB.Width / 2);
+            offsetZero *= ((mapGrid.LocalAABB.Width - 3) / 2); //kind of shitcode but we need shield to be a bit thick to register projectiles
             Log.Debug($"MULT OFFSET X: {offsetZero.X}");
 
         }
         else{ //oval shield scale Y
             Log.Debug($"OFFSET Y: {offsetZero.Y}");
-            offsetZero *= (mapGrid.LocalAABB.Height / 2);
+            offsetZero *= ((mapGrid.LocalAABB.Height - 3) / 2); //kind of shitcode but we need shield to be a bit thick to register projectiles
             Log.Debug($"MULT OFFSET Y: {offsetZero.X}");
         }
 

@@ -42,6 +42,7 @@ using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Roles;
 using Robust.Shared.Map.Components;
+using Content.Shared._Crescent.ShipShields;
 
 namespace Content.Server.Explosion.EntitySystems
 {
@@ -305,6 +306,9 @@ namespace Content.Server.Explosion.EntitySystems
 
         private void OnTriggerCollide(EntityUid uid, TriggerOnCollideComponent component, ref StartCollideEvent args)
         {
+            if (HasComp<ShipShieldComponent>(args.OtherEntity)){ // Mono - cause we don't want projectiles hitting shields to explode
+                return;
+            }
             if (args.OurFixtureId == component.FixtureID && (!component.IgnoreOtherNonHard || args.OtherFixture.Hard))
                 Trigger(uid, args.OtherEntity);
         }
