@@ -27733,3 +27733,27 @@ Entries:
   id: 2972
   time: '2026-11-25T18:02:12.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/5074
+- author: SuperGDPWYL
+  changes:
+    - type: Remove
+      message: >-
+        Removed Tinnia's Rest, Bahama's Mamas, Crazy Casey's Casino, Omnichurch
+        Beacon, Derelict McCargo, Edison Power Plant, The Pit and Grifty's Gas n
+        Grub. Search for dead drops at the civilian habitations, grab a drink at
+        the civilian habitations and sell gas at MMC Hokkaido.
+    - type: Remove
+      message: Cargo Depots shouldn't spawn anymore.
+    - type: Tweak
+      message: Freeport Camelot is now a valid cargo destination.
+    - type: Tweak
+      message: >-
+        Increased the maximum dead drop count on Caelestinus Central to 12 (was
+        2). Increased the maximum dead drop count on Freeport Camelot to 12 (was
+        2).
+    - type: Tweak
+      message: The bus now arrives at Freeport Camelot and Zvezda Orbital Habitation.
+    - type: Tweak
+      message: Updated the guidebook page for TSFMC counter-smuggling.
+  id: 2973
+  time: '2026-11-25T21:27:21.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5107
