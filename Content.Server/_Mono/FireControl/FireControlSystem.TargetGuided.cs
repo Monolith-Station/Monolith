@@ -54,9 +54,7 @@ public sealed partial class FireControlSystem
         // Get the shooter entity
         EntityUid? shooter = null;
         if (TryComp<ProjectileComponent>(args.FiredProjectiles[0], out var projectileComp))
-        {
             shooter = projectileComp.Shooter;
-        }
 
         // We need to get the target coordinates from the gun component
         var targetCoords = component.ShootCoordinates;
@@ -78,10 +76,7 @@ public sealed partial class FireControlSystem
 
                     // Store initial cursor position if we're seeing it for the first time
                     if (!_consoleMousePositions.ContainsKey(consoleUid))
-                    {
                         _consoleMousePositions[consoleUid] = targetCoords.Value;
-                    }
-
                     break;
                 }
             }
@@ -96,10 +91,8 @@ public sealed partial class FireControlSystem
             if (shooter.HasValue && Transform(shooter.Value).GridUid is { } shipGrid)
             {
                 if (TryComp<FTLComponent>(shipGrid, out _))
-                {
                     // Skip guidance setup if ship is in FTL
                     continue;
-                }
             }
 
             // Set up initial target for guided missile
@@ -112,6 +105,13 @@ public sealed partial class FireControlSystem
             if (controllingConsole.HasValue)
             {
                 guidedComp.ControllingConsole = controllingConsole;
+
+                var useTrack = false;
+                if (TryComp<FireControlConsoleComponent>(controllingConsole.Value, out var consoleComp))
+                {
+                    useTrack = consoleComp.RadarTrackEnabled && consoleComp.LockedTarget != null;
+                }
+                _targetGuided.SetGuidanceMode(projectileUid, useTrack, guidedComp);
             }
         }
     }
@@ -137,8 +137,9 @@ public sealed partial class FireControlSystem
         {
             if (!TryComp<TargetGuidedComponent>(missile, out var guidedComp))
                 continue;
-
             if (guidedComp.ControllingConsole != consoleUid)
+                continue;
+            if (guidedComp.UseRadarTrack)
                 continue;
 
             // Don't update position if the missile's ship is in FTL
@@ -146,9 +147,7 @@ public sealed partial class FireControlSystem
                 projectileComp.Shooter.HasValue &&
                 Transform(projectileComp.Shooter.Value).GridUid is { } shipGrid &&
                 TryComp<FTLComponent>(shipGrid, out _))
-            {
                 continue;
-            }
 
             guidedComp.TargetPosition = targetCoordinates;
         }
@@ -161,7 +160,6 @@ public sealed partial class FireControlSystem
     {
         if (_consoleMousePositions.TryGetValue(consoleUid, out var coords))
             return coords;
-
         return null;
     }
 
@@ -176,6 +174,9 @@ public sealed partial class FireControlSystem
                 !guidedComp.ControllingConsole.HasValue)
                 continue;
 
+            if (guidedComp.UseRadarTrack)
+                continue;
+
             // Get the controlling console
             var consoleUid = guidedComp.ControllingConsole.Value;
             if (!_consoleMousePositions.TryGetValue(consoleUid, out var mousePosition))
@@ -186,9 +187,7 @@ public sealed partial class FireControlSystem
                 projectileComp.Shooter.HasValue &&
                 Transform(projectileComp.Shooter.Value).GridUid is { } shipGrid &&
                 TryComp<FTLComponent>(shipGrid, out _))
-            {
                 continue;
-            }
 
             // Update the missile's target to the console's current mouse position
             _targetGuided.SetTargetPosition(missileUid, mousePosition);
@@ -209,18 +208,14 @@ public sealed partial class FireControlSystem
         {
             if (TryComp<TargetGuidedComponent>(missileUid, out var guidedComp) &&
                 guidedComp.ControllingConsole.HasValue)
-            {
                 activeConsoles.Add(guidedComp.ControllingConsole.Value);
-            }
         }
 
         // Remove positions for consoles without any missiles
         foreach (var consoleUid in _consoleMousePositions.Keys.ToList())
         {
             if (!activeConsoles.Contains(consoleUid) || !EntityManager.EntityExists(consoleUid))
-            {
                 _consoleMousePositions.Remove(consoleUid);
-            }
         }
     }
 }

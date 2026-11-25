@@ -13,6 +13,7 @@ guide-entry-gunnery = Ship Gunnery
 guide-entry-ballistics = Kinetic
 guide-entry-energy = Energy
 guide-entry-missiles = Missiles
+guide-entry-emcon = EMCON
 
 # Generic guides
 guide-entry-misc = Miscellaneous

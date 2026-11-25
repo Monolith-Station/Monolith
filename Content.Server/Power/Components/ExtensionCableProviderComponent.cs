@@ -11,7 +11,7 @@ namespace Content.Server.Power.Components
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField("transferRange")]
-        public int TransferRange { get; set; } = 3;
+        public int TransferRange { get; set; } = 10; // Mono - I moved this default up because I needed it for higher range stuff like external sensors. It shouldn't do that much in gameplay, because it takes the lower of both sides range anyways.
 
         [ViewVariables] public List<Entity<ExtensionCableReceiverComponent>> LinkedReceivers { get; } = new();
 
