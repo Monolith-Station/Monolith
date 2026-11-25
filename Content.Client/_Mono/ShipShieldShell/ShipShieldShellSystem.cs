@@ -216,7 +216,8 @@ internal sealed partial class ShipShieldShellOverlay(
             var fullyActive = phase >= 1f && _shells.IsSolid(shield);
             var radii = new Vector2(shellRadii.X, shellRadii.Y);
             var emitter = (uid, shield);
-            var centerAltitude = _zLevels.GetAbsoluteAltitude(uid) + shield.Shield.CenterHeight;
+            var emitterAltitude = _zLevels.GetAbsoluteAltitude(uid);
+            var centerAltitude = emitterAltitude + shield.Shield.CenterHeight;
             var observerHeight = observerAltitude - centerAltitude;
             var stack = _shells.GetStack(xform.MapUid);
             var (center, rotation) = _transform.GetWorldPositionRotation(uid);
@@ -228,7 +229,7 @@ internal sealed partial class ShipShieldShellOverlay(
             var bottom = -1f;
             var top = 1f;
             var underside = projected && observerTransform != null && observerTransform.MapUid != xform.MapUid &&
-                observerAltitude < centerAltitude - shield.Shield.CenterHeight;
+                observerAltitude < emitterAltitude;
             var mountedAbove = underside && entities.HasComponent<CEZTransitMapComponent>(xform.MapUid);
             bool drawMesh;
             if (mountedAbove)
@@ -259,7 +260,7 @@ internal sealed partial class ShipShieldShellOverlay(
             if (drawMesh && stack is { } network)
             {
                 ClipAgainstTerrain(network, center, rotation, shellRadii, centerAltitude,
-                    centerAltitude - shield.Shield.CenterHeight, ref bottom, ref top);
+                    emitterAltitude, ref bottom, ref top);
                 drawMesh = bottom < top;
             }
 
@@ -294,7 +295,7 @@ internal sealed partial class ShipShieldShellOverlay(
             if (drawMesh)
             {
                 surfaceShader.SetParameter("MESH_ANIMATION", animation);
-                var count = BuildProjectedShell(eye, xform.MapUid, center, rotation, shellRadii, centerAltitude,
+                var count = BuildProjectedShell(eye, xform.MapUid, center, rotation, shellRadii, centerAltitude, emitterAltitude,
                     bottom, top, interior, lookingUp, shellColor, impact: false, shellHullSplit, underside,
                     surfaceShader, shield.Visuals.SpoolOffset);
                 handle.UseShader(surfaceShader);
@@ -319,7 +320,7 @@ internal sealed partial class ShipShieldShellOverlay(
                 continue;
 
             var impactVertices = drawMesh
-                ? BuildProjectedShell(eye, xform.MapUid, center, rotation, shellRadii, centerAltitude,
+                ? BuildProjectedShell(eye, xform.MapUid, center, rotation, shellRadii, centerAltitude, emitterAltitude,
                     bottom, top, interior, lookingUp, color, impact: true, shellHullSplit, underside)
                 : 0;
             if (!drawMesh)

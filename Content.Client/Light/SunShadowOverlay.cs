@@ -1,11 +1,13 @@
 using System.Numerics;
 using Content.Client.Graphics;
 using Content.Shared.Light.Components;
+using Content.Shared.Light.EntitySystems;
 using Robust.Client.Graphics;
 using Robust.Shared.Enums;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
+using Robust.Shared.Physics.Collision.Shapes;
 using Robust.Shared.Prototypes;
 
 namespace Content.Client.Light;
@@ -13,6 +15,11 @@ namespace Content.Client.Light;
 public sealed partial class SunShadowOverlay : Overlay
 {
     private static readonly ProtoId<ShaderPrototype> MixShader = "Mix";
+    private static readonly Vector2[] TileCastPoints =
+    [
+        new(-0.5f, -0.5f), new(0.5f, -0.5f), new(0.5f, 0.5f), new(-0.5f, 0.5f),
+    ];
+    private const int MaxRoofShadowBatchVertices = 1536;
 
     public override OverlaySpace Space => OverlaySpace.BeforeLighting;
 
@@ -20,10 +27,13 @@ public sealed partial class SunShadowOverlay : Overlay
     [Dependency] private IEntityManager _entManager = default!;
     [Dependency] private IPrototypeManager _protoManager = default!;
     private readonly EntityLookupSystem _lookup;
-    private readonly SharedMapSystem _maps;
+    private readonly SharedMapSystem _mapSys;
     private readonly SharedTransformSystem _xformSys;
 
     private readonly HashSet<Entity<SunShadowCastComponent>> _shadows = new();
+    private readonly HashSet<Vector2i> _roofedTiles = new();
+    private readonly HashSet<Vector2i> _roofEntityTiles = new();
+    private readonly List<Vector2> _roofShadowVertices = new();
 
     private readonly OverlayResourceCache<CachedResources> _resources = new();
 
@@ -31,8 +41,8 @@ public sealed partial class SunShadowOverlay : Overlay
     {
         IoCManager.InjectDependencies(this);
         _xformSys = _entManager.System<SharedTransformSystem>();
+        _mapSys = _entManager.System<SharedMapSystem>();
         _lookup = _entManager.System<EntityLookupSystem>();
-        _maps = _entManager.System<SharedMapSystem>();
         ZIndex = AfterLightTargetOverlay.ContentZIndex + 1;
     }
 
@@ -47,7 +57,7 @@ public sealed partial class SunShadowOverlay : Overlay
             return;
 
         _grids.Clear();
-        _maps.FindGridsIntersecting(args.MapId,
+        _mapSys.FindGridsIntersecting(args.MapId,
             args.WorldBounds.Enlarged(SunShadowComponent.MaxLength),
             ref _grids);
 
@@ -103,6 +113,10 @@ public sealed partial class SunShadowOverlay : Overlay
                         res.Target.GetWorldToLocalMatrix(eye, scale);
                     var indices = new Vector2[PhysicsConstants.MaxPolygonVertices * 2];
 
+                    _roofedTiles.Clear();
+                    if (_entManager.TryGetComponent(grid.Owner, out RoofComponent? roof))
+                        DrawRoofShadows(worldHandle, grid, roof, expandedBounds, direction, invMatrix, indices);
+
                     // Go through shadows in range.
 
                     // For each one we:
@@ -119,27 +133,19 @@ public sealed partial class SunShadowOverlay : Overlay
                     foreach (var ent in _shadows)
                     {
                         var xform = _entManager.GetComponent<TransformComponent>(ent.Owner);
+                        if (xform.GridUid == grid.Owner &&
+                            _mapSys.TryGetTileRef(grid.Owner, grid.Comp, xform.Coordinates, out var tile) &&
+                            _roofedTiles.Contains(tile.GridIndices))
+                            continue;
+
                         var (worldPos, worldRot) = _xformSys.GetWorldPositionRotation(xform);
-                        // Need no rotation on matrix as sun shadow direction doesn't care.
-                        var worldMatrix = Matrix3x2.CreateTranslation(worldPos);
-                        var renderMatrix = Matrix3x2.Multiply(worldMatrix, invMatrix);
-                        var pointCount = ent.Comp.Points.Length;
+                        worldHandle.SetTransform(Matrix3x2.CreateTranslation(worldPos) * invMatrix);
+                        if (ent.Comp.UseFixtureBounds &&
+                            DrawFixtureShadows(ent.Owner, worldHandle, indices, worldRot, direction))
+                            continue;
 
-                        Array.Copy(ent.Comp.Points, indices, pointCount);
-
-                        for (var i = 0; i < pointCount; i++)
-                        {
-                            // Update point based on entity rotation.
-                            indices[i] = worldRot.RotateVec(indices[i]);
-
-                            // Add the offset point by the sun shadow direction.
-                            indices[pointCount + i] = indices[i] + direction;
-                        }
-
-                        var points = PhysicsHull.ComputePoints(indices, pointCount * 2);
-                        worldHandle.SetTransform(renderMatrix);
-
-                        worldHandle.DrawPrimitives(DrawPrimitiveTopology.TriangleFan, points, Color.White);
+                        ent.Comp.Points.CopyTo(indices, 0);
+                        DrawCaster(worldHandle, indices, ent.Comp.Points.Length, worldRot, direction);
                     }
                 },
                 Color.Transparent);
@@ -161,6 +167,109 @@ public sealed partial class SunShadowOverlay : Overlay
                     worldHandle.DrawTextureRect(res.Target.Texture, worldBounds, Color.Black.WithAlpha(alpha));
                 }, null);
         }
+    }
+
+    private bool DrawFixtureShadows(EntityUid uid, DrawingHandleWorld handle, Vector2[] points, Angle rotation, Vector2 direction)
+    {
+        if (!_entManager.TryGetComponent(uid, out FixturesComponent? fixtures))
+            return false;
+
+        var drew = false;
+        foreach (var fixture in fixtures.Fixtures.Values)
+        {
+            if (!fixture.Hard)
+                continue;
+
+            switch (fixture.Shape)
+            {
+                case PolygonShape { VertexCount: >= 3 and <= PhysicsConstants.MaxPolygonVertices } polygon:
+                    var vertices = polygon.Vertices;
+                    vertices.CopyTo(points, 0);
+                    DrawCaster(handle, points, vertices.Length, rotation, direction);
+                    break;
+                case PhysShapeAabb aabb:
+                    var box = aabb.LocalBounds;
+                    points[0] = box.BottomLeft;
+                    points[1] = box.BottomRight;
+                    points[2] = box.TopRight;
+                    points[3] = box.TopLeft;
+                    DrawCaster(handle, points, 4, rotation, direction);
+                    break;
+                default:
+                    continue;
+            }
+
+            drew = true;
+        }
+
+        return drew;
+    }
+
+    private static void DrawCaster(DrawingHandleWorld handle, Vector2[] points, int count, Angle rotation, Vector2 direction)
+    {
+        for (var i = 0; i < count; i++)
+        {
+            points[i] = rotation.RotateVec(points[i]);
+            points[count + i] = points[i] + direction;
+        }
+
+        var hull = PhysicsHull.ComputePoints(points, count * 2);
+        if (hull.Length >= 3)
+            handle.DrawPrimitives(DrawPrimitiveTopology.TriangleFan, hull, Color.White);
+    }
+
+    private void DrawRoofShadows(DrawingHandleWorld handle, Entity<MapGridComponent> grid, RoofComponent roof,
+        Box2Rotated bounds, Vector2 direction, Matrix3x2 worldToTarget, Vector2[] points)
+    {
+        var size = grid.Comp.TileSize;
+        var gridMatrix = _xformSys.GetWorldMatrix(grid.Owner);
+        for (var i = 0; i < TileCastPoints.Length; i++)
+        {
+            points[i] = Vector2.TransformNormal(TileCastPoints[i] * size, gridMatrix);
+            points[i + TileCastPoints.Length] = points[i] + direction;
+        }
+
+        var hull = PhysicsHull.ComputePoints(points, TileCastPoints.Length * 2);
+        if (hull.Length < 3)
+            return;
+
+        _roofEntityTiles.Clear();
+        var roofEntities = _entManager.EntityQueryEnumerator<IsRoofComponent, TransformComponent>();
+        while (roofEntities.MoveNext(out var uid, out var isRoof, out var xform))
+        {
+            if (isRoof.Enabled && xform.GridUid == grid.Owner &&
+                (!_entManager.TryGetComponent(uid, out SunShadowCastComponent? caster) || !caster.UseFixtureBounds))
+                _roofEntityTiles.Add(_mapSys.TileIndicesFor(grid, xform.Coordinates));
+        }
+
+        var tiles = _mapSys.GetTilesEnumerator(grid.Owner, grid, bounds);
+        _roofShadowVertices.Clear();
+        handle.SetTransform(worldToTarget);
+        while (tiles.MoveNext(out var tile))
+        {
+            var index = tile.GridIndices;
+            if (!SharedRoofSystem.HasRoofFlag(roof, index) && !_roofEntityTiles.Contains(index))
+                continue;
+
+            _roofedTiles.Add(index);
+            if (_roofShadowVertices.Count + (hull.Length - 2) * 3 > MaxRoofShadowBatchVertices)
+            {
+                handle.DrawPrimitives(DrawPrimitiveTopology.TriangleList, _roofShadowVertices, Color.White);
+                _roofShadowVertices.Clear();
+            }
+
+            var center = Vector2.Transform((new Vector2(index.X, index.Y) + new Vector2(0.5f)) * size, gridMatrix);
+            for (var i = 1; i < hull.Length - 1; i++)
+            {
+                _roofShadowVertices.Add(center + hull[0]);
+                _roofShadowVertices.Add(center + hull[i]);
+                _roofShadowVertices.Add(center + hull[i + 1]);
+            }
+        }
+
+        if (_roofShadowVertices.Count > 0)
+            handle.DrawPrimitives(DrawPrimitiveTopology.TriangleList, _roofShadowVertices, Color.White);
+        _roofShadowVertices.Clear();
     }
 
     protected override void DisposeBehavior()

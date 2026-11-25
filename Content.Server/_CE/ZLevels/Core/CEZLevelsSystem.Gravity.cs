@@ -7,6 +7,7 @@ using Content.Server._CE.ZLevels.Core.Components;
 using Content.Server._Crescent.ShipShields;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Gravity;
+using Content.Shared._CE.Camera;
 using Content.Shared._CE.ZLevels.Core.Components;
 using Content.Shared._CE.ZLevels.Core.EntitySystems;
 using Content.Shared._FarHorizons.StarSystem;
@@ -15,9 +16,11 @@ using Content.Shared.Gravity;
 using Content.Shared.Maps;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
+using Robust.Shared.Player;
 
 namespace Content.Server._CE.ZLevels.Core;
 
@@ -337,8 +340,8 @@ public sealed partial class CEZLevelsSystem
                 {
                     if (distanceBelow <= TouchdownProgress && MathF.Abs(faller.Velocity) <= ExitTransitMaxSpeed)
                     {
-                        faller.Velocity = 0f;
-                        TryExitTransit(grid, up: false);
+                        if (!TryExitTransit(grid, up: false))
+                            faller.Velocity = 0f;
                         return;
                     }
 
@@ -351,8 +354,8 @@ public sealed partial class CEZLevelsSystem
                 {
                     if (distanceAbove <= TouchdownProgress && MathF.Abs(faller.Velocity) <= ExitTransitMaxSpeed)
                     {
-                        faller.Velocity = 0f;
-                        TryExitTransit(grid, up: true);
+                        if (!TryExitTransit(grid, up: true))
+                            faller.Velocity = 0f;
                         return;
                     }
 
@@ -403,40 +406,64 @@ public sealed partial class CEZLevelsSystem
         }
         // Mono End
 
-        if (!SetTransitAltitude(grid, altitude))
+        SetTransitAltitude(grid, altitude);
+    }
+
+    private void HandleGridTouchdown(EntityUid map, HashSet<EntityUid> grids, float impact, float crashSpeed)
+    {
+        if (impact <= 0f)
             return;
 
-        // Still airborne?
-        if (HasComp<CEZTransitMapComponent>(Transform(grid).MapUid))
-            return;
+        var hasGround = false;
+        var damagingImpact = false;
+        SoundSpecifier? landingSound = null;
+        var soundGrid = EntityUid.Invalid;
+        var filter = Filter.Empty();
 
-        var impact = faller.Velocity;
-        faller.Velocity = 0f;
-
-        // Only a landing that ended ON terrain is a crash; setting down over open sky isn't.
-        if (impact < faller.GridCrashVelocity
-            || Transform(grid).MapUid is not { } landedMap
-            || !HasGroundUnderFootprint(grid, landedMap, out var damagingImpact, out var landingSound, checkImpact: true))
+        foreach (var uid in grids)
         {
-            return;
+            filter.AddInGrid(uid, EntityManager);
+            if (!TryComp<MapGridComponent>(uid, out var grid) ||
+                !HasGroundUnderFootprint((uid, grid), map, out var damages, out var sound, checkImpact: true))
+                continue;
+
+            hasGround = true;
+            damagingImpact |= damages;
+            filter.AddPlayersByPvs(new EntityCoordinates(uid, grid.LocalAABB.Center), entityMan: EntityManager);
+            if (landingSound == null && sound != null)
+            {
+                landingSound = sound;
+                soundGrid = uid;
+            }
         }
 
-        if (landingSound != null)
-            _landingAudio.PlayPvs(landingSound, grid);
-        if (!damagingImpact)
+        if (!hasGround)
             return;
 
-        foreach (var landedUid in transitSet)
+        var absorbed = false;
+        if (impact >= crashSpeed)
         {
-            if (TryComp<MapGridComponent>(landedUid, out var landedGrid) && TryComp<CEZGridFallerComponent>(landedUid, out var landedFaller))
-                CrashGrid((landedUid, landedGrid, landedFaller));
+            if (landingSound != null)
+                _landingAudio.PlayPvs(landingSound, soundGrid);
+
+            if (damagingImpact)
+            {
+                foreach (var uid in grids)
+                {
+                    if (TryComp<MapGridComponent>(uid, out var grid) && TryComp<CEZGridFallerComponent>(uid, out var faller))
+                        absorbed |= CrashGrid((uid, grid, faller));
+                }
+            }
         }
+
+        var amplitude = MathF.Min(impact * 0.8f, 0.8f);
+        RaiseNetworkEvent(new RadialShakeEvent { Amplitude = amplitude * (absorbed ? 1.5f : 1f) }, filter);
     }
 
     /// <summary>
-    /// kaboom?
+    /// Kaboom?
     /// </summary>
-    private void CrashGrid(Entity<MapGridComponent, CEZGridFallerComponent> ent)
+    private bool CrashGrid(Entity<MapGridComponent, CEZGridFallerComponent> ent)
     {
         var tileCount = 0;
         var counter = _map.GetAllTilesEnumerator(ent, ent.Comp1);
@@ -444,11 +471,11 @@ public sealed partial class CEZLevelsSystem
             tileCount++;
 
         if (tileCount == 0)
-            return;
+            return false;
 
         var totalIntensity = tileCount * (ent.Comp2.CrashTileIntensity + ent.Comp2.CrashIntensityPerTile);
         if (_shipShields.TryAbsorbCrash(ent, totalIntensity))
-            return;
+            return true;
 
         var tiles = _map.GetAllTilesEnumerator(ent, ent.Comp1);
         while (tiles.MoveNext(out var tileRef))
@@ -468,6 +495,7 @@ public sealed partial class CEZLevelsSystem
             ent.Comp2.CrashIntensityPerTile * tileCount,
             ent.Comp2.CrashCenterSlope,
             ent.Comp2.CrashCenterMaxIntensity);
+        return false;
     }
 
     /// <summary>

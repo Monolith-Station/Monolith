@@ -10,6 +10,9 @@ namespace Content.Shared.Light.Components;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class SunShadowCastComponent : Component
 {
+    [DataField]
+    public bool UseFixtureBounds;
+
     /// <summary>
     /// Points that will be extruded to draw the shadow color.
     /// Max <see cref="PhysicsConstants.MaxPolygonVertices"/>

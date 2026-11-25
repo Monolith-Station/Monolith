@@ -3,6 +3,8 @@ using System.Linq;
 using Content.Shared._CE.ZLevels.Core.Components;
 using Content.Shared._FarHorizons.StarSystem.Prototypes;
 using Content.Shared._Mono.Planets;
+using Content.Shared.Administration.Logs;
+using Content.Shared.Database;
 using Content.Shared.Ghost;
 using Content.Shared.Mind.Components;
 using Content.Shared.Storage;
@@ -12,6 +14,7 @@ using Robust.Shared.EntitySerialization;
 using Robust.Shared.EntitySerialization.Components;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Map.Events;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -32,6 +35,7 @@ public sealed partial class PlanetPersistenceSystem
     [Dependency] private IComponentFactory _components = default!;
     [Dependency] private ISerializationManager _serialization = default!;
     [Dependency] private MapLoaderSystem _loader = default!;
+    [Dependency] private ISharedAdminLogManager _stackAdminLog = default!;
 
     private static ResPath StackPath(ResPath folder) => folder / "map" / "stack.yml";
 
@@ -375,19 +379,28 @@ public sealed partial class PlanetPersistenceSystem
                 pair => int.Parse(((ValueDataNode) pair.Value).Value, CultureInfo.InvariantCulture));
             if (depths.Count != definition.Layers.Count ||
                 !Enumerable.Range(definition.BaseDepth, definition.Layers.Count).All(depths.ContainsKey))
-                throw new InvalidOperationException("Saved depths do not match the planet's Z-levels.");
+                throw new InvalidOperationException("Saved depths do not match the planet's Z-levels. If the planet definition updated you may need to remove all backups.");
 
             var options = new MapLoadOptions
             {
                 ExpectedCategory = FileCategory.Save,
                 DeserializationOptions = DeserializationOptions.Default with { StoreYamlUids = true, LogInvalidEntities = false },
             };
+            string? prototypeLoss = null;
             if (!_loader.TryLoadGeneric(stack, path.ToString(), out loaded, options))
-                throw new InvalidOperationException("Map loader rejected the saved stack.");
+            {
+                prototypeLoss = OmitMissingPrototypeTrees(stack, depths.Values);
+                if (prototypeLoss == null)
+                    throw new InvalidOperationException("Map loader rejected the saved stack.");
+
+                _sawmill.Warning($"Retrying planet stack {path} after prototype loss: {prototypeLoss}");
+                if (!_loader.TryLoadGeneric(stack, path.ToString(), out loaded, options))
+                    throw new InvalidOperationException("Map loader rejected the saved stack after omitting missing prototypes.");
+            }
 
             var maps = loaded.Maps.ToDictionary(map => Comp<YamlUidComponent>(map).Uid, map => map.Owner);
             if (maps.Count != depths.Count || !depths.Values.ToHashSet().SetEquals(maps.Keys))
-                throw new InvalidOperationException("Saved maps do not match the planet's Z-levels.");
+                throw new InvalidOperationException("Saved maps do not match the planet's Z-levels. If the planet definition updated you may need to remove all backups.");
 
             var layers = depths.ToDictionary(pair => pair.Key, pair => maps[pair.Value]);
             Entity<CEZMapNetworkComponent>? network = null;
@@ -408,6 +421,12 @@ public sealed partial class PlanetPersistenceSystem
             var resetIds = metadata.Cast<SequenceDataNode>("resets").Cast<ValueDataNode>()
                 .Select(node => int.Parse(node.Value, CultureInfo.InvariantCulture)).ToHashSet();
             var resets = loaded.Entities.Where(uid => TryComp<YamlUidComponent>(uid, out var yaml) && resetIds.Contains(yaml.Uid)).ToList();
+            if (prototypeLoss != null)
+            {
+                _stackAdminLog.Add(LogType.Action, LogImpact.High,
+                    $"DEFCON 5 - Planet {planet.ID} loaded with prototype loss. Check server logs for {path}.");
+                AlertAdmins("planet-prototype-loss-admin", planet.ID);
+            }
             return (network, layers, resets);
         }
         catch (Exception e)
@@ -418,6 +437,98 @@ public sealed partial class PlanetPersistenceSystem
             _sawmill.Error($"Could not reload planet stack at {path}: {e}");
             throw;
         }
+    }
+
+    private string? OmitMissingPrototypeTrees(MappingDataNode stack, IEnumerable<int> requiredMaps)
+    {
+        if (stack.Cast<MappingDataNode>("meta").Cast<ValueDataNode>("format").AsInt() != EntitySerializer.MapFormatVersion)
+            return null;
+
+        var migrations = new BeforeEntityReadEvent();
+        RaiseLocalEvent(migrations);
+        var groups = stack.Cast<SequenceDataNode>("entities");
+        var omitted = new HashSet<int>();
+        var missing = new List<string>();
+        foreach (var group in groups.Cast<MappingDataNode>())
+        {
+            if (!group.TryGet<ValueDataNode>("proto", out var proto) || string.IsNullOrWhiteSpace(proto.Value))
+                continue;
+
+            var id = migrations.RenamedPrototypes.GetValueOrDefault(proto.Value, proto.Value);
+            if (migrations.DeletedPrototypes.Contains(id) || _prototypes.HasIndex<EntityPrototype>(id))
+                continue;
+
+            var entries = group.Cast<SequenceDataNode>("entities");
+            missing.Add($"{id} ({entries.Count})");
+            foreach (var entry in entries.Cast<MappingDataNode>())
+                omitted.Add(entry.Cast<ValueDataNode>("uid").AsInt());
+        }
+
+        if (omitted.Count == 0)
+            return null;
+
+        var children = new Dictionary<int, List<int>>();
+        foreach (var group in groups.Cast<MappingDataNode>())
+        foreach (var entry in group.Cast<SequenceDataNode>("entities").Cast<MappingDataNode>())
+        {
+            if (!entry.TryGet<SequenceDataNode>("components", out var components))
+                continue;
+
+            foreach (var component in components.Cast<MappingDataNode>())
+            {
+                if (component.Cast<ValueDataNode>("type").Value != "Transform" ||
+                    !component.TryGet<ValueDataNode>("parent", out var parent) ||
+                    !int.TryParse(parent.Value, CultureInfo.InvariantCulture, out var parentId))
+                    continue;
+
+                if (!children.TryGetValue(parentId, out var childIds))
+                    children.Add(parentId, childIds = new());
+                childIds.Add(entry.Cast<ValueDataNode>("uid").AsInt());
+                break;
+            }
+        }
+
+        var pending = new Queue<int>(omitted);
+        while (pending.TryDequeue(out var parent))
+        {
+            if (!children.TryGetValue(parent, out var childIds))
+                continue;
+
+            foreach (var child in childIds)
+            {
+                if (omitted.Add(child))
+                    pending.Enqueue(child);
+            }
+        }
+
+        if (requiredMaps.Any(omitted.Contains) ||
+            stack.Cast<SequenceDataNode>("maps").Cast<ValueDataNode>().Any(node => omitted.Contains(node.AsInt())))
+            throw new InvalidOperationException($"Missing prototypes affect a saved map: {string.Join(", ", missing)}.");
+
+        for (var i = groups.Count - 1; i >= 0; i--)
+        {
+            var entries = ((MappingDataNode) groups[i]).Cast<SequenceDataNode>("entities");
+            for (var j = entries.Count - 1; j >= 0; j--)
+            {
+                if (omitted.Contains(((MappingDataNode) entries[j]).Cast<ValueDataNode>("uid").AsInt()))
+                    entries.RemoveAt(j);
+            }
+
+            if (entries.Count == 0)
+                groups.RemoveAt(i);
+        }
+
+        foreach (var key in new[] { "grids", "orphans", "nullspace" })
+        {
+            var ids = stack.Cast<SequenceDataNode>(key);
+            for (var i = ids.Count - 1; i >= 0; i--)
+            {
+                if (omitted.Contains(((ValueDataNode) ids[i]).AsInt()))
+                    ids.RemoveAt(i);
+            }
+        }
+
+        return $"{omitted.Count} entities including descendants; missing prototypes: {string.Join(", ", missing)}";
     }
 
     private sealed class ComponentWriteContext(EntitySerializer serializer, params object[] serializers) : ISerializationContext

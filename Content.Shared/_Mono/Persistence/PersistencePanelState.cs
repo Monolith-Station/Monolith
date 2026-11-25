@@ -16,7 +16,7 @@ public sealed record PlanetPersistenceSummary(string Id, string Name, PlanetPers
     PlanetPersistenceFlag[] Flags, bool SavesEnabled, TimeSpan? NextSaveAt, PlanetSaveSummary[] Saves);
 
 [Serializable, NetSerializable]
-public sealed record PlanetSaveSummary(string Id, int Round, int Seed, bool Final, string SavedAt, string Mode, bool CanDelete);
+public sealed record PlanetSaveSummary(string Id, int Round, int Seed, bool Final, string SavedAt, string Mode);
 
 [Serializable, NetSerializable]
 public sealed class SetPlanetSavesEnabled(string planetId, bool enabled) : EuiMessageBase

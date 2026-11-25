@@ -127,13 +127,14 @@ public abstract partial class CESharedZLevelsSystem
             var max = mapCoords.Position + half;
             var aabb = new Box2(min, max);
 
-            var entities = _lookup.GetEntitiesIntersecting(mapCoords.MapId, aabb);
+            var entities = _lookup.GetEntitiesIntersecting(mapCoords.MapId, aabb, LookupFlags.Uncontained);
             foreach (var uid in entities)
             {
                 if (!ZPhysicsQuery.TryComp(uid, out var zComp))
                     continue;
 
                 RequestCacheMovement((uid, zComp));
+                RefreshBody((uid, zComp));
             }
         }
     }
@@ -162,8 +163,7 @@ public abstract partial class CESharedZLevelsSystem
 
     private void OnZLevelMapMove(Entity<CEZPhysicsComponent> ent, ref CEZLevelMapMoveEvent args)
     {
-        ent.Comp.CurrentZLevel = args.CurrentZLevel;
-        DirtyField(ent, ent.Comp, nameof(CEZPhysicsComponent.CurrentZLevel));
+        SyncCurrentZLevel(ent, args.CurrentZLevel);
         RequestCacheMovement(ent);
     }
 

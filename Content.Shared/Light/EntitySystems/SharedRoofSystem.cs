@@ -20,22 +20,10 @@ public abstract partial class SharedRoofSystem : EntitySystem
     /// </summary>
     /// <returns>Returns false if no data or not rooved.</returns>
     [Pure]
-    public bool IsRooved(Entity<MapGridComponent, RoofComponent> grid, Vector2i index)
+    public bool IsRooved(Entity<MapGridComponent, RoofComponent> grid, Vector2i index, bool includeZLevels = true)
     {
-        var roof = grid.Comp2;
-        var chunkOrigin = SharedMapSystem.GetChunkIndices(index, RoofComponent.ChunkSize);
-
-        if (roof.Data.TryGetValue(chunkOrigin, out var bitMask))
-        {
-            var chunkRelative = SharedMapSystem.GetChunkRelative(index, RoofComponent.ChunkSize);
-            var bitFlag = (ulong) 1 << (chunkRelative.X + chunkRelative.Y * RoofComponent.ChunkSize);
-
-            var isRoof = (bitMask & bitFlag) == bitFlag;
-
-            // Early out, otherwise check for components on tile.
-            if (isRoof)
-                return true;
-        }
+        if (HasRoofFlag(grid.Comp2, index, includeZLevels))
+            return true;
 
         _roofSet.Clear();
         _lookup.GetLocalEntitiesIntersecting(grid.Owner, index, _roofSet);
@@ -55,21 +43,8 @@ public abstract partial class SharedRoofSystem : EntitySystem
     public Color? GetColor(Entity<MapGridComponent, RoofComponent> grid, Vector2i index)
     {
         var roof = grid.Comp2;
-        var chunkOrigin = SharedMapSystem.GetChunkIndices(index, RoofComponent.ChunkSize);
-
-        if (roof.Data.TryGetValue(chunkOrigin, out var bitMask))
-        {
-            var chunkRelative = SharedMapSystem.GetChunkRelative(index, RoofComponent.ChunkSize);
-            var bitFlag = (ulong) 1 << (chunkRelative.X + chunkRelative.Y * RoofComponent.ChunkSize);
-
-            var isRoof = (bitMask & bitFlag) == bitFlag;
-
-            // Early out, otherwise check for components on tile.
-            if (isRoof)
-            {
-                return roof.Color;
-            }
-        }
+        if (HasRoofFlag(roof, index, includeZLevels: true))
+            return roof.Color;
 
         _roofSet.Clear();
         _lookup.GetLocalEntitiesIntersecting(grid.Owner, index, _roofSet);
@@ -83,6 +58,18 @@ public abstract partial class SharedRoofSystem : EntitySystem
         }
 
         return null;
+    }
+
+    public static bool HasRoofFlag(RoofComponent roof, Vector2i index, bool includeZLevels = true)
+    {
+        var chunk = SharedMapSystem.GetChunkIndices(index, RoofComponent.ChunkSize);
+        var mask = roof.Data.GetValueOrDefault(chunk);
+        if (includeZLevels)
+            mask |= roof.ZLevelData.GetValueOrDefault(chunk);
+
+        var relative = SharedMapSystem.GetChunkRelative(index, RoofComponent.ChunkSize);
+        var bit = 1UL << (relative.X + relative.Y * RoofComponent.ChunkSize);
+        return (mask & bit) != 0;
     }
 
     public void SetRoof(Entity<MapGridComponent?, RoofComponent?> grid, Vector2i index, bool value)

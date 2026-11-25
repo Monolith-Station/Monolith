@@ -129,7 +129,7 @@ public sealed partial class PlanetPersistenceSystem
                         continue;
 
                     saves.Add(new PlanetSaveSummary(entry, round, seed, bool.TryParse(Field("final"), out var final) && final,
-                        Field("savedAt") ?? "-", Field("persistence") ?? "-", CanDeleteSave(planetId, entry)));
+                        Field("savedAt") ?? "-", Field("persistence") ?? "-"));
                     if (saves.Count == limit)
                         break;
 

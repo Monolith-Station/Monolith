@@ -8,6 +8,7 @@ using Content.Shared._CE.ZLevels.Core.Components;
 using Content.Shared._CE.ZLevels.Core.Events;
 using Content.Shared.Actions;
 using Content.Shared.Maps;
+using Content.Shared.Popups;
 using JetBrains.Annotations;
 using Robust.Shared.Map;
 
@@ -17,6 +18,7 @@ public abstract partial class CESharedZLevelsSystem
 {
     [Dependency] protected ITileDefinitionManager TilDefMan = null!;
     [Dependency] private SharedActionsSystem _lookUpActions = default!;
+    [Dependency] private SharedPopupSystem _lookUpPopup = default!;
 
     private void InitializeView()
     {
@@ -29,6 +31,12 @@ public abstract partial class CESharedZLevelsSystem
             return;
 
         args.Handled = true;
+
+        if (!entity.Comp.LookUp && (Transform(entity).MapUid is not { } map || !TryMapUp(map, out _)))
+        {
+            _lookUpPopup.PopupClient(Loc.GetString("ce-zlevel-look-up-empty"), entity, entity);
+            return;
+        }
 
         entity.Comp.LookUp = !entity.Comp.LookUp;
         DirtyField(entity, entity.Comp, nameof(CEZLevelViewerComponent.LookUp));

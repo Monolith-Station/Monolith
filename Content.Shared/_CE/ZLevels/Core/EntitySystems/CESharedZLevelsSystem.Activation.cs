@@ -33,17 +33,7 @@ public abstract partial class CESharedZLevelsSystem
     private void OnMapInit(Entity<CEZPhysicsComponent> entity, ref MapInitEvent args)
     {
         RefreshBody(entity);
-
-        var mapUid = Transform(entity).MapUid;
-
-        if (!_zMapQuery.TryComp(mapUid, out var zLevel))
-            return;
-
-        if (entity.Comp.CurrentZLevel == zLevel.Depth)
-            return;
-
-        entity.Comp.CurrentZLevel = zLevel.Depth;
-        DirtyField(entity, entity.Comp, nameof(CEZPhysicsComponent.CurrentZLevel));
+        SyncCurrentZLevel(entity);
     }
 
     private void OnShutdown(Entity<CEZPhysicsComponent> entity, ref ComponentShutdown args)
@@ -64,6 +54,8 @@ public abstract partial class CESharedZLevelsSystem
     private void OnParentChanged(Entity<CEZPhysicsComponent> entity, ref EntParentChangedMessage args)
     {
         RefreshBody(entity);
+        SyncCurrentZLevel(entity);
+
         if (!IsDirectlyOnGridOrMap(Transform(entity)))
         {
             SetProjectileFlight(entity, false);
@@ -88,6 +80,17 @@ public abstract partial class CESharedZLevelsSystem
 
         if (entity.Comp.LocalPosition != 0f && (leftZNetwork || !entity.Comp.VelocityGravity))
             ResetZState(entity);
+    }
+
+    private void SyncCurrentZLevel(Entity<CEZPhysicsComponent> entity, int? transitDepth = null)
+    {
+        // Transit maps have no fixed depth; their move event supplies it.
+        var depth = _zMapQuery.TryComp(Transform(entity).MapUid, out var zLevel) ? zLevel.Depth : transitDepth;
+        if (depth is not { } level || entity.Comp.CurrentZLevel == level)
+            return;
+
+        entity.Comp.CurrentZLevel = level;
+        DirtyField(entity, entity.Comp, nameof(CEZPhysicsComponent.CurrentZLevel));
     }
 
     private void ResetZState(Entity<CEZPhysicsComponent> entity)

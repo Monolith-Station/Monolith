@@ -272,15 +272,8 @@ public sealed partial class PlanetPersistenceSystem : EntitySystem
         }
     }
 
-    private bool CanDeleteSave(string planetId, string folder) =>
-        _roundStartedAt is not { } startedAt || folder != RoundFolder(startedAt, _ticker.RoundId) ||
-        _finalSaves.Contains(planetId);
-
     private string? DeleteSave(string planetId, string name, bool confirm, ICommonSession? admin = null)
     {
-        if (!CanDeleteSave(planetId, name))
-            return Loc.GetString("planet-save-delete-current");
-
         var folder = Root / planetId / name;
         if (!confirm)
             return Loc.GetString("planet-save-delete-confirm", ("folder", folder.ToString()));

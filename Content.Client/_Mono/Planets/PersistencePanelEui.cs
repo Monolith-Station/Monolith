@@ -130,9 +130,7 @@ public sealed partial class PersistencePanelEui : BaseEui
                 Text = Loc.GetString("persistence-panel-save-round", ("round", save.Round)),
                 HorizontalExpand = true,
             });
-            var delete = new Button { Text = Loc.GetString("persistence-panel-delete"), Disabled = !save.CanDelete };
-            if (!save.CanDelete)
-                delete.ToolTip = Loc.GetString("planet-save-delete-current");
+            var delete = new Button { Text = Loc.GetString("persistence-panel-delete") };
             delete.OnPressed += _ => ConfirmDelete(planet, save, date);
             header.AddChild(delete);
             card.AddChild(header);

@@ -2,7 +2,6 @@ using System.Numerics;
 using Content.Client._CE.ZLevels.Core.Overlays;
 using Content.Client.Viewport;
 using Content.Shared._CE.ZLevels.Core.Components;
-using Content.Shared._CE.ZLevels.Core.EntitySystems;
 using Content.Shared._Mono.Ships;
 using Content.Shared.Maps;
 using Robust.Client.Graphics;
@@ -157,19 +156,17 @@ internal sealed partial class ShipShieldShellOverlay
     }
 
     private int BuildProjectedShell(IEye eye, EntityUid? emitterMap, Vector2 center, Angle rotation,
-        Vector3 radii, float altitude, float bottom, float top, float interior, bool lookingUp, Color color, bool impact,
+        Vector3 radii, float altitude, float emitterAltitude, float bottom, float top, float interior, bool lookingUp, Color color, bool impact,
         bool? aboveHull, bool underside, ShaderInstance? surfaceShader = null, Vector2 spoolOffset = default)
     {
         var pass = _zPass!.Value;
         entities.TryGetComponent(emitterMap, out CEZTransitMapComponent? transitMap);
-        // Hull planes cut the mesh for draw order; only the emitter determines its projection.
-        var referenceAltitude = transitMap != null
-            ? Math.Clamp(_zLevels.GetAbsoluteAltitude(emitterMap!.Value), altitude - radii.Z, altitude + radii.Z)
-            : altitude;
-        var referenceDepth = referenceAltitude - pass.VisualAltitude;
+        // Project from the shell's actual center; hull planes only cut the mesh for draw order.
+        var referenceDepth = altitude - pass.VisualAltitude;
         var (referenceScale, referenceOffset) = ScalingViewport.ZProjection(referenceDepth, pass.Anchor);
         var baseEye = pass.BaseEye;
-        var referenceCenter = baseEye.Position.Position + baseEye.Offset + (-baseEye.Rotation).ToWorldVec() * referenceOffset;
+        var cameraAxis = (-baseEye.Rotation).ToWorldVec();
+        var referenceCenter = baseEye.Position.Position + baseEye.Offset + cameraAxis * referenceOffset;
         var scale = baseEye.Scale * referenceScale;
         var referenceView = Matrix3Helpers.CreateInverseTransform(
             referenceCenter.X, referenceCenter.Y, -baseEye.Rotation.Theta, 1f / scale.X, 1f / scale.Y);
@@ -181,8 +178,8 @@ internal sealed partial class ShipShieldShellOverlay
         var toPass = referenceView * inversePassView;
         var passCenter = Vector2.Transform(center, toPass);
         var xyRadii = new Vector2(radii.X, radii.Y);
-        var heightOffset = (-baseEye.Rotation).RotateVec(Vector2.UnitY) *
-            (CESharedZLevelsSystem.ZLevelOffset * radii.Z);
+        var topOffset = ScalingViewport.ZProjection(referenceDepth + radii.Z, pass.Anchor).Offset;
+        var heightOffset = cameraAxis * (referenceOffset - topOffset);
         var heightAxis = Vector2.TransformNormal(heightOffset, toPass);
         // The projection's view direction in normalized ellipsoid coordinates.
         var localHeight = (-rotation).RotateVec(heightOffset) / xyRadii;
@@ -190,11 +187,11 @@ internal sealed partial class ShipShieldShellOverlay
         if (underside)
             viewDirection = -viewDirection;
 
-        if (surfaceShader != null && emitterMap is { } map)
+        if (surfaceShader != null)
         {
-            var emitterDepth = _zLevels.GetAbsoluteAltitude(map) - pass.VisualAltitude;
+            var emitterDepth = emitterAltitude - pass.VisualAltitude;
             var (emitterScale, emitterOffset) = ScalingViewport.ZProjection(emitterDepth, pass.Anchor);
-            var emitterEyeCenter = referenceCenter + (-baseEye.Rotation).ToWorldVec() * (emitterOffset - referenceOffset);
+            var emitterEyeCenter = referenceCenter + cameraAxis * (emitterOffset - referenceOffset);
             var originOffset = referenceCenter - center + (center - emitterEyeCenter) * (emitterScale / referenceScale);
             var origin = ((-rotation).RotateVec(originOffset) + spoolOffset * (emitterScale / referenceScale)) / xyRadii;
             surfaceShader.SetParameter("MESH_PROJECTION", new Vector4(localHeight.X, localHeight.Y, origin.X, origin.Y));

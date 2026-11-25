@@ -3,17 +3,21 @@ using Content.Client.Viewport;
 using Content.Shared.Light.Components;
 using Content.Shared.Light.EntitySystems;
 using Content.Shared.Maps;
+using Content.Shared.Tag;
 using Robust.Client.Graphics;
 using Robust.Shared.Enums;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Map.Enumerators;
 using Robust.Shared.Physics;
+using Robust.Shared.Physics.Collision.Shapes;
+using Robust.Shared.Prototypes;
 
 namespace Content.Client.Light;
 
 public sealed partial class RoofOverlay : Overlay
 {
+    private static readonly ProtoId<TagPrototype> DiagonalTag = "Diagonal";
     private readonly IEntityManager _entManager;
     [Dependency] private IOverlayManager _overlay = default!;
 
@@ -21,6 +25,7 @@ public sealed partial class RoofOverlay : Overlay
     private readonly SharedMapSystem _mapSystem;
     private readonly SharedRoofSystem _roof = default!;
     private readonly SharedTransformSystem _xformSystem;
+    private readonly TagSystem _tags;
 
     private List<Entity<MapGridComponent>> _grids = new();
 
@@ -37,6 +42,7 @@ public sealed partial class RoofOverlay : Overlay
         _mapSystem = _entManager.System<SharedMapSystem>();
         _roof = _entManager.System<SharedRoofSystem>();
         _xformSystem = _entManager.System<SharedTransformSystem>();
+        _tags = _entManager.System<TagSystem>();
 
         ZIndex = ContentZIndex;
     }
@@ -82,6 +88,9 @@ public sealed partial class RoofOverlay : Overlay
 
                     while (tileEnumerator.MoveNext(out var tileRef))
                     {
+                        if (DrawDiagonalRoof(worldHandle, grid, tileRef.GridIndices, matty, color))
+                            continue;
+
                         var local = _lookup.GetLocalBounds(tileRef, grid.Comp.TileSize);
                         worldHandle.DrawRect(local, color);
                     }
@@ -118,6 +127,10 @@ public sealed partial class RoofOverlay : Overlay
                             continue;
                         }
 
+                        if (!SharedRoofSystem.HasRoofFlag(roof, tileRef.GridIndices) &&
+                            DrawDiagonalRoof(worldHandle, grid, tileRef.GridIndices, matty, color.Value, entityRoofOnly: true))
+                            continue;
+
                         var local = _lookup.GetLocalBounds(tileRef, grid.Comp.TileSize);
                         worldHandle.DrawRect(local, color.Value);
                     }
@@ -125,5 +138,35 @@ public sealed partial class RoofOverlay : Overlay
             }, null);
 
         worldHandle.SetTransform(Matrix3x2.Identity);
+    }
+
+    private bool DrawDiagonalRoof(DrawingHandleWorld handle, Entity<MapGridComponent> grid, Vector2i tile,
+        Matrix3x2 gridToTarget, Color color, bool entityRoofOnly = false)
+    {
+        var anchored = _mapSystem.GetAnchoredEntitiesEnumerator(grid.Owner, grid, tile);
+        var drew = false;
+        while (anchored.MoveNext(out var uid))
+        {
+            if (!_tags.HasTag(uid.Value, DiagonalTag) ||
+                !_entManager.TryGetComponent(uid, out FixturesComponent? fixtures) ||
+                !_entManager.TryGetComponent(uid, out TransformComponent? xform) ||
+                (entityRoofOnly && (!_entManager.TryGetComponent(uid, out IsRoofComponent? roof) || !roof.Enabled)))
+                continue;
+
+            foreach (var fixture in fixtures.Fixtures.Values)
+            {
+                if (!fixture.Hard || fixture.Shape is not PolygonShape polygon)
+                    continue;
+
+                handle.SetTransform(xform.LocalMatrix * gridToTarget);
+                var vertices = polygon.Vertices;
+                handle.DrawPrimitives(DrawPrimitiveTopology.TriangleFan, vertices.AsSpan(), color);
+                drew = true;
+            }
+        }
+
+        if (drew)
+            handle.SetTransform(gridToTarget);
+        return drew;
     }
 }

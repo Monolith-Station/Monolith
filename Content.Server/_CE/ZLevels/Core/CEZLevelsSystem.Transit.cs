@@ -605,13 +605,21 @@ public sealed partial class CEZLevelsSystem
                 return false;
         }
 
+        TryComp<CEZGridFallerComponent>(grid, out var faller);
+        var impact = goingUp ? 0f : faller?.Velocity ?? 0f;
         MoveGridSetToMap(grids, destination, goingUp ? 1 : -1, depth);
         foreach (var uid in grids)
         {
             ResetGridTransitState(uid);
+            if (TryComp<CEZGridFallerComponent>(uid, out var memberFaller))
+                memberFaller.Velocity = 0f;
+
             // Landing on a grid causes an explosion. Don't do that.
             _shuttle.Smimsh(uid, explodeGrids: true, ignoredGrids: grids);
         }
+
+        if (faller != null)
+            HandleGridTouchdown(destination, grids, impact, faller.GridCrashVelocity);
 
         QueueDel(transitMap);
         QueueAllViewerUpdates();

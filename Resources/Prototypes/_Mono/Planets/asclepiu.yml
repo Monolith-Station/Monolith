@@ -12,13 +12,25 @@
   - type: CEZLevelRoof
   - type: MapLight
     ambientLightColor: "#c8fdff"
+  - type: SunShadow
+  - type: SunShadowCycle
   layers:
   - !type:PlanetFileLayer
     map: /Maps/_CE/empty.yml
   - !type:PlanetFileLayer
     map: /Maps/_CE/empty.yml
   - !type:PlanetFileLayer
+    map: /Maps/_CE/empty.yml
+  - !type:PlanetFileLayer
+    map: /Maps/_CE/empty.yml
+  - !type:PlanetFileLayer
     map: /Maps/_CE/clouds.yml
+  - !type:PlanetFileLayer
+    map: /Maps/_CE/empty.yml
+  - !type:PlanetFileLayer
+    map: /Maps/_CE/empty.yml
+  - !type:PlanetFileLayer
+    map: /Maps/_CE/empty.yml
   - !type:PlanetFileLayer
     map: /Maps/_CE/empty.yml
   - !type:PlanetBiomeLayer

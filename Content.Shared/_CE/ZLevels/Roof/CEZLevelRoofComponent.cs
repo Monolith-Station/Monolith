@@ -11,5 +11,9 @@ namespace Content.Shared._CE.ZLevels.Roof;
 /// Marks a mapGrid entity (supports both planetmap + grids) for automatic roof management driven by tile changes in the Z-level system.
 /// Systems use this marker to add, update, or remove roof tiles when the underlying tiles change.
 /// </summary>
-[RegisterComponent, NetworkedComponent]
-public sealed partial class CEZLevelRoofComponent : Component;
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+public sealed partial class CEZLevelRoofComponent : Component
+{
+    [AutoNetworkedField]
+    public Dictionary<Vector2i, ulong> WeatherData = new();
+}

@@ -2,6 +2,7 @@ planet-descent-no-surface = Failed to locate safe landing position
 planet-descent-surface-load-failed = The surface for this planet failed to load. [color=red]All online administrators have already been notified.[/color]
 planet-surface-load-failed-admin = DEFCON 2 - Planet {$planet} has failed to load; landing has been disabled! Please contact the hosts and request the log to get this fixed.
 planet-save-failed-admin = DEFCON 3 - Planet key {$planet} failed to save during the most recent planet save interval! Please contact the hosts and request the log to get this fixed.
+planet-prototype-loss-admin = DEFCON 5 - Planet {$planet} loaded with prototype loss. Check server logs for details.
 planet-save-success-admin = Planet {$planet} saved. Next save: {$next}
 planet-save-next-none = not scheduled
 planet-save-next-days = { $count ->

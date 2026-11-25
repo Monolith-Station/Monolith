@@ -1,15 +1,16 @@
 using System.Numerics;
+using Content.Client.Graphics;
 using Content.Client.Viewport;
 using Content.Shared.CCVar;
 using Content.Shared.Maps;
+using Content.Shared.Physics;
 using Robust.Client.Graphics;
 using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
 using Robust.Shared.Map;
-using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
+using Robust.Shared.Physics.Collision.Shapes;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Utility;
 
 namespace Content.Client.Light;
 
@@ -18,6 +19,10 @@ namespace Content.Client.Light;
 /// </summary>
 public sealed partial class AmbientOcclusionOverlay : Overlay
 {
+    // Clyde's blur radius is in UV space, even when the AO target is downsampled.
+    private const float BlurMultiplier = 14f;
+    private const int MaxBatchVertices = 1536;
+
     [Dependency] private IClyde _clyde = default!;
     [Dependency] private IConfigurationManager _cfgManager = default!;
     [Dependency] private IEntityManager _entManager = default!;
@@ -25,13 +30,8 @@ public sealed partial class AmbientOcclusionOverlay : Overlay
 
     public override OverlaySpace Space => OverlaySpace.WorldSpaceBelowEntities;
 
-    private IRenderTexture? _aoTarget;
-    private List<Entity<MapGridComponent>> _grids = new();
-    private readonly Vector2[] _occluderVertices = new Vector2[PhysicsConstants.MaxPolygonVertices];
-    private readonly Vector2[] _occluderTriangles = new Vector2[3 * 1024];
-
-    // Couldn't figure out a way to avoid this so if you can then please do.
-    private IRenderTexture? _aoStencilTarget;
+    private readonly OverlayResourceCache<CachedResources> _resources = new();
+    private readonly List<Vector2> _vertices = new(MaxBatchVertices);
 
     public AmbientOcclusionOverlay()
     {
@@ -41,12 +41,12 @@ public sealed partial class AmbientOcclusionOverlay : Overlay
 
     protected override void Draw(in OverlayDrawArgs args)
     {
-        if (args.Viewport.Eye is ScalingViewport.ZEye { PlanetTransitBackdrop: true })
+        if (args.Viewport.Eye is not { } eye || eye is ScalingViewport.ZEye { PlanetTransitBackdrop: true })
             return;
 
         /*
          * tl;dr
-         * - we draw a black square on each "ambient occlusion" entity.
+         * - we draw each occluder's polygon to an AO source texture.
          * - we blur this.
          * - We apply it to the viewport.
          *
@@ -60,11 +60,16 @@ public sealed partial class AmbientOcclusionOverlay : Overlay
         var worldBounds = args.WorldBounds;
         var worldHandle = args.WorldHandle;
         var color = Color.FromHex(_cfgManager.GetCVar(CCVars.AmbientOcclusionColor));
-        var expansion = _cfgManager.GetCVar(CCVars.AmbientOcclusionDistance) / EyeManager.PixelsPerMeter;
-        //var color = Color.Red;
+        var distance = _cfgManager.GetCVar(CCVars.AmbientOcclusionDistance);
+        var expansion = distance / EyeManager.PixelsPerMeter;
+        var resolution = Math.Clamp(_cfgManager.GetCVar(CCVars.AmbientOcclusionResolutionScale), 0.1f, 1f);
         var target = viewport.RenderTarget;
-        var lightScale = target.Size / (Vector2) viewport.Size;
+        var aoSize = new Vector2i(Math.Max(1, (int) MathF.Ceiling(target.Size.X * resolution)),
+            Math.Max(1, (int) MathF.Ceiling(target.Size.Y * resolution)));
+        var lightScale = aoSize / (Vector2) viewport.Size;
         var scale = viewport.RenderScale / (Vector2.One / lightScale);
+        var cameraSize = eye.Zoom.Y * viewport.Size.Y / viewport.RenderScale.Y / EyeManager.PixelsPerMeter;
+        var expandedBounds = worldBounds.Enlarged(expansion + BlurMultiplier / cameraSize);
         var maps = _entManager.System<SharedMapSystem>();
         var lookups = _entManager.System<EntityLookupSystem>();
         var query = _entManager.System<OccluderSystem>();
@@ -72,70 +77,47 @@ public sealed partial class AmbientOcclusionOverlay : Overlay
         var turfSystem = _entManager.System<TurfSystem>();
         var invMatrix = args.Viewport.GetWorldToLocalMatrix();
 
-        if (_aoTarget?.Texture.Size != target.Size)
+        var cache = _resources.GetForViewport(viewport, static _ => new CachedResources());
+        if (cache.Target?.Texture.Size != aoSize)
         {
-            _aoTarget?.Dispose();
-            _aoTarget = _clyde.CreateRenderTarget(target.Size, new RenderTargetFormatParameters(RenderTargetColorFormat.Rgba8Srgb), name: "ambient-occlusion-target");
+            cache.Target?.Dispose();
+            cache.Blur?.Dispose();
+            var format = new RenderTargetFormatParameters(RenderTargetColorFormat.Rgba8Srgb);
+            cache.Target = _clyde.CreateRenderTarget(aoSize, format, name: "ambient-occlusion-target");
+            cache.Blur = _clyde.CreateRenderTarget(aoSize, format, name: "ambient-occlusion-blur-target");
         }
 
-        if (_aoStencilTarget?.Texture.Size != target.Size)
+        if (cache.Stencil?.Texture.Size != target.Size)
         {
-            _aoStencilTarget?.Dispose();
-            _aoStencilTarget = _clyde.CreateRenderTarget(target.Size, new RenderTargetFormatParameters(RenderTargetColorFormat.Rgba8Srgb), name: "ambient-occlusion-stencil-target");
+            cache.Stencil?.Dispose();
+            cache.Stencil = _clyde.CreateRenderTarget(target.Size, new RenderTargetFormatParameters(RenderTargetColorFormat.Rgba8Srgb), name: "ambient-occlusion-stencil-target");
         }
 
         // Draw the texture data to the texture.
-        args.WorldHandle.RenderInRenderTarget(_aoTarget,
+        args.WorldHandle.RenderInRenderTarget(cache.Target,
             () =>
             {
                 worldHandle.UseShader(_proto.Index<ShaderPrototype>("unshaded").Instance());
                 worldHandle.SetTransform(Matrix3x2.Identity);
-                var invMatrix = _aoTarget.GetWorldToLocalMatrix(viewport.Eye!, scale);
-                var triangleVertexCount = 0;
-
-                foreach (var entry in query.QueryAabb(mapId, worldBounds))
+                var worldToTarget = cache.Target.GetWorldToLocalMatrix(eye, scale);
+                foreach (var entry in query.QueryAabb(mapId, expandedBounds))
                 {
-                    DebugTools.Assert(entry.Component.Enabled);
-                    var matrix = xformSystem.GetWorldMatrix(entry.Transform);
-                    var localMatrix = Matrix3x2.Multiply(matrix, invMatrix);
+                    var matrix = xformSystem.GetWorldMatrix(entry.Transform) * worldToTarget;
+                    if (TryAppendFixtureOccluders(worldHandle, entry.Uid, matrix, expansion))
+                        continue;
 
-                    var polygon = entry.Component.Polygon;
-                    var center = Vector2.Zero;
-                    foreach (var vertex in polygon)
-                        center += vertex;
-                    center /= polygon.Length;
-
-                    var vertices = _occluderVertices.AsSpan(0, polygon.Length);
-                    for (var i = 0; i < vertices.Length; i++)
-                    {
-                        var offset = polygon[i] - center;
-                        var extent = MathF.Max(MathF.Abs(offset.X), MathF.Abs(offset.Y));
-                        var vertex = extent > 0 ? polygon[i] + offset * (expansion / extent) : polygon[i];
-                        vertices[i] = Vector2.Transform(vertex, localMatrix);
-                    }
-
-                    if (triangleVertexCount + 3 * (vertices.Length - 2) > _occluderTriangles.Length)
-                    {
-                        DrawOccluderTriangles(worldHandle, triangleVertexCount);
-                        triangleVertexCount = 0;
-                    }
-
-                    for (var i = 1; i < vertices.Length - 1; i++)
-                    {
-                        _occluderTriangles[triangleVertexCount++] = vertices[0];
-                        _occluderTriangles[triangleVertexCount++] = vertices[i];
-                        _occluderTriangles[triangleVertexCount++] = vertices[i + 1];
-                    }
+                    var box = entry.Component.BoundingBox;
+                    AppendOccluder(worldHandle, box.Enlarged(expansion), matrix);
                 }
 
-                DrawOccluderTriangles(worldHandle, triangleVertexCount);
+                FlushPolygons(worldHandle);
             }, Color.Transparent);
 
-        _clyde.BlurRenderTarget(viewport, _aoTarget, _aoTarget, viewport.Eye!, 14f);
+        _clyde.BlurRenderTarget(viewport, cache.Target, cache.Blur!, eye, BlurMultiplier);
 
         // Need to do stencilling after blur as it will nuke it.
         // Draw stencil for the grid so we don't draw in space.
-        args.WorldHandle.RenderInRenderTarget(_aoStencilTarget,
+        args.WorldHandle.RenderInRenderTarget(cache.Stencil,
             () =>
             {
                 // Don't want lighting affecting it.
@@ -163,11 +145,11 @@ public sealed partial class AmbientOcclusionOverlay : Overlay
 
         // Draw the stencil texture to depth buffer.
         worldHandle.UseShader(_proto.Index<ShaderPrototype>("StencilMask").Instance());
-        worldHandle.DrawTextureRect(_aoStencilTarget!.Texture, worldBounds);
+        worldHandle.DrawTextureRect(cache.Stencil.Texture, worldBounds);
 
         // Draw the Blurred AO texture finally.
         worldHandle.UseShader(_proto.Index<ShaderPrototype>("StencilEqualDraw").Instance());
-        worldHandle.DrawTextureRect(_aoTarget!.Texture, worldBounds, color);
+        worldHandle.DrawTextureRect(cache.Target.Texture, worldBounds, color);
 
         worldHandle.UseShader(_proto.Index<ShaderPrototype>("StencilClear").Instance());
         worldHandle.DrawRect(worldBounds, Color.White);
@@ -176,9 +158,89 @@ public sealed partial class AmbientOcclusionOverlay : Overlay
         args.WorldHandle.UseShader(null);
     }
 
-    private void DrawOccluderTriangles(DrawingHandleWorld handle, int vertexCount)
+    private bool TryAppendFixtureOccluders(DrawingHandleWorld handle, EntityUid uid, Matrix3x2 transform, float expansion)
     {
-        if (vertexCount > 0)
-            handle.DrawPrimitives(DrawPrimitiveTopology.TriangleList, _occluderTriangles.AsSpan(0, vertexCount), Color.White);
+        if (!_entManager.TryGetComponent(uid, out FixturesComponent? fixtures))
+            return false;
+
+        var drew = false;
+        foreach (var fixture in fixtures.Fixtures.Values)
+        {
+            if (!fixture.Hard || (fixture.CollisionLayer & (int) CollisionGroup.Opaque) == 0 ||
+                fixture.Shape is not PolygonShape { VertexCount: >= 3 } polygon)
+                continue;
+
+            var vertices = polygon.Vertices;
+            var center = polygon.Centroid;
+            Vector2 Project(Vector2 vertex)
+            {
+                var offset = vertex - center;
+                if (offset.LengthSquared() > 0f)
+                    vertex += Vector2.Normalize(offset) * expansion;
+                return Vector2.Transform(vertex, transform);
+            }
+
+            var first = Project(vertices[0]);
+            var previous = Project(vertices[1]);
+            for (var i = 2; i < vertices.Length; i++)
+            {
+                var current = Project(vertices[i]);
+                AppendTriangle(handle, first, previous, current);
+                previous = current;
+            }
+
+            drew = true;
+        }
+
+        return drew;
+    }
+
+    private void AppendOccluder(DrawingHandleWorld handle, Box2 box, Matrix3x2 transform)
+    {
+        var bottomLeft = Vector2.Transform(box.BottomLeft, transform);
+        var bottomRight = Vector2.Transform(box.BottomRight, transform);
+        var topRight = Vector2.Transform(box.TopRight, transform);
+        var topLeft = Vector2.Transform(box.TopLeft, transform);
+        AppendTriangle(handle, bottomLeft, bottomRight, topRight);
+        AppendTriangle(handle, bottomLeft, topRight, topLeft);
+    }
+
+    private void AppendTriangle(DrawingHandleWorld handle, Vector2 a, Vector2 b, Vector2 c)
+    {
+        if (_vertices.Count + 3 > MaxBatchVertices)
+            FlushPolygons(handle);
+
+        _vertices.Add(a);
+        _vertices.Add(b);
+        _vertices.Add(c);
+    }
+
+    private void FlushPolygons(DrawingHandleWorld handle)
+    {
+        if (_vertices.Count == 0)
+            return;
+
+        handle.DrawPrimitives(DrawPrimitiveTopology.TriangleList, _vertices, Color.White);
+        _vertices.Clear();
+    }
+
+    protected override void DisposeBehavior()
+    {
+        _resources.Dispose();
+        base.DisposeBehavior();
+    }
+
+    private sealed class CachedResources : IDisposable
+    {
+        public IRenderTexture? Target;
+        public IRenderTexture? Blur;
+        public IRenderTexture? Stencil;
+
+        public void Dispose()
+        {
+            Target?.Dispose();
+            Blur?.Dispose();
+            Stencil?.Dispose();
+        }
     }
 }

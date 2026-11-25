@@ -11,7 +11,6 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.Examine;
 using Content.Server.Explosion.Components;
-using Content.Shared._CE.Camera;
 using Content.Shared.Explosion;
 using Content.Shared.Explosion.Components;
 using Robust.Shared.Player;
@@ -72,7 +71,7 @@ public partial class ShipShieldsSystem
         if (_projectors.TryAbsorbCrash(grid, damage, out var overloaded))
         {
             if (overloaded)
-                PlayCrashOverload(grid, totalIntensity, ProjectorCrashSound);
+                PlayCrashOverload(grid, ProjectorCrashSound);
             return true;
         }
 
@@ -90,22 +89,16 @@ public partial class ShipShieldsSystem
         emitter.OverloadAccumulator = MathF.Max(emitter.OverloadAccumulator, emitter.CrashRespoolTime);
         emitter.CrashRespooling = true;
 
-        PlayCrashOverload(grid, totalIntensity, emitter.CrashShutdownSound);
+        PlayCrashOverload(grid, emitter.CrashShutdownSound);
         UnshieldEntity(grid);
         emitter.Shield = null;
         emitter.Shielded = null;
         return true;
     }
 
-    private void PlayCrashOverload(EntityUid grid, float totalIntensity, SoundSpecifier sound)
+    private void PlayCrashOverload(EntityUid grid, SoundSpecifier sound)
     {
-        var filter = Filter.BroadcastGrid(grid);
-        _audio.PlayGlobal(sound, filter, true, sound.Params);
-        RaiseNetworkEvent(new RadialShakeEvent
-        {
-            Duration = 1.5f,
-            Amplitude = Math.Clamp(totalIntensity / 1500f, 0.6f, 1.2f),
-        }, filter);
+        _audio.PlayGlobal(sound, Filter.BroadcastGrid(grid), true, sound.Params);
     }
 
     private void OnExamined(EntityUid uid, ShipShieldEmitterComponent component, ExaminedEvent args)

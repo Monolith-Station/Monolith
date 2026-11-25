@@ -132,12 +132,44 @@ public sealed partial class BuriedOreSystem : EntitySystem
 
         float Sample(float min, float max) => float.Lerp(min, max, (float)random.NextDouble());
         var radius = Sample(mineral.MinRadius, mineral.MaxRadius);
-        var margin = radius * 1.4f + config.MinimumGap * 0.5f;
-        var center = (Vector2)(cell * config.Spacing) +
-            new Vector2(Sample(margin, config.Spacing - margin), Sample(margin, config.Spacing - margin));
-        if (TryComp<ToroidalMapComponent>(surface, out var torus) &&
-            (MathF.Abs(center.X) + margin > torus.Size / 2f || MathF.Abs(center.Y) + margin > torus.Size / 2f))
-            return null;
+        const int points = 32;
+        var boundary = new Vector2[points];
+        var rotation = Sample(0f, MathF.Tau);
+        var phase = Sample(0f, MathF.Tau);
+        var detailPhase = Sample(0f, MathF.Tau);
+        var stretch = Sample(0.55f, 1f);
+        var lobes = random.Next(2, 5);
+        var sin = MathF.Sin(rotation);
+        var cos = MathF.Cos(rotation);
+        var min = Vector2.Zero;
+        var max = Vector2.Zero;
+        for (var i = 0; i < points; i++)
+        {
+            var angle = MathF.Tau * i / points;
+            var distance = radius * (1f + 0.2f * MathF.Sin(lobes * angle + phase) + 0.1f * MathF.Sin(5f * angle + detailPhase));
+            var x = MathF.Cos(angle) * distance;
+            var y = MathF.Sin(angle) * distance * stretch;
+            var point = new Vector2(x * cos - y * sin, x * sin + y * cos);
+            boundary[i] = point;
+            min = Vector2.Min(min, point);
+            max = Vector2.Max(max, point);
+        }
+
+        // Fit the actual outline inside its cell rather than pinning large veins near the center.
+        var gap = new Vector2(config.MinimumGap * 0.5f);
+        var cellMin = (Vector2)(cell * config.Spacing);
+        var cellMax = cellMin + new Vector2(config.Spacing);
+        var lower = cellMin - min + gap;
+        var upper = cellMax - max - gap;
+        var center = new Vector2(Sample(lower.X, upper.X), Sample(lower.Y, upper.Y));
+        if (TryComp<ToroidalMapComponent>(surface, out var torus))
+        {
+            var halfSize = torus.Size / 2f;
+            var start = center + min - gap;
+            var end = center + max + gap;
+            if (start.X < -halfSize || start.Y < -halfSize || end.X > halfSize || end.Y > halfSize)
+                return null;
+        }
 
         var grid = Comp<MapGridComponent>(surface);
         var index = new Vector2i((int)MathF.Floor(center.X / grid.TileSize), (int)MathF.Floor(center.Y / grid.TileSize));
@@ -145,16 +177,8 @@ public sealed partial class BuriedOreSystem : EntitySystem
             tile.Value.IsEmpty || config.ExcludedTiles.Contains(_tiles[tile.Value.TypeId].ID))
             return null;
 
-        const int points = 32;
-        var boundary = new Vector2[points];
-        var phase = Sample(0f, MathF.Tau);
-        var stretch = Sample(0.75f, 1f);
         for (var i = 0; i < points; i++)
-        {
-            var angle = MathF.Tau * i / points;
-            var distance = radius * (1f + 0.18f * MathF.Sin(3f * angle + phase) + 0.12f * MathF.Sin(5f * angle - phase));
-            boundary[i] = center + new Vector2(MathF.Cos(angle), MathF.Sin(angle) * stretch) * distance;
-        }
+            boundary[i] += center;
         var size = Math.Clamp((radius - mineral.MinRadius) / Math.Max(1f, mineral.MaxRadius - mineral.MinRadius), 0f, 1f);
         var reserves = Math.Max(1, (int)float.Lerp(mineral.MinReserves, mineral.MaxReserves, size));
         return new BuriedOreVein

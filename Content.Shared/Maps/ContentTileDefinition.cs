@@ -174,6 +174,12 @@ namespace Content.Shared.Maps
         [DataField]
         public bool Transparent = false;
 
+        /// <summary>
+        /// Shields levels below from weather.
+        /// </summary>
+        [DataField]
+        public bool BlocksWeather = true;
+
         // <Mono>
         /// <summary>
         /// Multiplier on damage taken by anything that falls onto this tile.
