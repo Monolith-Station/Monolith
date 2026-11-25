@@ -1,12 +1,13 @@
-using System.Linq;
 using System.Numerics;
 using Content.Client._Mono.PlanetMap; // Mono
 using Content.Client._Mono.Radar;
+using Content.Client._Mono.Sensors.UI;
 using Content.Client.Station; // Frontier
 using Content.Shared._Crescent.ShipShields;
 using Content.Shared._Mono.Company;
 using Content.Shared._Mono.Detection;
 using Content.Shared._Mono.Radar;
+using Content.Shared._Mono.Sensors;
 using Content.Shared.Shuttles.BUIStates;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Shuttles.Systems;
@@ -39,6 +40,7 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
     private readonly SharedTransformSystem _transform;
     private readonly RadarBlipsSystem _blips;
     private readonly PlanetTerrainSystem _planetTerrain; // Mono
+    private RadarLockStateDto? _radarLockState; // Mono
 
     /// <summary>
     /// Used to transform all of the radar objects. Typically is a shuttle console parented to a grid.
@@ -109,6 +111,10 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
     private bool _radarModeDefaultsApplied;
 
     private bool _wasPanned = false;
+
+    public bool LockMode;
+    public Action<NetEntity>? OnLockTarget;
+    public Action? OnClearLock;
     #endregion
 
     protected bool _isMouseDown;
@@ -467,6 +473,14 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
         if (args.Function != EngineKeyFunctions.UIClick)
             return;
 
+        if (LockMode)
+        {
+            args.Handle();
+            _isMouseDown = false;
+            _lastMousePos = args.RelativePosition;
+            return;
+        }
+
         _isMouseDown = true;
         _lastMousePos = args.RelativePosition;
         TryFireAtPosition(args.RelativePosition);
@@ -480,6 +494,13 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
             return;
 
         _isMouseDown = false;
+
+        if (LockMode)
+        {
+            args.Handle();
+            TryLockAtPosition(args.RelativePosition);
+            return;
+        }
 
         var coords = GetMouseEntityCoordinates(args.RelativePosition);
         OnRadarClick?.Invoke(coords);
@@ -561,6 +582,7 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
         // End Frontier
 
         _docks = state.Docks;
+        _radarLockState = state.Lock; // Mono
 
         NfUpdateState(state); // Frontier Update State
     }
@@ -779,6 +801,7 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
                 }
             }
         }
+        RadarLockOverlay.Draw(handle, _radarLockState, worldToView, UIScale);
         #endregion
     }
 
@@ -1332,5 +1355,80 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
                 handle.DrawLine(v1, v2, visuals.ShieldColor);
             }
         }
+    }
+
+    // Mono start
+    public void SetRadarLockState(RadarLockStateDto? state)
+    {
+        _radarLockState = state;
+    }
+
+    private void TryLockAtPosition(Vector2 relativePosition)
+    {
+        if (_coordinates is not { } cord)
+            return;
+
+        var clickCoords = GetMouseEntityCoordinates(relativePosition);
+        if (!clickCoords.IsValid(EntManager))
+            return;
+
+        var clickMap = _transform.ToMapCoordinates(clickCoords);
+        if (clickMap.MapId == MapId.Nullspace)
+            return;
+
+        var clickWorld = clickMap.Position;
+        var ourGrid = EntManager.GetComponentOrNull<TransformComponent>(cord.EntityId)?.GridUid;
+
+        EntityUid? best = null;
+        var bestDist = float.MaxValue;
+
+        var query = EntManager.AllEntityQueryEnumerator<MapGridComponent, TransformComponent>();
+        while (query.MoveNext(out var gridUid, out var grid, out var gridXform))
+        {
+            if (gridUid == ourGrid)
+                continue;
+            if (gridXform.MapID != clickMap.MapId)
+                continue;
+
+            var inv = _transform.GetInvWorldMatrix(gridUid);
+            var local = Vector2.Transform(clickWorld, inv);
+            var aabb = grid.LocalAABB.Enlarged(2.5f);
+
+            if (aabb.Contains(local))
+            {
+                var centre = _transform.GetWorldPosition(gridUid);
+                var d = (centre - clickWorld).LengthSquared();
+                if (d < bestDist)
+                {
+                    bestDist = d;
+                    best = gridUid;
+                }
+            }
+        }
+
+        if (best == null)
+        {
+            var maxWorld = 80f / MathF.Max(MinimapScale, 0.001f);
+            query = EntManager.AllEntityQueryEnumerator<MapGridComponent, TransformComponent>();
+            while (query.MoveNext(out var gridUid, out _, out var gridXform))
+            {
+                if (gridUid == ourGrid)
+                    continue;
+                if (gridXform.MapID != clickMap.MapId)
+                    continue;
+
+                var d = (_transform.GetWorldPosition(gridUid) - clickWorld).Length();
+                if (d < maxWorld && d * d < bestDist)
+                {
+                    bestDist = d * d;
+                    best = gridUid;
+                }
+            }
+        }
+
+        if (best is { } hit)
+            OnLockTarget?.Invoke(EntManager.GetNetEntity(hit));
+        else
+            OnClearLock?.Invoke();
     }
 }

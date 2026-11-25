@@ -24,6 +24,7 @@ vessel-reference-shipyard-Mieyo = MMC
 vessel-reference-shipyard-Medical = CMed
 vessel-reference-shipyard-Sr = Caelestinus
 
+vessel-reference-category-sensors = Sensors/EW
 vessel-reference-category-shields = Emitters
 vessel-reference-category-guns = Armaments
 vessel-reference-category-hardpoints = Hardpoints

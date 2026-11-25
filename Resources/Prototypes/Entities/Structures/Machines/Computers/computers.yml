@@ -238,6 +238,11 @@
       key_slots:
       - EncryptionKeyTraffic
   # End Frontier
+  - type: ConsoleRadarLockTone # Mono
+    lockAcquiredSound:
+      path: /Audio/_Mono/Effects/Alerts/rwr_beep.ogg
+      params:
+        volume: 5
   - type: TargetSeekerAlert # Mono
     targetGainSound:
       path: /Audio/_Mono/Effects/Alerts/rwr_beep.ogg

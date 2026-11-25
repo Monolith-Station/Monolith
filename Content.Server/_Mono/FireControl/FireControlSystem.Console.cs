@@ -1,16 +1,17 @@
 // Copyright Rane (elijahrane@gmail.com) 2025
 // All rights reserved. Relicensed under AGPL with permission
 
+using Content.Server._Mono.Sensors;
 using Content.Server._Mono.Ships.Systems;
 using Content.Server.Administration.Logs;
 using Content.Server.Shuttles.Systems;
 using Content.Shared._Mono.FireControl;
+using Content.Shared._Mono.Sensors;
 using Content.Shared._Mono.Ships.Components;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
 using Content.Shared.Popups;
 using Content.Shared.Power;
-using Content.Shared.Shuttles.BUIStates;
 using Content.Shared.UserInterface;
 using Content.Shared.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Components;
@@ -22,6 +23,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Timing;
 using System.Linq;
 using System.Numerics;
+using Content.Shared._Mono.Sensors.Events;
 
 namespace Content.Server._Mono.FireControl;
 
@@ -34,6 +36,9 @@ public sealed partial class FireControlSystem : EntitySystem
     [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private SharedContainerSystem _containers = default!;
     [Dependency] private IAdminLogManager _adminLogger = default!;
+    [Dependency] private ShipSensorsSystem _sensors = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private RadarLockSystem _radarLock = default!;
     [Dependency] private SharedMapSystem _mapMan = default!;
 
     private bool _completedCheck = false;
@@ -48,6 +53,12 @@ public sealed partial class FireControlSystem : EntitySystem
         SubscribeLocalEvent<FireControlConsoleComponent, FireControlConsoleFireMessage>(OnFire);
         SubscribeLocalEvent<FireControlConsoleComponent, BoundUIOpenedEvent>(OnUIOpened);
         SubscribeLocalEvent<FireControlConsoleComponent, ActivatableUIOpenAttemptEvent>(OnConsoleUIOpenAttempt);
+
+        SubscribeLocalEvent<FireControlConsoleComponent, SensorsSetEmconMessage>(OnSensorsEmcon);
+        SubscribeLocalEvent<FireControlConsoleComponent, SensorsSetArcMessage>(OnSensorsArc);
+        SubscribeLocalEvent<FireControlConsoleComponent, SensorsSetDatalinkMessage>(OnSensorsDatalink);
+        SubscribeLocalEvent<FireControlConsoleComponent, SensorsSetLockMessage>(OnSensorsLock);
+        SubscribeLocalEvent<FireControlConsoleComponent, SensorsSetRadarTrackMessage>(OnSensorsTrack);
     }
 
     // scuffed one-time check of all station control consoles to ensure they're already refreshed
@@ -191,6 +202,24 @@ public sealed partial class FireControlSystem : EntitySystem
         }
     }
 
+    private void OnSensorsEmcon(EntityUid uid, FireControlConsoleComponent component, SensorsSetEmconMessage args)
+    {
+        _sensors.TrySetEmcon(uid, args);
+        UpdateUi(uid, component);
+    }
+
+    private void OnSensorsArc(EntityUid uid, FireControlConsoleComponent component, SensorsSetArcMessage args)
+    {
+        _sensors.TrySetArc(uid, args);
+        UpdateUi(uid, component);
+    }
+
+    private void OnSensorsDatalink(EntityUid uid, FireControlConsoleComponent component, SensorsSetDatalinkMessage args)
+    {
+        _sensors.TrySetDatalink(uid, args);
+        UpdateUi(uid, component);
+    }
+
     private void UnregisterConsole(EntityUid console, FireControlConsoleComponent? component = null)
     {
         if (!Resolve(console, ref component))
@@ -252,12 +281,44 @@ public sealed partial class FireControlSystem : EntitySystem
         return false;
     }
 
+    private void OnSensorsLock(EntityUid uid, FireControlConsoleComponent component, SensorsSetLockMessage args)
+    {
+        if (args.Target is not { } net || !TryGetEntity(net, out var target))
+        {
+            component.LockedTarget = null;
+            RaiseLocalEvent(uid, new SensorsConsoleRefreshEvent());
+            return;
+        }
+
+        if (!_radarLock.CanLock(uid, target.Value))
+            return;
+
+        var previous = component.LockedTarget;
+        component.LockedTarget = target;
+
+        if (previous != target)
+        {
+            var grid = Transform(target.Value).GridUid ?? target.Value;
+            RaiseLocalEvent(new RadarLockAcquiredEvent(uid, grid));
+        }
+
+        RaiseLocalEvent(uid, new SensorsConsoleRefreshEvent());
+        UpdateUi(uid, component);
+    }
+
+    private void OnSensorsTrack(EntityUid uid, FireControlConsoleComponent component, SensorsSetRadarTrackMessage args)
+    {
+        component.RadarTrackEnabled = args.Enabled;
+        RaiseLocalEvent(uid, new SensorsConsoleRefreshEvent());
+        UpdateUi(uid, component);
+    }
+
     private void UpdateUi(EntityUid uid, FireControlConsoleComponent? component = null)
     {
         if (!Resolve(uid, ref component))
             return;
 
-        NavInterfaceState navState = _shuttleConsoleSystem.GetNavState(uid, _shuttleConsoleSystem.GetAllDocks());
+        var navState = _shuttleConsoleSystem.GetNavState(uid, _shuttleConsoleSystem.GetAllDocks());
 
         List<FireControllableEntry> controllables = new();
         if (component.ConnectedServer != null && TryComp<FireControlServerComponent>(component.ConnectedServer, out var server))
@@ -272,7 +333,7 @@ public sealed partial class FireControlSystem : EntitySystem
                 controlled.Coordinates = GetNetCoordinates(Transform(controllable).Coordinates);
                 controlled.Name = MetaData(controllable).EntityName;
                 TryComp<FireControllableComponent>(controllable, out var fcComp);
-                controlled.IgnoresLos = fcComp != null ? fcComp.IgnoreLos : false;
+                controlled.IgnoresLos = fcComp != null && fcComp.IgnoreLos;
 
                 var (ammoCount, hasManualReload) = GetWeaponAmmunitionInfo(controllable);
                 controlled.AmmoCount = ammoCount;
@@ -282,9 +343,16 @@ public sealed partial class FireControlSystem : EntitySystem
             }
         }
 
-        var array = controllables.ToArray();
+        var sensorsState = _sensors.BuildBuiState(uid);
+        navState.Sensors = sensorsState;
+        navState.Lock = _radarLock.BuildLockState(uid, component);
 
-        var state = new FireControlConsoleBoundInterfaceState(component.ConnectedServer != null, array, navState);
+        var state = new FireControlConsoleBoundInterfaceState(
+            component.ConnectedServer != null,
+            controllables.ToArray(),
+            navState,
+            sensorsState);
+
         _ui.SetUiState(uid, FireControlConsoleUiKey.Key, state);
     }
 
@@ -306,7 +374,7 @@ public sealed partial class FireControlSystem : EntitySystem
             return (ballisticAmmo.Count, ballisticAmmo.Cycleable && (ballisticAmmo.Count != 0 || !ballisticAmmo.InfiniteUnspawned));
         }
 
-        if (TryComp<MagazineAmmoProviderComponent>(weaponEntity, out var magazineAmmo))
+        if (TryComp<MagazineAmmoProviderComponent>(weaponEntity, out _))
         {
             var magazineEntity = GetMagazineEntity(weaponEntity);
             if (magazineEntity != null)
