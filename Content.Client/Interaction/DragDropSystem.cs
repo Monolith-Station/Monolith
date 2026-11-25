@@ -53,11 +53,9 @@ public sealed partial class DragDropSystem : SharedDragDropSystem
     // mousedown event so it can be treated like a regular click
     private const float MaxMouseDownTimeForReplayingClick = 0.85f;
 
-    [ValidatePrototypeId<ShaderPrototype>]
-    private const string ShaderDropTargetInRange = "SelectionOutlineInrange";
+    private static readonly ProtoId<ShaderPrototype> ShaderDropTargetInRange = "SelectionOutlineInrange";
 
-    [ValidatePrototypeId<ShaderPrototype>]
-    private const string ShaderDropTargetOutOfRange = "SelectionOutline";
+    private static readonly ProtoId<ShaderPrototype> ShaderDropTargetOutOfRange = "SelectionOutline";
 
     /// <summary>
     /// Current entity being dragged around.

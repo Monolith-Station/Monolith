@@ -61,12 +61,12 @@ namespace Content.Client.IconSmoothing
 
             SetCornerLayers(sprite, component);
 
-            if (component.Shader != null)
+            if (component.Shader is { } shader)
             {
-                sprite.LayerSetShader(CornerLayers.SE, component.Shader);
-                sprite.LayerSetShader(CornerLayers.NE, component.Shader);
-                sprite.LayerSetShader(CornerLayers.NW, component.Shader);
-                sprite.LayerSetShader(CornerLayers.SW, component.Shader);
+                sprite.LayerSetShader(CornerLayers.SE, shader.Id);
+                sprite.LayerSetShader(CornerLayers.NE, shader.Id);
+                sprite.LayerSetShader(CornerLayers.NW, shader.Id);
+                sprite.LayerSetShader(CornerLayers.SW, shader.Id);
             }
         }
 

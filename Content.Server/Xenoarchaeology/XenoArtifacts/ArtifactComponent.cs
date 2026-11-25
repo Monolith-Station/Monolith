@@ -1,7 +1,7 @@
 using Content.Shared.Xenoarchaeology.XenoArtifacts;
 using Robust.Shared.Audio;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Xenoarchaeology.XenoArtifacts;
 
@@ -140,8 +140,8 @@ public sealed partial class ArtifactNode : ICloneable
     /// <summary>
     /// The trigger for the node
     /// </summary>
-    [DataField("trigger", customTypeSerializer: typeof(PrototypeIdSerializer<ArtifactTriggerPrototype>), required: true), ViewVariables]
-    public string Trigger = default!;
+    [DataField(required: true), ViewVariables]
+    public ProtoId<ArtifactTriggerPrototype> Trigger;
 
     /// <summary>
     /// Whether or not the node has been triggered
@@ -152,8 +152,8 @@ public sealed partial class ArtifactNode : ICloneable
     /// <summary>
     /// The effect when the node is activated
     /// </summary>
-    [DataField("effect", customTypeSerializer: typeof(PrototypeIdSerializer<ArtifactEffectPrototype>), required: true), ViewVariables]
-    public string Effect = default!;
+    [DataField(required: true), ViewVariables]
+    public ProtoId<ArtifactEffectPrototype> Effect;
 
     /// <summary>
     /// Used for storing cumulative information about nodes

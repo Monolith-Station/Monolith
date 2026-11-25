@@ -41,8 +41,7 @@ namespace Content.Client.HealthAnalyzer.UI
         public event Action<TargetBodyPart?, EntityUid>? OnBodyPartSelected;
         private EntityUid _spriteViewEntity;
 
-        [ValidatePrototypeId<EntityPrototype>]
-        private readonly EntProtoId _bodyView = "AlertSpriteView";
+        private static readonly EntProtoId BodyView = "AlertSpriteView";
 
         private readonly Dictionary<TargetBodyPart, TextureButton> _bodyPartControls;
         private EntityUid? _target;
@@ -340,7 +339,7 @@ namespace Content.Client.HealthAnalyzer.UI
             if (!_entityManager.Deleted(_spriteViewEntity))
                 _entityManager.QueueDeleteEntity(_spriteViewEntity);
 
-            _spriteViewEntity = _entityManager.Spawn(_bodyView);
+            _spriteViewEntity = _entityManager.Spawn(BodyView);
 
             if (!_entityManager.TryGetComponent<SpriteComponent>(_spriteViewEntity, out var sprite))
                 return null;
