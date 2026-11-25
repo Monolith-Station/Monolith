@@ -42,9 +42,9 @@ public sealed partial class DetectionSystem : EntitySystem
         var gridAABB = grid.Comp.LocalAABB;
         var gridDiagonal = MathF.Sqrt(gridAABB.Width * gridAABB.Width + gridAABB.Height * gridAABB.Height);
 
-        var visualRangeFloor = 500f;
+        const float VisualMaxRange = 3000f;
         var visualRadius = comp.VisualMultiplier > 0f
-            ? MathF.Max(visualRangeFloor, gridDiagonal * comp.VisualMultiplier * _visualMul)
+            ? MathF.Min(VisualMaxRange, gridDiagonal * comp.VisualMultiplier * _visualMul)
             : 0f;
 
         var thermalSig = TryComp<ThermalSignatureComponent>(grid, out var sigComp)
@@ -58,7 +58,7 @@ public sealed partial class DetectionSystem : EntitySystem
             thermalRadius *= compAt.InfraredMultiplier;
             visualRadius += compAt.VisualBias;
             if (comp.VisualMultiplier > 0f)
-                visualRadius = MathF.Max(visualRangeFloor, visualRadius);
+                visualRadius = MathF.Min(VisualMaxRange, visualRadius);
         }
 
         var level = DetectionLevel.Undetected;
