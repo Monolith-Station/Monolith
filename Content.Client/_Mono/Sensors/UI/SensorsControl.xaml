@@ -37,7 +37,7 @@
     <BoxContainer Orientation="Horizontal" Margin="4 2">
         <Label Text="{Loc 'gunnery-emcon-range'}" MinWidth="80" StyleClasses="LabelKeyText" HorizontalAlignment="Left"/>
         <Label Text="{Loc 'gunnery-emcon-angle'}" MinWidth="80" StyleClasses="LabelKeyText" HorizontalAlignment="Left"/>
-        <Label Text="{Loc 'gunnery-emcon-source'}" MinWidth="110" StyleClasses="LabelKeyText" HorizontalAlignment="Left"/>
+        <Label Text="{Loc 'gunnery-emcon-source'}" MinWidth="130" StyleClasses="LabelKeyText" HorizontalAlignment="Left"/>
         <Label Text="{Loc 'gunnery-emcon-cross-section'}" MinWidth="110" StyleClasses="LabelKeyText" HorizontalAlignment="Left"/>
         <Label Text="{Loc 'gunnery-emcon-infrared'}" MinWidth="120" StyleClasses="LabelKeyText" HorizontalAlignment="Left"/>
         <Label Text="{Loc 'gunnery-emcon-ars'}" MinWidth="110" StyleClasses="LabelKeyText" HorizontalAlignment="Left"/>

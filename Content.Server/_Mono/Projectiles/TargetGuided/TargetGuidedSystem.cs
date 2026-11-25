@@ -215,29 +215,22 @@ public sealed partial class TargetGuidedSystem : EntitySystem
     {
         if (component.UseRadarTrack)
         {
-            if (component.ControllingConsole is not { } c || !EntityManager.EntityExists(c))
+            if (component.ControllingConsole is not { } c || !Exists(c))
                 return true;
             if (!TryComp<FireControlConsoleComponent>(c, out var console) || console.ConnectedServer == null)
                 return true;
             return false;
         }
 
-        // Check if cursor hasn't been updated for too long (console closed/UI not active)
         if (component.TimeSinceLastUpdate > component.FallbackTime)
             return true;
 
-        // Check if cursor hasn't moved for too long
-        if (component.TimeSinceLastCursorMovement > component.FallbackTime)
-            return true;
-
-        // Check if controlling console still exists
-        if (component.ControllingConsole.HasValue)
+        if (component.ControllingConsole is { } consoleUid)
         {
-            if (!EntityManager.EntityExists(component.ControllingConsole.Value))
+            if (!Exists(consoleUid))
                 return true;
 
-            // Check if console is still powered/functioning
-            if (!TryComp<FireControlConsoleComponent>(component.ControllingConsole.Value, out var console) ||
+            if (!TryComp<FireControlConsoleComponent>(consoleUid, out var console) ||
                 console.ConnectedServer == null)
                 return true;
         }

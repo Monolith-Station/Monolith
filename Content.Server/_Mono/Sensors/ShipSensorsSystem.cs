@@ -230,10 +230,10 @@ public sealed partial class ShipSensorsSystem : EntitySystem
             var activeRange = activeSens > 0f ? diagonal * activeSens : 0f;
 
             // V
-            const float visualRangeFloor = 500f;
+            const float VisualMaxRange = 3000f;
             var visualMul = sensors.GrantBasicSensors ? sensors.BasicVisualMultiplier : 0f;
             var visualRange = visualMul > 0f
-                ? MathF.Max(visualRangeFloor, diagonal * visualMul)
+                ? MathF.Min(VisualMaxRange, diagonal * visualMul)
                 : 0f;
 
             // IR
