@@ -112,11 +112,16 @@
       types:
         Radiation: -0.3
         Poison: -0.3
-      groups:
-        Airloss: -0.45
-        Brute: -1.2
-        Burn: -1.2
-        Genetic: -0.1
+        Asphyxiation: -0.22
+        Bloodloss: -0.23
+        Blunt: -0.4
+        Slash: -0.4
+        Piercing: -0.4
+        Heat: -0.3
+        Shock: -0.3
+        Cold: -0.3
+        Caustic: -0.3
+        Cellular: -0.1
   - type: Targeting
   - type: Flammable
     fireSpread: true
@@ -137,21 +142,29 @@
       - !type:HealthChange
         scaleByQuantity: true
         damage:
-          groups:
-            Burn: -2
-            Brute: -1.5
+          types:
+            Heat: -0.5
+            Shock: -0.5
+            Cold: -0.5
+            Caustic: -0.5
+            Blunt: -0.5
+            Slash: -0.5
+            Piercing: -0.5
     - reagents: [Mesotaxinide]
       methods: [Touch] # SIGNIFICANTLY nerfed as to not be an instant kill button.
       effects:
       - !type:HealthChange
         scaleByQuantity: true
         damage:
-          groups:
-            Burn: 1.5
-            Brute: 1.5
           types:
-            Caustic: 4
+            Caustic: 4.38
             Cellular: 1.5
+            Heat: 0.37
+            Shock: 0.37
+            Cold: 0.38
+            Blunt: 0.5
+            Slash: 0.5
+            Piercing: 0.5
   - type: SurgeryTarget
   - type: Body
     prototype: ChimeraBeast

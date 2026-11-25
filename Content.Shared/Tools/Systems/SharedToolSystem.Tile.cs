@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared.Database;
 using Content.Shared.Fluids.Components;
 using Content.Shared.Interaction;
@@ -8,6 +9,7 @@ using Content.Shared.Tools.Components;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.Tools.Systems;
@@ -72,13 +74,13 @@ public abstract partial class SharedToolSystem
         var comp = ent.Comp1!;
         var tool = ent.Comp2!;
 
-        if (!_mapManager.TryFindGridAt(_transformSystem.ToMapCoordinates(clickLocation), out var gridUid, out var mapGrid))
+        if (!_maps.TryFindGridAt(_transformSystem.ToMapCoordinates(clickLocation), out var gridUid, out var mapGrid))
             return false;
 
         var tileRef = _maps.GetTileRef(gridUid, mapGrid, clickLocation);
         var tileDef = (ContentTileDefinition) _tileDefManager[tileRef.Tile.TypeId];
 
-        if (!tool.Qualities.ContainsAny(tileDef.DeconstructTools))
+        if (!tool.Qualities.Overlaps(tileDef.DeconstructTools))
             return false;
 
         if (string.IsNullOrWhiteSpace(tileDef.BaseTurf))
@@ -92,14 +94,14 @@ public abstract partial class SharedToolSystem
             return false;
 
         var args = new TileToolDoAfterEvent(GetNetEntity(gridUid), tileRef.GridIndices);
-        UseTool(ent, user, ent, comp.Delay * tileDef.DeconstructTimeMultiplier, tool.Qualities, args, out _, toolComponent: tool); // Goob edit
+        UseTool(ent, user, ent, comp.Delay * tileDef.DeconstructTimeMultiplier, tool.Qualities.Select(id => id.Id), args, out _, toolComponent: tool); // Goob edit
         return true;
     }
 
-    public bool TryDeconstructWithToolQualities(TileRef tileRef, PrototypeFlags<ToolQualityPrototype> withToolQualities)
+    public bool TryDeconstructWithToolQualities(TileRef tileRef, HashSet<ProtoId<ToolQualityPrototype>> withToolQualities)
     {
         var tileDef = (ContentTileDefinition) _tileDefManager[tileRef.Tile.TypeId];
-        if (withToolQualities.ContainsAny(tileDef.DeconstructTools))
+        if (withToolQualities.Overlaps(tileDef.DeconstructTools))
         {
             // don't do this on the client or else the tile entity spawn mispredicts and looks horrible
             return _net.IsClient || _tiles.DeconstructTile(tileRef);

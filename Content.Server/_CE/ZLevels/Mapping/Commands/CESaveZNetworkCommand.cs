@@ -19,7 +19,7 @@ namespace Content.Server._CE.ZLevels.Mapping.Commands;
 public sealed partial class CESaveZNetworkCommand : LocalizedEntityCommands
 {
     [Dependency] private IEntityManager _entities = default!;
-    [Dependency] private MapSystem _map = default!;
+    private MapSystem Map => _entities.System<MapSystem>();
     [Dependency] private MapLoaderSystem _mapLoader = default!;
 
     public override string Command => "znetwork-save";
@@ -82,13 +82,13 @@ public sealed partial class CESaveZNetworkCommand : LocalizedEntityCommands
             if (mapId == MapId.Nullspace)
                 return;
 
-            if (!_map.MapExists(mapId))
+            if (!Map.MapExists(mapId))
             {
                 shell.WriteError($"Map {mapId} doesnt exist!");
                 return;
             }
 
-            if (_map.IsInitialized(mapId))
+            if (Map.IsInitialized(mapId))
             {
                 shell.WriteError($"Map {mapId} is already initialized, cannot save initialized maps!");
                 return;

@@ -1,6 +1,6 @@
 using System.Numerics;
 using Content.Shared.Nyanotrasen.Kitchen.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._NF.Traits.Assorted;
 
@@ -11,6 +11,6 @@ namespace Content.Server._NF.Traits.Assorted;
 public sealed partial class FriedTraitComponent : Component
 {
     // Which crispiness type to use for visualization
-    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<CrispinessLevelSetPrototype>))]
-    public string CrispinessLevelSet = "Crispy";
+    [DataField]
+    public ProtoId<CrispinessLevelSetPrototype> CrispinessLevelSet = "Crispy";
 }

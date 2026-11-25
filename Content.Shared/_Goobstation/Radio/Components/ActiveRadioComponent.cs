@@ -1,5 +1,4 @@
 using Content.Shared.Radio;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Set;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 

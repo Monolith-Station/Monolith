@@ -1,5 +1,6 @@
 using System.Text;
 using Content.Server.Speech.Components;
+using Robust.Shared.Prototypes;
 using Content.Shared.Drunk;
 using Content.Shared.Speech.EntitySystems;
 using Content.Shared.StatusEffect;
@@ -16,8 +17,7 @@ public sealed partial class SlurredSystem : SharedSlurredSystem
 
 
 
-    [ValidatePrototypeId<StatusEffectPrototype>]
-    private const string SlurKey = "SlurredSpeech";
+    private static readonly ProtoId<StatusEffectPrototype> SlurKey = "SlurredSpeech";
 
     public override void Initialize()
     {

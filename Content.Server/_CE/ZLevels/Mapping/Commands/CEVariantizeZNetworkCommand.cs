@@ -18,7 +18,6 @@ namespace Content.Server._CE.ZLevels.Mapping.Commands;
 public sealed partial class CEVariantizeZNetworkCommand : LocalizedEntityCommands
 {
     [Dependency] private IEntityManager _entities = default!;
-    [Dependency] private MapSystem _map = default!;
     [Dependency] private TileSystem _tile = default!;
     [Dependency] private TurfSystem _turf = default!;
 
@@ -69,11 +68,12 @@ public sealed partial class CEVariantizeZNetworkCommand : LocalizedEntityCommand
                 continue;
             }
 
-            foreach (var tile in _map.GetAllTiles(mapUid.Value, gridComp))
+            var map = _entities.System<MapSystem>();
+            foreach (var tile in map.GetAllTiles(mapUid.Value, gridComp))
             {
                 var def = _turf.GetContentTileDefinition(tile);
                 var newTile = new Tile(tile.Tile.TypeId, tile.Tile.Flags, _tile.PickVariant(def), tile.Tile.RotationMirroring);
-                _map.SetTile(mapUid.Value, gridComp, tile.GridIndices, newTile);
+                map.SetTile(mapUid.Value, gridComp, tile.GridIndices, newTile);
             }
         }
     }

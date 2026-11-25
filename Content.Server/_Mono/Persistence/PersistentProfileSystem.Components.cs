@@ -79,7 +79,7 @@ public sealed partial class PersistentProfileSystem
         var name = Factory.GetComponentName(component.GetType());
         var registry = new ComponentRegistry
         {
-            [name] = new(component, new()),
+            [name] = new(component),
         };
 
         return _serialization.WriteValue(

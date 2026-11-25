@@ -50,7 +50,7 @@ public sealed class TapeRecorderSystem : SharedTapeRecorderSystem
             //Change the voice to match the speaker
             voice.NameOverride = message.Name ?? ent.Comp.DefaultName;
             // TODO: mimic the exact string chosen when the message was recorded
-            var verb = message.Verb ?? SharedChatSystem.DefaultSpeechVerb;
+            var verb = message.Verb ?? SharedChatSystem.DefaultSpeechVerb.Id;
             speech.SpeechVerb = _proto.Index<SpeechVerbPrototype>(verb);
 
             // Mono: Handle spoken language

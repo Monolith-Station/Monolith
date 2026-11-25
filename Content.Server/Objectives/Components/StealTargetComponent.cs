@@ -16,5 +16,5 @@ public sealed partial class StealTargetComponent : Component
     /// The theft group to which this item belongs.
     /// </summary>
     [DataField(required: true), ViewVariables(VVAccess.ReadWrite)]
-    public PrototypeFlags<StealTargetGroupPrototype> StealGroup = []; // Mono - Multiple stealgroups
+    public HashSet<ProtoId<StealTargetGroupPrototype>> StealGroup = new(); // Mono - Multiple stealgroups
 }

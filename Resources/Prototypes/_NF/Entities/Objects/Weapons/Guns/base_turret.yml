@@ -95,7 +95,7 @@
     netsync: false
     radius: 16
     energy: 8
-    mask: /Textures/_NF/Effects/LightMasks/beam.png
+    lightMask: TurretBeam
     color: "#990000"
 
 - type: entity # Basic ballistic turret

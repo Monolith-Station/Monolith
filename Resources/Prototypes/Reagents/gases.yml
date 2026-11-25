@@ -461,13 +461,14 @@
         - !type:OrganType # Goobstation - Yowie
           type: Yowie
         damage:
-          groups:
-            Brute: -1
           types:
             Heat: -0.5
             Shock: -0.5
             Cold: -0.5
             Radiation: -0.5
+            Blunt: -0.33
+            Slash: -0.33
+            Piercing: -0.34
       - !type:HealthChange
         conditions:
         - !type:OrganType # Goobstation - Yowie
@@ -551,4 +552,3 @@
         - !type:OrganType
           type: Hydrakin
         amount: -10000
-

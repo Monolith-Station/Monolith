@@ -12,7 +12,6 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Server.EntityEffects.Effects;
 
@@ -36,8 +35,8 @@ public sealed partial class AreaReactionEffect : EntityEffect
     /// <summary>
     /// The entity prototype that will be spawned as the effect.
     /// </summary>
-    [DataField("prototypeId", required: true, customTypeSerializer:typeof(PrototypeIdSerializer<EntityPrototype>))]
-    private string _prototypeId = default!;
+    [DataField("prototypeId", required: true)]
+    private EntProtoId<EdgeSpreaderComponent> _prototypeId;
 
     /// <summary>
     /// Sound that will get played when this reaction effect occurs.
@@ -63,14 +62,13 @@ public sealed partial class AreaReactionEffect : EntityEffect
             var spreadAmount = (int) Math.Max(0, Math.Ceiling((reagentArgs.Quantity / OverflowThreshold).Float()));
             var splitSolution = reagentArgs.Source.SplitSolution(reagentArgs.Source.Volume);
             var transform = reagentArgs.EntityManager.GetComponent<TransformComponent>(reagentArgs.TargetEntity);
-            var mapManager = IoCManager.Resolve<IMapManager>();
             var mapSys = reagentArgs.EntityManager.System<MapSystem>();
             var turf = reagentArgs.EntityManager.System<TurfSystem>();
             var spreaderSys = args.EntityManager.System<SpreaderSystem>();
             var sys = args.EntityManager.System<TransformSystem>();
             var mapCoords = sys.GetMapCoordinates(reagentArgs.TargetEntity, xform: transform);
 
-            if (!mapManager.TryFindGridAt(mapCoords, out var gridUid, out var grid) ||
+            if (!mapSys.TryFindGridAt(mapCoords, out var gridUid, out var grid) ||
                 !mapSys.TryGetTileRef(gridUid, grid, transform.Coordinates, out var tileRef))
             {
                 return;

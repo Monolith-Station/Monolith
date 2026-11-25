@@ -10,12 +10,11 @@ namespace Content.Client.Parallax;
 
 public sealed partial class ParallaxSystem : SharedParallaxSystem
 {
-    [Dependency] private IMapManager _map = default!;
+    [Dependency] private SharedMapSystem _map = default!;
     [Dependency] private IOverlayManager _overlay = default!;
     [Dependency] private IParallaxManager _parallax = default!;
 
-    [ValidatePrototypeId<ParallaxPrototype>]
-    private const string Fallback = "SnowballStation"; // Mono
+    private static readonly ProtoId<ParallaxPrototype> Fallback = "SnowballStation"; // Mono
 
     public const int ParallaxZIndex = 0;
 
@@ -58,17 +57,17 @@ public sealed partial class ParallaxSystem : SharedParallaxSystem
 
     public ParallaxLayerPrepared[] GetParallaxLayers(MapId mapId)
     {
-        return _parallax.GetParallaxLayers(GetParallax(_map.GetMapEntityId(mapId)));
+        return _parallax.GetParallaxLayers(GetParallax(_map.GetMapOrInvalid(mapId)));
     }
 
     public string GetParallax(MapId mapId)
     {
-        return GetParallax(_map.GetMapEntityId(mapId));
+        return GetParallax(_map.GetMapOrInvalid(mapId));
     }
 
     public string GetParallax(EntityUid mapUid)
     {
-        return TryComp<ParallaxComponent>(mapUid, out var parallax) ? parallax.Parallax : Fallback;
+        return TryComp<ParallaxComponent>(mapUid, out var parallax) ? parallax.Parallax : Fallback.Id;
     }
 
     /// <summary>

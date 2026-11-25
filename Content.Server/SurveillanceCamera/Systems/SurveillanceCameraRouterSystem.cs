@@ -158,7 +158,7 @@ public sealed partial class SurveillanceCameraRouterSystem : EntitySystem
         }
 
         var state = new SurveillanceCameraSetupBoundUiState(router.SubnetName, deviceNet.ReceiveFrequency ?? 0,
-            router.AvailableNetworks, true, router.SubnetFrequencyId != null);
+            router.AvailableNetworks.ConvertAll(id => id.Id), true, router.SubnetFrequencyId != null);
         _userInterface.SetUiState(uid, SurveillanceCameraSetupUiKey.Router, state);
     }
 
