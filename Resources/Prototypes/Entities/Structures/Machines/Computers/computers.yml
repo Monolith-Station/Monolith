@@ -238,6 +238,11 @@
       key_slots:
       - EncryptionKeyTraffic
   # End Frontier
+  - type: ConsoleRadarLockTone # Mono
+    lockAcquiredSound:
+      path: /Audio/_Mono/Effects/Alerts/rwr_beep.ogg
+      params:
+        volume: 5
   - type: TargetSeekerAlert # Mono
     targetGainSound:
       path: /Audio/_Mono/Effects/Alerts/rwr_beep.ogg
@@ -1144,7 +1149,7 @@
     color: "#b89f25"
   - type: AccessReader
     #access: [["Quartermaster"]] #Monolith Change: Allows Serzhants and Kommissars to skip bounties
-    access: [["USSPHigh"]]
+    #access: [["USSPHigh"]] # USSP no longer has the only bounty computer
   # - type: GuideHelp # Frontier
   #   guides: # Frontier
   #   - CargoBounties # Frontier

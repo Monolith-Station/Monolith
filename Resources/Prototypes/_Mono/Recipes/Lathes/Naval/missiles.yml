@@ -1,0 +1,105 @@
+- type: latheRecipe
+  id: RecipeWeaponTurretVanyk
+  result: VanykFlatpack
+  categories:
+  - NavalMissiles
+  - Light
+  completetime: 10
+  materialDiscountScale: 0
+  materials:
+    MaterialIndustryFCS: 3
+    MaterialIndustryMechanical: 1
+    MaterialIndustryElectronics: 3
+    Steel: 2000
+    Plasteel: 500
+
+- type: latheRecipe
+  id: RecipeWeaponTurretLightMunitionsBay
+  result: LightMunitionsBayFlatpack
+  categories:
+  - NavalMissiles
+  - Light
+  completetime: 10
+  materialDiscountScale: 0
+  materials:
+    MaterialIndustryMechanical: 1
+    MaterialIndustryElectronics: 1
+    Steel: 2000
+    Plasteel: 500
+
+- type: latheRecipe
+  id: RecipeWeaponTurretVespera
+  result: VesperaFlatpack
+  categories:
+  - NavalMissiles
+  - Medium
+  completetime: 10
+  materialDiscountScale: 0
+  materials:
+    MaterialIndustryFCS: 3
+    MaterialIndustryMechanical: 1
+    MaterialIndustryElectronics: 3
+    Steel: 3000
+    Plasteel: 1500
+
+- type: latheRecipe
+  id: RecipeWeaponTurretTovek
+  result: TovekFlatpack
+  categories:
+  - NavalMissiles
+  - Medium
+  completetime: 10
+  materialDiscountScale: 0
+  materials:
+    MaterialIndustryFCS: 1
+    MaterialIndustryMechanical: 1
+    MaterialIndustryElectronics: 3
+    Steel: 3000
+    Plasteel: 1500
+
+- type: latheRecipe
+  id: RecipeWeaponTurretASM220
+  result: TridentFlatpack
+  categories:
+  - NavalMissiles
+  - Heavy
+  completetime: 10
+  materialDiscountScale: 0
+  materials:
+    MaterialIndustryFCS: 5
+    MaterialIndustryMechanical: 3
+    MaterialIndustryElectronics: 5
+    Steel: 5000
+    Plasteel: 5000
+
+- type: latheRecipe
+  id: RecipeWeaponTurretVanquisher
+  result: VanquisherFlatpack
+  categories:
+  - NavalMissiles
+  - Heavy
+  completetime: 10
+  materialDiscountScale: 0
+  materials:
+    MaterialIndustryFCS: 5
+    MaterialIndustryMechanical: 5
+    MaterialIndustryElectronics: 5
+    MaterialIndustryPlates: 3
+    Steel: 5000
+    Plasteel: 5000
+
+- type: latheRecipe
+  id: RecipeWeaponTurretPaladin
+  result: PaladinFlatpack
+  categories:
+  - NavalMissiles
+  - Heavy
+  completetime: 10
+  materialDiscountScale: 0
+  materials:
+    MaterialIndustryFCS: 5
+    MaterialIndustryMechanical: 5
+    MaterialIndustryElectronics: 5
+    MaterialIndustryPlates: 3
+    Steel: 5000
+    Plasteel: 5000

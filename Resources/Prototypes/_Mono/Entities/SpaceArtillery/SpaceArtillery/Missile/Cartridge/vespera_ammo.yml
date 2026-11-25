@@ -82,3 +82,45 @@
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Metallic
+
+- type: entity
+  id: MissileMagazine50mmAAM
+  name: "Vespera 50mm anti-munition missile autoloader"
+  parent: [BaseItem, RecyclableItemSteelTiny]
+  components:
+  - type: Tag
+    tags:
+    - MissileMagazine50mm
+  - type: Item
+    size: Small
+  - type: BallisticAmmoProvider
+    proto: MissileCartridge50mmAAM
+    capacity: 78
+    mayTransfer: true
+    whitelist:
+      tags:
+      - MissileCartridge50mm
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Ammunition/Boxes/generic_shipgun_box.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-0
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 4
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: MissileCartridge50mmAAM
+  name: 50mm anti-munition missile
+  description: An individual ADMP-50 AAM missile for a 50mm missile launcher.
+  parent: MissileCartridge50mmHE
+  components:
+  - type: CartridgeAmmo
+    proto: MissileProjectile50mmAAM

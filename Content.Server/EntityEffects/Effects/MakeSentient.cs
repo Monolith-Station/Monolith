@@ -1,23 +1,22 @@
-using System.Linq;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server._EinsteinEngines.Language;
 using Content.Server.Speech.Components;
 using Content.Shared.EntityEffects;
-using Content.Shared._EinsteinEngines.Language;
 using Content.Shared._EinsteinEngines.Language.Systems;
 using Content.Shared.Mind.Components;
-using Content.Shared.Humanoid;
 using Content.Shared._EinsteinEngines.Language.Components;
-using Content.Shared._EinsteinEngines.Language.Events;
 using Robust.Shared.Prototypes;
-using Content.Shared.Humanoid; //Delta-V - Banning humanoids from becoming ghost roles.
+
+//Delta-V - Banning humanoids from becoming ghost roles.
 
 namespace Content.Server.EntityEffects.Effects;
 
 public sealed partial class MakeSentient : EntityEffect
 {
-    protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
-        => Loc.GetString("reagent-effect-guidebook-make-sentient", ("chance", Probability));
+    protected override string ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+    {
+        return Loc.GetString("reagent-effect-guidebook-make-sentient", ("chance", Probability));
+    }
 
     public override void Effect(EntityEffectBaseArgs args)
     {
@@ -32,8 +31,8 @@ public sealed partial class MakeSentient : EntityEffect
 
         // Einstein Engines - Language begin
         // Make sure the entity knows at least fallback (Tau-Ceti Basic).
-        var speaker = entityManager.EnsureComponent<LanguageSpeakerComponent>(uid);
-        var knowledge = entityManager.EnsureComponent<LanguageKnowledgeComponent>(uid);
+        entityManager.EnsureComponent<LanguageSpeakerComponent>(uid);
+        var knowledge = entityManager.EnsureComponent<Shared._EinsteinEngines.Language.LanguageKnowledgeComponent>(uid);
         var fallback = SharedLanguageSystem.FallbackLanguagePrototype;
 
         if (!knowledge.UnderstoodLanguages.Contains(fallback))

@@ -272,6 +272,13 @@
   - type: RadarBlip
     scale: 4
     shape: square
+  - type: Tag
+    tags:
+    - AMMTarget
+  - type: RadarCountermeasure
+    radius: 40
+    strength: 0.85
+    maxEffectRange: 800
   - type: Projectile
     deleteOnCollide: false
     damage:

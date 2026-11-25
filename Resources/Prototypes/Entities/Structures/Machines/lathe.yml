@@ -524,6 +524,10 @@
     - UniversalOrdinance
     - SmartGun #Smart SMG
     - NFMercenaryTechfabDeprecated
+    # Shipguns
+    - NavalBallistics
+    - NavalEnergy
+    - NavalMissiles
     # Mono end
   - type: MaterialStorage
     whitelist:
@@ -758,6 +762,7 @@
       tags:
       - Ore
   - type: Lathe
+    bulkMaterialPrintMultiplier: 3 # Mono
     partRatingMaterialUseMultiplier: 0.9 # Mono
     idleState: icon
     runningState: building
@@ -781,6 +786,7 @@
   - type: Machine
     board: OreProcessorIndustrialMachineCircuitboard
   - type: Lathe
+    bulkMaterialPrintMultiplier: 10 # Mono
     partRatingMaterialUseMultiplier: 0.92 # Mono
     materialUseMultiplier: 0.6 # Mono
     timeMultiplier: 0.5

@@ -5,6 +5,12 @@
   id: AdvancedLaserPistol
 
 - type: Tag
+  id: AMMTarget
+
+- type: Tag
+  id: AMM
+
+- type: Tag
   id: CartridgeMachineGun
 
 - type: Tag
@@ -73,6 +79,9 @@
 
 - type: Tag
   id: MonoGripErebusRailmount
+
+- type: Tag
+  id: MonoGripMeLat
 
 - type: Tag
   id: MonoGrip40mmUBGL
@@ -899,3 +908,7 @@
 
 - type: Tag
   id: TurtleneckSuitClassical
+
+# Part exchangers
+- type: Tag
+  id: PartExchanger

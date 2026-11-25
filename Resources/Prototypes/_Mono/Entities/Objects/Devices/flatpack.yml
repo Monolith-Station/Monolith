@@ -137,7 +137,7 @@
   parent: BaseFlatpack
   id: PrometheusFlatpack
   name: Prometheus flatpack
-  description: A flatpack used for constructing a model 54C plasma weapon.
+  description: A flatpack used for constructing a model Prometheus laser cannon.
   components:
   - type: Flatpack
     entity: WeaponLaserTurretPrometheus
@@ -275,6 +275,17 @@
   components:
   - type: Flatpack
     entity: WeaponTurretCyrexa
+  - type: StaticPrice
+    price: 500
+
+- type: entity
+  parent: BaseFlatpack
+  id: R300Flatpack
+  name: R-300 flatpack
+  description: A flatpack used for constructing a R-300 320x752mm howitzer.
+  components:
+  - type: Flatpack
+    entity: WeaponTurretR300
   - type: StaticPrice
     price: 500
 
@@ -507,6 +518,20 @@
   components:
   - type: Flatpack
     entity: ResearchAndDevelopmentServerTSFMC
+  - type: StaticPrice
+    price: 1500
+  - type: Sprite
+    layers:
+    - state: science_server
+
+- type: entity
+  parent: BaseNFFlatpack
+  id: RDServerCaelestinusFlatpack
+  name: caelestinus research and development server flatpack
+  description: A flatpack used for constructing a Caelestinus research and development server.
+  components:
+  - type: Flatpack
+    entity: ResearchAndDevelopmentServerCaelestinus
   - type: StaticPrice
     price: 1500
   - type: Sprite

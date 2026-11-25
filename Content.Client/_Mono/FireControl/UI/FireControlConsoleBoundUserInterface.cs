@@ -2,6 +2,7 @@
 // All rights reserved. Relicensed under AGPL with permission
 
 using Content.Shared._Mono.FireControl;
+using Content.Shared._Mono.Sensors;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
 using Robust.Shared.Map;
@@ -23,23 +24,32 @@ public sealed class FireControlConsoleBoundUserInterface : BoundUserInterface
         base.Open();
         _window = this.CreateWindow<FireControlWindow>();
 
+        _window.Sensors.OnEmcon += msg => SendMessage(msg);
+        _window.Sensors.OnArc += msg => SendMessage(msg);
+        _window.Sensors.OnDatalink += msg => SendMessage(msg);
+        _window.Sensors.OnContactLock += net =>
+            SendMessage(new SensorsSetLockMessage { Target = net });
+
+        _window.OnLock += msg => SendMessage(msg);
+        _window.OnRadarTrack += msg => SendMessage(msg);
+        _window.Radar.OnLockTarget += net =>
+            SendMessage(new SensorsSetLockMessage { Target = net });
+        _window.Radar.OnClearLock += () =>
+            SendMessage(new SensorsSetLockMessage { Target = null });
+
         _window.OnServerRefresh += OnRefreshServer;
 
-        _window.Radar.OnRadarClick += (coords) =>
+        _window.Radar.OnRadarClick += coords =>
         {
             var netCoords = EntMan.GetNetCoordinates(coords);
 
             // Send empty list of weapons for cursor tracking only when not clicking
             // This allows guided missiles to follow the cursor without firing weapons
             if (!_window.Radar.IsMouseDown())
-            {
                 SendCursorUpdateMessage(netCoords);
-            }
             else
-            {
                 // Normal fire message when actually clicking
                 SendFireMessage(netCoords);
-            }
         };
 
         _window.Radar.DefaultCursorShape = Control.CursorShape.Crosshair;
@@ -98,11 +108,12 @@ public sealed class FireControlConsoleBoundUserInterface : BoundUserInterface
             return;
 
         _window?.UpdateStatus(castState);
+
         if (_window?.Radar is FireControlNavControl navControl)
         {
             navControl.SetConsole(Owner);
             navControl.UpdateControllables(Owner, castState.FireControllables);
-
+            navControl.SetRadarLockState(castState.NavState.Lock);
             // Update selected weapons when state updates
             UpdateSelectedWeapons();
         }

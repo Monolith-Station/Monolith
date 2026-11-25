@@ -41,6 +41,7 @@
   - ShipVoucherTsfT2Recipe
   - ZephyrVoucherTSF
   - ShipVoucherPolarisRecipe
+  - ShipVoucherHangzhouRecipe
   - ShipVoucherLudaRecipe
 
 - type: latheRecipePack
@@ -57,3 +58,8 @@
   - AdvancedBorgCombatModuleTSF
   - AutosurgeonSandevistanTSF
 #  - AutosurgeonShuntTSF
+
+- type: latheRecipePack
+  id: MonoTSFHyperwarExclusive
+  recipes:
+  - ShipVoucherFlyssaRecipe

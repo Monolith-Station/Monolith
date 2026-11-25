@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 277.0.0
+  engineVersion: 277.0.6
   forkId: ""
   forkVersion: ""
-  time: 09/06/2026 07:19:32
-  entityCount: 1978
+  time: 11/24/2026 22:30:47
+  entityCount: 1982
 maps: []
 grids:
 - 1
@@ -677,10 +677,11 @@ entities:
             78: 1,10
     - type: SpreaderGrid
       spreadQueues:
-        Kudzu: []
-        MetalFoam: []
         Smoke: []
+        MetalFoam: []
+        ESTileFire: []
         Puddle: []
+        Kudzu: []
     - type: GridAtmosphere
       version: 2
       data:
@@ -902,6 +903,9 @@ entities:
         0,-1: 18446743107392241664
     - type: ThermalSignature
     - type: ExplosionAirtightGrid
+    - type: GridSensors
+      datalinkCodes: []
+    - type: DetectionRangeMultiplier
 - proto: AirAlarm
   entities:
   - uid: 2
@@ -6662,7 +6666,7 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
-- proto: ComputerTabletopAdvancedRadar
+- proto: ComputerTabletopRadar
   entities:
   - uid: 1075
     components:
@@ -9876,6 +9880,36 @@ entities:
     components:
     - type: Transform
       pos: -6.5,0.5
+      parent: 1
+- proto: SensorInfraredCiv
+  entities:
+  - uid: 1982
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 3.5,40.5
+      parent: 1
+- proto: SensorPassiveRadarCiv
+  entities:
+  - uid: 1979
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 10.5,24.5
+      parent: 1
+  - uid: 1980
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -11.5,24.5
+      parent: 1
+- proto: SensorRadarCiv
+  entities:
+  - uid: 1981
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -4.5,40.5
       parent: 1
 - proto: ShelfWallFreezerWhite
   entities:

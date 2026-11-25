@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 277.0.0
+  engineVersion: 277.0.6
   forkId: ""
   forkVersion: ""
-  time: 09/20/2026 07:31:39
-  entityCount: 256
+  time: 11/24/2026 22:37:28
+  entityCount: 257
 maps: []
 grids:
 - 1
@@ -59,10 +59,11 @@ entities:
     - type: ThermalSignature
     - type: SpreaderGrid
       spreadQueues:
+        Smoke: []
+        MetalFoam: []
+        ESTileFire: []
         Puddle: []
         Kudzu: []
-        MetalFoam: []
-        Smoke: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: ImplicitRoof
@@ -83,6 +84,9 @@ entities:
     - type: ExplosionAirtightGrid
     - type: ShipGridLock
       locked: False
+    - type: GridSensors
+      datalinkCodes: []
+    - type: DetectionRangeMultiplier
 - proto: AirlockExternal
   entities:
   - uid: 2
@@ -1212,6 +1216,14 @@ entities:
       parent: 1
     - type: DeltaPressure
       gridUid: 1
+- proto: SensorRadarCiv
+  entities:
+  - uid: 257
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 13.5,16.5
+      parent: 1
 - proto: SpawnPointLatejoin
   entities:
   - uid: 255

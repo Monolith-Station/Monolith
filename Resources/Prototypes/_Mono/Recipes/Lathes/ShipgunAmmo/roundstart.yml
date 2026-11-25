@@ -159,8 +159,18 @@
 
 - type: latheRecipe
   parent: BaseMissileShipgunAmmoRecipe
+  id: MissileMagazine50mmAAMAmmoRecipe
+  result: MissileMagazine50mmAAM
+
+- type: latheRecipe
+  parent: BaseMissileShipgunAmmoRecipe
   id: VanykMagazineAmmoRecipe
   result: VanykMagazine
+
+- type: latheRecipe
+  parent: BaseMissileShipgunAmmoRecipe
+  id: VanykMagazineAAMAmmoRecipe
+  result: VanykMagazineAAM
 
 - type: latheRecipe
   parent: BaseHeavyMissileShipgunAmmoRecipe

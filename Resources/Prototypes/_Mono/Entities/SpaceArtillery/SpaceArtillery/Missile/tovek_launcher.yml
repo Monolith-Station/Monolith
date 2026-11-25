@@ -52,8 +52,9 @@
   - type: HardpointAnchorableOnly
     class: Missile
     size: Medium
+  - type: BallisticLeadIgnore
 
-- type: entity
+type: entity
   id: WeaponTurretTovekHE
   name: ADMX-250 TOVEK Missile Pod
   parent: WeaponTurretTovek
