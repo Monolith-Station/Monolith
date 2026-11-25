@@ -27719,3 +27719,17 @@ Entries:
   id: 2971
   time: '2026-11-24T19:19:05.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/5010
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Added a really cool sensors system. All radar consoles (shuttle/nav/mass
+        scanner) on ships now share the same detected objects, sensors are now
+        physical entities on the hull with their own power draws, you can now
+        lock targets in the gunnery console to provide lead for weapons &
+        guidance for SACLOS missiles, you can now do datalinks with other ships
+        to share detected objects, etc etc. Look in the guidebook page for more
+        detailed explanations.
+  id: 2972
+  time: '2026-11-25T18:02:12.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5074
