@@ -131,6 +131,13 @@ public sealed partial class MappingSystem : EntitySystem
 
         args.Handled = true;
 
+        if (args.Eraser)
+        {
+            _placementMan.Clear();
+            _placementMan.ToggleEraser();
+            return;
+        }
+
         _placementMan.BeginPlacing(new()
         {
             EntityType = args.EntityType,
@@ -138,8 +145,5 @@ public sealed partial class MappingSystem : EntitySystem
             TileType = args.TileId != null ? _tileMan[args.TileId].TileId : (ushort) 0,
             PlacementOption = args.PlacementOption,
         });
-
-        if (_placementMan.Eraser != args.Eraser)
-            _placementMan.ToggleEraser();
     }
 }

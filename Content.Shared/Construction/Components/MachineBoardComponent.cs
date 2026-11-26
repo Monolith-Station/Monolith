@@ -3,7 +3,6 @@ using Content.Shared.Stacks;
 using Content.Shared.Tag;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary; // Frontier: upgradeable components
 
 namespace Content.Shared.Construction.Components;
 

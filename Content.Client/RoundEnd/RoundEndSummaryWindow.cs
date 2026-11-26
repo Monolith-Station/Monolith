@@ -235,7 +235,7 @@ namespace Content.Client.RoundEnd
                     var highestDamage = playerInfo.DamagePerGroup
                         .OrderByDescending(kvp => kvp.Value)
                         .First();
-                    var typeAdj = highestDamage.Key switch
+                    var typeAdj = highestDamage.Key.Id switch
                     {
                         "Burn" => "fiery",
                         "Brute" => "crushing",
@@ -262,7 +262,7 @@ namespace Content.Client.RoundEnd
                         if (damage.Value <= 0)
                             continue;
 
-                        var color = damage.Key switch
+                        var color = damage.Key.Id switch
                         {
                             "Burn" => Color.Orange,
                             "Brute" => Color.Red,

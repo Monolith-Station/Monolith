@@ -25,7 +25,6 @@ namespace Content.Server.Maps;
 public sealed partial class PlanetCommand : IConsoleCommand
 {
     [Dependency] private IEntityManager _entManager = default!;
-    [Dependency] private IMapManager _mapManager = default!;
     [Dependency] private IPrototypeManager _protoManager = default!;
 
     public string Command => "planet";
@@ -47,7 +46,7 @@ public sealed partial class PlanetCommand : IConsoleCommand
 
         var mapId = new MapId(mapInt);
 
-        if (!_mapManager.MapExists(mapId))
+        if (!_entManager.System<SharedMapSystem>().TryGetMap(mapId, out var mapUid))
         {
             shell.WriteError(Loc.GetString($"cmd-planet-map", ("map", mapId)));
             return;
@@ -60,8 +59,7 @@ public sealed partial class PlanetCommand : IConsoleCommand
         }
 
         var biomeSystem = _entManager.System<BiomeSystem>();
-        var mapUid = _mapManager.GetMapEntityId(mapId);
-        biomeSystem.EnsurePlanet(mapUid, biomeTemplate);
+        biomeSystem.EnsurePlanet(mapUid.Value, biomeTemplate);
 
         shell.WriteLine(Loc.GetString("cmd-planet-success", ("mapId", mapId)));
     }

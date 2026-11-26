@@ -737,7 +737,7 @@ public sealed partial class PlanetTerrainSystem : EntitySystem
     /// <summary>
     /// the single colour standing in for every entity a layer can pick. Alpha is how much it covers the tile. This could have and should have been alot lazier
     /// </summary>
-    private Rgba32 GetLayerEntityColor(List<string> entities)
+    private Rgba32 GetLayerEntityColor(List<EntProtoId> entities)
     {
         if (entities.Count == 0)
             return default;
