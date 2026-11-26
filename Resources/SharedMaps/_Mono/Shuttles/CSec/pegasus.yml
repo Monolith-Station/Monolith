@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.6
   forkId: ""
   forkVersion: ""
-  time: 11/23/2026 16:53:11
-  entityCount: 460
+  time: 11/26/2026 20:01:46
+  entityCount: 464
 maps: []
 grids:
 - 1
@@ -92,10 +92,10 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Puddle: []
-        MetalFoam: []
-        Smoke: []
         Kudzu: []
+        Smoke: []
+        MetalFoam: []
+        Puddle: []
         ESTileFire: []
     - type: Shuttle
       dampingModifier: 0.25
@@ -384,6 +384,9 @@ entities:
     - type: ExplosionAirtightGrid
     - type: ShipGridLock
       locked: False
+    - type: GridSensors
+      datalinkCodes: []
+    - type: DetectionRangeMultiplier
 - proto: AirAlarm
   entities:
   - uid: 119
@@ -442,7 +445,7 @@ entities:
       pos: 1.5,5.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -3489.5437
+      secondsUntilStateChange: -4976.5127
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -1807,13 +1810,6 @@ entities:
       parent: 1
     - type: AtmosPipeColor
       color: '#FF0000FF'
-- proto: GeneratorWallmountAPU
-  entities:
-  - uid: 268
-    components:
-    - type: Transform
-      pos: 2.5,2.5
-      parent: 1
 - proto: GravityGeneratorMini
   entities:
   - uid: 101
@@ -2008,7 +2004,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 8.5,8.5
       parent: 1
-- proto: LockerWallMaterialsFuelUraniumFilled
+- proto: LockerWallMaterialsFuelUraniumFilled2
   entities:
   - uid: 266
     components:
@@ -2096,7 +2092,14 @@ entities:
       pos: 2.5,0.5
       parent: 1
     - type: FuelGenerator
-      targetPower: 60000
+      targetPower: 45000
+  - uid: 464
+    components:
+    - type: Transform
+      pos: 2.5,1.5
+      parent: 1
+    - type: FuelGenerator
+      targetPower: 45000
 - proto: PowerCellRecharger
   entities:
   - uid: 22
@@ -2356,6 +2359,36 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 8.5,8.5
+      parent: 1
+- proto: SensorInfraredTSF
+  entities:
+  - uid: 268
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -2.5,2.5
+      parent: 1
+  - uid: 461
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 7.5,2.5
+      parent: 1
+- proto: SensorPassiveRadarTSF
+  entities:
+  - uid: 463
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 6.5,9.5
+      parent: 1
+- proto: SensorRadarTsfRenHai
+  entities:
+  - uid: 462
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -1.5,9.5
       parent: 1
 - proto: ShieldGeneratorSmall
   entities:

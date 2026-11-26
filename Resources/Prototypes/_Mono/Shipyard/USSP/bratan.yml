@@ -110,6 +110,15 @@
     - chance: 1
       toReplace: CrateMedicalRollerBeds
       replaceWith: CableMV
+    - chance: 1
+      toReplace: SensorPassiveRadarTSF
+      replaceWith: SensorPassiveRadarPDV
+    - chance: 1
+      toReplace: SensorInfraredTSF
+      replaceWith: SensorInfraredPDV
+    - chance: 1
+      toReplace: SensorRadarTsfRenHai
+      replaceWith: SensorRadarPdvFCR
   - !type:GridModEntityReplace
     comp: Gun
     data:
