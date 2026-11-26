@@ -114,19 +114,12 @@
   priority: 4
   children:
   - Caelestinus_ReverseEngineering
-  - Caelestinus_Archon
 
 - type: guideEntry
   id: Caelestinus_ReverseEngineering
   name: Reverse Engineering
   text: "/ServerInfo/_Mono/Guidebook/Factions/caelestinus_reverse-engineering.xml"
   priority: 5
-
-- type: guideEntry
-  id: Caelestinus_Archon
-  name: Flagship "Archon"
-  text: "/ServerInfo/_Mono/Guidebook/Factions/caelestinus_archon.xml"
-  priority: 6
 
 - type: guideEntry
   id: Underground

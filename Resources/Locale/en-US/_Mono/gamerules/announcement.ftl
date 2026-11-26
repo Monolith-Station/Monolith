@@ -4,6 +4,3 @@ gamerule-portstrike-announce-sender = Colossus Diplomatic High Command
 gamerule-crocus-announce-start-announcement = An official state of emergency has been declared for Jianghui and it's surrounding areas. Civilians are urged to seek shelter or evacuation.
 gamerule-crocus-announce-10min-announcement = Troop deployment confirmed. Jianghui and the surrounding area should be considered an active warzone until further notice is provided.
 gamerule-crocus-announce-sender = Jianghui PA System
-
-gamerule-supercapital-in-sector-announcement = A supercapital vessel has been detected within the Colossus sector. Please exercise caution.
-gamerule-supercapital-announcement-sender = Colossus Sector Vessel Monitoring
