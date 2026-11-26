@@ -53,6 +53,9 @@
   - type: ShipRepairable
     repairTime: 0.5
     repairCost: 1
+  - type: Tag # Reserve edit - mapping editor
+    tags:
+    - Cable
 
 - type: entity
   parent: CableBase
