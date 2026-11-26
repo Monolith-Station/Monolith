@@ -2,18 +2,19 @@ using Content.Server.Chat.Systems;
 using Content.Server.Hands.Systems;
 using Content.Server.Speech;
 using Content.Server.Speech.Components;
-using Content.Shared.Chat;
-using Content.Shared.Paper;
-using Content.Shared.Speech;
 using Content.Shared._DV.TapeRecorder;
 using Content.Shared._DV.TapeRecorder.Components;
 using Content.Shared._DV.TapeRecorder.Systems;
+using Content.Shared._EinsteinEngines.Language;
 using Content.Shared._EinsteinEngines.Language.Components;
+using Content.Shared.Chat;
+using Content.Shared.Paper;
+using Content.Shared.Speech;
 using Robust.Server.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 using System.Text;
-using Content.Shared._EinsteinEngines.Language;
 
 namespace Content.Server._DV.TapeRecorder;
 
@@ -135,13 +136,15 @@ public sealed class TapeRecorderSystem : SharedTapeRecorderSystem
             var name = message.Name ?? ent.Comp.DefaultName;
             var time = TimeSpan.FromSeconds((double) message.Timestamp);
 
-            // Mono: quick and dirty hardcode language handler so the recorder can speak it, but can't transcribe it
-            // If someone wants to implement an "advanced tape recorder" you'll need to upgrade this
-            var printMessage = message.Message;
-            if (!string.IsNullOrEmpty(message.Language) && message.Language != "TauCetiBasic")
-            {
-                printMessage = Loc.GetString("tape-recorder-print-unintelligible");
-            }
+            // Mono start: language handler
+            var sanitizedText = message.Message
+                .Replace("\\", "")
+                .Replace("\"", "'");
+
+            var printMessage = string.IsNullOrEmpty(message.Language)
+                ? sanitizedText
+                : $"[language=\"{message.Language}\" text=\"{sanitizedText}\"/]";
+            // Mono end
 
             text.AppendLine(Loc.GetString("tape-recorder-print-message-text",
                 ("time", time.ToString(@"hh\:mm\:ss")),
