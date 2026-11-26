@@ -79,3 +79,9 @@
     - chance: 1
       toReplace: GunneryServerMedium
       replaceWith: GunneryServerHigh
+  - !type:GridModEntityReplace
+    comp: Destructible
+    data:
+    - chance: 1
+      toReplace: SensorRadarCivT2
+      replaceWith: SensorRadarTsfXiaoDou
