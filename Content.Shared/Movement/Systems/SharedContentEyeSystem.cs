@@ -126,7 +126,7 @@ public abstract partial class SharedContentEyeSystem : EntitySystem
 
     public void ResetZoom(EntityUid uid, ContentEyeComponent? component = null)
     {
-        _eye.SetPvsScale(uid, 1);
+        // _eye.SetPvsScale(uid, 1); # Monolith: Why?
         SetZoom(uid, DefaultZoom, eye: component);
     }
 
