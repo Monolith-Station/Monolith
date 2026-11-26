@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.6
   forkId: ""
   forkVersion: ""
-  time: 11/23/2026 17:05:06
-  entityCount: 289
+  time: 11/26/2026 20:43:25
+  entityCount: 293
 maps: []
 grids:
 - 1
@@ -73,8 +73,8 @@ entities:
         MetalFoam: []
         Puddle: []
         Smoke: []
-        ESTileFire: []
         Kudzu: []
+        ESTileFire: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -680,6 +680,9 @@ entities:
     - type: ShipGridLock
       locked: False
     - type: ExplosionAirtightGrid
+    - type: GridSensors
+      datalinkCodes: []
+    - type: DetectionRangeMultiplier
 - proto: AirAlarm
   entities:
   - uid: 7
@@ -1143,6 +1146,11 @@ entities:
     - type: Transform
       pos: 2.5,-1.5
       parent: 1
+  - uid: 293
+    components:
+    - type: Transform
+      pos: 6.5,-3.5
+      parent: 1
 - proto: CableHV
   entities:
   - uid: 30
@@ -1347,24 +1355,24 @@ entities:
     - type: Transform
       pos: 6.5,-3.5
       parent: 1
-- proto: ComputerTabletopAdvancedRadar
-  entities:
-  - uid: 29
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -0.5,-2.5
-      parent: 1
-    - type: ApcPowerReceiver
-      powerLoad: 5
-    - type: Battery
-      startingCharge: 0
 - proto: ComputerTabletopGunneryConsole
   entities:
   - uid: 196
     components:
     - type: Transform
       pos: -1.5,-1.5
+      parent: 1
+    - type: ApcPowerReceiver
+      powerLoad: 5
+    - type: Battery
+      startingCharge: 0
+- proto: ComputerTabletopRadar
+  entities:
+  - uid: 29
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -0.5,-2.5
       parent: 1
     - type: ApcPowerReceiver
       powerLoad: 5
@@ -1747,7 +1755,7 @@ entities:
       pos: 4.5,-2.5
       parent: 1
     - type: FuelGenerator
-      targetPower: 35000
+      targetPower: 42000
 - proto: PoweredlightLED
   entities:
   - uid: 157
@@ -1941,6 +1949,30 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 4.5,-4.5
+      parent: 1
+- proto: SensorInfraredTSF
+  entities:
+  - uid: 225
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 7.5,-2.5
+      parent: 1
+- proto: SensorPassiveRadarTSF
+  entities:
+  - uid: 246
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -6.5,-2.5
+      parent: 1
+- proto: SensorRadarTsfXiaoDou
+  entities:
+  - uid: 247
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 1.5,0.5
       parent: 1
 - proto: SignalButton
   entities:
