@@ -116,8 +116,7 @@ namespace Content.Client.Lobby.UI
 
         private bool _isDirty;
 
-        [ValidatePrototypeId<GuideEntryPrototype>]
-        private const string DefaultSpeciesGuidebook = "Species";
+        private static readonly ProtoId<GuideEntryPrototype> DefaultSpeciesGuidebook = "Species";
 
         public event Action<List<ProtoId<GuideEntryPrototype>>>? OnOpenGuidebook;
 
@@ -200,6 +199,8 @@ namespace Content.Client.Lobby.UI
 
             #endregion Name
 
+            CCustomSpeciesNameEdit.OnTextChanged += args => { SetCustomSpeciesName(args.Text); };
+
             #region Appearance
 
             TabContainer.SetTabTitle(0, Loc.GetString("humanoid-profile-editor-appearance-tab"));
@@ -249,6 +250,7 @@ namespace Content.Client.Lobby.UI
                 SetSpecies(_species[args.Id].ID);
                 UpdateHairPickers();
                 OnSkinColorOnValueChanged();
+                UpdateCustomSpeciesNameEdit(); // Starlight
             };
 
             #region Skin
@@ -1207,6 +1209,7 @@ namespace Content.Client.Lobby.UI
             JobOverride = null;
 
             UpdateNameEdit();
+            UpdateCustomSpeciesNameEdit(); // Starlight
             UpdateFlavorTextEdit();
             UpdateSexControls();
             UpdateGenderControls();
@@ -1348,7 +1351,7 @@ namespace Content.Client.Lobby.UI
 
             var guidebookController = UserInterfaceManager.GetUIController<GuidebookUIController>();
             var species = Profile?.Species ?? SharedHumanoidAppearanceSystem.DefaultSpecies;
-            var page = DefaultSpeciesGuidebook;
+            var page = DefaultSpeciesGuidebook.Id;
             if (_prototypeManager.HasIndex<GuideEntryPrototype>(species))
                 page = species;
 
@@ -1826,6 +1829,12 @@ namespace Content.Client.Lobby.UI
             _entManager.System<MetaDataSystem>().SetEntityName(PreviewDummy, newName);
         }
 
+        private void SetCustomSpeciesName(string name)
+        {
+            Profile = Profile?.WithCustomSpeciesName(name);
+            SetDirty();
+        }
+
         private void SetSpawnPriority(SpawnPriorityPreference newSpawnPriority)
         {
             Profile = Profile?.WithSpawnPriorityPreference(newSpawnPriority);
@@ -1874,6 +1883,12 @@ namespace Content.Client.Lobby.UI
         private void UpdateNameEdit()
         {
             NameEdit.Text = Profile?.Name ?? "";
+        }
+
+        private void UpdateCustomSpeciesNameEdit()
+        {
+            var species = _species.Find(x => x.ID == Profile?.Species) ?? _species.First();
+            CCustomSpeciesNameEdit.Text = string.IsNullOrEmpty(Profile?.CustomSpeciesName) ? Loc.GetString(species.Name) : Profile.CustomSpeciesName;
         }
 
         private void UpdateFlavorTextEdit()
@@ -2088,13 +2103,13 @@ namespace Content.Client.Lobby.UI
             }
             var hairMarking = Profile.Appearance.HairStyleId switch
             {
-                HairStyles.DefaultHairStyle => new List<Marking>(),
+                var id when id == HairStyles.DefaultHairStyle.Id => new List<Marking>(),
                 _ => new() { new(Profile.Appearance.HairStyleId, new List<Color>() { Profile.Appearance.HairColor }) },
             };
 
             var facialHairMarking = Profile.Appearance.FacialHairStyleId switch
             {
-                HairStyles.DefaultFacialHairStyle => new List<Marking>(),
+                var id when id == HairStyles.DefaultFacialHairStyle.Id => new List<Marking>(),
                 _ => new() { new(Profile.Appearance.FacialHairStyleId, new List<Color>() { Profile.Appearance.FacialHairColor }) },
             };
 

@@ -151,6 +151,13 @@ namespace Content.Shared.Lathe
         [DataField]
         public bool Paused = false;
 
+        /// <summary>
+        /// How much material will be used and how much material will be produced on each lathe tick.
+        /// This does affect TimeMultiplier
+        /// </summary>
+        [DataField]
+        public int BulkMaterialPrintMultiplier = 1;
+
         [DataField]
         public ProtoId<SinkPortPrototype> PausePort = "Pause";
 
@@ -159,6 +166,9 @@ namespace Content.Shared.Lathe
 
         [DataField]
         public ProtoId<SourcePortPrototype> ProducedPort = "Produced";
+
+        [DataField]
+        public ProtoId<SinkPortPrototype> ToggleOpenPort = "ToggleOpen";
         // </Mono>
     }
 

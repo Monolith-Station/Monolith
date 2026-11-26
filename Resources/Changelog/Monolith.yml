@@ -27416,3 +27416,401 @@ Entries:
   id: 2941
   time: '2026-11-18T03:27:28.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/5009
+- author: Mrrpip
+  changes:
+    - type: Fix
+      message: Fixed an offline thruster on the Caracara
+  id: 2942
+  time: '2026-11-18T06:52:32.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5047
+- author: EquanimityX0880
+  changes:
+    - type: Add
+      message: Added markings to the Reptilian race
+  id: 2943
+  time: '2026-11-18T06:54:51.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5044
+- author: thoughtlessuser
+  changes:
+    - type: Tweak
+      message: Added the MS-100 to PDV Europa.
+  id: 2944
+  time: '2026-11-18T06:56:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5040
+- author: Mrrpip
+  changes:
+    - type: Fix
+      message: Shipgun components can be built.
+  id: 2945
+  time: '2026-11-18T12:43:22.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5049
+- author: kasature90
+  changes:
+    - type: Add
+      message: Added Hangzhou & Sovremenny to TSF/PDV T3 lineups.
+    - type: Tweak
+      message: Moved Kortik to T2.
+    - type: Fix
+      message: >-
+        Fixed minor issues with Polaris & Europa shipyard listings (nothing
+        gameplay-affecting)
+  id: 2946
+  time: '2026-11-18T21:47:04.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5048
+- author: Mrrpip
+  changes:
+    - type: Fix
+      message: Fixes CSEC not being able to access shipgun crafting
+  id: 2947
+  time: '2026-11-18T23:48:55.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5053
+- author: Mrrpip
+  changes:
+    - type: Fix
+      message: Fixes an oopsie with the UGR plate presses
+  id: 2948
+  time: '2026-11-19T02:39:55.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5050
+- author: DoubleHypercube
+  changes:
+    - type: Remove
+      message: Character naming restrictions are gone.
+    - type: Add
+      message: Ported custom species names from Starllght.
+  id: 2949
+  time: '2026-11-19T02:46:01.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4942
+- author: pizzay30tyd
+  changes:
+    - type: Tweak
+      message: Ship Shields now become more transparent as they get damaged.
+  id: 2950
+  time: '2026-11-19T14:04:44.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5055
+- author: SuperGDPWYL
+  changes:
+    - type: Add
+      message: >-
+        Explosive, nuclear and EMP ship weaponry now have radar blips when they
+        land.
+    - type: Tweak
+      message: Increased the render distance of most ship projectiles to 4km (was 2km).
+    - type: Tweak
+      message: Increased the render distance of most missiles to 8km (was 2km).
+    - type: Tweak
+      message: >-
+        Increased the render distance of "Sandbox" cruise missiles to 16km (was
+        4km).
+  id: 2951
+  time: '2026-11-19T16:36:41.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4990
+- author: DoubleHypercube
+  changes:
+    - type: Fix
+      message: Russian accent no longer gives Cyrillic speakers aneurysms.
+  id: 2952
+  time: '2026-11-19T18:55:53.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5056
+- author: Mrrpip
+  changes:
+    - type: Remove
+      message: Removes a CSEC hardsuit from anomalous labs.
+  id: 2953
+  time: '2026-11-19T21:24:37.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5057
+- author: Mrrpip
+  changes:
+    - type: Add
+      message: >-
+        Adds the GS-008 MeLat revolver in the second tier of mercenary guns.
+        Comes with a fun 12 gauge surprise!
+    - type: Add
+      message: Also adds a weapon case for it in the loadout menu.
+    - type: Tweak
+      message: Firestarters no longer appear in MercFabs.
+  id: 2954
+  time: '2026-11-19T23:25:49.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5046
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: >-
+        Armor Penetration is now displayed upon examination of cartridges and
+        battery guns
+  id: 2955
+  time: '2026-11-19T23:32:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5058
+- author: NazrinNya
+  changes:
+    - type: Add
+      message: Toggle open port for lathes (if it has container)
+    - type: Tweak
+      message: >-
+        You can now insert items into lathes with entity containers by clicking
+        on them
+    - type: Fix
+      message: Backpacks that are currently used being anchorable.
+  id: 2956
+  time: '2026-11-19T23:38:56.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5051
+- author: TheScienceOfKSP
+  changes:
+    - type: Add
+      message: Added the KSP Fluyt, a cheap medium-tier freighter.
+  id: 2957
+  time: '2026-11-20T18:35:37.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4857
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Added a specifications menu for ships, it like lists their guns and
+        stuff so you don't have to do the preview to see. Access in shipyard
+        console or with unitref command.
+  id: 2958
+  time: '2026-11-20T19:19:25.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5060
+- author: Mrrpip
+  changes:
+    - type: Tweak
+      message: PDV Rakhshan, TSF Marine, Fugitive are now no longer timelocked.
+    - type: Fix
+      message: Fixed a typo in DI Watchdog respirator's description. Wih is no more.
+  id: 2959
+  time: '2026-11-20T20:10:06.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5063
+- author: NazrinNya
+  changes:
+    - type: Add
+      message: Flyssa and Eris have returned (Hyperwar-exclusive).
+    - type: Tweak
+      message: Ore processors and Industrial ore processors are way faster now
+    - type: Fix
+      message: Fast lathes stacking sounds (MMC press for example)
+    - type: Fix
+      message: TSFMC now gets supplies on hyperwar properly
+    - type: Tweak
+      message: Reduced portstrike time on hyperwar to 1 hour and 20 minutes
+    - type: Tweak
+      message: Reduced hyperwar round time to 2 hours
+    - type: Tweak
+      message: Hyperwar respawn time is now 300 seconds.
+    - type: Add
+      message: Hyperwar factions now receive small batch of resources roundstart.
+  id: 2960
+  time: '2026-11-21T13:57:26.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5071
+- author: NazrinNya
+  changes:
+    - type: Fix
+      message: RPED being inserted when you're using it on lathe with container.
+  id: 2961
+  time: '2026-11-21T13:59:50.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5072
+- author: SuperGDPWYL
+  changes:
+    - type: Tweak
+      message: >-
+        Years of exposure has led to the populations of Colossus developing a
+        built-up immunity to pax. It is now completely inert.
+  id: 2962
+  time: '2026-11-21T19:22:11.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4890
+- author: SuperGDPWYL
+  changes:
+    - type: Tweak
+      message: >-
+        The CAWS-25 "Jackdaw" wield delay has been increased to 5 seconds (was
+        2.2)
+    - type: Tweak
+      message: The CAWS-25 "Jackdaw" no longer fires if not wielded.
+    - type: Tweak
+      message: The CAWS-25 "Jackdaw" fire rate has been reduced to 12 (was 13).
+    - type: Tweak
+      message: >-
+        The CAWS-25 "Jackdaw" wield slowdown has been increased to 20% (was
+        10%).
+    - type: Tweak
+      message: The CSW-25 "Adjudicator" now needs plastitanium.
+  id: 2963
+  time: '2026-11-22T17:46:13.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5078
+- author: 10kee
+  changes:
+    - type: Add
+      message: Vox sprites for Tarkhan/CC/MMC
+  id: 2964
+  time: '2026-11-22T18:14:17.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5079
+- author: Mrrpip
+  changes:
+    - type: Tweak
+      message: The standard RnD server can research shipguns.
+  id: 2965
+  time: '2026-11-22T18:30:05.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5080
+- author: DoubleHypercube
+  changes:
+    - type: Add
+      message: Vulpkanin and Tajaran can now wag their tails on command!
+    - type: Tweak
+      message: Switched over to Starlight vulpkanin tail sprites.
+    - type: Add
+      message: Added tips to Fennec and Fluffy vulpkanin tails!
+    - type: Add
+      message: Several more vulpkanin tails can now wag.
+    - type: Fix
+      message: Internally cleaned up how wagging works.
+    - type: Tweak
+      message: Vulpkanin tails now render underneath neck items.
+  id: 2966
+  time: '2026-11-22T19:04:54.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5067
+- author: DoubleHypercube
+  changes:
+    - type: Add
+      message: Languages can now be written on paper. Ea-Nāṣir, count your days.
+  id: 2967
+  time: '2026-11-23T12:05:41.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5054
+- author: tonotom1
+  changes:
+    - type: Fix
+      message: Holopads can now hear and transmit chat-only emotes
+    - type: Fix
+      message: Tape recorders no longer act as ersatz universal translators
+  id: 2968
+  time: '2026-11-23T12:07:28.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4871
+- author: Mrrpip
+  changes:
+    - type: Tweak
+      message: Changes Prometheus flatpack description.
+    - type: Tweak
+      message: Changed Rubicon to be anchorable.
+    - type: Fix
+      message: Fixes default hardpoint and some door rotations on the Eris
+  id: 2969
+  time: '2026-11-23T12:11:30.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5081
+- author: waphun
+  changes:
+    - type: Fix
+      message: >-
+        Fixed the seax's reverse thrusters, generator access and the accidental
+        rad bombs that it caused.
+  id: 2970
+  time: '2026-11-23T21:59:20.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5086
+- author: pizzay30tyd
+  changes:
+    - type: Tweak
+      message: IFF and Detailed IFF can now render separately
+    - type: Tweak
+      message: >-
+        Detailed IFF is now turned off by default (when you first open
+        console/mass scanner)
+    - type: Tweak
+      message: >-
+        Radar Blips (the triangles) are now off by default, can be toggled via a
+        new button in shuttle/gunnery consoles
+    - type: Tweak
+      message: Radar Blips are 25% smaller
+  id: 2971
+  time: '2026-11-24T19:19:05.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5010
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Added a really cool sensors system. All radar consoles (shuttle/nav/mass
+        scanner) on ships now share the same detected objects, sensors are now
+        physical entities on the hull with their own power draws, you can now
+        lock targets in the gunnery console to provide lead for weapons &
+        guidance for SACLOS missiles, you can now do datalinks with other ships
+        to share detected objects, etc etc. Look in the guidebook page for more
+        detailed explanations.
+  id: 2972
+  time: '2026-11-25T18:02:12.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5074
+- author: SuperGDPWYL
+  changes:
+    - type: Remove
+      message: >-
+        Removed Tinnia's Rest, Bahama's Mamas, Crazy Casey's Casino, Omnichurch
+        Beacon, Derelict McCargo, Edison Power Plant, The Pit and Grifty's Gas n
+        Grub. Search for dead drops at the civilian habitations, grab a drink at
+        the civilian habitations and sell gas at MMC Hokkaido.
+    - type: Remove
+      message: Cargo Depots shouldn't spawn anymore.
+    - type: Tweak
+      message: Freeport Camelot is now a valid cargo destination.
+    - type: Tweak
+      message: >-
+        Increased the maximum dead drop count on Caelestinus Central to 12 (was
+        2). Increased the maximum dead drop count on Freeport Camelot to 12 (was
+        2).
+    - type: Tweak
+      message: The bus now arrives at Freeport Camelot and Zvezda Orbital Habitation.
+    - type: Tweak
+      message: Updated the guidebook page for TSFMC counter-smuggling.
+  id: 2973
+  time: '2026-11-25T21:27:21.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5107
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Added support for starsector-style two-type hardpoint types
+        (synergy/composite/hybrid)
+    - type: Fix
+      message: Fixed visual range not scaling with size.
+    - type: Fix
+      message: >-
+        Fixed target leading/SACLOS guidance being able to work without ARS
+        detection if it had a datalink (that also didn't have ARS detection, but
+        detected it anyways via IR/EM)
+    - type: Fix
+      message: Fixed SACLOS missiles being word I can't say.
+  id: 2974
+  time: '2026-11-25T23:12:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5108
+- author: pizzay30tyd
+  changes:
+    - type: Fix
+      message: Revolvers are reload-able without fiddling for 2 minutes now
+  id: 2975
+  time: '2026-11-26T13:39:42.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5077
+- author: Mrrpip
+  changes:
+    - type: Add
+      message: Adds knockback and a disarm to activated stunbatons.
+    - type: Tweak
+      message: CSEC helmets now give different voicelines. Pick up that can.
+  id: 2976
+  time: '2026-11-26T14:01:01.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5061
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: Tape recorder transcripts now use the new writing language system
+  id: 2977
+  time: '2026-11-26T14:13:25.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5094
+- author: DoubleHypercube
+  changes:
+    - type: Fix
+      message: PVS scales no longer reset on zoom reset.
+  id: 2978
+  time: '2026-11-26T14:23:33.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5101
+- author: Pologuys
+  changes:
+    - type: Remove
+      message: >-
+        Banned the allowance of discrimination of disabilities fully. This
+        covers saying "retard" and other slurs pertaining to disabilities.
+  id: 2979
+  time: '2026-11-26T19:17:51.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5114

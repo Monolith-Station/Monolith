@@ -168,10 +168,11 @@
     - Alive
     damageCap: 1000
     damage:
-      groups:
-        Brute: -1
       types:
         Heat: -0.5
+        Blunt: -0.33
+        Slash: -0.33
+        Piercing: -0.34
   - type: NoSlip
   - type: Pullable
   - type: ZombieImmune
@@ -500,7 +501,7 @@
       damage:
         types:
           Slash: 5
-          Pierce: 3
+          Piercing: 3
           Heat: 3
           Structural: 30
       altDisarm: false

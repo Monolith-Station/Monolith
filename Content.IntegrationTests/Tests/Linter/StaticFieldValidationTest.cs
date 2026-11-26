@@ -4,7 +4,6 @@ using Content.Shared.Tag;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Reflection;
-using Robust.Shared.Serialization.Manager.Attributes;
 
 namespace Content.IntegrationTests.Tests.Linter;
 
@@ -27,8 +26,6 @@ public sealed class StaticFieldValidationTest
             protos.Add(kind, ids);
         }
 
-        Assert.That(protoMan.ValidateStaticFields(typeof(StringValid), protos), Is.Empty);
-        Assert.That(protoMan.ValidateStaticFields(typeof(StringArrayValid), protos), Is.Empty);
         Assert.That(protoMan.ValidateStaticFields(typeof(EntProtoIdValid), protos), Is.Empty);
         Assert.That(protoMan.ValidateStaticFields(typeof(EntProtoIdTValid), protos), Is.Empty);
         Assert.That(protoMan.ValidateStaticFields(typeof(EntProtoIdArrayValid), protos), Is.Empty);
@@ -39,8 +36,6 @@ public sealed class StaticFieldValidationTest
         Assert.That(protoMan.ValidateStaticFields(typeof(ProtoIdSetValid), protos), Is.Empty);
         Assert.That(protoMan.ValidateStaticFields(typeof(PrivateProtoIdArrayValid), protos), Is.Empty);
 
-        Assert.That(protoMan.ValidateStaticFields(typeof(StringInvalid), protos), Has.Count.EqualTo(1));
-        Assert.That(protoMan.ValidateStaticFields(typeof(StringArrayInvalid), protos), Has.Count.EqualTo(2));
         Assert.That(protoMan.ValidateStaticFields(typeof(EntProtoIdInvalid), protos), Has.Count.EqualTo(1));
         Assert.That(protoMan.ValidateStaticFields(typeof(EntProtoIdTInvalid), protos), Has.Count.EqualTo(1));
         Assert.That(protoMan.ValidateStaticFields(typeof(EntProtoIdArrayInvalid), protos), Has.Count.EqualTo(2));
@@ -62,30 +57,6 @@ public sealed class StaticFieldValidationTest
 - type: Tag
   id: StaticFieldTestTag
 ";
-
-    [Reflect(false)]
-    private sealed class StringValid
-    {
-        [ValidatePrototypeId<TagPrototype>] public static string Tag = "StaticFieldTestTag";
-    }
-
-    [Reflect(false)]
-    private sealed class StringInvalid
-    {
-        [ValidatePrototypeId<TagPrototype>] public static string Tag = string.Empty;
-    }
-
-    [Reflect(false)]
-    private sealed class StringArrayValid
-    {
-        [ValidatePrototypeId<TagPrototype>] public static string[] Tag = ["StaticFieldTestTag", "StaticFieldTestTag"];
-    }
-
-    [Reflect(false)]
-    private sealed class StringArrayInvalid
-    {
-        [ValidatePrototypeId<TagPrototype>] public static string[] Tag = [string.Empty, "StaticFieldTestTag", string.Empty];
-    }
 
     [Reflect(false)]
     private sealed class EntProtoIdValid

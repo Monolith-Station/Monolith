@@ -445,6 +445,13 @@
     snap:
     - Wall
   components:
+  - type: Occluder
+    polygon:
+    - "-0.5,-0.5"
+    - "-0.5,0.109375"
+    - "0.28125,0.5"
+    - "0.5,0.5"
+    - "0.5,-0.5"
   - type: RCDDeconstructable # Frontier
     deconstructable: false # Frontier
   - type: StaticPrice
@@ -476,6 +483,7 @@
     state: state0
   - type: IconSmooth
     mode: Diagonal
+    rotateDiagonalSprite: true
     key: walls
     base: state
   - type: Icon
@@ -495,6 +503,8 @@
           !type:PolygonShape
           vertices:
           - "-0.5,-0.5"
+          - "-0.5,0.109375"
+          - "0.28125,0.5"
           - "0.5,0.5"
           - "0.5,-0.5"
         mask:
@@ -711,6 +721,13 @@
     snap:
     - Wall
   components:
+  - type: Occluder
+    polygon:
+    - "-0.5,-0.5"
+    - "-0.5,0.109375"
+    - "0.28125,0.5"
+    - "0.5,0.5"
+    - "0.5,-0.5"
   - type: Transform
     anchored: true
   - type: Clickable
@@ -724,6 +741,7 @@
     state: state0
   - type: IconSmooth
     mode: Diagonal
+    rotateDiagonalSprite: true
     key: walls
     base: state
   - type: Icon
@@ -744,6 +762,8 @@
           !type:PolygonShape
           vertices:
           - "-0.5,-0.5"
+          - "-0.5,0.109375"
+          - "0.28125,0.5"
           - "0.5,0.5"
           - "0.5,-0.5"
         mask:

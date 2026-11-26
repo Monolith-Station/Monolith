@@ -268,11 +268,15 @@
         scaleByQuantity: true
         ignoreResistances: true
         damage:
-          groups:
-            Brute: -5
-            Burn: -5
           types:
             Bloodloss: -5
+            Blunt: -1.66
+            Slash: -1.67
+            Piercing: -1.67
+            Heat: -1.25
+            Shock: -1.25
+            Cold: -1.25
+            Caustic: -1.25
       - !type:Oxygenate # ammonia displaces nitrogen in vox blood
         conditions:
         - !type:OrganType

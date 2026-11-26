@@ -14,6 +14,8 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Wieldable;
 using Content.Shared.Wieldable.Components;
 using JetBrains.Annotations;
+using TimedDespawnComponent = Robust.Shared.Spawners.TimedDespawnComponent; // Mono
+
 
 namespace Content.Shared.Weapons.Ranged.Systems;
 
@@ -451,9 +453,12 @@ public partial class SharedGunSystem
                 Containers.Remove(slot.Value, component.AmmoContainer);
                 component.Chambers[i] = null;
 
-                if (!_netManager.IsClient)
+                if (!_netManager.IsClient){
                     EjectCartridge(slot.Value);
-
+                    if(TryComp<CartridgeAmmoComponent>(slot.Value, out var cartridge) && cartridge.Spent == true){ // Mono start - make sure the cartridges still despawn after we removed component earlier and get the proper despawn timer
+                        EnsureComp<TimedDespawnComponent>(slot.Value).Lifetime = cartridge.AutoTimedDespawn;
+                    } // Mono end
+                }
                 anyEmpty = true;
             }
         }
@@ -533,6 +538,7 @@ public partial class SharedGunSystem
 
                     // Mark cartridge as spent and if it's caseless delete from the chamber slot.
                     SetCartridgeSpent(ent.Value, cartridge, true);
+                    RemComp<TimedDespawnComponent>(ent.Value); // Mono - otherwise cartridges despawn inside revolvers and fuck everything up
                     var spawned = Spawn(cartridge.Prototype, args.Coordinates);
                     args.Ammo.Add((spawned, EnsureComp<AmmoComponent>(spawned)));
 

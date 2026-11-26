@@ -57,3 +57,19 @@ marking-VoxTailSpikes = Vox Tail (Spiked)
 
 marking-VoxTailDocked-vox_tail_docked = Vox Tail (Vestigial)
 marking-VoxTailDocked = Vox Tail (Vestigial)
+
+# Mono stuff
+marking-VoxTailShortAnimated-vox_tail_small = Vox Tail (Short)
+marking-VoxTailShortAnimated = Vox Tail (Short, Animated)
+
+marking-VoxTailBig-vox_tail_big = Vox Tail (Big)
+marking-VoxTailBigAnimated = Vox Tail (Big, Animated)
+
+marking-VoxTailSpikes-vox_tail_spikes = Vox Tail (Spiked)
+marking-VoxTailSpikesAnimated = Vox Tail (Spiked, Animated)
+
+marking-VoxTailDockedAnimated-vox_tail_docked = Vox Tail (Vestigial)
+marking-VoxTailDockedAnimated = Vox Tail (Vestigial, Animated)
+
+marking-VoxTailSplitAnimated = Twinned
+marking-VoxTailSplitAnimated-voxtailsplit = Twinned (Animated)

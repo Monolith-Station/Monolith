@@ -12,7 +12,7 @@ namespace Content.Client.UserInterface.RichText;
 /// </summary>
 public sealed partial class MonoTag : IMarkupTag
 {
-    [ValidatePrototypeId<FontPrototype>] public const string MonoFont = "Monospace";
+    public static readonly ProtoId<FontPrototype> MonoFont = "Monospace";
 
     [Dependency] private IResourceCache _resourceCache = default!;
     [Dependency] private IPrototypeManager _prototypeManager = default!;

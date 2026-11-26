@@ -16,7 +16,7 @@ namespace Content.Server._CE.ZLevels.Mapping.Commands;
 public sealed partial class CECombineZNetworkCommand : LocalizedEntityCommands
 {
     [Dependency] private IEntityManager _entities = default!;
-    [Dependency] private MapSystem _map = default!;
+    private MapSystem Map => _entities.System<MapSystem>();
     [Dependency] private CEZLevelsSystem _zLevels = default!;
     [Dependency] private MetaDataSystem _meta = default!;
 
@@ -53,7 +53,7 @@ public sealed partial class CECombineZNetworkCommand : LocalizedEntityCommands
                 return;
             }
 
-            if (!_map.MapExists(mapId))
+            if (!Map.MapExists(mapId))
             {
                 shell.WriteError($"Map {mapId} dont exist");
                 return;
@@ -74,7 +74,7 @@ public sealed partial class CECombineZNetworkCommand : LocalizedEntityCommands
         Dictionary<EntityUid, int> dict = new();
         foreach (var findMap in maps)
         {
-            dict.Add( _map.GetMap(findMap), counter);
+            dict.Add(Map.GetMap(findMap), counter);
             counter++;
         }
 

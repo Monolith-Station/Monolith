@@ -2,15 +2,18 @@ using Content.Server.Chat.Systems;
 using Content.Server.Hands.Systems;
 using Content.Server.Speech;
 using Content.Server.Speech.Components;
-using Content.Shared.Chat;
-using Content.Shared.Paper;
-using Content.Shared.Speech;
 using Content.Shared._DV.TapeRecorder;
 using Content.Shared._DV.TapeRecorder.Components;
 using Content.Shared._DV.TapeRecorder.Systems;
+using Content.Shared._EinsteinEngines.Language;
+using Content.Shared._EinsteinEngines.Language.Components;
+using Content.Shared.Chat;
+using Content.Shared.Paper;
+using Content.Shared.Speech;
 using Robust.Server.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 using System.Text;
 
 namespace Content.Server._DV.TapeRecorder;
@@ -38,6 +41,7 @@ public sealed class TapeRecorderSystem : SharedTapeRecorderSystem
     {
         var voice = EnsureComp<VoiceOverrideComponent>(ent);
         var speech = EnsureComp<SpeechComponent>(ent);
+        var language = EnsureComp<LanguageSpeakerComponent>(ent);
 
         foreach (var message in tape.RecordedData)
         {
@@ -47,8 +51,12 @@ public sealed class TapeRecorderSystem : SharedTapeRecorderSystem
             //Change the voice to match the speaker
             voice.NameOverride = message.Name ?? ent.Comp.DefaultName;
             // TODO: mimic the exact string chosen when the message was recorded
-            var verb = message.Verb ?? SharedChatSystem.DefaultSpeechVerb;
+            var verb = message.Verb ?? SharedChatSystem.DefaultSpeechVerb.Id;
             speech.SpeechVerb = _proto.Index<SpeechVerbPrototype>(verb);
+
+            // Mono: Handle spoken language
+            language.CurrentLanguage = message.Language;
+
             //Play the message
             _chat.TrySendInGameICMessage(ent, message.Message, InGameICChatType.Speak, false);
         }
@@ -59,6 +67,15 @@ public sealed class TapeRecorderSystem : SharedTapeRecorderSystem
     /// </summary>
     private void OnListen(Entity<TapeRecorderComponent> ent, ref ListenEvent args)
     {
+        //Mono: Handle language and check against silent languages (ie sign language)
+        var language = TryComp<LanguageSpeakerComponent>(args.Source, out var langCompOut)
+            ? langCompOut.CurrentLanguage : "";
+
+        if (!string.IsNullOrEmpty(language)
+            && _proto.TryIndex<LanguagePrototype>(language, out var langProtoOut)
+            && !langProtoOut.SpeechOverride.RequireSpeech)
+            return;
+
         // mode should never be set when it isn't active but whatever
         if (ent.Comp.Mode != TapeRecorderMode.Recording || !HasComp<ActiveTapeRecorderComponent>(ent))
             return;
@@ -79,7 +96,9 @@ public sealed class TapeRecorderSystem : SharedTapeRecorderSystem
         //Add a new entry to the tape
         var verb = _chat.GetSpeechVerb(args.Source, args.Message);
         var name = nameEv.VoiceName;
-        cassette.Comp.Buffer.Add(new TapeCassetteRecordedMessage(cassette.Comp.CurrentPosition, name, verb, args.Message));
+
+        // Mono: append language to message
+        cassette.Comp.Buffer.Add(new TapeCassetteRecordedMessage(cassette.Comp.CurrentPosition, name, verb, args.Message, language));
     }
 
     private void OnPrintMessage(Entity<TapeRecorderComponent> ent, ref PrintTapeRecorderMessage args)
@@ -117,10 +136,20 @@ public sealed class TapeRecorderSystem : SharedTapeRecorderSystem
             var name = message.Name ?? ent.Comp.DefaultName;
             var time = TimeSpan.FromSeconds((double) message.Timestamp);
 
+            // Mono start: language handler
+            var sanitizedText = message.Message
+                .Replace("\\", "")
+                .Replace("\"", "'");
+
+            var printMessage = string.IsNullOrEmpty(message.Language)
+                ? sanitizedText
+                : $"[language=\"{message.Language}\" text=\"{sanitizedText}\"/]";
+            // Mono end
+
             text.AppendLine(Loc.GetString("tape-recorder-print-message-text",
                 ("time", time.ToString(@"hh\:mm\:ss")),
                 ("source", name),
-                ("message", message.Message)));
+                ("message", printMessage))); // Mono: pass printMessage instead of raw message.Message
         }
         text.AppendLine();
         text.Append(Loc.GetString("tape-recorder-print-end-text"));

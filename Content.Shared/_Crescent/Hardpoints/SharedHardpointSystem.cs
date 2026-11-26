@@ -174,11 +174,9 @@ public class SharedHardpointSystem : EntitySystem
         {
             if (!TryComp<HardpointComponent>(entity, out var hardComp))
                 continue;
-            if (hardComp.anchoring is not null)
+            if (!TypesCompatible(hardComp.CompatibleTypes, component.CompatibleTypes))
                 continue;
-            if ((hardComp.CompatibleTypes & component.CompatibleTypes) == 0)
-                continue;
-            if (hardComp.CompatibleSizes < component.CompatibleSizes)
+            if (!SizeCompatible(hardComp.CompatibleSizes, component.CompatibleSizes))
                 continue;
             AnchorEntityToHardpoint(uid, entity, component, hardComp, gridUid.Value);
             return true;
@@ -224,6 +222,15 @@ public class SharedHardpointSystem : EntitySystem
             case weaponTypes.Missile:
                 typeColor = Color.Lime;
                 break;
+            case weaponTypes.Hybrid:
+                typeColor = Color.Orange;
+                break;
+            case weaponTypes.Composite:
+                typeColor = Color.YellowGreen;
+                break;
+            case weaponTypes.Synergy:
+                typeColor = Color.Cyan;
+                break;
             case weaponTypes.Universal:
                 typeColor = Color.White;
                 break;
@@ -245,5 +252,15 @@ public class SharedHardpointSystem : EntitySystem
         DirtyEntity(target);
         DirtyEntity(anchor);
         //Dirty(target, targetComp);
+    }
+
+    public static bool TypesCompatible(weaponTypes mount, weaponTypes weapon)
+    {
+        return (mount & weapon) != 0;
+    }
+
+    public static bool SizeCompatible(weaponSizes mount, weaponSizes weapon)
+    {
+        return mount >= weapon;
     }
 }

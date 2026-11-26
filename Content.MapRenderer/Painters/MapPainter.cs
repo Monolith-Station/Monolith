@@ -68,7 +68,7 @@ namespace Content.MapRenderer.Painters
             var client = pair.Client;
             var sEntityManager = server.ResolveDependency<IServerEntityManager>();
             var mapLoader = sEntityManager.System<MapLoaderSystem>();
-            var sMapManager = server.ResolveDependency<IMapManager>();
+            var sMapManager = server.System<SharedMapSystem>();
 
             await server.WaitPost(() =>
             {
@@ -130,7 +130,7 @@ namespace Content.MapRenderer.Painters
             await pair.RunTicksSync(10);
             await Task.WhenAll(client.WaitIdleAsync(), server.WaitIdleAsync());
 
-            var sMapManager = server.ResolveDependency<IMapManager>();
+            var sMapManager = server.System<SharedMapSystem>();
 
             var tilePainter = new TilePainter(client, server);
             var entityPainter = new GridPainter(client, server);
