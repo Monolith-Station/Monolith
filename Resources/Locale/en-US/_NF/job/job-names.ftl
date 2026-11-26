@@ -17,12 +17,12 @@ job-name-pdv-tarkhan = PDV Tarkhan
 job-name-pdv-infantry = PDV Infantry
 job-name-tsf-marsoc = TSFMC MARSOC Operative
 job-name-tsf-infantry = TSF Infantry
-job-name-security-guard = Judge
+job-name-security-guard = Caelestinus Judge
 job-name-sheriff = TSFMC Colonel
 job-name-stc = Station Traffic Controller
-job-name-sr = Overseer
+job-name-sr = Caelestinus Overseer
 job-name-pal = Public Affairs Liaison
-job-name-doc = Director of Care
+job-name-doc = Caelestinus Director of Care
 
 # Job titles
 job-title-ert-mail-carrier = ERT Mail Carrier
