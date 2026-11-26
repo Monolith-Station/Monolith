@@ -65,7 +65,7 @@ public sealed partial class RCDMenu : RadialMenu
             var tooltip = Loc.GetString(proto.SetName);
 
             if ((proto.Mode == RcdMode.ConstructTile || proto.Mode == RcdMode.ConstructObject) &&
-                proto.Prototype != null && _protoManager.TryIndex(proto.Prototype, out var entProto, logError: false))
+                proto.Prototype != null && _protoManager.TryIndex(proto.Prototype, out var entProto))
             {
                 tooltip = Loc.GetString(entProto.Name);
             }
@@ -150,7 +150,7 @@ public sealed partial class RCDMenu : RadialMenu
                         var name = Loc.GetString(proto.SetName);
 
                         if (proto.Prototype != null &&
-                            _protoManager.TryIndex(proto.Prototype, out var entProto, logError: false))
+                            _protoManager.TryIndex(proto.Prototype, out var entProto))
                             name = entProto.Name;
 
                         msg = Loc.GetString("rcd-component-change-build-mode", ("name", name));

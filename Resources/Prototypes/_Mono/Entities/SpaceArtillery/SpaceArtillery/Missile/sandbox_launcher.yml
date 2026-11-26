@@ -63,6 +63,7 @@
     zeroVisible: true
   - type: FireControllable
     ignoreLos: true
+  - type: BallisticLeadIgnore
   - type: Fixtures
     fixtures:
       fix1:

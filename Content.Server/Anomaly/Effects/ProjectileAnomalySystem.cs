@@ -20,7 +20,7 @@ public sealed partial class ProjectileAnomalySystem : EntitySystem
     [Dependency] private TransformSystem _xform = default!;
     [Dependency] private EntityLookupSystem _lookup = default!;
     [Dependency] private IRobustRandom _random = default!;
-    [Dependency] private IMapManager _mapManager = default!;
+    [Dependency] private SharedMapSystem _mapManager = default!;
     [Dependency] private GunSystem _gunSystem = default!;
 
     public override void Initialize()
@@ -85,7 +85,7 @@ public sealed partial class ProjectileAnomalySystem : EntitySystem
 
         var spawnCoords = _mapManager.TryFindGridAt(mapPos, out var gridUid, out _)
                 ? coords.WithEntityId(gridUid, EntityManager)
-                : new(_mapManager.GetMapEntityId(mapPos.MapId), mapPos.Position);
+                : new(_mapManager.GetMapOrInvalid(mapPos.MapId), mapPos.Position);
 
         var ent = Spawn(component.ProjectilePrototype, spawnCoords);
         var direction = targetCoords.ToMapPos(EntityManager, _xform) - mapPos.Position;

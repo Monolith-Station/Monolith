@@ -55,19 +55,13 @@ public sealed partial class TargetGuidedSystem : EntitySystem
 
             // Initialize speed if needed
             if (guidedComp.CurrentSpeed < guidedComp.LaunchSpeed)
-            {
                 guidedComp.CurrentSpeed = guidedComp.LaunchSpeed;
-            }
 
             // Accelerate up to max speed
             if (guidedComp.CurrentSpeed < guidedComp.MaxSpeed)
-            {
                 guidedComp.CurrentSpeed += guidedComp.Acceleration * frameTime;
-            }
             else
-            {
                 guidedComp.CurrentSpeed = guidedComp.MaxSpeed;
-            }
 
             // Check if we should stop guiding and just maintain current direction
             bool lostConnection = HasLostConnection(uid, guidedComp);
@@ -83,10 +77,8 @@ public sealed partial class TargetGuidedSystem : EntitySystem
 
             // Guidance is only available if control hasn't been permanently lost
             if (!guidedComp.ControlPermanentlyLost && guidedComp.TargetPosition.HasValue)
-            {
                 // Normal cursor guidance
                 GuideToTarget(uid, guidedComp, xform, frameTime);
-            }
 
             // Apply velocity in the appropriate direction
             if (guidedComp.ControlPermanentlyLost && guidedComp.FixedDirection.HasValue)
@@ -117,6 +109,10 @@ public sealed partial class TargetGuidedSystem : EntitySystem
         if (component.ControlPermanentlyLost)
             return;
 
+        // Mouse path must not fight SARH.
+        if (component.UseRadarTrack)
+            return;
+
         // Store the previous position to check if it's changed
         component.PreviousCursorPosition = component.TargetPosition;
 
@@ -132,10 +128,8 @@ public sealed partial class TargetGuidedSystem : EntitySystem
             {
                 var distance = Vector2.Distance(currentMapPos.Position, previousMapPos.Position);
                 if (distance > 0.1f)
-                {
                     // Reset the timer only when the cursor actually moves
                     component.TimeSinceLastCursorMovement = 0f;
-                }
             }
             else
             {
@@ -147,6 +141,40 @@ public sealed partial class TargetGuidedSystem : EntitySystem
         // Always reset the update time as we're receiving input
         component.TimeSinceLastUpdate = 0f;
         component.TargetPosition = coordinates;
+    }
+
+    public void SetRadarTrackTarget(EntityUid uid, EntityCoordinates coordinates, TargetGuidedComponent? component = null)
+    {
+        if (!Resolve(uid, ref component))
+            return;
+        if (component.ControlPermanentlyLost)
+            return;
+        if (!component.UseRadarTrack)
+            return;
+
+        component.PreviousCursorPosition = component.TargetPosition;
+        component.TimeSinceLastUpdate = 0f;
+        component.TimeSinceLastCursorMovement = 0f;
+        component.TargetPosition = coordinates;
+    }
+
+    public void SetGuidanceMode(EntityUid uid, bool useRadarTrack, TargetGuidedComponent? component = null)
+    {
+        if (!Resolve(uid, ref component))
+            return;
+
+        if (useRadarTrack && !component.AllowRadarTrack)
+            useRadarTrack = false;
+
+        component.UseRadarTrack = useRadarTrack;
+        if (useRadarTrack)
+        {
+            component.ControlPermanentlyLost = false;
+            component.ConnectionLost = false;
+            component.FixedDirection = null;
+            component.TimeSinceLastUpdate = 0f;
+            component.TimeSinceLastCursorMovement = 0f;
+        }
     }
 
     /// <summary>
@@ -185,22 +213,24 @@ public sealed partial class TargetGuidedSystem : EntitySystem
     /// </summary>
     private bool HasLostConnection(EntityUid uid, TargetGuidedComponent component)
     {
-        // Check if cursor hasn't been updated for too long (console closed/UI not active)
+        if (component.UseRadarTrack)
+        {
+            if (component.ControllingConsole is not { } c || !Exists(c))
+                return true;
+            if (!TryComp<FireControlConsoleComponent>(c, out var console) || console.ConnectedServer == null)
+                return true;
+            return false;
+        }
+
         if (component.TimeSinceLastUpdate > component.FallbackTime)
             return true;
 
-        // Check if cursor hasn't moved for too long
-        if (component.TimeSinceLastCursorMovement > component.FallbackTime)
-            return true;
-
-        // Check if controlling console still exists
-        if (component.ControllingConsole.HasValue)
+        if (component.ControllingConsole is { } consoleUid)
         {
-            if (!EntityManager.EntityExists(component.ControllingConsole.Value))
+            if (!Exists(consoleUid))
                 return true;
 
-            // Check if console is still powered/functioning
-            if (!TryComp<FireControlConsoleComponent>(component.ControllingConsole.Value, out var console) ||
+            if (!TryComp<FireControlConsoleComponent>(consoleUid, out var console) ||
                 console.ConnectedServer == null)
                 return true;
         }

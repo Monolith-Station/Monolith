@@ -55,7 +55,7 @@
   - type: DamageOnLand # Mono
     damage:
       types:
-        Burn: 5 # Plutonium is hot!
+        Heat: 5 # Plutonium is hot!
         Radiation: 5
   - type: PointLight
     radius: 1.2

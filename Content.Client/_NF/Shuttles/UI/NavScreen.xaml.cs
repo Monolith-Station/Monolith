@@ -112,7 +112,7 @@ namespace Content.Client.Shuttles.UI
             // Frontier - PR #1284 Add Shuttle Designation
             if (_entManager.TryGetComponent<MetaDataComponent>(shuttle, out var metadata))
             {
-                var shipName = metadata.EntityName;
+                var shipName = metadata.EntityName; // test
 
                 // Try to find a designation in the format XXX-### (like CIV-748)
                 // by checking each word in the ship name

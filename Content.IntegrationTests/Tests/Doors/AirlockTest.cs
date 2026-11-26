@@ -118,7 +118,7 @@ namespace Content.IntegrationTests.Tests.Doors
 
             await server.WaitIdleAsync();
 
-            var mapManager = server.ResolveDependency<IMapManager>();
+            var mapManager = server.System<SharedMapSystem>();
             var entityManager = server.ResolveDependency<IEntityManager>();
             var physicsSystem = entityManager.System<SharedPhysicsSystem>();
             var xformSystem = entityManager.System<SharedTransformSystem>();

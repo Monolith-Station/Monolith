@@ -1,3 +1,5 @@
+using System.Numerics;
+
 namespace Content.Shared._Mono.FireControl;
 
 /// <summary>
@@ -21,4 +23,22 @@ public sealed partial class FireControlConsoleComponent : Component
 
     [DataField]
     public float LogGridLookupRange = 1024f;
+
+    [ViewVariables]
+    public EntityUid? LockedTarget;
+
+    [DataField]
+    public bool RadarTrackEnabled;
+
+    [ViewVariables]
+    public float LockQuality;
+
+    [ViewVariables]
+    public TimeSpan? CoastUntil;
+
+    [ViewVariables]
+    public Vector2 CoastPos;
+
+    [ViewVariables]
+    public Vector2 CoastVel;
 }

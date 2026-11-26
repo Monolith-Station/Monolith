@@ -16,8 +16,9 @@
             Shock: -3
             Radiation: -2
             Heat: -1.25
-          groups:
-            Brute: -0.5
+            Blunt: -0.16
+            Slash: -0.17
+            Piercing: -0.17
       - !type:HealthChange
         conditions:
         - !type:OrganType
@@ -75,8 +76,9 @@
           types:
             Asphyxiation: 6
             Cold: 6
-          groups:
-            Brute: 0.5
+            Blunt: 0.16
+            Slash: 0.17
+            Piercing: 0.17
       - !type:Jitter
         conditions:
         - !type:ReagentThreshold
@@ -103,8 +105,9 @@
           min: 15
       - !type:HealthChange
         damage:
-          groups:
-            Toxin: -5
+          types:
+            Poison: -2.5
+            Radiation: -2.5
       - !type:HealthChange
         conditions:
         - !type:OrganType # Goobstation - Yowie

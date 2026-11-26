@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 277.0.0
+  engineVersion: 277.0.6
   forkId: ""
   forkVersion: ""
-  time: 11/11/2026 13:31:55
-  entityCount: 753
+  time: 11/24/2026 22:32:58
+  entityCount: 755
 maps: []
 grids:
 - 1
@@ -85,10 +85,10 @@ entities:
     - type: SpreaderGrid
       spreadQueues:
         Smoke: []
-        ESTileFire: []
-        Kudzu: []
-        Puddle: []
         MetalFoam: []
+        ESTileFire: []
+        Puddle: []
+        Kudzu: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -580,6 +580,9 @@ entities:
       locked: False
     - type: Roof
       data: {}
+    - type: GridSensors
+      datalinkCodes: []
+    - type: DetectionRangeMultiplier
 - proto: AirAlarm
   entities:
   - uid: 2
@@ -2351,7 +2354,7 @@ entities:
       pos: -5.5,-0.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -2396.7263
+      secondsUntilStateChange: -2451.1543
       state: Closing
   - uid: 311
     components:
@@ -4427,6 +4430,22 @@ entities:
       parent: 1
     - type: DeltaPressure
       gridUid: 1
+- proto: SensorInfraredCiv
+  entities:
+  - uid: 755
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 7.5,1.5
+      parent: 1
+- proto: SensorRadarCiv
+  entities:
+  - uid: 754
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -6.5,1.5
+      parent: 1
 - proto: ShuttersNormal
   entities:
   - uid: 599

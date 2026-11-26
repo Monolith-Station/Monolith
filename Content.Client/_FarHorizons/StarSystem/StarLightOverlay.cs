@@ -28,7 +28,6 @@ public sealed class StarLightOverlay : Overlay
     private const float ShadowBleed = 0.05f;
 
     private readonly IEntityManager _entMan;
-    private readonly IMapManager _mapMan;
     private readonly IPrototypeManager _protoMan;
     private readonly IOverlayManager _overlayMan;
     private readonly ITileDefinitionManager _tileDefMan;
@@ -65,14 +64,12 @@ public sealed class StarLightOverlay : Overlay
 
     public StarLightOverlay(
         IEntityManager entMan,
-        IMapManager mapMan,
         IPrototypeManager protoMan,
         IOverlayManager overlayMan,
         ITileDefinitionManager tileDefMan,
         IConfigurationManager cfg)
     {
         _entMan = entMan;
-        _mapMan = mapMan;
         _protoMan = protoMan;
         _overlayMan = overlayMan;
         _tileDefMan = tileDefMan;
@@ -165,7 +162,7 @@ public sealed class StarLightOverlay : Overlay
         power = power / (1f + power) * comp.Intensity;
 
         _grids.Clear();
-        _mapMan.FindGridsIntersecting(mapId, casterBounds, ref _grids, approx: true);
+        _mapSystem.FindGridsIntersecting(mapId, casterBounds, ref _grids, approx: true);
 
         _passes.Clear();
 

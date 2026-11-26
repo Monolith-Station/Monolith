@@ -415,3 +415,279 @@
   - type: ShipRepairable
     repairTime: 100
     repairCost: 30
+
+# Hybrid
+
+- type: entity
+  id: HardpointHybridSuperlight
+  parent: BaseHardpoint
+  name: superlight hybrid hardpoint
+  suffix: ballistic/energy
+  components:
+  - type: Hardpoint
+    class: Hybrid
+    size: Superlight
+  - type: ApcPowerReceiver
+    powerLoad: 10000
+  - type: Sprite
+    sprite: _Crescent/Structures/hardpoints.rsi
+    state: medium
+  - type: ShipRepairable
+    repairTime: 20
+    repairCost: 10
+
+- type: entity
+  id: HardpointHybridLight
+  parent: BaseHardpoint
+  name: light hybrid hardpoint
+  suffix: ballistic/energy
+  components:
+  - type: Hardpoint
+    class: Hybrid
+    size: Light
+  - type: ApcPowerReceiver
+    powerLoad: 10000
+  - type: Sprite
+    sprite: _Crescent/Structures/hardpoints.rsi
+    state: medium
+  - type: ShipRepairable
+    repairTime: 40
+    repairCost: 15
+
+- type: entity
+  id: HardpointHybridMedium
+  parent: BaseHardpoint
+  name: medium hybrid hardpoint
+  suffix: ballistic/energy
+  components:
+  - type: Hardpoint
+    class: Hybrid
+    size: Medium
+  - type: ApcPowerReceiver
+    powerLoad: 10000
+  - type: Sprite
+    sprite: _Crescent/Structures/hardpoints.rsi
+    state: medium
+  - type: ShipRepairable
+    repairTime: 60
+    repairCost: 20
+
+- type: entity
+  id: HardpointHybridHeavy
+  parent: BaseHardpoint
+  name: heavy hybrid hardpoint
+  suffix: ballistic/energy
+  components:
+  - type: Hardpoint
+    class: Hybrid
+    size: Heavy
+  - type: ApcPowerReceiver
+    powerLoad: 10000
+  - type: Sprite
+    sprite: _Crescent/Structures/hardpoints.rsi
+    state: medium
+  - type: ShipRepairable
+    repairTime: 80
+    repairCost: 25
+
+- type: entity
+  id: HardpointHybridSuperheavy
+  parent: BaseHardpoint
+  name: superheavy hybrid hardpoint
+  suffix: ballistic/energy
+  components:
+  - type: Hardpoint
+    class: Hybrid
+    size: Superheavy
+  - type: ApcPowerReceiver
+    powerLoad: 10000
+  - type: Sprite
+    sprite: _Crescent/Structures/hardpoints.rsi
+    state: medium
+  - type: ShipRepairable
+    repairTime: 100
+    repairCost: 30
+
+# Composite
+
+- type: entity
+  id: HardpointCompositeSuperlight
+  parent: BaseHardpoint
+  name: superlight composite hardpoint
+  suffix: ballistic/missile
+  components:
+  - type: Hardpoint
+    class: Composite
+    size: Superlight
+  - type: ApcPowerReceiver
+    powerLoad: 10000
+  - type: Sprite
+    sprite: _Crescent/Structures/hardpoints.rsi
+    state: medium
+  - type: ShipRepairable
+    repairTime: 20
+    repairCost: 10
+
+- type: entity
+  id: HardpointCompositeLight
+  parent: BaseHardpoint
+  name: light composite hardpoint
+  suffix: ballistic/missile
+  components:
+  - type: Hardpoint
+    class: Composite
+    size: Light
+  - type: ApcPowerReceiver
+    powerLoad: 10000
+  - type: Sprite
+    sprite: _Crescent/Structures/hardpoints.rsi
+    state: medium
+  - type: ShipRepairable
+    repairTime: 40
+    repairCost: 15
+
+- type: entity
+  id: HardpointCompositeMedium
+  parent: BaseHardpoint
+  name: medium composite hardpoint
+  suffix: ballistic/missile
+  components:
+  - type: Hardpoint
+    class: Composite
+    size: Medium
+  - type: ApcPowerReceiver
+    powerLoad: 10000
+  - type: Sprite
+    sprite: _Crescent/Structures/hardpoints.rsi
+    state: medium
+  - type: ShipRepairable
+    repairTime: 60
+    repairCost: 20
+
+- type: entity
+  id: HardpointCompositeHeavy
+  parent: BaseHardpoint
+  name: heavy composite hardpoint
+  suffix: ballistic/missile
+  components:
+  - type: Hardpoint
+    class: Composite
+    size: Heavy
+  - type: ApcPowerReceiver
+    powerLoad: 10000
+  - type: Sprite
+    sprite: _Crescent/Structures/hardpoints.rsi
+    state: medium
+  - type: ShipRepairable
+    repairTime: 80
+    repairCost: 25
+
+- type: entity
+  id: HardpointCompositeSuperheavy
+  parent: BaseHardpoint
+  name: superheavy composite hardpoint
+  suffix: ballistic/missile
+  components:
+  - type: Hardpoint
+    class: Composite
+    size: Superheavy
+  - type: ApcPowerReceiver
+    powerLoad: 10000
+  - type: Sprite
+    sprite: _Crescent/Structures/hardpoints.rsi
+    state: medium
+  - type: ShipRepairable
+    repairTime: 100
+    repairCost: 30
+
+# Synergy
+
+- type: entity
+  id: HardpointSynergySuperlight
+  parent: BaseHardpoint
+  name: superlight synergy hardpoint
+  suffix: energy/missile
+  components:
+  - type: Hardpoint
+    class: Synergy
+    size: Superlight
+  - type: ApcPowerReceiver
+    powerLoad: 10000
+  - type: Sprite
+    sprite: _Crescent/Structures/hardpoints.rsi
+    state: medium
+  - type: ShipRepairable
+    repairTime: 20
+    repairCost: 10
+
+- type: entity
+  id: HardpointSynergyLight
+  parent: BaseHardpoint
+  name: light synergy hardpoint
+  suffix: energy/missile
+  components:
+  - type: Hardpoint
+    class: Synergy
+    size: Light
+  - type: ApcPowerReceiver
+    powerLoad: 10000
+  - type: Sprite
+    sprite: _Crescent/Structures/hardpoints.rsi
+    state: medium
+  - type: ShipRepairable
+    repairTime: 40
+    repairCost: 15
+
+- type: entity
+  id: HardpointSynergyMedium
+  parent: BaseHardpoint
+  name: medium synergy hardpoint
+  suffix: energy/missile
+  components:
+  - type: Hardpoint
+    class: Synergy
+    size: Medium
+  - type: ApcPowerReceiver
+    powerLoad: 10000
+  - type: Sprite
+    sprite: _Crescent/Structures/hardpoints.rsi
+    state: medium
+  - type: ShipRepairable
+    repairTime: 60
+    repairCost: 20
+
+- type: entity
+  id: HardpointSynergyHeavy
+  parent: BaseHardpoint
+  name: heavy synergy hardpoint
+  suffix: energy/missile
+  components:
+  - type: Hardpoint
+    class: Synergy
+    size: Heavy
+  - type: ApcPowerReceiver
+    powerLoad: 10000
+  - type: Sprite
+    sprite: _Crescent/Structures/hardpoints.rsi
+    state: medium
+  - type: ShipRepairable
+    repairTime: 80
+    repairCost: 25
+
+- type: entity
+  id: HardpointSynergySuperheavy
+  parent: BaseHardpoint
+  name: superheavy synergy hardpoint
+  suffix: energy/missile
+  components:
+  - type: Hardpoint
+    class: Synergy
+    size: Superheavy
+  - type: ApcPowerReceiver
+    powerLoad: 10000
+  - type: Sprite
+    sprite: _Crescent/Structures/hardpoints.rsi
+    state: medium
+  - type: ShipRepairable
+    repairTime: 100
+    repairCost: 30

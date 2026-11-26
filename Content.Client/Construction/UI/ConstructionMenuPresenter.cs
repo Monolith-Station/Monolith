@@ -552,12 +552,12 @@ namespace Content.Client.Construction.UI
                 return;
             }
 
-            if (_selected == null || _selected.Mirror == null)
+            if (_selected?.Mirror is not { } mirror)
             {
                 return;
             }
 
-            _selected = _prototypeManager.Index<ConstructionPrototype>(_selected.Mirror);
+            _selected = _prototypeManager.Index(mirror);
             UpdateGhostPlacement();
         }
 
