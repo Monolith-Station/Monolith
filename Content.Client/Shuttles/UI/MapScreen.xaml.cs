@@ -247,6 +247,11 @@ public sealed partial class MapScreen : BoxContainer
         MapRadar.SetShuttle(shuttle);
     }
 
+    public void SetDocks(Dictionary<NetEntity, List<DockingPortState>> docks)
+    {
+        MapRadar.SetDocks(docks);
+    }
+
     private void OnVisChange(Control obj)
     {
         if (!obj.Visible)

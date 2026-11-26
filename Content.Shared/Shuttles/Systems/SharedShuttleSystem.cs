@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using System.Numerics;
 using Content.Shared._Mono.Ships;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Power.EntitySystems;
@@ -29,6 +30,7 @@ public abstract partial class SharedShuttleSystem : EntitySystem
     private EntityQuery<TransformComponent> _xformQuery;
 
     private List<Entity<MapGridComponent>> _grids = new();
+    private readonly HashSet<EntityUid> _dockedShuttles = new();
 
     public override void Initialize()
     {
@@ -220,9 +222,22 @@ public abstract partial class SharedShuttleSystem : EntitySystem
     }
 
     /// <summary>
+    /// Collects all shuttles that will travel together with <paramref name="shuttleUid"/> during FTL.
+    /// </summary>
+    protected virtual void GetFTLDockedShuttles(EntityUid shuttleUid, HashSet<EntityUid> dockedShuttles)
+    {
+        dockedShuttles.Add(shuttleUid);
+    }
+
+    /// <summary>
     /// Returns true if the spot is free to be FTLd to (not close to any objects and in range).
     /// </summary>
-    public bool FTLFree(EntityUid shuttleUid, EntityCoordinates coordinates, Angle angle, List<ShuttleExclusionObject>? exclusionZones)
+    public bool FTLFree(
+        EntityUid shuttleUid,
+        EntityCoordinates coordinates,
+        Angle angle,
+        List<ShuttleExclusionObject>? exclusionZones,
+        IReadOnlySet<EntityUid>? dockedShuttles = null)
     {
         if (!_physicsQuery.TryGetComponent(shuttleUid, out var shuttlePhysics) ||
             !_xformQuery.TryGetComponent(shuttleUid, out var shuttleXform))
@@ -230,8 +245,18 @@ public abstract partial class SharedShuttleSystem : EntitySystem
             return false;
         }
 
-        // Just checks if any grids inside of a buffer range at the target position.
-        _grids.Clear();
+        IReadOnlySet<EntityUid> activeGroup;
+        if (dockedShuttles != null)
+        {
+            activeGroup = dockedShuttles;
+        }
+        else
+        {
+            _dockedShuttles.Clear();
+            GetFTLDockedShuttles(shuttleUid, _dockedShuttles);
+            activeGroup = _dockedShuttles;
+        }
+
         var mapCoordinates = coordinates.ToMap(EntityManager, XformSystem);
 
         var ourPos = Maps.GetGridPosition((shuttleUid, shuttlePhysics, shuttleXform));
@@ -247,35 +272,67 @@ public abstract partial class SharedShuttleSystem : EntitySystem
             return false;
         }
 
-        // Check exclusion zones.
-        // This needs to be passed in manually due to PVS.
-        if (exclusionZones != null)
-        {
-            foreach (var exclusion in exclusionZones)
-            {
-                var exclusionCoords = XformSystem.ToMapCoordinates(GetCoordinates(exclusion.Coordinates));
+        var targetAngle = angle.Reduced();
+        var targetMainPos = targetPosition + targetAngle.RotateVec(-shuttlePhysics.LocalCenter);
+        var (currentMainPos, currentMainRot) = XformSystem.GetWorldPositionRotation(shuttleXform);
 
-                if (exclusionCoords.MapId != mapCoordinates.MapId)
+        foreach (var gridUid in activeGroup)
+        {
+            Vector2 checkCenter;
+            float buffer;
+
+            if (gridUid == shuttleUid)
+            {
+                checkCenter = targetPosition;
+                buffer = GetFTLBufferRange(shuttleUid);
+            }
+            else
+            {
+                if (!_gridQuery.TryGetComponent(gridUid, out var dockedGrid) ||
+                    !_xformQuery.TryGetComponent(gridUid, out var dockedXform))
+                {
+                    continue;
+                }
+
+                var (dockedPos, dockedRot) = XformSystem.GetWorldPositionRotation(dockedXform);
+                var relPos = (-currentMainRot).RotateVec(dockedPos - currentMainPos);
+                var relRot = dockedRot - currentMainRot;
+                var arrivalPos = targetMainPos + targetAngle.RotateVec(relPos);
+                var arrivalRot = (targetAngle + relRot).Reduced();
+                checkCenter = arrivalPos + arrivalRot.RotateVec(dockedGrid.LocalAABB.Center);
+                buffer = GetFTLBufferRange(gridUid, dockedGrid);
+            }
+
+            // Check exclusion zones.
+            // This needs to be passed in manually due to PVS.
+            if (exclusionZones != null)
+            {
+                foreach (var exclusion in exclusionZones)
+                {
+                    var exclusionCoords = XformSystem.ToMapCoordinates(GetCoordinates(exclusion.Coordinates));
+
+                    if (exclusionCoords.MapId != mapCoordinates.MapId)
+                        continue;
+
+                    if ((checkCenter - exclusionCoords.Position).Length() <= exclusion.Range)
+                        return false;
+                }
+            }
+
+            var circle = new PhysShapeCircle(buffer + FTLBufferRange, checkCenter);
+
+            _grids.Clear();
+            _mapManager.FindGridsIntersecting(mapCoordinates.MapId, circle, Robust.Shared.Physics.Transform.Empty,
+                ref _grids, includeMap: false);
+
+            // If any grids in range that aren't part of our FTL group then can't FTL.
+            foreach (var grid in _grids)
+            {
+                if (activeGroup.Contains(grid.Owner))
                     continue;
 
-                if ((mapCoordinates.Position - exclusionCoords.Position).Length() <= exclusion.Range)
-                    return false;
+                return false;
             }
-        }
-
-        var ourFTLBuffer = GetFTLBufferRange(shuttleUid);
-        var circle = new PhysShapeCircle(ourFTLBuffer + FTLBufferRange, targetPosition);
-
-        _mapManager.FindGridsIntersecting(mapCoordinates.MapId, circle, Robust.Shared.Physics.Transform.Empty,
-            ref _grids, includeMap: false);
-
-        // If any grids in range that aren't us then can't FTL.
-        foreach (var grid in _grids)
-        {
-            if (grid.Owner == shuttleUid)
-                continue;
-
-            return false;
         }
 
         return true;
