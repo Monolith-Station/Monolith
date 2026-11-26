@@ -663,8 +663,8 @@
   - ContractorClothingHandsGlovesColorWhite
 
 - type: loadoutGroup
-  id: ContractorNeck
-  name: loadout-group-contractor-neck
+  id: ContractorMisc # Mono: Misc
+  name: loadout-group-contractor-misc
   minLimit: 0
   loadouts:
   - ContractorClothingNeckScarfStripedBlack
@@ -677,7 +677,7 @@
   - ContractorClothingNeckLawyerbadge
   - ContractorClothingNeckDrakeIndustriesBadge
   - ContractorClothingNeckHeadphones
-  - ContractorClothingNeckNovaSharksLeatherJacket
+  # - ContractorClothingNeckNovaSharksLeatherJacket
   - ContractorClothingNeckCrucifix
   - ContractorCDDogtags
   - ContractorClothingNeckStethoscope

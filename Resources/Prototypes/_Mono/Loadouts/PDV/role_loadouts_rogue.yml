@@ -9,6 +9,7 @@
   - PDVBackpack
   - PDVShoes
   - PirateFace
+  - PDVNeck
   - ContractorBoxSurvival
   - RakhshanPDA
   - ContractorWallet
@@ -34,6 +35,7 @@
   - PDVOuterClothing
   - PDVShoes
   - PDVFace
+  - PDVNeck
   - ContractorBoxSurvival
   - AsvaranPDA
   - NFSpeciesSpecific
@@ -59,7 +61,7 @@
   - PDVBackpack
   - PDVShoesVizier
   - PDVFace
-  - PDVCommanderNeck
+  - PDVCommanderMisc
   - ContractorBoxSurvival
   - GrandVizierPDA
   - NFSpeciesSpecific
@@ -84,6 +86,7 @@
   - PDVBackpack
   - PDVShoes
   - PDVFace
+  - PDVNeck
   - ContractorBoxSurvival
   - PDVInfiltratorPDA
   - NFSpeciesSpecific
@@ -107,6 +110,7 @@
   - PDVBackpack
   - PDVShoes
   - PirateFace
+  - PDVNeck
   - ContractorBoxSurvival
   - PDVDenasvarPDA
   - ContractorWallet
@@ -139,7 +143,7 @@
   id: JobPdvCivilian # Civvie
   groups:
   - MercenaryHead
-  - ContractorNeck
+  - ContractorMisc
   - MercenaryJumpsuit
   - MercenaryGloves
   - MercenaryBackpack

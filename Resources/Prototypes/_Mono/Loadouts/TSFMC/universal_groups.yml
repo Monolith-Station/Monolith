@@ -189,16 +189,16 @@
   - TsfmcCommanderGlasses
 
 - type: loadoutGroup
-  id: TsfmcNeck
-  name: loadout-group-contractor-neck
+  id: TsfmcMisc
+  name: loadout-group-contractor-misc
   hidden: false
   minLimit: 1
   loadouts:
   - TsfmcClothingNeckIFFCyan
 
 - type: loadoutGroup
-  id: TsfmcNeckEngi
-  name: loadout-group-contractor-neck
+  id: TsfmcMiscEngi
+  name: loadout-group-contractor-misc
   minLimit: 1
   maxLimit: 1
   loadouts:
@@ -206,13 +206,22 @@
   - TsfmcClothingNeckIFFCyan
 
 - type: loadoutGroup
-  id: TsfmcNeckMedic
-  name: loadout-group-contractor-neck
+  id: TsfmcMiscMedic
+  name: loadout-group-contractor-misc
   minLimit: 1
   maxLimit: 1
   loadouts:
   - TsfmcClothingNeckIFFWhite
   - TsfmcClothingNeckIFFCyan
+
+- type: loadoutGroup
+  id: TsfmcNeck
+  name: loadout-group-contractor-neck
+  hidden: false
+  minLimit: 0
+  loadouts:
+  - ContractorClothingNeckOvercoat
+  - ContractorClothingNeckHeavyOvercoat
 
 - type: loadoutGroup
   id: TsfmcBrigmedicGlasses

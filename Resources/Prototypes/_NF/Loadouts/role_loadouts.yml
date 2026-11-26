@@ -21,7 +21,8 @@
   id: JobContractor
   groups:
   - MercenaryHead
-  - ContractorNeck
+  - ContractorNeck # Monolith: Misc slot
+  - ContractorMisc # Monolith: Misc slot
   - MercenaryJumpsuit
   - MercenaryGloves
   - MercenaryBackpack
@@ -82,7 +83,8 @@
   id: JobMercenary
   groups:
   - MercenaryHead
-  - ContractorNeck
+  - ContractorMisc # Monolith: Misc slot
+  - ContractorNeck # Monolith: Misc slot
   - MercenaryJumpsuit
   - MercenaryGloves
   - MercenaryBackpack
@@ -113,7 +115,8 @@
 - type: roleLoadout
   id: JobCCServiceWorker # Mono
   groups:
-  - ContractorNeck
+  - ContractorNeck # Monolith: Misc slot
+  - ContractorMisc # Monolith: Misc slot
   - ValetJumpsuit
   - ContractorBackpack
   - ValetOuterClothing
@@ -162,7 +165,7 @@
 - type: roleLoadout
   id: JobMailCarrier
   groups:
-  - ContractorNeck
+  - ContractorMisc # Monolith: Misc slot
   - MailCarrierJumpsuit
   - ContractorGloves
   - MailCarrierBackpack
@@ -187,7 +190,7 @@
   id: JobStationTrafficController
   groups:
   - StcHead
-  - ContractorNeck
+  - ContractorMisc # Monolith: Misc slot
   - StcJumpsuit
   - ContractorGloves
   - ContractorBackpack

@@ -101,9 +101,9 @@
       - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
       - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
       - map: [ "enum.HumanoidVisualLayers.Tail" ]
-      - map: [ "neck" ] # Monolith: Move after tail
       - map: [ "misc" ] # Mono
       - map: [ "misc2" ] # Mono
+      - map: [ "neck" ] # Monolith: Move after tail
       - map: [ "mask" ]
       - map: [ "head" ]
       - map: [ "helmetcover" ]

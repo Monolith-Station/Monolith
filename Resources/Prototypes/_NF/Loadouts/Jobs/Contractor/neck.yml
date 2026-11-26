@@ -1,3 +1,5 @@
+# Monolith: These items have been moved to MISC slot.
+
 #T1
 - type: loadout
   id: ContractorClothingNeckScarfStripedBlack
@@ -6,7 +8,7 @@
     proto: ContractorT1
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckScarfStripedBlack
+    misc: ClothingNeckScarfStripedBlack
 
 - type: loadout # Mono
   id: ContractorClothingNeckArmbandUNSA
@@ -15,7 +17,7 @@
     proto: ContractorT1
   price: 5
   equipment:
-    neck: ClothingArmbandUNSA
+    misc: ClothingArmbandUNSA
 
 - type: loadout
   id: ContractorClothingNeckScarfStripedBlue
@@ -24,7 +26,7 @@
     proto: ContractorT1
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckScarfStripedBlue
+    misc: ClothingNeckScarfStripedBlue
 
 - type: loadout
   id: ContractorClothingNeckScarfStripedBrown
@@ -33,7 +35,7 @@
     proto: ContractorT1
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckScarfStripedBrown
+    misc: ClothingNeckScarfStripedBrown
 
 - type: loadout
   id: ContractorClothingNeckScarfStripedGreen
@@ -42,7 +44,7 @@
     proto: ContractorT1
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckScarfStripedGreen
+    misc: ClothingNeckScarfStripedGreen
 
 - type: loadout
   id: ContractorClothingNeckTieBH
@@ -51,7 +53,7 @@
     proto: ContractorT1
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckTieBH
+    misc: ClothingNeckTieBH
 
 - type: loadout
   id: ContractorClothingNeckTieRed
@@ -60,7 +62,7 @@
     proto: ContractorT1
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckTieRed
+    misc: ClothingNeckTieRed
 
 - type: loadout
   id: ContractorClothingNeckTieSci
@@ -69,7 +71,7 @@
     proto: ContractorT1
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckTieSci
+    misc: ClothingNeckTieSci
 
 - type: loadout
   id: ContractorClothingNeckLawyerbadge
@@ -78,7 +80,7 @@
     proto: ContractorT1
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckLawyerbadge
+    misc: ClothingNeckLawyerbadge
 
 - type: loadout
   id: ContractorClothingNeckDrakeIndustriesBadge
@@ -87,7 +89,7 @@
     proto: ContractorT1
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckDrakeIndustriesBadge
+    misc: ClothingNeckDrakeIndustriesBadge
 
 - type: loadout
   id: ContractorClothingNeckHeadphones
@@ -96,16 +98,7 @@
     proto: ContractorT1
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckHeadphones
-
-- type: loadout
-  id: ContractorClothingNeckNovaSharksLeatherJacket
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: ContractorT1
-  price: 0 # Mono
-  equipment:
-    neck: ClothingNeckNovaSharksLeatherJacket
+    misc: ClothingNeckHeadphones
 
 - type: loadout
   id: ContractorClothingNeckCrucifix
@@ -114,7 +107,7 @@
     proto: ContractorT1
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckCrucifix
+    misc: ClothingNeckCrucifix
 
 - type: loadout
   id: ContractorCDDogtags
@@ -123,7 +116,7 @@
     proto: ContractorT1
   price: 0 # Mono
   equipment:
-    neck: CDDogtags
+    misc: CDDogtags
 
 - type: loadout
   id: ContractorClothingNeckStethoscope
@@ -132,7 +125,7 @@
     proto: ContractorT1
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckStethoscope
+    misc: ClothingNeckStethoscope
 
 - type: loadout
   id: ContractorClothingOuterPoncho
@@ -141,7 +134,7 @@
     proto: ContractorT1
   price: 0 # Mono
   equipment:
-    neck: ClothingOuterPoncho
+    misc: ClothingOuterPoncho
 
 - type: loadout
   id: ContractorClothingOuterPonchoClassic
@@ -150,7 +143,7 @@
     proto: ContractorT1
   price: 0 # Mono
   equipment:
-    neck: ClothingOuterPonchoClassic
+    misc: ClothingOuterPonchoClassic
 
 #T2
 - type: loadout
@@ -160,7 +153,7 @@
     proto: ContractorT2
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckCloakCap
+    misc: ClothingNeckCloakCap
 
 - type: loadout
   id: ContractorClothingNeckCloakBlack # Monolith
@@ -169,7 +162,7 @@
     proto: ContractorT2
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckCloakBlack
+    misc: ClothingNeckCloakBlack
 
 - type: loadout
   id: ContractorClothingNeckCloakCOG # Monolith
@@ -178,7 +171,7 @@
     proto: ContractorT2
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckCloakCOG
+    misc: ClothingNeckCloakCOG
 
 - type: loadout
   id: ContractorClothingNeckPonchoSmallPurple # Monolith
@@ -187,7 +180,7 @@
     proto: ContractorT2
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckPonchoSmallPurple
+    misc: ClothingNeckPonchoSmallPurple
 
 - type: loadout
   id: ContractorClothingNeckPonchoSmallPink # Monolith
@@ -196,7 +189,7 @@
     proto: ContractorT2
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckPonchoSmallPink
+    misc: ClothingNeckPonchoSmallPink
 
 - type: loadout
   id: ContractorClothingNeckPonchoSmallOrange # Monolith
@@ -205,7 +198,7 @@
     proto: ContractorT2
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckPonchoSmallOrange
+    misc: ClothingNeckPonchoSmallOrange
 
 - type: loadout
   id: ContractorClothingNeckPonchoSmallBlack # Monolith
@@ -214,7 +207,7 @@
     proto: ContractorT2
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckPonchoSmallBlack
+    misc: ClothingNeckPonchoSmallBlack
 
 - type: loadout
   id: ContractorClothingNeckPonchoSmallRed # Monolith
@@ -223,7 +216,7 @@
     proto: ContractorT2
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckPonchoSmallRed
+    misc: ClothingNeckPonchoSmallRed
 
 - type: loadout
   id: ContractorClothingNeckPonchoSmallWhite # Monolith
@@ -232,7 +225,7 @@
     proto: ContractorT2
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckPonchoSmallWhite
+    misc: ClothingNeckPonchoSmallWhite
 
 - type: loadout
   id: ContractorClothingNeckPonchoArctic # Monolith
@@ -241,7 +234,7 @@
     proto: ContractorT2
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckPonchoArctic
+    misc: ClothingNeckPonchoArctic
 
 - type: loadout
   id: ContractorClothingNeckPonchoBlack # Monolith
@@ -250,25 +243,7 @@
     proto: ContractorT2
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckPonchoArctic
-
-- type: loadout
-  id: ContractorClothingNeckOvercoat # Monolith
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: ContractorT2
-  price: 0 # Mono
-  equipment:
-    neck: ClothingNeckOvercoat
-
-- type: loadout
-  id: ContractorClothingNeckHeavyOvercoat # Monolith
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: ContractorT2
-  price: 0 # Mono
-  equipment:
-    neck: ClothingNeckHeavyOvercoat
+    misc: ClothingNeckPonchoArctic
 
 - type: loadout
   id: ContractorClothingNeckCloakMiner
@@ -277,7 +252,7 @@
     proto: ContractorT2
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckCloakMiner
+    misc: ClothingNeckCloakMiner
 
 - type: loadout
   id: ContractorClothingNeckCloakMoth
@@ -286,7 +261,7 @@
     proto: ContractorT2
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckCloakMoth
+    misc: ClothingNeckCloakMoth
 
 - type: loadout
   id: ContractorClothingNeckScarfChaplainStole
@@ -295,7 +270,7 @@
     proto: ContractorT2
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckScarfChaplainStole
+    misc: ClothingNeckScarfChaplainStole
 
 - type: loadout
   id: ContractorClothingNeckStoleChaplain
@@ -304,7 +279,7 @@
     proto: ContractorT2
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckStoleChaplain
+    misc: ClothingNeckStoleChaplain
 
 - type: loadout
   id: ContractorClothingNeckCloakTrans
@@ -313,7 +288,7 @@
     proto: ContractorT2
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckCloakTrans
+    misc: ClothingNeckCloakTrans
 
 - type: loadout
   id: ContractorClothingNeckCloakAro
@@ -322,7 +297,7 @@
     proto: ContractorT2
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckCloakAro
+    misc: ClothingNeckCloakAro
 
 - type: loadout
   id: ContractorClothingNeckCloakAce
@@ -331,7 +306,7 @@
     proto: ContractorT2
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckCloakAce
+    misc: ClothingNeckCloakAce
 
 - type: loadout
   id: ContractorClothingNeckCloakBi
@@ -340,7 +315,7 @@
     proto: ContractorT2
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckCloakBi
+    misc: ClothingNeckCloakBi
 
 - type: loadout
   id: ContractorClothingNeckCloakIntersex
@@ -349,7 +324,7 @@
     proto: ContractorT2
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckCloakIntersex
+    misc: ClothingNeckCloakIntersex
 
 - type: loadout
   id: ContractorClothingNeckCloakEnby
@@ -358,7 +333,7 @@
     proto: ContractorT2
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckCloakEnby
+    misc: ClothingNeckCloakEnby
 
 - type: loadout
   id: ContractorClothingNeckCloakPan
@@ -367,7 +342,7 @@
     proto: ContractorT2
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckCloakPan
+    misc: ClothingNeckCloakPan
 
 - type: loadout
   id: ContractorClothingNeckCloakGay
@@ -376,7 +351,7 @@
     proto: ContractorT2
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckCloakGay
+    misc: ClothingNeckCloakGay
 
 - type: loadout
   id: ContractorClothingNeckCloakLesbian
@@ -385,7 +360,7 @@
     proto: ContractorT2
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckCloakLesbian
+    misc: ClothingNeckCloakLesbian
 
 - type: loadout
   id: ContractorBedsheetRainbow
@@ -394,7 +369,7 @@
     proto: ContractorT2
   price: 0 # Mono
   equipment:
-    neck: BedsheetRainbow
+    misc: BedsheetRainbow
 
 - type: loadout
   id: ContractorClothingNeckIFFNeutral
@@ -403,7 +378,7 @@
     proto: ContractorT2
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckIFFNeutral
+    misc: ClothingNeckIFFNeutral
 
 - type: loadout
   id: ContractorClothingNeckIFFGreen
@@ -412,7 +387,7 @@
     proto: ContractorT2
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckIFFGreen
+    misc: ClothingNeckIFFGreen
 
 - type: loadout
   id: ContractorClothingNeckIFFRed
@@ -421,7 +396,7 @@
     proto: ContractorT2
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckIFFRed
+    misc: ClothingNeckIFFRed
 
 - type: loadout
   id: ContractorClothingNeckIFFBlue
@@ -430,7 +405,7 @@
     proto: ContractorT2
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckIFFBlue
+    misc: ClothingNeckIFFBlue
 
 - type: loadout
   id: ContractorClothingNeckIFFCyan
@@ -439,7 +414,7 @@
     proto: ContractorT2
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckIFFCyan
+    misc: ClothingNeckIFFCyan
 
 - type: loadout
   id: ContractorClothingNeckIFFOrange
@@ -448,7 +423,7 @@
     proto: ContractorT2
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckIFFOrange
+    misc: ClothingNeckIFFOrange
 
 - type: loadout
   id: ContractorClothingNeckIFFPurple
@@ -457,7 +432,7 @@
     proto: ContractorT2
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckIFFPurple
+    misc: ClothingNeckIFFPurple
 
 - type: loadout
   id: ContractorClothingNeckMantleCap
@@ -466,7 +441,7 @@
     proto: ContractorT2
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckMantleCap
+    misc: ClothingNeckMantleCap
 
 #T3 for lols
 - type: loadout
@@ -476,7 +451,7 @@
     proto: ContractorT3
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckCloakCapFormal
+    misc: ClothingNeckCloakCapFormal
 
 - type: loadout
   id: ContractorClothingNeckCloakQm
@@ -485,7 +460,7 @@
     proto: ContractorT3
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckCloakQm
+    misc: ClothingNeckCloakQm
 
 - type: loadout
   id: ContractorClothingNeckMantleQM
@@ -494,7 +469,7 @@
     proto: ContractorT3
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckMantleQM
+    misc: ClothingNeckMantleQM
 
 - type: loadout
   id: ContractorClothingCloakCmo
@@ -503,7 +478,7 @@
     proto: ContractorT3
   price: 0 # Mono
   equipment:
-    neck: ClothingCloakCmo
+    misc: ClothingCloakCmo
 
 - type: loadout
   id: ContractorClothingNeckMantleCMO
@@ -512,7 +487,7 @@
     proto: ContractorT3
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckMantleCMO
+    misc: ClothingNeckMantleCMO
 
 - type: loadout
   id: ContractorClothingNeckCloakRd
@@ -521,7 +496,7 @@
     proto: ContractorT3
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckCloakRd
+    misc: ClothingNeckCloakRd
 
 - type: loadout
   id: ContractorClothingNeckMantleRD
@@ -530,7 +505,7 @@
     proto: ContractorT3
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckMantleRD
+    misc: ClothingNeckMantleRD
 
 - type: loadout
   id: ContractorClothingNeckCloakCe
@@ -539,7 +514,7 @@
     proto: ContractorT3
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckCloakCe
+    misc: ClothingNeckCloakCe
 
 - type: loadout
   id: ContractorClothingNeckMantleCE
@@ -548,7 +523,7 @@
     proto: ContractorT3
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckMantleCE
+    misc: ClothingNeckMantleCE
 
 - type: loadout
   id: ContractorClothingNeckCloakVoid
@@ -557,7 +532,7 @@
     proto: ContractorT3
   price: 0 # Mono
   equipment:
-    neck: ClothingNeckCloakVoid
+    misc: ClothingNeckCloakVoid
 
 - type: loadout
   id: ContractorClothingNeckBling
@@ -566,4 +541,4 @@
     proto: ContractorT3
   price: 7500
   equipment:
-    neck: ClothingNeckBling
+    misc: ClothingNeckBling

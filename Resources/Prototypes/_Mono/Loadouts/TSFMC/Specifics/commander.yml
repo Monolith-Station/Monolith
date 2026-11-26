@@ -1,6 +1,6 @@
 - type: loadoutGroup
-  id: TsfmcNeckCommander
-  name: loadout-group-contractor-neck
+  id: TsfmcMiscCommander
+  name: loadout-group-contractor-misc
   minLimit: 1
   loadouts:
   - TsfmcClothingNeckIFFCyan
@@ -12,8 +12,8 @@
   - TsfmcClothingNeckIFFCyan
 
 - type: loadoutGroup
-  id: TsfmcNeckCaptain
-  name: loadout-group-contractor-neck
+  id: TsfmcMiscCaptain
+  name: loadout-group-contractor-misc
   minLimit: 1
   loadouts:
   - TsfmcClothingNeckIFFCyan
@@ -24,8 +24,8 @@
   - TsfmcClothingNeckIFFCyan
 
 - type: loadoutGroup
-  id: TsfmcNeckFTL
-  name: loadout-group-contractor-neck
+  id: TsfmcMiscFTL
+  name: loadout-group-contractor-misc
   minLimit: 1
   loadouts:
   - TsfmcClothingNeckIFFCyan
@@ -48,25 +48,25 @@
 - type: loadout
   id: TsfClothingNeckColonelCloak
   equipment:
-    neck: ClothingNeckColonelCloak
+    misc: ClothingNeckColonelCloak
 
 - type: loadout
   id: TsfClothingNeckCaptainCloak
   equipment:
-    neck: ClothingNeckCaptainCloak
+    misc: ClothingNeckCaptainCloak
 
 - type: loadout
   id: TsfClothingNeckCaptainFormal
   equipment:
-    neck: ClothingNeckFormalTSFCaptain
+    misc: ClothingNeckFormalTSFCaptain
 
 - type: loadout  
   id: SheriffClothingNeckMantleSheriff
   equipment:
-    neck: ClothingNeckMantleSheriff
+    misc: ClothingNeckMantleSheriff
 
 - type: loadout
   id: TsfClothingNeckCloak
   equipment:
-    neck: ClothingNeckTSFCloak
+    misc: ClothingNeckTSFCloak
 

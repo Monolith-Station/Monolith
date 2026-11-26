@@ -1,11 +1,26 @@
 - type: loadout
-  id: ContractorClothingNeckMantleBH
+  id: ContractorClothingNeckNovaSharksLeatherJacket
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT1
   price: 0
   equipment:
-    neck: ClothingNeckMantleBH
+    neck: ClothingNeckNovaSharksLeatherJacket
 
 - type: loadout
-  id: ContractorClothingNeckCloakSanabi
+  id: ContractorClothingNeckOvercoat
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT2
   price: 0
   equipment:
-    neck: ClothingNeckCloakSanabi
+    neck: ClothingNeckOvercoat
+
+- type: loadout
+  id: ContractorClothingNeckHeavyOvercoat
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ContractorT2
+  price: 0
+  equipment:
+    neck: ClothingNeckHeavyOvercoat
