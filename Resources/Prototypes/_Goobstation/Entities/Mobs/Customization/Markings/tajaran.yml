@@ -6,6 +6,7 @@
   id: TajaranTailRetro
   bodyPart: Tail
   markingCategory: Tail
+  companion: TajaranTailAnim # Mono
   speciesRestriction: [Tajaran]
   sprites:
   - sprite: _Goobstation/Mobs/Customization/Tajaran/tails.rsi
@@ -15,6 +16,7 @@
   id: TajaranTailAnim
   bodyPart: Tail
   markingCategory: Tail
+  companion: TajaranTailRetro # Mono
   speciesRestriction: [Tajaran]
   sprites:
   - sprite: _Goobstation/Mobs/Customization/Tajaran/tails.rsi
@@ -24,6 +26,7 @@
   id: TajaranTailRetroRings
   bodyPart: Tail
   markingCategory: Tail
+  companion: TajaranTailAnimRings # Mono
   speciesRestriction: [Tajaran]
   sprites:
   - sprite: _Goobstation/Mobs/Customization/Tajaran/tails.rsi
@@ -35,6 +38,7 @@
   id: TajaranTailAnimRings
   bodyPart: Tail
   markingCategory: Tail
+  companion: TajaranTailRetroRings # Mono
   speciesRestriction: [Tajaran]
   sprites:
   - sprite: _Goobstation/Mobs/Customization/Tajaran/tails.rsi
@@ -46,6 +50,7 @@
   id: TajaranLeopardTail
   bodyPart: Tail
   markingCategory: Tail
+  companion: TajaranLeopardWag # Mono
   speciesRestriction: [Tajaran]
   sprites:
   - sprite: _Goobstation/Mobs/Customization/Tajaran/leopard_tail.rsi
@@ -57,6 +62,7 @@
   id: TajaranLeopardWag
   bodyPart: Tail
   markingCategory: Tail
+  companion: TajaranLeopardTail # Mono
   speciesRestriction: [Tajaran]
   sprites:
   - sprite: _Goobstation/Mobs/Customization/Tajaran/leopard_tail.rsi

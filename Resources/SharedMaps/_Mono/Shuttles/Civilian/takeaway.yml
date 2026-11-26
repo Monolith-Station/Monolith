@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 277.0.0
+  engineVersion: 277.0.6
   forkId: ""
   forkVersion: ""
-  time: 09/05/2026 04:47:55
-  entityCount: 1128
+  time: 11/24/2026 22:45:29
+  entityCount: 1130
 maps: []
 grids:
 - 1
@@ -88,9 +88,10 @@ entities:
     - type: SpreaderGrid
       spreadQueues:
         Smoke: []
-        Kudzu: []
         MetalFoam: []
+        ESTileFire: []
         Puddle: []
+        Kudzu: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -636,6 +637,9 @@ entities:
         0,-3: 9155544264048902144
     - type: ThermalSignature
     - type: ExplosionAirtightGrid
+    - type: GridSensors
+      datalinkCodes: []
+    - type: DetectionRangeMultiplier
 - proto: AirAlarm
   entities:
   - uid: 2
@@ -6023,6 +6027,22 @@ entities:
     components:
     - type: Transform
       pos: -0.5,-3.5
+      parent: 1
+- proto: SensorPassiveRadarCiv
+  entities:
+  - uid: 1130
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -6.5,0.5
+      parent: 1
+- proto: SensorRadarCiv
+  entities:
+  - uid: 1129
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -8.5,0.5
       parent: 1
 - proto: ServiceTechFab
   entities:

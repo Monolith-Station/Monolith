@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Client._Mono.Sensors.UI;
 using Content.Client.Computer;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Shuttles.BUIStates;
@@ -28,6 +29,8 @@ public sealed partial class ShuttleConsoleWindow : FancyWindow,
     public event Action<List<NetEntity>>? UndockAllRequest;
     public event Action<List<NetEntity>, bool>? ToggleFTLLockRequest;
 
+    public SensorsControl Sensors => SensorsContainer; // Mono
+
     public ShuttleConsoleWindow()
     {
         RobustXamlLoader.Load(this);
@@ -37,6 +40,7 @@ public sealed partial class ShuttleConsoleWindow : FancyWindow,
         NavModeButton.OnPressed += NavPressed;
         MapModeButton.OnPressed += MapPressed;
         DockModeButton.OnPressed += DockPressed;
+        SensorsModeButton.OnPressed += SensorsPressed; // Mono
 
         // Modes are exclusive
         var group = new ButtonGroup();
@@ -44,6 +48,7 @@ public sealed partial class ShuttleConsoleWindow : FancyWindow,
         NavModeButton.Group = group;
         MapModeButton.Group = group;
         DockModeButton.Group = group;
+        SensorsModeButton.Group = group; // Mono
 
         NavModeButton.Pressed = true;
         SetupMode(_mode);
@@ -90,9 +95,7 @@ public sealed partial class ShuttleConsoleWindow : FancyWindow,
     private void ClearModes(ShuttleConsoleMode mode)
     {
         if (mode != ShuttleConsoleMode.Nav)
-        {
             NavContainer.Visible = false;
-        }
 
         if (mode != ShuttleConsoleMode.Map)
         {
@@ -101,25 +104,17 @@ public sealed partial class ShuttleConsoleWindow : FancyWindow,
         }
 
         if (mode != ShuttleConsoleMode.Dock)
-        {
             DockContainer.Visible = false;
-        }
+
+        // Mono
+        if (mode != ShuttleConsoleMode.Sensors)
+            SensorsContainer.Visible = false;
     }
 
-    private void NavPressed(BaseButton.ButtonEventArgs obj)
-    {
-        SwitchMode(ShuttleConsoleMode.Nav);
-    }
-
-    private void MapPressed(BaseButton.ButtonEventArgs obj)
-    {
-        SwitchMode(ShuttleConsoleMode.Map);
-    }
-
-    private void DockPressed(BaseButton.ButtonEventArgs obj)
-    {
-        SwitchMode(ShuttleConsoleMode.Dock);
-    }
+    private void NavPressed(BaseButton.ButtonEventArgs obj) => SwitchMode(ShuttleConsoleMode.Nav);
+    private void MapPressed(BaseButton.ButtonEventArgs obj) => SwitchMode(ShuttleConsoleMode.Map);
+    private void DockPressed(BaseButton.ButtonEventArgs obj) => SwitchMode(ShuttleConsoleMode.Dock);
+    private void SensorsPressed(BaseButton.ButtonEventArgs obj) => SwitchMode(ShuttleConsoleMode.Sensors); // Mono
 
     private void SetupMode(ShuttleConsoleMode mode)
     {
@@ -134,6 +129,9 @@ public sealed partial class ShuttleConsoleWindow : FancyWindow,
                 break;
             case ShuttleConsoleMode.Dock:
                 DockContainer.Visible = true;
+                break;
+            case ShuttleConsoleMode.Sensors: // Mono
+                SensorsContainer.Visible = true;
                 break;
             default:
                 throw new NotImplementedException();
@@ -155,6 +153,7 @@ public sealed partial class ShuttleConsoleWindow : FancyWindow,
         Nav,
         Map,
         Dock,
+        Sensors, // Mono
     }
 
     public void UpdateState(EntityUid owner, ShuttleBoundUserInterfaceState cState)
@@ -168,5 +167,8 @@ public sealed partial class ShuttleConsoleWindow : FancyWindow,
         NavContainer.UpdateState(cState.NavState);
         MapContainer.UpdateState(cState.MapState);
         DockContainer.UpdateState(coordinates?.EntityId, cState.DockState);
+
+        // Mono
+        SensorsContainer.UpdateState(cState.Sensors);
     }
 }

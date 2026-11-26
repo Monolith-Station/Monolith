@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 277.0.0
+  engineVersion: 277.0.6
   forkId: ""
   forkVersion: ""
-  time: 09/02/2026 00:12:27
-  entityCount: 1207
+  time: 11/24/2026 22:40:07
+  entityCount: 1209
 maps: []
 grids:
 - 1
@@ -97,10 +97,11 @@ entities:
     - type: ThermalSignature
     - type: SpreaderGrid
       spreadQueues:
-        Kudzu: []
-        MetalFoam: []
-        Puddle: []
         Smoke: []
+        MetalFoam: []
+        ESTileFire: []
+        Puddle: []
+        Kudzu: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -697,6 +698,9 @@ entities:
     - type: BecomesStation
       id: Rosetta
     - type: ExplosionAirtightGrid
+    - type: GridSensors
+      datalinkCodes: []
+    - type: DetectionRangeMultiplier
 - proto: AirAlarm
   entities:
   - uid: 648
@@ -790,7 +794,7 @@ entities:
       pos: 0.5,-1.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -21451.914
+      secondsUntilStateChange: -21488.63
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -803,7 +807,7 @@ entities:
       pos: -1.5,0.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -24864.309
+      secondsUntilStateChange: -24901.025
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -4896,8 +4900,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -15.5,0.5
       parent: 1
-    - type: Physics
-      canCollide: False
 - proto: HardpointEnergyLight
   entities:
   - uid: 1139
@@ -4906,30 +4908,22 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -11.5,12.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 1140
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 4.5,11.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 1141
     components:
     - type: Transform
       pos: -0.5,-13.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 1142
     components:
     - type: Transform
       pos: -1.5,-7.5
       parent: 1
-    - type: Physics
-      canCollide: False
 - proto: HardpointEnergyMedium
   entities:
   - uid: 1138
@@ -4938,16 +4932,12 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -14.5,2.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 1144
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -14.5,-1.5
       parent: 1
-    - type: Physics
-      canCollide: False
 - proto: Lamp
   entities:
   - uid: 878
@@ -6750,6 +6740,22 @@ entities:
     components:
     - type: Transform
       pos: -1.5,-2.5
+      parent: 1
+- proto: SensorInfraredCiv
+  entities:
+  - uid: 1146
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -9.5,-0.5
+      parent: 1
+- proto: SensorRadarCiv
+  entities:
+  - uid: 1145
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -9.5,1.5
       parent: 1
 - proto: ShuttersWindow
   entities:
