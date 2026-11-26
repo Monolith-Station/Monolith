@@ -230,10 +230,11 @@ public sealed partial class ShipSensorsSystem : EntitySystem
             var activeRange = activeSens > 0f ? diagonal * activeSens : 0f;
 
             // V
-            const float VisualMaxRange = 3000f;
+            const float visualRangeFloor = 500f;
+            const float visualMaxRange = 3000f;
             var visualMul = sensors.GrantBasicSensors ? sensors.BasicVisualMultiplier : 0f;
             var visualRange = visualMul > 0f
-                ? MathF.Min(VisualMaxRange, diagonal * visualMul)
+                ? MathF.Min(visualMaxRange, MathF.Max(visualRangeFloor, diagonal * visualMul * 12))
                 : 0f;
 
             // IR
@@ -259,9 +260,6 @@ public sealed partial class ShipSensorsSystem : EntitySystem
                 level = DetectionLevel.Detected;
             else if (seenByIr || seenByEsm)
                 level = DetectionLevel.PartialDetected;
-
-            if (seenByArs || seenByEsm || seenByIr || seenByVisual)
-                level = BestLevel(level, DetectionLevel.Detected);
 
             var flags = SensorContactFlags.None;
             if (seenByArs)

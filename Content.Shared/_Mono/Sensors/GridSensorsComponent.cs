@@ -15,7 +15,7 @@ public sealed partial class GridSensorsComponent : Component
     public bool GrantBasicSensors = true;
 
     [DataField]
-    public float BasicVisualMultiplier = 1f;
+    public float BasicVisualMultiplier = 2f;
 
     [DataField]
     public float BasicInfraredMultiplier = 0.2f;
