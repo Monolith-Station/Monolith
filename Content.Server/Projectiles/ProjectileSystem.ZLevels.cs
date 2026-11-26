@@ -11,7 +11,6 @@ namespace Content.Server.Projectiles;
 public sealed partial class ProjectileSystem
 {
     [Dependency] private CESharedZLevelsSystem _zLevels = default!;
-    [Dependency] private IMapManager _zShotMaps = default!;
     [Dependency] private SharedMapSystem _zShotTiles = default!;
 
     internal readonly record struct ZShot(EntityUid Source, EntityUid? UpperMap, Vector2 Aim, Vector2 Direction);
@@ -148,7 +147,7 @@ public sealed partial class ProjectileSystem
 
     private bool HasZShotFloor(EntityUid map, Vector2 position)
     {
-        return _zShotMaps.TryFindGridAt(map, position, out var uid, out var grid) &&
+        return _zShotTiles.TryFindGridAt(map, position, out var uid, out var grid) &&
                _zShotTiles.TryGetTileRef(uid, grid, position, out var tile) && !tile.Tile.IsEmpty;
     }
 

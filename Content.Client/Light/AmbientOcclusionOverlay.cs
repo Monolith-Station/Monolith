@@ -8,6 +8,7 @@ using Robust.Client.Graphics;
 using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
 using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Collision.Shapes;
 using Robust.Shared.Prototypes;
@@ -32,6 +33,7 @@ public sealed partial class AmbientOcclusionOverlay : Overlay
 
     private readonly OverlayResourceCache<CachedResources> _resources = new();
     private readonly List<Vector2> _vertices = new(MaxBatchVertices);
+    private List<Entity<MapGridComponent>> _grids = new();
 
     public AmbientOcclusionOverlay()
     {
@@ -106,8 +108,7 @@ public sealed partial class AmbientOcclusionOverlay : Overlay
                     if (TryAppendFixtureOccluders(worldHandle, entry.Uid, matrix, expansion))
                         continue;
 
-                    var box = entry.Component.BoundingBox;
-                    AppendOccluder(worldHandle, box.Enlarged(expansion), matrix);
+                    AppendOccluder(worldHandle, entry.Component.Polygon, matrix, expansion);
                 }
 
                 FlushPolygons(worldHandle);
@@ -195,14 +196,27 @@ public sealed partial class AmbientOcclusionOverlay : Overlay
         return drew;
     }
 
-    private void AppendOccluder(DrawingHandleWorld handle, Box2 box, Matrix3x2 transform)
+    private void AppendOccluder(DrawingHandleWorld handle, ReadOnlySpan<Vector2> polygon, Matrix3x2 transform, float expansion)
     {
-        var bottomLeft = Vector2.Transform(box.BottomLeft, transform);
-        var bottomRight = Vector2.Transform(box.BottomRight, transform);
-        var topRight = Vector2.Transform(box.TopRight, transform);
-        var topLeft = Vector2.Transform(box.TopLeft, transform);
-        AppendTriangle(handle, bottomLeft, bottomRight, topRight);
-        AppendTriangle(handle, bottomLeft, topRight, topLeft);
+        if (polygon.Length < 3)
+            return;
+
+        var center = Vector2.Zero;
+        foreach (var vertex in polygon)
+            center += vertex;
+        center /= polygon.Length;
+
+        Span<Vector2> vertices = stackalloc Vector2[PhysicsConstants.MaxPolygonVertices];
+        for (var i = 0; i < polygon.Length; i++)
+        {
+            var offset = polygon[i] - center;
+            var extent = MathF.Max(MathF.Abs(offset.X), MathF.Abs(offset.Y));
+            var vertex = extent > 0 ? polygon[i] + offset * (expansion / extent) : polygon[i];
+            vertices[i] = Vector2.Transform(vertex, transform);
+        }
+
+        for (var i = 1; i < polygon.Length - 1; i++)
+            AppendTriangle(handle, vertices[0], vertices[i], vertices[i + 1]);
     }
 
     private void AppendTriangle(DrawingHandleWorld handle, Vector2 a, Vector2 b, Vector2 c)

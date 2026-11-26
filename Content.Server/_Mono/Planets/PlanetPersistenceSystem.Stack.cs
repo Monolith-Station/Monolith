@@ -125,7 +125,7 @@ public sealed partial class PlanetPersistenceSystem
             }
             serializer.PrototypeCache.Clear();
 
-            var context = new ComponentWriteContext(serializer, entityKeys, storageKeys);
+            var context = new ComponentWriteContext(_serialization, serializer, entityKeys, storageKeys);
             foreach (var name in filtered)
             {
                 if (!_components.TryGetRegistration(name, out var registration))
@@ -531,14 +531,14 @@ public sealed partial class PlanetPersistenceSystem
         return $"{omitted.Count} entities including descendants; missing prototypes: {string.Join(", ", missing)}";
     }
 
-    private sealed class ComponentWriteContext(EntitySerializer serializer, params object[] serializers) : ISerializationContext
+    private sealed class ComponentWriteContext(ISerializationManager manager, EntitySerializer serializer, params object[] serializers) : ISerializationContext
     {
-        public SerializationManager.SerializerProvider SerializerProvider { get; } = CreateProvider(serializer, serializers);
+        public SerializationManager.SerializerProvider SerializerProvider { get; } = CreateProvider(manager, serializer, serializers);
         public bool WritingReadingPrototypes => serializer.WritingReadingPrototypes;
 
-        private static SerializationManager.SerializerProvider CreateProvider(EntitySerializer serializer, object[] serializers)
+        private static SerializationManager.SerializerProvider CreateProvider(ISerializationManager manager, EntitySerializer serializer, object[] serializers)
         {
-            var provider = new SerializationManager.SerializerProvider();
+            var provider = new SerializationManager.SerializerProvider(manager);
             provider.RegisterSerializer(serializer);
             foreach (var writer in serializers)
                 provider.RegisterSerializer(writer);

@@ -605,7 +605,7 @@ public sealed partial class ScalingViewport
             viewport.Render();
 
             if (_entityManager.TryGetComponent<CEZCloudLayerComponent>(mapUid, out var cloud))
-                DrawCloudDeck(renderHandle, viewport, GetLitCloudColor(mapUid, cloud.CloudColor), 1f);
+                DrawClouds(renderHandle, viewport, viewport.Eye, GetLitCloudColor(mapUid, cloud.CloudColor), 1f);
         }
 
         if (transit.Direction == PlanetTransitDirection.Ascent && !transit.Arrival &&

@@ -10,7 +10,6 @@ public sealed partial class CEShieldBeamSystem : EntitySystem
 {
     [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private SharedMapSystem _maps = default!;
-    [Dependency] private IMapManager _mapManager = default!;
 
     public override void Initialize()
     {
@@ -32,7 +31,7 @@ public sealed partial class CEShieldBeamSystem : EntitySystem
             var position = _transform.GetWorldPosition(xform);
             var bounds = Box2.CenteredAround(position, new Vector2(beam.Radius * 2));
             var grids = new List<Entity<MapGridComponent>>();
-            _mapManager.FindGridsIntersecting(xform.MapID, bounds, ref grids);
+            _maps.FindGridsIntersecting(xform.MapID, bounds, ref grids);
             foreach (var grid in grids)
             {
                 var tiles = new List<(Vector2i, Tile)>();

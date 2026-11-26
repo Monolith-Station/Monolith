@@ -35,7 +35,6 @@ public sealed partial class MassFabricatorClientSystem : MassFabricatorSystem
     [Dependency] private IEyeManager _eyes = default!;
     [Dependency] private IUserInterfaceManager _ui = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
-    [Dependency] private IMapManager _maps = default!;
     [Dependency] private SharedMapSystem _mapSystem = default!;
     [Dependency] private ClickableSystem _clickable = default!;
 
@@ -96,7 +95,7 @@ public sealed partial class MassFabricatorClientSystem : MassFabricatorSystem
             !float.IsFinite(point.Position.X) || !float.IsFinite(point.Position.Y))
             return default;
 
-        var anchor = _maps.TryFindGridAt(point, out var grid, out _) ? grid : currentMap.Value;
+        var anchor = _mapSystem.TryFindGridAt(point, out var grid, out _) ? grid : currentMap.Value;
         return _transform.ToCoordinates(anchor, point);
     }
 

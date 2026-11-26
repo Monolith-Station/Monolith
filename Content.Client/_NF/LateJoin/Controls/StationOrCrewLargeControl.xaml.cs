@@ -70,7 +70,7 @@ public sealed partial class StationOrCrewLargeControl : PickerControl
                 Stretch = TextureRect.StretchMode.KeepAspectCentered,
             });
             content.AddChild(header);
-            content.AddChild(new HSeparator { SeparatorColor = Color.FromHex("#BABABA"), StyleClasses = { "LowDivider" } });
+            content.AddChild(new HSeparator { Color = Color.FromHex("#BABABA"), StyleClasses = { "LowDivider" } });
             cryopods.AddReservationNotice(content, option);
             card.AddChild(content);
             card.OnPressed += _ => wake(option.Id);

@@ -1,6 +1,5 @@
 using System.Numerics;
 using Content.Server.Radio;
-using Content.Server.Radio.Components;
 using Content.Server.Radio.EntitySystems;
 using Content.Shared._FarHorizons.StarSystem;
 using Content.Shared._CE.ZLevels.Core.EntitySystems;

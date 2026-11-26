@@ -9,7 +9,6 @@ namespace Content.Shared._Mono.MassFabricator;
 public abstract partial class MassFabricatorSystem
 {
     protected static readonly Vector2i[] BuildNeighbors = [new(1, 0), new(-1, 0), new(0, 1), new(0, -1)];
-    [Dependency] private IMapManager _buildMaps = default!;
     [Dependency] private CESharedZLevelsSystem _levels = default!;
 
     private EntityUid? GetPlacementGrid(EntityUid user, MassFabricatorBlueprintKind kind, EntityCoordinates requested)
@@ -22,7 +21,7 @@ public abstract partial class MassFabricatorSystem
         if (world.MapId == MapId.Nullspace)
             return null;
 
-        if (_buildMaps.TryFindGridAt(world, out var atCursor, out _) && !HasComp<MapComponent>(atCursor))
+        if (_maps.TryFindGridAt(world, out var atCursor, out _) && !HasComp<MapComponent>(atCursor))
             return atCursor;
 
         var map = _transforms.GetMap(requested);
@@ -40,7 +39,7 @@ public abstract partial class MassFabricatorSystem
                     Consider((frame, grid));
         }
 
-        _buildMaps.FindGridsIntersecting(world.MapId, Box2.CenteredAround(world.Position, new Vector2(4f)),
+        _maps.FindGridsIntersecting(world.MapId, Box2.CenteredAround(world.Position, new Vector2(4f)),
             (uid, grid) =>
             {
                 Consider((uid, grid));
@@ -217,7 +216,7 @@ public abstract partial class MassFabricatorSystem
         var worldMatrix = _transforms.GetWorldMatrix(frame);
         var worldBounds = worldMatrix.TransformBox(new Box2(origin, origin + new Vector2(size)));
         var overlaps = false;
-        _buildMaps.FindGridsIntersecting(Transform(frame).MapID, worldBounds, (uid, grid) =>
+        _maps.FindGridsIntersecting(Transform(frame).MapID, worldBounds, (uid, grid) =>
         {
             if (uid == frame.Owner)
                 return true;

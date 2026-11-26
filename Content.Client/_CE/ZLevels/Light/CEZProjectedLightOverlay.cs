@@ -31,7 +31,7 @@ internal sealed class CEZProjectedLightOverlay : Overlay
     [Dependency] private IClyde _clyde = default!;
     [Dependency] private IPrototypeManager _prototypes = default!;
     [Dependency] private IResourceCache _resources = default!;
-    [Dependency] private IMapManager _maps = default!;
+    [Dependency] private SharedMapSystem _maps = default!;
     [Dependency] private ITileDefinitionManager _tiles = default!;
 
     private readonly CEZLightProjectionSystem _lights;
@@ -221,7 +221,7 @@ internal sealed class CEZProjectedLightOverlay : Overlay
             if (!wall.Comp1.Enabled)
                 continue;
 
-            var box = wall.Comp1.BoundingBox;
+            var box = wall.Comp1.LocalBounds;
             var matrix = _transform.GetWorldMatrix(wall.Comp2);
             corners[0] = Vector2.Transform(box.BottomLeft, matrix);
             corners[1] = Vector2.Transform(box.BottomRight, matrix);
@@ -241,7 +241,9 @@ internal sealed class CEZProjectedLightOverlay : Overlay
     private void DrawLight(DrawingHandleWorld handle, Matrix3x2 matrix, Texture mask, ShaderInstance shader, ProjectedLight light)
     {
         var source = light.Source;
-        var beam = source.MaskPath is { } path ? _resources.GetResource<TextureResource>(path).Texture : Texture.White;
+        var beam = source.LightMask is { } maskId && _prototypes.TryIndex(maskId, out var lightMask)
+            ? _resources.GetResource<TextureResource>(lightMask.MaskPath).Texture
+            : Texture.White;
         var rotation = source.MaskAutoRotate ? source.Rotation + light.Rotation : source.Rotation;
         shader.SetParameter("beam", beam);
         shader.SetParameter("beamAxis", rotation.RotateVec(Vector2.UnitX));

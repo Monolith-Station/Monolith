@@ -19,18 +19,18 @@ public sealed partial class CEZCollapseSystem
         MarkDirty(gridUid);
     }
 
-    private void OnCoreReAnchor(Entity<CEGridStabilityCoreComponent> ent, ref ReAnchorEvent args)
+    private void OnCoreReAnchor(Entity<CEGridStabilityCoreComponent> ent, ref EntParentChangedMessage args)
     {
-        if (_stabilityQuery.TryGetComponent(args.OldGrid, out var oldComp))
+        if (args.OldParent is { } oldGrid && _stabilityQuery.TryGetComponent(oldGrid, out var oldComp))
         {
             oldComp.Cores.Remove(ent.Owner);
-            MarkDirty(args.OldGrid);
+            MarkDirty(oldGrid);
         }
 
-        if (_stabilityQuery.TryGetComponent(args.Grid, out var newComp))
+        if (args.Transform.Anchored && args.Transform.GridUid is { } newGrid && _stabilityQuery.TryGetComponent(newGrid, out var newComp))
         {
             newComp.Cores.Add(ent.Owner);
-            MarkDirty(args.Grid);
+            MarkDirty(newGrid);
         }
     }
 
@@ -46,18 +46,18 @@ public sealed partial class CEZCollapseSystem
         MarkDirty(gridUid);
     }
 
-    private void OnSupportReAnchor(Entity<CEGridStabilitySupportComponent> ent, ref ReAnchorEvent args)
+    private void OnSupportReAnchor(Entity<CEGridStabilitySupportComponent> ent, ref EntParentChangedMessage args)
     {
-        if (_stabilityQuery.TryGetComponent(args.OldGrid, out var oldComp))
+        if (args.OldParent is { } oldGrid && _stabilityQuery.TryGetComponent(oldGrid, out var oldComp))
         {
             oldComp.Supports.Remove(ent.Owner);
-            MarkDirty(args.OldGrid);
+            MarkDirty(oldGrid);
         }
 
-        if (_stabilityQuery.TryGetComponent(args.Grid, out var newComp))
+        if (args.Transform.Anchored && args.Transform.GridUid is { } newGrid && _stabilityQuery.TryGetComponent(newGrid, out var newComp))
         {
             newComp.Supports.Add(ent.Owner);
-            MarkDirty(args.Grid);
+            MarkDirty(newGrid);
         }
     }
 

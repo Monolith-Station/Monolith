@@ -179,7 +179,7 @@ public sealed partial class SunShadowOverlay : Overlay
             var sourceBounds = new Box2Rotated(bounds.Box.Translated(offset), bounds.Rotation, bounds.Origin + offset)
                 .Enlarged(direction.Length() * (plane.Transit ? 1f : 2f) + 0.01f);
             _projectedGrids.Clear();
-            _mapManager.FindGridsIntersecting(map.MapId, sourceBounds, ref _projectedGrids, approx: true);
+            _mapSys.FindGridsIntersecting(map.MapId, sourceBounds, ref _projectedGrids, approx: true);
             _roofedTiles.Clear();
             foreach (var grid in _projectedGrids)
             {

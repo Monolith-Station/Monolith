@@ -84,9 +84,9 @@ public sealed partial class CEZCollapseSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundCleanup);
         SubscribeLocalEvent<CEGridStabilityCoreComponent, AnchorStateChangedEvent>(OnCoreAnchorChanged);
-        SubscribeLocalEvent<CEGridStabilityCoreComponent, ReAnchorEvent>(OnCoreReAnchor);
+        SubscribeLocalEvent<CEGridStabilityCoreComponent, EntParentChangedMessage>(OnCoreReAnchor);
         SubscribeLocalEvent<CEGridStabilitySupportComponent, AnchorStateChangedEvent>(OnSupportAnchorChanged);
-        SubscribeLocalEvent<CEGridStabilitySupportComponent, ReAnchorEvent>(OnSupportReAnchor);
+        SubscribeLocalEvent<CEGridStabilitySupportComponent, EntParentChangedMessage>(OnSupportReAnchor);
         SubscribeLocalEvent<CEGridStabilityComponent, TileChangedEvent>(OnTileChanged);
         SubscribeLocalEvent<CEGridStabilityComponent, MapInitEvent>(OnStabilityMapInit);
         SubscribeLocalEvent<CEGridStabilityComponent, GridSplitEvent>(OnGridSplit);
@@ -530,8 +530,6 @@ public sealed partial class CEZCollapseSystem : EntitySystem
     private void DropTileItemBelow(EntityUid gridUid, Vector2i tile, ContentTileDefinition tileDef)
     {
         var itemProto = tileDef.ItemDropPrototypeName;
-        if (itemProto == null)
-            return;
 
         if (!TryGetOwningMap(gridUid, out var mapUid) ||
             !_zMapQuery.TryGetComponent(mapUid, out var zMap) ||
