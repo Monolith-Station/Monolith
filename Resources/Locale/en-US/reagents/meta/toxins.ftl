@@ -59,7 +59,7 @@ reagent-name-allicin = allicin
 reagent-desc-allicin = An organosulfur compound found in alliums like garlic, onions, and related plants.
 
 reagent-name-pax = pax
-reagent-desc-pax = A psychiatric chemical which prevents the patient from directly harming anyone.
+reagent-desc-pax = Pax originated as a psychiatric chemical which prevented the patient from directly harming anyone. Due to its constant use in oppression by the Confederacy and the early stages of the Trans-Solarian Federation, the vast majority of people nowadays, especially those in the Colossus sector, have built up an immunity to it, rendering it useless.
 
 reagent-name-honk = honk
 reagent-desc-honk = A toxin found in bananium. Causes severe honking and internal bleeding, may also cause the patient to mutate.

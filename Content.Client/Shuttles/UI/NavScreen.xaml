@@ -130,6 +130,7 @@
                             TextAlign="Center"
                             StyleClasses="ButtonSquare"
                             ToggleMode="True"/>
+                            <!-- Mono - Detailed IFF -->
                     <controls:Button Name="IFFDetailedToggle"
                              Text="{controls:Loc 'shuttle-console-iff-detailed'}"
                              TextAlign="Center"
@@ -140,6 +141,13 @@
                             TextAlign="Center"
                             StyleClasses="ButtonSquare"
                             ToggleMode="True"/>
+                            <!-- Mono - Marker Toggle -->
+                    <controls:Button Name="MarkersToggle"
+                            Text="{controls:Loc 'shuttle-console-markers-toggle'}"
+                            TextAlign="Center"
+                            StyleClasses="ButtonSquare"
+                            ToggleMode="True"
+                            />
                         </controls:BoxContainer>
                     </controls:PanelContainer>
                     <!-- Frontier - Inertia dampener controls-->

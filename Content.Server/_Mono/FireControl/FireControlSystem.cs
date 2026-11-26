@@ -15,13 +15,13 @@ using Content.Server._Mono.SpaceArtillery;
 using Content.Server._Mono.SpaceArtillery.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.Shuttles.Components;
-using Robust.Shared.Timing;
 using Content.Shared.Interaction;
 using Content.Shared._Mono.ShipGuns;
 using Content.Shared.Examine;
 using Content.Server.Salvage.Expeditions;
 using Content.Shared._Crescent.Hardpoints;
 using Content.Shared._Crescent.ShipShields;
+using Content.Shared._Mono.Sensors.Events;
 
 namespace Content.Server._Mono.FireControl;
 
@@ -30,7 +30,6 @@ public sealed partial class FireControlSystem : EntitySystem
     [Dependency] private SharedTransformSystem _xform = default!;
     [Dependency] private GunSystem _gun = default!;
     [Dependency] private SharedPhysicsSystem _physics = default!;
-    [Dependency] private IGameTiming _timing = default!;
     [Dependency] private PowerReceiverSystem _power = default!;
     [Dependency] private RotateToFaceSystem _rotateToFace = default!;
     /// <summary>
@@ -53,6 +52,7 @@ public sealed partial class FireControlSystem : EntitySystem
         SubscribeLocalEvent<FireControllableComponent, PowerChangedEvent>(OnControllablePowerChanged);
         SubscribeLocalEvent<FireControllableComponent, ComponentShutdown>(OnControllableShutdown);
         SubscribeLocalEvent<FireControllableComponent, EntParentChangedMessage>(OnControllableParentChanged);
+        SubscribeLocalEvent<FireControlConsoleComponent, SensorsConsoleRefreshEvent>(OnSensorsConsoleRefresh);
 
         // Subscribe to grid split events to ensure we update when grids change
         SubscribeLocalEvent<GridSplitEvent>(OnGridSplit);
@@ -147,6 +147,11 @@ public sealed partial class FireControlSystem : EntitySystem
                 }
             }
         }
+    }
+
+    private void OnSensorsConsoleRefresh(EntityUid uid, FireControlConsoleComponent component, SensorsConsoleRefreshEvent args)
+    {
+        UpdateUi(uid, component);
     }
 
     private void Disconnect(EntityUid server, FireControlServerComponent? component = null)

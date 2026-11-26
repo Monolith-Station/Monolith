@@ -42,6 +42,8 @@
     viewCircleSpacing: 260
     phosphorColor: "#41D7D9"
     lightingColor: "#FFFFFF32"
+  - type: SpeechSoundsReplacer
+    speechSounds: Chrono # PICK UP THAT CAN
 
 - type: entity
   parent: ClothingHeadHardsuitBase
@@ -87,3 +89,5 @@
     viewCircleSpacing: 260
     phosphorColor: "#41D7D9"
     lightingColor: "#FFFFFF32"
+  - type: SpeechSoundsReplacer
+    speechSounds: Chrono

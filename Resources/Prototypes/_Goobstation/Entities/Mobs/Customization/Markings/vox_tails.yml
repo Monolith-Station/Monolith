@@ -2,7 +2,8 @@
   id: VoxTailAnimated
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [] # Intentional to keep it from showing in the customization menu
+  companion: VoxTail # Mono
+  speciesRestriction: [Vox] # Mono
   forcedColoring: true
   sprites:
   - sprite: Mobs/Customization/vox_parts.rsi
@@ -12,6 +13,7 @@
   id: VoxTailShort
   bodyPart: Tail
   markingCategory: Tail
+  companion: VoxTailShortAnimated # Mono
   speciesRestriction: [Vox]
   forcedColoring: true
   sprites:
@@ -22,7 +24,8 @@
   id: VoxTailShortAnimated
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: []
+  companion: VoxTailShort # Mono
+  speciesRestriction: [Vox] # Mono
   forcedColoring: true
   sprites:
   - sprite: Mobs/Customization/vox_parts.rsi
@@ -32,6 +35,7 @@
   id: VoxTailBig
   bodyPart: Tail
   markingCategory: Tail
+  companion: VoxTailBigAnimated # Mono
   speciesRestriction: [Vox]
   forcedColoring: true
   sprites:
@@ -43,7 +47,8 @@
   id: VoxTailBigAnimated
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: []
+  companion: VoxTailBig # Mono
+  speciesRestriction: [Vox] # Mono
   forcedColoring: true
   sprites:
   - sprite: Mobs/Customization/vox_parts.rsi
@@ -54,6 +59,7 @@
   id: VoxTailSpikes
   bodyPart: Tail
   markingCategory: Tail
+  companion: VoxTailSpikesAnimated # Mono
   speciesRestriction: [Vox]
   forcedColoring: true
   sprites:
@@ -64,7 +70,8 @@
   id: VoxTailSpikesAnimated
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: []
+  companion: VoxTailSpikes # Mono
+  speciesRestriction: [Vox] # Mono
   forcedColoring: true
   sprites:
   - sprite: Mobs/Customization/vox_parts.rsi
@@ -74,6 +81,7 @@
   id: VoxTailDocked
   bodyPart: Tail
   markingCategory: Tail
+  companion: VoxTailDockedAnimated # Mono
   speciesRestriction: [Vox]
   forcedColoring: true
   sprites:
@@ -84,7 +92,8 @@
   id: VoxTailDockedAnimated
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: []
+  companion: VoxTailDocked # Mono
+  speciesRestriction: [Vox] # Mono
   forcedColoring: true
   sprites:
   - sprite: Mobs/Customization/vox_parts.rsi
@@ -94,6 +103,7 @@
   id: VoxTailSplit
   bodyPart: Tail
   markingCategory: Tail
+  companion: VoxTailSplitAnimated # Mono
   speciesRestriction: [Vox]
   forcedColoring: true
   sprites:
@@ -104,7 +114,8 @@
   id: VoxTailSplitAnimated
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: []
+  companion: VoxTailSplit # Mono
+  speciesRestriction: [Vox] # Mono
   forcedColoring: true
   sprites:
   - sprite: Mobs/Customization/vox_parts.rsi

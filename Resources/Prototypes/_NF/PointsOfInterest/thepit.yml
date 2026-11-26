@@ -8,27 +8,28 @@
 
 # Notes:
 # Down at your local saloon
-- type: pointOfInterest
-  id: ThePit
-  parent: [BasePOI, BaseRepairablePOI]
-  name: "The Pit"
-  minimumDistance: 5200
-  maximumDistance: 6200
-  spawnGroup: Arena
-  gridPath: /Maps/_NF/POI/arena.yml
-  addComponents:
-  - type: SolarPoweredGrid
-    trackOnInit: true
-    doNotCull: true
+# Mono: commented out
+#- type: pointOfInterest
+#  id: ThePit
+#  parent: [BasePOI, BaseRepairablePOI]
+#  name: "The Pit"
+#  minimumDistance: 5200
+#  maximumDistance: 6200
+#  spawnGroup: Arena
+#  gridPath: /Maps/_NF/POI/arena.yml
+#  addComponents:
+#  - type: SolarPoweredGrid
+#    trackOnInit: true
+#    doNotCull: true
 
-- type: gameMap
-  id: ThePit
-  mapName: "The Pit"
-  mapPath: /Maps/_NF/POI/arena.yml
-  minPlayers: 0
-  stations:
-    ThePit:
-      stationProto: DeadDropFrontierOutpost
-      components:
-        - type: StationNameSetup
-          mapNameTemplate: "The Pit"
+#- type: gameMap
+#  id: ThePit
+#  mapName: "The Pit"
+#  mapPath: /Maps/_NF/POI/arena.yml
+#  minPlayers: 0
+#  stations:
+#    ThePit:
+#      stationProto: DeadDropFrontierOutpost
+#      components:
+#        - type: StationNameSetup
+#          mapNameTemplate: "The Pit"

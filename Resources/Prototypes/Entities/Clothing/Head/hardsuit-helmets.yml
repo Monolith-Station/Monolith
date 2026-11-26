@@ -241,6 +241,8 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: SpeechSoundsReplacer
+    speechSounds: Chrono
 
 #Brigmedic Hardsuit
 - type: entity
@@ -300,6 +302,8 @@
     viewCircleSpacing: 280
     phosphorColor: "#00AACC"
     lightingColor: "#FFFFFF32"
+  - type: SpeechSoundsReplacer
+    speechSounds: Chrono
 
 #Captain's Hardsuit
 - type: entity
@@ -420,7 +424,9 @@
     action: ActionToggleNightVision
     phosphorColor: "#41D7D9"
     lightingColor: "#FFFFFF32"
-  
+  - type: SpeechSoundsReplacer
+    speechSounds: Chrono
+
 
 #Luxury Mining Hardsuit
 - type: entity
