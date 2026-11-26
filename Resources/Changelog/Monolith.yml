@@ -27798,3 +27798,10 @@ Entries:
   id: 2977
   time: '2026-11-26T14:13:25.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/5094
+- author: DoubleHypercube
+  changes:
+    - type: Fix
+      message: PVS scales no longer reset on zoom reset.
+  id: 2978
+  time: '2026-11-26T14:23:33.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5101
