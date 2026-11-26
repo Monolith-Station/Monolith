@@ -6,6 +6,9 @@
   - type: Sprite
     sprite: _DV/Objects/Tools/lathe_upgrade_kit.rsi
     state: icon
+  - type: Tag # Mono
+    tags:
+    - PartExchanger
   - type: UpgradeKit
     whitelist:
       components:

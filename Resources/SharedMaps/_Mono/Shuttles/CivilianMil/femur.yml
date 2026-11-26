@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 277.0.0
+  engineVersion: 277.0.6
   forkId: ""
   forkVersion: ""
-  time: 09/01/2026 23:59:51
-  entityCount: 580
+  time: 11/24/2026 22:59:12
+  entityCount: 582
 maps: []
 grids:
 - 1
@@ -90,9 +90,10 @@ entities:
     - type: SpreaderGrid
       spreadQueues:
         Smoke: []
-        Kudzu: []
-        Puddle: []
         MetalFoam: []
+        ESTileFire: []
+        Puddle: []
+        Kudzu: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -353,6 +354,9 @@ entities:
       data: {}
     - type: ThermalSignature
     - type: ExplosionAirtightGrid
+    - type: GridSensors
+      datalinkCodes: []
+    - type: DetectionRangeMultiplier
 - proto: AirAlarm
   entities:
   - uid: 2
@@ -1309,7 +1313,7 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
-- proto: ComputerWallmountAdvancedRadar
+- proto: ComputerWallmountRadar
   entities:
   - uid: 163
     components:
@@ -2361,16 +2365,12 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -4.5,-4.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 580
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 5.5,-4.5
       parent: 1
-    - type: Physics
-      canCollide: False
 - proto: HardpointBallisticMedium
   entities:
   - uid: 575
@@ -2379,16 +2379,12 @@ entities:
       rot: 3.141592653589793 rad
       pos: -2.5,10.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 576
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 3.5,10.5
       parent: 1
-    - type: Physics
-      canCollide: False
 - proto: HardpointMissileMedium
   entities:
   - uid: 577
@@ -2397,16 +2393,12 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 4.5,5.5
       parent: 1
-    - type: Physics
-      canCollide: False
   - uid: 578
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -3.5,5.5
       parent: 1
-    - type: Physics
-      canCollide: False
 - proto: LightBulbCrystalBlue
   entities:
   - uid: 319
@@ -3369,6 +3361,22 @@ entities:
       parent: 1
     - type: DeltaPressure
       gridUid: 1
+- proto: SensorInfraredCiv
+  entities:
+  - uid: 582
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -5.5,1.5
+      parent: 1
+- proto: SensorRadarCivT2
+  entities:
+  - uid: 581
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 6.5,1.5
+      parent: 1
 - proto: ServiceLightBulb
   entities:
   - uid: 337

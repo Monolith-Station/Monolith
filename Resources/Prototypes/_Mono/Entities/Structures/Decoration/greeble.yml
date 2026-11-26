@@ -210,3 +210,47 @@
     sprite: _Mono/Structures/Decoration/Greeble/64x64.rsi
     layers:
     - state: radarpanel2
+
+- type: entity
+  parent: GreebleElint1
+  id: DebugPassiveRadar
+  name: debug passive radar
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: ShipSensor
+    sensorType: PassiveRadar
+    sensitivity: 200.0
+    arcDegrees: 360
+    powerDraw: 0
+    powerDrawActive: 0
+    enabled: true
+
+- type: entity
+  parent: GreebleElint1
+  id: DebugActiveRadar
+  name: debug active radar
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: ShipSensor
+    sensorType: ActiveRadar
+    sensitivity: 300.0
+    arcDegrees: 360
+    activeMode: true
+    powerDraw: 0
+    powerDrawActive: 0
+    enabled: true
+
+- type: entity
+  parent: GreebleElint1
+  id: DebugInfraredSensor
+  name: debug ir sensor
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: ShipSensor
+    sensorType: Infrared
+    sensitivity: 20.0
+    arcDegrees: 360
+    enabled: true

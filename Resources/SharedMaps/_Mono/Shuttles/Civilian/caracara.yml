@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.6
   forkId: ""
   forkVersion: ""
-  time: 11/17/2026 18:40:58
-  entityCount: 554
+  time: 11/24/2026 22:31:53
+  entityCount: 556
 maps: []
 grids:
 - 1
@@ -90,11 +90,11 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Kudzu: []
-        Puddle: []
+        Smoke: []
         MetalFoam: []
         ESTileFire: []
-        Smoke: []
+        Puddle: []
+        Kudzu: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -457,6 +457,9 @@ entities:
     - type: ThermalSignature
     - type: ImplicitRoof
     - type: ExplosionAirtightGrid
+    - type: GridSensors
+      datalinkCodes: []
+    - type: DetectionRangeMultiplier
   - uid: 4
     mapInit: true
     paused: true
@@ -3764,6 +3767,22 @@ entities:
     components:
     - type: Transform
       pos: 9.5,8.5
+      parent: 1
+- proto: SensorInfraredCiv
+  entities:
+  - uid: 441
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 2.5,11.5
+      parent: 1
+- proto: SensorRadarCiv
+  entities:
+  - uid: 556
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -1.5,10.5
       parent: 1
 - proto: ShelfWallFreezerWhite
   entities:

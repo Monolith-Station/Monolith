@@ -23,7 +23,7 @@
         - type: StationNameSetup
           mapNameTemplate: 'Caelestinus Central'
         - type: StationDeadDrop
-          maxDeadDrops: 2
+          maxDeadDrops: 12
         - type: StationCargoOrderDatabase
           capacity: 240 # has to be large to compensate for playerbase
         - type: TradeCrateDestination

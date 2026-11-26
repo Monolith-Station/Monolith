@@ -9,6 +9,11 @@
   components:
   - type: Computer
     board: ShuttleConsoleCircuitboardTSFN
+  - type: ConsoleRadarLockTone
+    lockAcquiredSound:
+      path: /Audio/_Mono/Effects/Alerts/rwr_beep.ogg
+      params:
+        volume: 5
   - type: TargetSeekerAlert
     targetGainSound:
       path: /Audio/_Mono/Effects/Alerts/rwr_beep.ogg
@@ -68,6 +73,11 @@
   components:
   - type: Computer
     board: ShuttleConsoleCircuitboardKPV63RWR
+  - type: ConsoleRadarLockTone
+    lockAcquiredSound:
+      path: /Audio/_Mono/Effects/Alerts/spo15_lock.ogg
+      params:
+        volume: 5
   - type: TargetSeekerAlert
     targetGainSound:
       path: /Audio/_Mono/Effects/Alerts/kpv63_lock.ogg
@@ -135,6 +145,11 @@
   components:
   - type: Computer
     board: ShuttleConsoleCircuitboardANALR67RWR
+  - type: ConsoleRadarLockTone
+    lockAcquiredSound:
+      path: /Audio/_Mono/Effects/Alerts/an_alr63_radar_lock.ogg
+      params:
+        volume: 5
   - type: TargetSeekerAlert
     targetGainSound:
       path: /Audio/_Mono/Effects/Alerts/an_alr63_special.ogg
