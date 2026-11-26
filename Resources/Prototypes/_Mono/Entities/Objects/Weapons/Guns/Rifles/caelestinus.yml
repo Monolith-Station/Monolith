@@ -171,11 +171,11 @@
   - type: Item
     size: Large
   - type: HeldSpeedModifier # balancing reasons more than anything
-    sprintModifier: 0.9
-    walkModifier: 0.9
+    sprintModifier: 0.8
+    walkModifier: 0.8
   - type: WieldDelay # adds a notable downside to running out of ammo with this gun. we need something to counteract the 286dps.
-    baseDelay: 2.2
-    modifiedDelay: 2.2
+    baseDelay: 5 # if you drop it, you lose!
+    modifiedDelay: 5
     preventFiring: true
   - type: Sprite
     sprite: _DV/Objects/Weapons/Guns/Rifles/jackdaw.rsi
@@ -193,8 +193,8 @@
     maxAngle: 36
     angleIncrease: 1
     angleDecay: 8
-    fireRate: 13 # 286 DPS, but don't pull the trigger too early
-    burstFireRate: 13
+    fireRate: 12 # 264 DPS, but don't pull the trigger too early
+    burstFireRate: 12
     projectileSpeed: 55 # Mono
     shotsPerBurst: 100 # you WILL fire the entire mag.
     selectedMode: Burst
@@ -249,3 +249,4 @@
     - description: Having this gun unwielded while it is firing will cause it to fly out of your hands uncontrollably. Exercise extreme caution.
       color: "#b81d1d"
       requireDetailRange: true
+  - type: GunRequiresWield # people were abusing atvs with it so fuck you

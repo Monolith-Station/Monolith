@@ -1,0 +1,204 @@
+- type: entity
+  parent: BaseSensor
+  id: SensorRadarPdvOrekh
+  name: KOLS-4 Orekh
+  description: A perfect little search radar. Manufactured in the USSP.
+  suffix: PDV/USSP, search radar
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: ShipSensor
+    activeThermalSignature: 20000
+    sensorType: ActiveRadar
+    sensitivity: 74.42
+    arcDegrees: 360
+    powerDraw: 800
+    powerDrawActive: 8000
+    arcConfigurable: true
+    gridRelativeArc: true
+    requireLineOfSight: false
+    chaffResistance: 0.2
+    canProvideLock: false
+    canProvideGuidance: false
+  - type: ShipRepairable
+    repairTime: 15
+    repairCost: 40
+  - type: ApcPowerReceiver
+    powerLoad: 800
+  - type: Sprite
+    rotation: -180
+    offset: 0, -1
+    sprite: _Mono/Structures/Sensors/active_radar_1x1.rsi
+    layers:
+    - state: pdv_t1
+
+- type: entity
+  parent: BaseSensor
+  id: SensorRadarPdvFCR
+  name: SN/5-K1 FCR
+  description: An FCR manufactured in the USSP. Can only provide directional search functionality, but can serve as a low-cost solution to provide fire control capabilities to supplement KOLS-4.
+  suffix: PDV/USSP, FCR
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: ShipSensor
+    activeThermalSignature: 60000
+    sensorType: ActiveRadar
+    sensitivity: 143.32
+    arcDegrees: 20
+    powerDraw: 100
+    powerDrawActive: 6000
+    arcConfigurable: true
+    gridRelativeArc: true
+    requireLineOfSight: false
+    chaffResistance: 0.9
+    canProvideLock: true
+    canProvideGuidance: true
+  - type: ShipRepairable
+    repairTime: 15
+    repairCost: 30
+  - type: ApcPowerReceiver
+    powerLoad: 100
+  - type: Sprite
+    rotation: -180
+    offset: 0, -1
+    sprite: _Mono/Structures/Sensors/active_radar_1x1.rsi
+    layers:
+    - state: pdv_t2
+
+#2X1
+
+- type: entity
+  parent: BaseSensor
+  id: SensorRadarPdvFregat
+  name: KOLS-8 Fregat-PMM
+  description: A high-powered basic search radar design for light ships. Manufactured in the USSP. Low power draw, no FCR. Very sensitive to both ships & chaff.
+  suffix: PDV/USSP, search radar
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: ShipSensor
+    activeThermalSignature: 130000
+    sensorType: ActiveRadar
+    sensitivity: 316.54
+    arcDegrees: 360
+    powerDraw: 1500
+    powerDrawActive: 9000
+    arcConfigurable: true
+    gridRelativeArc: true
+    requireLineOfSight: false
+    chaffResistance: 0.05
+    canProvideLock: false
+    canProvideGuidance: false
+  - type: ApcPowerReceiver
+    powerLoad: 1500
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 12500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+  - type: ShipRepairable
+    repairTime: 30
+    repairCost: 50
+  - type: Sprite
+    offset: 0, -1
+    rotation: 180
+    sprite: _Mono/Structures/Sensors/active_radar_2x1.rsi
+    layers:
+    - state: pdv_t1
+
+- type: entity
+  parent: BaseSensor
+  id: SensorRadarPdvKara
+  name: KOLS-23 Kara
+  description: A large AESA radar kit operated primarily by the PDV & USSP. Practically perfect - if you can handle the thermal signature and power draw.
+  suffix: PDV/USSP, search & FCR
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: ShipSensor
+    activeThermalSignature: 1000000
+    sensorType: ActiveRadar
+    sensitivity: 379.47
+    arcDegrees: 140
+    powerDraw: 5000
+    powerDrawActive: 30000 # Lower than the T1 because it's not omnidirectional.
+    arcConfigurable: true
+    gridRelativeArc: true
+    requireLineOfSight: false
+    chaffResistance: 0.6
+    canProvideLock: true
+    canProvideGuidance: true
+  - type: ApcPowerReceiver
+    powerLoad: 5000
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 25000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+  - type: ShipRepairable
+    repairTime: 30
+    repairCost: 200
+  - type: Sprite
+    offset: 0, -0.5
+    rotation: 180
+    sprite: _Mono/Structures/Sensors/active_radar_2x1.rsi
+    layers:
+    - state: pdv_t2
+
+- type: entity
+  parent: BaseSensor
+  id: SensorRadarPdvMainstay
+  name: P-300 Mainstay
+  description: An extremely high-powered AESA radar for PDV & USSP vessels. Can practically detect the entire sector, but has an insane power draw.
+  suffix: PDV/USSP, search & FCR
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: ShipSensor
+    activeThermalSignature: 1000000
+    sensorType: ActiveRadar
+    sensitivity: 790.57
+    arcDegrees: 360
+    powerDraw: 15000
+    powerDrawActive: 100000
+    arcConfigurable: true
+    gridRelativeArc: true
+    requireLineOfSight: false
+    chaffResistance: 0.55
+    canProvideLock: true
+    canProvideGuidance: true
+  - type: ApcPowerReceiver
+    powerLoad: 15000
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+  - type: ShipRepairable
+    repairTime: 60
+    repairCost: 350
+  - type: Sprite
+    offset: 0, -0.5
+    rotation: 180
+    sprite: _Mono/Structures/Sensors/active_radar_3x1.rsi
+    layers:
+    - state: pdv

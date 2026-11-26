@@ -8,28 +8,29 @@
 
 # Notes:
 # Down at your local saloon
-- type: pointOfInterest
-  id: Tinnia
-  parent: [BasePOI, BaseRepairablePOI]
-  name: "Tinnia's Rest"
-  minimumDistance: 3400
-  maximumDistance: 5800
-  spawnGroup: RestStop
-  gridPath: /Maps/_NF/POI/tinnia.yml
-  addComponents:
-  - type: StationTransit
-  - type: SolarPoweredGrid
-    trackOnInit: true
-    doNotCull: true
+# Mono: commented out
+#- type: pointOfInterest
+#  id: Tinnia
+#  parent: [BasePOI, BaseRepairablePOI]
+#  name: "Tinnia's Rest"
+#  minimumDistance: 3400
+#  maximumDistance: 5800
+#  spawnGroup: RestStop
+#  gridPath: /Maps/_NF/POI/tinnia.yml
+#  addComponents:
+#  - type: StationTransit
+#  - type: SolarPoweredGrid
+#    trackOnInit: true
+#    doNotCull: true
 
-- type: gameMap
-  id: Tinnia
-  mapName: "Tinnia's Rest"
-  mapPath: /Maps/_NF/POI/tinnia.yml
-  minPlayers: 0
-  stations:
-    Tinnia:
-      stationProto: DeadDropFrontierOutpost
-      components:
-        - type: StationNameSetup
-          mapNameTemplate: "Tinnia's Rest"
+#- type: gameMap
+#  id: Tinnia
+#  mapName: "Tinnia's Rest"
+#  mapPath: /Maps/_NF/POI/tinnia.yml
+#  minPlayers: 0
+#  stations:
+#    Tinnia:
+#      stationProto: DeadDropFrontierOutpost
+#      components:
+#        - type: StationNameSetup
+#          mapNameTemplate: "Tinnia's Rest"

@@ -19,11 +19,14 @@ public sealed partial class RadarConsoleWindow : FancyWindow,
     // Mono
         IFFToggle.OnToggled += OnIFFTogglePressed;
         IFFDetailedToggle.OnToggled += OnIFFDetailedTogglePressed;
+        MainTabs.SetTabTitle(0, Loc.GetString("radar-console-window-title"));
+        MainTabs.SetTabTitle(1, "Sensors");
     }
 
     public void UpdateState(NavInterfaceState scc)
     {
         RadarScreen.UpdateState(scc);
+        SensorsTab.UpdateState(scc.Sensors);
     }
 
     public void SetConsole(EntityUid consoleEntity)

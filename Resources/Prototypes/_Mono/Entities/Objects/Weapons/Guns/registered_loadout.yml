@@ -85,3 +85,7 @@
   id: WeaponSubMachineGunMalandroRegistered
   suffix: Registered
 
+- type: entity
+  parent: [WeaponLoadoutRegisteredBase, WeaponRevolverMeLat]
+  id: WeaponRevolverMeLatRegistered
+  suffix: Registered

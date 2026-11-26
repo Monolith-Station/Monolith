@@ -2,9 +2,7 @@ using System.Numerics;
 using Content.Server._Mono.Projectiles.TargetGuided;
 using Content.Server._Mono.Projectiles.TargetSeeking;
 using Content.Shared._Mono.Radar;
-using Content.Shared.Projectiles;
 using Content.Shared.Shuttles.Components;
-using Robust.Shared.Map;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 
@@ -50,7 +48,7 @@ public sealed partial class RadarBlipSystem : EntitySystem
         AssembleBlipsReport((EntityUid)radarUid, _tempSourcesCache, radar);
         AssembleHitscanReport((EntityUid)radarUid, _tempSourcesCache, radar);
 
-        // Combine the blips and hitscan lines
+        // Combine them all
         var giveEv = new GiveBlipsEvent(_tempPaletteCache, _tempBlipsCache, _tempMissileCache, _tempHitscansCache);
         RaiseNetworkEvent(giveEv, args.SenderSession);
 
