@@ -33,6 +33,7 @@ public sealed partial class AmbientOcclusionOverlay : Overlay
 
     private readonly OverlayResourceCache<CachedResources> _resources = new();
     private readonly List<Vector2> _vertices = new(MaxBatchVertices);
+    private readonly Vector2[] _occluderVertices = new Vector2[PhysicsConstants.MaxPolygonVertices];
     private List<Entity<MapGridComponent>> _grids = new();
 
     public AmbientOcclusionOverlay()
@@ -206,7 +207,7 @@ public sealed partial class AmbientOcclusionOverlay : Overlay
             center += vertex;
         center /= polygon.Length;
 
-        Span<Vector2> vertices = stackalloc Vector2[PhysicsConstants.MaxPolygonVertices];
+        var vertices = _occluderVertices;
         for (var i = 0; i < polygon.Length; i++)
         {
             var offset = polygon[i] - center;
