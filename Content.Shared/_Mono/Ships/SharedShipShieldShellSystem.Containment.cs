@@ -32,10 +32,13 @@ public sealed partial class SharedShipShieldShellSystem
     [Dependency] private SharedMapSystem _map = default!;
     [Dependency] private INetManager _net = default!;
 
+    private readonly List<(EntityUid Shield, EntityUid Body, EntityUid? Map, bool Inside, float Padding, float Limit)> _shellSolveChecks = new();
+
     private void InitializeContainment()
     {
         SubscribeLocalEvent<PhysicsUpdateBeforeSolveEvent>(
             OnBeforeSolve, after: new[] { typeof(SharedMoverController) });
+        SubscribeLocalEvent<PhysicsUpdateAfterSolveEvent>(OnAfterSolve);
     }
 
     public EntityUid? GetStack(EntityUid? map)
@@ -76,6 +79,7 @@ public sealed partial class SharedShipShieldShellSystem
 
     private void OnBeforeSolve(ref PhysicsUpdateBeforeSolveEvent args)
     {
+        _shellSolveChecks.Clear();
         var shells = EntityQueryEnumerator<ShipShieldProjectorComponent, TransformComponent>();
         while (shells.MoveNext(out var uid, out var shield, out var xform))
         {
@@ -109,8 +113,15 @@ public sealed partial class SharedShipShieldShellSystem
                 var inside = (local / radii).LengthSquared() < 1f;
                 var bounds = _physics.GetHardAABB(bodyUid, body: body, xform: bodyXform);
                 var padding = 0.5f * MathF.Min(bounds.Width, bounds.Height);
-                var boundary = inside ? Vector2.Max(radii - new Vector2(padding), new Vector2(0.01f)) : radii + new Vector2(padding);
+                var boundary = GetBodyBoundary(radii, padding, inside);
                 var point = local / boundary;
+                if (body.BodyType == BodyType.KinematicController)
+                {
+                    // Don't force a body out of an existing overlap, but don't let the solver deepen it.
+                    var limit = inside ? MathF.Max(1f, point.Length()) : MathF.Min(1f, point.Length());
+                    _shellSolveChecks.Add((uid, bodyUid, bodyXform.MapUid, inside, padding, limit));
+                }
+
                 var delta = Vector2.TransformNormal(velocity * args.DeltaTime, inverse) / boundary;
                 var normal = point;
                 var fraction = 0f;
@@ -139,6 +150,44 @@ public sealed partial class SharedShipShieldShellSystem
                     break;
             }
         }
+    }
+
+    private static Vector2 GetBodyBoundary(Vector2 radii, float padding, bool inside) =>
+        inside ? Vector2.Max(radii - new Vector2(padding), new Vector2(0.01f)) : radii + new Vector2(padding);
+
+    private void OnAfterSolve(ref PhysicsUpdateAfterSolveEvent args)
+    {
+        foreach (var (uid, bodyUid, map, inside, padding, limit) in _shellSolveChecks)
+        {
+            if (!TryComp(uid, out ShipShieldProjectorComponent? shield) || !IsSolid(shield) ||
+                !TryComp(bodyUid, out TransformComponent? bodyXform) || bodyXform.MapUid != map ||
+                !TryComp(bodyUid, out PhysicsComponent? body) || !body.CanCollide ||
+                !TryGetSlice((uid, shield), map, _levels.GetAbsoluteAltitude(bodyUid), out var radii))
+                continue;
+
+            var shellWorld = _transform.GetWorldMatrix(uid);
+            var boundary = GetBodyBoundary(radii, padding, inside);
+            var end = Vector2.Transform(_transform.GetWorldPosition(bodyXform), _transform.GetInvWorldMatrix(uid)) / boundary;
+            var distance = end.Length();
+            if (inside ? distance <= limit : distance >= limit)
+                continue;
+
+            // Contact separation runs after the velocity sweep and must respect the same clearance.
+            var rim = distance > 0.0001f ? end / distance : Vector2.UnitX;
+            var normal = Vector2.Normalize(Vector2.TransformNormal(rim / boundary, shellWorld)) * (inside ? -1f : 1f);
+            var position = Vector2.Transform(rim * boundary * limit, shellWorld);
+            _transform.SetWorldPosition((bodyUid, bodyXform), position);
+
+            var (center, _) = _transform.GetWorldPositionRotation(uid);
+            var relativeVelocity = _physics.GetMapLinearVelocity(bodyUid, body, bodyXform) -
+                _physics.GetMapLinearVelocity(uid) -
+                Vector2Helpers.Cross(_physics.GetMapAngularVelocity(uid), position - center);
+            var speed = Vector2.Dot(relativeVelocity, normal);
+            if (speed < 0f)
+                _physics.SetLinearVelocity(bodyUid, body.LinearVelocity - normal * speed, body: body);
+        }
+
+        _shellSolveChecks.Clear();
     }
 
     public float ClampVertical(EntityUid mover, EntityUid? map, float from, float to, bool pushing, bool gridFootprint = false,

@@ -3,6 +3,7 @@
  * https://github.com/space-wizards/space-station-14/blob/master/LICENSE.TXT
  */
 
+using System.Numerics;
 using Content.Server._CE.ZLevels.Core.Components;
 using Content.Server._Crescent.ShipShields;
 using Content.Server.Explosion.EntitySystems;
@@ -42,26 +43,16 @@ public sealed partial class CEZLevelsSystem
     /// </summary>
     private readonly Dictionary<EntityUid, float> _gravgenCapacity = new();
 
-    /// <summary>
-    /// pzn: per-sweep memo of each grid's rigid-set support verdict. Every grid in one rigid
-    /// body shares the same verdict, so the first grid of a body computes the flood + pooled
-    /// support once and caches it for every member — the other members then skip the whole
-    /// recomputation. Keeps the fall gate O(grids) instead of O(grids × body size). Cleared
-    /// each sweep alongside <see cref="_gravgenCapacity"/>.
-    /// </summary>
+    // Cache pooled support for each docked set for the current sweep.
     private readonly Dictionary<EntityUid, bool> _rigidSupportCache = new();
     private readonly TimeSpan _gravityCheckTimer = TimeSpan.FromSeconds(0.5);
     private TimeSpan _nextGravityCheckTime;
 
-    /// <summary>
-    /// Drop grid if no gravgen.
-    /// </summary>
     private void UpdateGridGravity(float frameTime)
     {
         CollectPilotVerticalInputs();
         UpdateTakeoffSpool();
 
-        // Throttle checking for grid gravity so the server doesn't set itself on fire.
         if (_timing.CurTime >= _nextGravityCheckTime)
         {
             _nextGravityCheckTime = _timing.CurTime + _gravityCheckTimer;
@@ -104,9 +95,6 @@ public sealed partial class CEZLevelsSystem
                 if (_physQuery.TryComp(uid, out var body) && body.BodyType == BodyType.Static)
                     continue;
 
-                // "Why not use IsWeightless on each grid-" Doesn't work on grids. I tried.
-                // This also covers "you can't fall out of the ground floor": a grid sat on the
-                // bottom level's terrain has ground under its footprint like any other.
                 if (RigidSetHasSupport(uid))
                     continue;
 
@@ -183,7 +171,6 @@ public sealed partial class CEZLevelsSystem
                 if (a.Transit.LowerMap != b.Transit.LowerMap || a.Transit.UpperMap != b.Transit.UpperMap)
                     continue;
 
-                // If the maps didn't swap positions, they couldn't have collided (therefore, it is Not Our Problem)
                 if (!_transitLastProgress.TryGetValue(a.Map, out var prevA) ||
                     !_transitLastProgress.TryGetValue(b.Map, out var prevB))
                 {
@@ -224,9 +211,6 @@ public sealed partial class CEZLevelsSystem
         }
     }
 
-    /// <summary>
-    /// Collects a transit set and the union of its members' world AABBs.
-    /// </summary>
     private bool TryGetGridSetAabb(EntityUid primary, out HashSet<EntityUid> set, out Box2 aabb)
     {
         set = CollectTransitSet(primary);
@@ -246,9 +230,6 @@ public sealed partial class CEZLevelsSystem
         return !first;
     }
 
-    /// <summary>
-    /// Someone forgot their gravgen.
-    /// </summary>
     private static float ApproachTerminal(float velocity, float signedAccel, float terminalSpeed, float frameTime)
     {
         if (terminalSpeed <= 0f || signedAccel == 0f)
@@ -259,9 +240,6 @@ public sealed partial class CEZLevelsSystem
         return velocity + signedAccel * taper * frameTime;
     }
 
-    /// <summary>
-    /// Moves a value toward a target by at most <paramref name="maxDelta"/>.
-    /// </summary>
     private static float MoveTowards(float current, float target, float maxDelta)
     {
         var diff = target - current;
@@ -309,7 +287,6 @@ public sealed partial class CEZLevelsSystem
 
         if (!hasGravgen)
         {
-            // AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
             if (_timing.CurTime < faller.GravityTime)
                 return;
 
@@ -322,7 +299,6 @@ public sealed partial class CEZLevelsSystem
 
             if (input != 0f && accel > 0f)
             {
-                // Flight.
                 faller.Velocity = ApproachTerminal(faller.Velocity, -input * accel, MaxPilotVerticalSpeed, frameTime);
             }
             else if ((transit.UpperMap == null || transit.AutoLand) &&
@@ -460,9 +436,6 @@ public sealed partial class CEZLevelsSystem
         RaiseNetworkEvent(new RadialShakeEvent { Amplitude = amplitude * (absorbed ? 1.5f : 1f) }, filter);
     }
 
-    /// <summary>
-    /// Kaboom?
-    /// </summary>
     private bool CrashGrid(Entity<MapGridComponent, CEZGridFallerComponent> ent)
     {
         var tileCount = 0;
@@ -498,9 +471,6 @@ public sealed partial class CEZLevelsSystem
         return false;
     }
 
-    /// <summary>
-    /// Will It Lift?
-    /// </summary>
     private bool HasPooledGravgenSupport(IEnumerable<EntityUid> grids)
     {
         var capacity = 0f;
@@ -559,9 +529,6 @@ public sealed partial class CEZLevelsSystem
         return false;
     }
 
-    /// <summary>
-    /// pzn: Get the current load of the grid for gravgen examine.
-    /// </summary>
     public bool TryGetGravgenLoad(EntityUid gridUid, out float gridMass, out float capacity)
     {
         gridMass = 0f;
@@ -593,23 +560,12 @@ public sealed partial class CEZLevelsSystem
         return true;
     }
 
-    /// <summary>
-    /// Whether a z-level has solid terrain under (or over) a grid's footprint. A z-level map
-    /// entity carries its own MapGrid and its tiles are the layer's terrain, so this is what
-    /// makes a level something a ship can rest on or be stopped by.
-    ///
-    /// Solid is a non-empty tile — the same rule the entity fall path
-    /// (<c>ComputeGroundHeightInternal</c>) uses, so a gap punched in a platform drops a ship
-    /// through exactly like it drops a person instead of the two disagreeing about the same tile.
-    ///
-    /// Emptiness rather than <see cref="ContentTileDefinition.Transparent"/>, deliberately:
-    /// transparency is a SIGHT property, driving roof occlusion and the look-up/look-down view, and
-    /// a floor you can see through is still a floor. Lattice, glass floor and damaged plating are
-    /// all transparent and all hold weight, so keying support off it dropped ships through tiles
-    /// people were standing on. Space is tile id 0, so it is empty here anyway.
-    /// </summary>
+    // Non-empty terrain supports hulls, even if transparent.
     private bool HasGroundUnderFootprint(Entity<MapGridComponent> grid, EntityUid mapUid)
         => HasGroundUnderFootprint(grid, mapUid, out _, out _);
+
+    private readonly Vector2[] _groundFootprint = new Vector2[PhysicsConstants.MaxPolygonVertices];
+    private readonly Vector2[] _shipGroundFootprint = new Vector2[PhysicsConstants.MaxPolygonVertices];
 
     private bool HasGroundUnderFootprint(
         Entity<MapGridComponent> grid, EntityUid mapUid, out bool damagingImpact, out SoundSpecifier? landingSound,
@@ -621,11 +577,34 @@ public sealed partial class CEZLevelsSystem
             return false;
 
         var hasGround = false;
-        var worldAabb = _transform.GetWorldMatrix(grid).TransformBox(grid.Comp.LocalAABB);
-        var tiles = _map.GetTilesEnumerator(mapUid, mapGrid, worldAabb);
-        while (tiles.MoveNext(out var tileRef))
+        var shipMatrix = _transform.GetWorldMatrix(grid);
+        var groundMatrix = _transform.GetWorldMatrix(mapUid);
+        var worldAabb = shipMatrix.TransformBox(grid.Comp.LocalAABB);
+        foreach (var tileRef in _map.GetTilesIntersecting(mapUid, mapGrid, worldAabb))
         {
-            if (tileRef.Tile.IsEmpty)
+            var groundCount = WriteTileFootprint(tileRef, mapGrid.TileSize, groundMatrix, _groundFootprint);
+            var ground = _groundFootprint.AsSpan(0, groundCount);
+            var min = ground[0];
+            var max = min;
+            foreach (var vertex in ground[1..])
+            {
+                min = Vector2.Min(min, vertex);
+                max = Vector2.Max(max, vertex);
+            }
+
+            var overlaps = false;
+            foreach (var shipTile in _map.GetTilesIntersecting(grid.Owner, grid.Comp, new Box2(min, max)))
+            {
+                var hullCount = WriteTileFootprint(shipTile, grid.Comp.TileSize, shipMatrix, _shipGroundFootprint);
+                var hull = _shipGroundFootprint.AsSpan(0, hullCount);
+                if (!TryGetWallContact(hull, 0f, ground, 0f, out var contact) || contact.Depth <= 0.001f)
+                    continue;
+
+                overlaps = true;
+                break;
+            }
+
+            if (!overlaps)
                 continue;
 
             if (!checkImpact)

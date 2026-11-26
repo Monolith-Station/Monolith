@@ -75,13 +75,7 @@ public sealed partial class CEClientZLevelsSystem : CESharedZLevelsSystem
     }
 }
 
-/// <summary>
-/// Pre-animation pass for Z-level visuals.
-/// Runs its <see cref="FrameUpdate"/> BEFORE <see cref="AnimationPlayerSystem"/> every render frame,
-/// resetting <see cref="SpriteComponent.Offset"/> to the entity's clean base (no Z).
-/// This prevents Z from accumulating across frames when no animation writes to the offset
-/// (e.g. entities that only animate scale, like SlimeIceBig).
-/// </summary>
+/// <summary>Removes the previous Z offset before sprite animation runs.</summary>
 internal sealed partial class CEClientZLevelsPreAnimSystem : EntitySystem
 {
     [Dependency] private SpriteSystem _sprite = default!;
@@ -96,8 +90,6 @@ internal sealed partial class CEClientZLevelsPreAnimSystem : EntitySystem
 
     public override void FrameUpdate(float frameTime)
     {
-        // Phase 1 (per render frame): strip any Z left from last frame so the animation player
-        // always starts from a Z-free base, and Phase 2 can add exactly one Z contribution.
         var query = EntityQueryEnumerator<CEZPhysicsComponent, SpriteComponent>();
         while (query.MoveNext(out var uid, out var zPhys, out var sprite))
         {
@@ -106,7 +98,6 @@ internal sealed partial class CEClientZLevelsPreAnimSystem : EntitySystem
             _sprite.SetDrawDepth((uid, sprite), localPosition > 0 ? (int)Shared.DrawDepth.DrawDepth.OverMobs : zPhys.DrawDepthDefault);
         }
 
-        // Set parent-synced status effect offsets to the parent's current Z value each frame — prevents accumulation.
         var syncQuery = EntityQueryEnumerator<StatusEffectsComponent, SpriteComponent, TransformComponent>();
         while (syncQuery.MoveNext(out var uid, out _, out var sprite, out var xform))
         {
@@ -121,13 +112,7 @@ internal sealed partial class CEClientZLevelsPreAnimSystem : EntitySystem
     }
 }
 
-/// <summary>
-/// Post-animation pass for Z-level visuals.
-/// Runs its <see cref="FrameUpdate"/> AFTER <see cref="AnimationPlayerSystem"/> so that
-/// whatever offset the animation player wrote to <see cref="SpriteComponent.Offset"/> this frame
-/// (loop animation, one-shot swing, idle bob, etc.) is preserved, and the Z-height contribution
-/// is simply added on top.  No animation code needs to know about Z levels.
-/// </summary>
+/// <summary>Applies Z height after sprite animation runs.</summary>
 internal sealed partial class CEClientZLevelsPostAnimSystem : EntitySystem
 {
     [Dependency] private SpriteSystem _sprite = default!;
@@ -141,10 +126,7 @@ internal sealed partial class CEClientZLevelsPostAnimSystem : EntitySystem
 
     public override void FrameUpdate(float frameTime)
     {
-        // Phase 2: add the Z-height contribution on top of the animation-player's output.
-        // At this point sprite.Offset == animationValue (or SpriteOffsetDefault if no anim ran).
-        // The offset is counter-rotated by the entity's world angle so it always points world-up,
-        // preventing it from orbiting the pivot when the entity has angular velocity (e.g. shurikens).
+        // Counter-rotate so the lift always points world-up.
         var query = EntityQueryEnumerator<CEZPhysicsComponent, SpriteComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var zPhys, out var sprite, out var xform))
         {

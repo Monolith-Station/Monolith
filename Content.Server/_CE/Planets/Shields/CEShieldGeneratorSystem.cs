@@ -1,14 +1,10 @@
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Power.Components;
-using Content.Shared._CE.Camera;
 using Content.Shared._CE.Planets.Shields;
-using Content.Shared._CE.ZLevels.Core.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.Emp;
 using Content.Shared._FarHorizons.StarSystem;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Map.Components;
-using Robust.Shared.Player;
 using Robust.Shared.Timing;
 
 namespace Content.Server._CE.Planets.Shields;
@@ -17,18 +13,18 @@ public sealed partial class CEShieldGeneratorSystem : EntitySystem
 {
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
-    [Dependency] private SharedAppearanceSystem _appearance = default!;
     [Dependency] private ExplosionSystem _explosion = default!;
     [Dependency] private CEPlanetShieldSystem _shield = default!;
-    [Dependency] private CESharedZLevelsSystem _zLevels = default!;
     [Dependency] private SharedUserInterfaceSystem _ui = default!;
-    [Dependency] private CEShieldBeamSystem _beam = default!;
+    [Dependency] private CESharedShieldGeneratorSystem _projector = default!;
     private static readonly TimeSpan UiUpdateInterval = TimeSpan.FromSeconds(0.5);
 
     public override void Initialize()
     {
         base.Initialize();
 
+        UpdatesBefore.Add(typeof(CESharedShieldGeneratorSystem));
+        SubscribeLocalEvent<CEShieldGeneratorComponent, CEShieldGeneratorStageChangedEvent>(OnStageChanged);
         SubscribeLocalEvent<CEShieldGeneratorComponent, DamageChangedEvent>(OnDamaged);
         SubscribeLocalEvent<CEShieldGeneratorComponent, EmpPulseEvent>(OnEmpPulse);
         SubscribeLocalEvent<CEShieldGeneratorComponent, ComponentShutdown>(OnShutdown);
@@ -84,11 +80,6 @@ public sealed partial class CEShieldGeneratorSystem : EntitySystem
                         StartSpinup((uid, gen), now);
                     break;
 
-                case CEShieldGeneratorStage.SpinningUp:
-                    if (now >= gen.SpinupEndsAt)
-                        Fire((uid, gen));
-                    break;
-
                 case CEShieldGeneratorStage.Active:
                     var surplus = consumer.ReceivedPower - gen.DrawRate;
                     gen.Charge = Math.Clamp(gen.Charge + surplus * frameTime, 0f, gen.MaxCharge);
@@ -96,10 +87,6 @@ public sealed partial class CEShieldGeneratorSystem : EntitySystem
                         Fail((uid, gen), now);
                     break;
 
-                case CEShieldGeneratorStage.Cooldown:
-                    if (now >= gen.CooldownEndsAt)
-                        SetStage((uid, gen), CEShieldGeneratorStage.Charging);
-                    break;
             }
 
             UpdateUi((uid, gen), consumer, now);
@@ -146,17 +133,29 @@ public sealed partial class CEShieldGeneratorSystem : EntitySystem
         if (ent.Comp.Stage is not (CEShieldGeneratorStage.SpinningUp or CEShieldGeneratorStage.Active))
             return;
 
-        ent.Comp.ChargeSoundStream = _audio.Stop(ent.Comp.ChargeSoundStream);
-        LowerShield(ent);
-        SetStage(ent, CEShieldGeneratorStage.Charging);
+        _projector.SetStage(ent, CEShieldGeneratorStage.Charging);
     }
 
     private void StartSpinup(Entity<CEShieldGeneratorComponent> ent, TimeSpan now)
     {
-        ent.Comp.SpinupEndsAt = now + ent.Comp.SpinupTime;
         ent.Comp.SpinupDamageTaken = 0f;
         ent.Comp.ChargeSoundStream = _audio.PlayPvs(ent.Comp.ChargeSound, ent)?.Entity;
-        SetStage(ent, CEShieldGeneratorStage.SpinningUp);
+        _projector.BeginSpinup(ent, now);
+    }
+
+    private void OnStageChanged(Entity<CEShieldGeneratorComponent> ent, ref CEShieldGeneratorStageChangedEvent args)
+    {
+        if (args.Current == CEShieldGeneratorStage.Active)
+        {
+            Fire(ent);
+            return;
+        }
+
+        if (args.Previous == CEShieldGeneratorStage.SpinningUp)
+            ent.Comp.ChargeSoundStream = _audio.Stop(ent.Comp.ChargeSoundStream);
+
+        if (args.Previous == CEShieldGeneratorStage.Active)
+            LowerShield(ent);
     }
 
     private void Fire(Entity<CEShieldGeneratorComponent> ent)
@@ -167,30 +166,6 @@ public sealed partial class CEShieldGeneratorSystem : EntitySystem
             && _shield.SetShieldActive(planet, true))
         {
             ent.Comp.ShieldedPlanet = planet;
-            var filter = Filter.Empty();
-            if (_zLevels.TryGetMapNetwork(mapUid, out var zNetwork))
-            {
-                foreach (var levelUid in zNetwork.Comp.SortedZLevels)
-                {
-                    if (TryComp<MapComponent>(levelUid, out var map))
-                        filter.AddInMap(map.MapId);
-                }
-            }
-            else
-            {
-                filter.AddInMap(xform.MapID);
-            }
-
-            RaiseNetworkEvent(new RadialShakeEvent
-            {
-                Duration = ent.Comp.FireShakeDuration,
-                Amplitude = ent.Comp.FireShakeAmplitude,
-            }, filter);
-            RaiseNetworkEvent(new CEScreenFlashEvent
-            {
-                Duration = (float) ent.Comp.FireFlashDuration.TotalSeconds,
-                Color = Color.White,
-            }, filter);
         }
         else
         {
@@ -199,19 +174,14 @@ public sealed partial class CEShieldGeneratorSystem : EntitySystem
             return;
         }
 
-        ent.Comp.ChargeSoundStream = _audio.Stop(ent.Comp.ChargeSoundStream);
-        _audio.PlayPvs(ent.Comp.FireSound, ent);
-        _beam.Start(ent);
-        SetStage(ent, CEShieldGeneratorStage.Active);
+        ent.Comp.ChargeSoundStream = null;
     }
 
     private void Fail(Entity<CEShieldGeneratorComponent> ent, TimeSpan now)
     {
         ent.Comp.Charge = 0f;
-        ent.Comp.CooldownEndsAt = now + ent.Comp.CooldownTime;
-        LowerShield(ent);
+        _projector.BeginCooldown(ent, now);
         _audio.PlayPvs(ent.Comp.FailSound, ent);
-        SetStage(ent, CEShieldGeneratorStage.Cooldown);
     }
 
     private void OnDamaged(Entity<CEShieldGeneratorComponent> ent, ref DamageChangedEvent args)
@@ -263,7 +233,6 @@ public sealed partial class CEShieldGeneratorSystem : EntitySystem
 
     private void LowerShield(Entity<CEShieldGeneratorComponent> ent)
     {
-        _beam.Stop(ent);
         var planet = ent.Comp.ShieldedPlanet;
         ent.Comp.ShieldedPlanet = null;
         if (planet is not { } uid || TerminatingOrDeleted(uid))
@@ -272,20 +241,11 @@ public sealed partial class CEShieldGeneratorSystem : EntitySystem
         var query = EntityQueryEnumerator<CEShieldGeneratorComponent>();
         while (query.MoveNext(out var other, out var generator))
         {
-            if (other != ent.Owner && generator.ShieldedPlanet == uid && !TerminatingOrDeleted(other))
+            if (other != ent.Owner && generator.Stage == CEShieldGeneratorStage.Active &&
+                generator.ShieldedPlanet == uid && !TerminatingOrDeleted(other))
                 return;
         }
 
         _shield.SetShieldActive(uid, false);
-    }
-
-    private void SetStage(Entity<CEShieldGeneratorComponent> ent, CEShieldGeneratorStage stage)
-    {
-        if (ent.Comp.Stage == stage)
-            return;
-
-        ent.Comp.Stage = stage;
-        Dirty(ent);
-        _appearance.SetData(ent, CEShieldGeneratorVisuals.Stage, stage);
     }
 }

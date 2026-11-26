@@ -12,6 +12,7 @@ using Robust.Shared.Map.Enumerators;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Collision.Shapes;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 
 namespace Content.Client.Light;
 
@@ -20,6 +21,10 @@ public sealed partial class RoofOverlay : Overlay
     private static readonly ProtoId<TagPrototype> DiagonalTag = "Diagonal";
     private readonly IEntityManager _entManager;
     [Dependency] private IOverlayManager _overlay = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    private readonly Dictionary<(EntityUid Grid, Vector2i Chunk), bool> _roofCandidates = new();
+    private readonly HashSet<Entity<IsRoofComponent>> _roofEntities = new();
+    private uint _roofCandidateFrame;
 
     private readonly EntityLookupSystem _lookup;
     private readonly SharedMapSystem _mapSystem;
@@ -63,6 +68,15 @@ public sealed partial class RoofOverlay : Overlay
 
         _grids.Clear();
         _mapSystem.FindGridsIntersecting(args.MapId, bounds, ref _grids, approx: true, includeMap: true);
+        _grids.RemoveAll(static grid => grid.Comp.ChunkCount == 0);
+        if (_grids.Count == 0)
+            return;
+
+        if (_roofCandidateFrame != _timing.CurFrame)
+        {
+            _roofCandidates.Clear();
+            _roofCandidateFrame = _timing.CurFrame;
+        }
         var lightScale = viewport.LightRenderTarget.Size / (Vector2) viewport.Size;
         var scale = viewport.RenderScale / (Vector2.One / lightScale);
 
@@ -114,31 +128,77 @@ public sealed partial class RoofOverlay : Overlay
 
                     worldHandle.SetTransform(matty);
 
-                    var tileEnumerator = _mapSystem.GetTilesEnumerator(grid.Owner, grid, bounds);
-                    var roofEnt = (grid.Owner, grid.Comp, roof);
-
-                    // Due to stencilling we essentially draw on unrooved tiles
-                    while (tileEnumerator.MoveNext(out var tileRef))
-                    {
-                        var color = _roof.GetColor(roofEnt, tileRef.GridIndices);
-
-                        if (color == null)
-                        {
-                            continue;
-                        }
-
-                        if (!SharedRoofSystem.HasRoofFlag(roof, tileRef.GridIndices) &&
-                            DrawDiagonalRoof(worldHandle, grid, tileRef.GridIndices, matty, color.Value, entityRoofOnly: true))
-                            continue;
-
-                        var local = _lookup.GetLocalBounds(tileRef, grid.Comp.TileSize);
-                        worldHandle.DrawRect(local, color.Value);
-                    }
+                    DrawExplicitRoofs(worldHandle, grid, roof, bounds, matty);
                 }
             }, null);
 
         worldHandle.SetTransform(Matrix3x2.Identity);
     }
+
+    private void DrawExplicitRoofs(DrawingHandleWorld handle, Entity<MapGridComponent> grid, RoofComponent roof,
+        Box2Rotated bounds, Matrix3x2 gridToTarget)
+    {
+        const int chunkSize = RoofComponent.ChunkSize;
+        var localBounds = _xformSystem.GetInvWorldMatrix(grid.Owner).TransformBox(bounds);
+        var chunks = new ChunkIndicesEnumerator(localBounds, chunkSize);
+        var tileSize = grid.Comp.TileSize;
+        while (chunks.MoveNext(out var indices))
+        {
+            var chunk = indices.Value;
+            var origin = chunk * chunkSize;
+            var chunkBounds = Box2.FromDimensions(origin, new Vector2(chunkSize));
+            var visible = localBounds.Intersect(chunkBounds);
+            if (visible.Width <= 0f || visible.Height <= 0f)
+                continue;
+
+            var flags = roof.Data.GetValueOrDefault(chunk) | roof.ZLevelData.GetValueOrDefault(chunk);
+            var entityRoofs = flags != ulong.MaxValue && HasRoofCandidates(grid, chunk, chunkBounds);
+            if (flags == 0 && !entityRoofs)
+                continue;
+
+            var tiles = _mapSystem.GetLocalTilesEnumerator(grid.Owner, grid, visible);
+            while (tiles.MoveNext(out var tile))
+            {
+                var index = tile.GridIndices;
+                var relative = index - origin;
+                var flagged = (flags & (1UL << (relative.X + relative.Y * chunkSize))) != 0;
+                if (!flagged && !entityRoofs)
+                    continue;
+
+                var color = flagged ? roof.Color : _roof.GetColor((grid.Owner, grid.Comp, roof), index);
+                if (color is not { } roofColor ||
+                    !flagged && DrawDiagonalRoof(handle, grid, index, gridToTarget, roofColor, entityRoofOnly: true))
+                    continue;
+
+                handle.DrawRect(_lookup.GetLocalBounds(tile, tileSize), roofColor);
+            }
+        }
+    }
+
+    private bool HasRoofCandidates(Entity<MapGridComponent> grid, Vector2i chunk, Box2 chunkBounds)
+    {
+        var key = (grid.Owner, chunk);
+        if (_roofCandidates.TryGetValue(key, out var hasRoof))
+            return hasRoof;
+
+        var size = grid.Comp.TileSize;
+        var bounds = new Box2(chunkBounds.BottomLeft * size, chunkBounds.TopRight * size);
+        _roofEntities.Clear();
+        _lookup.GetLocalEntitiesIntersecting(grid.Owner, bounds, _roofEntities,
+            EntityLookupSystem.DefaultFlags | LookupFlags.Approximate);
+        foreach (var ent in _roofEntities)
+        {
+            if (!ent.Comp.Enabled)
+                continue;
+
+            hasRoof = true;
+            break;
+        }
+
+        _roofCandidates.Add(key, hasRoof);
+        return hasRoof;
+    }
+
 
     private bool DrawDiagonalRoof(DrawingHandleWorld handle, Entity<MapGridComponent> grid, Vector2i tile,
         Matrix3x2 gridToTarget, Color color, bool entityRoofOnly = false)

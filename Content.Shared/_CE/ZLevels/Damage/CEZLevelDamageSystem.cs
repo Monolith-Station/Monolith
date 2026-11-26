@@ -66,14 +66,12 @@ public sealed partial class CEZLevelDamageSystem : EntitySystem
         var otherDamage = damageToOtherEv.DamageMultiplier * BaseFallingOtherDamage * args.ImpactPower * args.ImpactPower;
         var otherStun = damageToOtherEv.StunMultiplier * BaseFallingOtherStunTime * args.ImpactPower * args.ImpactPower;
 
-        // Calculate damage modifiers for the falling entity
         var damageToSelfEv = new CEZFallingDamageCalculateEvent(ent, args.ImpactPower);
         RaiseLocalEvent(ent, damageToSelfEv);
         damageModifier *= damageToSelfEv.DamageMultiplier;
         stunModifier *= damageToSelfEv.StunMultiplier;
 
-        // What you landed ON can break the fall too, and it is not always an entity: water is a
-        // tile, so without this a lake would hurt exactly as much as bedrock.
+        // Terrain such as water can soften the fall without a landing entity.
         if (TryGetLandingTile(ent, out var landingTile))
         {
             damageModifier *= landingTile.FallDamageMultiplier;
@@ -83,7 +81,6 @@ public sealed partial class CEZLevelDamageSystem : EntitySystem
         var entitiesAround = _lookup.GetEntitiesInRange(ent, 0.25f, LookupFlags.Uncontained);
         entitiesAround.Remove(ent); //Don't count self
 
-        //Process entities we fell into
         var imFallOnEv = new CEZImFallOnEvent(entitiesAround, args.ImpactPower);
         RaiseLocalEvent(ent, imFallOnEv);
 
@@ -92,7 +89,6 @@ public sealed partial class CEZLevelDamageSystem : EntitySystem
 
         foreach (var victim in entitiesAround)
         {
-            // Calculate damage modifiers from entities being fallen upon
             var editDamageToSelfEv = new CEZFallingDamageCalculateEvent(ent, args.ImpactPower);
             RaiseLocalEvent(victim, editDamageToSelfEv);
             // Most significant modifier (furthest from 1.0) wins across all victims
@@ -104,7 +100,6 @@ public sealed partial class CEZLevelDamageSystem : EntitySystem
             var fellOnMeEv = new CEZFellOnMeEvent(ent, args.ImpactPower);
             RaiseLocalEvent(victim, fellOnMeEv);
 
-            // Apply damage and stun to entities that were fallen upon
             if (otherStun > 0)
                 _stun.TryKnockdown(victim, TimeSpan.FromSeconds(otherStun), true);
             if (otherDamage > 0)
@@ -148,8 +143,7 @@ public sealed partial class CEZLevelDamageSystem : EntitySystem
 
         var xform = Transform(uid);
 
-        // Prefer the grid it is standing on; fall back to whatever grid is under it, which on a
-        // planet is the z-level map's own grid.
+        // Fall back to the terrain grid if the entity isn't standing on a grid.
         if (xform.GridUid is not { } gridUid || !TryComp<MapGridComponent>(gridUid, out var grid))
         {
             if (!_maps.TryFindGridAt(_transform.GetMapCoordinates(uid, xform), out gridUid, out grid))
@@ -165,10 +159,7 @@ public sealed partial class CEZLevelDamageSystem : EntitySystem
     }
 }
 
-/// <summary>
-/// This event is triggered both on the entity that fell and on all entities that it fell on.
-/// Together, they calculate the damage and the duration that should be applied to the fallen entity.
-/// </summary>
+/// <summary>Lets the falling entity and victims modify landing damage and stun.</summary>
 public sealed partial class CEZFallingDamageCalculateEvent(EntityUid fallen, float speed) : EntityEventArgs
 {
     public EntityUid Fallen = fallen;

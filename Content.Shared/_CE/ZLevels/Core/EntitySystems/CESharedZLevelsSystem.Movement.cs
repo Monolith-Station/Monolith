@@ -24,11 +24,6 @@ public abstract partial class CESharedZLevelsSystem
         SubscribeLocalEvent<CEZMapComponent, TileChangedEvent>(OnTileChanged);
     }
 
-    /// <summary>
-    /// Returns the last cached distance to the floor.
-    /// </summary>
-    /// <param name="target">The entity, the distance to the floor which we calculate</param>
-    /// <returns></returns>
     [PublicAPI]
     public float DistanceToGround(Entity<CEZPhysicsComponent?> target)
     {
@@ -38,13 +33,7 @@ public abstract partial class CESharedZLevelsSystem
         return target.Comp.LocalPosition - target.Comp.CachedGroundHeight;
     }
 
-    /// <summary>
-    /// Continuous altitude of an entity above the floor of the z-level it occupies:
-    /// 0 while standing on the level, approaching 1 at the boundary above. Transit
-    /// riders report the gap's current progress; airborne entities (and entities
-    /// riding an airborne grid) their z-physics height. Levels below the entity are
-    /// then simply -1 per layer from this value.
-    /// </summary>
+    /// <summary>Altitude above the current floor in levels, including transit and grid motion.</summary>
     [PublicAPI]
     public float GetLocalAltitude(EntityUid uid)
     {
@@ -63,14 +52,7 @@ public abstract partial class CESharedZLevelsSystem
         return 0f;
     }
 
-    /// <summary>
-    /// Absolute altitude of an entity within its z-stack: the depth of the level it
-    /// occupies plus its fractional local altitude above that level's floor. Entities
-    /// riding a transit gap interpolate between its anchor depths,
-    /// so the value climbs continuously through a two-level ride. Distance between
-    /// two entities in the same stack is just the difference of their absolute
-    /// altitudes.
-    /// </summary>
+    /// <summary>Altitude in z-stack coordinates, including fractional height.</summary>
     [PublicAPI]
     public float GetAbsoluteAltitude(EntityUid uid)
     {
@@ -185,7 +167,6 @@ public abstract partial class CESharedZLevelsSystem
 
         var worldPos = _transform.GetWorldPosition(target);
 
-        //Select current map by default
         Entity<CEZMapComponent> checkingMap = (xform.MapUid.Value, zMapComp);
 
         for (var floor = 0; floor <= maxFloors; floor++)
@@ -198,13 +179,11 @@ public abstract partial class CESharedZLevelsSystem
                 checkingMap = tempCheckingMap;
             }
 
-            //Find whichever grid (structure or planet) provides the floor here.
             if (!_map.TryFindGridAt(checkingMap, worldPos, out var gridUid, out var grid))
                 continue;
 
             var gridTile = _map.WorldToTile(gridUid, grid, worldPos);
 
-            //Check all types of ZHeight entities
             var query = _map.GetAnchoredEntitiesEnumerator(gridUid, grid, gridTile);
             while (query.MoveNext(out var uid))
             {
@@ -252,7 +231,6 @@ public abstract partial class CESharedZLevelsSystem
                 return -floor + groundYInterp;
             }
 
-            //No ZEntities found, check floor tiles
             if (_map.TryGetTileRef(gridUid, grid, gridTile, out var tileRef) &&
                 !tileRef.Tile.IsEmpty)
                 return -floor; // tile ground has groundY == 0 -> -floor
@@ -261,10 +239,6 @@ public abstract partial class CESharedZLevelsSystem
         return -maxFloors;
     }
 
-    /// <summary>
-    /// Checks whether there is a ceiling above the specified entity (tiles on the layer above).
-    /// If there are no Z-levels above, false will be returned.
-    /// </summary>
     [PublicAPI]
     public bool HasTileAbove(EntityUid ent, Entity<CEZMapComponent?>? currentMapUid = null)
     {
@@ -287,10 +261,6 @@ public abstract partial class CESharedZLevelsSystem
         return false;
     }
 
-    /// <summary>
-    /// Checks whether there is a ceiling above the specified entity (tiles on the layer above).
-    /// If there are no Z-levels above, false will be returned.
-    /// </summary>
     [PublicAPI]
     public bool HasTileAbove(Vector2i indices, Entity<CEZMapComponent?> map)
     {
@@ -338,9 +308,6 @@ public abstract partial class CESharedZLevelsSystem
         WakeBody(ent);
     }
 
-    /// <summary>
-    /// Sets the seconds remaining in a ground-liftoff spool-up, for the shuttle console countdown.
-    /// </summary>
     [PublicAPI]
     public void SetLaunchCountdown(Entity<CEZPhysicsComponent?> ent, float seconds)
     {
@@ -351,10 +318,6 @@ public abstract partial class CESharedZLevelsSystem
         DirtyField(ent, ent.Comp, nameof(CEZPhysicsComponent.LaunchCountdown));
     }
 
-    /// <summary>
-    /// Sets whether the grid currently has solid terrain under its footprint, for the shuttle
-    /// console readout.
-    /// </summary>
     [PublicAPI]
     public void SetGroundContact(Entity<CEZPhysicsComponent?> ent, bool contact)
     {
@@ -387,9 +350,6 @@ public abstract partial class CESharedZLevelsSystem
         WakeBody(ent);
     }
 
-    /// <summary>
-    /// Sets the vertical velocity for the entity. Positive values make the entity fly upward. Negative values make it fly downward.
-    /// </summary>
     [PublicAPI]
     public void SetZVelocity(Entity<CEZPhysicsComponent?> ent, float newVelocity)
     {
@@ -401,9 +361,6 @@ public abstract partial class CESharedZLevelsSystem
         WakeBody(ent);
     }
 
-    /// <summary>
-    /// Add the vertical velocity for the entity. Positive values make the entity fly upward. Negative values make it fly downward.
-    /// </summary>
     [PublicAPI]
     public void AddZVelocity(Entity<CEZPhysicsComponent?> ent, float newVelocity)
     {
@@ -461,7 +418,7 @@ public abstract partial class CESharedZLevelsSystem
         var worldRot = _transform.GetWorldRotation(ent);
         var destMapId = targetMapComp.MapId;
 
-        // If there's a transitting grid below, land on it instead of just noclipping through it like that guy from the Backrooms movie.
+        // Check for a transiting grid before falling to the next fixed level.
         if (offset < 0 && TryFindTransitLanding(ent, map.Value.Owner, targetMap.Owner, out var transitMapId))
             destMapId = transitMapId;
 
@@ -535,10 +492,6 @@ public abstract partial class CESharedZLevelsSystem
     }
 }
 
-/// <summary>
-/// Mono: is called on an entity right before it moves between z-levels.
-/// </summary>
-/// <param name="offset">How many levels were crossed. If negative, it means there was a downward movement. If positive, it means an upward movement.</param>
 [ByRefEvent]
 public struct CEZLevelBeforeMapMoveEvent(int offset, int level, MapId? destination = null)
 {
@@ -552,10 +505,6 @@ public struct CEZLevelBeforeMapMoveEvent(int offset, int level, MapId? destinati
     public MapId? Destination = destination;
 }
 
-/// <summary>
-/// Is called on an entity when it moves between z-levels.
-/// </summary>
-/// <param name="offset">How many levels were crossed. If negative, it means there was a downward movement. If positive, it means an upward movement.</param>
 [ByRefEvent]
 public struct CEZLevelMapMoveEvent(int offset, int level)
 {
@@ -580,15 +529,9 @@ public struct CEZLevelFallMapEvent;
 [ByRefEvent]
 public struct CEZLevelHitEvent(float impactPower)
 {
-    /// <summary>
-    /// The speed at the moment of impact. Always positive
-    /// </summary>
     public float ImpactPower = impactPower;
 }
 
-/// <summary>
-/// Is called every frame to calculate the current vertical velocity of the active zphysics entities.
-/// </summary>
 [ByRefEvent]
 public struct CEGetZVelocityEvent(Entity<CEZPhysicsComponent> target, float frameTime)
 {

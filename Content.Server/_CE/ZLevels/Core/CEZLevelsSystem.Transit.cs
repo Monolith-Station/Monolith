@@ -6,6 +6,7 @@
 using System.Linq;
 using System.Numerics;
 using Content.Server._CE.ZLevels.Core.Components;
+using Content.Server.Light.EntitySystems;
 using Content.Server.Shuttles.Systems;
 using Content.Shared._CE.ZLevels.Core.Components;
 using Content.Shared._CE.ZLevels.Core.EntitySystems;
@@ -25,6 +26,7 @@ public sealed partial class CEZLevelsSystem
     [Dependency] private ShuttleConsoleSystem _console = default!;
     [Dependency] private SharedPhysicsSystem _physics = default!;
     [Dependency] private PvsOverrideSystem _pvsOverride = default!;
+    [Dependency] private LightCycleSystem _lightCycle = default!;
 
     private void InitializeTransit()
     {
@@ -224,10 +226,7 @@ public sealed partial class CEZLevelsSystem
         return true;
     }
 
-    /// <summary>
-    /// Collects the grid and everything docked to it, dropping members that aren't on
-    /// the same map (docked chains can span maps in degenerate cases).
-    /// </summary>
+    /// <summary>Collects the same-map members of a docked set.</summary>
     private HashSet<EntityUid> CollectGridSet(EntityUid grid)
     {
         var sourceMap = Transform(grid).MapUid;
@@ -260,9 +259,6 @@ public sealed partial class CEZLevelsSystem
             ? CollectGridsOnMap(map)
             : CollectGridSet(grid);
 
-    /// <summary>
-    /// Moves a set of grids to another map.
-    /// </summary>
     private void MoveGridSetToMap(HashSet<EntityUid> movedGrids, EntityUid targetMap, int offset, int depth)
     {
         foreach (var gridUid in movedGrids)
@@ -307,10 +303,6 @@ public sealed partial class CEZLevelsSystem
         }
     }
 
-    /// <summary>
-    /// Notifies everything riding the grid about the z-level change so cached values
-    /// like <see cref="CEZPhysicsComponent.CurrentZLevel"/> stay correct.
-    /// </summary>
     private void RaiseZMoveEventOnPassengers(EntityUid uid, ref CEZLevelMapMoveEvent ev)
     {
         var children = Transform(uid).ChildEnumerator;
@@ -326,9 +318,6 @@ public sealed partial class CEZLevelsSystem
     // === WARNING: A severe amount of this system was written with the assistance of LLMs. Expect bugs, inconsistent behaviour, and potentially stupid mistakes. ===
     // === While this system was manually reviewed and tested, I have no way of knowing entirely if it will fully hold up without live usage. ===
 
-    /// <summary>
-    /// Moves a grid (and its docked set) into a fresh transit map.
-    /// </summary>
     public bool TryEnterTransit(Entity<MapGridComponent> grid, float? startProgress = null, bool preferUpperGap = false)
     {
         var xform = Transform(grid);
@@ -365,9 +354,6 @@ public sealed partial class CEZLevelsSystem
         return true;
     }
 
-    /// <summary>
-    /// Sets a transiting grid set's altitude in the z-network's depth coordinates.
-    /// </summary>
     public bool SetTransitAltitude(Entity<MapGridComponent> grid, float altitude)
     {
         var xform = Transform(grid);
@@ -395,9 +381,7 @@ public sealed partial class CEZLevelsSystem
                 break;
             }
 
-            // Terrain overhead is a solid ceiling from below: a ship rises through a hole in it
-            // but never punches through the tiles themselves. Mirror of the descent rule (which
-            // lands ON terrain, never past it). Clamp to the underside and stop.
+            // Solid terrain stops ascent; holes allow crossing.
             if (TransitBlockedByPlane(transitMapUid, upper))
             {
                 progress = span;
@@ -406,8 +390,7 @@ public sealed partial class CEZLevelsSystem
 
             if (!TryMapUp(upper, out var above))
             {
-                // Top of the network: give on-demand generation a chance to extend it
-                // upward before clamping.
+                // Try extending the network before clamping.
                 RaiseExpandEvent(upper, up: true);
 
                 if (!TryMapUp(upper, out above))
@@ -436,7 +419,6 @@ public sealed partial class CEZLevelsSystem
 
             if (!TryMapDown(lower, out var below))
             {
-                // Once again, give procgen a chance.
                 RaiseExpandEvent(lower, up: false);
 
                 if (!TryMapDown(lower, out below))
@@ -449,10 +431,7 @@ public sealed partial class CEZLevelsSystem
             progress += span;
         }
 
-        // Hold a hair clear of a ceiling we're pinned under, so it keeps drawing overhead.
-        // Applied here rather than inside the climb loop above because progress also creeps
-        // into the top of the gap without ever exceeding 1f — clamping only on overshoot
-        // would let the ship drift flush, then snap back down, once per overshoot.
+        // Hold below the ceiling even when progress reaches it without overshoot.
         if (progress > span - CeilingClearance
             && transit.UpperMap is { } ceiling
             && TransitBlockedByPlane(transitMapUid, ceiling))
@@ -534,9 +513,6 @@ public sealed partial class CEZLevelsSystem
         return cluster;
     }
 
-    /// <summary>
-    /// Whether terrain on the plane blocks any grid in this transit map.
-    /// </summary>
     private bool TransitBlockedByPlane(EntityUid transitMap, EntityUid plane)
     {
         foreach (var grid in CollectGridsOnMap(transitMap))
@@ -560,9 +536,6 @@ public sealed partial class CEZLevelsSystem
         RaiseLocalEvent(network.Owner, ref ev);
     }
 
-    /// <summary>
-    /// Moves the docked set into the next gap and sweeps it through the crossed plane.
-    /// </summary>
     private EntityUid HopTransitGap(Entity<CEZTransitMapComponent> old, EntityUid lower, EntityUid upper, int depth, bool up)
     {
         var next = CreateTransitMap(lower, upper, old.Comp.PrimaryGrid ?? EntityUid.Invalid);
@@ -578,9 +551,6 @@ public sealed partial class CEZLevelsSystem
         return next;
     }
 
-    /// <summary>
-    /// Land whatever's on this transit map to the closest normal layer.
-    /// </summary>
     public bool TryExitTransit(Entity<MapGridComponent> grid, bool? up = null)
     {
         var xform = Transform(grid);
@@ -842,6 +812,7 @@ public sealed partial class CEZLevelsSystem
         else if (TryComp<MapLightComponent>(lowerMap, out var lowerLight))
             light.AmbientLightColor = lowerLight.AmbientLightColor;
         Dirty(mapUid, light);
+        _lightCycle.SyncTransitMap((mapUid, transit), light.AmbientLightColor);
 
         _meta.SetEntityName(mapUid, TryComp<MetaDataComponent>(lowerMap, out var lowerMeta)
             ? $"Z-Transit above {lowerMeta.EntityName}"

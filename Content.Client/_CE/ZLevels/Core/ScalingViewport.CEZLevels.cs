@@ -25,7 +25,6 @@ namespace Content.Client.Viewport;
 public sealed partial class ScalingViewport
 {
     [Dependency] private IOverlayManager _overlayManager = default!;
-    [Dependency] private IEyeManager _eyeManager = default!;
     [Dependency] private IPlayerManager _player = default!;
     [Dependency] private ITileDefinitionManager _tile = default!;
     [Dependency] private IPrototypeManager _prototypeManager = default!;
@@ -58,53 +57,32 @@ public sealed partial class ScalingViewport
     /// We are looking for at least one empty tile on the screen.
     /// This is used to ensure that it makes sense to draw the z-planes and that they are visible.
     /// </summary>
-    public bool TryFindEmptyTiles(EntityUid mapUid)
+    private bool TryFindEmptyTiles(EntityUid mapUid, IClydeViewport viewport, IEye? eye)
     {
-        if (_xformQuery is null || !_xformQuery.Value.TryComp(mapUid, out var xform))
+        if (_mapSystem is null || eye is null ||
+            !Matrix3x2.Invert(viewport.RenderTarget.GetWorldToLocalMatrix(eye, viewport.RenderScale), out var toWorld))
             return true;
 
-        var drawBox = GetDrawBox();
-        var mapId = xform.MapID;
-
-        var corners = new[]
-        {
-            _eyeManager.ScreenToMap(drawBox.BottomLeft).Position,
-            _eyeManager.ScreenToMap(drawBox.BottomRight).Position,
-            _eyeManager.ScreenToMap(drawBox.TopLeft).Position,
-            _eyeManager.ScreenToMap(drawBox.TopRight).Position
-        };
-
-        float minX = float.MaxValue, minY = float.MaxValue;
-        float maxX = float.MinValue, maxY = float.MinValue;
-
-        foreach (var c in corners)
-        {
-            if (c.X < minX)
-                minX = c.X;
-            if (c.Y < minY)
-                minY = c.Y;
-            if (c.X > maxX)
-                maxX = c.X;
-            if (c.Y > maxY)
-                maxY = c.Y;
-        }
-
-        var mapCoordsBottomLeft = new MapCoordinates(new Vector2(minX, minY), mapId);
-        var mapCoordsTopRight = new MapCoordinates(new Vector2(maxX, maxY), mapId);
-
-        if (_mapSystem is null || !_mapSystem.TryFindGridAt(mapUid, mapCoordsBottomLeft.Position, out var gridUid, out var grid))
+        var pixels = Box2.FromDimensions(Vector2.Zero, viewport.Size);
+        var corner = Vector2.Transform(pixels.BottomLeft, toWorld);
+        if (_mapSystem is null || !_mapSystem.TryFindGridAt(mapUid, corner, out var gridUid, out var grid))
             return true;
 
-        var tileBottomLeft = _mapSystem.TileIndicesFor(gridUid, grid, mapCoordsBottomLeft);
-        var tileTopRight = _mapSystem.TileIndicesFor(gridUid, grid, mapCoordsTopRight);
+        var transforms = _entityManager.System<SharedTransformSystem>();
+        var bounds = (toWorld * transforms.GetInvWorldMatrix(gridUid)).TransformBox(pixels);
+        var min = bounds.BottomLeft / grid.TileSize;
+        var max = bounds.TopRight / grid.TileSize;
 
-        for (var x = tileBottomLeft.X - 1; x <= tileTopRight.X + 1; x++)
+        for (var x = (int) MathF.Floor(min.X) - 1; x <= (int) MathF.Floor(max.X) + 1; x++)
         {
-            for (var y = tileBottomLeft.Y - 1; y <= tileTopRight.Y + 1; y++)
+            for (var y = (int) MathF.Floor(min.Y) - 1; y <= (int) MathF.Floor(max.Y) + 1; y++)
             {
                 var tile = _mapSystem.GetTileRef(gridUid, grid, new Vector2i(x, y));
+                if (tile.Tile.IsEmpty)
+                    return true;
+
                 var tileDef = (ContentTileDefinition)_tile[tile.Tile.TypeId];
-                if (tileDef.Transparent || tile.Tile.IsEmpty)
+                if (tileDef.Transparent)
                     return true;
             }
         }
@@ -136,11 +114,9 @@ public sealed partial class ScalingViewport
 
         _fallbackEye = _eye;
 
-        // Cache frequently accessed components/systems
         _xformQuery ??= _entityManager.GetEntityQuery<TransformComponent>();
         _mapQuery ??= _entityManager.GetEntityQuery<MapComponent>();
 
-        // Cache systems and components
         _zLevels ??= _entityManager.System<CEClientZLevelsSystem>();
         _mapSystem ??= _entityManager.System<SharedMapSystem>();
 
@@ -189,6 +165,8 @@ public sealed partial class ScalingViewport
         var belowChainStartDepth = -1f;
         EntityUid? aboveMap = null;
         var aboveDepth = 1f;
+        var lowestDepth = float.MaxValue;
+        var highestDepth = float.MinValue;
 
         if (_entityManager.TryGetComponent(playerMap, out CEZTransitMapComponent? riderTransit))
         {
@@ -212,18 +190,13 @@ public sealed partial class ScalingViewport
                 aboveMap = mapAbove.Owner;
         }
 
-        // Depth of the nearest layer below the observer that caps the view, if any, with the
-        // band under it that still renders. A cloud deck keeps a dissolve band (ships sink
-        // through the tops); a ground layer is a hard floor you land ON, never below, so
-        // nothing under it should ever draw. Transit ships past this are occluded and skip
-        // their render pass (see the transit cull below).
+        // Clouds retain a dissolve band below the view cap; solid ground does not.
         float? occludeBelowDepth = null;
         EntityUid? backdropCloudMap = null;
         var riderDeck = aboveDepth <= CloudFullCoverDepth
             ? _entityManager.GetComponentOrNull<CEZCloudLayerComponent>(aboveMap)
             : null;
 
-        // Standing on such a layer caps the whole view below the observer at once.
         if (riderDeck != null)
         {
             occludeBelowDepth = ownDepth;
@@ -237,9 +210,8 @@ public sealed partial class ScalingViewport
         {
             occludeBelowDepth = ownDepth;
         }
-        // Otherwise walk downward while there are empty tiles to see through. A cloud or
-        // ground layer ends the walk: nothing beneath it is visible.
-        else if (riderTransit != null || TryFindEmptyTiles(playerMap))
+        // Walk down through visible gaps until a cloud or ground layer occludes the view.
+        else if (riderTransit != null || TryFindEmptyTiles(playerMap, viewport, MakeZEye(playerMap, ownDepth)))
         {
             var current = belowChainStart;
             var depthCursor = belowChainStartDepth;
@@ -260,7 +232,7 @@ public sealed partial class ScalingViewport
                     break;
                 }
 
-                if (!TryFindEmptyTiles(current.Value))
+                if (!TryFindEmptyTiles(current.Value, viewport, MakeZEye(current.Value, depthCursor)))
                     break;
 
                 current = _zLevels.TryMapOffset(current.Value, -1, out var next) ? next.Owner : null;
@@ -268,7 +240,6 @@ public sealed partial class ScalingViewport
             }
         }
 
-        // always render your own map
         _zPasses.Add((playerMap, ownDepth, true, false));
 
         var visibleAbove = zLevelViewer.LookUp ? _zLevels.GetVisibleZLevelsAbove(cameraAnchor, playerMap) : 0;
@@ -283,10 +254,9 @@ public sealed partial class ScalingViewport
         }
 
         if (visibleAbove == 0 && riderTransit != null && aboveMap != null &&
-            aboveDepth > 0.001f && TransitFade(aboveDepth) > 0.01f)
+            aboveDepth >= 0f && TransitFade(aboveDepth) > 0.01f)
             _zPasses.Add((aboveMap.Value, aboveDepth, false, true));
 
-        // transit maps also render
         var altitudeAnchor = riderTransit?.LowerMap ?? playerMap;
         if (_entityManager.HasComponent<CEZMapComponent>(altitudeAnchor))
         {
@@ -308,19 +278,11 @@ public sealed partial class ScalingViewport
                     continue;
                 }
 
-                // Transit grid's absolute altitude (lower-anchor depth + gap progress, folded in by
-                // the API) relative to the observer's. Fall back to the gap's lower plane if the map
-                // has no primary grid to read.
                 var transitAltitude = transit.PrimaryGrid is { } primaryGrid
                     ? _zLevels.GetAbsoluteAltitude(primaryGrid)
                     : lowerZ.Depth;
                 var transitDepth = transitAltitude - observerAltitude;
 
-                // Hidden under a layer between it and the observer: for a cloud, ships still
-                // within the dissolve band show through (as sinking ghosts) so only deeper
-                // ones are culled; for a ground layer the band is zero, so anything below the
-                // floor is dropped outright. This is what lets a deck cheapen the scene
-                // without hiding ships still crossing it.
                 var dissolveBand = backdropCloudMap != null ? CloudDissolveBand : 0f;
                 if (occludeBelowDepth is { } occludeDepth && transitDepth < occludeDepth - dissolveBand)
                     continue;
@@ -339,17 +301,12 @@ public sealed partial class ScalingViewport
             return order != 0 ? order : (a.MapUid == playerMap).CompareTo(b.MapUid == playerMap);
         });
 
-        var lowestDepth = float.MaxValue;
-        var highestDepth = float.MinValue;
         foreach (var pass in _zPasses)
         {
             lowestDepth = Math.Min(lowestDepth, pass.Depth);
             highestDepth = Math.Max(highestDepth, pass.Depth);
         }
 
-        // Builds the perspective eye for a pass at an arbitrary depth. Factored out of the
-        // main loop's inline construction so a ship that has sunk below a cloud deck can be
-        // re-projected and re-drawn OVER the deck (see the cloudDeck branch).
         ZEye? MakeZEye(EntityUid targetMap, float d)
         {
             if (_fallbackEye is null || !_mapQuery.Value.TryComp(targetMap, out var mapComp))
@@ -436,9 +393,7 @@ public sealed partial class ScalingViewport
 
             using var shieldPass = shipShields?.BeginZPass(_zPasses, mapUid, playerMap,
                 viewport, _fallbackEye!, observerAltitude, ownDepth); // Mono
-            // A cloud layer at or below the observer draws an opaque deck beneath
-            // its own pass: deeper passes already rendered vanish under it, grids
-            // parked on the layer draw crisp on top of it.
+            // Draw the opaque cloud deck beneath this pass.
             CEZCloudLayerComponent? cloudDeck = null;
             if (depth <= 0.001f && !isTransit)
                 _entityManager.TryGetComponent(mapUid, out cloudDeck);
@@ -591,7 +546,6 @@ public sealed partial class ScalingViewport
         if (!drewOverheadCloud)
             DrawOverheadCloud();
 
-        // Restore the Eye
         Eye = _fallbackEye;
         viewport.Eye = Eye;
     }
@@ -837,14 +791,7 @@ public sealed partial class ScalingViewport
         }, null);
     }
 
-    /// <summary>
-    /// Renders a transit map to the scratch viewport under <paramref name="eye"/> and blits
-    /// just its hull over the main target: its own colors tinted toward
-    /// <paramref name="cloudColor"/> by <paramref name="tint"/> (0 = untouched hull, 1 = flat
-    /// deck color) and drawn at <paramref name="alpha"/>. Used to re-draw a ship that has sunk
-    /// below a cloud deck — and been hidden by its opaque fill — as a fogging, fading hull
-    /// sinking into the clouds instead of vanishing on the spot.
-    /// </summary>
+    /// <summary>Composites a transit hull over the cloud deck with tint and fade.</summary>
     private void BlitTransitCloudGhost(IRenderHandle renderHandle,
         IClydeViewport viewport,
         IEye? eye,
@@ -986,17 +933,10 @@ public sealed partial class ScalingViewport
         public float Depth = depth;
         public float HighestDepth = high;
 
-        /// <summary>
-        /// whether parallax draws (only used on the actual bottom layer of a z stack so transit doesnt explode time)
-        /// </summary>
+        /// <summary>Parallax is restricted to the bottom pass.</summary>
         public bool DrawParallax = true;
 
-        /// <summary>
-        /// Marker for which eye the player sees as their "primary" one (the one their entity is on).
-        /// This is here to make anyone messing with screenspace overlay's lives easier.
-        ///
-        /// (You should add a guard like the one in Vignette if it applies to every eye.)
-        /// </summary>
+        /// <summary>Marks the player's own deck pass for screen-space overlays.</summary>
         public bool Primary;
 
         public bool PlanetTransitBackdrop;

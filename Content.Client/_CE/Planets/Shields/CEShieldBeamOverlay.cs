@@ -225,6 +225,29 @@ public abstract class CEShieldBeamOverlay : IDisposable
 
 public sealed class CEMAWCShieldBeamOverlay : CEShieldBeamOverlay
 {
+    internal static readonly CEShieldStartupVisuals Startup = new()
+    {
+        EnergyColor = Color.FromHex("#FFA61F"),
+        FlowSpeed = 12f,
+        BurstSeconds = 2.7f,
+        EndSeconds = 79f,
+        BurstRadius = 0.04f,
+        EndRadius = 0.22f,
+
+        ShockwaveSeconds = 0.85f,
+        ShockwaveRadius = 1.25f,
+
+        MoteRange = 0.9f,
+        MoteStartSpeed = 12f,
+        MoteEndSpeed = 12f,
+        MoteSpeedCurve = CEShieldMoteCurve.EaseOut,
+        MoteSpeedVariance = 0.027f / 0.037f,
+        MoteStartCount = 3,
+        MoteEndCount = 60,
+        MoteCountCurve = CEShieldMoteCurve.SmoothStep,
+        MoteCountRoughness = 0f,
+    };
+
     protected override Color EnergyColor => new(1f, 0.65f, 0.12f);
     protected override float CoreRadius => 0.22f;
     protected override float FlowSpeed => 12f;
@@ -232,6 +255,29 @@ public sealed class CEMAWCShieldBeamOverlay : CEShieldBeamOverlay
 
 public sealed class CEPlanetaryShieldBeamOverlay : CEShieldBeamOverlay
 {
+    internal static readonly CEShieldStartupVisuals Startup = new()
+    {
+        EnergyColor = Color.FromHex("#59B3FF"),
+        FlowSpeed = 22f,
+        BurstSeconds = 2.7f,
+        EndSeconds = 79f,
+        BurstRadius = 0.125f,
+        EndRadius = 0.8f,
+
+        ShockwaveSeconds = 0.85f,
+        ShockwaveRadius = 4f,
+
+        MoteRange = 3f,
+        MoteStartSpeed = 10f,
+        MoteEndSpeed = 64f,
+        MoteSpeedCurve = CEShieldMoteCurve.EaseOut,
+        MoteSpeedVariance = 0.027f / 0.037f,
+        MoteStartCount = 3,
+        MoteEndCount = 60,
+        MoteCountCurve = CEShieldMoteCurve.SmoothStep,
+        MoteCountRoughness = 0f,
+    };
+
     protected override Color EnergyColor => new(0.35f, 0.7f, 1f);
     protected override float CoreRadius => 1.8f;
     protected override float FlowSpeed => 22f;
@@ -290,9 +336,10 @@ public sealed class CEShieldBeamOverlayDispatcher : Overlay
             instance.BeginPass();
         var transform = _entities.System<SharedTransformSystem>();
         var query = _entities.EntityQueryEnumerator<CEShieldBeamComponent, TransformComponent>();
-        while (query.MoveNext(out _, out var beam, out var xform))
+        while (query.MoveNext(out var uid, out var beam, out var xform))
         {
-            if (xform.MapUid is not { } pointMap || project(pointMap, transform.GetWorldPosition(xform)) is not { } point)
+            if (_entities.IsQueuedForDeletion(uid) || xform.MapUid is not { } pointMap ||
+                project(pointMap, transform.GetWorldPosition(xform)) is not { } point)
                 continue;
             if (!_instances.TryGetValue(beam.Generator, out var instance))
             {

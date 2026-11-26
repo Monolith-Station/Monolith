@@ -65,16 +65,7 @@ public abstract partial class CESharedZLevelsSystem
 
         SnapOutOfTransitMap(entity);
 
-        // Drop leftover altitude that can no longer resolve to the ground here, before the
-        // eye offset, sprite lift, and depth blur latch onto a height this map can't shed:
-        //  - the entity left the z-network for an ordinary map (a warp, or the z/transit map
-        //    was deleted under it); or
-        //  - it is weightless (velocityGravity off — only ghosts/observers carry that), so
-        //    no gravity will ever bring it back down. A ghost leaving a transit map hits
-        //    this: SnapOutOfTransitMap hands it the gap's height on the way out and, with no
-        //    fall to spend it, it would otherwise read as a permanent level up, fog and all.
-        // SnapOutOfTransitMap already re-homes anything that landed ON a transit map, so a
-        // non-z, non-transit map here is a genuine exit.
+        // Reset altitude when leaving a z-stack or when a weightless entity cannot settle.
         var landedMap = Transform(entity).MapUid;
         var leftZNetwork = !_zMapQuery.HasComp(landedMap) && !HasComp<CEZTransitMapComponent>(landedMap);
 
@@ -120,13 +111,11 @@ public abstract partial class CESharedZLevelsSystem
     /// </summary>
     private void SnapOutOfTransitMap(Entity<CEZPhysicsComponent> entity)
     {
-        // Grids don't count. We don't talk about grids.
         if (_gridQuery.HasComp(entity) || _mapQuery.HasComp(entity))
             return;
 
         var xform = Transform(entity);
 
-        // Not on the map itself. Don't touch it.
         if (xform.ParentUid != xform.MapUid)
             return;
 

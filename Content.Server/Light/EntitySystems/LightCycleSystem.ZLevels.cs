@@ -2,7 +2,6 @@ using Content.Server._CE.ZLevels.Core;
 using Content.Shared._CE.ZLevels.Core.Components;
 using Content.Shared.Light.Components;
 using Content.Shared.Light.EntitySystems;
-using Robust.Shared.Map.Components;
 
 namespace Content.Server.Light.EntitySystems;
 
@@ -60,23 +59,57 @@ public sealed partial class LightCycleSystem
         _syncedCycles[network.Owner] = settings;
         foreach (var mapUid in network.Comp1.SortedZLevels)
         {
-            if (!mapUid.IsValid() || TerminatingOrDeleted(mapUid))
-                continue;
+            if (mapUid.IsValid() && !TerminatingOrDeleted(mapUid))
+                SyncMap(mapUid, settings);
+        }
 
-            var target = EnsureComp<LightCycleComponent>(mapUid);
-            if (target.InitialOffset || CycleSettings.Read(target) != settings)
-            {
-                settings.Apply(target);
-                Dirty(mapUid, target);
-            }
+        var transits = AllEntityQuery<CEZTransitMapComponent>();
+        while (transits.MoveNext(out var mapUid, out var transit))
+        {
+            if (!TerminatingOrDeleted(mapUid) && TryGetTransitNetwork(transit, out var networkUid) &&
+                networkUid == network.Owner)
+                SyncMap(mapUid, settings);
+        }
+    }
 
-            if (TryComp<SunShadowCycleComponent>(mapUid, out var shadow) &&
-                (shadow.Duration != settings.Duration || shadow.Offset != settings.Offset))
-            {
-                shadow.Duration = target.Duration;
-                shadow.Offset = target.Offset;
-                Dirty(mapUid, shadow);
-            }
+    internal void SyncTransitMap(Entity<CEZTransitMapComponent> transit, Color ambient)
+    {
+        if (!TryGetTransitNetwork(transit.Comp, out var network) ||
+            !TryComp<LightCycleComponent>(network, out var cycle))
+            return;
+
+        SyncMap(transit.Owner, CycleSettings.Read(cycle), ambient);
+    }
+
+    private bool TryGetTransitNetwork(CEZTransitMapComponent transit, out EntityUid network)
+    {
+        if (TryComp<CEZMapComponent>(transit.LowerMap, out var anchor) ||
+            TryComp(transit.UpperMap, out anchor))
+        {
+            network = anchor.NetworkUid;
+            return true;
+        }
+
+        network = default;
+        return false;
+    }
+
+    private void SyncMap(EntityUid map, CycleSettings settings, Color? ambient = null)
+    {
+        var target = EnsureComp<LightCycleComponent>(map);
+        if (target.InitialOffset || CycleSettings.Read(target) != settings || ambient is { } baseColor && target.OriginalColor != baseColor)
+        {
+            settings.Apply(target);
+            target.OriginalColor = ambient ?? target.OriginalColor;
+            Dirty(map, target);
+        }
+
+        if (TryComp<SunShadowCycleComponent>(map, out var shadow) &&
+            (shadow.Duration != settings.Duration || shadow.Offset != settings.Offset))
+        {
+            shadow.Duration = settings.Duration;
+            shadow.Offset = settings.Offset;
+            Dirty(map, shadow);
         }
     }
 

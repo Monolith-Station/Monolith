@@ -5,7 +5,7 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared._CE.Planets.Shields;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(raiseAfterAutoHandleState: true)]
 public sealed partial class CEShieldGeneratorComponent : Component
 {
 
@@ -27,10 +27,10 @@ public sealed partial class CEShieldGeneratorComponent : Component
     [DataField]
     public bool MoonOnly;
 
-    [DataField]
-    public TimeSpan SpinupTime = TimeSpan.FromSeconds(79);
+    [DataField, AutoNetworkedField]
+    public TimeSpan SpinupTime = TimeSpan.FromSeconds(80);
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public TimeSpan SpinupEndsAt;
 
     [DataField]
@@ -43,7 +43,7 @@ public sealed partial class CEShieldGeneratorComponent : Component
     [DataField]
     public TimeSpan CooldownTime = TimeSpan.FromMinutes(5);
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public TimeSpan CooldownEndsAt;
 
     [DataField]
@@ -73,16 +73,14 @@ public sealed partial class CEShieldGeneratorComponent : Component
     [ViewVariables]
     public EntityUid? ShieldedPlanet;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public string BeamOverlay = "Planetary";
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public Vector2 BeamOffset;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float BeamRadius = 0.45f;
-
-    public readonly List<EntityUid> BeamControls = new();
 }
 
 [Serializable, NetSerializable]

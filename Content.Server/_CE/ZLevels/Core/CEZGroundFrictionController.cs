@@ -12,17 +12,12 @@ using Robust.Shared.Physics.Controllers;
 
 namespace Content.Server._CE.ZLevels.Core;
 
-/// <summary>
-/// Applies the constant (Coulomb) half of the ground scrape as a real force, inside the physics
-/// step, so it actually competes with thrust.
-/// </summary>
 public sealed partial class CEZGroundFrictionController : VirtualController
 {
     [Dependency] private CEZLevelsSystem _zLevels = default!;
 
     public override void Initialize()
     {
-        // MoverController applies thrust, so we handle override from AFTER.
         UpdatesAfter.Add(typeof(MoverController));
 
         base.Initialize();
@@ -41,8 +36,6 @@ public sealed partial class CEZGroundFrictionController : VirtualController
             if (body.InvMass <= 0f)
                 continue;
 
-            // Grip, not mere contact: a hull over a frictionless surface is on the ground and
-            // simply slides, so there is nothing here to apply.
             var grip = _zLevels.GetGroundGrip(uid);
             if (grip <= 0f)
                 continue;
@@ -52,16 +45,6 @@ public sealed partial class CEZGroundFrictionController : VirtualController
         }
     }
 
-    /// <summary>
-    /// Opposes the velocity the body is about to have — current velocity plus whatever this step's
-    /// accumulated force will add — rather than the velocity it has now.
-    ///
-    /// Predicting one step ahead is what makes the contact hold. Cancelling only present velocity
-    /// leaves this step's thrust to land untouched, which is the creep; cancelling the predicted
-    /// velocity means a hull whose engines cannot out-pull the scrape never gets moving in the first
-    /// place. The cancellation is capped at exactly that predicted velocity, so the scrape can slow
-    /// a hull to a dead stop but never shove it backwards.
-    /// </summary>
     private void ApplyLinearScrape(EntityUid uid, PhysicsComponent body, float grip, float frameTime)
     {
         var predicted = body.LinearVelocity + body.Force * body.InvMass * frameTime;
@@ -72,14 +55,10 @@ public sealed partial class CEZGroundFrictionController : VirtualController
 
         var drop = MathF.Min(CEZLevelsSystem.GroundSkidDecel * grip * frameTime, speed);
 
-        // Back out the force that produces exactly that change in velocity over this step.
         var force = predicted / speed * -drop / (body.InvMass * frameTime);
         PhysicsSystem.ApplyForce(uid, force, body: body);
     }
 
-    /// <summary>
-    /// The spin equivalent, against the angular velocity the body is about to have.
-    /// </summary>
     private void ApplyAngularScrape(EntityUid uid, PhysicsComponent body, float grip, float frameTime)
     {
         if (body.InvI <= 0f)

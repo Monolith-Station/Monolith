@@ -192,7 +192,7 @@ internal sealed partial class ShipShieldShellOverlay(
             return;
 
         var observer = eye is ScalingViewport.ZEye { PlanetTransitBackdrop: true } ? null : player.LocalEntity;
-        var lookingUp = entities.TryGetComponent(observer, out CEZLevelViewerComponent? viewer) && viewer.LookUp;
+        var observerLookingUp = entities.TryGetComponent(observer, out CEZLevelViewerComponent? viewer) && viewer.LookUp;
         var observerAltitude = observer is { } altitudeUid ? _zLevels.GetAbsoluteAltitude(altitudeUid) : 0f;
         var observerTransform = observer is { } uidObserver ? entities.GetComponent<TransformComponent>(uidObserver) : null;
         _maps.TryGetMap(mapId, out var drawMap);
@@ -225,39 +225,46 @@ internal sealed partial class ShipShieldShellOverlay(
 
             var hasSlice = _shells.TryGetSlice(emitter, drawMap, drawAltitude, out var slice);
             var sliceScale = hasSlice ? slice.X / radii.X : 0f;
-            var projected = _zPass is { } pass && pass.Map == drawMap && stack != null && _shells.GetStack(pass.Map) == stack;
-            var bottom = -1f;
-            var top = 1f;
+            var pass = _zPass.GetValueOrDefault();
+            var projected = _zPass.HasValue && pass.Map == drawMap && stack != null && _shells.GetStack(pass.Map) == stack;
             var underside = projected && observerTransform != null && observerTransform.MapUid != xform.MapUid &&
                 observerAltitude < emitterAltitude;
             var mountedAbove = underside && entities.HasComponent<CEZTransitMapComponent>(xform.MapUid);
+            var hideUpperSlices = projected && observerLookingUp && radii.X == radii.Y;
+            if (hideUpperSlices && !mountedAbove && pass.Map != pass.ObserverMap
+                && drawAltitude > _zLevels.GetAbsoluteAltitude(pass.ObserverMap))
+                continue;
+
+            var lookingUp = observerLookingUp && !hideUpperSlices;
+            var bottom = -1f;
+            var top = 1f;
+            var drawLowerHullShell = false;
             bool drawMesh;
             if (mountedAbove)
             {
-                var zPass = _zPass!.Value;
-                var cut = observerHeight / shellRadii.Z;
-                if (zPass.Map == zPass.ObserverMap)
+                if (pass.Map == xform.MapUid)
                 {
-                    var hullVisible = lookingUp && zPass.Planes.Any(plane => plane.MapUid == xform.MapUid);
-                    top = lookingUp && !hullVisible ? 1f : MathF.Min(top, cut);
-                    drawMesh = aboveHull != true && bottom < top;
+                    // Keep the underside whole and draw it before the hull, not in the observer's deck slice.
+                    drawLowerHullShell = aboveHull == false;
+                    drawMesh = drawLowerHullShell;
                 }
                 else
                 {
-                    bottom = MathF.Max(bottom, cut);
-                    drawMesh = lookingUp && zPass.Map == xform.MapUid && bottom < top;
+                    top = lookingUp ? 1f : MathF.Min(top, observerHeight / shellRadii.Z);
+                    drawMesh = pass.Map == pass.ObserverMap && bottom < top &&
+                        !pass.Planes.Any(plane => plane.MapUid == xform.MapUid);
                 }
             }
             else
             {
                 drawMesh = projected && TryGetSurfaceRange(xform.MapUid, center, shellRadii, centerAltitude,
-                    out bottom, out top);
+                    out bottom, out top, hideUpperSlices: hideUpperSlices);
                 if (drawMesh && underside && !lookingUp)
                     top = MathF.Min(top, observerHeight / shellRadii.Z);
                 drawMesh &= bottom < top;
             }
 
-            if (drawMesh && stack is { } network)
+            if (drawMesh && !drawLowerHullShell && stack is { } network)
             {
                 ClipAgainstTerrain(network, center, rotation, shellRadii, centerAltitude,
                     emitterAltitude, ref bottom, ref top);
@@ -296,7 +303,7 @@ internal sealed partial class ShipShieldShellOverlay(
             {
                 surfaceShader.SetParameter("MESH_ANIMATION", animation);
                 var count = BuildProjectedShell(eye, xform.MapUid, center, rotation, shellRadii, centerAltitude, emitterAltitude,
-                    bottom, top, interior, lookingUp, shellColor, impact: false, shellHullSplit, underside,
+                    bottom, top, interior, lookingUp, shellColor, impact: false, shellHullSplit, underside, hideUpperSlices,
                     surfaceShader, shield.Visuals.SpoolOffset);
                 handle.UseShader(surfaceShader);
                 handle.DrawPrimitives(DrawPrimitiveTopology.TriangleList, Texture.White, _surfaceTriangles.AsSpan(0, count));
@@ -321,7 +328,7 @@ internal sealed partial class ShipShieldShellOverlay(
 
             var impactVertices = drawMesh
                 ? BuildProjectedShell(eye, xform.MapUid, center, rotation, shellRadii, centerAltitude, emitterAltitude,
-                    bottom, top, interior, lookingUp, color, impact: true, shellHullSplit, underside)
+                    bottom, top, interior, lookingUp, color, impact: true, shellHullSplit, underside, hideUpperSlices)
                 : 0;
             if (!drawMesh)
                 WriteQuad(center, rotation, radii, color, new Vector2(0f, sliceScale));

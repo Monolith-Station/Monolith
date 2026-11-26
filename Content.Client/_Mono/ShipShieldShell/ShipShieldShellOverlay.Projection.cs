@@ -13,8 +13,8 @@ namespace Content.Client._Mono.ShipShieldShell;
 
 internal sealed partial class ShipShieldShellOverlay
 {
-    private const int Segments = 48;
-    private const int Bands = 20;
+    private const int Segments = 96;
+    private const int Bands = 40;
     private static readonly Vector2[] Directions = BuildDirections();
     private readonly DrawVertexUV2DColor[] _lowerRing = new DrawVertexUV2DColor[Segments];
     private readonly DrawVertexUV2DColor[] _upperRing = new DrawVertexUV2DColor[Segments];
@@ -31,7 +31,7 @@ internal sealed partial class ShipShieldShellOverlay
     }
 
     private bool TryGetSurfaceRange(EntityUid? emitterMap, Vector2 center, Vector3 radii, float centerAltitude,
-        out float bottom, out float top, bool observerDeckOnly = false)
+        out float bottom, out float top, bool observerDeckOnly = false, bool hideUpperSlices = false)
     {
         bottom = -1f;
         top = 1f;
@@ -42,6 +42,7 @@ internal sealed partial class ShipShieldShellOverlay
             return map == emitterMap;
 
         var altitude = _zLevels.GetAbsoluteAltitude(map);
+        var maxAltitude = hideUpperSlices ? _zLevels.GetAbsoluteAltitude(pass.ObserverMap) : float.PositiveInfinity;
         var stack = _shells.GetStack(map);
         var emitterVisible = false;
         var currentVisible = false;
@@ -55,6 +56,9 @@ internal sealed partial class ShipShieldShellOverlay
                 continue;
 
             var otherAltitude = _zLevels.GetAbsoluteAltitude(other);
+            if (otherAltitude > maxAltitude)
+                continue;
+
             if (entities.TryGetComponent(other, out CEZTransitMapComponent? transit))
             {
                 if (observerDeckOnly)
@@ -157,7 +161,7 @@ internal sealed partial class ShipShieldShellOverlay
 
     private int BuildProjectedShell(IEye eye, EntityUid? emitterMap, Vector2 center, Angle rotation,
         Vector3 radii, float altitude, float emitterAltitude, float bottom, float top, float interior, bool lookingUp, Color color, bool impact,
-        bool? aboveHull, bool underside, ShaderInstance? surfaceShader = null, Vector2 spoolOffset = default)
+        bool? aboveHull, bool underside, bool hideUpperSlices, ShaderInstance? surfaceShader = null, Vector2 spoolOffset = default)
     {
         var pass = _zPass!.Value;
         entities.TryGetComponent(emitterMap, out CEZTransitMapComponent? transitMap);
@@ -209,7 +213,7 @@ internal sealed partial class ShipShieldShellOverlay
         // A visiting hull can draw part of this deck's shell without owning its interior fade.
         if (interior > 0f && transitMap == null && entities.HasComponent<CEZMapComponent>(pass.ObserverMap) &&
             TryGetSurfaceRange(emitterMap, center, radii, altitude, out var deckBottom, out var deckTop,
-                observerDeckOnly: true))
+                observerDeckOnly: true, hideUpperSlices: hideUpperSlices))
         {
             interiorFade = interior;
             fadeBottom = deckBottom;
