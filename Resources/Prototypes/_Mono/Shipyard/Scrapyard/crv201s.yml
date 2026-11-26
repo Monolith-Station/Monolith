@@ -122,3 +122,9 @@
     - chance: 1
       toReplace: SuitStorageSec
       replaceWith: SuitStorageBase
+    - chance: 1
+      toReplace: SensorRadarTsfSanDian
+      replaceWith: GreebleAntenna1
+    - chance: 1
+      toReplace: SensorInfraredTSF
+      replaceWith: SensorInfraredCiv

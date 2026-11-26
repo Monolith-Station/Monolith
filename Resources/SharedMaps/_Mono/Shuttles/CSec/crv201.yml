@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.6
   forkId: ""
   forkVersion: ""
-  time: 11/23/2026 17:13:50
-  entityCount: 742
+  time: 11/26/2026 17:39:49
+  entityCount: 750
 maps: []
 grids:
 - 1
@@ -83,11 +83,11 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Kudzu: []
         ESTileFire: []
-        Puddle: []
-        Smoke: []
         MetalFoam: []
+        Puddle: []
+        Kudzu: []
+        Smoke: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -707,6 +707,9 @@ entities:
     - type: ShipGridLock
       locked: False
     - type: ExplosionAirtightGrid
+    - type: GridSensors
+      datalinkCodes: []
+    - type: DetectionRangeMultiplier
 - proto: AirAlarm
   entities:
   - uid: 668
@@ -801,11 +804,6 @@ entities:
       parent: 1
 - proto: APCBasic
   entities:
-  - uid: 391
-    components:
-    - type: Transform
-      pos: 1.5,-4.5
-      parent: 1
   - uid: 392
     components:
     - type: Transform
@@ -829,6 +827,17 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 4.5,-0.5
+      parent: 1
+  - uid: 752
+    components:
+    - type: Transform
+      pos: -1.5,-8.5
+      parent: 1
+  - uid: 753
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -1.5,-8.5
       parent: 1
 - proto: AtmosDeviceFanDirectional
   entities:
@@ -957,11 +966,6 @@ entities:
     components:
     - type: Transform
       pos: -2.5,-4.5
-      parent: 1
-  - uid: 435
-    components:
-    - type: Transform
-      pos: 1.5,-4.5
       parent: 1
   - uid: 436
     components:
@@ -1468,6 +1472,31 @@ entities:
     - type: Transform
       pos: -3.5,-0.5
       parent: 1
+  - uid: 746
+    components:
+    - type: Transform
+      pos: -1.5,-8.5
+      parent: 1
+  - uid: 747
+    components:
+    - type: Transform
+      pos: -0.5,-11.5
+      parent: 1
+  - uid: 748
+    components:
+    - type: Transform
+      pos: -0.5,-10.5
+      parent: 1
+  - uid: 749
+    components:
+    - type: Transform
+      pos: 1.5,-10.5
+      parent: 1
+  - uid: 750
+    components:
+    - type: Transform
+      pos: 1.5,-11.5
+      parent: 1
 - proto: CableHV
   entities:
   - uid: 376
@@ -1642,11 +1671,6 @@ entities:
     - type: Transform
       pos: -3.5,-5.5
       parent: 1
-  - uid: 414
-    components:
-    - type: Transform
-      pos: 1.5,-4.5
-      parent: 1
   - uid: 490
     components:
     - type: Transform
@@ -1686,6 +1710,11 @@ entities:
     components:
     - type: Transform
       pos: 4.5,-0.5
+      parent: 1
+  - uid: 751
+    components:
+    - type: Transform
+      pos: -1.5,-8.5
       parent: 1
 - proto: CableTerminal
   entities:
@@ -2081,7 +2110,7 @@ entities:
     - type: Transform
       pos: -0.5,-5.5
       parent: 1
-- proto: ComputerEliteRadar
+- proto: ComputerRadar
   entities:
   - uid: 243
     components:
@@ -2833,7 +2862,7 @@ entities:
       pos: 0.5,-9.5
       parent: 1
     - type: FuelGenerator
-      targetPower: 130000
+      targetPower: 160000
 - proto: GravityGeneratorMini
   entities:
   - uid: 62
@@ -4038,6 +4067,29 @@ entities:
     components:
     - type: Transform
       pos: 0.5,-8.5
+      parent: 1
+- proto: SensorInfraredTSF
+  entities:
+  - uid: 744
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 3.5,9.5
+      parent: 1
+- proto: SensorRadarCivT2
+  entities:
+  - uid: 745
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -2.5,9.5
+      parent: 1
+- proto: SensorRadarTsfSanDian
+  entities:
+  - uid: 603
+    components:
+    - type: Transform
+      pos: 0.5,-14.5
       parent: 1
 - proto: ShieldGeneratorSmall
   entities:
