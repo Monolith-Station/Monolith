@@ -15,15 +15,22 @@
   - Hardpoint
 
 - type: vesselReferenceCategory
+  id: Sensors
+  name: vessel-reference-category-sensors
+  priority: 10
+  componentTypes:
+  - ShipSensor
+
+- type: vesselReferenceCategory
   id: Shields
   name: vessel-reference-category-shields
-  priority: 10
+  priority: 15
   componentTypes:
   - ShipShieldEmitter
 
 - type: vesselReferenceCategory
   id: FTL
   name: vessel-reference-category-ftl
-  priority: 15
+  priority: 20
   componentTypes:
   - FTLDrive

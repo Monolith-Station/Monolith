@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Content.Server.Cargo.Systems;
 using Content.Server.Construction.Completions;
 using Content.Server.Construction.Components;
@@ -38,7 +39,7 @@ public sealed class MaterialArbitrageTest
         await server.WaitIdleAsync();
 
         var entManager = server.ResolveDependency<IEntityManager>();
-        var mapManager = server.ResolveDependency<IMapManager>();
+        var mapManager = server.System<SharedMapSystem>();
         var protoManager = server.ResolveDependency<IPrototypeManager>();
 
         var pricing = entManager.System<PricingSystem>();
@@ -313,7 +314,7 @@ public sealed class MaterialArbitrageTest
             foreach (var (id, compositionComponent) in physicalCompositions)
             {
                 // Check cargo sell price
-                var materialPrice = await GetDeconstructedPrice(compositionComponent.MaterialComposition);
+                var materialPrice = await GetDeconstructedPrice(compositionComponent.MaterialComposition.ToDictionary(pair => pair.Key.Id, pair => pair.Value));
                 var chemicalPrice = await GetChemicalCompositionPrice(compositionComponent.ChemicalComposition);
                 var sumPrice = materialPrice + chemicalPrice;
                 var price = await GetPrice(id);
@@ -389,7 +390,7 @@ public sealed class MaterialArbitrageTest
 #pragma warning restore CS1998
 
 #pragma warning disable CS1998
-        async Task<double> GetChemicalCompositionPrice(Dictionary<string, FixedPoint2> mats)
+        async Task<double> GetChemicalCompositionPrice(Dictionary<ProtoId<ReagentPrototype>, FixedPoint2> mats)
         {
             double price = 0;
             foreach (var (id, num) in mats)

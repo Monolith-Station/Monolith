@@ -1,6 +1,6 @@
 using Content.Shared.Nyanotrasen.Kitchen.Components;
 using Content.Shared.Nyanotrasen.Kitchen.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Nyanotrasen.Kitchen.Components
 {
@@ -25,8 +25,8 @@ namespace Content.Server.Nyanotrasen.Kitchen.Components
         /// <summary>
         /// Frontier: the crispiness level set to use for shaders, examination, etc.
         /// </summary>
-        [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<CrispinessLevelSetPrototype>))]
+        [DataField]
         [AutoNetworkedField]
-        public string CrispinessLevelSet { get; set; } = "Crispy";
+        public ProtoId<CrispinessLevelSetPrototype> CrispinessLevelSet { get; set; } = "Crispy";
     }
 }

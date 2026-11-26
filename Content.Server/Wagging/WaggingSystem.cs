@@ -5,7 +5,7 @@ using Content.Shared.Humanoid.Markings;
 using Content.Shared.Mobs;
 using Content.Shared.Toggleable;
 using Content.Shared.Wagging;
-using Robust.Shared.Prototypes;
+using Robust.Shared.Prototypes; // Mono
 
 namespace Content.Server.Wagging;
 
@@ -63,39 +63,19 @@ public sealed partial class WaggingSystem : EntitySystem
         if (markings.Count == 0)
             return false;
 
+        // Monolith start
+        if (!_prototype.Resolve(markings[0].MarkingId, out MarkingPrototype? marking) ||
+            !_prototype.Resolve(marking.Companion, out var companion))
+            return false;
+
+        _humanoidAppearance.SetMarkingId(uid,
+            MarkingCategories.Tail,
+            0,
+            companion.ID,
+            humanoid: humanoid
+        );
         wagging.Wagging = !wagging.Wagging;
-
-        for (var idx = 0; idx < markings.Count; idx++) // Animate all possible tails
-        {
-            var currentMarkingId = markings[idx].MarkingId;
-            string newMarkingId;
-
-            if (wagging.Wagging)
-            {
-                newMarkingId = $"{currentMarkingId}{wagging.Suffix}";
-            }
-            else
-            {
-                if (currentMarkingId.EndsWith(wagging.Suffix))
-                {
-                    newMarkingId = currentMarkingId[..^wagging.Suffix.Length];
-                }
-                else
-                {
-                    newMarkingId = currentMarkingId;
-                    Log.Warning($"Unable to revert wagging for {currentMarkingId}");
-                }
-            }
-
-            if (!_prototype.HasIndex<MarkingPrototype>(newMarkingId))
-            {
-                Log.Warning($"{ToPrettyString(uid)} tried toggling wagging but {newMarkingId} marking doesn't exist");
-                continue;
-            }
-
-            _humanoidAppearance.SetMarkingId(uid, MarkingCategories.Tail, idx, newMarkingId,
-                humanoid: humanoid);
-        }
+        // Monolith end
 
         return true;
     }

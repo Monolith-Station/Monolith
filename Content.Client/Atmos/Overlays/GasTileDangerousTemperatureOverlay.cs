@@ -18,7 +18,6 @@ public sealed partial class GasTileDangerousTemperatureOverlay : Overlay
     public override bool RequestScreenTexture { get; set; } = false;
 
     [Dependency] private IEntityManager _entManager = default!;
-    [Dependency] private IMapManager _mapManager = default!;
     [Dependency] private IClyde _clyde = default!;
 
     private GasTileOverlaySystem? _gasTileOverlay;
@@ -174,7 +173,7 @@ public sealed partial class GasTileDangerousTemperatureOverlay : Overlay
             () =>
             {
                 grids.Clear();
-                _mapManager.FindGridsIntersecting(mapId, worldAABB, ref grids);
+                _entManager.System<SharedMapSystem>().FindGridsIntersecting(mapId, worldAABB, ref grids);
 
                 foreach (var grid in grids)
                 {

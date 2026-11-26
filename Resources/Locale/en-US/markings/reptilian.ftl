@@ -39,6 +39,23 @@ marking-LizardTailLTiger = Lizard Tail (Light Tiger Stripes)
 marking-LizardTailDTiger-tail_dtiger = Lizard Tail (Dark Tiger Stripes)
 marking-LizardTailDTiger = Lizard Tail (Dark Tiger Stripes)
 
+# Mono start
+
+marking-LizardTailSmoothAnimated-tail_smooth_primary = Lizard Tail
+marking-LizardTailSmoothAnimated-tail_smooth_secondary = Under Tone
+marking-LizardTailSmoothAnimated = Lizard Tail (Smooth, Animated)
+
+marking-LizardTailSpikesAnimated-tail_spikes = Lizard Tail (Spiky)
+marking-LizardTailSpikesAnimated = Lizard Tail (Spiky, Animated)
+
+marking-LizardTailLTigerAnimated-tail_ltiger = Lizard Tail (Light Tiger Stripes)
+marking-LizardTailLTigerAnimated = Lizard Tail (Light Tiger Stripes, Animated)
+
+marking-LizardTailDTigerAnimated-tail_dtiger = Lizard Tail (Dark Tiger Stripes)
+marking-LizardTailDTigerAnimated = Lizard Tail (Dark Tiger Stripes, Animated)
+
+# Mono end
+
 marking-LizardSnoutRound-snout_round = Lizard Snout (Round)
 marking-LizardSnoutRound = Lizard Snout (Round)
 

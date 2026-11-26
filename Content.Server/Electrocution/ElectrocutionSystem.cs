@@ -43,7 +43,6 @@ namespace Content.Server.Electrocution;
 public sealed partial class ElectrocutionSystem : SharedElectrocutionSystem
 {
     [Dependency] private IAdminLogManager _adminLogger = default!;
-    [Dependency] private IMapManager _mapManager = default!;
     [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private DamageableSystem _damageable = default!;
@@ -65,11 +64,9 @@ public sealed partial class ElectrocutionSystem : SharedElectrocutionSystem
     [Dependency] private ESSparksSystem _esSparks = default!;
 // ES END
 
-    [ValidatePrototypeId<StatusEffectPrototype>]
-    private const string StatusEffectKey = "Electrocution";
+    private static readonly ProtoId<StatusEffectPrototype> StatusEffectKey = "Electrocution";
 
-    [ValidatePrototypeId<DamageTypePrototype>]
-    private const string DamageType = "Shock";
+    private static readonly ProtoId<DamageTypePrototype> DamageType = "Shock";
 
     // Yes, this is absurdly small for a reason.
     public const float ElectrifiedDamagePerWatt = 0.0015f; // Goobstation - This information is allowed to be public, and was needed in BatteryElectrocuteChargeSystem.cs

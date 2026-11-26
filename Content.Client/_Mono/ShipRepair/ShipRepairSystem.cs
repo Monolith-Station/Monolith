@@ -18,7 +18,6 @@ public sealed partial class ShipRepairSystem : SharedShipRepairSystem
     [Dependency] private ForceParentSystem _parent = default!;
     [Dependency] private IconSmoothSystem _smooth = default!;
     [Dependency] private IGameTiming _timing = default!;
-    [Dependency] private IMapManager _mapMan = default!;
     [Dependency] private IPlayerManager _player = default!;
     [Dependency] private IPrototypeManager _proto = default!;
     [Dependency] private ISerializationManager _serialization = default!;

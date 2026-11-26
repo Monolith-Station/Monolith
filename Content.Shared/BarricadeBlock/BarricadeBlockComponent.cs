@@ -1,6 +1,5 @@
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 using System.Collections.Generic;
 using Content.Shared.Tag;
 

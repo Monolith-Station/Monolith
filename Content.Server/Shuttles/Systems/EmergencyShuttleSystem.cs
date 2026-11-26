@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Numerics;
+using Robust.Shared.Prototypes;
 using System.Threading;
 using Content.Server.Access.Systems;
 using Content.Server.Administration.Logs;
@@ -72,8 +73,7 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
 
     private bool _emergencyShuttleEnabled;
 
-    [ValidatePrototypeId<TagPrototype>]
-    private const string DockTag = "DockEmergency";
+    private static readonly ProtoId<TagPrototype> DockTag = "DockEmergency";
 
     public override void Initialize()
     {

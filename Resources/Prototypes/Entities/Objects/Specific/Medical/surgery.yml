@@ -282,8 +282,10 @@
     heldPrefix: improv
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 10
+      types:
+        Blunt: 3.33
+        Slash: 3.33
+        Piercing: 3.34
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Tool
@@ -305,8 +307,10 @@
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/circular-saw.rsi
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 15
+      types:
+        Blunt: 5
+        Slash: 5
+        Piercing: 5
     soundHit:
       path: /Audio/Items/drill_hit.ogg
   - type: Tool

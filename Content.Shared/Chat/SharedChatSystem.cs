@@ -27,13 +27,11 @@ public abstract partial class SharedChatSystem : EntitySystem
     public const char CollectiveMindPrefix = '+';
     public const char DefaultChannelKey = 'h';
 
-    [ValidatePrototypeId<RadioChannelPrototype>]
-    public const string CommonChannel = "Common";
+    public static readonly ProtoId<RadioChannelPrototype> CommonChannel = "Common";
 
     public static string DefaultChannelPrefix = $"{RadioChannelPrefix}{DefaultChannelKey}";
 
-    [ValidatePrototypeId<SpeechVerbPrototype>]
-    public const string DefaultSpeechVerb = "Default";
+    public static readonly ProtoId<SpeechVerbPrototype> DefaultSpeechVerb = "Default";
 
     [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
