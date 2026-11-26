@@ -172,13 +172,13 @@ public sealed partial class MonoCVars
     ///     Multiplier of grid thermal detection radius.
     /// </summary>
     public static readonly CVarDef<float> ThermalDetectionMultiplier =
-        CVarDef.Create("mono.detection.thermal_multiplier", 2f, CVar.ARCHIVE | CVar.REPLICATED);
+        CVarDef.Create("mono.detection.thermal_multiplier", 1f, CVar.ARCHIVE | CVar.REPLICATED);
 
     /// <summary>
     ///     Multiplier of grid visual detection radius.
     /// </summary>
     public static readonly CVarDef<float> VisualDetectionMultiplier =
-        CVarDef.Create("mono.detection.visual_multiplier", 16f, CVar.ARCHIVE | CVar.REPLICATED);
+        CVarDef.Create("mono.detection.visual_multiplier", 1f, CVar.ARCHIVE | CVar.REPLICATED);
 
     #endregion
 

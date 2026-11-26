@@ -156,6 +156,30 @@
 
 - type: entity
   parent: BaseShipLPCRenewable
+  id: ShipVoucherHangzhou
+  name: TSFN Hangzhou LPC [T3]
+  description: A small card that contains the data for the procurement of an Type-55C Hangzhou-class frigate.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/lpcnew.rsi
+    layers:
+    - state: icon_capital
+    - state: screen
+      color: "#05ffff"
+    - state: screen3
+      color: "#05ffff"
+      shader: unshaded
+  - type: Item
+    heldPrefix: tsf
+  - type: ShipyardVoucher
+    destroyOnEmpty: false
+    cooldown: 5100 # hour and 25 minutes
+    companyName: TSF
+    vessels:
+    - Hangzhou
+
+- type: entity
+  parent: BaseShipLPCRenewable
   id: ShipVoucherLuda
   name: TSFN Luda LPC [T4]
   description: A small card that authorizes the procurement of a TSFN Luda-class strategic missile destroyer.
@@ -177,6 +201,30 @@
     cooldown: 14400 # two hour
     vessels:
     - Luda
+
+- type: entity
+  parent: BaseShipLPCRenewable
+  id: ShipVoucherFlyssa
+  name: TSFN Flyssa LPC [T4]
+  description: A small card that authorizes the procurement of a TSFN Flyssa-class destroyer.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Misc/lpcnew.rsi
+    layers:
+    - state: icon_capital
+    - state: screen
+      color: "#05ffff"
+    - state: screen4
+      color: "#05ffff"
+      shader: unshaded
+  - type: Item
+    heldPrefix: tsf
+  - type: ShipyardVoucher
+    destroyOnEmpty: false
+    companyName: TSF
+    cooldown: 14400 # two hour
+    vessels:
+    - Flyssa
 
 # TSF Fujian Fighters
 
@@ -234,6 +282,7 @@
     - Kresta
     - Kynda
     - Tethys
+    - Eris
 
 - type: entity
   parent: BaseShipLPCRenewable
@@ -280,6 +329,7 @@
     vessels:
     - MotleyAnne
     - Neptune
+    - KortikR
 
 - type: entity
   parent: ShipVoucherPdvT1
@@ -301,14 +351,14 @@
     cooldown: 5400 # 1.5 hours
     companyName: PDV
     vessels:
-    - KortikR
+    - Sovremenny
     - Europa
 
 - type: entity
   parent: BaseShipLPCRenewable
-  id: ShipVoucherKortikT3
-  name: PDV Kortik-R LPC [T3]
-  description: A small card that contains the data for the procurement of a Kortik-R-class heavy corvette from the shipyard's reserves.
+  id: ShipVoucherSovremennyT3
+  name: PDV Sovremenny LPC [T3]
+  description: A small card that contains the data for the procurement of a Sovremenny-class frigate from the shipyard's reserves.
   components:
   - type: Sprite
     sprite: _Mono/Objects/Misc/lpcnew.rsi
@@ -326,7 +376,7 @@
     cooldown: 5400 # 1 & 1/2 hours
     companyName: PDV
     vessels:
-    - KortikR
+    - Sovremenny
   - type: StaticPrice
     vendPrice: 20000
 
