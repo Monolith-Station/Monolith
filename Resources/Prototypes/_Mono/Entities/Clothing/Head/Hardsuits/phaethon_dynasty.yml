@@ -2,7 +2,7 @@
   parent: [ClothingHeadHelmetHardsuitSyndie, ShowSecurityIcons]
   id: ClothingHeadHelmetHardsuitAshen
   name: PDV CV-32 combat hardsuit helmet
-  description: A combat hardsuit helmet designed by the Phaethon Dynasty. A basic monotube night vision system is installed.
+  description: A combat hardsuit helmet designed by the Phaethon Dynasty. A basic monotube night vision system and a thermal vision system are installed.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -18,6 +18,11 @@
     viewCircleSpacing: 280
     phosphorColor: "#FF3300"
     lightingColor: "#FFFFFF32"
+  - type: ThermalVision
+    flashDurationMultiplier: 2
+    pulseTime: 4
+    isEquipment: true
+    toggleAction: PulseThermalVision
 
 - type: entity
   parent: [ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase, ShowMedicalIcons, ShowSecurityIcons]
