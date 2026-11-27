@@ -41,8 +41,7 @@ namespace Content.Client.HealthAnalyzer.UI
         public event Action<TargetBodyPart?, EntityUid>? OnBodyPartSelected;
         private EntityUid _spriteViewEntity;
 
-        [ValidatePrototypeId<EntityPrototype>]
-        private readonly EntProtoId _bodyView = "AlertSpriteView";
+        private static readonly EntProtoId BodyView = "AlertSpriteView";
 
         private readonly Dictionary<TargetBodyPart, TextureButton> _bodyPartControls;
         private EntityUid? _target;
@@ -224,7 +223,7 @@ namespace Content.Client.HealthAnalyzer.UI
                 damageable.DamagePerGroup.OrderByDescending(damage => damage.Value)
                     .ToDictionary(x => x.Key, x => x.Value);
 
-            IReadOnlyDictionary<string, FixedPoint2> damagePerType = damageable.Damage.DamageDict;
+            var damagePerType = damageable.Damage.DamageDict;
 
             DrawDiagnosticGroups(damageSortedGroups, damagePerType);
         }
@@ -241,8 +240,8 @@ namespace Content.Client.HealthAnalyzer.UI
         }
 
         private void DrawDiagnosticGroups(
-            Dictionary<string, FixedPoint2> groups,
-            IReadOnlyDictionary<string, FixedPoint2> damageDict)
+            Dictionary<ProtoId<DamageGroupPrototype>, FixedPoint2> groups,
+            IReadOnlyDictionary<ProtoId<DamageTypePrototype>, FixedPoint2> damageDict)
         {
             GroupsContainer.RemoveAllChildren();
 
@@ -340,7 +339,7 @@ namespace Content.Client.HealthAnalyzer.UI
             if (!_entityManager.Deleted(_spriteViewEntity))
                 _entityManager.QueueDeleteEntity(_spriteViewEntity);
 
-            _spriteViewEntity = _entityManager.Spawn(_bodyView);
+            _spriteViewEntity = _entityManager.Spawn(BodyView);
 
             if (!_entityManager.TryGetComponent<SpriteComponent>(_spriteViewEntity, out var sprite))
                 return null;

@@ -1,7 +1,7 @@
 using Content.Server.Cargo.Systems;
 using Content.Shared.Stacks;
 using Content.Shared.Whitelist;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Cargo.Components;
 
@@ -9,8 +9,8 @@ namespace Content.Server.Cargo.Components;
 [Access(typeof(CargoSystem))]
 public sealed partial class CargoPalletConsoleComponent : Component
 {
-    [ViewVariables(VVAccess.ReadWrite), DataField("cashType", customTypeSerializer:typeof(PrototypeIdSerializer<StackPrototype>))]
-    public string CashType = "Credit";
+    [ViewVariables(VVAccess.ReadWrite), DataField]
+    public ProtoId<StackPrototype> CashType = "Credit";
 
     // Frontier
     // The distance in a radius around the console to check for cargo pallets

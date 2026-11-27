@@ -139,7 +139,6 @@ public sealed partial class CETransitDebugCommand : CEBaseTransitCommand
     [Dependency] private IPrototypeManager _proto = default!;
     [Dependency] private MapLoaderSystem _mapLoader = default!;
     [Dependency] private MetaDataSystem _meta = default!;
-    [Dependency] private MapSystem _map = default!;
 
     public override string Command => "cez-transit-debug";
     public override string Description =>
@@ -250,7 +249,7 @@ public sealed partial class CETransitDebugCommand : CEBaseTransitCommand
     {
         foreach (var (_, mapEnt) in byDepth)
         {
-            _map.DeleteMap(mapEnt.Comp.MapId);
+            Entities.System<MapSystem>().DeleteMap(mapEnt.Comp.MapId);
         }
 
         Entities.QueueDeleteEntity(network);

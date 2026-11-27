@@ -17,10 +17,16 @@
         - !type:ReagentThreshold
           max: 5
         damage:
-          groups:
-            Burn: -3
-            Brute: -6 # its a painkiller
-            Toxin: -1
+          types:
+            Heat: -0.75
+            Shock: -0.75
+            Cold: -0.75
+            Caustic: -0.75
+            Blunt: -2
+            Slash: -2
+            Piercing: -2
+            Poison: -0.5
+            Radiation: -0.5
     Narcotic:
       metabolismRate: 1
       effects:

@@ -72,11 +72,19 @@ public sealed partial class RadarLockSystem : EntitySystem
         if (!sensors.Contacts.TryGetValue(net, out var contact))
             return false;
 
-        if ((contact.Flags & (SensorContactFlags.ActiveRadar | SensorContactFlags.Datalink)) == 0)
+        if ((contact.Flags & SensorContactFlags.ActiveRadar) == 0
+            && (contact.Flags & SensorContactFlags.Decoy) == 0)
             return false;
 
-        if (!IsBearingChaffed(ourGrid, targetGrid))
-            return false;
+        if (IsBearingChaffed(ourGrid, targetGrid))
+        {
+            var support =
+                (contact.Flags & SensorContactFlags.PassiveRadar) != 0
+                || (contact.Flags & SensorContactFlags.Infrared) != 0
+                || (contact.Flags & SensorContactFlags.Visual) != 0;
+            if (!support)
+                return false;
+        }
 
         return true;
     }
@@ -108,16 +116,14 @@ public sealed partial class RadarLockSystem : EntitySystem
     {
         return TryGetContact(console, targetEntity, out _, out var contact)
                && HasLocalFcr(Transform(console).GridUid)
-               && ((contact.Flags & (SensorContactFlags.ActiveRadar | SensorContactFlags.Datalink)) != 0)
+               && ((contact.Flags & SensorContactFlags.ActiveRadar) != 0
+                   || (contact.Flags & SensorContactFlags.Decoy) != 0)
                && !IsHardChaffed(console, targetEntity, contact);
     }
 
     public bool CanProvideLead(EntityUid console, EntityUid targetEntity)
     {
-        return TryGetContact(console, targetEntity, out _, out var contact)
-               && HasLocalFcr(Transform(console).GridUid)
-               && ((contact.Flags & SensorContactFlags.ActiveRadar) != 0 || (contact.Flags & SensorContactFlags.Decoy) != 0)
-               && !IsHardChaffed(console, targetEntity, contact);
+        return CanLock(console, targetEntity);
     }
 
     private bool HasLocalFcr(EntityUid? grid)

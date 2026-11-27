@@ -27733,3 +27733,126 @@ Entries:
   id: 2972
   time: '2026-11-25T18:02:12.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/5074
+- author: SuperGDPWYL
+  changes:
+    - type: Remove
+      message: >-
+        Removed Tinnia's Rest, Bahama's Mamas, Crazy Casey's Casino, Omnichurch
+        Beacon, Derelict McCargo, Edison Power Plant, The Pit and Grifty's Gas n
+        Grub. Search for dead drops at the civilian habitations, grab a drink at
+        the civilian habitations and sell gas at MMC Hokkaido.
+    - type: Remove
+      message: Cargo Depots shouldn't spawn anymore.
+    - type: Tweak
+      message: Freeport Camelot is now a valid cargo destination.
+    - type: Tweak
+      message: >-
+        Increased the maximum dead drop count on Caelestinus Central to 12 (was
+        2). Increased the maximum dead drop count on Freeport Camelot to 12 (was
+        2).
+    - type: Tweak
+      message: The bus now arrives at Freeport Camelot and Zvezda Orbital Habitation.
+    - type: Tweak
+      message: Updated the guidebook page for TSFMC counter-smuggling.
+  id: 2973
+  time: '2026-11-25T21:27:21.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5107
+- author: kasature90
+  changes:
+    - type: Add
+      message: >-
+        Added support for starsector-style two-type hardpoint types
+        (synergy/composite/hybrid)
+    - type: Fix
+      message: Fixed visual range not scaling with size.
+    - type: Fix
+      message: >-
+        Fixed target leading/SACLOS guidance being able to work without ARS
+        detection if it had a datalink (that also didn't have ARS detection, but
+        detected it anyways via IR/EM)
+    - type: Fix
+      message: Fixed SACLOS missiles being word I can't say.
+  id: 2974
+  time: '2026-11-25T23:12:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5108
+- author: pizzay30tyd
+  changes:
+    - type: Fix
+      message: Revolvers are reload-able without fiddling for 2 minutes now
+  id: 2975
+  time: '2026-11-26T13:39:42.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5077
+- author: Mrrpip
+  changes:
+    - type: Add
+      message: Adds knockback and a disarm to activated stunbatons.
+    - type: Tweak
+      message: CSEC helmets now give different voicelines. Pick up that can.
+  id: 2976
+  time: '2026-11-26T14:01:01.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5061
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: Tape recorder transcripts now use the new writing language system
+  id: 2977
+  time: '2026-11-26T14:13:25.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5094
+- author: DoubleHypercube
+  changes:
+    - type: Fix
+      message: PVS scales no longer reset on zoom reset.
+  id: 2978
+  time: '2026-11-26T14:23:33.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5101
+- author: Pologuys
+  changes:
+    - type: Remove
+      message: >-
+        Banned the allowance of discrimination of disabilities fully. This
+        covers saying "retard" and other slurs pertaining to disabilities.
+  id: 2979
+  time: '2026-11-26T19:17:51.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5114
+- author: SuperGDPWYL
+  changes:
+    - type: Tweak
+      message: All Caelestinus roles now have "Caelestinus" at the start of their name.
+  id: 2980
+  time: '2026-11-26T23:45:59.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5117
+- author: SuperGDPWYL
+  changes:
+    - type: Tweak
+      message: >-
+        The Underground Black Market no longer sells death acidifiers,
+        microbombs or macrobombs. The PDV may acquire these instead through
+        their uplink.
+  id: 2981
+  time: '2026-11-27T00:39:51.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5118
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: Add basic EVA and fire extinguisher to Sandbox for my iron homies
+  id: 2982
+  time: '2026-11-27T00:42:15.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5112
+- author: DoubleHypercube
+  changes:
+    - type: Remove
+      message: >-
+        Caelestinus roles no longer have "Caelestinus" at the start of their
+        name.
+  id: 2983
+  time: '2026-11-27T02:56:36.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5120
+- author: SuperGDPWYL
+  changes:
+    - type: Remove
+      message: >-
+        Jetpacks no longer function on grids no matter if they have gravity or
+        not.
+  id: 2984
+  time: '2026-11-27T04:23:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4827

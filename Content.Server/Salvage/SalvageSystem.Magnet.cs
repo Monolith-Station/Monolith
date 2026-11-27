@@ -1,5 +1,7 @@
 using System.Linq;
 using System.Numerics;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Map.Components;
 using System.Threading.Tasks;
 using Content.Server.Salvage.Magnet;
 using Content.Shared.Mobs.Components;
@@ -15,8 +17,7 @@ public sealed partial class SalvageSystem
 {
     [Dependency] private IRuntimeLog _runtimeLog = default!;
 
-    [ValidatePrototypeId<RadioChannelPrototype>]
-    private const string MagnetChannel = "Supply";
+    private static readonly ProtoId<RadioChannelPrototype> MagnetChannel = "Supply";
 
     private EntityQuery<SalvageMobRestrictionsComponent> _salvMobQuery;
 
@@ -279,12 +280,12 @@ public sealed partial class SalvageSystem
         switch (offering)
         {
             case AsteroidOffering asteroid:
-                var grid = _mapManager.CreateGridEntity(salvMap);
+                var grid = _mapSystem.CreateGridEntity(salvMap);
                 await _dungeon.GenerateDungeonAsync(asteroid.DungeonConfig, asteroid.Id, grid.Owner, grid.Comp, Vector2i.Zero, seed); // Frontier: added asteroid.Id - FIXME: value makes no sense.
                 break;
             case DebrisOffering debris:
                 var debrisProto = _prototypeManager.Index<DungeonConfigPrototype>(debris.Id);
-                var debrisGrid = _mapManager.CreateGridEntity(salvMap);
+                var debrisGrid = _mapSystem.CreateGridEntity(salvMap);
                 await _dungeon.GenerateDungeonAsync(debrisProto, debrisProto.ID, debrisGrid.Owner, debrisGrid.Comp, Vector2i.Zero, seed); // Frontier: debrisProto.ID
                 break;
             case SalvageOffering wreck:
@@ -424,7 +425,14 @@ public sealed partial class SalvageSystem
 
             // This doesn't stop it from spawning on top of random things in space
             // Might be better like this, ghosts could stop it before
-            if (_mapManager.FindGridsIntersecting(finalCoords.MapId, box2Rot).Any())
+            var intersects = false;
+            _mapSystem.FindGridsIntersecting(finalCoords.MapId, box2Rot, ref intersects,
+                static (EntityUid _, MapGridComponent _, ref bool found) =>
+                {
+                    found = true;
+                    return false;
+                });
+            if (intersects)
             {
                 // Bump it further and further just in case.
                 fraction += 0.1f;

@@ -1,3 +1,4 @@
+using Content.Client.Graphics;
 using Content.Client.Interactable.Components;
 using Content.Client.StatusIcon;
 using Content.Shared.Stealth;
@@ -12,6 +13,7 @@ public sealed partial class StealthSystem : SharedStealthSystem
 {
     [Dependency] private IPrototypeManager _protoMan = default!;
     [Dependency] private SharedTransformSystem _transformSystem = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     private ShaderInstance _shader = default!;
 
@@ -40,17 +42,21 @@ public sealed partial class StealthSystem : SharedStealthSystem
         if (!Resolve(uid, ref component, ref sprite, false))
             return;
 
-        sprite.Color = Color.White;
-        sprite.PostShader = enabled ? _shader : null;
-        sprite.GetScreenTexture = enabled;
-        sprite.RaiseShaderEvent = enabled;
-
+        _sprite.SetColor((uid, sprite), Color.White);
         if (!enabled)
         {
+            _sprite.RemovePostShader((uid, sprite), ContentPostShaderIds.Stealth);
             if (component.HadOutline && !TerminatingOrDeleted(uid))
                 EnsureComp<InteractionOutlineComponent>(uid);
             return;
         }
+
+        _sprite.SetPostShader((uid, sprite), new SpriteComponent.PostShaderArgs(ContentPostShaderIds.Stealth, _shader)
+        {
+            GetScreenTexture = true,
+            RaiseShaderEvent = true,
+            Before = ContentPostShaderIds.BeforeOutlines,
+        });
 
         if (TryComp(uid, out InteractionOutlineComponent? outline))
         {
@@ -70,30 +76,33 @@ public sealed partial class StealthSystem : SharedStealthSystem
             SetShader(uid, false, component);
     }
 
-    private void OnShaderRender(EntityUid uid, StealthComponent component, BeforePostShaderRenderEvent args)
+    private void OnShaderRender(Entity<StealthComponent> ent, ref BeforePostShaderRenderEvent args)
     {
+        if (args.Id != ContentPostShaderIds.Stealth)
+            return;
+
         // Distortion effect uses screen coordinates. If a player moves, the entities appear to move on screen. this
         // makes the distortion very noticeable.
 
         // So we need to use relative screen coordinates. The reference frame we use is the parent's position on screen.
         // this ensures that if the Stealth is not moving relative to the parent, its relative screen position remains
         // unchanged.
-        var parent = Transform(uid).ParentUid;
+        var parent = Transform(ent.Owner).ParentUid;
         if (!parent.IsValid())
             return; // should never happen, but lets not kill the client.
         var parentXform = Transform(parent);
         var reference = args.Viewport.WorldToLocal(_transformSystem.GetWorldPosition(parentXform));
         reference.X = -reference.X;
-        var visibility = GetVisibility(uid, component);
+        var visibility = GetVisibility(ent.Owner, ent.Comp);
 
         // Goobstation - Proper invisibility: changes -1 to -1.5
         // actual visual visibility effect is limited to -1.5 to 1.
         visibility = Math.Clamp(visibility, -1.5f, 1f);
 
-        _shader.SetParameter("reference", reference);
-        _shader.SetParameter("visibility", visibility);
+        args.Shader.SetParameter("reference", reference);
+        args.Shader.SetParameter("visibility", visibility);
 
         visibility = MathF.Max(0, visibility);
-        args.Sprite.Color = new Color(visibility, visibility, 1, 1);
+        _sprite.SetColor((ent.Owner, args.Sprite), new Color(visibility, visibility, 1, 1));
     }
 }

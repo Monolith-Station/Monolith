@@ -13,7 +13,6 @@ public sealed partial class StarSystemMapSystem : SharedStarSystemMapSystem
     [Dependency] private IOverlayManager _overlayMan = default!;
     [Dependency] private IConfigurationManager _cfg = default!;
 
-    [Dependency] private IMapManager _mapMan = default!;
     [Dependency] private ITileDefinitionManager _tileDefMan = default!;
     [Dependency] private IClyde _clyde = default!;
 
@@ -29,7 +28,7 @@ public sealed partial class StarSystemMapSystem : SharedStarSystemMapSystem
         _starOverlay = new(EntityManager, _protoMan);
         _planetOverlay = new(EntityManager, _protoMan);
         _beltOverlay = new(EntityManager, _protoMan);
-        _starLightOverlay = new(EntityManager, _mapMan, _protoMan, _overlayMan, _tileDefMan, _cfg);
+        _starLightOverlay = new(EntityManager, _protoMan, _overlayMan, _tileDefMan, _cfg);
 
         _cfg.OnValueChanged(FHCCVars.RenderStarSystem, EnsureStarSystem, true);
     }

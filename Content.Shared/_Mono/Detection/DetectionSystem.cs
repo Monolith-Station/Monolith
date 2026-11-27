@@ -34,7 +34,10 @@ public sealed partial class DetectionSystem : EntitySystem
         if (!Resolve(grid, ref grid.Comp))
             return DetectionLevel.Undetected;
 
-        var comp = EnsureComp<DetectionRangeMultiplierComponent>(byUid);
+        var byXform = Transform(byUid);
+        var observerGrid = byXform.GridUid ?? byUid;
+
+        var comp = EnsureComp<DetectionRangeMultiplierComponent>(observerGrid);
 
         if (comp.AlwaysDetect)
             return DetectionLevel.Detected;
@@ -42,9 +45,10 @@ public sealed partial class DetectionSystem : EntitySystem
         var gridAABB = grid.Comp.LocalAABB;
         var gridDiagonal = MathF.Sqrt(gridAABB.Width * gridAABB.Width + gridAABB.Height * gridAABB.Height);
 
-        var visualRangeFloor = 500f;
+        const float visualRangeFloor = 500f;
+        const float visualMaxRange = 3000f;
         var visualRadius = comp.VisualMultiplier > 0f
-            ? MathF.Max(visualRangeFloor, gridDiagonal * comp.VisualMultiplier * _visualMul)
+            ? MathF.Min(visualMaxRange, MathF.Max(visualRangeFloor, gridDiagonal * comp.VisualMultiplier * _visualMul * 12))
             : 0f;
 
         var thermalSig = TryComp<ThermalSignatureComponent>(grid, out var sigComp)
@@ -58,24 +62,23 @@ public sealed partial class DetectionSystem : EntitySystem
             thermalRadius *= compAt.InfraredMultiplier;
             visualRadius += compAt.VisualBias;
             if (comp.VisualMultiplier > 0f)
-                visualRadius = MathF.Max(visualRangeFloor, visualRadius);
+                visualRadius = MathF.Min(visualMaxRange, MathF.Max(visualRangeFloor, visualRadius));
         }
 
         var level = DetectionLevel.Undetected;
 
         var xform = Transform(grid);
-        var byXform = Transform(byUid);
         if (!xform.Coordinates.TryDistance(EntityManager, byXform.Coordinates, out var distance))
             return DetectionLevel.Undetected;
 
-        if (IsActiveRadarDetected(byUid, grid, gridDiagonal, distance, byXform, xform)
+        if (IsActiveRadarDetected(observerGrid, grid, gridDiagonal, distance, byXform, xform)
             || (visualRadius > 0f && distance <= visualRadius))
             level = DetectionLevel.Detected;
         else if ((thermalRadius > 0f && distance < thermalRadius)
-                 || IsEsmDetected(byUid, grid, distance, byXform, xform))
+                 || IsEsmDetected(observerGrid, grid, distance, byXform, xform))
             level = DetectionLevel.PartialDetected;
 
-        if (TryComp<GridSensorsComponent>(byUid, out var gs))
+        if (TryComp<GridSensorsComponent>(observerGrid, out var gs))
         {
             var netTarget = GetNetEntity(grid.Owner);
             if (gs.Contacts.TryGetValue(netTarget, out var contact)
@@ -134,17 +137,13 @@ public sealed partial class DetectionSystem : EntitySystem
     }
 
     private bool IsActiveRadarDetected(
-        EntityUid byUid,
+        EntityUid observerGrid,
         EntityUid targetGrid,
         float targetDiagonal,
         float distance,
         TransformComponent byXform,
         TransformComponent targetXform)
     {
-        var observerGrid = byXform.GridUid;
-        if (observerGrid == null)
-            return false;
-
         if (byXform.MapID != targetXform.MapID)
             return false;
 
@@ -153,7 +152,7 @@ public sealed partial class DetectionSystem : EntitySystem
 
         var bestSens = 0f;
         var query = EntityQueryEnumerator<ShipSensorComponent, TransformComponent>();
-        while (query.MoveNext(out var sensUid, out var sens, out var sensXform))
+        while (query.MoveNext(out _, out var sens, out var sensXform))
         {
             if (sensXform.GridUid != observerGrid)
                 continue;
@@ -165,21 +164,20 @@ public sealed partial class DetectionSystem : EntitySystem
             if (sens.ArcDegrees < 360f)
             {
                 Angle center;
-                    if (sens.GridRelativeArc)
-                    {
-                        var gridUid = sensXform.GridUid;
-                        var gridRot = gridUid != null
-                            ? _xform.GetWorldRotation(gridUid.Value)
-                            : _xform.GetWorldRotation(sensXform);
-                        center = gridRot + Angle.FromDegrees(sens.ArcOffset);
-                    }
-                    else
-                    {
-                        center = Angle.FromDegrees(sens.ArcOffset);
-                    }
+                if (sens.GridRelativeArc)
+                {
+                    var gridRot = _xform.GetWorldRotation(observerGrid);
+                    center = gridRot + Angle.FromDegrees(sens.ArcOffset + 90);
+                }
+                else
+                {
+                    center = Angle.FromDegrees(sens.ArcOffset + 90);
+                }
+
                 var half = Angle.FromDegrees(sens.ArcDegrees * 0.5f);
                 var angularDelta = Angle.ShortestDistance(center, bearing);
-                return Math.Abs(angularDelta.Theta) <= half.Theta;
+                if (Math.Abs(angularDelta.Theta) > half.Theta)
+                    continue;
             }
 
             bestSens = MathF.Max(bestSens, sens.Sensitivity);
@@ -188,21 +186,16 @@ public sealed partial class DetectionSystem : EntitySystem
         if (bestSens <= 0f)
             return false;
 
-        var radarRange = targetDiagonal * bestSens;
-        return distance <= radarRange;
+        return distance <= targetDiagonal * bestSens;
     }
 
     private bool IsEsmDetected(
-        EntityUid byUid,
+        EntityUid observerGrid,
         EntityUid targetGrid,
         float distance,
         TransformComponent byXform,
         TransformComponent targetXform)
     {
-        var observerGrid = byXform.GridUid;
-        if (observerGrid == null)
-            return false;
-
         if (byXform.MapID != targetXform.MapID)
             return false;
 
@@ -222,7 +215,12 @@ public sealed partial class DetectionSystem : EntitySystem
 
             if (sens.ArcDegrees < 360f)
             {
-                var center = Angle.FromDegrees(sens.ArcOffset);
+                Angle center;
+                if (sens.GridRelativeArc)
+                    center = _xform.GetWorldRotation(observerGrid) + Angle.FromDegrees(sens.ArcOffset + 90);
+                else
+                    center = Angle.FromDegrees(sens.ArcOffset + 90);
+
                 var half = Angle.FromDegrees(sens.ArcDegrees * 0.5f);
                 if (Math.Abs(Angle.ShortestDistance(center, bearing).Theta) > half.Theta)
                     continue;
@@ -242,12 +240,11 @@ public sealed partial class DetectionSystem : EntitySystem
             if (!esens.Enabled || !esens.ActiveMode)
                 continue;
 
-            var watts = 0;
-            if (esens.SensorType == SensorType.ActiveRadar)
-                watts = (int)(esens.Sensitivity * 25_000f);
-            var emRange = passiveSens * (watts);
+            if (esens.SensorType != SensorType.ActiveRadar)
+                continue;
 
-            if (distance <= emRange)
+            var watts = esens.Sensitivity * 25_000f;
+            if (distance <= passiveSens * watts)
                 return true;
         }
 

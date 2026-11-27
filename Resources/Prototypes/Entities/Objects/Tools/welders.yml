@@ -96,7 +96,7 @@
   - type: Tool
     useSound:
       collection: Welder
-    qualities: Welding
+    qualities: [Welding]
   - type: WeldingSparks # Goobstation
   - type: Welder
   - type: PointLight

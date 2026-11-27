@@ -8,28 +8,29 @@
 
 # Notes:
 # I want to lie, shipwrecked and comatose, drinking fresh mango juice.
-- type: pointOfInterest
-  id: Bahama
-  parent: [BasePOI, BaseRepairablePOI]
-  name: "Bahama Mama's"
-  minimumDistance: 3400
-  maximumDistance: 5800
-  spawnGroup: RestStop
-  gridPath: /Maps/_NF/POI/bahama.yml
-  addComponents:
-  - type: StationTransit
-  - type: SolarPoweredGrid
-    trackOnInit: true
-    doNotCull: true
+# Mono: commented out
+#- type: pointOfInterest
+#  id: Bahama
+#  parent: [BasePOI, BaseRepairablePOI]
+#  name: "Bahama Mama's"
+#  minimumDistance: 3400
+#  maximumDistance: 5800
+#  spawnGroup: RestStop
+#  gridPath: /Maps/_NF/POI/bahama.yml
+#  addComponents:
+#  - type: StationTransit
+#  - type: SolarPoweredGrid
+#    trackOnInit: true
+#    doNotCull: true
 
-- type: gameMap
-  id: Bahama
-  mapName: "Bahama Mama's"
-  mapPath: /Maps/_NF/POI/bahama.yml
-  minPlayers: 0
-  stations:
-    Bahama:
-      stationProto: DeadDropFrontierOutpost
-      components:
-        - type: StationNameSetup
-          mapNameTemplate: "Bahama Mama's"
+#- type: gameMap
+#  id: Bahama
+#  mapName: "Bahama Mama's"
+#  mapPath: /Maps/_NF/POI/bahama.yml
+#  minPlayers: 0
+#  stations:
+#    Bahama:
+#      stationProto: DeadDropFrontierOutpost
+#      components:
+#        - type: StationNameSetup
+#          mapNameTemplate: "Bahama Mama's"

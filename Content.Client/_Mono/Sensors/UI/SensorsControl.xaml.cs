@@ -169,7 +169,7 @@ public sealed partial class SensorsControl : BoxContainer
             row.AddChild(new Label
             {
                 Text = c.Sources,
-                MinWidth = 110,
+                MinWidth = 130,
                 HorizontalAlignment = HAlignment.Left,
                 FontColorOverride = color,
             });

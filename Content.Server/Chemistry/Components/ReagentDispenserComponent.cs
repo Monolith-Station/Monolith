@@ -4,7 +4,6 @@ using Content.Server.Chemistry.EntitySystems;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Dispenser;
 using Robust.Shared.Audio;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Prototypes; // Frontier
 using Content.Shared.Construction.Prototypes; // Frontier
 
@@ -22,9 +21,9 @@ namespace Content.Server.Chemistry.Components
         /// fill is added to the dispenser on MapInit. Note that we don't use ContainerFill because
         /// we have to generate the storage slots at MapInit first, then fill them.
         /// </summary>
-        [DataField("pack", customTypeSerializer:typeof(PrototypeIdSerializer<ReagentDispenserInventoryPrototype>))]
+        [DataField("pack")]
         [ViewVariables(VVAccess.ReadWrite)]
-        public string? PackPrototypeId = default!;
+        public ProtoId<ReagentDispenserInventoryPrototype>? PackPrototypeId;
 
         /// <summary>
         /// Maximum number of internal storage slots. Dispenser can't store (or dispense) more than

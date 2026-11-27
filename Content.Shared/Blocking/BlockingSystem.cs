@@ -69,7 +69,10 @@ public sealed partial class BlockingSystem : SharedBlockingSystem // Mono
 
     private void OnMapInit(EntityUid uid, BlockingComponent component, MapInitEvent args)
     {
-        _actionContainer.EnsureAction(uid, ref component.BlockingToggleActionEntity, component.BlockingToggleAction);
+        if (component.BlockingToggleAction is not { } action)
+            return;
+
+        _actionContainer.EnsureAction(uid, ref component.BlockingToggleActionEntity, action.Id);
         Dirty(uid, component);
     }
 
@@ -129,8 +132,8 @@ public sealed partial class BlockingSystem : SharedBlockingSystem // Mono
 
     private void OnGetActions(EntityUid uid, BlockingComponent component, GetItemActionsEvent args)
     {
-        if (component.BlockAction) // Mono
-            args.AddAction(ref component.BlockingToggleActionEntity, component.BlockingToggleAction);
+        if (component.BlockAction && component.BlockingToggleAction is { } action) // Mono
+            args.AddAction(ref component.BlockingToggleActionEntity, action.Id);
     }
 
     // Mono start
