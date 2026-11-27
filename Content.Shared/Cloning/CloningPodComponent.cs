@@ -12,8 +12,7 @@ namespace Content.Shared.Cloning;
 [RegisterComponent]
 public sealed partial class CloningPodComponent : Component
 {
-    [ValidatePrototypeId<SinkPortPrototype>]
-    public const string PodPort = "CloningPodReceiver";
+    public static readonly ProtoId<SinkPortPrototype> PodPort = "CloningPodReceiver";
 
     [ViewVariables]
     public ContainerSlot BodyContainer = default!;

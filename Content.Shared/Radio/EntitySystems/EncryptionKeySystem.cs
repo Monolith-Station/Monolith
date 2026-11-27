@@ -74,8 +74,9 @@ public sealed partial class EncryptionKeySystem : EntitySystem
         {
             if (TryComp<EncryptionKeyComponent>(ent, out var key))
             {
-                component.Channels.UnionWith(key.Channels);
-                component.DefaultChannel ??= key.DefaultChannel;
+                foreach (var channel in key.Channels)
+                    component.Channels.Add(channel.Id);
+                component.DefaultChannel ??= key.DefaultChannel?.Id;
             }
         }
 
@@ -201,7 +202,7 @@ public sealed partial class EncryptionKeySystem : EntitySystem
         if(component.Channels.Count > 0)
         {
             args.PushMarkup(Loc.GetString("examine-encryption-channels-prefix"));
-            AddChannelsExamine(component.Channels, component.DefaultChannel, args, _protoManager, "examine-encryption-channel");
+            AddChannelsExamine(component.Channels.Select(channel => channel.Id), component.DefaultChannel?.Id, args, _protoManager, "examine-encryption-channel");
         }
     }
 
@@ -211,7 +212,7 @@ public sealed partial class EncryptionKeySystem : EntitySystem
     /// <param name="channels">HashSet of channels in headset, encryptionkey or etc.</param>
     /// <param name="protoManager">IPrototypeManager for getting prototypes of channels with their variables.</param>
     /// <param name="channelFTLPattern">String that provide id of pattern in .ftl files to format channel with variables of it.</param>
-    public void AddChannelsExamine(HashSet<string> channels, string? defaultChannel, ExaminedEvent examineEvent, IPrototypeManager protoManager, string channelFTLPattern)
+    public void AddChannelsExamine(IEnumerable<string> channels, string? defaultChannel, ExaminedEvent examineEvent, IPrototypeManager protoManager, string channelFTLPattern)
     {
         RadioChannelPrototype? proto;
         foreach (var id in channels)

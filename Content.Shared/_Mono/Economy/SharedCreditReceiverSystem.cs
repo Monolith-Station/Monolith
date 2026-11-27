@@ -1,5 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using Content.Shared._Mono.Economy.Component;
+using Content.Shared._Mono.Economy.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Stacks;
 using Content.Shared.VendingMachines;

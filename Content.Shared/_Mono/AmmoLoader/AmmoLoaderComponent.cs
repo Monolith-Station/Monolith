@@ -1,7 +1,7 @@
 using Content.Shared.DeviceLinking;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Mono.AmmoLoader;
 
@@ -28,8 +28,8 @@ public sealed partial class AmmoLoaderComponent : Component
     /// <summary>
     /// Source port for sending load signals to linked artillery.
     /// </summary>
-    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<SourcePortPrototype>))]
-    public string LoadPort = "AmmoLoaderLoad";
+    [DataField]
+    public ProtoId<SourcePortPrototype> LoadPort = "AmmoLoaderLoad";
 
     /// <summary>
     /// Maximum number of network connections allowed on this ammo loader. Connections beyond this limit will be rejected.
@@ -43,4 +43,3 @@ public sealed partial class AmmoLoaderComponent : Component
     [DataField, AutoNetworkedField]
     public int MaxCapacity = 1;
 }
-

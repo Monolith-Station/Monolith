@@ -9,7 +9,8 @@ namespace Content.Server.Worldgen.Prototypes;
 ///     This is a config for noise channels, used by worldgen.
 /// </summary>
 [Virtual]
-public class NoiseChannelConfig
+[DataDefinition]
+public partial class NoiseChannelConfig
 {
     /// <summary>
     ///     The noise type used by the noise generator.
@@ -167,4 +168,3 @@ public abstract partial class NoisePostProcess
 {
     public abstract float Process(float inp);
 }
-

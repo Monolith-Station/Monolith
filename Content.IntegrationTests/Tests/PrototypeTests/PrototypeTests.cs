@@ -18,8 +18,7 @@ public sealed class PrototypeTests
     public async Task TestAllServerPrototypesAreSerializable()
     {
         await using var pair = await PoolManager.GetServerClient();
-        var context = new PrototypeSaveTest.TestEntityUidContext();
-        await SaveThenValidatePrototype(pair.Server, "server", context);
+        await SaveThenValidatePrototype(pair.Server, "server");
         await pair.CleanReturnAsync();
     }
 
@@ -31,14 +30,13 @@ public sealed class PrototypeTests
     public async Task TestAllClientPrototypesAreSerializable()
     {
         await using var pair = await PoolManager.GetServerClient();
-        var context = new PrototypeSaveTest.TestEntityUidContext();
-        await SaveThenValidatePrototype(pair.Client, "client", context);
+        await SaveThenValidatePrototype(pair.Client, "client");
         await pair.CleanReturnAsync();
     }
 
-    public async Task SaveThenValidatePrototype(RobustIntegrationTest.IntegrationInstance instance, string instanceId,
-        PrototypeSaveTest.TestEntityUidContext ctx)
+    private async Task SaveThenValidatePrototype(RobustIntegrationTest.IntegrationInstance instance, string instanceId)
     {
+        var ctx = new PrototypeSaveTest.TestEntityUidContext(instance.ResolveDependency<ISerializationManager>());
         var protoMan = instance.ResolveDependency<IPrototypeManager>();
         Dictionary<Type, Dictionary<string, HashSet<ErrorNode>>> errors = default!;
         await instance.WaitPost(() => errors = protoMan.ValidateAllPrototypesSerializable(ctx));
@@ -70,8 +68,7 @@ public sealed class PrototypeTests
     public async Task ServerPrototypeSaveLoadSaveTest()
     {
         await using var pair = await PoolManager.GetServerClient();
-        var context = new PrototypeSaveTest.TestEntityUidContext();
-        await SaveLoadSavePrototype(pair.Server, context);
+        await SaveLoadSavePrototype(pair.Server);
         await pair.CleanReturnAsync();
     }
 
@@ -82,17 +79,16 @@ public sealed class PrototypeTests
     public async Task ClientPrototypeSaveLoadSaveTest()
     {
         await using var pair = await PoolManager.GetServerClient();
-        var context = new PrototypeSaveTest.TestEntityUidContext();
-        await SaveLoadSavePrototype(pair.Client, context);
+        await SaveLoadSavePrototype(pair.Client);
         await pair.CleanReturnAsync();
     }
 
     private async Task SaveLoadSavePrototype(
-        RobustIntegrationTest.IntegrationInstance instance,
-        PrototypeSaveTest.TestEntityUidContext ctx)
+        RobustIntegrationTest.IntegrationInstance instance)
     {
         var protoMan = instance.ResolveDependency<IPrototypeManager>();
         var seriMan = instance.ResolveDependency<ISerializationManager>();
+        var ctx = new PrototypeSaveTest.TestEntityUidContext(seriMan);
         await instance.WaitAssertion(() =>
         {
             Assert.Multiple(() =>

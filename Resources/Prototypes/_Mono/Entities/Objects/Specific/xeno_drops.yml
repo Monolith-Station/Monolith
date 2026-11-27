@@ -15,12 +15,16 @@
     damageContainers:
     - Biological
     damage:
-      groups:
-        Brute: -120 # 40 per type~?
-        Burn: -150 # 40 per type
       types:
         Bloodloss: -50
-        Poison: 5  
+        Poison: 5
+        Blunt: -40
+        Slash: -40
+        Piercing: -40
+        Heat: -37.5
+        Shock: -37.5
+        Cold: -37.5
+        Caustic: -37.5
     bloodlossModifier: -10
     healingBeginSound:
       path: "/Audio/Items/Medical/ointment_begin.ogg"

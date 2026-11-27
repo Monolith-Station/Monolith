@@ -108,26 +108,38 @@
       - !type:HealthChange
         scaleByQuantity: true
         damage:
-          groups:
-            Brute: -0.25
+          types:
+            Blunt: -0.08
+            Slash: -0.08
+            Piercing: -0.09
     - reagents: [ Blood ]
       methods: [ Touch ]
       effects:
       - !type:HealthChange
         scaleByQuantity: true
         damage:
-          groups:
-            Brute: -0.5
-            Burn: -0.5
+          types:
+            Blunt: -0.16
+            Slash: -0.17
+            Piercing: -0.17
+            Heat: -0.12
+            Shock: -0.12
+            Cold: -0.13
+            Caustic: -0.13
     - reagents: [ RobustHarvest ]
       methods: [ Touch ]
       effects:
       - !type:HealthChange
         scaleByQuantity: true
         damage:
-          groups:
-            Brute: -2
-            Burn: -2
+          types:
+            Blunt: -0.66
+            Slash: -0.67
+            Piercing: -0.67
+            Heat: -0.5
+            Shock: -0.5
+            Cold: -0.5
+            Caustic: -0.5
   - type: ReplacementAccent
     accent: tomatoKiller
   - type: Item
@@ -196,8 +208,10 @@
   - type: MeleeWeapon
     hidden: true
     damage:
-      groups:
-        Brute: 15
+      types:
+        Blunt: 5
+        Slash: 5
+        Piercing: 5
     animation: WeaponArcBite
   - type: Climbing
   - type: NameIdentifier
