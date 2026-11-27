@@ -22,8 +22,7 @@ public sealed partial class UplinkSystem : EntitySystem
     [Dependency] private SharedSubdermalImplantSystem _subdermalImplant = default!;
     [Dependency] private SharedMindSystem _mind = default!;
 
-    [ValidatePrototypeId<CurrencyPrototype>]
-    public const string TelecrystalCurrencyPrototype = "Telecrystal";
+    public static readonly ProtoId<CurrencyPrototype> TelecrystalCurrencyPrototype = "Telecrystal";
     private const string FallbackUplinkImplant = "UplinkImplant";
     private const string FallbackUplinkCatalog = "UplinkUplinkImplanter";
 

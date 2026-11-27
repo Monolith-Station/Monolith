@@ -445,6 +445,11 @@
     snap:
     - Wall
   components:
+  - type: Occluder
+    polygon:
+    - "-0.5,-0.5"
+    - "0.5,0.5"
+    - "0.5,-0.5"
   - type: RCDDeconstructable # Frontier
     deconstructable: false # Frontier
   - type: StaticPrice
@@ -711,6 +716,11 @@
     snap:
     - Wall
   components:
+  - type: Occluder
+    polygon:
+    - "-0.5,-0.5"
+    - "0.5,0.5"
+    - "0.5,-0.5"
   - type: Transform
     anchored: true
   - type: Clickable

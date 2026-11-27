@@ -92,9 +92,14 @@
       - !type:HealthChange
         scaleByQuantity: true
         damage:
-          groups:
-            Burn: -2 # healing obviously up to discussion
-            Brute: -1.5 # these groups are the only 2 possible ways to damage a skeleton
+          types: # Skeletons can only take Burn and Brute damage.
+            Heat: -0.5
+            Shock: -0.5
+            Cold: -0.5
+            Caustic: -0.5
+            Blunt: -0.5
+            Slash: -0.5
+            Piercing: -0.5
       - !type:PopupMessage
         type: Local
         visualType: Large

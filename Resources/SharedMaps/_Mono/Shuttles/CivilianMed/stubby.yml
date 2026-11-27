@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.6
   forkId: ""
   forkVersion: ""
-  time: 11/24/2026 22:56:31
-  entityCount: 297
+  time: 11/26/2026 04:07:11
+  entityCount: 289
 maps: []
 grids:
 - 1
@@ -67,11 +67,11 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Smoke: []
-        MetalFoam: []
         ESTileFire: []
+        Smoke: []
         Puddle: []
         Kudzu: []
+        MetalFoam: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -235,36 +235,36 @@ entities:
         tiles:
           0,0:
             0: 13115
-            1: 2048
+            2: 2048
           0,-1:
             0: 48959
           -1,0:
             0: 2184
-            2: 16400
-            1: 32
+            1: 16400
+            2: 32
           -1,1:
-            2: 8
+            1: 8
           0,1:
-            2: 4
+            1: 4
           1,0:
             0: 17
-            1: 4384
+            2: 4384
           1,1:
-            1: 1
+            2: 1
           0,-2:
-            1: 2096
+            2: 2096
             0: 12288
-            2: 64
+            1: 64
           -1,-2:
-            2: 160
-            1: 5120
+            1: 160
+            2: 5120
           -1,-1:
             0: 63645
           1,-2:
-            2: 16
+            1: 16
             0: 8704
           1,-1:
-            1: 514
+            2: 514
         uniqueMixes:
         - volume: 2500
           temperature: 293.15
@@ -272,10 +272,10 @@ entities:
             Oxygen: 21.824879
             Nitrogen: 82.10312
         - volume: 2500
-          temperature: 293.15
+          immutable: True
           moles: {}
         - volume: 2500
-          immutable: True
+          temperature: 293.15
           moles: {}
         chunkSize: 4
     - type: GasTileOverlay
@@ -354,20 +354,10 @@ entities:
       parent: 1
 - proto: AtmosFixBlockerMarker
   entities:
-  - uid: 11
-    components:
-    - type: Transform
-      pos: -3.5,1.5
-      parent: 1
   - uid: 12
     components:
     - type: Transform
       pos: 3.5,2.5
-      parent: 1
-  - uid: 13
-    components:
-    - type: Transform
-      pos: -0.5,-6.5
       parent: 1
   - uid: 14
     components:
@@ -383,11 +373,6 @@ entities:
     components:
     - type: Transform
       pos: 1.5,-6.5
-      parent: 1
-  - uid: 17
-    components:
-    - type: Transform
-      pos: 2.5,-6.5
       parent: 1
   - uid: 18
     components:
@@ -429,35 +414,10 @@ entities:
     - type: Transform
       pos: -1.5,-5.5
       parent: 1
-  - uid: 26
-    components:
-    - type: Transform
-      pos: -2.5,-6.5
-      parent: 1
-  - uid: 27
-    components:
-    - type: Transform
-      pos: 4.5,-6.5
-      parent: 1
   - uid: 28
     components:
     - type: Transform
       pos: -3.5,-4.5
-      parent: 1
-  - uid: 29
-    components:
-    - type: Transform
-      pos: -1.5,3.5
-      parent: 1
-  - uid: 30
-    components:
-    - type: Transform
-      pos: -0.5,4.5
-      parent: 1
-  - uid: 31
-    components:
-    - type: Transform
-      pos: 2.5,4.5
       parent: 1
   - uid: 32
     components:
@@ -1324,7 +1284,7 @@ entities:
       pos: 0.5,-4.5
       parent: 1
     - type: FuelGenerator
-      targetPower: 24000
+      targetPower: 25000
 - proto: Poweredlight
   entities:
   - uid: 157
@@ -1703,19 +1663,19 @@ entities:
       parent: 1
 - proto: SensorInfraredCiv
   entities:
-  - uid: 297
+  - uid: 11
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 4.5,4.5
+      rot: -1.5707963267948966 rad
+      pos: -0.5,4.5
       parent: 1
 - proto: SensorRadarCiv
   entities:
-  - uid: 296
+  - uid: 13
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 0.5,4.5
+      rot: 1.5707963267948966 rad
+      pos: 2.5,4.5
       parent: 1
 - proto: SignalSwitchDirectional
   entities:

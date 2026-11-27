@@ -114,9 +114,14 @@
     autoAttack: true
     attackRate: 3
     damage:
-      groups:
-        Burn: -4
-        Brute: -3
+      types:
+        Heat: -1
+        Shock: -1
+        Cold: -1
+        Caustic: -1
+        Blunt: -1
+        Slash: -1
+        Piercing: -1
   - type: SealableClothingVisuals
     spriteLayer: sealed
     clothingVisuals:

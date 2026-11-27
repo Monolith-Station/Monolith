@@ -79,7 +79,7 @@ public sealed partial class SalvageSystem
             ChatChannel.Radio,
             text,
             text,
-            _mapManager.GetMapEntityId(mapId),
+            mapUid,
             false,
             true,
             null);
@@ -130,7 +130,7 @@ public sealed partial class SalvageSystem
     {
         // Started a mining mission so work out exempt entities
         if (TryComp<SalvageMiningExpeditionComponent>(
-                _mapManager.GetMapEntityId(ev.TargetCoordinates.ToMap(EntityManager, _transform).MapId),
+                _mapSystem.GetMapOrInvalid(ev.TargetCoordinates.ToMap(EntityManager, _transform).MapId),
                 out var mining))
         {
             var ents = new List<EntityUid>();

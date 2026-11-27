@@ -191,8 +191,10 @@
         - !type:OrganType
           type: Dwarf
         damage:
-          groups:
-            Brute: -1
+          types:
+            Blunt: -0.33
+            Slash: -0.33
+            Piercing: -0.34
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -200,8 +202,10 @@
         - !type:OrganType # Goobstation - Yowie
           type: Yowie
         damage:
-          groups:
-            Brute: -1
+          types:
+            Blunt: -0.33
+            Slash: -0.33
+            Piercing: -0.34
       - !type:ChemVomit
         probability: 0.04
         conditions:

@@ -1,6 +1,6 @@
 ﻿using Content.Server.Construction.Components;
 using Content.Shared.Construction.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._NF.Power.Components;
 
@@ -13,8 +13,8 @@ public sealed partial class UpgradePowerSupplierComponent : Component
     /// <summary>
     /// The machine part that affects the power supplu.
     /// </summary>
-    [DataField("machinePartPowerSupply", customTypeSerializer: typeof(PrototypeIdSerializer<MachinePartPrototype>)), ViewVariables(VVAccess.ReadWrite)]
-    public string MachinePartPowerSupply = "Capacitor";
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public ProtoId<MachinePartPrototype> MachinePartPowerSupply = "Capacitor";
 
     /// <summary>
     /// The multiplier used for scaling the power supply.

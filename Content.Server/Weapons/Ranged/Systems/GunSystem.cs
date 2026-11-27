@@ -105,7 +105,7 @@ public sealed partial class GunSystem : SharedGunSystem
         var mapAngle = mapDirection.ToAngle();
 
         // If applicable, this ensures the projectile is parented to grid on spawn, instead of the map.
-        var fromEnt = MapManager.TryFindGridAt(fromMap, out var gridUid, out var grid)
+        var fromEnt = Maps.TryFindGridAt(fromMap, out var gridUid, out var grid)
             ? _transform.WithEntityId(fromCoordinates, gridUid)
             : _transform.ToCoordinates(fromMap);
 

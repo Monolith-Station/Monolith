@@ -69,10 +69,10 @@ namespace Content.Shared.Containers.ItemSlots
         {
             foreach (var slot in itemSlots.Slots.Values)
             {
-                if (slot.HasItem || string.IsNullOrEmpty(slot.StartingItem))
+                if (slot.HasItem || slot.StartingItem is not { } startingItem || string.IsNullOrEmpty(startingItem.Id))
                     continue;
 
-                var item = Spawn(slot.StartingItem, Transform(uid).Coordinates);
+                var item = Spawn(startingItem, Transform(uid).Coordinates);
 
                 if (slot.ContainerSlot != null)
                     _containers.Insert(item, slot.ContainerSlot);

@@ -378,9 +378,14 @@
   - type: PlateletFactories
     intervalSeconds: 1
     damagePerInterval:
-      groups:
-        Brute: -1.5
-        Burn: -2
+      types:
+        Blunt: -0.5
+        Slash: -0.5
+        Piercing: -0.5
+        Heat: -0.5
+        Shock: -0.5
+        Cold: -0.5
+        Caustic: -0.5
     critMultiplier: .25
 
 - type: trait
@@ -416,9 +421,14 @@
   - type: PlateletFactories
     intervalSeconds: 1
     damagePerInterval:
-      groups:
-        Brute: -1.5
-        Burn: -2
+      types:
+        Blunt: -0.5
+        Slash: -0.5
+        Piercing: -0.5
+        Heat: -0.5
+        Shock: -0.5
+        Cold: -0.5
+        Caustic: -0.5
 
 - type: trait
   id: Helmsmanship

@@ -47,7 +47,7 @@ namespace Content.IntegrationTests.Tests.GameObjects.Components.ActionBlocking
             HandsComponent hands = default!;
 
             var entityManager = server.ResolveDependency<IEntityManager>();
-            var mapManager = server.ResolveDependency<IMapManager>();
+            var mapManager = server.System<SharedMapSystem>();
             var host = server.ResolveDependency<IServerConsoleHost>();
 
             var map = await pair.CreateTestMap();

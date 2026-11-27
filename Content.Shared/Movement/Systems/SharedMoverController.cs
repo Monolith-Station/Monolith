@@ -38,7 +38,6 @@ public abstract partial class SharedMoverController : VirtualController
 {
     [Dependency] private   IConfigurationManager _configManager = default!;
     [Dependency] protected IGameTiming Timing = default!;
-    [Dependency] private   IMapManager _mapManager = default!;
     [Dependency] private   ITileDefinitionManager _tileDefinitionManager = default!;
     [Dependency] private   ActionBlockerSystem _blocker = default!;
     [Dependency] private   EntityLookupSystem _lookup = default!;
