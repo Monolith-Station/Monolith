@@ -3,7 +3,7 @@ trait-bogan-accent-desc = Oi! You speaking like a Yowie!
 
 # Physical
 trait-prybar-prosthetics-name = Prybar Prosthetics
-trait-prybar-prosthetics-desc = Your arms have been reinforced with steel and hydraulics. You can force your way out of some unpleasant situations.
+trait-prybar-prosthetics-desc = Your arms have been reinforced with steel and hydraulics. You can force your way out of some unpleasant situations. This trait makes you vulnerable to EMPs.
 
 trait-vigor-name = Vigor
 trait-vigor-desc = Whether by pure determination, fitness, or bionic augmentations, your endurance is enhanced.
@@ -34,6 +34,7 @@ trait-thieving-desc = You are deft with your hands, and talented at convincing p
 trait-bionic-legs-name = Bionic Legs
 trait-bionic-legs-desc = One or more of your limbs have been replaced with an expensive, state of the art bionic. It could be either one made of highly realistic synthflesh,
      or a more obvious metal limb. This limb provides enhanced speed to it's user, allowing you to run away from situations faster or get to a place faster.
+     This trait makes you vulnerable to EMPs.
 
 trait-osteogenesis-imperfecta-name = Osteogenesis Imperfecta
 trait-osteogenesis-imperfecta-desc = Also known as "brittle bone disease", people with this genetic disorder have bones that are easily broken, often simply by moving. This trait reduces your threshold for critical injury by 50 points.
@@ -91,3 +92,6 @@ trait-hardened-lymphocytes-desc = Your marrow has been treated with melanocyte-h
 
 trait-helmsmanship-name = Helmsmanship
 trait-helmsmanship-desc = Engines and stabilizers rumble in harmony under your yoke. Ships under your control turn and accelerate 10% faster.
+
+trait-heretic-name = Heretic
+trait-heretic-desc = You've wronged the Phaethon Dynasty, or at the very least the Sultanate thinks you have. You are liable (50% chance) to be marked for death by the Sultanate and hunted down by the PDV as a result.

@@ -63,3 +63,49 @@
     interfaces:
       enum.ThiefBackpackUIKey.Key:
         type: ThiefBackpackBoundUserInterface
+
+- type: entity
+  id: UndeterminedTSFCrocusKit
+  name: TSF infantry equipment selector
+  description: A small remote to drop in a TSF infantry kit of your choosing.
+  parent: BaseItem
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/unique_teleporters.rsi
+    state: standard
+  - type: ThiefUndeterminedBackpack
+    possibleSets:
+    - KitSelectorCrocusRiflemanTSF
+    - KitSelectorCrocusMedicTSF
+    - KitSelectorCrocusSapperTSF
+    - KitSelectorCrocusGrenadierTSF
+    maxSelectedSets: 1
+  - type: ActivatableUI
+    key: enum.ThiefBackpackUIKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.ThiefBackpackUIKey.Key:
+        type: ThiefBackpackBoundUserInterface
+
+- type: entity
+  id: UndeterminedPDVCrocusKit
+  name: PDV infantry equipment selector
+  description: A small remote to drop in a PDV infantry kit of your choosing.
+  parent: BaseItem
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/unique_teleporters.rsi
+    state: standard
+  - type: ThiefUndeterminedBackpack
+    possibleSets:
+    - KitSelectorCrocusRiflemanPDV
+    - KitSelectorCrocusMedicPDV
+    - KitSelectorCrocusSapperPDV
+    - KitSelectorCrocusGrenadierPDV
+    maxSelectedSets: 1
+  - type: ActivatableUI
+    key: enum.ThiefBackpackUIKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.ThiefBackpackUIKey.Key:
+        type: ThiefBackpackBoundUserInterface

@@ -1,0 +1,110 @@
+<Document>
+  # EMCON
+
+  [color=orange][bold]EMCON[/color][/bold] is short for [bold]EMissions CONtrol[/bold].
+  This guidebook page will encompass both that and the other sensors tied into it ([color=#FF6666]IR[/color] & [color=#66CCFF]passive radar[/color]), plus systems related to it.
+  You can access the sensors panel for EMCON & other hardware in the [italic]shuttle console[/italic], [italic]gunnery-control console[/italic], or [italic]radar computers[/italic].
+
+  <Box>
+    <GuideEntityEmbed Entity="SensorRadarTsfLiuDou"/>
+    <GuideEntityEmbed Entity="SensorInfraredTSF"/>
+    <GuideEntityEmbed Entity="SensorPassiveRadarTSF"/>
+  </Box>
+
+  ## Sensor Types
+
+  There are 5 ways of detecting other ships:
+  - [color=#55FF55][bold]Active Radar (ARS)[/bold][/color]
+  - [color=#FF6666][bold]Infrared Emissions (IR)[/bold][/color]
+  - [color=#66CCFF][bold]Passive Radar/Emissions (EM)[/bold][/color]
+  - [color=#CCCCCC][bold]Visual (V)[/bold][/color]
+  - [color=#FFAA33][bold]Datalinks (DL)[/bold][/color]
+
+  ## ARS
+  Active radar uses the EM spectrum to pulse out targets to see them. The sensor output is measured in [bold]wattage[/bold].
+  It's capable of detecting static objects, even if they've gone completely cold, and it does it at great ranges, but it [color=orange]announces your position[/color].
+
+  [color=red][bold]You will always be detected further than you can detect them with ARS.[/bold][/color] - if you want to stay hidden, [bold]keep it off[/bold].
+
+  Some ships may be identifiable by their combined EM output, as every sensor has a unique power. Don't rely on this too much - some ships have the same sensors, some ships have multiple, and they might not have all of them on.
+  A ship's radar signature is based on it's diagonal ([italic]height^2 + width^2[/italic]). Actual tilecount has no effect on it.
+
+  All active radar systems work as passive systems when on standby, but it's usually better to have independent systems.
+  ARS systems can be disrupted by [color=#FFCC00][bold]chaff[/bold][/color] systems. High-powered, long-range AESA radars are quite resistant to this, but at close ranges (such as in brawls), you'll probably lose any locks in that direction.
+
+  ## IR
+  Infrared is a [bold]passive[/bold] system. You don't need to turn this one off to stay quiet, unless you want to conserve power.
+
+  It's by far the easiest to avoid, but it's pretty low-range. A ship's IR signature can be lowered with properitary thrusters that lower their drive plume (very rare, and usually only found on some faction ships), running on battery power, and generally just being less active.
+
+  IR signature is increased by:
+  - [color=#FFAA66]Power generation[/color] (all kinds)
+  - [color=#FFAA66]Active thrusting/manuevering[/color]
+  - [color=#FFAA66]Weapon firing[/color]
+  - [color=#FFAA66]Active machines[/color]
+  - [color=#FFAA66]Biologics[/color] (like people)
+  - [color=#FFAA66]FTLing[/color]
+
+  ## EM
+  Passive radar simply just listens to active radars.
+
+  There's no way to make it more or less effective, and the only thing that affects it is radars.
+
+  ## Visual
+  Visual contact is fixed and based on grid's size.
+
+  There's also no way to make it more or less effective, but it's always available.
+
+  Everything gets this for free, and everything gets the same effectiveness with it.
+  Visual uses the same signature as radars.
+
+  ### Passive/Active
+
+  Passive systems are only able to detect a grid's [bold]location[/bold]. Radar or visual contact is required to see it's outline.
+
+  ### Directional Systems
+
+  Some sensors may be directional. You'll have control of it's bearing on the EMCON panel if it is, but most are omnidirectional.
+
+  Directional active systems have no effect on their EM output, they'll still show up on EM even if you're behind them.
+
+  Some directional systems are [bold]stabilized[/bold] (the bearing you enter is relative to the global bearing, and it always sticks to that bearing), some are [bold]unstabilized[/bold] (the bearing you enter is relative to your ship, and it rotates with your ship).
+
+  ## Contact List
+  The contact panel shows everything you can see.
+  - If a track has gone [color=#FFAA33][bold]orange[/bold][/color], you're only seeing it because of an allied datalink sharing it's info.
+  - If a track has gone [color=#4488FF][bold]blue[/bold][/color] - [bold]it's illuminating you with a fire-control radar![/bold]
+  - If a track has gone [color=red][bold]red[/bold][/color], it's stale (you haven't succesfully picked up that track for 2 seconds - for tracks from datalink, the threshold is 6 seconds, but both kinds will disappear at 8 seconds w/o a successful track)
+
+  There's a few columns here.
+  - [bold]RNG:[/bold] The range to the target in meters.
+  - [bold]ANG:[/bold] The bearing to the target.
+  - [bold]SRC:[/bold] The source of the detection. [color=#55FF55]ARS[/color] = active radar, [color=#66CCFF]E[/color] = passive radar, [color=#FF6666]IR[/color] = infrared, [color=#CCCCCC]V[/color] = visual, [color=#FFAA33]DL[/color] = detected by datalink member.
+  - [bold]RCS:[/bold] The cross section of the target (width * height).
+  - [bold]IR:[/bold] The current heat output of the target.
+  - [bold]EM:[/bold] The current output (in wattage) of the target. If you know your radars, and you know your ships, you might be able to use this to identify a contact.
+  - [bold]ID:[/bold] The TRACK.ID of the target. This uses the TRACK.ID visible in D(etailed).IFF mode on radar screens.
+
+  ## Datalink
+  The datalink bar at the bottom of the screen allows for sharing of detected targets between multiple ships.
+  You can input 8 codes here, all separated by a space (eg. [mono]"1000 1001 1002 1003"[/mono])
+
+  ## Locking
+  ARS systems can be used to get a target lock on enemy ships. This will sound a warning tone on their RWR them, so you probably shouldn't do it to people you don't want to make angry.
+  To use the lock, simply just enable the locking mode in the gunnery console, click near or on their grid, and then turn off locking mode to fire.
+  Locking is powerful for 2 reasons:
+  - It can show the lead of ballistics (the diamonds).
+  - It can be used to guide SACLOS munitions to the target automatically (the [mono]"TOGGLE SARH"[/mono] button).
+  A radar lock requires an [color=#55FF55][bold]active radar detection[/bold][/color], and that ARS detection needs to be done by a FCR capable radar. Some poor-quality radars can't provide guidance or lock capabilities. Passive systems & visual detection is insufficient for a firing solution.
+  Chaff can throw off your lead by quite a bit though, so don't assume it's perfect.
+
+  You can also click on the contact in the contact list to track it.
+
+  ## Visualizer
+  The visualizer at the top right of the screen shows radar contacts, sensors (for non-omnidirectional systems), and datalink contacts.
+  - Radar contacts detected by you are shown with spokes (following the colors from the contact list).
+  - Radar contacts from your allied datalink are shown as [color=#FFAA33]orange ticks[/color].
+  - Sensors are shown as cones. The size of the cone on the display is not proportionate at all to the sensor's power, it's purely visual and only shows the arc.
+  - Disruptions to ARS (chaff) shown as [color=#FFAA33]orange cones[/color]. You'll know it when you see it - it's very flashy, and it floods it's part of the display.
+
+</Document>

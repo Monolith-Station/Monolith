@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared._Mono.Economy.Components; // Mono
 using Content.Shared.DoAfter;
 using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;
@@ -8,6 +9,7 @@ using Content.Shared.Popups;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
+using Robust.Shared.Prototypes;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -38,12 +40,8 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
 
     protected virtual void OnMapInit(EntityUid uid, VendingMachineComponent component, MapInitEvent args)
     {
-        RestockInventoryFromPrototype(uid, component, component.InitialStockQuality);
-
-        // Frontier: create the cash slot if this entity has one
-        if (component.CashSlot != null && component.CashSlotName != null)
-            ItemSlots.AddItemSlot(uid, component.CashSlotName, component.CashSlot);
-        // End Frontier
+        if (TryComp<VendingMachineComponent>(uid, out var vendingMachine)) // Mono
+            RestockInventoryFromPrototype(uid, vendingMachine, vendingMachine.InitialStockQuality); // Mono
     }
 
     public void RestockInventoryFromPrototype(EntityUid uid,
@@ -121,7 +119,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
         return GetAllInventory(uid, component).Where(_ => _.Amount > 0).ToList();
     }
 
-    private void AddInventoryFromPrototype(EntityUid uid, Dictionary<string, uint>? entries,
+    private void AddInventoryFromPrototype(EntityUid uid, Dictionary<EntProtoId, uint>? entries,
         InventoryType type,
         VendingMachineComponent? component = null, float restockQuality = 1.0f)
     {

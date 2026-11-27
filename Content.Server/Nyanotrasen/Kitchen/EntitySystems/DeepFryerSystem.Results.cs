@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using System.Linq;
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
 using Content.Server.Ghost.Roles.Components;
@@ -143,10 +144,10 @@ public sealed partial class DeepFryerSystem
         if (TryComp(item, out FlavorProfileComponent? flavorProfileComponent))
         {
             HashSet<string> goodFlavors = new(flavorProfileComponent.Flavors);
-            goodFlavors.IntersectWith(component.GoodFlavors);
+            goodFlavors.IntersectWith(component.GoodFlavors.Select(id => id.Id));
 
             HashSet<string> badFlavors = new(flavorProfileComponent.Flavors);
-            badFlavors.IntersectWith(component.BadFlavors);
+            badFlavors.IntersectWith(component.BadFlavors.Select(id => id.Id));
 
             deepFriedComponent.PriceCoefficient = Math.Max(0.01f,
                 1.0f

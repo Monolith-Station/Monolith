@@ -23,5 +23,11 @@ public sealed partial class LatheProducingComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public EntityUid? Actor;
+
+    /// <summary>
+    /// Mono - How much materials will we make and consume.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public int BulkMaterialPrintMultiplier;
 }
 

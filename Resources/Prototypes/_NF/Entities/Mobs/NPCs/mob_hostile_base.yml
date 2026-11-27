@@ -35,10 +35,16 @@
     - Alive
     damageCap: 500
     damage:
-      groups:
-        Brute: -0.5
-        Burn: -0.5
-        Airloss: -1
+      types:
+        Blunt: -0.16
+        Slash: -0.17
+        Piercing: -0.17
+        Heat: -0.12
+        Shock: -0.12
+        Cold: -0.13
+        Caustic: -0.13
+        Asphyxiation: -0.5
+        Bloodloss: -0.5
 
 - type: entity
   save: false
@@ -51,10 +57,16 @@
     - Critical
     damageCap: 500
     damage:
-      groups:
-        Brute: -0.5
-        Burn: -0.5
-        Airloss: -1
+      types:
+        Blunt: -0.16
+        Slash: -0.17
+        Piercing: -0.17
+        Heat: -0.12
+        Shock: -0.12
+        Cold: -0.13
+        Caustic: -0.13
+        Asphyxiation: -0.5
+        Bloodloss: -0.5
 
 - type: entity
   save: false
@@ -68,10 +80,16 @@
     - Dead
     damageCap: 9999
     damage:
-      groups:
-        Brute: -0.5
-        Burn: -0.5
-        Airloss: -1
+      types:
+        Blunt: -0.16
+        Slash: -0.17
+        Piercing: -0.17
+        Heat: -0.12
+        Shock: -0.12
+        Cold: -0.13
+        Caustic: -0.13
+        Asphyxiation: -0.5
+        Bloodloss: -0.5
 
 - type: entity
   save: false
@@ -363,7 +381,7 @@
   - MobStepTriggerImmune
   - BaseMobSpecies
   - MobHumanoidHostileAIComplex
-  - BaseC3MobHuman
+# - BaseC3MobHuman # Mono: I don't think we need to have a big magenta sign TELLING ME that i'll probably get into deep shit if I keep a chimera alive. also what the fuck even is "class 3 contraband"
   id: MobHumanoidHostileBase
   components:
   - type: NPCRetaliation
@@ -419,7 +437,7 @@
   - MobEnhancedMovement
   - MobPrying
   - MobHumanoidHostileAIComplex
-  - BaseC3MobCreature
+# - BaseC3MobCreature  # Mono: I don't think we need to have a big magenta sign TELLING ME that i'll probably get into deep shit if I keep a chimera alive. also what the fuck even is "class 3 contraband"
   id: MobNonHumanHostileBase
   components:
   - type: NPCRetaliation
@@ -486,7 +504,7 @@
   - MobEnhancedMovement
   - MobPrying
   - MobHumanoidHostileAISimpleMelee
-  - BaseC3MobCreature
+# - BaseC3MobCreature  # Mono: I don't think we need to have a big magenta sign TELLING ME that i'll probably get into deep shit if I keep a chimera alive. also what the fuck even is "class 3 contraband"
   id: NFMobFactionlessBase
   components:
   - type: NPCRetaliation

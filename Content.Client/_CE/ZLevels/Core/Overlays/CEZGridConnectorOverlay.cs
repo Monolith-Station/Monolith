@@ -25,7 +25,6 @@ namespace Content.Client._CE.ZLevels.Core.Overlays;
 public sealed partial class CEZGridConnectorOverlay : Overlay
 {
     [Dependency] private IEntityManager _entityManager = null!;
-    [Dependency] private IMapManager _mapManager = null!;
     private SharedTransformSystem _transform;
     private SharedMapSystem _mapSystem;
     private CEClientZLevelsSystem _zLevels;
@@ -92,7 +91,7 @@ public sealed partial class CEZGridConnectorOverlay : Overlay
             return false;
         }
 
-        if (!_mapManager.TryFindGridAt(neighbourMap, worldPos, out var gridUid, out var gridComp) || gridUid == ownGrid)
+        if (!_mapSystem.TryFindGridAt(neighbourMap, worldPos, out var gridUid, out var gridComp) || gridUid == ownGrid)
             return false;
 
         return _mapSystem.TryGetTileRef(gridUid, gridComp, worldPos, out var tileRef) && !tileRef.Tile.IsEmpty;

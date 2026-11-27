@@ -41,6 +41,7 @@ using Robust.Shared.Timing;
 using Content.Server.Ghost;
 using Content.Shared.Roles;
 using Content.Server._NF.Shuttles.Components;
+using Content.Server._Mono.CryoSleep.Components;
 
 namespace Content.Server._NF.CryoSleep;
 
@@ -52,7 +53,7 @@ public sealed partial class CryoSleepSystem : SharedCryoSleepSystem
     [Dependency] private ContainerSystem _container = default!;
     [Dependency] private ClimbSystem _climb = default!;
     [Dependency] private GameTicker _gameTicker = default!;
-    [Dependency] private IMapManager _mapManager = default!;
+    [Dependency] private SharedMapSystem _maps = default!;
     [Dependency] private EuiManager _euiManager = null!;
     [Dependency] private MindSystem _mind = default!;
     [Dependency] private InteractionSystem _interaction = default!;
@@ -97,9 +98,9 @@ public sealed partial class CryoSleepSystem : SharedCryoSleepSystem
     {
         if (Deleted(_storageMap))
         {
-            var map = _mapManager.CreateMap();
-            _storageMap = _mapManager.GetMapEntityId(map);
-            _mapManager.SetMapPaused(map, true);
+            var map = _maps.CreateMap();
+            _storageMap = map;
+            _maps.SetPaused(map, true);
         }
 
         return _storageMap.Value;
@@ -415,6 +416,10 @@ public sealed partial class CryoSleepSystem : SharedCryoSleepSystem
                 ("y", Math.Round(mapPos.Position.Y)));
         }
 
+        // Mono: I rewrote what might be the most disgusting code I think I've ever seen in any SS14 fork ever. Why was this hardcoded and why in such a weird way?
+
+        /* Old code:
+
         // Check if character is a pirate, and if so, use Freelancer radio instead of Common
         bool isPirate = false;
         if (jobTitle != null)
@@ -464,7 +469,12 @@ public sealed partial class CryoSleepSystem : SharedCryoSleepSystem
             {
                 _radioSystem.SendRadioMessage(cryopod, message, commonChannel, cryopod);
             }
-        }
+        }*/
+
+        // Mono code:
+        EnsureComp<RadioOnCryosleepComponent>(bodyId, out var radioComp); // default to broadband if it's unspecified
+        _radioSystem.SendRadioMessage(cryopod, message, radioComp.RadioChannel, cryopod);
+        // Mono end
 
         // Start a timer. When it ends, the body needs to be deleted.
         Timer.Spawn(TimeSpan.FromSeconds(_configurationManager.GetCVar(NFCCVars.CryoExpirationTime)), () =>
@@ -561,4 +571,3 @@ public sealed partial class CryoSleepSystem : SharedCryoSleepSystem
         public EntityUid Cryopod;
     }
 }
-

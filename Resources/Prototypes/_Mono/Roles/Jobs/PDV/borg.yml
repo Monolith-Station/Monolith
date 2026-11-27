@@ -10,8 +10,14 @@
   assignedCompany: PDV
   canBeAntag: false
   icon: JobIconBorg
+  hideConsoleVisibility: true
   supervisors: job-supervisors-hire
   jobEntity: PlayerBorgPDV
   applyTraits: false
   guides:
   - PDV_Entry
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: RadioOnCryosleep
+      radioChannel: Freelance # freelance = Vanguard

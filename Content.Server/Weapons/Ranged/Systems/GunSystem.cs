@@ -105,7 +105,7 @@ public sealed partial class GunSystem : SharedGunSystem
         var mapAngle = mapDirection.ToAngle();
 
         // If applicable, this ensures the projectile is parented to grid on spawn, instead of the map.
-        var fromEnt = MapManager.TryFindGridAt(fromMap, out var gridUid, out var grid)
+        var fromEnt = Maps.TryFindGridAt(fromMap, out var gridUid, out var grid)
             ? _transform.WithEntityId(fromCoordinates, gridUid)
             : _transform.ToCoordinates(fromMap);
 
@@ -141,7 +141,11 @@ public sealed partial class GunSystem : SharedGunSystem
                     if (!cartridge.Spent)
                     {
                         var uid = Spawn(cartridge.Prototype, fromEnt);
-                        CreateAndFireProjectiles(uid, offset, cartridge.MuzzleFlash, cartridge.SoundGunshot);
+                        // Mono - check for muzzle flash of gun
+                        var muzzleFlash = cartridge.MuzzleFlash;
+                        if (gun.MuzzleFlash != null)
+                            muzzleFlash = gun.MuzzleFlash;
+                        CreateAndFireProjectiles(uid, offset, muzzleFlash, cartridge.SoundGunshot);
 
                         RaiseLocalEvent(ent!.Value, new AmmoShotEvent()
                         {
@@ -169,7 +173,11 @@ public sealed partial class GunSystem : SharedGunSystem
                 case AmmoComponent newAmmo:
                     if (ent == null)
                         break;
-                    CreateAndFireProjectiles(ent.Value, offset, newAmmo.MuzzleFlash);
+                    // Mono - check for muzzle flash of gun
+                    var newMuzzleFlash = newAmmo.MuzzleFlash;
+                    if (gun.MuzzleFlash != null)
+                        newMuzzleFlash = gun.MuzzleFlash;
+                    CreateAndFireProjectiles(ent.Value, offset, newMuzzleFlash);
 
                     break;
 

@@ -103,3 +103,17 @@ LedokolAttachmentComputer: null
 WindreignCarrierComputer: null
 RavagerCarrierComputer: null
 BalorCarrierComputer: null
+
+# 25/09/2026 - Bounty rework
+ComputerPirateBountyRedemption: BaseComputer # no longer has a purpose
+ComputerPirateBountyRedemptionTabletop: ComputerTabletopFrame # ditto
+
+# 2026-Nov-23 sensors rework
+ComputerAdvancedRadar: ComputerRadar
+ComputerTabletopAdvancedRadar: ComputerTabletopRadar
+ComputerWallmountAdvancedRadar: ComputerWallmountRadar
+AdvancedRadarConsoleCircuitboard: RadarConsoleCircuitboard
+ComputerEliteRadar: ComputerRadar
+EliteRadarCircuitboard: RadarConsoleCircuitboard
+ComputerStationRadar: ComputerRadar
+StationRadarCircuitboard: RadarConsoleCircuitboard

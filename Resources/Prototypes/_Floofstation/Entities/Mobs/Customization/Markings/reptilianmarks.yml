@@ -1,0 +1,10 @@
+- type: marking
+  id: ReptilianSharpCobraHood
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Reptilian]
+  sprites:
+  - sprite: _DEN/Mobs/Customization/Reptilian/sharpcobrahood.rsi
+    state: sharp_cobra_hood_overlay
+  - sprite: _DEN/Mobs/Customization/Reptilian/sharpcobrahood.rsi
+    state: sharp_cobra_hood

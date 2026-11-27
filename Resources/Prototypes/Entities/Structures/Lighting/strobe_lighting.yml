@@ -32,7 +32,7 @@
       shader: unshaded
     state: base
   - type: PointLight
-    mask: /Textures/Effects/LightMasks/double_cone.png
+    lightMask: ConeDouble
     color: "#FFE4CE"
     energy: 5
     radius: 10
@@ -46,7 +46,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.2,0.5,0.2,0.35"
+          bounds: "-0.2,0.35,0.2,0.5"
         density: 190
         mask:
         - TabletopMachineMask

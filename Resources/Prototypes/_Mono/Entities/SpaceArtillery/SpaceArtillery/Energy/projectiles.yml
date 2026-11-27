@@ -3,7 +3,7 @@
 - type: entity
   id: ShipMediumPlasmaProjectile
   name: plasma projectile
-  parent: BaseBulletTrigger
+  parent: [ BaseBulletTriggerShip, BaseProjectileHitmarkerHeavy ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -33,14 +33,14 @@
     totalIntensity: 90
     intensitySlope: 9
     maxIntensity: 12
-    maxTileBreak: 3
+    tileBreakScale: 3
 
 # Cerberus
 
 - type: entity
   id: ShipCerberusPlasma
   name: plasma projectile
-  parent: BaseBulletTrigger
+  parent: [ BaseBulletTriggerShip, BaseProjectileHitmarkerMedium ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -70,6 +70,7 @@
     totalIntensity: 30
     intensitySlope: 6
     maxIntensity: 6
+    tileBreakScale: 3
 
 - type: entity
   name: cerberus spread
@@ -86,7 +87,7 @@
 - type: entity
   id: ShipAutopulserPlasmaProjectile
   name: plasma projectile
-  parent: BaseBulletTrigger
+  parent: [ BaseBulletTriggerShip, BaseProjectileHitmarkerLight ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -117,13 +118,14 @@
     totalIntensity: 5
     intensitySlope: 1
     maxIntensity: 1
+    tileBreakScale: 3
 
 # Scylla
 
 - type: entity
   id: ShipPlasmaProjectileScylla
   name: plasma projectile
-  parent: BaseBulletTrigger
+  parent: [ BaseBulletTriggerShip, BaseProjectileHitmarkerLight ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -152,13 +154,14 @@
     totalIntensity: 32
     intensitySlope: 4
     maxIntensity: 4
+    tileBreakScale: 3
 
 # Type 241
 
 - type: entity
   id: ShipGlassingBeamPlasmaProjectile
   name: plasma projectile
-  parent: BaseBulletTrigger
+  parent: [ BaseBulletTriggerShip, BaseProjectileHitmarkerLight ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -189,14 +192,14 @@
     totalIntensity: 25
     intensitySlope: 5
     maxIntensity: 5
-    maxTileBreak: 3
+    tileBreakScale: 3
 
 # M25
 
 - type: entity
   id: ShipM25Projectile
   name: M25 projectile
-  parent: BaseBulletTrigger
+  parent: BaseBulletTriggerShip
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -229,7 +232,7 @@
 - type: entity
   id: ShipRubiconProjectile
   name: EMP projectile
-  parent: BaseBulletTrigger
+  parent: [ BaseBulletTriggerShip, BaseProjectileHitmarkerMediumBlue ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -262,7 +265,7 @@
 - type: entity
   id: ShipDymereProjectile
   name: Ionized Gas Projectile
-  parent: BaseBulletTrigger
+  parent: [ BaseBulletTriggerShip, BaseProjectileHitmarkerSuperheavy ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -291,7 +294,7 @@
     totalIntensity: 500
     intensitySlope: 100
     maxIntensity: 20
-    maxTileBreak: 5
+    tileBreakScale: 3
   - type: GatheringProjectile
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
@@ -301,7 +304,7 @@
 - type: entity
   id: ShipNeutronProjectile
   name: neutron projectile
-  parent: BaseBulletTrigger
+  parent: [ BaseBulletTriggerShip, BaseProjectileHitmarkerMedium ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -332,13 +335,14 @@
     totalIntensity: 25
     intensitySlope: 7
     maxIntensity: 7
+    tileBreakScale: 3
 
 # Harbinger
 
 - type: entity
   id: ShipIonProjectile
   name: ion shot
-  parent: BaseBulletTrigger
+  parent: BaseBulletTriggerShip
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -377,7 +381,7 @@
 - type: entity
   id: ShipAntiMatterProjectile
   name: antimatter projectile
-  parent: BaseBulletTrigger
+  parent: [ BaseBulletTriggerShip, BaseProjectileHitmarkerHeavy ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -406,7 +410,7 @@
     totalIntensity: 120
     intensitySlope: 45
     maxIntensity: 45
-    maxTileBreak: 4
+    tileBreakScale: 3
 
 
 # region Laser Hitscans
@@ -414,7 +418,15 @@
 # Phalanx
 
 - type: entity
+  abstract: true
   parent: BasicHitscan
+  id: ShipWeaponHitscan
+  components:
+  - type: HitscanBasicRaycast
+    ignoreShields: false
+
+- type: entity
+  parent: ShipWeaponHitscan
   id: PhalanxLaser
   categories: [ HideSpawnMenu ]
   components:
@@ -438,10 +450,11 @@
   - type: HitscanBasicRaycast
     maxDistance: 512
 
+
 # Apollo
 
 - type: entity
-  parent: BasicHitscan
+  parent: ShipWeaponHitscan
   id: ApolloLaser
   categories: [ HideSpawnMenu ]
   components:
@@ -485,10 +498,28 @@
   - type: HitscanBasicRaycast
     maxDistance: 1000
 
+# Retribution
+
+- type: entity
+  parent: PrometheusLaser
+  id: RetributionLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanRadarSignature
+    radarColor: "#ba0707"
+    lineThickness: 5
+    lifeTime: 0.1 # 5 lasers visible at once
+  - type: HitscanBasicRaycast
+    maxDistance: 3500
+
+
+
+
+
 # Reaper
 
 - type: entity
-  parent: BasicHitscan
+  parent: ShipWeaponHitscan
   id: TachyonLaser
   categories: [ HideSpawnMenu ]
   components:
@@ -517,7 +548,7 @@
 # Sunder
 
 - type: entity
-  parent: BasicHitscan
+  parent: ShipWeaponHitscan
   id: SunderLaser
   categories: [ HideSpawnMenu ]
   components:
@@ -546,7 +577,7 @@
 # Flayer
 
 - type: entity
-  parent: BasicHitscan
+  parent: ShipWeaponHitscan
   id: GaussRound
   categories: [ HideSpawnMenu ]
   components:
@@ -576,6 +607,7 @@
 
 - type: entity
   id: TachyonExplosion
+  parent: BaseProjectileHitmarkerSubnuclear
   categories: [ HideSpawnMenu ]
   components:
   - type: TriggerOnSpawn
@@ -585,9 +617,11 @@
     totalIntensity: 1200
     intensitySlope: 150
     maxIntensity: 30
+    tileBreakScale: 3
 
 - type: entity
   id: SunderExplosion
+  parent: BaseProjectileHitmarkerMedium
   categories: [ HideSpawnMenu ]
   components:
   - type: TriggerOnSpawn
@@ -597,9 +631,11 @@
     totalIntensity: 45
     intensitySlope: 5
     maxIntensity: 5
+    tileBreakScale: 3
 
 - type: entity
   id: PrometheusExplosion
+  parent: BaseProjectileHitmarkerMedium
   categories: [ HideSpawnMenu ]
   components:
   - type: TriggerOnSpawn
@@ -609,3 +645,4 @@
     totalIntensity: 80
     intensitySlope: 8
     maxIntensity: 8
+    tileBreakScale: 3

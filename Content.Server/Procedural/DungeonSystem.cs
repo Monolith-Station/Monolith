@@ -29,7 +29,6 @@ public sealed partial class DungeonSystem : SharedDungeonSystem
 {
     [Dependency] private IConfigurationManager _configManager = default!;
     [Dependency] private IConsoleHost _console = default!;
-    [Dependency] private IMapManager _mapManager = default!;
     [Dependency] private IPrototypeManager _prototype = default!;
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private ITileDefinitionManager _tileDefManager = default!;
@@ -55,8 +54,7 @@ public sealed partial class DungeonSystem : SharedDungeonSystem
     private readonly JobQueue _dungeonJobQueue = new(DungeonJobTime);
     private readonly Dictionary<DungeonJob.DungeonJob, CancellationTokenSource> _dungeonJobs = new();
 
-    [ValidatePrototypeId<ContentTileDefinition>]
-    public const string FallbackTileId = "FloorSteel";
+    public static readonly ProtoId<ContentTileDefinition> FallbackTileId = "FloorSteel";
 
     public override void Initialize()
     {

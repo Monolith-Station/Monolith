@@ -37,6 +37,7 @@
     totalIntensity: 8
     intensitySlope: 8
     maxIntensity: 3
+    tileBreakScale: 3
   - type: TargetSeeking
     acceleration: 40
     detectionRange: 2000
@@ -48,6 +49,11 @@
     range: 2
     energyConsumption: 2700000
     disableDuration: 20
+  - type: TargetSeekingTarget
+    requireSeekerWhitelist: true
+  - type: Tag
+    tags:
+    - AMMTarget
 
 # HEAT
 
@@ -63,7 +69,7 @@
         Structural: 2500
         Blunt: 75
         Heat: 35
-        Pierce: 50
+        Piercing: 50
   - type: Sprite
     sprite: _Mono/Objects/SpaceArtillery/mini_rocket.rsi
     layers:
@@ -95,3 +101,9 @@
     totalIntensity: 150
     intensitySlope: 80
     maxIntensity: 100
+    tileBreakScale: 3
+  - type: TargetSeekingTarget
+    requireSeekerWhitelist: true
+  - type: Tag
+    tags:
+    - AMMTarget

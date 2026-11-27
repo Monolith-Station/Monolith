@@ -25,16 +25,16 @@
     damageContainer: Inorganic
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 10
-      behaviors:
-      - !type:TimerStartBehavior
+    #- trigger:
+    #    !type:DamageTrigger
+    #    damage: 10
+    #  behaviors:
+    #  - !type:TimerStartBehavior # Mono - chaining is really annoying for strats... the funny factor isnt worth it if you cant use these things at all
     - trigger:
         !type:DamageTrigger
         damage: 800
       behaviors:
-      - !type:TriggerBehavior
+      #- !type:TriggerBehavior # Mono - chaining is really annoying for strats... the funny factor isnt worth it if you cant use these things at all
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: Appearance
@@ -118,8 +118,8 @@
 #The explosive values for these are pretty god damn mediocre, but SS14's explosion system is hard to understand - this is a good enough approximation of how it was in SS13.
 #Ideally, there should be a weak radius around the bomb outside of its gibbing / spacing range capable of dealing fair damage to players / structures.
 - type: entity
-  name: syndicate minibomb
-  description: A syndicate-manufactured explosive used to stow destruction and cause chaos.
+  name: minibomb # Mono: remove syndicate references
+  description: An explosive used to stow destruction and cause chaos. # Mono: remove syndicate references
   parent: GrenadeBase
   id: SyndieMiniBomb
   components:

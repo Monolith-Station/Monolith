@@ -18,6 +18,7 @@
     minSpreadModifier: 1.0
     maxSpreadModifier: 1.0
     # REMEMBER TO DO INVERSE FOR THESE! 50 - (20 * 0.05) IS MAKING YOUR GUN WORSE, NOT BETTER!
+  - type: ESGunWieldRecoilAttachment
     wieldRecoilRecoveryModifier: 1.0
     wieldRecoilIncreaseModifier: 1.0
     wieldMinSpreadModifier: 1.0

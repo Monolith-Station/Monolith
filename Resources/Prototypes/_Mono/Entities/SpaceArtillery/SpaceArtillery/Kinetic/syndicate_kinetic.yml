@@ -74,12 +74,12 @@
 
 - type: entity
   id: WeaponTurretFang
-  name: Fang heavy 90mm autocannon
+  name: Fang heavy 57mm autocannon
   suffix: Medium, T3
   parent:
   - BallisticArtillery
   - BallisticArtilleryTier3HP
-  description: A heavy 90mm autocannon of syndicate design, created during the corporate war. Made for shattering opponent destroyers. Uses a self loading mechanism similar to the anaconda handgun.
+  description: A heavy 57mm autocannon of syndicate design, created during the corporate war. Made for shattering opponent destroyers. Uses a self loading mechanism similar to the anaconda handgun.
   components:
   - type: StaticPrice
     price: 2000
@@ -157,10 +157,10 @@
 
 - type: entity
   id: WeaponTurretHydra
-  name: Hydra 220mm battery
+  name: Hydra 130mm battery
   suffix: Large, T4
   parent: BallisticArtillery
-  description: A main cannonade of syndicate origin, the hydra is a monstrous tri-barreled battery of 220-millimeter pain, designed to shatter corpations' toughest vessels. Loads with a similar mechanism as the anaconda handgun.
+  description: A main cannonade of syndicate origin, the hydra is a monstrous tri-barreled battery of 130-millimeter pain, designed to shatter corpations' toughest vessels. Loads with a similar mechanism as the anaconda handgun.
   components:
   - type: StaticPrice
     price: 20000
@@ -256,7 +256,7 @@
 
 - type: entity
   id: WeaponTurretLeviathan
-  name: LEVIATHAN 520mm howitzer
+  name: LEVIATHAN 380mm howitzer
   suffix: Capital, T5
   parent:
   - BallisticArtilleryUnanchorable

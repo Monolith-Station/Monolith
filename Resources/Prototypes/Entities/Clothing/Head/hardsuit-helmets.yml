@@ -220,15 +220,15 @@
 
 #Security Hardsuit
 - type: entity
-  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase, ShowSecurityIcons ] # Mono
   id: ClothingHeadHelmetHardsuitSecurity
-  name: security hardsuit helmet
-  description: Armored hardsuit helmet for security needs.
+  name: MP-EVA CSW-15 "Constable" hardsuit helmet # Mono
+  description: Armored hardsuit helmet for Caelestinus. # Mono
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/security.rsi
+    sprite: _Mono/Clothing/Head/Hardsuits/caelestinus_constable.rsi # Mono
   - type: Clothing
-    sprite: Clothing/Head/Hardsuits/security.rsi
+    sprite: _Mono/Clothing/Head/Hardsuits/caelestinus_constable.rsi # Mono
   - type: PointLight
     color: "#ffeead"
   - type: PressureProtection
@@ -241,6 +241,8 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: SpeechSoundsReplacer
+    speechSounds: Chrono
 
 #Brigmedic Hardsuit
 - type: entity
@@ -270,15 +272,15 @@
 
 #Warden's Hardsuit
 - type: entity
-  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase, ShowSecurityIcons, ShowMedicalIcons ] # Mono
   id: ClothingHeadHelmetHardsuitWarden
-  name: warden's hardsuit helmet
+  name: MP-EVA CSW-25 "Adjudicator" hardsuit helmet # Mono
   description: A modified riot helmet. Oddly comfortable.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/security-warden.rsi
+    sprite: _Mono/Clothing/Head/Hardsuits/caelestinus_adjudicator.rsi # Mono
   - type: Clothing
-    sprite: Clothing/Head/Hardsuits/security-warden.rsi
+    sprite: _Mono/Clothing/Head/Hardsuits/caelestinus_adjudicator.rsi # Mono
   - type: PointLight
     color: "#ffeead"
   - type: PressureProtection
@@ -291,6 +293,17 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: NightVision # Gen 1 dualtube, Mono
+    relayOverlay: true
+    goggleEffect: true
+    action: ActionToggleNightVision
+    viewCircleRadius: 400
+    viewCircleCount: 2
+    viewCircleSpacing: 280
+    phosphorColor: "#00AACC"
+    lightingColor: "#FFFFFF32"
+  - type: SpeechSoundsReplacer
+    speechSounds: Chrono
 
 #Captain's Hardsuit
 - type: entity
@@ -325,6 +338,15 @@
     lowPressureMultiplier: 1000
   - type: FireProtection
     reduction: 0.2
+  - type: NightVision #
+    relayOverlay: true
+    goggleEffect: true
+    viewCircleRadius: 500
+    viewCircleCount: 4
+    viewCircleSpacing: 280
+    action: ActionToggleNightVision
+    phosphorColor: "#FFE4B3"
+    lightingColor: "#FFFFFF32"
 
 #Chief Medical Officer's Hardsuit
 - type: entity
@@ -372,15 +394,15 @@
 
 #Head of Security's hardsuit
 - type: entity
-  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase, ShowSecurityIcons, ShowMedicalIcons ]
   id: ClothingHeadHelmetHardsuitSecurityRed
-  name: head of security's hardsuit helmet
-  description: Security hardsuit helmet with the latest top secret NT-HUD software. Belongs to the HoS.
+  name: MP-EVA CSW-30 "Marshal" hardsuit helmet
+  description: A specially armoured hardsuit helmet belonging to the Overseer. The TSF markings have been defaced.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/security-red.rsi
+    sprite: _Mono/Clothing/Head/Hardsuits/caelestinus_marshal.rsi # Mono
   - type: Clothing
-    sprite: Clothing/Head/Hardsuits/security-red.rsi
+    sprite: _Mono/Clothing/Head/Hardsuits/caelestinus_marshal.rsi # Mono
   - type: PointLight
     color: "#ffeead"
   - type: PressureProtection
@@ -393,6 +415,18 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: NightVision # Gen 4 quadtube-wide, Mono
+    relayOverlay: true
+    goggleEffect: true
+    viewCircleRadius: 450
+    viewCircleCount: 4
+    viewCircleSpacing: 280
+    action: ActionToggleNightVision
+    phosphorColor: "#41D7D9"
+    lightingColor: "#FFFFFF32"
+  - type: SpeechSoundsReplacer
+    speechSounds: Chrono
+
 
 #Luxury Mining Hardsuit
 - type: entity
@@ -419,7 +453,7 @@
   parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
   id: ClothingHeadHelmetHardsuitSyndie
   name: blood-red hardsuit helmet
-  description: A heavily armored helmet designed for work in special operations. Property of Gorlex Marauders.
+  description: A heavily armored helmet designed for work in special operations.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/syndicate.rsi
@@ -468,8 +502,8 @@
 - type: entity
   parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
   id: ClothingHeadHelmetHardsuitSyndieElite
-  name: syndicate elite helmet
-  description: An elite version of the blood-red hardsuit's helmet, with improved armor and fireproofing. Property of Gorlex Marauders.
+  name: elite helmet
+  description: An elite version of the blood-red hardsuit's helmet, with improved armor and fireproofing.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/syndieelite.rsi
@@ -498,8 +532,8 @@
 - type: entity
   parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase, ShowSecurityIcons, BaseFactionGearOtherFactionT3]
   id: ClothingHeadHelmetHardsuitSyndieCommander
-  name: syndicate commander helmet
-  description: A bulked up version of the blood-red hardsuit's helmet, purpose-built for the commander of a syndicate operative squad. Has significantly improved armor for those deadly front-lines firefights.
+  name: commander helmet
+  description: A bulked up version of the blood-red hardsuit's helmet, purpose-built for the commander of a boarding squad. Has significantly improved armor for those deadly front-lines firefights.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/syndiecommander.rsi
@@ -523,8 +557,8 @@
 - type: entity
   parent: ClothingHeadHardsuitBase
   id: ClothingHeadHelmetHardsuitCybersun
-  name: cybersun juggernaut helmet
-  description: Made of compressed red matter, this helmet was designed in the Tau chromosphere facility.
+  name: juggernaut helmet
+  description: Made of compressed red matter, this helmet is a mark of the Sultan's divinity.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/cybersun.rsi

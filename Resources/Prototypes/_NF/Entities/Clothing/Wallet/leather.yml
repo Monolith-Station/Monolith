@@ -96,3 +96,66 @@
     - state: closed-coin
       map: ["closed-coin"]
       visible: false
+
+- type: entity
+  parent: ClothingWalletLeatherBrown
+  id: ClothingWalletLeatherRed
+  components:
+  - type: Sprite
+    layers:
+    - state: closed-red
+      map: ["closeLayer"]
+    - state: open-red
+      map: ["openLayer"]
+      visible: false
+    - state: closed-paper
+      map: ["closed-paper"]
+      visible: false
+    - state: closed-cash
+      map: ["closed-cash"]
+      visible: false
+    - state: closed-coin
+      map: ["closed-coin"]
+      visible: false
+
+- type: entity
+  parent: ClothingWalletLeatherBrown
+  id: ClothingWalletLeatherBlue
+  components:
+  - type: Sprite
+    layers:
+    - state: closed-blue
+      map: ["closeLayer"]
+    - state: open-blue
+      map: ["openLayer"]
+      visible: false
+    - state: closed-paper
+      map: ["closed-paper"]
+      visible: false
+    - state: closed-cash
+      map: ["closed-cash"]
+      visible: false
+    - state: closed-coin
+      map: ["closed-coin"]
+      visible: false
+
+- type: entity
+  parent: ClothingWalletLeatherBrown
+  id: ClothingWalletLeatherGreen
+  components:
+  - type: Sprite
+    layers:
+    - state: closed-green
+      map: ["closeLayer"]
+    - state: open-green
+      map: ["openLayer"]
+      visible: false
+    - state: closed-paper
+      map: ["closed-paper"]
+      visible: false
+    - state: closed-cash
+      map: ["closed-cash"]
+      visible: false
+    - state: closed-coin
+      map: ["closed-coin"]
+      visible: false

@@ -21,7 +21,6 @@ namespace Content.Server._CE.ZLevels.Core;
 public sealed partial class CEZGridConnectorSystem : EntitySystem
 {
     [Dependency] private CEZLevelsSystem _zLevels = default!;
-    [Dependency] private IMapManager _mapManager = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private SharedMapSystem _mapSystem = default!;
 
@@ -277,7 +276,7 @@ public sealed partial class CEZGridConnectorSystem : EntitySystem
         }
 
         var worldPos = _transform.GetWorldPosition(connectorUid);
-        if (!_mapManager.TryFindGridAt(neighbourMapUid, worldPos, out var neighbourGridUid, out var neighbourGridComp))
+        if (!_mapSystem.TryFindGridAt(neighbourMapUid, worldPos, out var neighbourGridUid, out var neighbourGridComp))
             return false;
         if (neighbourGridUid == parentGrid)
             return false;

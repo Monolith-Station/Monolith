@@ -2,72 +2,37 @@
 - type: latheRecipe
   id: CanilunztTranslator
   result: CanilunztTranslator
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 100
-    Plastic: 50
-    Gold: 50
+  parent: BaseTranslatorRecipe # Mono: Generic recipe
 
 - type: latheRecipe
   id: BubblishTranslator
   result: BubblishTranslator
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 100
-    Plastic: 50
-    Gold: 50
+  parent: BaseTranslatorRecipe # Mono: Generic recipe
 
 - type: latheRecipe
   id: NekomimeticTranslator
   result: NekomimeticTranslator
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 100
-    Plastic: 50
-    Gold: 50
+  parent: BaseTranslatorRecipe # Mono: Generic recipe
 
 - type: latheRecipe
   id: DraconicTranslator
   result: DraconicTranslator
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 100
-    Plastic: 50
-    Gold: 50
+  parent: BaseTranslatorRecipe # Mono: Generic recipe
 
 - type: latheRecipe
   id: SolCommonTranslator
   result: SolCommonTranslator
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 100
-    Plastic: 50
-    Gold: 50
+  parent: BaseTranslatorRecipe # Mono: Generic recipe
 
 - type: latheRecipe
   id: RootSpeakTranslator
   result: RootSpeakTranslator
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 100
-    Plastic: 50
-    Gold: 50
+  parent: BaseTranslatorRecipe # Mono: Generic recipe
 
 - type: latheRecipe
   id: MofficTranslator
   result: MofficTranslator
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 100
-    Plastic: 50
-    Gold: 50
+  parent: BaseTranslatorRecipe # Mono: Generic recipe
 
 - type: latheRecipe
   id: XenoTranslator
@@ -94,204 +59,95 @@
 - type: latheRecipe
   id: ValyrianStandardTranslator
   result: ValyrianStandardTranslator
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 100
-    Plastic: 50
-    Gold: 50
+  parent: BaseTranslatorRecipe # Mono: Generic recipe
 
 - type: latheRecipe
   id: ChittinTranslator
   result: ChittinTranslator
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 100
-    Plastic: 50
-    Gold: 50
+  parent: BaseTranslatorRecipe # Mono: Generic recipe
 
 - type: latheRecipe
   id: SiikMaasTranslator
   result: SiikMaasTranslator
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 100
-    Plastic: 50
-    Gold: 50
+  parent: BaseTranslatorRecipe # Mono: Generic recipe
 
 - type: latheRecipe
   id: MarishTranslator
   result: MarishTranslator
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 100
-    Plastic: 50
-    Gold: 50
+  parent: BaseTranslatorRecipe # Mono: Generic recipe
 
 - type: latheRecipe
   id: NewKinPidginTranslator
   result: NewKinPidginTranslator
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 100
-    Plastic: 50
-    Gold: 50
+  parent: BaseTranslatorRecipe # Mono: Generic recipe
 
 # Implanters
 - type: latheRecipe
   id: BasicGalaticCommonTranslatorImplanter
   result: BasicGalaticCommonTranslatorImplanter
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 500
-    Plastic: 100
-    Gold: 50
-    Silver: 50
+  parent: BaseTranslatorImplanterRecipe # Mono: Generic recipe
 
 - type: latheRecipe
   id: AdvancedGalaticCommonTranslatorImplanter
   result: AdvancedGalaticCommonTranslatorImplanter
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 500
-    Plastic: 100
-    Gold: 50
-    Silver: 50
+  parent: BaseTranslatorImplanterRecipe # Mono: Generic recipe
 
 - type: latheRecipe
   id: BubblishTranslatorImplanter
   result: BubblishTranslatorImplanter
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 500
-    Plastic: 100
-    Gold: 50
-    Silver: 50
+  parent: BaseTranslatorImplanterRecipe # Mono: Generic recipe
 
 - type: latheRecipe
   id: NekomimeticTranslatorImplanter
   result: NekomimeticTranslatorImplanter
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 500
-    Plastic: 100
-    Gold: 50
-    Silver: 50
+  parent: BaseTranslatorImplanterRecipe # Mono: Generic recipe
 
 - type: latheRecipe
   id: DraconicTranslatorImplanter
   result: DraconicTranslatorImplanter
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 500
-    Plastic: 100
-    Gold: 50
-    Silver: 50
+  parent: BaseTranslatorImplanterRecipe # Mono: Generic recipe
 
 - type: latheRecipe
   id: CanilunztTranslatorImplanter
   result: CanilunztTranslatorImplanter
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 500
-    Plastic: 100
-    Gold: 50
-    Silver: 50
+  parent: BaseTranslatorImplanterRecipe # Mono: Generic recipe
 
 - type: latheRecipe
   id: SolCommonTranslatorImplanter
   result: SolCommonTranslatorImplanter
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 500
-    Plastic: 100
-    Gold: 50
-    Silver: 50
+  parent: BaseTranslatorImplanterRecipe # Mono: Generic recipe
 
 - type: latheRecipe
   id: RootSpeakTranslatorImplanter
   result: RootSpeakTranslatorImplanter
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 500
-    Plastic: 100
-    Gold: 50
-    Silver: 50
+  parent: BaseTranslatorImplanterRecipe # Mono: Generic recipe
 
 - type: latheRecipe
   id: MofficTranslatorImplanter
   result: MofficTranslatorImplanter
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 500
-    Plastic: 100
-    Gold: 50
-    Silver: 50
+  parent: BaseTranslatorImplanterRecipe # Mono: Generic recipe
 
 - type: latheRecipe
   id: ValyrianStandardTranslatorImplanter
   result: ValyrianStandardTranslatorImplanter
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 500
-    Plastic: 100
-    Gold: 50
-    Silver: 50
+  parent: BaseTranslatorImplanterRecipe # Mono: Generic recipe
 
 - type: latheRecipe
   id: ChittinTranslatorImplanter
   result: ChittinTranslatorImplanter
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 500
-    Plastic: 100
-    Gold: 50
-    Silver: 50
+  parent: BaseTranslatorImplanterRecipe # Mono: Generic recipe
 
 - type: latheRecipe
   id: SiikMaasTranslatorImplanter
   result: SiikMaasTranslatorImplanter
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 500
-    Plastic: 100
-    Gold: 50
-    Silver: 50
+  parent: BaseTranslatorImplanterRecipe # Mono: Generic recipe
 
 - type: latheRecipe
   id: MarishTranslatorImplanter
   result: MarishTranslatorImplanter
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 500
-    Plastic: 100
-    Gold: 50
-    Silver: 50
+  parent: BaseTranslatorImplanterRecipe # Mono: Generic recipe
 
 - type: latheRecipe
   id: NewKinPidginTranslatorImplanter
   result: NewKinPidginTranslatorImplanter
-  completetime: 2
-  materials:
-    Steel: 500
-    Glass: 500
-    Plastic: 100
-    Gold: 50
-    Silver: 50
+  parent: BaseTranslatorImplanterRecipe # Mono: Generic recipe

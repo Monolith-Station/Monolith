@@ -330,8 +330,10 @@
     state: hemostat
   - type: SurgeryTendWoundsEffect
     damage:
-      groups:
-        Brute: -5
+      types:
+        Blunt: -1.66
+        Slash: -1.67
+        Piercing: -1.67
   - type: SurgeryRepeatableStep
 
 - type: entity
@@ -350,8 +352,11 @@
   - type: SurgeryTendWoundsEffect
     mainGroup: Burn
     damage:
-      groups:
-        Burn: -5
+      types:
+        Heat: -1.25
+        Shock: -1.25
+        Cold: -1.25
+        Caustic: -1.25
   - type: SurgeryRepeatableStep
 
 - type: entity

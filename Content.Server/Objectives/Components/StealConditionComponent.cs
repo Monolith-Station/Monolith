@@ -1,5 +1,6 @@
 using Content.Server.Objectives.Systems;
 using Content.Shared.Objectives;
+using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Objectives.Components;
@@ -27,6 +28,18 @@ public sealed partial class StealConditionComponent : Component
     /// </summary>
     [DataField]
     public bool CheckStealAreas = false;
+
+    /// <summary>
+    /// Mono - what steal area tags to check around?
+    /// </summary>
+    [DataField]
+    public string StealAreaTagProto = "StealArea";
+
+    /// <summary>
+    /// Mono - check other company members for this objective
+    /// </summary>
+    [DataField]
+    public bool CheckCompanyMembers = false;
 
     /// <summary>
     /// If the target may be alive but has died, it will not be counted

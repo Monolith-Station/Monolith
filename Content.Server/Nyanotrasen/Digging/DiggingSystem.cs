@@ -94,7 +94,7 @@ public sealed partial class DiggingSystem : EntitySystem
             user,
             target: shovel,
             doAfterDelay: component.Delay,
-            toolQualitiesNeeded: new[] { component.QualityNeeded },
+            toolQualitiesNeeded: new[] { component.QualityNeeded.Id },
             doAfterEv: ev,
             toolComponent: tool
         );

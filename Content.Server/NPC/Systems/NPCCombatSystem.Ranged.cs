@@ -72,7 +72,7 @@ public sealed partial class NPCCombatSystem
         }
 
         // Goobstation
-        if (_gun.TryGetGun(uid, out var gunUid, out _) && TryComp(gunUid, out LaserPointerComponent? laser) &&
+        if (_gun.TryGetGun(uid, out var gunUid) && TryComp(gunUid, out LaserPointerComponent? laser) &&
             TryComp(gunUid, out WieldableComponent? wieldable) && TryComp(gunUid, out TransformComponent? xform))
             _pointer.AddOrRemoveLine(GetNetEntity(gunUid), laser, wieldable, xform, null, null);
     }
@@ -85,7 +85,7 @@ public sealed partial class NPCCombatSystem
         {
             var xform = Transform(uid); // Mono
 
-            if (!_gun.TryGetGun(uid, out var gunUid, out var gun))
+            if (!_gun.TryGetGun(uid, out var gunUid))
             {
                 comp.Status = CombatStatus.NoWeapon;
                 comp.ShootAccumulator = 0f;
@@ -213,7 +213,7 @@ public sealed partial class NPCCombatSystem
 
             // TODO: Check if we can face
 
-            if (!Enabled || !_gun.CanShoot(gun))
+            if (!Enabled || !_gun.CanShoot(gunUid.Comp))
             {
                 UpdatePointerLine(gunUid, targetPos, worldPos, comp.Target); // Goobstation
                 continue;
@@ -221,7 +221,7 @@ public sealed partial class NPCCombatSystem
 
             EntityCoordinates targetCordinates;
 
-            if (_mapManager.TryFindGridAt(xform.MapID, targetPos, out var gridUid, out var mapGrid))
+            if (_map.TryFindGridAt(xform.MapID, targetPos, out var gridUid, out var mapGrid))
             {
                 targetCordinates = new EntityCoordinates(gridUid, _map.WorldToLocal(gridUid, mapGrid, targetSpot));
             }
@@ -234,13 +234,13 @@ public sealed partial class NPCCombatSystem
 
             UpdatePointerLine(gunUid, targetPos, worldPos, comp.Target); // Goobstation
 
-            if (gun.NextFire > _timing.CurTime)
+            if (gunUid.Comp.NextFire > _timing.CurTime)
             {
                 return;
             }
 
-            _gun.SetTarget(gun, comp.Target); // Frontier - This ensures that the bullet won't fly over the target if it's downed
-            _gun.AttemptShoot(uid, gunUid, gun, targetCordinates);
+            _gun.SetTarget(gunUid.Comp, comp.Target); // Frontier - This ensures that the bullet won't fly over the target if it's downed
+            _gun.AttemptShoot(uid, gunUid, gunUid.Comp, targetCordinates);
         }
     }
 

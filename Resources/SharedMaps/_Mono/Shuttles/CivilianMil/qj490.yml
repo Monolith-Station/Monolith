@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 277.0.0
+  engineVersion: 277.0.6
   forkId: ""
   forkVersion: ""
-  time: 09/21/2026 17:29:26
-  entityCount: 169
+  time: 11/24/2026 23:01:02
+  entityCount: 173
 maps: []
 grids:
 - 1
@@ -111,9 +111,10 @@ entities:
             12: 0,0
     - type: SpreaderGrid
       spreadQueues:
-        Puddle: []
         Smoke: []
         MetalFoam: []
+        ESTileFire: []
+        Puddle: []
         Kudzu: []
     - type: GridAtmosphere
       version: 2
@@ -129,7 +130,8 @@ entities:
             0: 513
             1: 8412
           0,-1:
-            1: 22880
+            2: 256
+            1: 22624
             0: 32900
           -1,1:
             0: 64
@@ -150,6 +152,11 @@ entities:
           moles:
             Oxygen: 21.824879
             Nitrogen: 82.10312
+        - volume: 2500
+          temperature: 293.14996
+          moles:
+            Oxygen: 20.078888
+            Nitrogen: 75.53487
         chunkSize: 4
     - type: GasTileOverlay
     - type: ShipGridLock
@@ -163,6 +170,9 @@ entities:
         0,-1: 508632983792517120
     - type: ThermalSignature
     - type: ExplosionAirtightGrid
+    - type: GridSensors
+      datalinkCodes: []
+    - type: DetectionRangeMultiplier
 - proto: AirCanister
   entities:
   - uid: 2
@@ -474,6 +484,22 @@ entities:
       rot: 3.141592653589793 rad
       pos: 0.5,-2.5
       parent: 1
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14923
+        moles:
+          Oxygen: 1.7459903
+          Nitrogen: 6.568249
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 88
+          - 81
 - proto: ComputerGunneryConsole
   entities:
   - uid: 58
@@ -507,6 +533,14 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
+- proto: ExtinguisherCabinetFilled
+  entities:
+  - uid: 172
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 1.5,1.5
+      parent: 1
 - proto: GasPassiveVent
   entities:
   - uid: 61
@@ -666,23 +700,11 @@ entities:
       powerLoad: 10
 - proto: HardpointBallisticLight
   entities:
-  - uid: 81
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 2.5,1.5
-      parent: 1
   - uid: 87
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 1.5,3.5
-      parent: 1
-  - uid: 130
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -3.5,1.5
       parent: 1
   - uid: 131
     components:
@@ -697,6 +719,20 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -0.5,4.5
+      parent: 1
+- proto: HardpointMissileLight
+  entities:
+  - uid: 170
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 2.5,1.5
+      parent: 1
+  - uid: 171
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -3.5,1.5
       parent: 1
 - proto: NFHolopadShip
   entities:
@@ -901,6 +937,14 @@ entities:
     - type: Transform
       pos: 1.5,1.5
       parent: 1
+- proto: SensorRadarCivT2
+  entities:
+  - uid: 173
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -0.5,4.5
+      parent: 1
 - proto: SmallGyroscope
   entities:
   - uid: 59
@@ -964,6 +1008,22 @@ entities:
       rot: 3.141592653589793 rad
       pos: 1.5,-2.5
       parent: 1
+- proto: VanykMagazine
+  entities:
+  - uid: 81
+    components:
+    - type: Transform
+      parent: 169
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 88
+    components:
+    - type: Transform
+      parent: 169
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: WallPlastitanium
   entities:
   - uid: 98
@@ -1167,31 +1227,33 @@ entities:
       rot: 3.141592653589793 rad
       pos: 1.5,3.5
       parent: 1
-  - uid: 165
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 2.5,1.5
-      parent: 1
   - uid: 167
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -2.5,3.5
       parent: 1
+- proto: WeaponTurretTarnyxReloadAP
+  entities:
   - uid: 168
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: -3.5,1.5
+      pos: -0.5,4.5
       parent: 1
-- proto: WeaponTurretDravon
+- proto: WeaponTurretVanyk
   entities:
-  - uid: 88
+  - uid: 130
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: -0.5,4.5
+      pos: 2.5,1.5
+      parent: 1
+  - uid: 165
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -3.5,1.5
       parent: 1
 - proto: WindoorSecure
   entities:

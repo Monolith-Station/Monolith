@@ -10,6 +10,7 @@ namespace Content.Server._EinsteinEngines.Language;
 
 public sealed partial class LanguageSystem : SharedLanguageSystem
 {
+
     public override void Initialize()
     {
         base.Initialize();
@@ -67,13 +68,7 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
 
     #region public api
 
-    public bool CanUnderstand(Entity<LanguageSpeakerComponent?> ent, ProtoId<LanguagePrototype> language)
-    {
-        if (language == PsychomanticPrototype || language == UniversalPrototype || TryComp<UniversalLanguageSpeakerComponent>(ent, out var uni) && uni.Enabled)
-            return true;
 
-        return Resolve(ent, ref ent.Comp, logMissing: false) && ent.Comp.UnderstoodLanguages.Contains(language);
-    }
 
     public bool CanSpeak(Entity<LanguageSpeakerComponent?> ent, ProtoId<LanguagePrototype> language)
     {
@@ -108,7 +103,7 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
 
     /// <summary>
     ///     Returns the list of languages this entity can understand.
-    /// </summary
+    /// </summary>
     /// <remarks>This simply returns the value of <see cref="LanguageSpeakerComponent.SpokenLanguages"/>.</remarks>
     public List<ProtoId<LanguagePrototype>> GetUnderstoodLanguages(EntityUid uid)
     {
@@ -204,10 +199,14 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
         if (TryComp<LanguageKnowledgeComponent>(ent, out var knowledge))
         {
             foreach (var spoken in knowledge.SpokenLanguages)
+            {
                 ev.SpokenLanguages.Add(spoken);
+            }
 
             foreach (var understood in knowledge.UnderstoodLanguages)
+            {
                 ev.UnderstoodLanguages.Add(understood);
+            }
         }
 
         RaiseLocalEvent(ent, ref ev);
@@ -224,6 +223,54 @@ public sealed partial class LanguageSystem : SharedLanguageSystem
 
         Dirty(ent);
     }
+
+    // Starlight start
+    /// <summary>
+    /// Attempt to resolve language based off a given prefix.
+    /// </summary>
+    /// <param name="ent">Entity to get language from</param>
+    /// <param name="input">Input to parse for prefix. Should start with <c><see cref="SharedLanguageSystem.ChatPrefixChar"/></c>.</param>
+    /// <param name="parsed">Whether the function managed to parse the prefix or not.</param>
+    /// <param name="modifyText">Whether to allow this function to modify the resulting text string or not.</param>
+    /// <returns></returns>
+    public LanguagePrototype GetLanguageFromPrefix(Entity<LanguageSpeakerComponent?> ent, ref string input, out bool parsed, bool modifyText = false)
+    {
+        parsed = false;
+        // Fallback if unable to get the current selected language. Selected language is used if unable to parse.
+        if (!Resolve(ent, ref ent.Comp, logMissing: false))
+            return Universal;
+
+        var proto = GetLanguage(ent);
+        // Begin parsing
+        var text = input;
+        if (text.Length<4 || !text.StartsWith(ChatPrefixChar))
+            return proto;
+        text = text[1..];
+        var prefix = text[..3];
+        foreach (var langId in ent.Comp.SpokenLanguages)
+        {
+            if (!_prototype.TryIndex(langId, out var lang))
+                continue;
+            if (lang.ChatPrefix is null)
+                continue;
+            if (lang.ChatPrefix.Length != 3)
+            {
+                Log.Error($"Chat prefixes must be 3 characters long. {lang.Name}'s prefix is {lang.ChatPrefix}");
+                return Universal;
+            }
+
+            if (!lang.ChatPrefix.Equals(prefix, StringComparison.CurrentCultureIgnoreCase))
+                continue;
+
+            if(modifyText)
+                input = text[3..];
+            parsed = true;
+            return lang;
+        }
+
+        return proto;
+    }
+    // Starlight end
 
     #endregion
 }

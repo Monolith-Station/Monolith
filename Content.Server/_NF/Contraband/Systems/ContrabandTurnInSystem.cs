@@ -14,6 +14,9 @@ using Content.Shared.Coordinates;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Robust.Shared.Prototypes;
+using Content.Server._Mono.Cloning;
+using Content.Server._Mono.PDV.Components;
+using Content.Shared.Mind;
 
 namespace Content.Server._NF.Contraband.Systems;
 
@@ -27,6 +30,8 @@ public sealed partial class ContrabandTurnInSystem : SharedContrabandTurnInSyste
     [Dependency] private StackSystem _stack = default!;
     [Dependency] private StationSystem _station = default!;
     [Dependency] private UserInterfaceSystem _uiSystem = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private GeneticDatabaseSystem _geneticDatabase = default!; // Mono
 
     private EntityQuery<MobStateComponent> _mobQuery;
     private EntityQuery<TransformComponent> _xformQuery;
@@ -123,6 +128,10 @@ public sealed partial class ContrabandTurnInSystem : SharedContrabandTurnInSyste
 
         foreach (var ent in toSell)
         {
+            if (_mind.TryGetMind(ent, out var mind, out _)) // Mono: mark turned-in heretics or fugitives as uncloneable
+            {
+                _geneticDatabase.MarkUncloneable(mind);
+            }
             Del(ent);
         }
     }
@@ -140,7 +149,7 @@ public sealed partial class ContrabandTurnInSystem : SharedContrabandTurnInSyste
                 // Dont sell:
                 // - anything already being sold
                 // - anything anchored (e.g. light fixtures)
-                // - anything blacklisted (e.g. players).
+                // - anything blacklisted (e.g. players). // Mono: actually putting contraband values on players is something that needs to be allowed
                 if (toSell.Contains(ent) ||
                     _xformQuery.TryGetComponent(ent, out var xform) &&
                     (xform.Anchored || !CanSell(ent, xform)))
@@ -148,15 +157,16 @@ public sealed partial class ContrabandTurnInSystem : SharedContrabandTurnInSyste
                     continue;
                 }
 
-                if (_blacklistQuery.HasComponent(ent))
+                //if (_blacklistQuery.HasComponent(ent)) // Mono: allow blacklisted items to be exchanged again
+                //    continue;
+                if (HasComp<HereticComponent>(ent) && !_mind.TryGetMind(ent, out _, out _))
                     continue;
 
                 if (TryComp<ContrabandComponent>(ent, out var comp))
                 {
-                    if (!comp.TurnInValues.ContainsKey(console.RewardType))
+                    if (!comp.TurnInValues.TryGetValue(console.RewardType.Id, out var value))
                         continue;
 
-                    var value = comp.TurnInValues[console.RewardType];
                     // Mono Begin - Accounting for stacks of contraband
                     if (TryComp<StackComponent>(ent, out var stackcomp))
                         value *= stackcomp.Count;

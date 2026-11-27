@@ -56,11 +56,11 @@
     Chest:
       points: 3
       required: false
-    Arms:
-      points: 1
-      required: false
     Legs:
-      points: 1
+      points: 8 # imp/mono 2<8
+      required: false
+    Arms:
+      points: 8 # imp/mono 2<8
       required: false
     Tail:
       points: 1

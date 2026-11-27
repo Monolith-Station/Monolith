@@ -1,6 +1,19 @@
 # LPCs
 
 - type: listing
+  id: MMCShipVoucherMieyoSenkusha
+  productEntity: ShipVoucherMieyoSenkusha
+  cost:
+    MMCIndustrialCredit: 120
+  categories:
+  - UplinkMmcCorporateSuppliesFlatpacks # dont question
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - MMCUplink
+
+- type: listing
   id: MMCShipVoucherMieyoYukikaze
   productEntity: ShipVoucherMieyoYukikaze
   cost:

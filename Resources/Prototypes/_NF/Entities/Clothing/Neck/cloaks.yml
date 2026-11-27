@@ -7,7 +7,8 @@
   - type: Sprite
     sprite: _NF/Clothing/Neck/Cloaks/nfsdsheriff.rsi
   - type: StealTarget
-    stealGroup: HeadCloak
+    stealGroup:
+    - HeadCloak
 
 - type: entity
   parent: ClothingNeckCloakHop

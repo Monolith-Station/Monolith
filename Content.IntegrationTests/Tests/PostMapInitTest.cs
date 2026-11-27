@@ -300,7 +300,7 @@ namespace Content.IntegrationTests.Tests
                     var protoId = yamlEntity["proto"].AsString();
 
                     // This doesn't properly handle prototype migrations, but thats not a significant issue.
-                    if (!protoManager.TryIndex(protoId, out var proto, false))
+                    if (!protoManager.TryIndex(protoId, out var proto))
                         continue;
 
                     Assert.That(!proto.Categories.Contains(dnmCategory) || IsWhitelistedForMap(protoId, map),
@@ -350,7 +350,7 @@ namespace Content.IntegrationTests.Tests
             });
             var server = pair.Server;
 
-            var mapManager = server.ResolveDependency<IMapManager>();
+            var mapManager = server.System<SharedMapSystem>();
             var entManager = server.ResolveDependency<IEntityManager>();
             var mapLoader = entManager.System<MapLoaderSystem>();
             var mapSystem = entManager.System<SharedMapSystem>();
@@ -505,6 +505,7 @@ namespace Content.IntegrationTests.Tests
                     !x.MapPath.ToString().StartsWith("/Maps/_Mono/Deprecated") && // Mono: skip deprecated (not loaded as maps)
                     !x.MapPath.ToString().StartsWith("/Maps/_Mono/ShuttleEvent") && // Mono: skip shuttleevents (not loaded as maps)
                     !x.MapPath.ToString().StartsWith("/Maps/_Mono/Supercapitals") && // Mono: skip supercapitals (not loaded as maps)
+                    !x.MapPath.ToString().StartsWith("/Maps/_Mono/Crocus") && // Mono: skip crocus (irrelevant)
                     !x.MapPath.ToString().StartsWith("/Maps/_Mono/POI")) // Mono: skip POIs (not loaded as maps)
                     )
                 // End Frontier

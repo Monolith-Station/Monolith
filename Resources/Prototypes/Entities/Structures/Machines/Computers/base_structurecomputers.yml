@@ -56,7 +56,7 @@
     radius: 1.5
     energy: 1.6
     enabled: false
-    mask: /Textures/Effects/LightMasks/cone.png
+    lightMask: ConeSingle
     autoRot: true
     offset: "0, 0.4" # shine from the top, not bottom of the computer
     castShadows: false
@@ -116,6 +116,12 @@
         maxDistance: 4
         variation: 0.05
   # Mono changes end
+# ES Start
+  - type: ESSparkOnHit
+    prob: 0.25
+    tileFireChance: 0.2
+    count: 2
+# ES End
 #
 #     This is overwritten by children, so needs to be defined there
 #  - type: UserInterface

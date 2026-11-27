@@ -144,61 +144,64 @@
 #      tags:
 #      - NukeOpsUplink
 
-- type: listing
-  id: UplinkSniperBundle
-  name: uplink-sniper-bundle-name
-  description: uplink-sniper-bundle-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Snipers/hristov.rsi, state: base }
-  productEntity: BriefcaseSyndieSniperBundleFilled
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 50 # Mono #7->10 Mono Edit
-  cost:
-    Telecrystal: 80 # Mono #12->16 Mono Edit
-  categories:
-  - UplinkWeaponry
+# Mono
+#- type: listing
+#  id: UplinkSniperBundle
+#  name: uplink-sniper-bundle-name
+#  description: uplink-sniper-bundle-desc
+#  icon: { sprite: /Textures/Objects/Weapons/Guns/Snipers/hristov.rsi, state: base }
+#  productEntity: BriefcaseSyndieSniperBundleFilled
+#  discountCategory: usualDiscounts
+#  discountDownTo:
+#    Telecrystal: 50 # Mono #7->10 Mono Edit
+#  cost:
+#    Telecrystal: 80 # Mono #12->16 Mono Edit
+#  categories:
+#  - UplinkWeaponry
 
-- type: listing
-  id: UplinkC20RBundle
-  name: uplink-c20r-bundle-name
-  description: uplink-c20r-bundle-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/SMGs/c20r.rsi, state: icon }
-  productEntity: ClothingBackpackDuffelSyndicateFilledSMG
-  discountCategory: veryRareDiscounts
-  discountDownTo:
-    Telecrystal: 15 # Mono #10->3 Mono Edit
-  cost:
-    Telecrystal: 30 # Mono #17->6 Mono Edit
-  categories:
-  - UplinkWeaponry
+# Mono: remove PDV guns from uplink
+#- type: listing
+#  id: UplinkC20RBundle
+#  name: uplink-c20r-bundle-name
+#  description: uplink-c20r-bundle-desc
+#  icon: { sprite: /Textures/Objects/Weapons/Guns/SMGs/c20r.rsi, state: icon }
+#  productEntity: ClothingBackpackDuffelSyndicateFilledSMG
+#  discountCategory: veryRareDiscounts
+#  discountDownTo:
+#    Telecrystal: 15 # Mono #10->3 Mono Edit
+#  cost:
+#    Telecrystal: 30 # Mono #17->6 Mono Edit
+#  categories:
+#  - UplinkWeaponry
 
-- type: listing
-  id: UplinkBulldogBundle
-  name: uplink-buldog-bundle-name
-  description: uplink-buldog-bundle-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Shotguns/bulldog.rsi, state: icon }
-  productEntity: ClothingBackpackDuffelSyndicateFilledShotgun
-  discountCategory: veryRareDiscounts
-  discountDownTo:
-    Telecrystal: 40 # Mono #12->8 Mono Edit
-  cost:
-    Telecrystal: 75 # Mono #20->15 Mono Edit
-  categories:
-  - UplinkWeaponry
+# Mono: remove PDV guns from uplink
+#- type: listing
+#  id: UplinkBulldogBundle
+#  name: uplink-buldog-bundle-name
+#  description: uplink-buldog-bundle-desc
+#  icon: { sprite: /Textures/Objects/Weapons/Guns/Shotguns/bulldog.rsi, state: icon }
+#  productEntity: ClothingBackpackDuffelSyndicateFilledShotgun
+#  discountCategory: veryRareDiscounts
+#  discountDownTo:
+#    Telecrystal: 40 # Mono #12->8 Mono Edit
+#  cost:
+#    Telecrystal: 75 # Mono #20->15 Mono Edit
+#  categories:
+#  - UplinkWeaponry
 
-- type: listing # Mono revert, re-adds China Lake
-  id: UplinkGrenadeLauncherBundle
-  name: uplink-grenade-launcher-bundle-name
-  description: uplink-grenade-launcher-bundle-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Launchers/china_lake.rsi, state: icon }
-  productEntity: ClothingBackpackDuffelSyndicateFilledGrenadeLauncher
-  discountCategory: veryRareDiscounts
-  discountDownTo:
-    Telecrystal: 100 # Mono #20->16 Mono Edit
-  cost:
-    Telecrystal: 125 # Mono #25 Mono Edit
-  categories:
-  - UplinkWeaponry
+# - type: listing # Mono revert, re-adds China Lake ## Mono re-revert: With the addition of the UBM, this is removed
+#   id: UplinkGrenadeLauncherBundle
+#   name: uplink-grenade-launcher-bundle-name
+#   description: uplink-grenade-launcher-bundle-desc
+#   icon: { sprite: /Textures/Objects/Weapons/Guns/Launchers/china_lake.rsi, state: icon }
+#   productEntity: ClothingBackpackDuffelSyndicateFilledGrenadeLauncher
+#   discountCategory: veryRareDiscounts
+#   discountDownTo:
+#     Telecrystal: 100 # Mono #20->16 Mono Edit
+#   cost:
+#     Telecrystal: 125 # Mono #25 Mono Edit
+#   categories:
+#   - UplinkWeaponry
 
 - type: listing
   id: UplinkL6SawBundle
@@ -1254,6 +1257,11 @@
     Telecrystal: 30 # Mono
   categories:
     - UplinkAllies
+  conditions:
+  - !type:BuyerWhitelistCondition # Mono: prevent syndicat ghost roles from leaking the location of surplus crate spawns i.e. PDV Jupiter
+    blacklist:
+      components:
+      - SurplusBundle
 
 - type: listing
   id: UplinkSyndicatePersonalAI
@@ -1360,56 +1368,56 @@
   categories:
   - UplinkImplants
 
-- type: listing # Mono nukie support
-  id: UplinkMicroBombImplanter
-  name: uplink-micro-bomb-implanter-name
-  description: uplink-micro-bomb-implanter-desc
-  icon: { sprite: /Textures/Actions/Implants/implants.rsi, state: explosive }
-  productEntity: MicroBombImplanter
-  cost:
-    Telecrystal: 10 # Mono
-  categories:
-  - UplinkImplants
-  conditions:
+#- type: listing # Mono nukie support # Mono: removed from fugitives
+#  id: UplinkMicroBombImplanter
+#  name: uplink-micro-bomb-implanter-name
+#  description: uplink-micro-bomb-implanter-desc
+#  icon: { sprite: /Textures/Actions/Implants/implants.rsi, state: explosive }
+#  productEntity: MicroBombImplanter
+#  cost:
+#    Telecrystal: 10 # Mono
+#  categories:
+#  - UplinkImplants
+#  conditions:
 #  - !type:StoreWhitelistCondition - added to normal uplink
 #    whitelist:
 #      tags:
 #      - NukeOpsUplink
-  - !type:BuyerWhitelistCondition
-    blacklist:
-      components:
-      - SurplusBundle
+#  - !type:BuyerWhitelistCondition
+#    blacklist:
+#      components:
+#      - SurplusBundle
 
-- type: listing # Frontier
-  id: UplinkMacroBombImplanter
-  name: uplink-macro-bomb-implanter-name
-  description: uplink-macro-bomb-implanter-desc
-  icon: { sprite: /Textures/Actions/Implants/implants.rsi, state: explosive }
-  productEntity: MacroBombImplanter
-  cost:
-    Telecrystal: 65 # Mono
-  categories:
-    - UplinkImplants
-  conditions:
+#- type: listing # Frontier
+#  id: UplinkMacroBombImplanter
+#  name: uplink-macro-bomb-implanter-name
+#  description: uplink-macro-bomb-implanter-desc
+#  icon: { sprite: /Textures/Actions/Implants/implants.rsi, state: explosive }
+#  productEntity: MacroBombImplanter
+#  cost:
+#    Telecrystal: 65 # Mono
+#  categories:
+#    - UplinkImplants
+#  conditions:
 #    - !type:StoreWhitelistCondition - Added to normal uplink
 #      whitelist:
 #        tags:
 #          - NukeOpsUplink
-    - !type:BuyerWhitelistCondition
-      blacklist:
-        components:
-          - SurplusBundle
+#    - !type:BuyerWhitelistCondition
+#      blacklist:
+#        components:
+#          - SurplusBundle
 
-- type: listing # Frontier - Mono Revert - Added to normal uplink
-  id: UplinkDeathAcidifierImplanter
-  name: uplink-death-acidifier-implant-name
-  description: uplink-death-acidifier-implant-desc
-  icon: { sprite: /Textures/Objects/Magic/magicactions.rsi, state: gib }
-  productEntity: DeathAcidifierImplanter
-  cost:
-    Telecrystal: 20 # Mono
-  categories:
-    - UplinkImplants
+#- type: listing # Frontier - Mono Revert - Added to normal uplink # Mono - removed from fugitives
+#  id: UplinkDeathAcidifierImplanter
+#  name: uplink-death-acidifier-implant-name
+#  description: uplink-death-acidifier-implant-desc
+#  icon: { sprite: /Textures/Objects/Magic/magicactions.rsi, state: gib }
+#  productEntity: DeathAcidifierImplanter
+#  cost:
+#    Telecrystal: 20 # Mono
+#  categories:
+#    - UplinkImplants
   # conditions:
     # - !type:StoreWhitelistCondition
       # whitelist:
@@ -1439,7 +1447,7 @@
   id: UplinkDeathRattle
   name: uplink-deathrattle-implant-name
   description: uplink-deathrattle-implant-desc
-  productEntity: BoxDeathRattleImplants
+  productEntity: DeathRattleImplanter # Mono: 90DC for 10TC? maybe not.
   cost:
     Telecrystal: 10 # Mono # 4->2 Mono
   categories:

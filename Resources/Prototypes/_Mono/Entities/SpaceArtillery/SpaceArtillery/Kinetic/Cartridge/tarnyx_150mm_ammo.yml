@@ -1,6 +1,6 @@
 - type: entity
   id: ShipTarnyxProjectile
-  name: TARNYX 150mm EMP projectile
+  name: TARNYX 90x630mm EMP projectile
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -30,8 +30,8 @@
 
 - type: entity
   id: 150mmEmpShell
-  name: 150mm EMP shell
-  description: A chemically-propelled EMP shell, used in 150mm cannons such as the TARNYX. Nothing fancy.
+  name: 90x630mm EMP shell
+  description: A chemically-propelled EMP shell, used in 90x630mm cannons such as the TARNYX. Nothing fancy.
   parent: BaseGrenade
   components:
   - type: Tag
@@ -57,7 +57,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 250
+        damage: 50
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
@@ -75,7 +75,7 @@
 
 - type: entity
   id: ShipTarnyxApProjectile
-  name: TARNYX 150mm AP projectile
+  name: TARNYX 90x630mm AP projectile
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -100,8 +100,8 @@
 
 - type: entity
   id: 150mmApShell
-  name: 150mm AP shell
-  description: A chemically-propelled AP shell for 150mm cannons. Its not very good, as most 150mm cannons are optimized for EMP shells. Its a crude method, and it certainly wouldn't pass a TSFN inspection.
+  name: 90x630mm AP shell
+  description: A chemically-propelled AP shell for 90x630mm cannons. Its not very good, as most 90x630mm cannons are optimized for EMP shells. Its a crude method, and it certainly wouldn't pass a TSFN inspection.
   parent: BaseGrenade
   components:
   - type: Tag
@@ -123,7 +123,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 250
+        damage: 50
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
@@ -141,7 +141,7 @@
 
 - type: entity
   id: ShipTarnyxApheProjectile
-  name: TARNYX 150mm APHE projectile
+  name: TARNYX 90x630mm APHE projectile
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -164,6 +164,7 @@
     totalIntensity: 350
     intensitySlope: 25
     maxIntensity: 300
+    tileBreakScale: 3
   - type: ShipWeaponProjectile
   - type: RadarBlip
     scale: 1.75
@@ -173,8 +174,8 @@
 
 - type: entity
   id: 150mmApheShell
-  name: 150mm APHE shell
-  description: A chemically-propelled APHE shell for 150mm cannons. It'll work.
+  name: 90x630mm APHE shell
+  description: A chemically-propelled APHE shell for 90x630mm cannons. It'll work.
   parent: BaseGrenade
   components:
   - type: Tag
@@ -196,7 +197,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 250
+        damage: 50
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]

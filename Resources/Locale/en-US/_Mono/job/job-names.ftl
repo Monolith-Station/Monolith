@@ -6,8 +6,9 @@ job-supervisors-ussp-highcomm = the Nova Cygni command.
 job-supervisors-ussp-commissars = the Commissar
 job-supervisors-ussp-sergeant = the Serzhants
 
-# MARK: MD
+# MARK: CAELESTINUS
 job-name-md-medic = Emergency Responder
+job-name-caelestinus-worker = Caelestinus Worker
 
 # MARK: TSF
 job-name-tsf-engineer = TSFMC Engineer
@@ -25,9 +26,16 @@ job-name-vg-infanteer = VG Infanteer
 job-name-vg-lieutenant = VG Lieutenant
 job-name-vg-commander = VG Commander
 
-# MARK: USSP
+# MARK: MMC
 job-name-mmc-liason = MMC Corporate Liason
 job-name-mmc-security = MMC Corporate Security
 job-name-mmc-employee = MMC Employee
 job-supervisors-mmc-highcomm = the Mieyo Corporate Board
 job-supervisors-mmc-liason = the Corporate Liason
+
+# MARK: UNDERGROUND BLACK MARKET
+job-name-fugitive = Fugitive
+job-name-godfather = Godfather
+
+# MARK: CROCUS
+job-name-crocus-dockworker = Jianghui Dockworker

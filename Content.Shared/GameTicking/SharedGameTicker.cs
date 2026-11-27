@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared.Damage.Prototypes;
 using Content.Shared.Roles;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
@@ -23,8 +24,7 @@ namespace Content.Shared.GameTicking
         // See ideally these would be pulled from the job definition or something.
         // But this is easier, and at least it isn't hardcoded.
         //TODO: Move these, they really belong in StationJobsSystem or a cvar.
-        [ValidatePrototypeId<JobPrototype>]
-        public const string FallbackOverflowJob = "Contractor"; // Frontier: Passenger<Contractor
+        public static readonly ProtoId<JobPrototype> FallbackOverflowJob = "Contractor"; // Frontier: Passenger<Contractor
 
         public const string FallbackOverflowJobName = "job-name-contractor"; // Frontier: job-name-passenger<job-name-contractor
 
@@ -254,7 +254,7 @@ namespace Content.Shared.GameTicking
 
             public MobState EntMobState;
 
-            public Dictionary<string, FixedPoint2> DamagePerGroup;
+            public Dictionary<ProtoId<DamageGroupPrototype>, FixedPoint2> DamagePerGroup;
             #endregion
         }
 
@@ -296,4 +296,27 @@ namespace Content.Shared.GameTicking
         ReadyToPlay,
         JoinedGame,
     }
+
+    // BF14/Mono start
+    [Serializable, NetSerializable]
+    public sealed class TickerFactionCountEvent : EntityEventArgs
+    {
+        public bool IsRoundStarted { get; }
+        public int BluforReady { get; }
+        public int RedforReady { get; }
+        public int TotalReady { get; }
+        public int BluforAlive { get; }
+        public int RedforAlive { get; }
+
+        public TickerFactionCountEvent(bool isRoundStarted, int bluforReady, int redforReady, int totalReady, int bluforAlive, int redforAlive)
+        {
+            IsRoundStarted = isRoundStarted;
+            BluforReady = bluforReady;
+            RedforReady = redforReady;
+            TotalReady = totalReady;
+            BluforAlive = bluforAlive;
+            RedforAlive = redforAlive;
+        }
+    }
+    // BF14/Mono end
 }

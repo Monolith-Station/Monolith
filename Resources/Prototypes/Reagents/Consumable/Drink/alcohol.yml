@@ -15,7 +15,6 @@
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
-  flammability: 2
   metabolisms:
     Drink:
       effects:
@@ -159,7 +158,6 @@
   color: "#b05b3c"
   boilingPoint: 78.2
   meltingPoint: -114.1
-  flammability: 3
   metabolisms:
     Alcohol:
       effects:
@@ -193,8 +191,10 @@
         - !type:OrganType
           type: Dwarf
         damage:
-          groups:
-            Brute: -1
+          types:
+            Blunt: -0.33
+            Slash: -0.33
+            Piercing: -0.34
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -202,8 +202,10 @@
         - !type:OrganType # Goobstation - Yowie
           type: Yowie
         damage:
-          groups:
-            Brute: -1
+          types:
+            Blunt: -0.33
+            Slash: -0.33
+            Piercing: -0.34
       - !type:ChemVomit
         probability: 0.04
         conditions:
@@ -408,7 +410,6 @@
   metamorphicMaxFillLevels: 4
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
-  flammability: 2
   metabolisms:
     Drink:
       effects:
@@ -433,7 +434,6 @@
   metamorphicMaxFillLevels: 4
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
-  flammability: 2
   metabolisms:
     Drink:
       effects:

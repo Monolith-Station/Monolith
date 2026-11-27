@@ -26,6 +26,7 @@ using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using PullableComponent = Content.Shared.Movement.Pulling.Components.PullableComponent;
 using Content.Shared.StepTrigger.Components; // Delta V-NoShoesSilentFootstepsComponent
+using Content.Shared.Throwing; // Mono
 
 namespace Content.Shared.Movement.Systems;
 
@@ -37,7 +38,6 @@ public abstract partial class SharedMoverController : VirtualController
 {
     [Dependency] private   IConfigurationManager _configManager = default!;
     [Dependency] protected IGameTiming Timing = default!;
-    [Dependency] private   IMapManager _mapManager = default!;
     [Dependency] private   ITileDefinitionManager _tileDefinitionManager = default!;
     [Dependency] private   ActionBlockerSystem _blocker = default!;
     [Dependency] private   EntityLookupSystem _lookup = default!;
@@ -217,7 +217,7 @@ public abstract partial class SharedMoverController : VirtualController
         var weightless = _gravity.IsWeightless(uid);
         var inAirHelpless = false;
 
-        if (physicsComponent.BodyStatus != BodyStatus.OnGround && !CanMoveInAirQuery.HasComponent(uid))
+        if (physicsComponent.BodyStatus != BodyStatus.OnGround && (!CanMoveInAirQuery.HasComponent(uid) || HasComp<ThrownItemComponent>(uid))) // Mono add thrownitemcomponent
         {
             if (!weightless)
             {

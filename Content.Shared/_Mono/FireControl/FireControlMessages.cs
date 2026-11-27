@@ -1,3 +1,4 @@
+using Content.Shared._Mono.Sensors;
 using Robust.Shared.Serialization;
 using Robust.Shared.Map;
 using Content.Shared.Shuttles.BUIStates;
@@ -15,12 +16,23 @@ public sealed class FireControlConsoleBoundInterfaceState : BoundUserInterfaceSt
     public bool Connected;
     public FireControllableEntry[] FireControllables;
     public NavInterfaceState NavState;
+    public RadarLockStateDto? Lock;
 
-    public FireControlConsoleBoundInterfaceState(bool connected, FireControllableEntry[] fireControllables, NavInterfaceState navState)
+    /// <summary>
+    /// Sensors tab state for this console's grid. Null if sensors system is unavailable.
+    /// </summary>
+    public SensorsBuiState? Sensors;
+
+    public FireControlConsoleBoundInterfaceState(
+        bool connected,
+        FireControllableEntry[] fireControllables,
+        NavInterfaceState navState,
+        SensorsBuiState? sensors = null)
     {
         Connected = connected;
         FireControllables = fireControllables;
         NavState = navState;
+        Sensors = sensors;
     }
 }
 
@@ -69,6 +81,23 @@ public sealed class FireControlConsoleFireEvent : EntityEventArgs
         Coordinates = coordinates;
         Selected = selected;
     }
+}
+
+[Serializable, NetSerializable]
+public sealed class FireControlReleaseLockMessage : BoundUserInterfaceMessage
+{
+}
+
+[Serializable, NetSerializable]
+public sealed class FireControlSetLockModeMessage(bool enabled) : BoundUserInterfaceMessage
+{
+    public bool Enabled = enabled;
+}
+
+[Serializable, NetSerializable]
+public sealed class FireControlLockTargetMessage(NetEntity? target) : BoundUserInterfaceMessage
+{
+    public NetEntity? Target = target; // null = clear
 }
 
 [Serializable, NetSerializable]

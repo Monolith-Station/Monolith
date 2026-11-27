@@ -24,6 +24,7 @@
   - ContractorSpecialGunMla34
   #- ContractorSpecialGunMla79
   - ContractorSpecialGunMalandro
+  - ContractorSpecialGunMeLat
 
 # TSF playtime weapons
 
@@ -129,6 +130,15 @@
   inhand:
   - WeaponCaseMalandroRegistered
 
+- type: loadout
+  id: ContractorSpecialGunMeLat
+  name: GS-008 MeLat gun case
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MonoCivVet
+  price: 35000
+  inhand:
+  - WeaponCaseShortMeLatRegistered
 
 # Rogue playtime weapons
 

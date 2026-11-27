@@ -20,7 +20,7 @@ namespace Content.Client.Atmos.Overlays
     public sealed class GasTileOverlay : Overlay
     {
         private readonly IEntityManager _entManager;
-        private readonly IMapManager _mapManager;
+        private readonly SharedMapSystem _maps;
         private readonly SharedTransformSystem _xformSys;
 
         public override OverlaySpace Space => OverlaySpace.WorldSpaceEntities | OverlaySpace.WorldSpaceBelowWorld;
@@ -35,7 +35,7 @@ namespace Content.Client.Atmos.Overlays
         private readonly Texture[][] _frames;
 
         // Fire overlays
-        private const int FireStates = 6;
+        private const int FireStates = 3;
         private const string FireRsiPath = "/Textures/Effects/fire.rsi";
 
         private readonly float[] _fireTimer = new float[FireStates];
@@ -50,7 +50,7 @@ namespace Content.Client.Atmos.Overlays
         public GasTileOverlay(GasTileOverlaySystem system, IEntityManager entManager, IResourceCache resourceCache, IPrototypeManager protoMan, SpriteSystem spriteSys, SharedTransformSystem xformSys)
         {
             _entManager = entManager;
-            _mapManager = IoCManager.Resolve<IMapManager>();
+            _maps = entManager.System<SharedMapSystem>();
             _xformSys = xformSys;
             _shader = protoMan.Index<ShaderPrototype>("unshaded").Instance();
             ZIndex = GasOverlayZIndex;
@@ -163,7 +163,7 @@ namespace Content.Client.Atmos.Overlays
                 xformQuery,
                 _xformSys);
 
-            var mapUid = _mapManager.GetMapEntityId(args.MapId);
+            var mapUid = _maps.GetMapOrInvalid(args.MapId);
 
             if (_entManager.TryGetComponent<MapAtmosphereComponent>(mapUid, out var atmos))
                 DrawMapOverlay(drawHandle, args, mapUid, atmos);
@@ -172,7 +172,7 @@ namespace Content.Client.Atmos.Overlays
                 return;
 
             // TODO: WorldBounds callback.
-            _mapManager.FindGridsIntersecting(args.MapId, args.WorldAABB, ref gridState,
+            _maps.FindGridsIntersecting(args.MapId, args.WorldAABB, ref gridState,
                 static (EntityUid uid, MapGridComponent grid,
                     ref (Box2Rotated WorldBounds,
                         DrawingHandleWorld drawHandle,
@@ -243,7 +243,7 @@ namespace Content.Client.Atmos.Overlays
                             if (!localBounds.Contains(index))
                                 continue;
 
-                            var fireState = gas.FireState - 1 + gas.FireType * 3;
+                            var fireState = gas.FireState - 1;
                             var texture = state.fireFrames[fireState][state.fireFrameCounter[fireState]];
                             state.drawHandle.DrawTexture(texture, index);
                         }

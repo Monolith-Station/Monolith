@@ -30,9 +30,7 @@ namespace Content.Server._NF.StationEvents.Events;
 public sealed partial class BluespaceErrorRule : StationEventSystem<BluespaceErrorRuleComponent>
 {
     NanotrasenNameGenerator _nameGenerator = new();
-    [Dependency] private IMapManager _mapManager = default!;
     [Dependency] private MapSystem _map = default!;
-    [Dependency] private SharedMapSystem _mapSystem = default!;
     [Dependency] private IPrototypeManager _protoManager = default!;
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private DungeonSystem _dungeon = default!;
@@ -128,8 +126,10 @@ public sealed partial class BluespaceErrorRule : StationEventSystem<BluespaceErr
                 EntityManager.AddComponents(spawned, group.AddComponents);
 
                 component.GridsUid.Add(spawned);
-                component.StartingValue += _pricing.AppraiseGrid(spawned);
-
+                component.StartingValue += component.RewardAccounts.Count > 0
+                    ? _pricing.AppraiseGrid(spawned)
+                    : 0;
+                    
                 if (component.ExtendIfPopulated)
                     _autoExtend.AutoExtend(uid, spawned);
             }
@@ -159,9 +159,9 @@ public sealed partial class BluespaceErrorRule : StationEventSystem<BluespaceErr
             return false;
         }
 
-        _mapSystem.CreateMap(out var mapId);
+        _map.CreateMap(out var mapId);
 
-        var spawnedGrid = _mapManager.CreateGridEntity(mapId);
+        var spawnedGrid = _map.CreateGridEntity(mapId);
 
         _transform.SetMapCoordinates(spawnedGrid, new MapCoordinates(Vector2.Zero, mapId));
         _dungeon.GenerateDungeon(dungeonProto, dungeonProto.ID, spawnedGrid.Owner, spawnedGrid.Comp, Vector2i.Zero, _random.Next(), spawnCoords); // Frontier: add dungeonProto.ID
@@ -265,7 +265,12 @@ public sealed partial class BluespaceErrorRule : StationEventSystem<BluespaceErr
                     _transform.DetachEntity(mob.Entity.Owner, mob.Entity.Comp);
                 }
 
-                var gridValue = _pricing.AppraiseGrid(gridUid, null);
+                // Skip appraisal if there's no reward account. Appraisal eats up too much
+                // frame time for very large grids (e.g. vgroids).
+                var gridValue = component.RewardAccounts.Count > 0
+                    ? _pricing.AppraiseGrid(gridUid, null)
+                    : 0;
+
                 // Mono: currency injections
                 if (TryComp<CurrencyInjectionOnBluespaceErrorComponent>(uid, out var comp))
                 {
@@ -287,7 +292,7 @@ public sealed partial class BluespaceErrorRule : StationEventSystem<BluespaceErr
                             break;
                     }
                     if (gridValue / component.StartingValue > comp.IntegrityRequirement && requiredEntitiesFound) // good job!
-                        _currencyInjection.InjectCurrency(comp.Company, comp.Amount);
+                        _currencyInjection.InjectCurrency(comp.Injection);
                 }
                 // Mono end
 

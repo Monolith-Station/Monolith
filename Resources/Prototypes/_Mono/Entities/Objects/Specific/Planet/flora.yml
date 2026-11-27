@@ -135,3 +135,310 @@
           FoodPilumaStalk:
             min: 1
             max: 3
+
+# Different tree variant. Because I don't want logs.
+- type: entity
+  id: BaseTreeCrocus
+  name: crocus tree
+  description: Yep, it's a tree.
+  abstract: true
+  components:
+  - type: SpriteFade
+  - type: Drain
+  - type: RangedDamageSound # WOLFGATE - material bullet impacts
+    soundGroups:
+      Brute:
+        collection: WolfgateBulletImpactWood
+  - type: Flammable
+    fireSpread: true
+    firestackFade: 0.5
+    alwaysCombustible: true
+    damage:
+      types:
+        Heat: 1
+  - type: FireVisuals
+    sprite: Mobs/Effects/onfire.rsi
+    normalState: Generic_mob_burning
+  - type: Animateable
+  - type: Appearance
+  - type: Clickable
+  - type: Sprite
+    noRot: true
+    sprite: _Mono/Objects/Flora/flora_trees_crocus.rsi
+    drawdepth: Overdoors
+    offset: 0,1.7
+  - type: BarricadeBlock
+    bidirectional: true
+    omnidirectional: true
+    passthroughdistance: 0.4
+    blocking: 40
+  - type: ExtendDescription
+    descriptionList:
+    - description: You can fire over this if you stand near it.
+      color: "#4f94ad"
+      requireDetailRange: false
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.35,-0.4,0.35,0.4"
+        density: 1000
+        layer:
+        - WallLayer
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Wood
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        path: /Audio/Effects/chop.ogg
+        params:
+          variation: 0.05
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/tree_fell.ogg
+          params:
+            volume: 2
+            variation: 0.05
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          CrocusStump:
+            min: 1
+            max: 1
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          CrocusStrippedTree:
+            min: 1
+            max: 1
+
+- type: entity
+  id: CrocusStrippedTree
+  name: crocus tree
+  description: Yep, it's a tree.
+  components:
+  - type: SpriteFade
+  - type: Drain
+  - type: RangedDamageSound # WOLFGATE - material bullet impacts
+    soundGroups:
+      Brute:
+        collection: WolfgateBulletImpactWood
+  - type: Flammable
+    fireSpread: true
+    firestackFade: 0.5
+    alwaysCombustible: true
+    damage:
+      types:
+        Heat: 1
+  - type: FireVisuals
+    sprite: Mobs/Effects/onfire.rsi
+    normalState: Generic_mob_burning
+  - type: Animateable
+  - type: Appearance
+  - type: Clickable
+  - type: Sprite
+    noRot: true
+    sprite: _Mono/Objects/Flora/flora_trees_crocus.rsi
+    drawdepth: Overdoors
+    offset: 0,1.7
+    layers:
+    - state: bald
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.35,-0.4,0.35,0.4"
+        density: 1000
+        layer:
+        - WallLayer
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Wood
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        path: /Audio/Effects/chop.ogg
+        params:
+          variation: 0.05
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/tree_fell.ogg
+          params:
+            volume: 2
+            variation: 0.05
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          CrocusStump:
+            min: 1
+            max: 1
+
+- type: entity
+  id: CrocusStump
+  name: crocus stump
+  description: Yep, it's not a tree.
+  components:
+  - type: SpriteFade
+  - type: Drain
+  - type: RangedDamageSound # WOLFGATE - material bullet impacts
+    soundGroups:
+      Brute:
+        collection: WolfgateBulletImpactWood
+  - type: Flammable
+    fireSpread: true
+    firestackFade: 0.5
+    alwaysCombustible: true
+    damage:
+      types:
+        Heat: 1
+  - type: FireVisuals
+    sprite: Mobs/Effects/onfire.rsi
+    normalState: Generic_mob_burning
+  - type: Animateable
+  - type: Appearance
+  - type: Clickable
+  - type: Sprite
+    noRot: true
+    sprite: _Mono/Objects/Flora/flora_trees_crocus.rsi
+    drawdepth: Overdoors
+    offset: 0,1.7
+    layers:
+    - state: tree_stump
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.35,-0.4,0.35,0.4"
+        density: 1000
+        layer:
+        - LowImpassable
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Wood
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        path: /Audio/Effects/chop.ogg
+        params:
+          variation: 0.05
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: BaseTreeCrocus
+  id: FloraTreeCrocusPine
+  name: crocus pine tree
+  components:
+  - type: Sprite
+    layers:
+    - state: pine_1
+      map: ["random"]
+  - type: RandomSprite
+    available:
+    - random:
+        pine_1: ""
+        pine_2: ""
+
+- type: entity
+  parent: FloraTreeCrocusPine
+  id: FloraTreeCrocusPineRed
+  components:
+  - type: Sprite
+    layers:
+    - state: pine_1_red
+      map: ["random"]
+  - type: RandomSprite
+    available:
+    - random:
+        pine_1_red: ""
+        pine_2_red: ""
+
+- type: entity
+  parent: CrocusStrippedTree
+  id: FloraTreeCrocusDead
+  name: crocus dead tree
+  components:
+  - type: Sprite
+    layers:
+    - state: tree_1
+      map: ["random"]
+  - type: RandomSprite
+    available:
+    - random:
+        tree_1: ""
+        tree_2: ""
+        tree_3: ""
+
+- type: entity
+  name: crocus boulder
+  parent: BaseRock
+  id: FloraBoulderCrocus
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Flora/flora_rocks_crocus.rsi
+    layers:
+    - state: basalt_5
+      map: ["random"]
+  - type: Drain
+  - type: RandomSprite
+    available:
+    - random:
+        basalt_5: ""
+        basalt_6: ""
+        basalt_7: ""
+        basalt_8: ""
+        basalt_10: ""
+        basalt_13: ""
+        basalt_14: ""
+        basalt_15: ""
+        basalt_16: ""
+        basalt_17: ""
+        basalt_18: ""
+        basalt_20: ""
+        basalt_21: ""
+        basalt_23: ""
+  - type: BarricadeBlock
+    bidirectional: true
+    omnidirectional: true
+    passthroughdistance: 0.7
+    blocking: 60
+  - type: ExtendDescription
+    descriptionList:
+    - description: You can fire over this if you stand near it.
+      color: "#4f94ad"
+      requireDetailRange: false

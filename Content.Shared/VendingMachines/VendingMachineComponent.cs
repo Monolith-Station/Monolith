@@ -6,7 +6,6 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Content.Shared._NF.Bank.Components; // Frontier
-using Content.Shared.Containers.ItemSlots; // Frontier
 
 namespace Content.Shared.VendingMachines
 {
@@ -16,8 +15,8 @@ namespace Content.Shared.VendingMachines
         /// <summary>
         /// PrototypeID for the vending machine's inventory, see <see cref="VendingMachineInventoryPrototype"/>
         /// </summary>
-        [DataField("pack", customTypeSerializer: typeof(PrototypeIdSerializer<VendingMachineInventoryPrototype>), required: true)]
-        public string PackPrototypeId = string.Empty;
+        [DataField("pack", required: true)]
+        public ProtoId<VendingMachineInventoryPrototype> PackPrototypeId = string.Empty;
 
         /// <summary>
         /// Used by the server to determine how long the vending machine stays in the "Deny" state.
@@ -217,29 +216,6 @@ namespace Content.Shared.VendingMachines
         // Accounts to receive some proportion of each sale via taxation.
         [DataField(serverOnly: true), ViewVariables(VVAccess.ReadWrite)]
         public Dictionary<SectorBankAccount, float> TaxAccounts = new();
-
-        // Optional item slot for cash
-        [DataField]
-        public ItemSlot? CashSlot = null;
-
-        /// <summary>
-        /// Name of the cash slot, if there is one.  Null if there isn't.
-        /// </summary>
-        [DataField]
-        public string? CashSlotName;
-
-        /// <summary>
-        /// The type of currency to accept in the item slot.
-        /// </summary>
-        [DataField]
-        public string? CurrencyStackType;
-
-        /// <summary>
-        /// The current balance in the cash slot.
-        /// Kept for
-        /// </summary>
-        [DataField, AutoNetworkedField]
-        public int CashSlotBalance;
 
         /// <summary>
         /// Mono: Tracks the last purchase price for vending machine purchase tracking.

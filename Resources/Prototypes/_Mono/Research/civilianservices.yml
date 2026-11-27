@@ -1,0 +1,16 @@
+- type: technology
+  id: CloningTechnology
+  name: cloning-technology-research
+  entityIcon: ComputerCloningConsole
+  discipline: CivilianServices
+  tier: 3
+  cost: 50000
+  recipeUnlocks:
+  - GeneticDatabaseMachineCircuitboard
+  - CloningPodMachineCircuitboard
+  - BodyScannerComputerCircuitboard
+  - MedicalScannerMachineCircuitboard
+  - CloningConsoleComputerCircuitboard
+  technologyPrerequisites:
+  - BluespaceChemistry
+  position: -4, 13

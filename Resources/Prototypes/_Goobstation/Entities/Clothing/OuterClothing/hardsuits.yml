@@ -56,7 +56,7 @@
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitCybersunStealth
   suffix: stealth
-  name: cybersun stealth hardsuit
+  name: stealth hardsuit
   description: A hardsuit with stealth plating for operations, the shielding doesn't work while you're moving though! Needs the helmet on to finish the stealth field.
   components:
   - type: Sprite
@@ -75,7 +75,7 @@
       coefficients:
         Blunt: 0.7
         Slash: 0.7
-        Piercing: 0.75
+        Piercing: 0.7
         Heat: 0.5
         Radiation: 0.2
         Caustic: 0.3

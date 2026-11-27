@@ -218,11 +218,11 @@
     - state: service_label
 
 - type: entity
-  parent: [EncryptionKey, BaseFactionGearOtherFactionT1]
+  parent: [EncryptionKey, BaseC3SyndicateContraband]
   id: EncryptionKeySyndie
-  name: blood-red encryption key
+  name: underground encryption key
   categories: [ DoNotMap ] # Frontier
-  description: An encryption key used by... wait... Who is owner of this chip?
+  description: An encryption key used by... wait... Who is the owner of this chip?
   components:
   - type: EncryptionKey
     channels:

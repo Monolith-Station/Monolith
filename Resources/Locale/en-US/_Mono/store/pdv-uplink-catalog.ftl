@@ -116,11 +116,24 @@ uplink-pirate-chameleon-backpack-desc = A backpack with integrated chameleon tec
 uplink-pirate-dna-scrambler-name = DNA Scrambler Implanter
 uplink-pirate-dna-scrambler-desc = A relatively rare implant that allows you to completely change your identity once.
 
+uplink-pirate-death-acidifier-name = Death Acidifier Implant
+uplink-pirate-death-acidifier-desc = An implant which will destroy your body and gear upon your death, preventing the property of the Sultan from falling into the hands of heretics.
+
+uplink-pirate-microbomb-name = Microbomb Implant
+uplink-pirate-microbomb-desc = An implant which will detonate your body upon your death. Instantaneous retribution upon the heathen who slayed a member of the Sultan's glorious Vanguard.
+
+uplink-pirate-macrobomb-name = Macrobomb Implant
+uplink-pirate-macrobomb-desc = Lay down your life for the Sultan and His glory!
+
+
 uplink-pirate-cash10000-name = 10,000 credits
 uplink-pirate-cash10000-desc = That's my boy, you made my day.
 
 uplink-pirate-cash100000-name = 100,000 credits
 uplink-pirate-cash100000-desc = That's my boy, you really made my day.
+
+uplink-pirate-telecrystal-25-name = 25 Telecrystals
+uplink-pirate-telecrystal-25-desc = Twenty-five telecrystals, used to directly import items from the distant black markets of the Perseus Arm.
 # desc is quote
 
 uplink-syndicate-applicator-name = Advanced Nanite Applicator

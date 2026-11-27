@@ -1,7 +1,7 @@
 using System.Linq;
 using Content.Server.Administration;
 using Content.Server.Chat.Managers;
-using Content.Server.Radio.Components;
+using Content.Shared.Radio.Components;
 using Content.Server.Roles;
 using Content.Server.Station.Systems;
 using Content.Shared._CorvaxNext.Silicons.Borgs.Components; // Corvax-Next-AiRemoteControl
@@ -38,7 +38,7 @@ public sealed partial class SiliconLawSystem : SharedSiliconLawSystem
     [Dependency] private UserInterfaceSystem _userInterface = default!;
     [Dependency] private EmagSystem _emag = default!;
     [Dependency] private TagSystem _tagSystem = default!; // Corvax-Next-AiRemoteControl
-    [Dependency] private IMapManager _map = default!; // Mono - Law update is grid-only now.
+    [Dependency] private SharedMapSystem _map = default!; // Mono - Law update is grid-only now.
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -117,7 +117,13 @@ public sealed partial class SiliconLawSystem : SharedSiliconLawSystem
     private void OnBoundUIOpened(EntityUid uid, SiliconLawBoundComponent component, BoundUIOpenedEvent args)
     {
         TryComp(uid, out IntrinsicRadioTransmitterComponent? intrinsicRadio);
-        var radioChannels = intrinsicRadio?.Channels;
+        HashSet<string>? radioChannels = null;
+        if (intrinsicRadio != null)
+        {
+            radioChannels = new HashSet<string>();
+            foreach (var channel in intrinsicRadio.Channels)
+                radioChannels.Add(channel);
+        }
 
         var state = new SiliconLawBuiState(GetLaws(uid).Laws, radioChannels);
         _userInterface.SetUiState(args.Entity, SiliconLawsUiKey.Key, state);

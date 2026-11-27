@@ -1,0 +1,40 @@
+- type: technology
+  id: NavalEnergyLightEMP
+  name: research-technology-naval-energy-l-emp
+  entityIcon: WeaponTurretM220
+  discipline: NavalWeaponry
+  tier: 1
+  cost: 30000
+  position: 10, 7
+  recipeUnlocks:
+  - RecipeWeaponTurretM220
+  technologyPrerequisites:
+  - NavalEnergyLight
+
+- type: technology
+  id: NavalEnergyMediumPlasma
+  name: research-technology-naval-energy-m-plasma
+  entityIcon: WeaponTurretType35
+  discipline: NavalWeaponry
+  tier: 2
+  cost: 60000
+  position: 14, 7
+  recipeUnlocks:
+  - RecipeWeaponTurretType35
+  - RecipeWeaponTurretType54
+  technologyPrerequisites:
+  - NavalEnergyMedium
+
+- type: technology
+  id: NavalEnergyHeavyPlasma
+  name: research-technology-naval-energy-m-plasma
+  entityIcon: WeaponTurretCerberus
+  discipline: NavalWeaponry
+  tier: 2
+  cost: 100000
+  position: 18, 7
+  recipeUnlocks:
+  - RecipeWeaponTurretCerberus
+  technologyPrerequisites:
+  - NavalEnergyHeavy
+  - NavalEnergyMediumPlasma

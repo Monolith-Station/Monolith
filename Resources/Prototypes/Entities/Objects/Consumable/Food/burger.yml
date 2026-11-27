@@ -7,6 +7,11 @@
   id: FoodBreadBun
   description: A hamburger bun. Round and convenient to hold.
   components:
+  - type: Tag # Mono
+    tags:
+    - Bread
+    - Slice
+    - BountyBun
   - type: Food
   - type: Sprite
     sprite: Objects/Consumable/Food/burger.rsi
@@ -29,15 +34,15 @@
   - type: Construction # Frontier - hotdog making
     graph: NFHotdog # Frontier - hotdog making
     node: start # Frontier - hotdog making
-        
+
 - type: entity
   id: FoodBreadBunBottom
   parent: FoodBreadSliceBase
   name: bottom bun
-  description: It's time to start building the burger tower. 
+  description: It's time to start building the burger tower.
   components:
   - type: Item
-    size: Normal #patch until there is an adequate resizing system in place 
+    size: Normal #patch until there is an adequate resizing system in place
   - type: Food
   - type: Sprite
     drawdepth: Mobs
@@ -86,7 +91,7 @@
   - type: FoodSequenceElement
     entries:
       Burger: BunTopBurger
-  
+
 # Base
 
 - type: entity
@@ -122,6 +127,9 @@
   id: FoodBurgerJelly
   description: Culinary delight..?
   components:
+  - type: Tag # Mono
+    tags:
+    - BountyJellyBurger
   - type: FlavorProfile
     flavors:
       - bun
@@ -163,6 +171,7 @@
   - type: Tag
     tags:
     - Meat
+    - BountyAppendixBurger # Mono
 # Tastes like bun, grass.
 
 - type: entity
@@ -191,6 +200,7 @@
   - type: Tag
     tags:
     - Meat
+    - BountyBaconBurger # Mono
 # Tastes like bun, bacon.
 
 - type: entity
@@ -221,6 +231,7 @@
   - type: Tag
     tags:
     - Meat
+    - BountyBaseballBurger # Mono
 
 - type: entity
   name: bearger
@@ -250,6 +261,7 @@
   - type: Tag
     tags:
     - Meat
+    - BountyBearger # Mono
 
 - type: entity
   name: big bite burger
@@ -278,6 +290,7 @@
   - type: Tag
     tags:
     - Meat
+    - BountyBigBiteBurger # Mono
 # Tastes like bun, silver, magic.
 
 - type: entity
@@ -308,6 +321,7 @@
   - type: Tag
     tags:
     - Meat
+    - BountyBrainBurger # Mono
 # Tastes like bun, brains.
 
 - type: entity
@@ -337,6 +351,7 @@
   - type: Tag
     tags:
     - Meat
+    - BountyCatBurger # Mono
 
 - type: entity
   name: cheese burger
@@ -367,6 +382,7 @@
   - type: Tag
     tags:
     - Meat
+    - BountyCheeseBurger # Mono
 # TODO: Make this work.
   # - type: Sprite
   #   state: plate
@@ -407,6 +423,7 @@
   - type: Tag
     tags:
     - Meat
+    - BountyChickenSandwich # Mono
 # Tastes like bun, chicken.
 
 - type: entity
@@ -437,6 +454,7 @@
   - type: Tag
     tags:
     - Meat
+    - BountyClownBurger # Mono
 
 - type: entity
   name: corger #not curger
@@ -462,6 +480,7 @@
   - type: Tag
     tags:
     - Meat
+    - BountyCorger # Mono
 
 - type: entity
   name: crab burger
@@ -491,6 +510,7 @@
   - type: Tag
     tags:
     - Meat
+    - BountyCrabBurger # Mono
 
 - type: entity
   name: crazy hamburger # Burger for you euro-cucks
@@ -522,6 +542,7 @@
   - type: Tag
     tags:
     - Meat
+    - BountyCrazyHamburger # Mono
 
 - type: entity
   name: duck sandwich # Burger for you sick bastards
@@ -551,6 +572,7 @@
   - type: Tag
     tags:
     - Meat
+    - BountyDuckSandwich # Mono
 # Tastes like bun, duck.
 
 - type: entity
@@ -559,6 +581,9 @@
   id: FoodBurgerEmpowered
   description: It's shockingly good, if you live off of electricity that is.
   components:
+  - type: Tag # Mono
+    tags:
+    - BountyEmpoweredBurger
   - type: Sprite
     state: empowered
   - type: FlavorProfile
@@ -593,6 +618,7 @@
   - type: Tag
     tags:
     - Meat
+    - BountyFilletOCarpBurger # Mono
 # Tastes like bun, fish.
 
 - type: entity
@@ -625,6 +651,7 @@
   - type: Tag
     tags:
     - Meat
+    - BountyFiveAlarmBurger # Mono
 
 # Tastes like bun, HEAT.
 
@@ -653,6 +680,7 @@
           Quantity: 5
   - type: Tag
     tags:
+      - BountyGhostBurger # Mono
       - ClothMade
       - Meat
 # Tastes like bun, ectoplasm.
@@ -685,6 +713,7 @@
   - type: Tag
     tags:
     - Meat
+    - BountyHumanBurger # Mono
 
 - type: entity
   name: McGuffin
@@ -714,6 +743,7 @@
   - type: Tag
     tags:
     - Meat
+    - BountyMcguffin # Mono
 
 - type: entity
   name: BBQ Rib Sandwich
@@ -722,7 +752,7 @@
   description: An elusive rib shaped burger with limited availability across the galaxy. Not as good as you remember it.
   components:
   - type: Food
-    trash: 
+    trash:
     - FoodKebabSkewer
   - type: FlavorProfile
     flavors:
@@ -748,6 +778,7 @@
   - type: Tag
     tags:
     - Meat
+    - BountyBbqRibSandwich # Mono
 # Tastes like bun, pork patty.
 
 - type: entity
@@ -756,6 +787,9 @@
   id: FoodBurgerMime
   description: Its taste defies language.
   components:
+  - type: Tag # Mono
+    tags:
+    - BountyMimeBurger
   - type: FlavorProfile
     flavors:
       - bun
@@ -807,6 +841,7 @@
   - type: Tag
     tags:
     - Meat
+    - BountyPlainBurger # Mono
 
 - type: entity
   name: rat burger
@@ -836,6 +871,7 @@
   - type: Tag
     tags:
     - Meat
+    - BountyRatBurger # Mono
 # Tastes like bun, HEAT.
 
 - type: entity
@@ -863,6 +899,7 @@
   - type: Tag
     tags:
     - Meat
+    - BountyRoburger # Mono
 # Tastes like bun, lettuce, sludge.
 
 - type: entity
@@ -871,6 +908,9 @@
   id: FoodBurgerSoy
   description: After eating this you have the overwhelming urge to purchase overpriced figurines of superheroes.
   components:
+  - type: Tag # Mono
+    tags:
+    - BountySoylentBurger
   - type: FlavorProfile
     flavors:
       - bun
@@ -898,6 +938,9 @@
   id: FoodBurgerSpell
   description: This is absolutely Ei Nath.
   components:
+  - type: Tag # Mono
+    tags:
+    - BountySpellBurger
   - type: FlavorProfile
     flavors:
       - bun
@@ -950,6 +993,7 @@
   - type: Tag
     tags:
     - Meat
+    - BountySuperBiteBurger # Mono
 # Tastes like bun, diabetes.
 
 - type: entity
@@ -958,6 +1002,9 @@
   id: FoodBurgerTofu
   description: What... is that meat?
   components:
+  - type: Tag # Mono
+    tags:
+    - BountyTofuBurger
   - type: FlavorProfile
     flavors:
       - bun
@@ -1008,6 +1055,7 @@
   - type: Tag
     tags:
     - Meat
+    - BountyXenoburger # Mono
 # Tastes like bun, acid.
 
 # Note: I would put a bunch of colored burgers here as listed in the tg .dm but
@@ -1040,4 +1088,4 @@
   - type: Tag
     tags:
     - Meat
- 
+

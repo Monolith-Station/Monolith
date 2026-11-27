@@ -1,0 +1,19 @@
+- type: entity
+  parent: BaseItem
+  id: MicrophoneRadio
+  name: microphone
+  description: Broadcasts your speech directly to your listeners' radios.
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/Instruments/microphone.rsi
+    state: icon
+  - type: Item
+    size: Small
+    sprite: Objects/Fun/Instruments/microphone.rsi
+  - type: StationRadioServer
+  - type: TelecomExempt
+  - type: RadioMicrophone
+    powerRequired: true
+    broadcastChannel: RadioShow
+    frequency: 1285
+    unobstructedRequired: true  

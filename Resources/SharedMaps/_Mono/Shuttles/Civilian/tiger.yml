@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 264.0.0
+  engineVersion: 277.0.6
   forkId: ""
   forkVersion: ""
-  time: 08/28/2025 15:52:26
-  entityCount: 378
+  time: 11/24/2026 22:44:24
+  entityCount: 379
 maps: []
 grids:
 - 1
@@ -67,6 +67,12 @@ entities:
       fixtures: {}
     - type: OccluderTree
     - type: SpreaderGrid
+      spreadQueues:
+        Smoke: []
+        MetalFoam: []
+        ESTileFire: []
+        Puddle: []
+        Kudzu: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -251,49 +257,15 @@ entities:
         uniqueMixes:
         - volume: 2500
           temperature: 293.15
-          moles:
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
+          moles: {}
         - volume: 2500
           temperature: 293.15
           moles:
-          - 21.824879
-          - 82.10312
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
+            Oxygen: 21.824879
+            Nitrogen: 82.10312
         - volume: 2500
           immutable: True
-          moles:
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
+          moles: {}
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
@@ -309,6 +281,11 @@ entities:
         0,2: 460551
         0,1: 506381209866536719
         0,0: 506381209866534912
+    - type: GridSensors
+      datalinkCodes: []
+    - type: DetectionRangeMultiplier
+    - type: ThermalSignature
+    - type: ExplosionAirtightGrid
 - proto: AirAlarm
   entities:
   - uid: 4
@@ -1983,6 +1960,14 @@ entities:
     components:
     - type: Transform
       pos: -0.5,9.5
+      parent: 1
+- proto: SensorRadarCivT2
+  entities:
+  - uid: 363
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -1.5,17.5
       parent: 1
 - proto: ShuttersNormal
   entities:

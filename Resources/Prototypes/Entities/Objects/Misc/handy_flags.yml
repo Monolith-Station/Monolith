@@ -13,8 +13,8 @@
 - type: entity
   parent: [BaseItem, RecyclableItemClothSmall, BaseFactionGearOtherFactionT1] # Frontier: added RecyclableItemClothSmall
   id: NTHandyFlag
-  name: Nanotrasen handheld flag
-  description: "Glory to TSF-NT!"
+  name: unrecognizable flag # Mono
+  description: "It depicts a completely unfamiliar logo." # Mono
   components:
   - type: Sprite
     sprite: Objects/Misc/Handy_Flags/NT_handy_flag.rsi
@@ -25,8 +25,8 @@
 - type: entity
   parent: [BaseItem, RecyclableItemClothSmall, BaseFactionGearOtherFactionT1]
   id: SyndieHandyFlag
-  name: syndicate handheld flag
-  description: "For truly rebellious patriots."
+  name: sultan's handheld flag # Mono
+  description: "Glory to the Sultan!" # Mono
   components:
   - type: Sprite
     sprite: Objects/Misc/Handy_Flags/syndie_handy_flag.rsi

@@ -6,6 +6,7 @@ using Content.Server.Power.EntitySystems;
 using Content.Shared.Decals;
 using Content.Shared.Maps;
 using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
 
 namespace Content.Server._Mono.Drill;
 
@@ -15,7 +16,6 @@ public partial class ShipDrillSystem : EntitySystem
     [Dependency] private EntityLookupSystem _look = default!;
     [Dependency] private SharedTransformSystem _xform = default!;
     [Dependency] private SharedMapSystem _map = default!;
-    [Dependency] private IMapManager _mapManager = default!;
     [Dependency] private ITileDefinitionManager _tileDef = default!;
     [Dependency] private TileSystem _tile = default!;
     [Dependency] private SharedDecalSystem _decal = default!;
@@ -65,7 +65,8 @@ public partial class ShipDrillSystem : EntitySystem
                 angle,
                 coords.Position);
 
-            var grids = _mapManager.FindGridsIntersecting(_xform.GetMapId(dGrid.Value), worldBox);
+            var grids = new List<Entity<MapGridComponent>>();
+            _map.FindGridsIntersecting(_xform.GetMapId(dGrid.Value), worldBox, ref grids);
 
             foreach (var grid in grids)
             {
@@ -101,4 +102,3 @@ public partial class ShipDrillSystem : EntitySystem
         }
     }
 }
-

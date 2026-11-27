@@ -60,6 +60,10 @@
     - ResearchedExplosives
     - SecurityEquipment
     - SmartGun
+    # Shipguns
+    - NavalBallistics
+    - NavalEnergy
+    - NavalMissiles
   - type: MaterialStorage
     whitelist:
       tags:
@@ -73,6 +77,60 @@
   id: FactionLatheImmmovable
   parent: [FactionLathe, BaseStructureDisableToolUse]
   suffix: IMMOVABLE
+
+- type: entity
+  id: FactionLatheImmmovableHyperwar
+  parent: [FactionLathe, BaseStructureDisableToolUse]
+  suffix: IMMOVABLE, HYPERWAR
+  components:
+  - type: Lathe
+    producingSound: /Audio/Machines/circuitprinter.ogg
+    reagentOutputSlotId: beaker_slot
+    idleState: icon
+    runningState: icon
+    staticPacks:
+    - StaticAmmoRecipePack
+    - NFMercenaryTechfabDeprecatedStatic
+    - RoundstartShipgunAmmo
+    - StaticGrenades
+    - MonoAttachmentsStatic
+    dynamicPacks:
+    # rogue start
+    - MonoRogueWeaponsDynamicMelee
+    - MonoRogueWeaponsDynamicRanged
+    - MonoRogueVouchersDynamic
+    - MonoRogueMiscDynamic
+    - MonoRogueGearDynamic
+    #- MonoRogueGearProDynamic
+    # TSF start
+    - MonoTSFWeaponsDynamicMelee
+    - MonoTSFWeaponsDynamicRanged
+    - MonoTSFVouchersDynamic
+    - MonoTSFMiscDynamic
+    - MonoTSFGearDynamic
+    # USSP start
+    # - MonoUSSPArmorDynamic
+    # - MonoUSSPMiscDynamic
+    # - MonoUSSPWeaponsDynamicRanged
+    # Viper Group start
+    # - MonoViperGroupDynamic
+    # Universal shit (stuff like shipgun ammo)
+    - UniversalRailgunAmmo
+    - UniversalMissileAmmo
+    - UniversalShellAmmo
+    - UniversalOrdinance
+    - DynamicAmmoRecipePack
+    - NFMercenaryTechfabDeprecated
+    # Civ military tech
+    - ResearchedExplosives
+    - SecurityEquipment
+    - SmartGun
+    # Shipguns
+    - NavalBallistics
+    - NavalEnergy
+    - NavalMissiles
+    # Hyperwar
+    - MonoTSFHyperwarExclusive
 
 - type: entity
   id: BaseLatheAssembler
@@ -107,6 +165,7 @@
     - description: Insert components for recipes by placing them on top of the lathe, then "open / close" inside its right-click menu.
       color: "#4f94ad"
       requireDetailRange: true
+  - type: OreSiloClient
 
 #USSP
 
@@ -159,6 +218,10 @@
     - ResearchedExplosives
     - SecurityEquipment
     - SmartGun
+    # Shipguns
+    - NavalBallistics
+    - NavalEnergy
+    - NavalMissiles
   - type: MaterialStorage
     whitelist:
       tags:
@@ -220,6 +283,10 @@
     - ResearchedExplosives
     - SecurityEquipment
     - SmartGun
+    # Shipguns
+    - NavalBallistics
+    - NavalEnergy
+    - NavalMissiles
   - type: MaterialStorage
     whitelist:
       tags:
@@ -281,6 +348,10 @@
     # Civ military tech
     - SecurityEquipment
     - SmartGun
+    # Shipguns
+    - NavalBallistics
+    - NavalEnergy
+    - NavalMissiles
   - type: MaterialStorage
     whitelist:
       tags:
@@ -560,7 +631,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "1.4,0.4,-0.4,-0.4"
+          bounds: "-0.4,-0.4,1.4,0.4"
         density: 190
         mask:
         - MachineMask
@@ -625,7 +696,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "0.5,0.5,-0.5,-0.5"
+          bounds: "-0.5,-0.5,0.5,0.5"
         density: 190
         mask:
         - MachineMask
@@ -700,7 +771,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "1.4,0.4,-0.4,-0.4"
+          bounds: "-0.4,-0.4,1.4,0.4"
         density: 190
         mask:
         - MachineMask
@@ -761,7 +832,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "0.5,0.5,-0.5,-0.5"
+          bounds: "-0.5,-0.5,0.5,0.5"
         density: 190
         mask:
         - MachineMask
@@ -812,7 +883,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.5,1.5,1.2,-0.5"
+          bounds: "-0.5,-0.5,1.2,1.5"
         density: 1500
         mask:
         - MachineMask
@@ -844,3 +915,75 @@
     anchored: true
     noRot: false
   - type: OreSiloClient
+
+- type: entity
+  parent: BaseLatheAssembler # caelestinus ASMGTs require small monocrystals now.
+  id: SecurityTechFabCaelestinus # Exists because anything given to the regular secfab is also given to the TSFMCfab.
+  name: caelestinus security techfab
+  description: A techfab used by members of the Caelestinus Security Detachment.
+  components:
+  - type: Lathe
+    idleState: icon
+    runningState: icon
+    staticPacks:
+    - SecurityEquipmentStatic
+    - SecurityPracticeStatic
+    - StaticAmmoRecipePack
+    - StaticGrenades
+    - SecurityWeaponsStatic
+    - MonoCaelestinusVouchersStatic
+    dynamicPacks:
+    - SecurityEquipment
+    - SecurityExplosives
+    - DynamicAmmoRecipePack
+    - SecurityWeapons
+    - SecurityDisablers
+    - SMCybernetics
+    # Mono - Mechs
+    - WeaponMechCombatArsenal
+    - SmartGun # Goobstation
+    # Mono start
+    - MonoTSFWeaponsDynamicMelee
+    - MonoTSFWeaponsDynamicRanged
+    - MonoTSFMiscDynamic
+    - MonoRogueWeaponsDynamicMelee
+    - MonoRogueWeaponsDynamicRanged
+    - MonoRogueMiscDynamic
+    - UniversalShellAmmo
+    - ResearchedExplosives
+    - UniversalRailgunAmmo
+    - UniversalMissileAmmo
+    - UniversalOrdinance
+    - SmartGun #Smart SMG
+    - NFMercenaryTechfabDeprecated
+    # Shipguns
+    - NavalBallistics
+    - NavalEnergy
+    - NavalMissiles
+    # Caelestinus
+    - MonoCaelestinusWeaponsDynamic
+    - MonoCaelestinusGearDynamic
+    # Mono end
+  - type: MaterialStorage
+    whitelist:
+      tags:
+      - Sheet
+      - RawMaterial
+      - Ingot
+  - type: RequireProjectileTarget
+  - type: OreSiloClient
+  - type: Sprite
+    sprite: Structures/Machines/techfab.rsi
+    layers:
+    - state: icon
+      map: [ "enum.LatheVisualLayers.IsRunning" ]
+    - state: sec
+    - state: unlit
+      shader: unshaded
+      map: [ "enum.PowerDeviceVisualLayers.Powered"]
+    - state: inserting
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Machine
+    board: SecurityTechFabCaelestinusMachineCircuitboard

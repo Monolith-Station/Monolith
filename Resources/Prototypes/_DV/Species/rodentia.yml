@@ -48,10 +48,10 @@
       required: true
       defaultMarkings: [ RodentiaTailDefault ]
     Legs:
-      points: 4
+      points: 8 # mono 4<8
       required: false
     Arms:
-      points: 4
+      points: 8 # mono 4<8
       required: false
     Snout:
       points: 1

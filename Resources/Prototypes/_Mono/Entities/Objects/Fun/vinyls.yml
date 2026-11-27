@@ -1,0 +1,175 @@
+- type: entity
+  name: "vinyl disk: EMULATOR"
+  id: VinylDiskNulbEmulator
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: blue-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Mono/RadioStation/music/nulb/emulator.ogg
+
+- type: entity
+  name: "vinyl disk: Eruption"
+  id: VinylDiskNulbEruption
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: red-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Mono/RadioStation/music/nulb/eruption.ogg
+
+- type: entity
+  name: "vinyl disk: Everpresence"
+  id: VinylDiskNulbEverpresence
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: orange-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Mono/RadioStation/music/nulb/everpresence.ogg
+
+- type: entity
+  name: "vinyl disk: Hakonechloa"
+  id: VinylDiskNulbHakonechloa
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: purple-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Mono/RadioStation/music/nulb/hakonechloa.ogg
+
+- type: entity
+  name: "vinyl disk: Hyperacusis"
+  id: VinylDiskNulbHyperacusis
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: lightblue-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Mono/RadioStation/music/nulb/hyperacusis.ogg
+
+- type: entity
+  name: "vinyl disk: I'm Down"
+  id: VinylDiskNulbImDown
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: green-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Mono/RadioStation/music/nulb/imdown.ogg
+
+- type: entity
+  name: "vinyl disk: Recalled"
+  id: VinylDiskNulbRecalled
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: lightishred-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Mono/RadioStation/music/nulb/recalled.ogg
+
+- type: entity
+  name: "vinyl disk: Take Your TIME"
+  id: VinylDiskNulbTakeYourTime
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: darkblue-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Mono/RadioStation/music/nulb/takeyourtime.ogg
+
+- type: entity
+  name: "vinyl disk: Ballsfish"
+  id: VinylDiskNulbBallsfish
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: cyan-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Mono/RadioStation/music/nulb/ballsfish.ogg
+
+- type: entity
+  name: "vinyl disk: Chronograph"
+  id: VinylDiskNulbChronograph
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: glossy-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Mono/RadioStation/music/nulb/chronograph.ogg
+
+- type: entity
+  name: "vinyl disk: Cruelty Engines"
+  id: VinylDiskNulbCrueltyEngines
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: forgotten-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Mono/RadioStation/music/nulb/crueltyengines.ogg
+
+- type: entity
+  name: "vinyl disk: Due Time"
+  id: VinylDiskNulbDueTime
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: green-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Mono/RadioStation/music/nulb/duetime.ogg
+
+- type: entity
+  name: "vinyl disk: Interloc"
+  id: VinylDiskNulbInterloc
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: purple-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Mono/RadioStation/music/nulb/interloc.ogg
+
+- type: entity
+  name: "vinyl disk: RE-Recalled"
+  id: VinylDiskNulbReRecalled
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: lightishred-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Mono/RadioStation/music/nulb/rerecalled.ogg
+
+- type: entity
+  name: "vinyl disk: SEIGE!" # not a typo
+  id: VinylDiskNulbSeige
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: yellow-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Mono/RadioStation/music/nulb/seige.ogg
+
+- type: entity
+  name: "vinyl disk: Timeout!"
+  id: VinylDiskNulbTimeout
+  parent: BaseVinylDisk
+  components:
+  - type: Sprite
+    state: pink-vinyl-disk
+  - type: Vinyl
+    song:
+      path: /Audio/_Mono/RadioStation/music/nulb/timeout.ogg

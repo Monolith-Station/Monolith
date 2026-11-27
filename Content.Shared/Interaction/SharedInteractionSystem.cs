@@ -53,7 +53,6 @@ namespace Content.Shared.Interaction
     public abstract partial class SharedInteractionSystem : EntitySystem
     {
         [Dependency] private IGameTiming _gameTiming = default!;
-        [Dependency] private IMapManager _mapManager = default!;
         [Dependency] private ISharedAdminLogManager _adminLogger = default!;
         [Dependency] private ActionBlockerSystem _actionBlockerSystem = default!;
         [Dependency] private RotateToFaceSystem _rotateToFaceSystem = default!;
@@ -155,7 +154,7 @@ namespace Content.Shared.Interaction
         /// <summary>
         ///     Check that the user that is interacting with the BUI is capable of interacting and can access the entity.
         /// </summary>
-        private void OnBoundInterfaceInteractAttempt(BoundUserInterfaceMessageAttempt ev)
+        private void OnBoundInterfaceInteractAttempt(ref BoundUserInterfaceMessageAttempt ev)
         {
             _uiQuery.TryComp(ev.Target, out var uiComp);
             if (!_actionBlockerSystem.CanInteract(ev.Actor, ev.Target))
@@ -895,7 +894,7 @@ namespace Content.Shared.Interaction
                     ignoreAnchored = angleDelta < wallMount.Arc / 2 || Math.Tau - angleDelta < wallMount.Arc / 2;
                 }
 
-                if (ignoreAnchored && _mapManager.TryFindGridAt(targetCoords, out var gridUid, out var grid))
+                if (ignoreAnchored && _map.TryFindGridAt(targetCoords, out var gridUid, out var grid))
                     ignored.UnionWith(_map.GetAnchoredEntities((gridUid, grid), targetCoords));
             }
 

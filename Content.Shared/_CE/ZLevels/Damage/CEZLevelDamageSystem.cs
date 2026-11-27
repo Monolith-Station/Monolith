@@ -31,7 +31,6 @@ public sealed partial class CEZLevelDamageSystem : EntitySystem
     [Dependency] private ITileDefinitionManager _tileDefManager = default!;
     [Dependency] private SharedMapSystem _maps = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
-    [Dependency] private IMapManager _mapManager = default!;
 
     public float BaseFallingDamage { get; private set; }
     public float BaseFallingOtherDamage { get; private set; }
@@ -144,7 +143,7 @@ public sealed partial class CEZLevelDamageSystem : EntitySystem
         // planet is the z-level map's own grid.
         if (xform.GridUid is not { } gridUid || !TryComp<MapGridComponent>(gridUid, out var grid))
         {
-            if (!_mapManager.TryFindGridAt(_transform.GetMapCoordinates(uid, xform), out gridUid, out grid))
+            if (!_maps.TryFindGridAt(_transform.GetMapCoordinates(uid, xform), out gridUid, out grid))
                 return false;
         }
 

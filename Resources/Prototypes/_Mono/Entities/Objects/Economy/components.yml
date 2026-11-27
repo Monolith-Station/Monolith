@@ -555,20 +555,20 @@
     sprite: _Mono/Objects/Materials/bayponents.rsi
     state: "camera"
   # flash stuff
-  - type: EmitSoundOnTrigger
-    sound:
-      path: /Audio/Weapons/flash.ogg
-  - type: FlashOnTrigger
-    range: 3
-  - type: TriggerOnProximity
-    enabled: true
-    cooldown: 5
-    shape:
-      !type:PhysShapeCircle
-      radius: 2
-    repeating: true
-  - type: StaticPrice
-    price: 1200
+#  - type: EmitSoundOnTrigger
+#    sound:
+#      path: /Audio/Weapons/flash.ogg
+#  - type: FlashOnTrigger
+#    range: 3
+#  - type: TriggerOnProximity
+#    enabled: true
+#    cooldown: 5
+#    shape:
+#      !type:PhysShapeCircle
+#      radius: 2
+#    repeating: true
+#  - type: StaticPrice
+#    price: 1200
 
 # end camera
 

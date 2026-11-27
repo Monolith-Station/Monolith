@@ -184,6 +184,9 @@
     attachedToSuit: true # Mono
   - type: PdaBorderColor
     borderColor: "#9c8245"
+  - type: StealTarget
+    stealGroup:
+    - PDVPDAs
 
 - type: entity
   parent: BasePDVPDA
@@ -515,3 +518,35 @@
     - LedgerCartridge
   - type: Pda
     id: MieyoLiasonIDCard
+
+# ER
+
+- type: entity
+  parent: MedicalPDA
+  id: ERMedicalPDA
+  components:
+  - type: Pda
+    id: MedMedicIDCard
+
+- type: entity
+  parent: SeniorPhysicianPDA
+  id: ERSeniorPhysicianPDA
+  components:
+  - type: Pda
+    id: MedMedicIDCard
+
+# UNDERGROUND
+
+- type: entity
+  parent: ContractorPDA
+  id: ContractorPDAFugitive
+  components:
+  - type: Pda
+    id: FugitiveIDCard
+
+- type: entity
+  parent: ContractorPDA
+  id: ContractorPDAGodfather
+  components:
+  - type: Pda
+    id: GodfatherIDCard

@@ -36,7 +36,7 @@
   - type: Sprite
     sprite: _NF/Structures/Storage/Crates/nfsd_brigmed.rsi
   - type: AccessReader
-    access: [["Security"]]
+    access: [["Tsfmc"]]
 
 - type: entity
   parent: CrateSecgear
@@ -48,7 +48,7 @@
   - type: Sprite
     sprite: _NF/Structures/Storage/Crates/nfsd_secure1.rsi
   - type: AccessReader
-    access: [["Security"]]
+    access: [["Tsfmc"]]
 
 - type: entity
   parent: CrateSecgear
@@ -60,7 +60,7 @@
   - type: Sprite
     sprite: _NF/Structures/Storage/Crates/nfsd_secure2.rsi
   - type: AccessReader
-    access: [["Security"]]
+    access: [["Tsfmc"]]
 
 - type: entity
   parent: CrateGenericSteel
@@ -116,7 +116,6 @@
   - type: Sprite
     sprite: _NF/Structures/Storage/Crates/secure_mercenary.rsi
   - type: AccessReader
-    access: [["Mercenary"]]
 
 - type: entity
   parent: CrateBaseSecure
@@ -128,7 +127,6 @@
   - type: Sprite
     sprite: _NF/Structures/Storage/Crates/secure_privatesec.rsi
   - type: AccessReader
-    access: [["Mercenary"]]
 
 - type: entity
   parent: CrateBaseSecure
@@ -140,7 +138,6 @@
   - type: Sprite
     sprite: _NF/Structures/Storage/Crates/secure_ammo.rsi
   - type: AccessReader
-    access: [["Mercenary"]]
 
 - type: entity
   parent: CrateWeaponSecure

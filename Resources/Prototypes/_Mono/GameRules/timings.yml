@@ -6,6 +6,20 @@
     endAt: 10800 # 3 hour
 
 - type: entity
+  id: RoundEndRuleHour1
+  parent: BaseGameRule
+  components:
+  - type: RoundEndTimeRule
+    endAt: 3600 # 1 hour
+
+- type: entity
+  id: RoundEndRuleHour2
+  parent: BaseGameRule
+  components:
+  - type: RoundEndTimeRule
+    endAt: 7200 # 2 hour
+
+- type: entity
   id: PortstrikeAnnounceRuleHour4
   parent: BaseGameRule
   components:
@@ -33,6 +47,15 @@
     delay:
       min: 7200
       max: 7200
+
+- type: entity
+  id: PortstrikeAnnounceRuleMinute80
+  parent: PortstrikeAnnounceRuleHour4
+  components:
+  - type: GameRule
+    delay:
+      min: 4800
+      max: 4800
 
 - type: entity
   id: PortstrikeAnnounceRuleHour1
@@ -65,6 +88,6 @@
   parent: BaseGameRule
   components:
   - type: ManualPortstrikeRule
-    sectorStatus: 
+    sectorStatus:
       TSF: false
       PDV: false

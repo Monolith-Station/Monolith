@@ -142,8 +142,10 @@
     soundHit:
       collection: MetalThud
     damage:
-      groups:
-        Brute: 5
+      types:
+        Blunt: 1.66
+        Slash: 1.67
+        Piercing: 1.67
 
 # Used for mobs that are affected by atmospherics, pressure, and heat
 - type: entity
@@ -214,7 +216,10 @@
     canResistFire: true
     damage: #per second, scales with number of fire 'stacks'
       types:
-        Heat: 1.5
+        # ES START
+        # lower damage it was kinda crazy
+        Heat: 0.5
+        # ES END
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Generic_mob_burning

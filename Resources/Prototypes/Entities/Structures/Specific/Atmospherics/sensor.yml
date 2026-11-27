@@ -29,6 +29,9 @@
         Healium: stationNO #
         Nitrium: danger  #Funky/Goob
         Pluoxium: ignore #Funky/Goob
+        # ES START
+        Smoke: ESStationSmoke
+        # ES END
     - type: Tag
       tags:
         - AirSensor

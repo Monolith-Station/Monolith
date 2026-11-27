@@ -13,3 +13,43 @@
   components:
   - type: Implanter
     implant: GaryTranslatorImplant
+
+- type: entity
+  id: HydraspeakTranslatorImplanter
+  parent: [ BaseTranslatorImplanter ]
+  name: hydraspeak translator implanter
+  components:
+  - type: Implanter
+    implant: HydraspeakTranslatorImplant
+
+- type: entity
+  id: ScratchTranslatorImplanter
+  parent: [ BaseTranslatorImplanter ]
+  name: scratch translator implanter
+  components:
+  - type: Implanter
+    implant: ScratchTranslatorImplant
+
+- type: entity
+  id: SqueakishTranslatorImplanter
+  parent: [ BaseTranslatorImplanter ]
+  name: squeakish translator implanter
+  components:
+  - type: Implanter
+    implant: SqueakishTranslatorImplant
+
+- type: entity
+  id: NovaCygniClassicalTranslatorImplanter
+  parent: [ BaseTranslatorImplanter ]
+  name: nova-cygni classical translator implanter
+  components:
+  - type: Implanter
+    implant: NovaCygniClassicalTranslatorImplant
+
+- type: entity
+  id: FelyaicTranslatorImplanter
+  parent: [ BaseTranslatorImplanter ]
+  name: felyaic translator implanter
+  components:
+  - type: Implanter
+    implant: FelyaicTranslatorImplant

@@ -15,9 +15,30 @@
   - type: Carriable # Carrying system from nyanotrasen.
   - type: Inventory # Allows vulps to wear properly shaped helmets
     speciesId: vulpkanin
+    displacements: # Monolith start: Starlight vulp textures
+      head:
+        sizeMaps:
+          32:
+            sprite: _Starlight/Mobs/Species/Vulpkanin/displacement.rsi
+            state: head
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Starlight/Mobs/Species/Vulpkanin/displacement.rsi
+            state: outerClothing
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Starlight/Mobs/Species/Vulpkanin/displacement.rsi
+            state: jumpsuit
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Starlight/Mobs/Species/Vulpkanin/displacement.rsi
+            state: shoes
   - type: Thirst
   - type: Icon
-    sprite: _DV/Mobs/Species/Vulpkanin/parts.rsi
+    sprite: _Starlight/Mobs/Species/Vulpkanin/parts.rsi
     state: full
   - type: Body
     prototype: Vulpkanin
@@ -75,14 +96,14 @@
       - map: [ "eyes" ]
       - map: [ "belt" ]
       - map: [ "back" ]
-      - map: [ "neck" ]
-      - map: [ "neck2" ]
-      - map: [ "neck3" ]
       - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
       - map: [ "enum.HumanoidVisualLayers.Hair" ]
       - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
       - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
       - map: [ "enum.HumanoidVisualLayers.Tail" ]
+      - map: [ "neck" ] # Monolith: Move after tail
+      - map: [ "neck2" ]
+      - map: [ "neck3" ]
       - map: [ "mask" ]
       - map: [ "head" ]
       - map: [ "helmetcover" ]
@@ -119,6 +140,7 @@
     interactSuccessString: pat-success-generic
     interactSuccessSound: /Audio/Effects/thudswoosh.ogg
     messagePerceivedByOthers: pat-success-generic-others
+  - type: Wagging # Mono
   - type: ShortWhitelist # Frontier
     scale: 0.8 # Frontier
     density: 140 # Frontier
@@ -130,11 +152,34 @@
 - type: entity
   save: false
   name: Vulpkanin Dummy
-  parent: MobHumanDummy
+  parent: BaseSpeciesDummy # Monolith
   id: MobVulpkaninDummy
   categories: [ HideSpawnMenu ]
   description: A dummy vulpkanin meant to be used in character setup.
   components:
+  - type: Inventory # Monolith start: Starlight vulp textures
+    speciesId: vulpkanin
+    displacements:
+      head:
+        sizeMaps:
+          32:
+            sprite: _Starlight/Mobs/Species/Vulpkanin/displacement.rsi
+            state: head
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Starlight/Mobs/Species/Vulpkanin/displacement.rsi
+            state: outerClothing
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Starlight/Mobs/Species/Vulpkanin/displacement.rsi
+            state: jumpsuit
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Starlight/Mobs/Species/Vulpkanin/displacement.rsi
+            state: shoes # Monolith end
   - type: HumanoidAppearance
     species: Vulpkanin
     hideLayersOnEquip: # Mono

@@ -28,7 +28,6 @@ namespace Content.Server.Atmos.EntitySystems
     {
         [Robust.Shared.IoC.Dependency] private IGameTiming _gameTiming = default!;
         [Robust.Shared.IoC.Dependency] private IPlayerManager _playerManager = default!;
-        [Robust.Shared.IoC.Dependency] private IMapManager _mapManager = default!;
         [Robust.Shared.IoC.Dependency] private IParallelManager _parMan = default!;
         [Robust.Shared.IoC.Dependency] private AtmosphereSystem _atmosphereSystem = default!;
         [Robust.Shared.IoC.Dependency] private ChunkingSystem _chunkingSys = default!;
@@ -74,7 +73,6 @@ namespace Content.Server.Atmos.EntitySystems
                 ChunkIndexPool = _chunkIndexPool,
                 Sessions = _sessions,
                 ChunkingSys = _chunkingSys,
-                MapManager = _mapManager,
                 ChunkViewerPool = _chunkViewerPool,
                 LastSentChunks = _lastSentChunks,
                 GridQuery = _gridQuery,
@@ -179,7 +177,7 @@ namespace Content.Server.Atmos.EntitySystems
             else
                 byteTemp = new(mixture.Temperature);
 
-            var data = new GasOverlayData(0, new byte[VisibleGasId.Length], byteTemp, 0);
+            var data = new GasOverlayData(0, new byte[VisibleGasId.Length], byteTemp);
 
             for (var i = 0; i < VisibleGasId.Length; i++)
             {
@@ -232,15 +230,14 @@ namespace Content.Server.Atmos.EntitySystems
             if (oldData.Equals(default))
             {
                 changed = true;
-                oldData = new GasOverlayData(tile.Hotspot.State, new byte[VisibleGasId.Length], newByteTemp, (byte)tile.Hotspot.Type);
+                oldData = new GasOverlayData(tile.Hotspot.State, new byte[VisibleGasId.Length], newByteTemp);
             }
             else if (oldData.FireState != tile.Hotspot.State ||
-                     oldData.FireType != (byte)tile.Hotspot.Type || // mono reagent fire
                      Math.Abs(oldData.ByteGasTemperature.Value - newByteTemp.Value) > 1 || // Dirty Temperature when there is more then 1 byte difference. That should measure up to minimum 4 degreese difference, 6 degreese on average.
                      (oldData.ByteGasTemperature.Value != newByteTemp.Value && newByteTemp.Value > ThermalByte.TempResolution)) // change of special ThermalByte value
             {
                 changed = true;
-                oldData = new GasOverlayData(tile.Hotspot.State, oldData.Opacity, newByteTemp, (byte)tile.Hotspot.Type);
+                oldData = new GasOverlayData(tile.Hotspot.State, oldData.Opacity, newByteTemp);
             }
 
             if (tile is {Air: not null, NoGridTile: false})
@@ -387,7 +384,6 @@ namespace Content.Server.Atmos.EntitySystems
             public int BatchSize => 2;
 
             public IEntityManager EntManager;
-            public IMapManager MapManager;
             public ChunkingSystem ChunkingSys;
             public GasTileOverlaySystem System;
             public ObjectPool<HashSet<Vector2i>> ChunkIndexPool;
