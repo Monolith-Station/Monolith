@@ -483,6 +483,7 @@
     state: state0
   - type: IconSmooth
     mode: Diagonal
+    rotateDiagonalSprite: true
     key: walls
     base: state
   - type: DirectionalHull
@@ -754,6 +755,7 @@
     state: state0
   - type: IconSmooth
     mode: Diagonal
+    rotateDiagonalSprite: true
     key: walls
     base: state
   - type: DirectionalHull

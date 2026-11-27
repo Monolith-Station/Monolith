@@ -4,6 +4,7 @@ using Content.Client.Overlays;
 using Content.Shared.IconSmoothing;
 using JetBrains.Annotations;
 using Robust.Client.GameObjects;
+using Robust.Shared.Graphics.RSI;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Map.Enumerators;
@@ -337,7 +338,12 @@ namespace Content.Client.IconSmoothing
 
         private void SetDiagonalState(Entity<SpriteComponent> sprite, IconSmoothComponent smooth, bool matching)
         {
-            _sprite.LayerSetRsiState(sprite.AsNullable(), 0, $"{smooth.StateBase}{(matching ? 1 : 0)}");
+            var stateId = $"{smooth.StateBase}{(matching ? 1 : 0)}";
+            // Rotate the same silhouette as the local collision hull.
+            if (smooth.RotateDiagonalSprite && sprite.Comp.BaseRSI is { } rsi && rsi.TryGetState(stateId, out var state))
+                _sprite.LayerSetTexture(sprite.AsNullable(), 0, state.GetFrame(RsiDirection.South, 0));
+            else
+                _sprite.LayerSetRsiState(sprite.AsNullable(), 0, stateId);
         }
 
         // New Frontiers - Better icon smoothing - icon smoothing that supports more diagonal window states

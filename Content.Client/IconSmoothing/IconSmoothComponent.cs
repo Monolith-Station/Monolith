@@ -41,6 +41,9 @@ namespace Content.Client.IconSmoothing
         [ViewVariables(VVAccess.ReadWrite), DataField("mode")]
         public IconSmoothingMode Mode = IconSmoothingMode.Corners;
 
+        [DataField]
+        public bool RotateDiagonalSprite;
+
         /// <summary>
         ///     Used by <see cref="IconSmoothSystem"/> to reduce redundant updates.
         /// </summary>
