@@ -448,8 +448,6 @@
   - type: Occluder
     polygon:
     - "-0.5,-0.5"
-    - "-0.5,0.109375"
-    - "0.28125,0.5"
     - "0.5,0.5"
     - "0.5,-0.5"
   - type: RCDDeconstructable # Frontier
@@ -485,21 +483,6 @@
     mode: Diagonal
     key: walls
     base: state
-  - type: WorldSpaceSprite
-  - type: DirectionalHull
-    hulls:
-      East:
-      - "-0.5,-0.5"
-      - "-0.5,-0.28125"
-      - "-0.109375,0.5"
-      - "0.5,0.5"
-      - "0.5,-0.5"
-      West:
-      - "-0.5,-0.5"
-      - "-0.5,-0.28125"
-      - "-0.109375,0.5"
-      - "0.5,0.5"
-      - "0.5,-0.5"
   - type: Icon
     sprite: Structures/Walls/plastitanium_diagonal.rsi
     state: state0
@@ -517,8 +500,6 @@
           !type:PolygonShape
           vertices:
           - "-0.5,-0.5"
-          - "-0.5,0.109375"
-          - "0.28125,0.5"
           - "0.5,0.5"
           - "0.5,-0.5"
         mask:
@@ -738,8 +719,6 @@
   - type: Occluder
     polygon:
     - "-0.5,-0.5"
-    - "-0.5,0.109375"
-    - "0.28125,0.5"
     - "0.5,0.5"
     - "0.5,-0.5"
   - type: Transform
@@ -757,21 +736,6 @@
     mode: Diagonal
     key: walls
     base: state
-  - type: WorldSpaceSprite
-  - type: DirectionalHull
-    hulls:
-      East:
-      - "-0.5,-0.5"
-      - "-0.5,-0.28125"
-      - "-0.109375,0.5"
-      - "0.5,0.5"
-      - "0.5,-0.5"
-      West:
-      - "-0.5,-0.5"
-      - "-0.5,-0.28125"
-      - "-0.109375,0.5"
-      - "0.5,0.5"
-      - "0.5,-0.5"
   - type: Icon
     sprite: Structures/Walls/shuttle_diagonal.rsi
     state: state0
@@ -790,8 +754,6 @@
           !type:PolygonShape
           vertices:
           - "-0.5,-0.5"
-          - "-0.5,0.109375"
-          - "0.28125,0.5"
           - "0.5,0.5"
           - "0.5,-0.5"
         mask:
