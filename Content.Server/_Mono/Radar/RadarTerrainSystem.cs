@@ -13,8 +13,6 @@ using Content.Shared.Shuttles.Components;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
 
 namespace Content.Server._Mono.Radar;
@@ -25,8 +23,6 @@ public sealed partial class RadarTerrainSystem : EntitySystem
     [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private SharedUserInterfaceSystem _ui = default!;
     [Dependency] private DetectionSystem _detection = default!;
-    [Dependency] private IPrototypeManager _prototypes = default!;
-    [Dependency] private ISerializationManager _serialization = default!;
     [Dependency] private ITileDefinitionManager _tiles = default!;
     [Dependency] private SharedBiomeSystem _biomes = default!;
     [Dependency] private IGameTiming _timing = default!;
@@ -38,7 +34,6 @@ public sealed partial class RadarTerrainSystem : EntitySystem
         public readonly int Seed = seed;
         public readonly List<IBiomeLayer> Layers = layers;
         public readonly RadarTerrainSampler Sampler = sampler;
-        public readonly byte[] SampleCache = sampler.CreateCache();
         public readonly Dictionary<RadarTerrainChunk, RadarTerrainChunkEvent> Chunks = new();
         public readonly HashSet<Vector2i> Dirty = new();
         public readonly Dictionary<RadarTerrainChunk, uint> Revisions = new();
@@ -56,7 +51,7 @@ public sealed partial class RadarTerrainSystem : EntitySystem
         if (_charts.TryGetValue(map, out var chart) && chart.Seed == biome.Seed && chart.Layers == biome.Layers)
             return chart;
         return _charts[map] = new Chart(biome.Seed, biome.Layers,
-            new RadarTerrainSampler(biome.Layers, biome.Seed, _prototypes, _serialization,
+            new RadarTerrainSampler(_biomes.GetCompiledBiome(biome.Layers, biome.Seed),
                 wrapSize: CompOrNull<ToroidalMapComponent>(map)?.Size ?? 0f));
     }
 
@@ -189,7 +184,7 @@ public sealed partial class RadarTerrainSystem : EntitySystem
                 for (var x = 0; x < RadarTerrainChunk.Size; x++)
                 {
                     var index = origin + new Vector2i(x * chunk.Step, y * chunk.Step);
-                    var baseline = chart.Sampler.Sample(index.X, index.Y, out var tile, out var ground, chart.SampleCache);
+                    var baseline = chart.Sampler.Sample(index.X, index.Y, out var tile, out var ground);
                     var color = Sample(map, grid, biome, chart.Sampler, index, baseline, tile, ground);
                     if (color == baseline)
                         continue;

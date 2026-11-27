@@ -8,12 +8,13 @@ using Robust.Shared.Enums;
 using Robust.Shared.Graphics;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Physics;
 using Robust.Shared.Prototypes;
 using static Content.Client._CE.ZLevels.Light.CEZLightProjectionSystem;
 
 namespace Content.Client._CE.ZLevels.Light;
 
-internal sealed class CEZProjectedLightOverlay : Overlay
+internal sealed partial class CEZProjectedLightOverlay : Overlay
 {
     private static readonly ProtoId<ShaderPrototype> LightShader = "CEZProjectedLight";
     private static readonly ProtoId<ShaderPrototype> CopyShader = "CEZLightBufferCopy";
@@ -21,12 +22,7 @@ internal sealed class CEZProjectedLightOverlay : Overlay
     private const int MaskSize = 128;
     private const float WallHeight = 1f;
     private const float CloudThickness = 0.25f;
-    private static readonly ushort[] WallFaces =
-    [
-        0, 1, 2, 0, 2, 3, 4, 6, 5, 4, 7, 6,
-        0, 4, 5, 0, 5, 1, 1, 5, 6, 1, 6, 2,
-        2, 6, 7, 2, 7, 3, 3, 7, 4, 3, 4, 0,
-    ];
+    private static readonly ushort[][] WallFaces = BuildWallFaces();
 
     [Dependency] private IClyde _clyde = default!;
     [Dependency] private IPrototypeManager _prototypes = default!;
@@ -43,7 +39,7 @@ internal sealed class CEZProjectedLightOverlay : Overlay
     private readonly List<ShaderInstance> _cloudShaders = new();
     private readonly List<ProjectedLight> _visible = new();
     private readonly List<Entity<OccluderComponent, TransformComponent>> _walls = new();
-    private readonly Vector2[] _wallCorners = new Vector2[8];
+    private readonly Vector2[] _wallCorners = new Vector2[PhysicsConstants.MaxPolygonVertices * 2];
     private List<Entity<MapGridComponent>> _grids = new();
     private IRenderTexture? _lightBuffer;
     private IRenderTexture? _mask;
@@ -217,24 +213,46 @@ internal sealed class CEZProjectedLightOverlay : Overlay
         handle.SetTransform(Matrix3x2.Identity);
         foreach (var wall in _walls)
         {
-            if (!wall.Comp1.Enabled)
+            var polygon = wall.Comp1.Polygon;
+            var count = polygon.Length;
+            if (!wall.Comp1.Enabled || count < 3 || count > PhysicsConstants.MaxPolygonVertices)
                 continue;
 
-            var box = wall.Comp1.LocalBounds;
             var matrix = _transform.GetWorldMatrix(wall.Comp2);
-            corners[0] = Vector2.Transform(box.BottomLeft, matrix);
-            corners[1] = Vector2.Transform(box.BottomRight, matrix);
-            corners[2] = Vector2.Transform(box.TopRight, matrix);
-            corners[3] = Vector2.Transform(box.TopLeft, matrix);
-            for (var i = 0; i < 4; i++)
+            for (var i = 0; i < count; i++)
             {
-                var delta = (corners[i] - light.Position) * scale;
+                var delta = (Vector2.Transform(polygon[i], matrix) - light.Position) * scale;
                 corners[i] = center + delta / near;
-                corners[i + 4] = center + delta / far;
+                corners[i + count] = center + delta / far;
             }
 
-            handle.DrawPrimitives(DrawPrimitiveTopology.TriangleList, WallFaces, corners, Color.Black);
+            handle.DrawPrimitives(DrawPrimitiveTopology.TriangleList, WallFaces[count], corners.AsSpan(0, count * 2), Color.Black);
         }
+    }
+
+    private static ushort[][] BuildWallFaces()
+    {
+        var faces = new ushort[PhysicsConstants.MaxPolygonVertices + 1][];
+        for (var n = 3; n < faces.Length; n++)
+        {
+            var list = new List<ushort>((n - 2) * 6 + n * 6);
+            for (var i = 1; i < n - 1; i++)
+            {
+                list.AddRange([0, (ushort) i, (ushort) (i + 1)]);
+                list.AddRange([(ushort) n, (ushort) (n + i + 1), (ushort) (n + i)]);
+            }
+
+            for (var i = 0; i < n; i++)
+            {
+                var j = (i + 1) % n;
+                list.AddRange([(ushort) i, (ushort) (n + i), (ushort) (n + j)]);
+                list.AddRange([(ushort) i, (ushort) (n + j), (ushort) j]);
+            }
+
+            faces[n] = list.ToArray();
+        }
+
+        return faces;
     }
 
     private void DrawLight(DrawingHandleWorld handle, Matrix3x2 matrix, Texture mask, ShaderInstance shader, ProjectedLight light)

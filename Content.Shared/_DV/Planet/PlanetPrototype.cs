@@ -1,4 +1,3 @@
-using System.Numerics;
 using Content.Shared.Atmos;
 using Content.Shared.Parallax.Biomes;
 using Content.Shared.Parallax.Biomes.Markers;
@@ -47,11 +46,4 @@ public sealed partial class PlanetPrototype : IPrototype
     /// </summary>
     [DataField]
     public List<ProtoId<BiomeMarkerLayerPrototype>> BiomeMarkerLayers = new();
-
-    // Mono
-    [DataField]
-    public float? BorderRadius;
-
-    [DataField]
-    public Vector2 BorderOffset = Vector2.Zero;
 }

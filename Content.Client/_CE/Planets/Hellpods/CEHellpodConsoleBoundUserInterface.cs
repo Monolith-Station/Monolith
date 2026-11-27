@@ -256,7 +256,7 @@ public sealed class CEHellpodChart : ShuttleNavControl
         var worldToView = WorldToChart;
         if (EntManager.TryGetEntity(State.Terrain, out var terrain) &&
             EntManager.TryGetComponent<MapGridComponent>(terrain, out var grid))
-            DrawTerrainPreview(handle, worldToView, (terrain.Value, grid));
+            DrawTerrainPreview(handle, worldToView, (terrain.Value, grid), _consoleEntity);
 
         foreach (var contact in State.Contacts)
         {

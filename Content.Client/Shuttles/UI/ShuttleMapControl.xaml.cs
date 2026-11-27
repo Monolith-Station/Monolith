@@ -1,6 +1,5 @@
 using System.Buffers;
 using System.Numerics;
-using Content.Client._Mono.PlanetMap; // Mono
 using Content.Client.Shuttles.Systems;
 using Content.Shared._CE.ZLevels.Core.EntitySystems;
 using Content.Shared._Mono.Company;
@@ -32,7 +31,6 @@ public sealed partial class ShuttleMapControl : BaseShuttleControl
     private SharedMapSystem Maps => _entManager.System<SharedMapSystem>();
     [Dependency] private IEntityManager _entManager = default!; // Frontier
     private readonly DetectionSystem _detection; // Mono
-    private readonly PlanetTerrainSystem _planetTerrain; // Mono
     private readonly ShuttleSystem _shuttles;
     private readonly SharedTransformSystem _xformSystem;
 
@@ -100,7 +98,6 @@ public sealed partial class ShuttleMapControl : BaseShuttleControl
     {
         RobustXamlLoader.Load(this);
         _detection = EntManager.System<DetectionSystem>(); // Mono
-        _planetTerrain = EntManager.System<PlanetTerrainSystem>(); // Mono
         _shuttles = EntManager.System<ShuttleSystem>();
         _xformSystem = EntManager.System<SharedTransformSystem>();
         var cache = IoCManager.Resolve<IResourceCache>();
@@ -176,21 +173,7 @@ public sealed partial class ShuttleMapControl : BaseShuttleControl
         base.MouseWheel(args);
     }
 
-    // Mono draws the seeded surface gen of planet biome map
-    /// <summary>
-    /// Dimming is here because I thought the terrain would make beacons and labels unreadable. Turns out wasn't neccissary but leaving it just incase.
-    /// We draw coarser texels than handheld, since this usually zooms out much further.
-    /// </summary>
-    private static readonly PlanetDrawOptions MapPlanetOptions = new(
-        PixelsPerTexel: 4f,
-        TerrainModulate: new Color(1.0f, 1.0f, 1.0f),
-        DrawStructures: true,
-        StructureColor: IFFComponent.IFFColor,
-        BorderColor: Color.Red.WithAlpha(0.6f));
-
-    /// <summary>
-    /// Same transform as ScalePosition(matty * world with Y flipped), we do it matrix style.
-    /// </summary>
+    // Mono - same as ScalePosition(matty * world with Y flipped)
     private Matrix3x2 GetPlanetWorldToView()
     {
         return Matrix3x2.CreateTranslation(-Offset)
@@ -200,16 +183,8 @@ public sealed partial class ShuttleMapControl : BaseShuttleControl
 
     private void DrawPlanetSurface(DrawingHandleScreen handle, EntityUid viewedMapUid)
     {
-        var worldToView = GetPlanetWorldToView();
-        var viewBox = PlanetTerrainSystem.GetViewBox(worldToView, PixelSize);
-        _planetTerrain.DrawUnderlay(handle, viewedMapUid, worldToView, viewBox, Offset, MinimapScale, MapPlanetOptions, BackingColor);
-    }
-
-    private void DrawPlanetMarkers(DrawingHandleScreen handle)
-    {
-        var worldToView = GetPlanetWorldToView();
-        var viewBox = PlanetTerrainSystem.GetViewBox(worldToView, PixelSize);
-        _planetTerrain.DrawMarkers(handle, ViewingMap, viewBox, worldToView, _font, UIScale);
+        if (FindTerrainSurface(viewedMapUid, _console) is { } terrain)
+            DrawTerrainPreview(handle, GetPlanetWorldToView(), terrain, _console);
     }
     // End Mono
 
@@ -544,7 +519,7 @@ public sealed partial class ShuttleMapControl : BaseShuttleControl
             }
         }
 
-        DrawPlanetMarkers(handle); // Mono
+        DrawPlanetMarkers(handle, GetPlanetWorldToView(), viewedMapUid); // Mono
 
         var mousePos = _inputs.MouseScreenPosition;
         var mouseLocalPos = GetLocalPosition(mousePos);

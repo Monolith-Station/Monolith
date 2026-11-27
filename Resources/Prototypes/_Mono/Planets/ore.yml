@@ -37,8 +37,6 @@
     offset: 0
     table: !type:NestedSelector
       tableId: MonoPlanetmapOreSand
-  - type: PlanetMapColor
-    colorFrom: WallRockSand
 
 # Snow
 
@@ -79,8 +77,6 @@
     offset: 0
     table: !type:NestedSelector
       tableId: MonoPlanetmapOreSnow
-  - type: PlanetMapColor
-    colorFrom: WallRockSnow
 
 # Chromite
 
@@ -121,8 +117,6 @@
     offset: 0
     table: !type:NestedSelector
       tableId: MonoPlanetmapOreChromite
-  - type: PlanetMapColor
-    colorFrom: WallRockChromite
 
 # Basalt
 
@@ -163,8 +157,6 @@
     offset: 0
     table: !type:NestedSelector
       tableId: MonoPlanetmapOreBasalt
-  - type: PlanetMapColor
-    colorFrom: WallRockBasalt
 
 # Boring rock
 
@@ -205,5 +197,3 @@
     offset: 0
     table: !type:NestedSelector
       tableId: MonoPlanetmapOreBase
-  - type: PlanetMapColor
-    colorFrom: WallRock

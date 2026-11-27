@@ -5,8 +5,6 @@ using System.Threading.Tasks;
 using Content.Shared.Parallax.Biomes;
 using Content.Shared._Mono.Planets;
 using Content.Shared.Parallax.Biomes.Layers;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Configuration;
 using Content.Shared._Mono.CCVar;
 using System.Numerics;
@@ -21,8 +19,7 @@ namespace Content.Client._Mono.Radar;
 public sealed partial class RadarTerrainSystem : EntitySystem
 {
     [Dependency] private IGameTiming _timing = default!;
-    [Dependency] private IPrototypeManager _prototypes = default!;
-    [Dependency] private ISerializationManager _serialization = default!;
+    [Dependency] private SharedBiomeSystem _biomes = default!;
     [Dependency] private IConfigurationManager _configuration = default!;
     [Dependency] private IPlayerManager _player = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
@@ -195,7 +192,7 @@ public sealed partial class RadarTerrainSystem : EntitySystem
             chart.PreviewCancellation.Cancel();
             chart.PreviewCancellation.Dispose();
             chart.PreviewCancellation = new CancellationTokenSource();
-            chart.Sampler = new RadarTerrainSampler(biome.Layers, biome.Seed, _prototypes, _serialization,
+            chart.Sampler = new RadarTerrainSampler(_biomes.GetCompiledBiome(biome.Layers, biome.Seed),
                 wrapSize: CompOrNull<ToroidalMapComponent>(map)?.Size ?? 0f);
             chart.Layers = biome.Layers;
             chart.Seed = biome.Seed;
@@ -269,7 +266,6 @@ public sealed partial class RadarTerrainSystem : EntitySystem
         {
             chart.PreviewJobs[worker] = Task.Run(() =>
             {
-                var cache = sampler.CreateCache();
                 var result = new Dictionary<RadarTerrainChunk, uint[]>((missing.Count + workers - 1) / workers);
                 for (var i = Interlocked.Increment(ref nextChunk); i < missing.Count; i = Interlocked.Increment(ref nextChunk))
                 {
@@ -280,7 +276,7 @@ public sealed partial class RadarTerrainSystem : EntitySystem
                     var origin = chunk.Origin;
                     for (var y = 0; y < RadarTerrainChunk.Size; y++)
                     for (var x = 0; x < RadarTerrainChunk.Size; x++)
-                        pixels[y * RadarTerrainChunk.Size + x] = sampler.Sample(origin.X + x * chunk.Step, origin.Y + y * chunk.Step, cache);
+                        pixels[y * RadarTerrainChunk.Size + x] = sampler.Sample(origin.X + x * chunk.Step, origin.Y + y * chunk.Step);
                     result[chunk] = pixels;
                 }
                 return result;
