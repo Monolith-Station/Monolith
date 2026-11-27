@@ -81,8 +81,10 @@
       path: /Audio/Animals/cat_hiss.ogg
     hidden: true
     damage:
-      groups:
-        Brute: 1
+      types:
+        Blunt: 0.33
+        Slash: 0.33
+        Piercing: 0.34
   - type: Appearance
   - type: DeepFried
     crispinessLevelSet: Crispy

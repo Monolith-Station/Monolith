@@ -39,7 +39,7 @@ public partial class BaseShuttleControl : MapGridControl
     // Per-draw caching
     private readonly Dictionary<Vector2i, ContentTileDefinition> _gridTileList = new(); // Mono
     // Mono - tile mapped to vector lying along each of 4 directions, if any
-    private readonly Dictionary<Vector2i, Box2?[]> _gridDirEdges = new();
+    private readonly Dictionary<Vector2i, (Vector2 Start, Vector2 End)?[]> _gridDirEdges = new();
     // stores inward directions of borders
     private readonly List<(Vector2 Start, Vector2 End)> _edges = new();
     private readonly HashSet<Entity<GridEdgeMarkerComponent>> _edgeMarkers = new();
@@ -452,7 +452,7 @@ public partial class BaseShuttleControl : MapGridControl
                 // Mono - drawing logic rewritten
                 var def = (ContentTileDefinition)_tileDef[tileRef.Value.Tile.TypeId];
                 _gridTileList[index] = def;
-                _gridDirEdges[index] = new Box2?[4];
+                _gridDirEdges[index] = new (Vector2 Start, Vector2 End)?[4];
 
                 // since our shape has to be convex, just draw it by taking our first vertex as origin
                 var bl = Maps.TileToVector(grid, index);
@@ -488,7 +488,7 @@ public partial class BaseShuttleControl : MapGridControl
                     {
                         var idxVec = dirFlag.AsDir().ToIntVec();
                         var arrIdx = GetDirIndex(idxVec);
-                        _gridDirEdges[index][arrIdx] = new Box2(wasPrev, vert);
+                        _gridDirEdges[index][arrIdx] = (wasPrev, vert);
                     }
                 }
             }
@@ -534,8 +534,8 @@ public partial class BaseShuttleControl : MapGridControl
                                 var offset = (Vector2)dirVec;
 
                                 // offset into our coordinate space: tile relative to us + point relative to tile
-                                var otherPrev = neighbor.BottomLeft + offset;
-                                var otherVert = neighbor.TopRight + offset;
+                                var otherPrev = neighbor.Start + offset;
+                                var otherVert = neighbor.End + offset;
                                 var otherEdgeVec = otherVert - otherPrev;
                                 // so we can map points onto the parametric form of our line
                                 var otherEdgeAdj = otherEdgeVec / otherEdgeVec.LengthSquared();

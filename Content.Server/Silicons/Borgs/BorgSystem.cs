@@ -70,8 +70,7 @@ public sealed partial class BorgSystem : SharedBorgSystem
 
     [Dependency] private IPrototypeManager _prototypeManager = default!;
 
-    [ValidatePrototypeId<JobPrototype>]
-    public const string BorgJobId = "Borg";
+    public static readonly ProtoId<JobPrototype> BorgJobId = "Borg";
 
     /// <inheritdoc/>
     public override void Initialize()

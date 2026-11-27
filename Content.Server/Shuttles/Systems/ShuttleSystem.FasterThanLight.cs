@@ -369,7 +369,7 @@ public sealed partial class ShuttleSystem
         string? priorityTag = null)
     {
         // TODO: Validation
-        if (!TryComp<FTLDestinationComponent>(_mapManager.GetMapEntityId(_transform.GetMapId(target)), out var dest))
+        if (!TryComp<FTLDestinationComponent>(_mapSystem.GetMapOrInvalid(_transform.GetMapId(target)), out var dest))
         {
             return;
         }
@@ -862,12 +862,12 @@ public sealed partial class ShuttleSystem
         _audio.SetGridAudio(audio);
 
         // Re-enable map if it was paused.
-        if (TryComp<FTLDestinationComponent>(_mapManager.GetMapEntityId(mapId), out var dest))
+        if (TryComp<FTLDestinationComponent>(_mapSystem.GetMapOrInvalid(mapId), out var dest))
         {
             dest.Enabled = true;
         }
 
-        _mapManager.SetMapPaused(mapId, false);
+        _mapSystem.SetPaused(mapId, false);
         Smimsh(uid, xform: xform);
 
         // Add cooldown before removing the FTL component
@@ -1230,7 +1230,7 @@ public sealed partial class ShuttleSystem
         while (iteration < FTLProximityIterations)
         {
             grids.Clear();
-            _mapManager.FindGridsIntersecting(targetXform.MapID, targetAABB, ref grids);
+            _mapSystem.FindGridsIntersecting(targetXform.MapID, targetAABB, ref grids);
             if (grids.Count == 0)
                 break;
 
@@ -1427,7 +1427,7 @@ public sealed partial class ShuttleSystem
 
             if (explodeGrids)
             {
-                _mapManager.FindGridsIntersecting(mapUid.Value, fixture.Shape, transform,
+                _mapSystem.FindGridsIntersecting(mapUid.Value, fixture.Shape, transform,
                     (EntityUid gridEnt, MapGridComponent _) =>
                     {
                         if (gridEnt != uid && (ignoredGrids == null || !ignoredGrids.Contains(gridEnt)))

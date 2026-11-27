@@ -23,7 +23,6 @@ public sealed partial class RoboticArmSystem : EntitySystem
     [Dependency] private AutomationFilterSystem _filter = default!;
     [Dependency] private CollisionWakeSystem _wake = default!;
     [Dependency] private IGameTiming _timing = default!;
-    [Dependency] private IMapManager _map = default!;
     [Dependency] private ItemSlotsSystem _slots = default!;
     [Dependency] private SharedAppearanceSystem _appearance = default!;
     [Dependency] private SharedDeviceLinkSystem _device = default!;

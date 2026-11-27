@@ -80,6 +80,10 @@
         - WallLayer
   - type: Occluder
     enabled: false
+    polygon:
+    - "-0.5,-0.5"
+    - "0.5,0.5"
+    - "0.5,-0.5"
 
 - type: entity
   parent: [ WallUranium, BaseWallDiagonal ]
@@ -116,3 +120,7 @@
         - WallLayer
   - type: Occluder
     enabled: false
+    polygon:
+    - "-0.5,-0.5"
+    - "0.5,0.5"
+    - "0.5,-0.5"

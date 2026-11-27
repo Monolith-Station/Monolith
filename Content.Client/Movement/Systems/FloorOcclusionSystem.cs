@@ -1,3 +1,4 @@
+using Content.Client.Graphics;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Robust.Client.GameObjects;
@@ -9,6 +10,7 @@ namespace Content.Client.Movement.Systems;
 public sealed partial class FloorOcclusionSystem : SharedFloorOcclusionSystem
 {
     [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     private EntityQuery<SpriteComponent> _spriteQuery;
 
@@ -48,18 +50,17 @@ public sealed partial class FloorOcclusionSystem : SharedFloorOcclusionSystem
         if (!_spriteQuery.Resolve(sprite.Owner, ref sprite.Comp, false))
             return;
 
-        var shader = _proto.Index<ShaderPrototype>("HorizontalCut").Instance();
-
-        if (sprite.Comp.PostShader is not null && sprite.Comp.PostShader != shader)
-            return;
-
         if (enabled)
         {
-            sprite.Comp.PostShader = shader;
+            var shader = _proto.Index<ShaderPrototype>("HorizontalCut").Instance();
+            _sprite.SetPostShader(sprite, new SpriteComponent.PostShaderArgs(ContentPostShaderIds.FloorOcclusion, shader)
+            {
+                Before = ContentPostShaderIds.BeforeOutlines,
+            });
         }
         else
         {
-            sprite.Comp.PostShader = null;
+            _sprite.RemovePostShader(sprite, ContentPostShaderIds.FloorOcclusion);
         }
     }
 }

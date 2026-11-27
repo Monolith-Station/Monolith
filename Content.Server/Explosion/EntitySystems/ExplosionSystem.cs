@@ -56,7 +56,6 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
     [Dependency] private readonly ESTileFireSystem _tileFire = default!;
     // ES END
 
-    [Dependency] private IMapManager _mapManager = default!;
     [Dependency] private IRobustRandom _robustRandom = default!;
     [Dependency] private ITileDefinitionManager _tileDefinitionManager = default!;
     [Dependency] private IPrototypeManager _prototypeManager = default!;
@@ -107,8 +106,7 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
     ///     find errors. However some components, like rogue arrows, or some commands like the admin-smite need to have
     ///     a "default" option specified outside of yaml data-fields. Hence this const string.
     /// </remarks>
-    [ValidatePrototypeId<ExplosionPrototype>]
-    public const string DefaultExplosionPrototypeId = "Default";
+    public static readonly ProtoId<ExplosionPrototype> DefaultExplosionPrototypeId = "Default";
     private static readonly TimeSpan AlertCooldown = TimeSpan.FromSeconds(60); // Mono: Explosion Admin Alert Cooldown
     public TimeSpan NextAlertTime; // Mono
 
@@ -324,7 +322,7 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
         if (!addLog)
             return;
 
-        var gridFound = _mapManager.TryFindGridAt(mapPos, out var gridUid, out _); // Mono, sanity. Grid ID included with alerts, and mapPos is always used for coords.
+        var gridFound = _map.TryFindGridAt(mapPos, out var gridUid, out _); // Mono, sanity. Grid ID included with alerts, and mapPos is always used for coords.
 
         if (user == null)
         {
