@@ -27821,3 +27821,38 @@ Entries:
   id: 2980
   time: '2026-11-26T23:45:59.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/5117
+- author: SuperGDPWYL
+  changes:
+    - type: Tweak
+      message: >-
+        The Underground Black Market no longer sells death acidifiers,
+        microbombs or macrobombs. The PDV may acquire these instead through
+        their uplink.
+  id: 2981
+  time: '2026-11-27T00:39:51.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5118
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: Add basic EVA and fire extinguisher to Sandbox for my iron homies
+  id: 2982
+  time: '2026-11-27T00:42:15.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5112
+- author: DoubleHypercube
+  changes:
+    - type: Remove
+      message: >-
+        Caelestinus roles no longer have "Caelestinus" at the start of their
+        name.
+  id: 2983
+  time: '2026-11-27T02:56:36.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5120
+- author: SuperGDPWYL
+  changes:
+    - type: Remove
+      message: >-
+        Jetpacks no longer function on grids no matter if they have gravity or
+        not.
+  id: 2984
+  time: '2026-11-27T04:23:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4827

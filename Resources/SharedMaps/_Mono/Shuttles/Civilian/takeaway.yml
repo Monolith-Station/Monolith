@@ -4,7 +4,7 @@ meta:
   engineVersion: 277.0.6
   forkId: ""
   forkVersion: ""
-  time: 11/24/2026 22:45:29
+  time: 11/26/2026 04:34:37
   entityCount: 1130
 maps: []
 grids:
@@ -87,11 +87,11 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Smoke: []
-        MetalFoam: []
         ESTileFire: []
+        Smoke: []
         Puddle: []
         Kudzu: []
+        MetalFoam: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -6030,19 +6030,19 @@ entities:
       parent: 1
 - proto: SensorPassiveRadarCiv
   entities:
-  - uid: 1130
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -6.5,0.5
-      parent: 1
-- proto: SensorRadarCiv
-  entities:
   - uid: 1129
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -8.5,0.5
+      rot: 1.5707963267948966 rad
+      pos: 8.5,-7.5
+      parent: 1
+- proto: SensorRadarCiv
+  entities:
+  - uid: 1130
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 9.5,2.5
       parent: 1
 - proto: ServiceTechFab
   entities:

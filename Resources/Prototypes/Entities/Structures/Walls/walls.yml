@@ -448,8 +448,6 @@
   - type: Occluder
     polygon:
     - "-0.5,-0.5"
-    - "-0.5,0.109375"
-    - "0.28125,0.5"
     - "0.5,0.5"
     - "0.5,-0.5"
   - type: RCDDeconstructable # Frontier
@@ -483,7 +481,6 @@
     state: state0
   - type: IconSmooth
     mode: Diagonal
-    rotateDiagonalSprite: true
     key: walls
     base: state
   - type: Icon
@@ -503,8 +500,6 @@
           !type:PolygonShape
           vertices:
           - "-0.5,-0.5"
-          - "-0.5,0.109375"
-          - "0.28125,0.5"
           - "0.5,0.5"
           - "0.5,-0.5"
         mask:
@@ -724,8 +719,6 @@
   - type: Occluder
     polygon:
     - "-0.5,-0.5"
-    - "-0.5,0.109375"
-    - "0.28125,0.5"
     - "0.5,0.5"
     - "0.5,-0.5"
   - type: Transform
@@ -741,7 +734,6 @@
     state: state0
   - type: IconSmooth
     mode: Diagonal
-    rotateDiagonalSprite: true
     key: walls
     base: state
   - type: Icon
@@ -762,8 +754,6 @@
           !type:PolygonShape
           vertices:
           - "-0.5,-0.5"
-          - "-0.5,0.109375"
-          - "0.28125,0.5"
           - "0.5,0.5"
           - "0.5,-0.5"
         mask:
