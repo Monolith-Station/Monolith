@@ -27874,3 +27874,16 @@ Entries:
   id: 2986
   time: '2026-11-27T13:32:26.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/5126
+- author: chaoticevilizardwizard
+  changes:
+    - type: Add
+      message: >-
+        Goobstations new textures to Deathsquad, command, and CentComm glasses
+        for if anybody wants to reuse those textures
+    - type: Fix
+      message: >-
+        Fixed moth and spider clothing textures not working correctly because
+        they didnt have a speciesid for them
+  id: 2987
+  time: '2026-11-27T13:52:07.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5127
