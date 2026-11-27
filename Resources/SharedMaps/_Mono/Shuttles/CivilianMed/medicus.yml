@@ -4,7 +4,7 @@ meta:
   engineVersion: 277.0.6
   forkId: ""
   forkVersion: ""
-  time: 11/24/2026 22:55:19
+  time: 11/26/2026 04:30:40
   entityCount: 970
 maps: []
 grids:
@@ -95,11 +95,11 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Smoke: []
-        MetalFoam: []
         ESTileFire: []
+        Smoke: []
         Puddle: []
         Kudzu: []
+        MetalFoam: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -4686,11 +4686,15 @@ entities:
     - type: Transform
       pos: 5.5,-21.5
       parent: 1
+    - type: FuelGenerator
+      targetPower: 31000
   - uid: 582
     components:
     - type: Transform
       pos: 5.5,-20.5
       parent: 1
+    - type: FuelGenerator
+      targetPower: 31000
 - proto: PottedPlant5
   entities:
   - uid: 629
@@ -5708,16 +5712,16 @@ entities:
   - uid: 518
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 8.5,-2.5
+      rot: 1.5707963267948966 rad
+      pos: 4.5,3.5
       parent: 1
 - proto: SensorRadarCiv
   entities:
   - uid: 366
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 4.5,0.5
+      rot: -1.5707963267948966 rad
+      pos: 3.5,-0.5
       parent: 1
 - proto: ShuttersNormalOpen
   entities:
