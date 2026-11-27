@@ -15,13 +15,14 @@
   alwaysUseSpawner: true # cuz like, planets are 1 mapgrid, u cant use latejoins bro!!
   icon: JobIconDeputy
   supervisors: job-supervisors-sergeant
+  hideConsoleVisibility: true
   weight: 150
   displayWeight: 5
   assignedCompany: TSF
   canBeAntag: false
   setPreference: true # just to config loadout
   accessGroups:
-  - AllAccess
+  - GeneralTsfmcAccess
   access:
   - TsfmcEngineering
   guides:

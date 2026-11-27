@@ -23,8 +23,7 @@ public sealed partial class NetworkConfiguratorSystem : SharedNetworkConfigurato
     [Dependency] private ActionsSystem _actions = default!;
     [Dependency] private IInputManager _inputManager = default!;
 
-    [ValidatePrototypeId<EntityPrototype>]
-    private const string Action = "ActionClearNetworkLinkOverlays";
+    private static readonly EntProtoId Action = "ActionClearNetworkLinkOverlays";
 
     public override void Initialize()
     {

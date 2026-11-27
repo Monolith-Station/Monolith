@@ -13,10 +13,6 @@
       - type: IFF
         color: "#37946e"
         readOnly: true # mono
-      - type: StationCargoOrderDatabase
-        capacity: 240 # has to be large to compensate for playerbase
-      - type: TradeCrateDestination
-        destinationProto: Trade
       - type: VesselMusic
         ambientMusicPrototype: ColossusCentralMusic
       - type: VesselInfo
@@ -27,9 +23,13 @@
         - type: StationNameSetup
           mapNameTemplate: 'Caelestinus Central'
         - type: StationDeadDrop
-          maxDeadDrops: 2
+          maxDeadDrops: 12
+        - type: StationCargoOrderDatabase
+          capacity: 240 # has to be large to compensate for playerbase
+        - type: TradeCrateDestination
+          destinationProto: Trade
         - type: ExtraStationInformation
-          icon: /Textures/_Mono/Logo/icon/icon-256x256.png # used the biggest one, looks better when downscaling than upscaling
+          icon: /Textures/_Mono/Interface/Misc/LateJoin/caelestinus.png
           stationSubtext: 'frontier-lobby-frontier-subtext'
           stationDescription: 'frontier-lobby-frontier-description'
           lobbySortOrder: 1
@@ -51,8 +51,7 @@
             DirectorOfCare: [ 1, 1 ]
             MdMedic: [ -1, -1 ]
           tags:
-          - HeadOfPersonnel
-          - HeadOfSecurity
+          - CaelestinusCommand
         - type: Announcer
         - type: StationCargoBountyDatabase
           maxBounties: 20

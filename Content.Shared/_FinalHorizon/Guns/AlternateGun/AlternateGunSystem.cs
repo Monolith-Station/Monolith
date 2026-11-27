@@ -1,11 +1,15 @@
+using Content.Shared.Actions;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Examine;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Input;
+using Content.Shared.Popups;
 using Content.Shared.Verbs;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Input.Binding;
 using Robust.Shared.Utility;
 
 namespace Content.Shared._FinalHorizon.Guns.AlternateGun;
@@ -16,12 +20,30 @@ public sealed partial class AlternateGunSystem : EntitySystem
     [Dependency] private readonly SharedGunSystem _gunSystem = default!;
     [Dependency] private readonly SharedHandsSystem _handSystem = default!;
     [Dependency] private readonly SharedAudioSystem _sound = default!;
+    [Dependency] private readonly  SharedPopupSystem _popup = default!;
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<AlternateGunAmmoProviderComponent, TakeAmmoEvent>(OnTakeAmmo);
         SubscribeLocalEvent<AlternateGunComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<AlternateGunComponent, GetVerbsEvent<Verb>>(OnGetVerbs);
+        SubscribeLocalEvent<AlternateGunComponent, GetItemActionsEvent>(OnGetItemActions);
+        SubscribeLocalEvent<AlternateGunComponent, ActionToggleUnderbarrelEvent>(OnTryToggleUnderbarrelAction);
+
+        CommandBinds.Builder
+            .Bind(ContentKeyFunctions.ToggleUnderbarrel,
+                InputCmdHandler.FromDelegate(session =>
+                {
+                    if (session?.AttachedEntity is { } user &&
+                        _handSystem.GetActiveItem(user) is { } held &&
+                        TryComp(held, out AlternateGunComponent? alternateGun))
+                    {
+                        TryToggleUnderbarrel(held, alternateGun, user);
+                    }
+                },
+                handle: false))
+            .Register<AlternateGunComponent>();
+
     }
 
     private void OnGetVerbs(EntityUid uid, AlternateGunComponent comp, ref GetVerbsEvent<Verb> args)
@@ -31,26 +53,48 @@ public sealed partial class AlternateGunSystem : EntitySystem
 
         var user = args.User;
 
+        args.Verbs.Add(new Verb
+        {
+            Text = Loc.GetString("swap-underbarrel-verb"),
+            Act = () => TryToggleUnderbarrel(uid, comp, user),
+        });
+    }
+
+    private void OnGetItemActions(Entity<AlternateGunComponent> ent, ref GetItemActionsEvent args)
+    {
+        if (!args.InHands)
+            return;
+
+        args.AddAction(ref ent.Comp.ActionUnderbarrelToggle, ent.Comp.ActionToggleUnderbarrelId);
+    }
+
+    private void OnTryToggleUnderbarrelAction(EntityUid uid, AlternateGunComponent comp, ref ActionToggleUnderbarrelEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        TryToggleUnderbarrel(uid, comp, args.Performer);
+        args.Handled = true;
+    }
+
+
+    private void TryToggleUnderbarrel(EntityUid uid, AlternateGunComponent comp , EntityUid user)
+    {
+
         if (comp.Enabled)
-            args.Verbs.Add(new Verb()
-            {
-                Text = Loc.GetString(comp.DisableMessage),
-                Act = () =>
-                {
-                    _sound.PlayPredicted(comp.SwitchSound, uid, user);
-                    comp.Enabled = false;
-                },
-            });
+        {
+            _sound.PlayPredicted(comp.SwitchSound, uid, user);
+            comp.Enabled = false;
+            Dirty(uid, comp);
+            _popup.PopupClient(Loc.GetString(comp.DisableMessage), uid, user);
+        }
         else
-            args.Verbs.Add(new Verb()
-            {
-                Text = Loc.GetString(comp.EnableMessage),
-                Act = () =>
-                {
-                    _sound.PlayPredicted(comp.SwitchSound, uid, user);
-                    comp.Enabled = true;
-                },
-            });
+        {
+            _sound.PlayPredicted(comp.SwitchSound, uid, user);
+            comp.Enabled = true;
+            Dirty(uid, comp);
+            _popup.PopupClient(Loc.GetString(comp.EnableMessage), uid, user);
+        }
     }
 
     private void OnExamine(EntityUid uid, AlternateGunComponent comp, ref ExaminedEvent args)

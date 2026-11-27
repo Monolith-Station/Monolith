@@ -8,6 +8,7 @@ public enum SpeechTrigger
     Eating,
     PickedUp,
     Thrown,
+    Dash,
     Drinking,
     Critical,
 	Dead,

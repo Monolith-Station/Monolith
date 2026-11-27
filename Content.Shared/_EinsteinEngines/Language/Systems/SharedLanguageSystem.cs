@@ -1,4 +1,5 @@
 using System.Text;
+using Content.Shared._EinsteinEngines.Language.Components;
 using Content.Shared.GameTicking;
 using Robust.Shared.Prototypes;
 
@@ -16,20 +17,17 @@ public abstract partial class SharedLanguageSystem : EntitySystem
     /// <summary>
     ///     The language used as a fallback in cases where an entity suddenly becomes a Language Speaker (e.g. the usage of make-sentient).
     /// </summary>
-    [ValidatePrototypeId<LanguagePrototype>]
-    public static readonly string FallbackLanguagePrototype = "TauCetiBasic";
+    public static readonly ProtoId<LanguagePrototype> FallbackLanguagePrototype = "TauCetiBasic";
 
     /// <summary>
     ///     The language whose speakers are assumed to understand and speak every language. Should never be added directly.
     /// </summary>
-    [ValidatePrototypeId<LanguagePrototype>]
-    public static readonly string UniversalPrototype = "Universal";
+    public static readonly ProtoId<LanguagePrototype> UniversalPrototype = "Universal";
 
     /// <summary>
     ///     Language used for Xenoglossy, should have same effects as Universal but with different language prototype.
     /// </summary>
-    [ValidatePrototypeId<LanguagePrototype>]
-    public static readonly string PsychomanticPrototype = "Psychomantic";
+    public static readonly ProtoId<LanguagePrototype> PsychomanticPrototype = "Psychomantic";
 
     /// <summary>
     /// A cached instance of <see cref="PsychomanticPrototype"/>.
@@ -68,6 +66,19 @@ public abstract partial class SharedLanguageSystem : EntitySystem
         return builder.ToString();
     }
 
+    // Starlight
+    public bool GetLanguageIcon(LanguagePrototype language, bool obfuscated)
+    {
+        switch (obfuscated)
+        {
+            case false when language.IconVisibleIfUnderstood:
+            case true when language.IconVisibleIfNotUnderstood:
+                return true;
+            default:
+                return false;
+        }
+    }
+
     /// <summary>
     ///     Generates a stable pseudo-random number in the range (min, max) (inclusively) for the given seed.
     ///     One seed always corresponds to one number, however the resulting number also depends on the current round number.
@@ -79,8 +90,17 @@ public abstract partial class SharedLanguageSystem : EntitySystem
         // Each call would require us to allocate a new instance of random, which would lead to lots of unnecessary calculations.
         // Instead, we use a simple but effective algorithm derived from the C language.
         // It does not produce a truly random number, but for the purpose of obfuscating messages in an RP-based game it's more than alright.
-        seed = seed ^ (_ticker.RoundId * 127);
+        seed ^= _ticker.RoundId * 127;
         var random = seed * 1103515245 + 12345;
         return min + Math.Abs(random) % (max - min + 1);
+    }
+
+    // Mono: Moved to shared
+    public bool CanUnderstand(Entity<LanguageSpeakerComponent?> ent, ProtoId<LanguagePrototype> language)
+    {
+        if (language == PsychomanticPrototype || language == UniversalPrototype || TryComp<UniversalLanguageSpeakerComponent>(ent, out var uni) && uni.Enabled)
+            return true;
+
+        return Resolve(ent, ref ent.Comp, logMissing: false) && ent.Comp.UnderstoodLanguages.Contains(language);
     }
 }

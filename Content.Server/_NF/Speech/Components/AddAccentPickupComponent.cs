@@ -1,6 +1,6 @@
 using Content.Server.Speech.Components;
 using Content.Server.Speech.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._NF.Speech.Components;
 
@@ -20,8 +20,8 @@ public sealed partial class AddAccentPickupComponent : Component
     ///     What <see cref="ReplacementAccentPrototype"/> to use.
     ///     Will be applied only with <see cref="ReplacementAccentComponent"/>.
     /// </summary>
-    [DataField("replacement", customTypeSerializer: typeof(PrototypeIdSerializer<ReplacementAccentPrototype>))]
-    public string? ReplacementPrototype;
+    [DataField("replacement")]
+    public ProtoId<ReplacementAccentPrototype>? ReplacementPrototype;
 
     /// <summary>
     ///     Is the entity held and affecting someones accent?

@@ -13,9 +13,8 @@ namespace Content.Server.Shuttles.Components
 
         /// <summary>
         /// Thrust gets multiplied by this value if it's for braking.
-		/// Mono: 1.5f >> 3.0f, thrust was cut in half to curb topspeed, doubling brake force to keep movement feel
         /// </summary>
-        public const float BrakeCoefficient = 3.0f;
+        public const float BrakeCoefficient = 1.5f;
 
         /// <summary>
         /// Mono - velocity that 2x slowdown will be applied at. (4x at 2x this, 8x at 3x this, etc.)
@@ -27,8 +26,10 @@ namespace Content.Server.Shuttles.Components
         public const float MaxAngularVelocity = 4f;
 
         /// Mono start
+        /// Drive mode values because drive mode is the default mode
         public float MaxLinearVelocityMultiplier = 1f;
         public float BaseThrusterMultiplier = 3.5f;
+        public float BaseGyroscopeMultiplier = 1.125f;
         /// Mono end
 
         /// <summary>

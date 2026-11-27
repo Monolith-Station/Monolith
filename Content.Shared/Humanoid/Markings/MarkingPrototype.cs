@@ -43,5 +43,8 @@ namespace Content.Shared.Humanoid.Markings
         {
             return new Marking(ID, Sprites.Count);
         }
+
+        [DataField] // Monolith
+        public ProtoId<MarkingPrototype>? Companion;
     }
 }

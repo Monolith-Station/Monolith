@@ -1,7 +1,7 @@
 - type: entity
   id: ShipMissileSandboxHE
   name: SS-N-40 8K30 missile
-  parent: ShipMissileBase
+  parent: [ ShipMissileBase, BaseProjectileHitmarkerSuperheavy ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -22,7 +22,7 @@
   - type: Ammo
     muzzleFlash: null
   - type: RadarBlip
-    maxDistance: 4096
+    maxDistance: 16384
     radarColor: "#00ffdd"
     scale: 5
     shape: Triangle
@@ -124,7 +124,7 @@
 - type: entity
   id: ShipMissileSandboxNuke
   name: SS-N-40 'Atlant' missile
-  parent: ShipMissileBase
+  parent: [ ShipMissileBase, BaseProjectileHitmarkerNuclear ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
@@ -145,7 +145,7 @@
   - type: Ammo
     muzzleFlash: null
   - type: RadarBlip
-    maxDistance: 4096
+    maxDistance: 16384
     radarColor: "#00ffdd"
     scale: 5
     shape: Triangle

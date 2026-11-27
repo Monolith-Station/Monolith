@@ -4,7 +4,6 @@ using Content.Shared.Salvage.Expeditions;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 
 namespace Content.Server.Salvage.Expeditions;
 
@@ -68,7 +67,7 @@ public sealed partial class SalvageExpeditionComponent : SharedSalvageExpedition
     /// <summary>
     /// List of items to order on mission completion
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField("rewards", customTypeSerializer: typeof(PrototypeIdListSerializer<EntityPrototype>))]
-    public List<string> Rewards = default!;
+    [ViewVariables(VVAccess.ReadWrite), DataField]
+    public List<EntProtoId> Rewards = default!;
     // End Frontier: expedition difficulty and rewards
 }

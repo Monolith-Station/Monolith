@@ -4,8 +4,8 @@
   description: job-description-deputy
   playTimeTracker: JobSecurityOfficer
   requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 14400 # 4 hours. I don't expect new players to play almost 2 full rounds before they get bored, and it's mostly a raider check.
+  #  - !type:OverallPlaytimeRequirement
+  #    time: 14400 # 4 hours. I don't expect new players to play almost 2 full rounds before they get bored, and it's mostly a raider check.
     - !type:TraitsRequirement # The trait is intended for members of the civilian population or other neutral groups. TSF are already all implicitly heretics.
       inverted: true
       traits:
@@ -18,7 +18,7 @@
   assignedCompany: TSF
   canBeAntag: false
   accessGroups:
-  - GeneralNfsdAccess
+  - GeneralTsfmcAccess
   guides:
   - TSFMC_Entry
   special:

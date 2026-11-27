@@ -1,0 +1,25 @@
+marking-PawSocks-pawsocks = Paw Socks
+marking-PawSocks = Paw Socks
+marking-PawSocksFeet = Paw Socks (Feet)
+marking-PawSocksFeet-pawsocks_feet = Paw Socks
+marking-PawSocksLegs = Paw Socks (Legs)
+marking-PawSocksLegs-pawsocks_legs = Paw Socks
+marking-PawSocksHands = Paw Socks (Hands)
+marking-PawSocksHands-pawsocks_hands = Paw Socks
+marking-PawSocksArms = Paw Socks (Arms)
+marking-PawSocksArms-pawsocks_arms = Paw Socks
+
+marking-VulpTailVulpFadeAnimated = Vulpkanin (fade, animated)
+marking-VulpTailVulpFadeAnimated-vulp-wagging = Fade tail (animated)
+marking-VulpTailFluffyAnimated = Vulpkanin fluffy (animated)
+marking-VulpTailFluffyAnimated-fluffy-wagging = Fluffy tail (animated)
+marking-VulpTailCoyoteAnimated = Vulpkanin Coyote (animated)
+marking-VulpTailCoyoteAnimated-coyote-wagging = Coyote tail (animated)
+marking-VulpTailVulpAnimated = Vulpkanin (animated)
+marking-VulpTailVulpAnimated-vulp-wagging = Vulpkanin tail (animated)
+marking-VulpTailLongAnimated = Vulpkanin Long (long, animated)
+marking-VulpTailLongAnimated-long-wagging = Long tail (animated)
+marking-VulpTailHuskyAnimated = Vulpkanin Husky (animated)
+marking-VulpTailHuskyAnimated-husky-wagging = Husky tail (animated)
+marking-VulpTailFennecAnimated = Vulpkanin Fennec (animated)
+marking-VulpTailFennecAnimated-fennec-wagging = Fennec tail (animated)

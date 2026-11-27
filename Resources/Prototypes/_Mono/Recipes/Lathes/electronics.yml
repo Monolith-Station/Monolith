@@ -43,10 +43,10 @@
   id: MachineGCSHighCircuitboard
   result: MachineGCSHighCircuitboard
 
-- type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
-  id: AdvancedRadarConsoleCircuitboard
-  result: AdvancedRadarConsoleCircuitboard
+#- type: latheRecipe
+#  parent: BaseGoldCircuitboardRecipe
+#  id: AdvancedRadarConsoleCircuitboard
+#  result: AdvancedRadarConsoleCircuitboard
 
 - type: latheRecipe
   parent: BaseGoldCircuitboardRecipe
@@ -169,3 +169,10 @@
   parent: BaseGoldCircuitboardRecipe
   id: MaterialSiloMachineCircuitboard
   result: MaterialSiloMachineCircuitboard
+
+# cloning stuff
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: BodyScannerComputerCircuitboard
+  result: BodyScannerComputerCircuitboard

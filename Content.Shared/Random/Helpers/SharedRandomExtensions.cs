@@ -2,12 +2,24 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared.Dataset;
 using Content.Shared.FixedPoint;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Shared.Random.Helpers
 {
     public static class SharedRandomExtensions
     {
+        public static ProtoId<T> Pick<T>(this IWeightedRandomPrototype<T> prototype, System.Random random)
+            where T : class, IPrototype
+            => Pick(prototype.Weights, random);
+
+        public static ProtoId<T> Pick<T>(this IWeightedRandomPrototype<T> prototype, IRobustRandom? random = null)
+            where T : class, IPrototype
+        {
+            IoCManager.Resolve(ref random);
+            return random.Pick(prototype.Weights);
+        }
+
         public static string Pick(this IRobustRandom random, DatasetPrototype prototype)
         {
             return random.Pick(prototype.Values);

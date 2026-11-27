@@ -165,7 +165,7 @@
         - id: JetpackSecurityFilled # Frontier
         - id: ClothingShoesBootsMagSecurityFilled # Frontier
   - type: AccessReader
-    access: [["Security"]]
+    access: [["Caelestinus"]] # Mono
 
 #CE's hardsuit
 - type: entity
@@ -217,7 +217,7 @@
       entity_storage: !type:NestedSelector
         tableId: FillHeadOfSecurityHardsuit
   - type: AccessReader
-    access: [["HeadOfSecurity"]]
+    access: [["CaelestinusCommand"]] # Mono
 
 #Warden's hardsuit
 - type: entity
@@ -234,7 +234,7 @@
         - id: JetpackSecurityFilled # Frontier
         - id: ClothingShoesBootsMagSecurityFilled # Frontier
   - type: AccessReader
-    access: [["Armory"]]
+    access: [["Caelestinus"]] # Mono
 
 #Captain's hardsuit
 - type: entity

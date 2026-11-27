@@ -57,8 +57,7 @@ namespace Content.Server.Medical.BiomassReclaimer
         [Dependency] private SharedMindSystem _minds = default!;
         [Dependency] private InventorySystem _inventory = default!;
 
-        [ValidatePrototypeId<MaterialPrototype>]
-        public const string BiomassPrototype = "Biomass";
+        public static readonly ProtoId<MaterialPrototype> BiomassPrototype = "Biomass";
 
         public override void Update(float frameTime)
         {

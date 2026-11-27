@@ -116,4 +116,10 @@ public sealed partial class TargetGuidedComponent : Component
     /// </summary>
     [DataField]
     public bool RadarLines = true;
+
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public bool UseRadarTrack;
+
+    [DataField]
+    public bool AllowRadarTrack = true;
 }

@@ -25,7 +25,7 @@ public sealed partial class TranslatorImplantSystem : EntitySystem
         var implantee = Transform(uid).ParentUid;
         if (implantee is not { Valid: true })
             return;
-        var knowledge = EnsureComp<LanguageKnowledgeComponent>(implantee);
+        var knowledge = EnsureComp<Shared._EinsteinEngines.Language.LanguageKnowledgeComponent>(implantee);
 
         component.Enabled = true;
         // To operate an implant, you need to know its required language intrinsically, because like... it connects to your brain or something,

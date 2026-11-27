@@ -15,7 +15,7 @@
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsSecurity ]
+      board: [ DoorElectronicsTsfmc ]
 
 - type: entity
   parent: AirlockHeavyTSFMC

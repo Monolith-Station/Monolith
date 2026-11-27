@@ -1,0 +1,21 @@
+- type: entity
+  parent: ClothingHeadHatHoodWinterBase
+  id: ClothingHeadHatHoodWinterTSF
+  categories: [ HideSpawnMenu ]
+  name: TSF winter coat hood
+  description: A thick durathread hood meant to keep you warm.
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Head/Hoods/Coat/hoodtsf.rsi
+  - type: Clothing
+    sprite: _Mono/Clothing/Head/Hoods/Coat/hoodtsf.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.9

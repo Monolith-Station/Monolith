@@ -408,6 +408,54 @@
       - PirateUplink
 
 - type: listing
+  id: UplinkPirateDeathAcidifier
+  name: uplink-pirate-death-acidifier-name
+  description: uplink-pirate-death-acidifier-desc
+  icon: { sprite: /Textures/Objects/Magic/magicactions.rsi, state: gib }
+  productEntity: DeathAcidifierImplanter
+  cost:
+    Doubloon: 20
+  categories:
+    - UplinkPirateUtility
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - PirateUplink
+
+- type: listing
+  id: UplinkPirateMicrobomb
+  name: uplink-pirate-microbomb-name
+  description: uplink-pirate-microbomb-desc
+  icon: { sprite: /Textures/Actions/Implants/implants.rsi, state: explosive }
+  productEntity: MicroBombImplanter
+  cost:
+    Doubloon: 35
+  categories:
+    - UplinkPirateUtility
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - PirateUplink
+
+- type: listing
+  id: UplinkPirateMacrobomb
+  name: uplink-pirate-macrobomb-name
+  description: uplink-pirate-macrobomb-desc
+  icon: { sprite: /Textures/Actions/Implants/implants.rsi, state: explosive }
+  productEntity: MacroBombImplanter
+  cost:
+    Doubloon: 75
+  categories:
+    - UplinkPirateUtility
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - PirateUplink
+
+- type: listing
   id: UplinkPirateHoverbikeFlatpack
   name: uplink-pirate-hoverbike-name
   description: uplink-pirate-hoverbike-desc
@@ -1348,6 +1396,8 @@
 
 - type: listing
   id: UplinkPirateCv32
+  name: uplink-pirate-cv32-hardsuit-name
+  description: uplink-pirate-cv32-hardsuit-desc # DO NOT REMOVE THESE, YOU WILL BREAK THE SEARCH FEATURE
   productEntity: ClothingOuterHardsuitAshen
   cost:
     Doubloon: 45
@@ -1361,6 +1411,8 @@
 
 - type: listing
   id: UplinkPirateCv53
+  name: uplink-pirate-cv53-tacsuit-name
+  description: uplink-pirate-cv53-tacsuit-desc # DO NOT REMOVE THESE, YOU WILL BREAK THE SEARCH FEATURE
   productEntity: ClothingOuterHardsuitAshenElite
   cost:
     Doubloon: 45
@@ -1404,6 +1456,8 @@
 
 - type: listing
   id: UplinkPirateStealthSuit
+  name: uplink-pirate-stealth-hardsuit-name
+  description: uplink-pirate-stealth-hardsuit-desc # DO NOT REMOVE THESE, YOU WILL BREAK THE SEARCH FEATURE
   productEntity: ClothingOuterHardsuitCybersunStealth
   cost:
     Doubloon: 90
@@ -1773,20 +1827,21 @@
       tags:
       - PirateUplink
 
-- type: listing
-  id: UplinkPirateTelecrystal25
-  name: uplink-pirate-telecrystal-25-name
-  description: uplink-pirate-telecrystal-25-desc
-  productEntity: Telecrystal25
-  cost:
-    Doubloon: 50
-  categories:
-  - UplinkPdvMaterials
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - PirateUplink
+# Removed as the Underground Black Market is no longer reliant on the PDV. Please do not re-add without a good reason.
+#- type: listing
+#  id: UplinkPirateTelecrystal25
+#  name: uplink-pirate-telecrystal-25-name
+#  description: uplink-pirate-telecrystal-25-desc
+#  productEntity: Telecrystal25
+#  cost:
+#    Doubloon: 50
+#  categories:
+#  - UplinkPdvMaterials
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    whitelist:
+#      tags:
+#      - PirateUplink
 
 
 - type: listing

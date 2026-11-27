@@ -9,8 +9,10 @@
         types:
           Blunt: 5
           Piercing: 4
-        groups:
-          Burn: 3
+          Heat: 0.75
+          Shock: 0.75
+          Cold: 0.75
+          Caustic: 0.75
 
 # Upstream
 - type: trait
@@ -30,6 +32,7 @@
   id: Uncloneable
   name: trait-uncloneable-name
   description: trait-uncloneable-desc
-  category: Disabilities
+  cost: -4 # Mono
+  category: Physical # Mono
   components:
     - type: Uncloneable

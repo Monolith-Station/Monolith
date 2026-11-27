@@ -133,8 +133,10 @@
         Blunt: 9
   - type: PassiveDamage
     damage:
-      groups:
-        Brute: 10
+      types:
+        Blunt: 3.33
+        Slash: 3.33
+        Piercing: 3.34
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible

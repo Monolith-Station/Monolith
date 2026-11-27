@@ -1,3 +1,5 @@
+using Content.Shared._NF.Cloning;
+
 namespace Content.Server.Crescent.Chat;
 
 /// <summary>
@@ -6,7 +8,7 @@ namespace Content.Server.Crescent.Chat;
 /// </summary>
 
 [RegisterComponent]
-public sealed partial class ChatRankComponent : Component
+public sealed partial class ChatRankComponent : Component, ITransferredByCloning
 {
     [DataField]
     public LocId Rank;

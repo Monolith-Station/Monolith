@@ -27,7 +27,7 @@ public sealed partial class CEGameMapMappingZNetworkCommand : LocalizedEntityCom
     [Dependency] private MapLoaderSystem _mapLoader = default!;
     [Dependency] private CEZLevelsSystem _zLevel = default!;
     [Dependency] private MetaDataSystem _meta = default!;
-    [Dependency] private MapSystem _map = default!;
+    private MapSystem Map => EntityManager.System<MapSystem>();
 
     public override string Command => "znetwork-gamemap-mapping";
     public override string Description => "Load existed game map prototype as ZNetwork for mapping";
@@ -151,7 +151,7 @@ public sealed partial class CEGameMapMappingZNetworkCommand : LocalizedEntityCom
         var success = true;
         foreach (var mapId in createdMaps)
         {
-            if (!_map.MapExists(mapId))
+            if (!Map.MapExists(mapId))
             {
                 success = false;
                 shell.WriteError($"For some reason some maps dont exist after loading! MapId: {mapId}");
@@ -169,7 +169,7 @@ public sealed partial class CEGameMapMappingZNetworkCommand : LocalizedEntityCom
             shell.WriteError("Unloading all created maps...");
             foreach (var mapId in createdMaps)
             {
-                _map.DeleteMap(mapId);
+                Map.DeleteMap(mapId);
             }
             EntityManager.QueueDeleteEntity(network);
             return;
@@ -177,7 +177,7 @@ public sealed partial class CEGameMapMappingZNetworkCommand : LocalizedEntityCom
 
         // map successfully created. run misc helpful mapping commands
         if (player.AttachedEntity is { Valid: true } playerEntity &&
-            EntityManager.GetComponent<MetaDataComponent>(playerEntity).EntityPrototype?.ID != GameTicker.AdminObserverPrototypeName)
+            EntityManager.GetComponent<MetaDataComponent>(playerEntity).EntityPrototype?.ID != GameTicker.AdminObserverPrototypeName.Id)
         {
             shell.ExecuteCommand("aghost");
         }
@@ -192,7 +192,7 @@ public sealed partial class CEGameMapMappingZNetworkCommand : LocalizedEntityCom
         shell.RemoteExecuteCommand("mappingclientsidesetup");
         foreach (var mapId in createdMaps)
         {
-            DebugTools.Assert(_map.IsPaused(mapId));
+            DebugTools.Assert(Map.IsPaused(mapId));
         }
     }
 }

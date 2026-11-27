@@ -51,6 +51,7 @@
   cost: 60000
   recipeUnlocks:
   - ShipVoucherTsfT2Recipe
+  - ZephyrVoucherTSF
   technologyPrerequisites:
   - TsfTierOneVouchers
   - UniversalMaterialResearchT2
@@ -65,7 +66,9 @@
   cost: 150000
   recipeUnlocks:
   - ShipVoucherLudaRecipe
+  - ShipVoucherFlyssaRecipe
   - ShipVoucherPolarisRecipe
+  - ShipVoucherHangzhouRecipe
   technologyPrerequisites:
   - TsfTierTwoVouchers
   - UniversalMaterialResearchT3

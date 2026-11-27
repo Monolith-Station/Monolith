@@ -21,14 +21,9 @@
   assignedCompany: TSF
   canBeAntag: false
   access:
-  - Armory
-  - Sergeant
-  - Bailiff
-  - Medical
-  - Chemistry
-  - TsfmcEngineering
+  - TsfmcArmory
   accessGroups:
-  - GeneralNfsdAccess
+  - GeneralTsfmcAccess
   guides:
   - TSFMC_Entry
   special:

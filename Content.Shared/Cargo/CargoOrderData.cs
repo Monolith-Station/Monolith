@@ -40,10 +40,8 @@ namespace Content.Shared.Cargo
         public readonly string Requester;
         // public String RequesterRank; // TODO Figure out how to get Character ID card data
         // public int RequesterId;
-        [DataField]
         public string Reason { get; private set; }
         public  bool Approved;
-        [DataField]
         public string? Approver;
 
         public NetEntity? Computer = null;
