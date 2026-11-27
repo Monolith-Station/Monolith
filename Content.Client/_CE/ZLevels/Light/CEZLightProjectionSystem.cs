@@ -18,7 +18,7 @@ public sealed partial class CEZLightProjectionSystem : EntitySystem
 
     private readonly Dictionary<EntityUid, List<LightPlane>> _planes = new();
     private readonly List<ProjectedLight> _projectedLights = new();
-    private CEZProjectedLightOverlay _overlay = default!;
+    private CEZProjectedLightOverlay? _overlay;
 
     internal IReadOnlyList<ProjectedLight> ProjectedLights => _projectedLights;
 
@@ -143,8 +143,12 @@ public sealed partial class CEZLightProjectionSystem : EntitySystem
 
     public override void Shutdown()
     {
-        _overlays.RemoveOverlay(_overlay);
-        _overlay.Dispose();
+        if (_overlay is { } overlay)
+        {
+            _overlays.RemoveOverlay(overlay);
+            overlay.Dispose();
+            _overlay = null;
+        }
         base.Shutdown();
     }
 

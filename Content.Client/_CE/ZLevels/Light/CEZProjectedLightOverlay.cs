@@ -31,7 +31,6 @@ internal sealed class CEZProjectedLightOverlay : Overlay
     [Dependency] private IClyde _clyde = default!;
     [Dependency] private IPrototypeManager _prototypes = default!;
     [Dependency] private IResourceCache _resources = default!;
-    [Dependency] private SharedMapSystem _maps = default!;
     [Dependency] private ITileDefinitionManager _tiles = default!;
 
     private readonly CEZLightProjectionSystem _lights;
@@ -186,7 +185,7 @@ internal sealed class CEZProjectedLightOverlay : Overlay
                      Matrix3x2.CreateTranslation(MaskSize / 2f, MaskSize / 2f);
 
         _grids.Clear();
-        _maps.FindGridsIntersecting(map, bounds, ref _grids, approx: true);
+        _map.FindGridsIntersecting(map, bounds, ref _grids, approx: true);
         foreach (var grid in _grids)
         {
             handle.SetTransform(_transform.GetWorldMatrix(grid.Owner) * matrix);
