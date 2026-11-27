@@ -151,6 +151,7 @@
 - type: planetType
   id: PlanetMerak
   name: Merak
+  persistence: Terrain
   shader: RockyPlanet
   earthMass: 1.4
   rotation: 2.1
@@ -171,12 +172,16 @@
 - type: planetType
   id: PlanetAsclepiu
   name: Asclepiu
+  persistence: Semi
+  persistenceFlags: [AllowRespawns]
   shader: RockyPlanet
   earthMass: 1.05
   rotation: 5.3
   palette: PaletteHabitableNauvis
   atmosphere: StandardAtmosphere
   liquid: LiquidWater
+  surface: Asclepiu
+  landingRadius: 256
   customData:
     floats:
       terrainScale: 1.0
@@ -188,6 +193,29 @@
       detailAmplitude: 0.25
       polarCapColor: 1.0
       polarCapCoverage: 0.2
+
+- type: planetType
+  id: MoonMarzanna
+  name: Marzanna
+  shader: IceMoon
+  earthMass: 1.05
+  bodyScale: 0.2
+  rotation: 1.7
+  palette: PaletteIceDeep
+  liquid: LiquidPlasma
+  surface: Marzanna
+  landingRadius: 128
+  customData:
+    floats:
+      terrainScale: 1.0
+      macroFrequency: 3.75
+      macroAmplitude: 0.75
+      ridgeFrequency: 1.0
+      ridgeAmplitude: 7.5
+      detailFrequency: 7.5
+      detailAmplitude: 0.25
+      polarCapColor: 0.875
+      polarCapCoverage: 0.35
 
 - type: planetType
   id: PlanetThrascias
@@ -206,6 +234,8 @@
 - type: planetType
   id: PlanetAerumna
   name: Aerumna
+  persistence: Terrain
+  surface: Aerumna
   shader: RockyPlanet
   earthMass: 0.95
   rotation: 3.9

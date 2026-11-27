@@ -10,6 +10,7 @@ using Content.Shared.Examine;
 using Content.Shared.Tiles; // Frontier
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
+using Robust.Shared.Prototypes;
 using Content.Shared._NF.Emp.Components; // Frontier
 using Robust.Server.GameStates; // Frontier: EMP Blast PVS
 using Robust.Shared.Configuration; // Frontier: EMP Blast PVS
@@ -27,6 +28,14 @@ public sealed partial class EmpSystem : SharedEmpSystem
     [Dependency] private PvsOverrideSystem _pvs = default!; // Frontier: EMP Blast PVS
     [Dependency] private IConfigurationManager _cfg = default!; // Frontier: EMP Blast PVS
     [Dependency] private ExamineSystem _examine = default!; // Frontier: examine verb
+    [Dependency] private IPrototypeManager _prototypes = default!;
+
+    public float GetTriggerEnergy(EntityUid uid) => CompOrNull<EmpOnTriggerComponent>(uid)?.EnergyConsumption ?? 0f;
+
+    public float GetTriggerEnergy(EntProtoId id) =>
+        _prototypes.TryIndex(id, out var prototype) &&
+        prototype.TryGetComponent<EmpOnTriggerComponent>(out var emp, EntityManager.ComponentFactory)
+            ? emp.EnergyConsumption : 0f;
 
     public const string EmpPulseEffectPrototype = "EffectEmpBlast"; // Frontier: EffectEmpPulse
 

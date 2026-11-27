@@ -1,0 +1,20 @@
+light_mode unshaded;
+blend_mode mix;
+
+#include "/Textures/_CE/Shaders/zcloud_density.swsl"
+
+uniform highp vec2 cloudCenter;
+uniform highp float cloudReach;
+uniform highp float cloudOverlap;
+
+void fragment()
+{
+    highp vec2 offset = (2.0 * FRAGCOORD.xy * SCREEN_PIXEL_SIZE - 1.0) * cloudReach;
+    highp vec2 p;
+    highp vec2 q;
+    highp float shape;
+    highp float threads;
+    highp float density = cloudDensity(cloudCenter + offset, TIME, p, q, shape, threads);
+    highp float opacity = 1.0 - exp(-mix(0.25, 2.4, density) * cloudOverlap);
+    COLOR = vec4(0.0, 0.0, 0.0, opacity);
+}

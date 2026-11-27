@@ -3,14 +3,16 @@
  * https://github.com/space-wizards/space-station-14/blob/master/LICENSE.TXT
  */
 
-using Content.Shared._CE.ZLevels.Core.EntitySystems;
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared._CE.ZLevels.Core;
+using Content.Shared._CE.ZLevels.Core.EntitySystems;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Map;
 using Content.Shared.Maps;
 using Content.Shared.CCVar;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
+using Content.Shared.Effects;
 using Content.Shared.Stunnable;
 using Robust.Shared.Configuration;
 using Robust.Shared.Network;
@@ -31,6 +33,7 @@ public sealed partial class CEZLevelDamageSystem : EntitySystem
     [Dependency] private ITileDefinitionManager _tileDefManager = default!;
     [Dependency] private SharedMapSystem _maps = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedColorFlashEffectSystem _colorFlash = default!;
 
     public float BaseFallingDamage { get; private set; }
     public float BaseFallingOtherDamage { get; private set; }
@@ -56,20 +59,19 @@ public sealed partial class CEZLevelDamageSystem : EntitySystem
     {
         var damageModifier = 1f;
         var stunModifier = 1f;
+        List<EntityUid>? flashTargets = null;
 
         var damageToOtherEv = new CEZFallingOnTargetDamageCalculateEvent(args.ImpactPower);
         RaiseLocalEvent(ent, damageToOtherEv);
         var otherDamage = damageToOtherEv.DamageMultiplier * BaseFallingOtherDamage * args.ImpactPower * args.ImpactPower;
         var otherStun = damageToOtherEv.StunMultiplier * BaseFallingOtherStunTime * args.ImpactPower * args.ImpactPower;
 
-        // Calculate damage modifiers for the falling entity
         var damageToSelfEv = new CEZFallingDamageCalculateEvent(ent, args.ImpactPower);
         RaiseLocalEvent(ent, damageToSelfEv);
         damageModifier *= damageToSelfEv.DamageMultiplier;
         stunModifier *= damageToSelfEv.StunMultiplier;
 
-        // What you landed ON can break the fall too, and it is not always an entity: water is a
-        // tile, so without this a lake would hurt exactly as much as bedrock.
+        // Terrain such as water can soften the fall without a landing entity.
         if (TryGetLandingTile(ent, out var landingTile))
         {
             damageModifier *= landingTile.FallDamageMultiplier;
@@ -79,7 +81,6 @@ public sealed partial class CEZLevelDamageSystem : EntitySystem
         var entitiesAround = _lookup.GetEntitiesInRange(ent, 0.25f, LookupFlags.Uncontained);
         entitiesAround.Remove(ent); //Don't count self
 
-        //Process entities we fell into
         var imFallOnEv = new CEZImFallOnEvent(entitiesAround, args.ImpactPower);
         RaiseLocalEvent(ent, imFallOnEv);
 
@@ -88,7 +89,6 @@ public sealed partial class CEZLevelDamageSystem : EntitySystem
 
         foreach (var victim in entitiesAround)
         {
-            // Calculate damage modifiers from entities being fallen upon
             var editDamageToSelfEv = new CEZFallingDamageCalculateEvent(ent, args.ImpactPower);
             RaiseLocalEvent(victim, editDamageToSelfEv);
             // Most significant modifier (furthest from 1.0) wins across all victims
@@ -100,14 +100,14 @@ public sealed partial class CEZLevelDamageSystem : EntitySystem
             var fellOnMeEv = new CEZFellOnMeEvent(ent, args.ImpactPower);
             RaiseLocalEvent(victim, fellOnMeEv);
 
-            // Apply damage and stun to entities that were fallen upon
             if (otherStun > 0)
                 _stun.TryKnockdown(victim, TimeSpan.FromSeconds(otherStun), true);
             if (otherDamage > 0)
             {
                 var otherDmgSpec = new DamageSpecifier();
                 otherDmgSpec.DamageDict.Add(PhysicalDamageType, (int)otherDamage);
-                _damageable.TryChangeDamage(victim, otherDmgSpec);
+                if (_damageable.TryChangeDamage(victim, otherDmgSpec) is { Empty: false })
+                    (flashTargets ??= new()).Add(victim);
             }
         }
 
@@ -119,8 +119,12 @@ public sealed partial class CEZLevelDamageSystem : EntitySystem
         {
             var selfDmgSpec = new DamageSpecifier();
             selfDmgSpec.DamageDict.Add(PhysicalDamageType, (int)damageAmount);
-            _damageable.TryChangeDamage(ent.Owner, selfDmgSpec);
+            if (_damageable.TryChangeDamage(ent.Owner, selfDmgSpec) is { Empty: false })
+                (flashTargets ??= new()).Add(ent);
         }
+
+        if (flashTargets != null)
+            _colorFlash.RaiseEffect(Color.Red, flashTargets, CEFilter.ZPvsExcept(ent, EntityManager));
 
         var knockdownTime = MathF.Min(args.ImpactPower * args.ImpactPower * BaseFallingStunTime * stunModifier, 5f);
         if (knockdownTime > 0)
@@ -133,14 +137,13 @@ public sealed partial class CEZLevelDamageSystem : EntitySystem
     /// <summary>
     /// The tile an entity has just landed on, if it is over one at all.
     /// </summary>
-    private bool TryGetLandingTile(EntityUid uid, [NotNullWhen(true)] out ContentTileDefinition? tileDef)
+    public bool TryGetLandingTile(EntityUid uid, [NotNullWhen(true)] out ContentTileDefinition? tileDef)
     {
         tileDef = null;
 
         var xform = Transform(uid);
 
-        // Prefer the grid it is standing on; fall back to whatever grid is under it, which on a
-        // planet is the z-level map's own grid.
+        // Fall back to the terrain grid if the entity isn't standing on a grid.
         if (xform.GridUid is not { } gridUid || !TryComp<MapGridComponent>(gridUid, out var grid))
         {
             if (!_maps.TryFindGridAt(_transform.GetMapCoordinates(uid, xform), out gridUid, out grid))
@@ -156,10 +159,7 @@ public sealed partial class CEZLevelDamageSystem : EntitySystem
     }
 }
 
-/// <summary>
-/// This event is triggered both on the entity that fell and on all entities that it fell on.
-/// Together, they calculate the damage and the duration that should be applied to the fallen entity.
-/// </summary>
+/// <summary>Lets the falling entity and victims modify landing damage and stun.</summary>
 public sealed partial class CEZFallingDamageCalculateEvent(EntityUid fallen, float speed) : EntityEventArgs
 {
     public EntityUid Fallen = fallen;

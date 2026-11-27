@@ -1,0 +1,264 @@
+- type: planetPersistenceList
+  id: DefaultSemi
+  entities:
+    keep:
+    # Terrain
+    - FloraRockSolid
+    - FloraTree
+    - FloraTreeLarge
+
+    # Hull and access
+    - BaseWall
+    - BaseWindoor
+    - BaseFirelock
+    - BlastDoor
+    - BaseShutter
+    - BaseRailing
+    - Grille
+    - Window
+    - WindowDirectional
+    - PlastitaniumWindowBase
+    - Catwalk
+    - CatwalkMono
+    - DarkCatwalkMono
+    - WhiteCatwalkMono
+    - Stairs
+    - StairStage
+
+    # Flight and gravity
+    - ComputerShuttle
+    - ComputerIFF
+    - ComputerRadar
+    - Thruster
+    - ThrusterLarge
+    - Gyroscope
+    - MachineFTLDrive
+    - MachineHeavyFTLDriveCore
+    - MachineHeavyFTLDriveConsole
+    - GravityGenerator
+    - GravityGeneratorMini
+    - CEHellpodHatch
+    - CEHellpodConsole
+
+    # Atmospherics
+    - AirAlarm
+    - AirSensor
+    - AtmosDeviceFanDirectional
+    - ComputerAtmosMonitoring
+    - GasPipeSansLayers
+    - GasPipeBase
+    - GasPipeSensor
+    - GasPort
+    - Gaslock
+    - GaslockFrame
+    - GasOutletInjector
+    - GasPassiveGate
+    - GasValve
+    - GasPressurePump
+    - GasVolumePump
+    - GasFilterBase
+    - GasFilterInline
+    - GasMixer
+    - GasThermoMachineFreezer
+    - GasThermoMachineHeater
+    - GasRecycler
+    - GasVentPump
+    - GasVentScrubber
+    - GasPassiveVent
+    - GasDualPortVentPump
+    - StorageCanister
+
+    # Power
+    - BaseAPC
+    - APCFrame
+    - ApcNetSwitch
+    - LargeAPC
+    - BaseSMES
+    - BaseSubstation
+    - BaseSubstationWall
+    - BaseSubstationWallFrame
+    - CableBase
+    - CableTerminal
+    - BaseGeneratorWallmount
+    - BaseGeneratorWallmountFrame
+    - GeneratorBasic
+    - GeneratorBasic15kW
+    - GeneratorRTG
+    - GeneratorCRPinch
+    - GeneratorSterling
+    - PortableGeneratorBase
+    - SolarPanelBasePhysSprite
+    - SolarAssembly
+    - SolarTracker
+    - ComputerSolarControl
+    - AmeController
+    - AmeShielding
+    - TegCenter
+    - TegCirculator
+    - MachineOutpostCore
+    - ComputerPowerMonitoring
+    - BaseRecharger
+
+    # Ship gunnery and shields
+    - BaseHardpoint
+    - BallisticArtilleryBase
+    - BallisticArtilleryBaseCartridge
+    - BallisticArtilleryBaseMagazine
+    - ComputerGunneryConsole
+    - GunneryServerBase
+    - ShieldGeneratorSmall
+    - ShieldGeneratorMedium
+    - ShieldGenerator
+    - ShieldGeneratorTSFCapital
+
+    # Safety, signals, and communications
+    - FireAlarm
+    - EmergencyLight
+    - AlwaysPoweredWallLight
+    - ExtinguisherCabinet
+    - DefibrillatorCabinet
+    - SignalButton
+    - SignalSwitch
+    - ButtonFrame
+    - NFHolopadShip
+    - FaxMachineBase
+    - TelecomServer
+    - ComputerStationRecords
+    - ComputerTabletopStationRecords
+    - ComputerWallmountStationRecords
+
+    # Mining and automation
+    - LaserDrillBase
+    - GasMiningDrill
+    - ConveyorBelt
+    - TwoWayLever
+    - SignalTimer
+    - BaseLogicItem
+    - RoboticArm
+    - Interactor
+    - StorageBin
+    - DisposalPipeBase
+    - DisposalUnitBase
+    - BaseLathe
+    - MachineMaterialSilo
+    - MachineFlatpacker
+    - MaterialReclaimer
+
+    # Cargo and storage
+    - OreBox
+    - Rack
+    - SmartFridge
+    - VendingMachine
+    - ClosetSteelBase
+    - BaseWallCloset
+    - LockerSteel
+    - BaseBigBox
+    - BodyBag
+    - BooksBag
+    - ChemBag
+    - NFClothingBackpack
+    - OreBag
+    - PlantBag
+    - TrashBag
+
+    # Medical, galley, and habitation
+    - MachineCryoSleepPod
+    - CryoPod
+    - MedicalBed
+    - StasisBed
+    - ChemMaster
+    - MachineThermobath
+    - MachineCentrifuge
+    - MachineElectrolysisUnit
+    - KitchenMicrowave
+    - KitchenAssembler
+    - KitchenElectricRange
+    - KitchenReagentGrinder
+    - SeedExtractor
+    - FloorDrain
+    - Sink
+    - SinkWide
+    - Bed
+    - BunkTop
+    - BunkBottom
+    - SeatBase
+    - Table
+    - TableReinforced
+    - ShelfBar
+    - ShelfChemistry
+    - ShelfKitchen
+
+    reset:
+    - Airlock
+    - CEPlanetShieldGenerator
+    - MAWCShieldGenerator
+    - PoweredlightEmpty
+    - PoweredSmallLightEmpty
+    - PoweredLightPostSmallEmpty
+    - PoweredStrobeLightEmpty
+    - HydroponicsTrayEmpty
+    replace:
+      # Factory-filled variants need empty counterparts.
+      hydroponicsTray: HydroponicsTrayEmpty
+      ChemDispenser: ChemDispenserEmpty
+      AirCanister: StorageCanister
+      OxygenCanister: StorageCanister
+      NitrogenCanister: StorageCanister
+      CarbonDioxideCanister: StorageCanister
+      PlasmaCanister: StorageCanister
+      TritiumCanister: StorageCanister
+      WaterVaporCanister: StorageCanister
+      AmmoniaCanister: StorageCanister
+      NitrousOxideCanister: StorageCanister
+      FrezonCanister: StorageCanister
+      GeneratorCRPinchShuttle: GeneratorCRPinch
+      GeneratorSterlingShuttle: GeneratorSterling
+      GeneratorSterlingPDVShuttle: GeneratorSterlingPDV
+      PortableGeneratorPacmanShuttle: PortableGeneratorPacman
+      PortableGeneratorSuperPacmanShuttle: PortableGeneratorSuperPacman
+      PortableGeneratorJrPacmanShuttle: PortableGeneratorJrPacman
+      PortableGeneratorDKShuttle: PortableGeneratorDK
+      PortableGeneratorDKJrShuttle: PortableGeneratorDKJr
+  components:
+  # General storage
+  - reset:
+    - ContainerContainer
+    - EntityStorage
+    - Storage
+    - MaterialStorage
+    - SolutionContainerManager
+
+  # Canisters and fuel
+  - whitelist: [StorageCanister]
+    reset:
+    - GasCanister
+  - whitelist: [DisposalUnitBase]
+    reset:
+    - DisposalUnit
+  - whitelist: [PortableGeneratorBase, GeneratorCRPinch, GeneratorSterling]
+    reset:
+    - FuelGenerator
+    - SolidFuelGeneratorAdapter
+    - ChemicalFuelGeneratorAdapter
+  - whitelist: [AmeController, AmeShielding]
+    reset:
+    - AmeController
+    - AmeShield
+
+  # Clear internal ammo counters as well as loaded magazines.
+  - whitelist: [BallisticArtilleryBase, BallisticArtilleryBaseCartridge, BallisticArtilleryBaseMagazine]
+    reset:
+    - BallisticAmmoProvider
+
+  # Stocked fixtures and service machines
+  - whitelist: [VendingMachine]
+    reset:
+    - VendingMachine
+  - whitelist: [ClosetBase, BaseWallCloset, BaseItemCabinet, TelecomServer, SmartFridge]
+    delete:
+    - ContainerFill
+    - StorageFill
+    - EntityTableContainerFill
+
+- type: planetPersistenceList
+  id: DefaultFull

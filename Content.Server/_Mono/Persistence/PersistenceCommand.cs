@@ -1,5 +1,7 @@
 using System.Linq;
+using Content.Server._Mono.Planets;
 using Content.Server.Administration;
+using Content.Shared._Mono.Persistence;
 using Content.Shared.Administration;
 using Robust.Shared.Toolshed;
 
@@ -9,6 +11,79 @@ namespace Content.Server._Mono.Persistence;
 public sealed class PersistenceCommand : ToolshedCommand
 {
     private PersistentProfileSystem? _persistence;
+
+    [CommandImplementation("copy")]
+    public void CopyItem(IInvocationContext ctx, [PipedArgument] EntityUid item)
+    {
+        var persistence = _persistence ??= GetSys<PersistentProfileSystem>();
+        CopyYaml(ctx, () => persistence.TrySerializeEntity(item, out var data) ? data : null);
+    }
+
+    [CommandImplementation("copy")]
+    public void CopyComponent(IInvocationContext ctx, [PipedArgument] IComponent? component)
+    {
+        var persistence = _persistence ??= GetSys<PersistentProfileSystem>();
+        CopyYaml(ctx, () => component == null ? null : persistence.SerializeComponent(component));
+    }
+
+    private void CopyYaml(IInvocationContext ctx, Func<string?> serialize)
+    {
+        if (ctx.Session is not { } session)
+        {
+            ctx.WriteLine(Loc.GetString("shell-cannot-run-command-from-server"));
+            return;
+        }
+
+        string? yaml;
+        try
+        {
+            yaml = serialize();
+        }
+        catch (Exception e)
+        {
+            ctx.WriteLine(Loc.GetString("persistence-copy-failed-detail", ("error", e.Message)));
+            return;
+        }
+
+        if (yaml == null)
+        {
+            ctx.WriteLine(Loc.GetString("persistence-copy-failed"));
+            return;
+        }
+
+        if (yaml.Length > AddPersistenceEntry.MaxBlobLength)
+        {
+            ctx.WriteLine(Loc.GetString("persistence-copy-too-large"));
+            return;
+        }
+
+        GetSys<PersistentProfileSystem>().SendClipboardYaml(session, yaml);
+        ctx.WriteLine(Loc.GetString("persistence-copy-ok"));
+    }
+
+    [CommandImplementation("planet")]
+    public string Planet([CommandArgument(typeof(LoadedPlanetNameParser))] string planetName,
+        PlanetPersistenceAction action, int? minutesOrRoundId = null,
+        [CommandArgument] bool confirm = false)
+    {
+        var planets = GetSys<PlanetPersistenceSystem>();
+        var matches = planets.GetLoadedPlanets()
+            .Where(planet => string.Equals(planet.Name, planetName, StringComparison.OrdinalIgnoreCase)).ToArray();
+        if (matches.Length != 1)
+            return Loc.GetString(matches.Length == 0 ? "planet-save-command-not-loaded" : "planet-save-command-ambiguous",
+                ("planet", planetName));
+
+        var planet = matches[0];
+        return action switch
+        {
+            PlanetPersistenceAction.Save when minutesOrRoundId is null or > 0 && !confirm =>
+                Loc.GetString(planets.ForceSave(planet.ID, minutesOrRoundId) ? "planet-save-command-ok" : "planet-save-command-failed",
+                    ("planet", planet.Name)),
+            PlanetPersistenceAction.Delete when minutesOrRoundId is >= 0 =>
+                planets.DeleteRound(planet.ID, minutesOrRoundId.Value, confirm),
+            _ => "persistence:planet <planetName> save [nextSaveMinutes] | persistence:planet <planetName> delete <roundId> [true]",
+        };
+    }
 
     [CommandImplementation("get")]
     public IReadOnlyList<string> Get(PersistenceDataType type, EntityUid player)
@@ -85,6 +160,12 @@ public sealed class PersistenceCommand : ToolshedCommand
 
     private static string Format(string data, bool sticky)
         => sticky ? $"[sticky] {data}" : data;
+}
+
+public enum PlanetPersistenceAction : byte
+{
+    Save,
+    Delete,
 }
 
 public enum PersistenceDataType : byte

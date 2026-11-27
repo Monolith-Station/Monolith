@@ -1,0 +1,45 @@
+blend_mode mix;
+light_mode unshaded;
+
+uniform highp vec2 ARROW_METRICS;
+
+highp float shaftGlow(highp float distanceToLine)
+{
+    highp float squared = distanceToLine * distanceToLine;
+    highp float core = exp(-squared * 870.0);
+    highp float halo = exp(-squared * 250.0);
+    return (core * 0.78 + halo * 0.22) * (1.0 - smoothstep(0.07, 0.11, distanceToLine));
+}
+
+highp float arrowGlow(highp vec2 point, highp float tipLength)
+{
+    highp vec2 fromWing = point - vec2(0.14, 0.0);
+    highp vec2 edge = vec2(-0.14, tipLength);
+    highp float projected = clamp(dot(fromWing, edge) / dot(edge, edge), 0.0, 1.0);
+    highp float slopeDistance = length(fromWing - projected * edge);
+    highp float baseDistance = length(vec2(max(point.x - 0.14, 0.0), point.y));
+    bool inside = point.y >= 0.0 && point.y * 0.14 + point.x * tipLength <= 0.14 * tipLength;
+    highp float distanceToEdge = min(baseDistance, slopeDistance);
+    highp float signedDistance = inside ? -distanceToEdge : distanceToEdge;
+    highp float fill = 1.0 - smoothstep(-0.010, 0.014, signedDistance);
+    highp float rim = shaftGlow(max(signedDistance, 0.0) * 2.0);
+    return mix(rim * 0.48, 1.0, fill);
+}
+
+void fragment()
+{
+    bool arrowhead = UV.y < 0.0;
+    highp float along = abs(UV.y) - 1.0;
+    highp float pulse = 0.5 + 0.5 * cos((along * 0.3 - TIME * 0.35) * 6.283185);
+    highp float across = abs(UV.x - 0.5) * 0.4;
+    highp float glow = shaftGlow(length(vec2(across, min(along, 0.0))));
+    highp float opacity = 0.72 + pulse * 0.14;
+    lowp vec3 color = mix(vec3(1.0, 0.83, 0.50), vec3(1.0, 0.95, 0.80), pulse * 0.18);
+    if (arrowhead)
+    {
+        highp float fromBase = along - ARROW_METRICS.x;
+        glow = max(arrowGlow(vec2(across, fromBase), ARROW_METRICS.y),
+            shaftGlow(length(vec2(across, max(fromBase, 0.0)))));
+    }
+    COLOR = vec4(color, opacity * glow);
+}

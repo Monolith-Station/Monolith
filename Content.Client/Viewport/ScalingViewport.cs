@@ -294,7 +294,9 @@ namespace Content.Client.Viewport
         }
 
         /// <inheritdoc/>
-        public MapCoordinates PixelToMap(Vector2 coords)
+        public MapCoordinates PixelToMap(Vector2 coords) => PixelToMap(coords, null); // Mono
+
+        private MapCoordinates PixelToMap(Vector2 coords, IEye? projectionEye) // Mono
         {
             if (_eye == null)
                 return default;
@@ -307,7 +309,12 @@ namespace Content.Client.Viewport
             var ev = new PixelToMapEvent(coords, this, _viewport!);
             _entityManager.EventBus.RaiseEvent(EventSource.Local, ref ev);
 
-            return _viewport!.LocalToWorld(ev.VisiblePosition);
+            // Mono Start
+            return projectionEye == null
+                ? _viewport!.LocalToWorld(ev.VisiblePosition)
+                : new MapCoordinates(_viewport!.RenderTarget.LocalToWorld(
+                    projectionEye, ev.VisiblePosition, _viewport.RenderScale), projectionEye.Position.MapId);
+            // Mono End
         }
 
         public Vector2 WorldToScreen(Vector2 map)

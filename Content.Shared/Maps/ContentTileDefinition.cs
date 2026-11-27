@@ -38,6 +38,8 @@ namespace Content.Shared.Maps
         public string Name { get; private set; } = "";
         [DataField("sprite")] public ResPath? Sprite { get; private set; }
 
+        [DataField] public Color RadarColor { get; private set; } = Color.FromHex("#465044");
+
         [DataField("edgeSprites")] public Dictionary<Direction, ResPath> EdgeSprites { get; private set; } = new();
 
         [DataField("edgeSpritePriority")] public int EdgeSpritePriority { get; private set; } = 0;
@@ -79,6 +81,8 @@ namespace Content.Shared.Maps
         /// Base friction modifier for this tile.
         /// </summary>
         [DataField("friction")] public float Friction { get; set; } = 1f;
+
+        [DataField] public float? GridFriction { get; private set; }
 
         [DataField("variants")] public byte Variants { get; set; } = 1;
 
@@ -170,6 +174,12 @@ namespace Content.Shared.Maps
         [DataField]
         public bool Transparent = false;
 
+        /// <summary>
+        /// Shields levels below from weather.
+        /// </summary>
+        [DataField]
+        public bool BlocksWeather = true;
+
         // <Mono>
         /// <summary>
         /// Multiplier on damage taken by anything that falls onto this tile.
@@ -184,6 +194,12 @@ namespace Content.Shared.Maps
         public float FallStunMultiplier { get; private set; } = 1f;
 
         /// <summary>
+        /// Sound played whenever someone has a hard landing on this tile.
+        /// </summary>
+        [DataField]
+        public SoundSpecifier? LandingSound { get; private set; }
+
+        /// <summary>
         /// Shader applied to entities standing on this tile, for things like looking submerged while wading.
         /// </summary>
         [DataField]
@@ -194,6 +210,12 @@ namespace Content.Shared.Maps
         /// </summary>
         [DataField]
         public ProtoId<ReagentPrototype>? Reagent { get; private set; }
+
+        [DataField]
+        public ProtoId<ReagentPrototype>? ContactReagent { get; private set; }
+
+        [DataField]
+        public float ContactReagentRate { get; private set; } = 1f;
 
         // </Mono>
 

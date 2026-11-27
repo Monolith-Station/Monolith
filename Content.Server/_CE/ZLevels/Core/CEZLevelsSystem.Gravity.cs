@@ -3,23 +3,35 @@
  * https://github.com/space-wizards/space-station-14/blob/master/LICENSE.TXT
  */
 
+using System.Numerics;
 using Content.Server._CE.ZLevels.Core.Components;
+using Content.Server._Crescent.ShipShields;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Gravity;
+using Content.Shared._CE.Camera;
 using Content.Shared._CE.ZLevels.Core.Components;
 using Content.Shared._CE.ZLevels.Core.EntitySystems;
+using Content.Shared._FarHorizons.StarSystem;
+using Content.Shared._Mono.Ships; // Mono
 using Content.Shared.Gravity;
 using Content.Shared.Maps;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
+using Robust.Shared.Player;
 
 namespace Content.Server._CE.ZLevels.Core;
 
 public sealed partial class CEZLevelsSystem
 {
     [Dependency] private ExplosionSystem _explosion = default!;
+    [Dependency] private SharedAudioSystem _landingAudio = default!;
     [Dependency] private GravitySystem _grav = default!;
+    [Dependency] private ShipShieldsSystem _shipShields = default!;
+    [Dependency] private SharedShipShieldShellSystem _shieldContainment = default!; // Mono
 
     [Dependency] private EntityQuery<CEZMapComponent> _zMapQuery = default!;
     [Dependency] private EntityQuery<PhysicsComponent> _physQuery = default!;
@@ -31,26 +43,16 @@ public sealed partial class CEZLevelsSystem
     /// </summary>
     private readonly Dictionary<EntityUid, float> _gravgenCapacity = new();
 
-    /// <summary>
-    /// pzn: per-sweep memo of each grid's rigid-set support verdict. Every grid in one rigid
-    /// body shares the same verdict, so the first grid of a body computes the flood + pooled
-    /// support once and caches it for every member — the other members then skip the whole
-    /// recomputation. Keeps the fall gate O(grids) instead of O(grids × body size). Cleared
-    /// each sweep alongside <see cref="_gravgenCapacity"/>.
-    /// </summary>
+    // Cache pooled support for each docked set for the current sweep.
     private readonly Dictionary<EntityUid, bool> _rigidSupportCache = new();
     private readonly TimeSpan _gravityCheckTimer = TimeSpan.FromSeconds(0.5);
     private TimeSpan _nextGravityCheckTime;
 
-    /// <summary>
-    /// Drop grid if no gravgen.
-    /// </summary>
     private void UpdateGridGravity(float frameTime)
     {
         CollectPilotVerticalInputs();
         UpdateTakeoffSpool();
 
-        // Throttle checking for grid gravity so the server doesn't set itself on fire.
         if (_timing.CurTime >= _nextGravityCheckTime)
         {
             _nextGravityCheckTime = _timing.CurTime + _gravityCheckTimer;
@@ -65,18 +67,18 @@ public sealed partial class CEZLevelsSystem
                 if (!gravgen.GravityActive || !gravgenXform.ParentUid.IsValid())
                     continue;
 
+                if (TryComp<CEZGravgenStunnedComponent>(gravgenXform.ParentUid, out var stunned))
+                {
+                    if (_timing.CurTime < stunned.End)
+                        continue;
+
+                    RemCompDeferred<CEZGravgenStunnedComponent>(gravgenXform.ParentUid);
+                }
+
                 // Unrated (<= 0) = unlimited; infinity absorbs any finite additions.
                 var rated = gravgen.MaxHandledMass <= 0f ? float.PositiveInfinity : gravgen.MaxHandledMass;
                 _gravgenCapacity[gravgenXform.ParentUid] =
                     _gravgenCapacity.GetValueOrDefault(gravgenXform.ParentUid) + rated;
-            }
-
-            // Mapping anchors are unlimited lift: a grid hosting one holds its whole network
-            // aloft regardless of mass (see CEZMappingAnchorComponent).
-            var anchorQuery = EntityQueryEnumerator<CEZMappingAnchorGridComponent>();
-            while (anchorQuery.MoveNext(out var anchorGrid, out _))
-            {
-                _gravgenCapacity[anchorGrid] = float.PositiveInfinity;
             }
 
             var levelQuery = EntityQueryEnumerator<CEZGridFallerComponent, MapGridComponent>();
@@ -93,9 +95,6 @@ public sealed partial class CEZLevelsSystem
                 if (_physQuery.TryComp(uid, out var body) && body.BodyType == BodyType.Static)
                     continue;
 
-                // "Why not use IsWeightless on each grid-" Doesn't work on grids. I tried.
-                // This also covers "you can't fall out of the ground floor": a grid sat on the
-                // bottom level's terrain has ground under its footprint like any other.
                 if (RigidSetHasSupport(uid))
                     continue;
 
@@ -126,11 +125,6 @@ public sealed partial class CEZLevelsSystem
                 continue;
             }
 
-            // Convoy follower layers don't integrate — they mirror the lead layer's
-            // velocity inside IntegrateFallingGrid.
-            if ((transit.TransitAbove != null || transit.TransitBelow != null) && !transit.ConvoyLead)
-                continue;
-
             _gravityQueue.Add((primary, primaryGrid));
         }
 
@@ -155,7 +149,7 @@ public sealed partial class CEZLevelsSystem
             if (TerminatingOrDeleted(uid) || EntityManager.IsQueuedForDeletion(uid))
                 continue;
 
-            if (transit.PrimaryGrid is not { } primary ||
+            if (transit.LowerMap == null || transit.PrimaryGrid is not { } primary ||
                 TerminatingOrDeleted(primary) ||
                 !ZPhysicsQuery.TryComp(primary, out var zPhys))
             {
@@ -177,7 +171,6 @@ public sealed partial class CEZLevelsSystem
                 if (a.Transit.LowerMap != b.Transit.LowerMap || a.Transit.UpperMap != b.Transit.UpperMap)
                     continue;
 
-                // If the maps didn't swap positions, they couldn't have collided (therefore, it is Not Our Problem)
                 if (!_transitLastProgress.TryGetValue(a.Map, out var prevA) ||
                     !_transitLastProgress.TryGetValue(b.Map, out var prevB))
                 {
@@ -187,7 +180,8 @@ public sealed partial class CEZLevelsSystem
                 var prevDelta = prevA - prevB;
                 var curDelta = a.Progress - b.Progress;
 
-                if (prevDelta * curDelta > 0f)
+                // Clusters split from one gap start at the same height. Separating isn't a collision.
+                if (prevDelta == 0f || prevDelta * curDelta > 0f)
                     continue;
 
                 if (!TryGetGridSetAabb(a.Primary, out var setA, out var aabbA) ||
@@ -217,12 +211,9 @@ public sealed partial class CEZLevelsSystem
         }
     }
 
-    /// <summary>
-    /// Collects a transit set and the union of its members' world AABBs.
-    /// </summary>
     private bool TryGetGridSetAabb(EntityUid primary, out HashSet<EntityUid> set, out Box2 aabb)
     {
-        set = CollectGridSet(primary);
+        set = CollectTransitSet(primary);
         aabb = default;
 
         var first = true;
@@ -239,9 +230,6 @@ public sealed partial class CEZLevelsSystem
         return !first;
     }
 
-    /// <summary>
-    /// Someone forgot their gravgen.
-    /// </summary>
     private static float ApproachTerminal(float velocity, float signedAccel, float terminalSpeed, float frameTime)
     {
         if (terminalSpeed <= 0f || signedAccel == 0f)
@@ -252,9 +240,6 @@ public sealed partial class CEZLevelsSystem
         return velocity + signedAccel * taper * frameTime;
     }
 
-    /// <summary>
-    /// Moves a value toward a target by at most <paramref name="maxDelta"/>.
-    /// </summary>
     private static float MoveTowards(float current, float target, float maxDelta)
     {
         var diff = target - current;
@@ -269,8 +254,8 @@ public sealed partial class CEZLevelsSystem
             return;
         }
 
-        var xform = Transform(grid);
-        if (!TryComp<CEZTransitMapComponent>(xform.MapUid, out var transit) ||
+        if (Transform(grid).MapUid is not { } transitMap ||
+            !TryComp<CEZTransitMapComponent>(transitMap, out var transit) ||
             transit.LowerMap is not { } lowerMap ||
             !TryComp<CEZMapComponent>(lowerMap, out var lowerZ))
         {
@@ -278,15 +263,23 @@ public sealed partial class CEZLevelsSystem
         }
 
         var progress = zPhys.LocalPosition;
+        var span = GetTransitSpan(transit);
+        var distanceBelow = progress * span;
+        var distanceAbove = span - distanceBelow;
 
-        // Convoy-aware bounds: the stack lands on whatever is under its BOTTOM layer
-        // and settles up against whatever is above its TOP layer; any member's
-        // gravgen keeps the whole thing aloft (the connectors carry the load).
-        var convoy = GetConvoyMaps(xform.MapUid!.Value);
-        var groundMapBelow = Comp<CEZTransitMapComponent>(convoy[0]).LowerMap ?? lowerMap;
-        var topUpperMap = Comp<CEZTransitMapComponent>(convoy[^1]).UpperMap;
+        var transitSet = CollectGridsOnMap(transitMap);
+        var input = GetTransitVerticalInput(transitMap);
 
-        var transitSet = CollectTransitSet(grid);
+        TryComp<PlanetTransitComponent>(grid, out var planetTransit);
+        if (planetTransit != null &&
+            planetTransit.Direction == PlanetTransitDirection.Ascent &&
+            planetTransit.Phase == PlanetTransitPhase.Charging)
+        {
+            faller.Velocity = 0f;
+            foreach (var member in transitSet)
+                SetZVelocity(member, 0f);
+            return;
+        }
 
         // The whole rigid set hovers only if its generators' pooled capacity holds the
         // set's pooled mass — not if any single member's generator holds only itself.
@@ -294,7 +287,6 @@ public sealed partial class CEZLevelsSystem
 
         if (!hasGravgen)
         {
-            // AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
             if (_timing.CurTime < faller.GravityTime)
                 return;
 
@@ -302,55 +294,57 @@ public sealed partial class CEZLevelsSystem
         }
         else
         {
-            var input = GetConvoyVerticalInput(convoy);
             var accel = GetVerticalThrustAccel(grid);
             var damp = Math.Max(accel, HoverDampAccel);
 
             if (input != 0f && accel > 0f)
             {
-                // Flight.
                 faller.Velocity = ApproachTerminal(faller.Velocity, -input * accel, MaxPilotVerticalSpeed, frameTime);
+            }
+            else if ((transit.UpperMap == null || transit.AutoLand) &&
+                     (distanceBelow > SettleZone ||
+                      transit.AutoLand && !TransitBlockedByPlane(transitMap, lowerMap)))
+            {
+                var target = Math.Clamp(distanceBelow * ApproachGain, TouchdownSpeed, MaxPilotVerticalSpeed);
+                faller.Velocity = MoveTowards(faller.Velocity, target, damp * frameTime);
             }
             else
             {
                 var target = 0f;
 
-                if (progress <= SettleZone)
+                if (distanceBelow <= SettleZone)
                 {
-                    if (progress <= TouchdownProgress && MathF.Abs(faller.Velocity) <= ExitTransitMaxSpeed)
+                    if (distanceBelow <= TouchdownProgress && MathF.Abs(faller.Velocity) <= ExitTransitMaxSpeed)
                     {
-                        faller.Velocity = 0f;
-                        TryExitTransit(grid);
+                        if (!TryExitTransit(grid, up: false))
+                            faller.Velocity = 0f;
                         return;
                     }
 
-                    target = MathF.Max(TouchdownSpeed, progress * ApproachGain);
+                    target = MathF.Max(TouchdownSpeed, distanceBelow * ApproachGain);
                 }
-                // Only settle up onto the level above if the convoy can actually get through it.
-                // Pinned under solid terrain the ship just hovers against the underside; without
-                // this it would drift into the touchdown band and pop out on top of the ceiling
-                // that was blocking it.
-                else if (progress >= 1f - SettleZone
-                         && topUpperMap is { } upper
-                         && !ConvoyBlockedByPlane(convoy[^1], upper))
+                // A solid ceiling stops ascent rather than letting a ship settle on top of it.
+                else if (!transit.AutoLand && distanceAbove <= SettleZone
+                         && transit.UpperMap is { } upper
+                         && !TransitBlockedByPlane(transitMap, upper))
                 {
-                    if (progress >= 1f - TouchdownProgress && MathF.Abs(faller.Velocity) <= ExitTransitMaxSpeed)
+                    if (distanceAbove <= TouchdownProgress && MathF.Abs(faller.Velocity) <= ExitTransitMaxSpeed)
                     {
-                        faller.Velocity = 0f;
-                        TryExitTransit(grid);
+                        if (!TryExitTransit(grid, up: true))
+                            faller.Velocity = 0f;
                         return;
                     }
 
-                    target = -MathF.Max(TouchdownSpeed, (1f - progress) * ApproachGain);
+                    target = -MathF.Max(TouchdownSpeed, distanceAbove * ApproachGain);
                 }
 
                 faller.Velocity = MoveTowards(faller.Velocity, target, damp * frameTime);
             }
 
             // Slow down when approaching terrain so people under you got some time to move.
-            if (faller.Velocity > 0f && ConvoyBlockedByPlane(convoy[0], groundMapBelow))
+            if (faller.Velocity > 0f && TransitBlockedByPlane(transitMap, lowerMap))
             {
-                var cap = MathF.Max(TouchdownSpeed, progress * ApproachGain);
+                var cap = MathF.Max(TouchdownSpeed, distanceBelow * ApproachGain);
                 if (faller.Velocity > cap)
                     faller.Velocity = MoveTowards(faller.Velocity, cap, damp * frameTime);
             }
@@ -364,49 +358,101 @@ public sealed partial class CEZLevelsSystem
                 memberFaller.Velocity = faller.Velocity;
         }
 
-        var altitude = lowerZ.Depth + progress - faller.Velocity * frameTime;
-        if (!SetTransitAltitude(grid, altitude))
-            return;
-
-        // Still airborne?
-        if (HasComp<CEZTransitMapComponent>(Transform(grid).MapUid))
-            return;
-
-        var impact = faller.Velocity;
-        faller.Velocity = 0f;
-
-        // Only a landing that ended ON terrain is a crash; setting down over open sky isn't.
-        if (impact < faller.GridCrashVelocity
-            || Transform(grid).MapUid is not { } landedMap
-            || !HasGroundUnderFootprint(grid, landedMap))
+        var currentAltitude = lowerZ.Depth + distanceBelow;
+        var altitude = currentAltitude - faller.Velocity * frameTime;
+        // Clamp the docked set at the first shield contact.
+        var delta = altitude - currentAltitude;
+        var pushing = input != 0f;
+        foreach (var member in transitSet)
         {
-            return;
+            var from = GetAbsoluteAltitude(member);
+            var to = from + delta;
+            var clamped = _shieldContainment.ClampVertical(member, Transform(member).MapUid, from, to,
+                pushing, gridFootprint: true, transitSet);
+            if (clamped != to)
+                delta = clamped - from;
         }
 
-        var crashSet = CollectGridSet(grid);
-        if (TryGetGridNetwork(grid, out var landedNetwork))
+        if (delta != altitude - currentAltitude)
         {
-            foreach (var member in landedNetwork.Comp.Grids)
-                crashSet.UnionWith(CollectGridSet(member));
+            altitude = currentAltitude + delta;
+            faller.Velocity = 0f;
+            foreach (var member in transitSet)
+                SetZVelocity(member, 0f);
         }
+        // Mono End
 
-        foreach (var landedUid in crashSet)
-        {
-            if (TryComp<MapGridComponent>(landedUid, out var landedGrid) && TryComp<CEZGridFallerComponent>(landedUid, out var landedFaller))
-                CrashGrid((landedUid, landedGrid, landedFaller));
-        }
+        SetTransitAltitude(grid, altitude);
     }
 
-    /// <summary>
-    /// kaboom?
-    /// </summary>
-    private void CrashGrid(Entity<MapGridComponent, CEZGridFallerComponent> ent)
+    private void HandleGridTouchdown(EntityUid map, HashSet<EntityUid> grids, float impact, float crashSpeed)
+    {
+        if (impact <= 0f)
+            return;
+
+        var hasGround = false;
+        var damagingImpact = false;
+        SoundSpecifier? landingSound = null;
+        var soundGrid = EntityUid.Invalid;
+        var filter = Filter.Empty();
+
+        foreach (var uid in grids)
+        {
+            filter.AddInGrid(uid, EntityManager);
+            if (!TryComp<MapGridComponent>(uid, out var grid) ||
+                !HasGroundUnderFootprint((uid, grid), map, out var damages, out var sound, checkImpact: true))
+                continue;
+
+            hasGround = true;
+            damagingImpact |= damages;
+            filter.AddPlayersByPvs(new EntityCoordinates(uid, grid.LocalAABB.Center), entityMan: EntityManager);
+            if (landingSound == null && sound != null)
+            {
+                landingSound = sound;
+                soundGrid = uid;
+            }
+        }
+
+        if (!hasGround)
+            return;
+
+        var absorbed = false;
+        if (impact >= crashSpeed)
+        {
+            if (landingSound != null)
+                _landingAudio.PlayPvs(landingSound, soundGrid);
+
+            if (damagingImpact)
+            {
+                foreach (var uid in grids)
+                {
+                    if (TryComp<MapGridComponent>(uid, out var grid) && TryComp<CEZGridFallerComponent>(uid, out var faller))
+                        absorbed |= CrashGrid((uid, grid, faller));
+                }
+            }
+        }
+
+        var amplitude = MathF.Min(impact * 0.8f, 0.8f);
+        RaiseNetworkEvent(new RadialShakeEvent { Amplitude = amplitude * (absorbed ? 1.5f : 1f) }, filter);
+    }
+
+    private bool CrashGrid(Entity<MapGridComponent, CEZGridFallerComponent> ent)
     {
         var tileCount = 0;
+        var counter = _map.GetAllTilesEnumerator(ent, ent.Comp1);
+        while (counter.MoveNext(out _))
+            tileCount++;
+
+        if (tileCount == 0)
+            return false;
+
+        var totalIntensity = tileCount * (ent.Comp2.CrashTileIntensity + ent.Comp2.CrashIntensityPerTile);
+        if (_shipShields.TryAbsorbCrash(ent, totalIntensity))
+            return true;
+
         var tiles = _map.GetAllTilesEnumerator(ent, ent.Comp1);
         while (tiles.MoveNext(out var tileRef))
         {
-            tileCount++;
             var coords = _map.GridTileToLocal(ent, ent.Comp1, tileRef.Value.GridIndices);
             _explosion.QueueExplosion(coords,
                 ExplosionSystem.DefaultExplosionPrototypeId,
@@ -417,19 +463,14 @@ public sealed partial class CEZLevelsSystem
                 addLog: false);
         }
 
-        if (tileCount == 0)
-            return;
-
         _explosion.QueueExplosion(ent.Owner,
             ExplosionSystem.DefaultExplosionPrototypeId,
             ent.Comp2.CrashIntensityPerTile * tileCount,
             ent.Comp2.CrashCenterSlope,
             ent.Comp2.CrashCenterMaxIntensity);
+        return false;
     }
 
-    /// <summary>
-    /// Will It Lift?
-    /// </summary>
     private bool HasPooledGravgenSupport(IEnumerable<EntityUid> grids)
     {
         var capacity = 0f;
@@ -454,85 +495,13 @@ public sealed partial class CEZLevelsSystem
         return capacity > 0f && mass <= capacity;
     }
 
-    /// <summary>
-    /// The full rigid body a grid falls (or is held) as one with: the transitive closure over
-    /// both welds — docking ports and z-network connectors — so two stacks docked together fold
-    /// into a single set, no matter how many network-then-dock-then-network hops apart. Support
-    /// is pooled across the whole union. A lone, undocked, networkless grid yields just itself.
-    /// </summary>
-    private HashSet<EntityUid> CollectRigidSet(EntityUid uid)
-    {
-        // Transitive flood over BOTH welds: docking ports and network connectors. One level
-        // isn't enough — a docked partner can itself be a member of another z-network whose own
-        // members are docked to yet more, and so on. Following only the starting grid's network
-        // (and its members' docks) would miss the far side of a stack-to-stack dock, and worse,
-        // give a different set depending on which grid you started from — so the same rigid body
-        // could be judged supported from one end and falling from the other. The flood closes
-        // over the whole connected body, so every grid in it yields the identical set.
-        //
-        // `set` guards enqueueing: each grid enters the queue only the first time it's seen, so
-        // the flood always terminates and docking/network cycles are safe. `dockWalked` and
-        // `netWalked` additionally guard the EXPENSIVE expansions: a docked component (returned
-        // whole by GetAllDockedShuttles) and a network are each walked exactly once, instead of
-        // re-walking the same cluster once per member.
-        var set = new HashSet<EntityUid>();
-        var queue = new Queue<EntityUid>();
-        var dockWalked = new HashSet<EntityUid>();
-        var netWalked = new HashSet<EntityUid>();
-
-        void Add(EntityUid g)
-        {
-            if (set.Add(g))
-                queue.Enqueue(g);
-        }
-
-        Add(uid);
-
-        while (queue.Count > 0)
-        {
-            var g = queue.Dequeue();
-
-            // Docking: GetAllDockedShuttles hands back g's whole docked component at once, and
-            // every grid in it shares that same component — so walk it once, marking the lot.
-            if (dockWalked.Add(g))
-            {
-                foreach (var docked in CollectGridSet(g))
-                {
-                    dockWalked.Add(docked);
-                    Add(docked);
-                }
-            }
-
-            // Connectors weld g to its z-network members; each may open onto a new docked
-            // component, which the loop then walks. Expand each network only once.
-            if (TryGetGridNetwork(g, out var network) && netWalked.Add(network.Owner))
-            {
-                foreach (var member in network.Comp.Grids)
-                    Add(member);
-            }
-        }
-
-        return set;
-    }
-
-    /// <summary>
-    /// Whether a grid's whole rigid set is held aloft: its generators' pooled capacity covers
-    /// the set's pooled mass (so a docked tug or a networked gravgen carries the rest, and every
-    /// member's weight counts against that lift), or any member rests on ground under its
-    /// footprint. Subsumes the old per-grid gravgen check and network-only pooling — for a lone
-    /// grid the set is just itself, giving the identical result.
-    ///
-    /// Memoized per sweep: every grid in one rigid body shares this verdict, so the first grid
-    /// floods + pools once and caches the answer for every member; the rest hit the cache. The
-    /// fall gate calls this once per grid, so without the cache an N-grid body would recompute
-    /// the whole flood N times (O(N²)); with it, once (O(N)).
-    /// </summary>
+    /// <summary>Checks lift and ground support once per same-map docked set per sweep.</summary>
     private bool RigidSetHasSupport(EntityUid uid)
     {
         if (_rigidSupportCache.TryGetValue(uid, out var cached))
             return cached;
 
-        var set = CollectRigidSet(uid);
+        var set = CollectGridSet(uid);
         var supported = SetHasSupport(set);
 
         foreach (var member in set)
@@ -560,9 +529,6 @@ public sealed partial class CEZLevelsSystem
         return false;
     }
 
-    /// <summary>
-    /// pzn: Get the current load of the grid for gravgen examine.
-    /// </summary>
     public bool TryGetGravgenLoad(EntityUid gridUid, out float gridMass, out float capacity)
     {
         gridMass = 0f;
@@ -571,9 +537,7 @@ public sealed partial class CEZLevelsSystem
         if (!HasComp<MapGridComponent>(gridUid))
             return false;
 
-        // A z-grid network shares its generators' lift across every member, so the
-        // load is pooled over the whole network; a lone grid answers for itself.
-        var networkGrids = TryGetGridNetwork(gridUid, out var network) ? network.Comp.Grids : null;
+        var grids = CollectTransitSet(gridUid);
 
         var query = EntityQueryEnumerator<GravityGeneratorComponent, TransformComponent>();
         while (query.MoveNext(out _, out var gravgen, out var xform))
@@ -581,59 +545,79 @@ public sealed partial class CEZLevelsSystem
             if (!gravgen.GravityActive)
                 continue;
 
-            var onSet = networkGrids != null
-                ? networkGrids.Contains(xform.ParentUid)
-                : xform.ParentUid == gridUid;
-            if (!onSet)
+            if (!grids.Contains(xform.ParentUid))
                 continue;
 
             capacity += gravgen.MaxHandledMass < 0f ? float.PositiveInfinity : gravgen.MaxHandledMass;
         }
 
-        if (networkGrids != null)
+        foreach (var member in grids)
         {
-            foreach (var member in networkGrids)
-            {
-                if (_physQuery.TryComp(member, out var memberBody))
-                    gridMass += memberBody.FixturesMass;
-            }
-        }
-        else if (_physQuery.TryComp(gridUid, out var body))
-        {
-            gridMass = body.FixturesMass;
+            if (_physQuery.TryComp(member, out var body))
+                gridMass += body.FixturesMass;
         }
 
         return true;
     }
 
-    /// <summary>
-    /// Whether a z-level has solid terrain under (or over) a grid's footprint. A z-level map
-    /// entity carries its own MapGrid and its tiles are the layer's terrain, so this is what
-    /// makes a level something a ship can rest on or be stopped by.
-    ///
-    /// Solid is a non-empty tile — the same rule the entity fall path
-    /// (<c>ComputeGroundHeightInternal</c>) uses, so a gap punched in a platform drops a ship
-    /// through exactly like it drops a person instead of the two disagreeing about the same tile.
-    ///
-    /// Emptiness rather than <see cref="ContentTileDefinition.Transparent"/>, deliberately:
-    /// transparency is a SIGHT property, driving roof occlusion and the look-up/look-down view, and
-    /// a floor you can see through is still a floor. Lattice, glass floor and damaged plating are
-    /// all transparent and all hold weight, so keying support off it dropped ships through tiles
-    /// people were standing on. Space is tile id 0, so it is empty here anyway.
-    /// </summary>
+    // Non-empty terrain supports hulls, even if transparent.
     private bool HasGroundUnderFootprint(Entity<MapGridComponent> grid, EntityUid mapUid)
+        => HasGroundUnderFootprint(grid, mapUid, out _, out _);
+
+    private readonly Vector2[] _groundFootprint = new Vector2[PhysicsConstants.MaxPolygonVertices];
+    private readonly Vector2[] _shipGroundFootprint = new Vector2[PhysicsConstants.MaxPolygonVertices];
+
+    private bool HasGroundUnderFootprint(
+        Entity<MapGridComponent> grid, EntityUid mapUid, out bool damagingImpact, out SoundSpecifier? landingSound,
+        bool checkImpact = false)
     {
+        damagingImpact = false;
+        landingSound = null;
         if (!TryComp<MapGridComponent>(mapUid, out var mapGrid))
             return false;
 
-        var worldAabb = _transform.GetWorldMatrix(grid).TransformBox(grid.Comp.LocalAABB);
-        var tiles = _map.GetTilesEnumerator(mapUid, mapGrid, worldAabb);
-        while (tiles.MoveNext(out var tileRef))
+        var hasGround = false;
+        var shipMatrix = _transform.GetWorldMatrix(grid);
+        var groundMatrix = _transform.GetWorldMatrix(mapUid);
+        var worldAabb = shipMatrix.TransformBox(grid.Comp.LocalAABB);
+        foreach (var tileRef in _map.GetTilesIntersecting(mapUid, mapGrid, worldAabb))
         {
-            if (!tileRef.Tile.IsEmpty)
+            var groundCount = WriteTileFootprint(tileRef, mapGrid.TileSize, groundMatrix, _groundFootprint);
+            var ground = _groundFootprint.AsSpan(0, groundCount);
+            var min = ground[0];
+            var max = min;
+            foreach (var vertex in ground[1..])
+            {
+                min = Vector2.Min(min, vertex);
+                max = Vector2.Max(max, vertex);
+            }
+
+            var overlaps = false;
+            foreach (var shipTile in _map.GetTilesIntersecting(grid.Owner, grid.Comp, new Box2(min, max)))
+            {
+                var hullCount = WriteTileFootprint(shipTile, grid.Comp.TileSize, shipMatrix, _shipGroundFootprint);
+                var hull = _shipGroundFootprint.AsSpan(0, hullCount);
+                if (!TryGetWallContact(hull, 0f, ground, 0f, out var contact) || contact.Depth <= 0.001f)
+                    continue;
+
+                overlaps = true;
+                break;
+            }
+
+            if (!overlaps)
+                continue;
+
+            if (!checkImpact)
                 return true;
+
+            hasGround = true;
+            var tile = TilDefMan[tileRef.Tile.TypeId] as ContentTileDefinition;
+            damagingImpact |= tile?.FallDamageMultiplier != 0f;
+            landingSound ??= tile?.LandingSound;
+            if (damagingImpact && landingSound != null)
+                break;
         }
 
-        return false;
+        return hasGround;
     }
 }

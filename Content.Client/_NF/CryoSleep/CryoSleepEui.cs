@@ -1,5 +1,6 @@
 using Content.Client.Eui;
 using Content.Shared._NF.CryoSleep;
+using Content.Shared.Eui;
 using JetBrains.Annotations;
 using Robust.Client.Graphics;
 
@@ -31,6 +32,12 @@ public sealed class CryoSleepEui : BaseEui
     {
         IoCManager.Resolve<IClyde>().RequestWindowAttention();
         _window.OpenCentered();
+    }
+
+    public override void HandleState(EuiStateBase state)
+    {
+        if (state is CryoSleepEuiState cryo)
+            _window.RespawnWarning.Visible = cryo.SavesRespawn;
     }
 
     public override void Closed()

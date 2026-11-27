@@ -11,7 +11,7 @@ namespace Content.Shared._CE.ZLevels.Core.Components;
 /// <summary>
 /// Allows an entity to move up and down the z-levels by gravity or jumping
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true)]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(raiseAfterAutoHandleState: true, fieldDeltas: true)]
 public sealed partial class CEZPhysicsComponent : Component
 {
     /// <summary>
@@ -28,6 +28,9 @@ public sealed partial class CEZPhysicsComponent : Component
     [DataField, AutoNetworkedField]
     public float LocalPosition;
 
+    [AutoNetworkedField]
+    public bool ProjectileFlight;
+
     /// <summary>
     /// Seconds left in a ground-liftoff spool-up, for the shuttle console countdown.
     /// Zero when not launching.
@@ -35,24 +38,16 @@ public sealed partial class CEZPhysicsComponent : Component
     [DataField, AutoNetworkedField]
     public float LaunchCountdown;
 
-    /// <summary>
-    /// Whether any of this grid's footprint is currently over solid terrain, for the shuttle
-    /// console readout. Distinct from being parked: a hull under power drags itself along the
-    /// ground while still very much on it, so body type answers "are the engines cold" and this
-    /// answers "is there ground under me". Networked because the client cannot honestly work it
-    /// out — the footprint walk needs terrain chunks that may sit outside its PVS.
-    /// </summary>
+    /// <summary>Ground contact, independent of body type. Terrain may be outside client PVS.</summary>
     [DataField, AutoNetworkedField]
     public bool GroundContact;
 
-    /// Optimization Caches
     /// <summary>
     /// Cached value of the current z-level map height
     /// </summary>
     [DataField, AutoNetworkedField]
     public int CurrentZLevel;
 
-    // Physics
 
     [DataField, AutoNetworkedField]
     public float Bounciness;
@@ -63,21 +58,15 @@ public sealed partial class CEZPhysicsComponent : Component
     [DataField, AutoNetworkedField]
     public bool Fallable = true;
 
-    /// <summary>
-    /// The original DrawDepth of the object is automatically saved here. Increases by 1 when the creature has <see cref="LocalPosition"/> > 0
-    /// </summary>
+    /// <summary>Draw depth before applying Z height.</summary>
     [DataField]
     public int DrawDepthDefault;
 
-    /// <summary>
-    /// When the mapinit entity is created, its initial Sprite Offset value is written here in order to apply an offset based on the Z position relative to this value.
-    /// </summary>
+    /// <summary>Sprite offset before applying Z height.</summary>
     [DataField]
     public Vector2 SpriteOffsetDefault = Vector2.Zero;
 
-    /// <summary>
-    /// automatically rises if the current localPosition is lower than the height. Enabled by default, but for ghosts, for example, there is no point in climbing stairs
-    /// </summary>
+    /// <summary>Whether the entity automatically steps up onto high ground.</summary>
     [DataField]
     public bool AutoStep = true;
 

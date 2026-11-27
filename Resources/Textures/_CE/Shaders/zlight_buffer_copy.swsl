@@ -1,0 +1,7 @@
+light_mode unshaded;
+blend_mode none;
+
+void fragment()
+{
+    COLOR = vec4(zTexture(UV).rgb, 1.0);
+}

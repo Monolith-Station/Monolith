@@ -1,8 +1,13 @@
 using System.Numerics;
+using Content.Client._CE.Planets.Hellpods;
+using Content.Client._CE.Planets.Shields;
 using Content.Client.Parallax;
+using Content.Client.Viewport;
+using Content.Shared._CE.Planets.Hellpods;
 using Content.Shared._FarHorizons.StarSystem;
 using Content.Shared._FarHorizons.StarSystem.Helpers;
 using Robust.Client.Graphics;
+using Robust.Client.Player;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 
@@ -12,8 +17,13 @@ public sealed class PlanetOverlay : Overlay
 {
     private readonly IEntityManager _entMan;
     private readonly IPrototypeManager _protoMan;
-    private readonly List<(Planet Planet, ShaderInstance Shader)> _shaders = new(); // what do you mean, this isn't No Man's Sky?
+    private readonly IPlayerManager _player;
+    private readonly PlanetTransitSystem _transits;
+    private readonly CEHellpodDepartureSystem _departures;
+    private readonly CEPlanetShieldVisualSystem _shields;
+    private readonly List<(int Index, Planet Planet, ShaderInstance Shader)> _shaders = new(); // what do you mean, this isn't No Man's Sky?
     private List<Planet>? _planets;
+    private readonly Dictionary<int, EntityUid> _planetEntities = new();
     public override OverlaySpace Space => OverlaySpace.WorldSpaceBelowWorld;
 
     public PlanetOverlay(IEntityManager entMan, IPrototypeManager protoMan)
@@ -21,11 +31,27 @@ public sealed class PlanetOverlay : Overlay
         ZIndex = ParallaxSystem.ParallaxZIndex + 1;
         _entMan = entMan;
         _protoMan = protoMan;
+        _player = IoCManager.Resolve<IPlayerManager>();
+        _transits = entMan.System<PlanetTransitSystem>();
+        _departures = entMan.System<CEHellpodDepartureSystem>();
+        _shields = entMan.System<CEPlanetShieldVisualSystem>();
     }
 
     protected override bool BeforeDraw(in OverlayDrawArgs args)
     {
-        if (!_entMan.TryGetComponent<StarSystemMapComponent>(args.MapUid, out var starSystem) ||
+        var systemMap = args.MapUid;
+        if (_entMan.TryGetComponent<CEHellpodApproachComponent>(args.MapUid, out var approach))
+        {
+            if (!_entMan.TryGetComponent<PlanetBodyComponent>(approach.Planet, out var body))
+                return false;
+
+            systemMap = body.StarSystemMap;
+        }
+        else if (args.Viewport.Eye is ScalingViewport.ZEye { DrawParallax: false } ||
+                 _entMan.HasComponent<PlanetTransitMapComponent>(args.MapUid))
+            return false;
+
+        if (!_entMan.TryGetComponent<StarSystemMapComponent>(systemMap, out var starSystem) ||
             starSystem.StarSystem is not { } system ||
             system.Planets.Count == 0)
         {
@@ -38,10 +64,23 @@ public sealed class PlanetOverlay : Overlay
             ResetShader();
             _planets = system.Planets;
 
-            foreach (var planet in _planets)
+            for (var i = 0; i < _planets.Count; i++)
             {
+                var planet = _planets[i];
                 if (SetupPlanetShader(planet, system.Star) is { } shader)
-                    _shaders.Add((planet, shader));
+                    _shaders.Add((i, planet, shader));
+            }
+        }
+
+        _planetEntities.Clear();
+
+        var bodies = _entMan.AllEntityQueryEnumerator<PlanetBodyComponent, TransformComponent>();
+        while (bodies.MoveNext(out var uid, out var body, out var xform))
+        {
+            if (body.StarSystemMap == systemMap && (uint) body.Index < (uint) system.Planets.Count)
+            {
+                system.Planets[body.Index].Position = xform.LocalPosition;
+                _planetEntities[body.Index] = uid;
             }
         }
 
@@ -55,14 +94,40 @@ public sealed class PlanetOverlay : Overlay
 
     protected override void Draw(in OverlayDrawArgs args)
     {
+        _entMan.TryGetComponent<CEHellpodApproachComponent>(args.MapUid, out var approach);
         var handle = args.WorldHandle;
         var viewportBounds = args.WorldAABB;
         var parallaxCenter = args.Viewport.Eye?.Position.Position ?? viewportBounds.Center;
-        foreach (var (_, shader) in _shaders)
+
+        CEHellpodComponent? riderPod = null;
+        if (approach != null &&
+            _entMan.TryGetComponent<TransformComponent>(_player.LocalEntity, out var rider) &&
+            rider.MapUid == args.MapUid &&
+            _entMan.TryGetComponent<CEHellpodComponent>(rider.ParentUid, out var pod) && pod.InFlight)
+            riderPod = pod;
+
+        var (transitIndex, transitProgress) = _transits.GetPlanetApproach(args.MapUid);
+        foreach (var (index, planet, shader) in _shaders)
         {
+            var hasBody = _planetEntities.TryGetValue(index, out var uid);
+            if (approach != null && (!hasBody || uid != approach.Planet))
+                continue;
+
+            var (parallax, radiusScale) = planet.GetProjection();
+            var baseRadius = planet.Radius * radiusScale;
+            var progress = index == transitIndex ? transitProgress : 0f;
+            var projection = approach == null
+                ? PlanetViewProjection.Orbit(parallaxCenter, planet.Position, parallax, baseRadius, progress)
+                : _departures.GetRiderProjection(approach, riderPod, parallaxCenter,
+                    planet.Position, parallax, baseRadius).Projection;
+
+            shader.SetParameter("planetPos", planet.Position);
             shader.SetParameter("viewportMin", viewportBounds.BottomLeft);
             shader.SetParameter("viewportSize", viewportBounds.Size);
-            shader.SetParameter("parallaxCenter", parallaxCenter);
+            shader.SetParameter("projectedCenter", projection.Center);
+            shader.SetParameter("projectedRadius", projection.Radius);
+            if (CEPlanetShieldVisualSystem.SupportsShader(planet.Shader))
+                _shields.Apply(shader, hasBody ? uid : null, args.MapUid, approach, riderPod);
 
             handle.UseShader(shader);
             handle.DrawRect(viewportBounds, Color.White);
@@ -77,10 +142,11 @@ public sealed class PlanetOverlay : Overlay
             return null;
 
         var shader = shaderProto.InstanceUnique();
+        if (CEPlanetShieldVisualSystem.SupportsShader(planet.Shader))
+            CEPlanetShieldVisualSystem.InitializeShader(shader);
 
         // Planet physical info
         shader.SetParameter("planetPos", planet.Position);
-        shader.SetParameter("planetRadius", planet.Radius);
         shader.SetParameter("rotationAngle", planet.Rotation);
 
         // Colors
@@ -172,7 +238,10 @@ public sealed class PlanetOverlay : Overlay
         // each planet type will have different data
         // it's up to whoever adds more to make sure corrent inputs exist
         foreach (var (key, value) in planet.CustomData.Floats)
-            shader.SetParameter(key, value);
+        {
+            if (key is not ("parallaxFactor" or "planetaryRadiusFactor"))
+                shader.SetParameter(key, value);
+        }
 
         foreach (var (key, value) in planet.CustomData.Ints)
             shader.SetParameter(key, value);
@@ -189,6 +258,9 @@ public sealed class PlanetOverlay : Overlay
     public void ResetShader()
     {
         _planets = null;
+        _planetEntities.Clear();
+        foreach (var (_, _, shader) in _shaders)
+            shader.Dispose();
         _shaders.Clear();
     }
 }

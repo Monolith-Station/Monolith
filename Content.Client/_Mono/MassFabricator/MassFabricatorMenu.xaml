@@ -1,0 +1,20 @@
+<ui:RadialMenu xmlns="https://spacestation14.io"
+    xmlns:ui="clr-namespace:Content.Client.UserInterface.Controls"
+    xmlns:fabricator="clr-namespace:Content.Client._Mono.MassFabricator"
+    BackButtonStyleClass="RadialMenuBackButton"
+    CloseButtonStyleClass="RadialMenuCloseButton"
+    VerticalExpand="True" HorizontalExpand="True" MinSize="450 450">
+    <ui:RadialContainer Name="Main" VerticalExpand="True" HorizontalExpand="True" InitialRadius="100">
+        <ui:RadialMenuTextureButtonWithSector SetSize="64 64" ToolTip="Tiling" TargetLayer="Tiling">
+            <TextureRect TexturePath="/Textures/Interface/Radial/RCD/plating.png" TextureScale="2 2" VerticalAlignment="Center" HorizontalAlignment="Center" />
+        </ui:RadialMenuTextureButtonWithSector>
+        <ui:RadialMenuTextureButtonWithSector SetSize="64 64" ToolTip="Bulkheads" TargetLayer="Bulkheads">
+            <TextureRect TexturePath="/Textures/Interface/Radial/RCD/solid_wall.png" TextureScale="2 2" VerticalAlignment="Center" HorizontalAlignment="Center" />
+        </ui:RadialMenuTextureButtonWithSector>
+        <ui:RadialMenuTextureButtonWithSector SetSize="64 64" Name="EraseButton" ToolTip="Erase">
+            <TextureRect TexturePath="/Textures/Interface/Radial/RCD/deconstruct.png" TextureScale="2 2" VerticalAlignment="Center" HorizontalAlignment="Center" />
+        </ui:RadialMenuTextureButtonWithSector>
+    </ui:RadialContainer>
+    <ui:RadialContainer Name="Tiling" VerticalExpand="True" HorizontalExpand="True" InitialRadius="100" />
+    <ui:RadialContainer Name="Bulkheads" VerticalExpand="True" HorizontalExpand="True" InitialRadius="100" />
+</ui:RadialMenu>

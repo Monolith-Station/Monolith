@@ -18,11 +18,7 @@ using Robust.Shared.Random;
 
 namespace Content.Server._CE.ZLevels.Core;
 
-/// <summary>
-/// Pilot vertical flight: the shuttle console's ascend/descend keys drive a grid up
-/// and down the z-network. All of it requires a powered gravity generator — without
-/// one the ship is plummeting and the pilots have bigger fish to fry.
-/// </summary>
+/// <summary>Vertical shuttle controls require a powered gravity generator.</summary>
 public sealed partial class CEZLevelsSystem
 {
     [Dependency] private IRobustRandom _random = default!;
@@ -30,7 +26,6 @@ public sealed partial class CEZLevelsSystem
     private const float SpoolSeconds = 1.5f;
 
     private static readonly EntProtoId LiftoffDustProto = "CEZLiftoffDust";
-    private const float LiftoffDustSpacing = 2f;
 
     private const float SpoolLiftoffVelocity = 1.5f;
 
@@ -39,16 +34,10 @@ public sealed partial class CEZLevelsSystem
     private const float VerticalThrustScale = 0.05f;
     private const float MaxVerticalAccel = 0.75f;
 
-    /// <summary>
-    /// Speed limit for piloted vertical flight, in levels per second. Free fall
-    /// (no gravgen) uses <see cref="GridTerminalVelocity"/> instead.
-    /// </summary>
+    /// <summary>Piloted speed cap in levels per second.</summary>
     private const float MaxPilotVerticalSpeed = 0.5f;
 
-    /// <summary>
-    /// The gravity generator's own authority: how hard it can damp vertical drift
-    /// when hovering, and the settle rate for ships with no working thrusters.
-    /// </summary>
+    /// <summary>Vertical acceleration from the gravity generator alone.</summary>
     private const float HoverDampAccel = 0.3f;
 
     /// <summary>
@@ -72,12 +61,7 @@ public sealed partial class CEZLevelsSystem
     /// </summary>
     private const float ExitTransitMaxSpeed = 0.1f;
 
-    /// <summary>
-    /// Gap held between a convoy and the solid ceiling it's pinned against, as a fraction of the
-    /// gap. Flush at 1.0 the ceiling sits exactly at the ship's own z and stops drawing over it,
-    /// so the terrain you're pressed against appears to vanish; backing off a hair keeps it
-    /// rendering overhead where it belongs.
-    /// </summary>
+    // Keep the ceiling visible while the ship is pinned against it.
     private const float CeilingClearance = 0.05f;
 
     private readonly Dictionary<EntityUid, float> _pilotVerticalInput = new();
@@ -85,9 +69,6 @@ public sealed partial class CEZLevelsSystem
     private readonly HashSet<EntityUid> _spoolingGrids = new();
     private readonly HashSet<EntityUid> _spoolingGridsThisTick = new();
 
-    /// <summary>
-    /// Gathers each grid's net ascend/descend input from everyone at its consoles.
-    /// </summary>
     private void CollectPilotVerticalInputs()
     {
         _pilotVerticalInput.Clear();
@@ -115,12 +96,10 @@ public sealed partial class CEZLevelsSystem
         }
     }
 
-    /// <summary>
-    /// Net vertical input for the grid set occupying a transit map.
-    /// </summary>
     private float GetTransitVerticalInput(EntityUid transitMap)
     {
-        if (_pilotVerticalInput.Count == 0)
+        if (_pilotVerticalInput.Count == 0 ||
+            TryComp<CEZTransitMapComponent>(transitMap, out var transit) && transit.AutoLand)
             return 0f;
 
         var total = 0f;
@@ -129,18 +108,6 @@ public sealed partial class CEZLevelsSystem
             if (!TerminatingOrDeleted(grid) && Transform(grid).MapUid == transitMap)
                 total += input;
         }
-
-        return Math.Clamp(total, -1f, 1f);
-    }
-
-    /// <summary>
-    /// Net vertical input across every layer of a transit convoy.
-    /// </summary>
-    private float GetConvoyVerticalInput(List<EntityUid> convoyMaps)
-    {
-        var total = 0f;
-        foreach (var convoyMap in convoyMaps)
-            total += GetTransitVerticalInput(convoyMap);
 
         return Math.Clamp(total, -1f, 1f);
     }
@@ -181,32 +148,34 @@ public sealed partial class CEZLevelsSystem
             if (TerminatingOrDeleted(gridUid) || !TryComp<MapGridComponent>(gridUid, out var grid))
                 continue;
 
-            // Transit maps are already in the air. If you're landed on a transit map you have much, MUCH bigger problems.
             var mapUid = Transform(gridUid).MapUid;
             if (mapUid == null || !HasComp<CEZMapComponent>(mapUid))
                 continue;
 
-            // No gravgen, dumbass.
             if (!TryComp<GravityComponent>(gridUid, out var gravity) || !gravity.Enabled)
                 continue;
 
             var down = input < 0f;
 
-            // Sat on terrain, not hovering over open sky: needs the engines spooled to break
-            // free, and can't descend at all.
-            var grounded = HasGroundUnderFootprint((gridUid, grid), mapUid.Value);
+            if (!down && !TryMapUp(mapUid.Value, out _))
+            {
+                var ev = new CEZOpenSkyExitAttemptEvent(mapUid.Value, true);
+                RaiseLocalEvent(gridUid, ref ev);
+                if (ev.Handled)
+                    continue;
+            }
 
-            // You can't sink through the ground, and there has to be a gap below.
+            // Launch from terrain requires spool-up.
+            var grounded = HasGroundContact(gridUid);
+
             if (down && (grounded || !TryMapDown(mapUid.Value, out _)))
                 continue;
 
-            // Going up needs SOME adjacent gap to become airborne in.
-            if (!down && !TryMapUp(mapUid.Value, out _) && !TryMapDown(mapUid.Value, out _))
+            if (!down && !TryMapUp(mapUid.Value, out _))
                 continue;
 
             var faller = EnsureComp<CEZGridFallerComponent>(gridUid);
 
-            // If you're in the air you can just move, your engines are hot enough for that.
             if (grounded)
             {
                 var now = _timing.CurTime;
@@ -252,29 +221,35 @@ public sealed partial class CEZLevelsSystem
 
     private void SpawnLiftoffDust(EntityUid grid, EntityUid groundMap)
     {
+        var hullTiles = new HashSet<Vector2i>();
+        var puffTiles = new HashSet<Vector2i>();
+        var toGround = _transform.GetInvWorldMatrix(groundMap);
         foreach (var member in CollectGridSet(grid))
         {
             if (!TryComp<MapGridComponent>(member, out var memberGrid))
                 continue;
 
-            var aabb = _transform.GetWorldMatrix(member).TransformBox(memberGrid.LocalAABB);
+            hullTiles.Clear();
+            puffTiles.Clear();
+            var size = memberGrid.TileSize;
+            var toGroundLocal = _transform.GetWorldMatrix(member) * toGround;
+            var tiles = _map.GetAllTilesEnumerator(member, memberGrid);
+            while (tiles.MoveNext(out var tile))
+                hullTiles.Add(tile.Value.GridIndices);
 
-            for (var x = aabb.Left; x <= aabb.Right; x += LiftoffDustSpacing)
+            foreach (var tile in hullTiles)
             {
-                SpawnDustPuff(groundMap, new Vector2(x, aabb.Bottom));
-                SpawnDustPuff(groundMap, new Vector2(x, aabb.Top));
-            }
+                for (var y = -1; y <= 1; y++)
+                for (var x = -1; x <= 1; x++)
+                {
+                    var neighbor = tile + new Vector2i(x, y);
+                    if (hullTiles.Contains(neighbor) || !puffTiles.Add(neighbor))
+                        continue;
 
-            for (var y = aabb.Bottom + LiftoffDustSpacing; y <= aabb.Top - LiftoffDustSpacing; y += LiftoffDustSpacing)
-            {
-                SpawnDustPuff(groundMap, new Vector2(aabb.Left, y));
-                SpawnDustPuff(groundMap, new Vector2(aabb.Right, y));
+                    var puff = (new Vector2(neighbor.X + 0.5f, neighbor.Y + 0.5f) + _random.NextVector2(0.25f)) * size;
+                    Spawn(LiftoffDustProto, new EntityCoordinates(groundMap, Vector2.Transform(puff, toGroundLocal)));
+                }
             }
         }
-    }
-
-    private void SpawnDustPuff(EntityUid map, Vector2 pos)
-    {
-        Spawn(LiftoffDustProto, new EntityCoordinates(map, pos + _random.NextVector2(0.5f)));
     }
 }

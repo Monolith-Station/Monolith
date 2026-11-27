@@ -1,0 +1,34 @@
+highp vec2 hash(highp vec2 p) {
+    highp vec3 h = fract(vec3(p.x, p.y, p.x) * vec3(0.1031, 0.1030, 0.0973));
+    h += dot(h, h.yzx + 33.33);
+    return fract((h.xx + h.yz) * h.zy);
+}
+
+highp float noise(highp vec2 p) {
+    highp vec2 i = floor(p);
+    highp vec2 f = fract(p);
+    highp vec2 u = f * f * f * (f * (f * 6.0 - 15.0) + 10.0);
+    return mix(mix(hash(i).x, hash(i + vec2(1.0, 0.0)).x, u.x),
+        mix(hash(i + vec2(0.0, 1.0)).x, hash(i + vec2(1.0, 1.0)).x, u.x), u.y);
+}
+
+highp float detail(highp vec2 p) {
+    highp float value = 0.0;
+    highp float weight = 0.43;
+    for (int i = 0; i < 6; i++) {
+        value += noise(p) * weight;
+        p = mat2(1.64, 1.23, -1.23, 1.64) * p + vec2(17.3, 9.2);
+        weight *= 0.58;
+    }
+    return value;
+}
+
+highp float cloudDensity(highp vec2 world, highp float time, out highp vec2 p, out highp vec2 q,
+    out highp float shape, out highp float threads) {
+    p = (world - time * vec2(0.32, 0.09)) * 0.055;
+    highp vec2 warp = vec2(noise(p * 0.6), noise(p * 0.6 + vec2(23.7, 5.1))) - 0.5;
+    q = p * vec2(0.8, 1.2) + warp;
+    shape = detail(q);
+    threads = detail(q * vec2(2.4, 5.5) + vec2(8.1, 31.7) + time * vec2(0.003, -0.002));
+    return smoothstep(0.36, 0.72, shape * 0.8 + threads * 0.2);
+}

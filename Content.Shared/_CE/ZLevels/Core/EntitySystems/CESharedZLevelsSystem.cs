@@ -7,10 +7,10 @@ using System.Diagnostics.CodeAnalysis;
 using Content.Shared._CE.ZLevels.Core.Components;
 using Content.Shared.ActionBlocker;
 using Content.Shared.CCVar;
-using Content.Shared.Popups;
 using JetBrains.Annotations;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
+using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
@@ -25,6 +25,7 @@ public abstract partial class CESharedZLevelsSystem : EntitySystem
     [Dependency] private INetManager _net = null!;
     [Dependency] private IGameTiming _timing = null!;
     [Dependency] private IConfigurationManager _config = null!;
+    [Dependency] private IComponentFactory _componentFactory = null!;
 
     [Dependency] private SharedPhysicsSystem _physicsSystem = null!;
     [Dependency] private SharedTransformSystem _transform = null!;
@@ -32,7 +33,6 @@ public abstract partial class CESharedZLevelsSystem : EntitySystem
     [Dependency] private ActionBlockerSystem _blocker = null!;
     [Dependency] private EntityLookupSystem _lookup = null!;
     [Dependency] private SharedMapSystem _map = null!;
-    [Dependency] private SharedPopupSystem _popup = null!;
 
     [Dependency] protected EntityQuery<CEZPhysicsComponent> ZPhysicsQuery = default!;
 
@@ -46,6 +46,9 @@ public abstract partial class CESharedZLevelsSystem : EntitySystem
     [Dependency] private EntityQuery<CEZLevelHighGroundComponent> _zHighGroundQuery = default!;
 
     private bool _clientSimulation;
+
+    public bool NetworkHasComponent<T>(Entity<CEZMapNetworkComponent> network) where T : Component, new()
+        => network.Comp.Components.TryGetComponent<T>(_componentFactory, out _);
 
     public override void Initialize()
     {

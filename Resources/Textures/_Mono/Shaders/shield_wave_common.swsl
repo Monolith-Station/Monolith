@@ -1,0 +1,29 @@
+void accumulateShieldWave(highp vec2 point, highp vec3 surface, highp vec3 center,
+    highp vec2 metric, highp float radius, highp float strength,
+    inout highp float energy, inout highp float peak, inout highp vec2 ripple) {
+    highp float arc = acos(clamp(dot(center, surface), -1.0, 1.0));
+    highp vec3 chord = surface - center;
+    highp float stretch = length(chord * vec3(metric, 1.0)) / max(length(chord), 0.0001);
+    highp float distanceToCenter = arc * mix(0.55, 1.0, stretch);
+    highp float travel = distanceToCenter - radius;
+    highp float crest = 1.0 - smoothstep(0.05, 0.14, abs(travel));
+    highp float wake = (1.0 - smoothstep(0.04, 0.27, -travel)) * step(travel, 0.0) * 0.38;
+    highp float core = (1.0 - smoothstep(0.06, 0.24, distanceToCenter)) * (1.0 - smoothstep(0.0, 0.22, radius));
+    energy += max(max(crest, wake), core) * strength;
+
+    highp float heavy = smoothstep(1.25, 2.0, strength);
+    peak = max(peak, heavy * max(crest, core));
+    highp vec2 outward = point - center.xy;
+    highp float bend = (1.0 - smoothstep(0.03, 0.17, abs(travel))) * smoothstep(0.0, 0.15, radius);
+    ripple += outward / max(length(outward), 0.03) * (0.22 * heavy * bend);
+}
+
+highp float shieldWaveEdge(highp vec2 lattice, highp vec2 ripple) {
+    return shieldHexCoordinates(lattice + clamp(ripple, vec2(-0.3), vec2(0.3))).x;
+}
+
+highp float shieldWaveAlpha(highp float edge, highp float edgeWidth, highp float energy, highp float peak) {
+    highp float aa = clamp(edgeWidth * 0.5, 0.002, 0.025);
+    highp float border = smoothstep(0.44 - aa, 0.44 + aa, edge);
+    return min(min(energy, 1.5) * (0.18 + 0.23 * border) + peak * (0.23 + 0.15 * border), 1.0);
+}

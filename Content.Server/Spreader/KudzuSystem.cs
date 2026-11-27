@@ -1,4 +1,5 @@
 using Content.Shared.Damage;
+using Content.Server._Mono.Planets;
 using Content.Shared.Spreader;
 using Content.Shared.Tag;
 using Robust.Shared.Map;
@@ -56,6 +57,13 @@ public sealed partial class KudzuSystem : EntitySystem
 
     private void OnKudzuSpread(EntityUid uid, KudzuComponent component, ref SpreadNeighborsEvent args)
     {
+        if (TryComp<SuppressedTileSpawnsComponent>(Transform(uid).MapUid, out var suppressed)
+            && MetaData(uid).EntityPrototype is { } proto && suppressed.Prototypes.Contains(proto.ID))
+        {
+            RemCompDeferred<ActiveEdgeSpreaderComponent>(uid);
+            return;
+        }
+
         if (component.GrowthLevel < 3)
             return;
 

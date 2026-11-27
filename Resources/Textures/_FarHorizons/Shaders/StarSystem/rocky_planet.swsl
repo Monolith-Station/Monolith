@@ -1,5 +1,8 @@
 light_mode unshaded;
 
+#include "/Textures/_Mono/Shaders/shield_skin_common.swsl"
+#include "/Textures/_FarHorizons/Shaders/StarSystem/planet_shield_impact.swsl"
+
 #include "/Textures/_FarHorizons/Shaders/shader_utils.swsl"
 #include "/Textures/_FarHorizons/Shaders/StarSystem/planet_rings.swsl"
 #include "/Textures/_FarHorizons/Shaders/StarSystem/planet_utils.swsl" // Majority of uniforms come from here
@@ -54,7 +57,7 @@ void fragment() {
     highp vec2 offset;
     highp float dist;
     highp float coreRadius;
-    calculatePlanetParallax(UV, offset, dist, coreRadius);
+    calculatePlanetProjection(UV, offset, dist, coreRadius);
 
     // setup lighting
     highp vec2 lightDir2D;
@@ -184,6 +187,13 @@ void fragment() {
 
         finalComposite.rgb = mix(finalComposite.rgb, litColor, 1.0 - finalComposite.a * 0.0);
         finalComposite.a = 1.0;
+    }
+
+    if (progress > 0.0 && coreRadius > 0.0) {
+        highp vec2 shieldUV = vec2(offset.x, -offset.y) / (2.0 * coreRadius) + vec2(0.5);
+        finalComposite = compositeOver(finalComposite, renderShieldSkin(shieldUV));
+        highp vec4 wave = samplePlanetShieldImpact(shieldUV);
+        finalComposite = compositeOver(finalComposite, vec4(vec3(1.0), shieldWaveAlpha(wave.x, fwidth(wave.x), wave.y, wave.z) * wave.w));
     }
 
     // foreground rings

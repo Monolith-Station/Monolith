@@ -1,0 +1,25 @@
+- type: entity
+  parent: BaseStructure
+  id: CEPlaceholder6x6
+  abstract: true
+  name: Placeholder (6x6)
+  placement:
+    mode: AlignTileAny
+  components:
+  - type: Sprite
+    sprite: Markers/cross.rsi
+    state: green
+    scale: 6, 6
+    offset: 0.5, -0.5
+    drawdepth: Overdoors
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-2.45,-3.45,3.45,2.45"
+        density: 60
+        mask:
+        - MachineMask
+        layer:
+        - WallLayer

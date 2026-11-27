@@ -8,13 +8,15 @@ namespace Content.Shared._CE.ZLevels.Core.EntitySystems;
 public abstract partial class CESharedZLevelsSystem
 {
     public static int MaxZLevelsBelowRendering = 10;
+    public const int MaxZLevelsAboveRendering = 3;
     public const float ZLevelOffset = 0.7f;
 
     /// <summary>
     /// Per-level perspective factor: each z-level below the observer is drawn this
     /// much smaller (and each level above this much larger), continuously with depth.
+    /// Set to 1 to draw the layers at the same scale and offset.
     /// </summary>
-    public const float ZLevelViewShrink = 1f; // MONO - TEMP AKA PERMANENT BECAUSE WE DONT HAVE TALL WALLS...
+    public const float ZLevelViewShrink = 1f;
 
     public const float ZGravityForce = 9.8f;
     private const float ZVelocityLimit = 20.0f;

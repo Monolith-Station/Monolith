@@ -1,9 +1,10 @@
 using System.Numerics;
-using Content.Client._Mono.PlanetMap; // Mono
 using Content.Client._Mono.Radar;
 using Content.Client._Mono.Sensors.UI;
 using Content.Client.Station; // Frontier
+using Content.Shared._CE.ZLevels.Core.EntitySystems;
 using Content.Shared._Crescent.ShipShields;
+using Content.Shared._FarHorizons.StarSystem;
 using Content.Shared._Mono.Company;
 using Content.Shared._Mono.Detection;
 using Content.Shared._Mono.Radar;
@@ -39,7 +40,6 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
     private readonly SharedShuttleSystem _shuttles;
     private readonly SharedTransformSystem _transform;
     private readonly RadarBlipsSystem _blips;
-    private readonly PlanetTerrainSystem _planetTerrain; // Mono
     private RadarLockStateDto? _radarLockState; // Mono
 
     /// <summary>
@@ -76,14 +76,6 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
     public float MaximumIFFDistance { get; set; } = 3000f; // Frontier // Mono - 3000 by default to not gigaclutter
 
     private static Color _dockLabelColor = Color.White; // Frontier
-
-    // Mono - dimming again, left but unused
-    private static readonly PlanetDrawOptions RadarPlanetOptions = new(
-        PixelsPerTexel: 3f,
-        TerrainModulate: new Color(1.0f, 1.0f, 1.0f),
-        DrawStructures: true,
-        StructureColor: IFFComponent.IFFColor,
-        BorderColor: Color.Red.WithAlpha(0.6f));
 
     /// <summary>
     ///   If present, called for every IFF. Must determine if it should or should not be shown.
@@ -122,6 +114,11 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
     protected Vector2 _lastMousePos;
     protected float _lastFireTime;
     protected const float FireRateLimit = 0.1f; // 100ms between shots
+    public const float PlanetPrimingSeconds = 1f;
+    private EntityUid? _primingPlanet;
+    private bool _planetClickConsumed;
+    private TimeSpan _planetPrimingStart;
+    public float? PrimingRemaining { get; private set; }
 
     private enum RadarAzimuthMode : byte
     {
@@ -147,7 +144,6 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
         _transform = EntManager.System<SharedTransformSystem>();
         _station = EntManager.System<StationSystem>(); // Frontier
         _blips = EntManager.System<RadarBlipsSystem>();
-        _planetTerrain = EntManager.System<PlanetTerrainSystem>(); // Mono
 
         OnMouseEntered += HandleMouseEntered;
         OnMouseExited += HandleMouseExited;
@@ -301,6 +297,12 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
         _radarModeButtons.AddChild(_radarRotationButton);
         _radarModeButtons.AddChild(_radarAnchorButton);
         _radarModeButtons.AddChild(_radarResetButton);
+        var terrainButton = CreateRadarModeButton(RadarModeButtonIcon.Azimuth);
+        terrainButton.ToolTip = Loc.GetString("shuttle-console-terrain");
+        terrainButton.ToggleMode = true;
+        terrainButton.Pressed = ShowTerrain;
+        terrainButton.OnToggled += args => ShowTerrain = args.Pressed;
+        _radarModeButtons.AddChild(terrainButton);
 
         parent.AddChild(_radarModeButtons);
         LayoutContainer.SetAnchorAndMarginPreset(_radarModeButtons, LayoutContainer.LayoutPreset.BottomLeft, margin: 10);
@@ -481,8 +483,29 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
             return;
         }
 
+        if (_planetClickConsumed)
+            return;
+
         _isMouseDown = true;
         _lastMousePos = args.RelativePosition;
+
+        if (TryGetPlanetAt(args.RelativePosition, out var planet, out var inRange))
+        {
+            _planetClickConsumed = true;
+            var loadFailed = EntManager.TryGetComponent<PlanetBodyComponent>(planet, out var body) && body.SurfaceLoadFailed;
+            if (inRange && !loadFailed)
+            {
+                _primingPlanet = planet;
+                _planetPrimingStart = IoCManager.Resolve<IGameTiming>().CurTime;
+            }
+            else
+            {
+                _isMouseDown = false;
+                OnPlanetClick?.Invoke(planet);
+            }
+            return;
+        }
+
         TryFireAtPosition(args.RelativePosition);
     }
 
@@ -502,6 +525,17 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
             return;
         }
 
+        if (_planetClickConsumed)
+        {
+            _planetClickConsumed = false;
+            _primingPlanet = null;
+            PrimingRemaining = null;
+            return;
+        }
+
+        if (TryGetPlanetAt(args.RelativePosition, out _))
+            return;
+
         var coords = GetMouseEntityCoordinates(args.RelativePosition);
         OnRadarClick?.Invoke(coords);
     }
@@ -512,6 +546,38 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
 
         _updateAccumulator += args.DeltaSeconds;
 
+        if (_isMouseDown && _isMouseInside)
+            _lastMousePos = UserInterfaceManager.MousePositionScaled.Position - GlobalPosition;
+
+        if (_primingPlanet is { } planet)
+        {
+            var held = _isMouseDown && _isMouseInside &&
+                TryGetPlanetAt(_lastMousePos, out var hovered, out var inRange) && hovered == planet && inRange;
+
+            if (!held)
+            {
+                _primingPlanet = null;
+                PrimingRemaining = null;
+                _isMouseDown = false;
+            }
+            else
+            {
+                var elapsed = (IoCManager.Resolve<IGameTiming>().CurTime - _planetPrimingStart).TotalSeconds;
+                var remaining = PlanetPrimingSeconds - elapsed;
+                if (remaining <= 0)
+                {
+                    _primingPlanet = null;
+                    PrimingRemaining = null;
+                    _isMouseDown = false;
+                    OnPlanetClick?.Invoke(planet);
+                }
+                else
+                {
+                    PrimingRemaining = (float) remaining;
+                }
+            }
+        }
+
         if (_updateAccumulator >= RadarUpdateInterval)
         {
             _updateAccumulator = 0; // I'm not subtracting because frame updates can majorly lag in a way normal ones cannot.
@@ -520,18 +586,12 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
                 _blips.RequestBlips((EntityUid)_consoleEntity);
         }
 
-        if (_isMouseDown && _isMouseInside)
+        if (_isMouseDown && _isMouseInside && !_planetClickConsumed)
         {
             var currentTime = IoCManager.Resolve<IGameTiming>().CurTime.TotalSeconds;
             if (currentTime - _lastFireTime >= FireRateLimit)
             {
-                var mousePos = UserInterfaceManager.MousePositionScaled;
-                var relativePos = mousePos.Position - GlobalPosition;
-                if (relativePos != _lastMousePos)
-                {
-                    _lastMousePos = relativePos;
-                }
-                TryFireAtPosition(relativePos);
+                TryFireAtPosition(_lastMousePos);
                 _lastFireTime = (float)currentTime;
             }
         }
@@ -630,17 +690,16 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
         var worldToView = worldToShuttle * shuttleToView;
 
         DrawStarSystem(handle, worldToShuttle, shuttleToView, xform.MapUid); // Far Horizons
-
-        // Mono planet map terrain, including structures built on the planet grid, hopefully under everything else
-        var radarViewBox = PlanetTerrainSystem.GetViewBox(worldToView, PixelSize);
-        if (xform.MapUid is { } radarMapUid)
-        {
-            _planetTerrain.DrawUnderlay(handle, radarMapUid, worldToView, radarViewBox, mapPos.Position, MinimapScale,
-                RadarPlanetOptions, BackingColor);
-        }
+        DrawTerrain(handle, worldToView, mapPos.Position, xform.MapUid);
 
         _grids.Clear();
-        _systems.GetEntitySystem<SharedMapSystem>().FindGridsIntersecting(xform.MapID, new Box2(mapPos.Position - MaxRadarRangeVector, mapPos.Position + MaxRadarRangeVector), ref _grids, approx: true, includeMap: false);
+        var radarBounds = new Box2(mapPos.Position - MaxRadarRangeVector, mapPos.Position + MaxRadarRangeVector);
+        var radarMaps = EntManager.AllEntityQueryEnumerator<MapComponent>();
+        while (radarMaps.MoveNext(out var mapUid, out var map))
+        {
+            if (_detection.SharesRadarSpace(xform.MapUid, mapUid))
+                _systems.GetEntitySystem<SharedMapSystem>().FindGridsIntersecting(map.MapId, radarBounds, ref _grids, approx: true, includeMap: false);
+        }
 
         // Draw our grid's fill.
         var ourGridId = xform.GridUid;
@@ -663,6 +722,11 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
 
         // Draw shields
         DrawShields(handle, xform, worldToShuttle);
+        if (xform.MapUid is { } shieldMap)
+        {
+            var altitude = EntManager.System<CESharedZLevelsSystem>().GetAbsoluteAltitude(xform.Owner);
+            DrawProjectedShields(handle, shieldMap, altitude, worldToView, _consoleEntity, xform.GridUid);
+        }
 
         // Frontier Corvax: north line drawing
         DrawNorthLine(handle, worldRot);
@@ -711,8 +775,11 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
         _visibleGridsSet.Clear();
 
         DrawGrids(_grids, handle, (ourGrid != null && ourGridId.HasValue) ? (ourGridId.Value, ourGrid) : null, false);
+        DrawPlanetLaunchWarnings(handle, worldToView, xform.MapUid);
+        if (ShowMarkers)
+            NfDrawBlips(handle, _tempBlipDataList);
 
-        _planetTerrain.DrawMarkers(handle, xform.MapID, radarViewBox, worldToView, Font, UIScale); // Mono
+        DrawPlanetMarkers(handle, worldToView, xform.MapUid); // Mono
 
         #region Mono
         // Draw radar line
@@ -822,8 +889,18 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
         var viewBounds = new Box2Rotated(new Box2(-WorldRange, -WorldRange, WorldRange, WorldRange).Translated(mapPos.Position), worldRot, mapPos.Position);
         var viewAABB = viewBounds.CalcBoundingBox();
 
+        EntManager.TryGetComponent<RadarConsoleComponent>(_consoleEntity, out var radar);
+
         foreach (var grid in _grids)
         {
+            var altitude = GetRadarAltitude(grid.Owner);
+            var verticalRange = altitude < 0f ? radar?.IffRangeBelow ?? 1.5f : radar?.IffRangeAbove ?? 1.5f;
+            var separation = MathF.Abs(altitude) <= 0.0001f ? 0f
+                : verticalRange <= 0f ? 1f
+                : Math.Clamp(MathF.Abs(altitude) / verticalRange, 0f, 1f);
+            var opacity = 1f - separation * separation * (3f - 2f * separation);
+            if (opacity <= 0f)
+                continue;
             if (renderFill)
             {
                 var detectionLevel = _consoleEntity == null ? DetectionLevel.Detected : GetGridDetected(grid.Owner);
@@ -841,9 +918,9 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
                 var hideColor = hideLabel && iff != null && (iff.Flags & IFFFlags.AlwaysShowColor) == 0x0;
                 var labelColor = hideColor ? blipOnly ? Color.Orange : Color.White : _shuttles.GetIFFColor(grid, self: false, iff);
 
-                if (!blipOnly)
+                if (!blipOnly && opacity > 0f)
                 {
-                    DrawGrid(handle, curGridToView, grid, labelColor, 0.01f, true);
+                    DrawGrid(handle, curGridToView, grid, labelColor.WithAlpha(opacity), 0.01f, true);
                 }
             }
             else
@@ -952,7 +1029,9 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
                         var displayedDistance = distance < 50f ? $"{distance:0.0}" : distance < 1000 ? $"{distance:0}" : $"{distance / 1000:0.0}k";
                         var labelText = Loc.GetString("shuttle-console-iff-label", ("name", labelName)!, ("distance", displayedDistance));
 
-                        var coordsText = $"({gridMapPos.X:0.0}, {gridMapPos.Y:0.0})";
+                        var coordsText = GetStackRadarAltitude(gUid) is { } gridAltitude
+                            ? $"({gridMapPos.X:0.0}, {gridMapPos.Y:0.0}, {gridAltitude:0.00})"
+                            : $"({gridMapPos.X:0.0}, {gridMapPos.Y:0.0})";
                         var trackIdText = iff != null ? Loc.GetString("shuttle-console-track-label") + $"{iff.Address}" : Loc.GetString("shuttle-console-track-unknown-label");
 
                         #region Mono
@@ -1011,9 +1090,11 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
                             }
                         }
 
+                        displayColor = displayColor.WithAlpha(displayColor.A * opacity);
+
                         // Split label text into lines
                         var lines = labelText.Split('\n');
-                        var mainLabel = lines[0];
+                        var mainLabel = lines[0] + (altitude > 0.05f ? " ↑" : altitude < -0.05f ? " ↓" : "");
 
                         // Draw main ship label with company color if available
                         if(ShowIFF){ // Mono - to make IFF and D. IFF render separately
@@ -1049,12 +1130,10 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
                         // Mono end
                     }
 
-                    NfAddBlipToList(_tempBlipDataList, isOutsideRadarCircle, uiPosition, uiXCentre, uiYCentre, labelColor, hideLabel ? default : gUid); // Frontier code
+                    NfAddBlipToList(_tempBlipDataList, isOutsideRadarCircle, uiPosition, uiXCentre, uiYCentre, labelColor.WithAlpha(labelColor.A * opacity), hideLabel ? default : gUid); // Frontier code
+                                                                                                                                                        // End Frontier: IFF drawing functions
                 }
-                if(ShowMarkers){ // Mono
-                    // Frontier Don't skip drawing blips if they're out of range.
-                    NfDrawBlips(handle, _tempBlipDataList);
-                }
+
                 // Detailed view
                 var gridAABB = curGridToWorld.TransformBox(grid.Comp.LocalAABB);
 
@@ -1065,8 +1144,9 @@ public partial class ShuttleNavControl : BaseShuttleControl // Mono
                 // Mono
                 if (!blipOnly)
                 {
-                    DrawGrid(handle, curGridToView, grid, labelColor);
-                    DrawDocks(handle, gUid, curGridToView);
+                    DrawGrid(handle, curGridToView, grid, labelColor.WithAlpha(labelColor.A * opacity));
+                    if (MathF.Abs(altitude) < 0.05f)
+                        DrawDocks(handle, gUid, curGridToView);
                 }
             }
 

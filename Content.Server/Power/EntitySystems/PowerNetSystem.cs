@@ -220,6 +220,58 @@ namespace Content.Server.Power.EntitySystems
             };
         }
 
+        // Estimate the next solve with this receiver's load replaced, without changing the network.
+        public bool CanSupplyApcLoad(ApcPowerReceiverComponent receiver, float watts)
+        {
+            if (receiver.PowerDisabled)
+                return false;
+
+            if (!receiver.NeedsPower)
+                return true;
+
+            if (receiver.Provider?.Net is not ApcNet net ||
+                receiver.NetworkLoad.LinkedNetwork == default ||
+                receiver.NetworkLoad.LinkedNetwork != net.NetworkNode.Id)
+                return false;
+
+            var network = net.NetworkNode;
+            var demand = watts;
+            foreach (var id in network.Loads)
+            {
+                var load = _powerState.Loads[id];
+                if (load.Enabled && !load.Paused && load != receiver.NetworkLoad)
+                    demand += load.DesiredPower;
+            }
+
+            foreach (var id in network.BatteryLoads)
+            {
+                var battery = _powerState.Batteries[id];
+                if (battery.Enabled && !battery.Paused && battery.CanCharge)
+                    demand += battery.DesiredPower;
+            }
+
+            var supply = 0f;
+            foreach (var id in network.Supplies)
+            {
+                var generator = _powerState.Supplies[id];
+                if (generator.Enabled && !generator.Paused)
+                    supply += MathF.Min(generator.MaxSupply, generator.SupplyRampPosition + generator.SupplyRampTolerance);
+            }
+
+            foreach (var id in network.BatterySupplies)
+            {
+                var battery = _powerState.Batteries[id];
+                if (!battery.Enabled || battery.Paused || !battery.CanDischarge)
+                    continue;
+
+                var cap = MathF.Min(battery.MaxSupply, battery.SupplyRampPosition + battery.SupplyRampTolerance);
+                supply += MathF.Min(battery.CurrentStorage / (float) _updateInterval.TotalSeconds,
+                    cap + battery.CurrentReceiving * battery.Efficiency);
+            }
+
+            return supply >= demand;
+        }
+
         public NetworkPowerStatistics GetNetworkStatistics(PowerState.Network network)
         {
             // Right, consumption. Now this is a big mess.

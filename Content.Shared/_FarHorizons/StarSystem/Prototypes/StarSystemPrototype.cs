@@ -16,7 +16,14 @@ public sealed partial class StarSystemPlanet
 {
     [DataField(required: true)] public ProtoId<PlanetTypePrototype> Planet;
     [DataField(required: true)] public float Distance;
-    [DataField] public float Angle;
+    [DataField] public List<StarSystemMoon> Moons = new();
+}
+
+[DataDefinition]
+public sealed partial class StarSystemMoon
+{
+    [DataField(required: true)] public ProtoId<PlanetTypePrototype> Moon;
+    [DataField(required: true)] public float Distance;
 }
 
 [DataDefinition]

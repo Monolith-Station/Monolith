@@ -1,0 +1,65 @@
+- type: entity
+  id: OreDepositScanner
+  parent: BaseHandheldComputer
+  name: ore deposit scanner
+  description: A short-range geological mass scanner that charts buried mineral deposits.
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Mining/mineral_scanner.rsi
+    layers:
+    - state: icon
+    - state: icon-o
+      shader: unshaded
+      visible: false
+      map: ["enum.ToggleableVisuals.Layer"]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
+  - type: OreScanner
+    range: 64
+  - type: RadarConsole
+    followEntity: true
+    noRotate: true
+    pannable: false
+    maxRange: 64
+  - type: PowerCellDraw
+    drawRate: 2.4
+    useRate: 0
+  - type: ToggleCellDraw
+  - type: ActivatableUI
+    key: enum.OreScannerUiKey.Key
+    singleUser: true
+  - type: UserInterface
+    interfaces:
+      enum.OreScannerUiKey.Key:
+        type: OreScannerBoundUserInterface
+  - type: StaticPrice
+    price: 300
+
+- type: entity
+  id: AdvancedOreDepositScanner
+  parent: OreDepositScanner
+  name: advanced ore deposit scanner
+  description: An advanced geological mass scanner that charts buried mineral deposits over a wider area.
+  components:
+  - type: Sprite
+    layers:
+    - state: adv
+    - state: adv-o
+      shader: unshaded
+      visible: false
+      map: ["enum.ToggleableVisuals.Layer"]
+  - type: Item
+    storedRotation: -90
+  - type: OreScanner
+    range: 256
+  - type: RadarConsole
+    maxRange: 256
+  - type: PowerCellDraw
+    drawRate: 1.2
+  - type: StaticPrice
+    price: 900

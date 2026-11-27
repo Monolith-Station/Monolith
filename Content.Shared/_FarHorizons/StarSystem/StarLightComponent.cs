@@ -27,7 +27,7 @@ public sealed partial class StarLightComponent : Component
     public float RangeFactor = 30000f;
 
     [DataField, AutoNetworkedField]
-    public float RadiusFactor = 500f;
+    public float RadiusFactor = 2500f;
 
     [DataField, AutoNetworkedField]
     public float Falloff = 2f;

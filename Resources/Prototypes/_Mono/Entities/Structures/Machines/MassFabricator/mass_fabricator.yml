@@ -1,0 +1,66 @@
+- type: entity
+  id: HZMassFabricator
+  name: H-Z Mass Fabricator
+  description: A highly improved variant of the RCD made for remote building planetside.
+  parent: BaseItem
+  components:
+  - type: MassFabricator
+    availableBlueprints:
+    - HZBlueprintPlating
+    - HZBlueprintLattice
+    - HZBlueprintWall
+  - type: ContainerContainer
+    containers:
+      chip1: !type:ContainerSlot
+      chip2: !type:ContainerSlot
+      chip3: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      chip1:
+        name: mass-fabricator-chip-slot-1
+        swap: false
+        whitelist:
+          components: [MassFabricatorBlueprintChip]
+      chip2:
+        name: mass-fabricator-chip-slot-2
+        swap: false
+        whitelist:
+          components: [MassFabricatorBlueprintChip]
+      chip3:
+        name: mass-fabricator-chip-slot-3
+        swap: false
+        whitelist:
+          components: [MassFabricatorBlueprintChip]
+  - type: MaterialStorage
+    storageLimit: 10000
+    canEjectStoredMaterials: false
+    whitelist:
+      components:
+      - Material
+  - type: Item
+    storedRotation: -90
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Launchers/force_gun.rsi
+    state: base
+
+- type: entity
+  id: HZMassFabricatorHologram
+  name: fabrication plan
+  components:
+  - type: Transform
+    gridTraversal: false
+  - type: MassFabricatorHologram
+  - type: Clickable
+
+- type: entity
+  id: HZMassFabricatorEye
+  parent: [Incorporeal, BaseMob]
+  name: fabricator view
+  categories: [ HideSpawnMenu, DoNotMap ]
+  components:
+  - type: Sprite
+    visible: false
+  - type: MassFabricatorEye
+  - type: Eye
+    drawFov: false
+  - type: ContentEye

@@ -1,0 +1,133 @@
+light_mode unshaded;
+blend_mode mix;
+
+uniform highp vec2 CENTER;
+uniform highp float RADIUS;
+uniform highp float SEED;
+uniform highp float FLOW;
+uniform highp vec3 ENERGY_COLOR;
+uniform highp float WAVE_PHASE;
+uniform highp float WAVE_RADIUS;
+uniform highp float MOTE_TIME;
+uniform highp vec2 MOTE_SPEEDS;
+uniform highp float MOTE_SPEED_CURVE;
+uniform highp float MOTE_SPEED_VARIANCE;
+uniform highp vec2 MOTE_COUNTS;
+uniform highp float MOTE_COUNT_CURVE;
+uniform highp float MOTE_COUNT_ROUGHNESS;
+uniform highp float MOTE_START;
+uniform highp float MOTE_END;
+uniform highp float MOTE_RANGE;
+
+varying highp vec2 position;
+
+void vertex() {
+    position = aPos;
+}
+
+highp float moteCurve(highp float t) {
+    if (MOTE_COUNT_CURVE == 1.0) {
+        return t * t;
+    }
+    if (MOTE_COUNT_CURVE == 2.0) {
+        return t * (2.0 - t);
+    }
+    if (MOTE_COUNT_CURVE == 3.0) {
+        return t * t * (3.0 - 2.0 * t);
+    }
+    return t;
+}
+
+// Integrate the speed curve so adjusting speed over time never jumps a fleck forward or backward.
+highp float moteTravel(highp float t) {
+    highp float square = t * t;
+    highp float area = square * 0.5;
+    if (MOTE_SPEED_CURVE == 1.0) {
+        area = square * t / 3.0;
+    } else if (MOTE_SPEED_CURVE == 2.0) {
+        area = square * (1.0 - t / 3.0);
+    } else if (MOTE_SPEED_CURVE == 3.0) {
+        area = square * t * (1.0 - t * 0.5);
+    }
+    return MOTE_SPEEDS.x * t + (MOTE_SPEEDS.y - MOTE_SPEEDS.x) * area;
+}
+
+highp float moteBirthProgress(highp float travel) {
+    if (MOTE_SPEEDS.x == MOTE_SPEEDS.y) {
+        return clamp(travel / MOTE_SPEEDS.x, 0.0, 1.0);
+    }
+
+    // Recover the spawn time in the speed ramp to sample the count curve at birth.
+    highp float lo = 0.0;
+    highp float hi = 1.0;
+    for (int i = 0; i < 10; i++) {
+        highp float mid = (lo + hi) * 0.5;
+        if (moteTravel(mid) < travel) {
+            lo = mid;
+        } else {
+            hi = mid;
+        }
+    }
+    return (lo + hi) * 0.5;
+}
+
+void fragment() {
+    highp vec2 delta = position - CENTER;
+    highp float distance = length(delta);
+    highp float angle = atan(delta.y, delta.x + 0.00001);
+    highp float orb = 0.0;
+    highp vec3 orbColor = ENERGY_COLOR;
+    if (distance < RADIUS * 1.036) {
+        highp float roughness = sin(angle * 13.0 + FLOW * 0.7 + SEED) * 0.016
+            + sin(angle * 31.0 - FLOW * 1.1 - SEED) * 0.012
+            + sin(angle * 53.0 + FLOW * 1.6 + SEED * 2.0) * 0.008;
+        highp float radial = distance / max(RADIUS * (1.0 + roughness), 0.001);
+        highp float core = max(0.0, 1.0 - radial * radial);
+        orb = (1.0 - exp(-sqrt(core) * (1.6 + core * 2.5))) * smoothstep(0.0, 0.025, RADIUS);
+        orbColor = mix(ENERGY_COLOR, vec3(1.0), core * 0.56);
+    }
+
+    highp float ringRadius = mix(0.1, WAVE_RADIUS, 1.0 - pow(1.0 - WAVE_PHASE, 2.0));
+    highp float ring = (1.0 - smoothstep(0.02, 0.1 + WAVE_PHASE * 0.12, abs(distance - ringRadius)))
+        * smoothstep(0.0, 0.06, WAVE_PHASE) * pow(1.0 - WAVE_PHASE, 2.0);
+
+    // One inward-moving mote per angular lane, with seeded speed, phase, and spawn threshold.
+    highp float maxCount = max(MOTE_COUNTS.x, MOTE_COUNTS.y);
+    highp float laneCount = max(1.0, maxCount);
+    highp float laneWidth = 6.2831853 / laneCount;
+    highp float lanePosition = (angle + 3.14159265) / laneWidth;
+    highp float lane = mod(floor(lanePosition), laneCount);
+    highp float random = fract(sin(lane * 24.713 + SEED * 6.371) * 437.585);
+    highp float span = MOTE_END - MOTE_START;
+    highp float startTravel = MOTE_START * MOTE_SPEEDS.x;
+    highp float endTravel = moteTravel(1.0);
+    highp float rampTime = clamp((MOTE_TIME - MOTE_START) / span, 0.0, 1.0);
+    highp float travel = startTravel + span * moteTravel(rampTime) + max(0.0, MOTE_TIME - MOTE_END) * MOTE_SPEEDS.y;
+    highp float rate = 0.037 * (1.0 + random * MOTE_SPEED_VARIANCE);
+    highp float seedPhase = random * 11.3;
+    highp float phase = travel * rate + seedPhase;
+    highp float fall = fract(phase);
+    highp float birthTravel = ((floor(phase) - seedPhase) / rate - startTravel) / span;
+    highp float mote = 0.0;
+    if (maxCount > 0.0 && birthTravel >= 0.0 && birthTravel < endTravel) {
+        highp float moteRadius = RADIUS + (1.0 - fall) * MOTE_RANGE;
+        highp vec2 moteDelta = vec2((distance - moteRadius) * 0.48, (fract(lanePosition) - 0.5) * laneWidth * distance);
+        highp float shape = length(moteDelta);
+        if (shape < 0.053) {
+            highp float progress = moteBirthProgress(birthTravel);
+            highp float density = mix(MOTE_COUNTS.x, MOTE_COUNTS.y, moteCurve(progress)) / laneCount;
+            if (MOTE_COUNT_ROUGHNESS > 0.0) {
+                highp float noise = fract(sin(lane * 17.17 + floor(phase) * 9.31 + SEED) * 437.585) - 0.5;
+                density += noise * MOTE_COUNT_ROUGHNESS * (4.0 * progress * (1.0 - progress));
+            }
+            mote = (1.0 - smoothstep(0.013, 0.053, shape))
+                * smoothstep(0.0, 0.18, fall) * (1.0 - smoothstep(0.85, 1.0, fall))
+                * smoothstep(random * 0.9, random * 0.9 + 0.1, density);
+        }
+    }
+
+    highp float outside = max(ring, mote);
+    highp float alpha = orb + outside * (1.0 - orb);
+    highp vec3 outsideColor = mix(ENERGY_COLOR, vec3(1.0), mote * 0.55);
+    COLOR = vec4(mix(outsideColor, orbColor, orb / max(alpha, 0.001)), alpha);
+}

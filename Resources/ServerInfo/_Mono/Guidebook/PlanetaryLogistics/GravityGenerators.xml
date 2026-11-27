@@ -1,0 +1,26 @@
+<Document>
+  # Gravity Generators
+
+  Also known as a crack lesson in how to prevent your ship from becoming fuselage on a planet.
+
+  <Box Orientation="Horizontal">
+    <Box Orientation="Vertical" VerticalAlignment="Bottom">
+      <GuideEntityEmbed Entity="GravityGeneratorMini" Scale="1" Caption=""/>
+      <Box>
+        [color=gray][italic]A small gravity generator.[/italic][/color]
+      </Box>
+    </Box>
+    <Box Orientation="Vertical" VerticalAlignment="Bottom">
+      <GuideEntityEmbed Entity="GravityGenerator" Scale="1" Caption=""/>
+      <Box>
+        [color=gray][italic]A bigger gravity generator.[/italic][/color]
+      </Box>
+    </Box>
+  </Box>
+
+  While on a planet, your ship is subjected to the forces of gravity. Your gravity generator has an alternate mode where instead of providing gravity to your ship, it instead swaps to inverting the gravity on the rest of your ship to keep it aloft.
+
+  Each gravity generator has a maximum capacity that it can sustain in this mode, which is additive across gravgens on your ship. You can see the certain percentage of mass covered by examining a gravity generator.
+
+  [bold]Importantly, if you atempt to fly down to a planet when the covered percentage is above 100%, your gravity generators WILL fail and you [color=red]WILL[/color] immediately plummet to the ground.[/bold] Always check your gravity generators before landing.
+</Document>

@@ -1,0 +1,61 @@
+- type: planetMap
+  id: Aerumna
+  name: Aerumna
+  components:
+  - type: SuppressedTileSpawns
+    prototypes: [ChimeraFleshKudzu]
+  - type: MapAtmosphere
+    space: false
+    mixture:
+      volume: 2500
+      immutable: true
+      temperature: 310
+      moles: [0, 0, 60, 0, 0, 0, 24, 0, 0, 0, 0, 0, 0, 41]
+  - type: CEZLevelRoof
+  - type: MapLight
+    ambientLightColor: "#C9A080"
+  layers:
+  - !type:PlanetFileLayer
+    map: /Maps/_CE/empty.yml
+  - !type:PlanetFileLayer
+    map: /Maps/_CE/empty.yml
+  - !type:PlanetFileLayer
+    map: /Maps/_CE/clouds.yml
+    components:
+    - type: CEZCloudLayer
+      cloudColor: "#B94A50"
+  - !type:PlanetFileLayer
+    map: /Maps/_CE/empty.yml
+  - !type:PlanetFileLayer
+    map: /Maps/_CE/empty.yml
+  - !type:PlanetBiomeLayer
+    biome: Aerumna
+    atmosphere: false
+    components:
+    - type: CEZGroundLayer
+    - type: PlanetaryFleshSpawner
+
+- type: biomeTemplate
+  id: Aerumna
+  layers:
+  - !type:BiomeTileLayer
+    tile: FloorAerumnaFlesh
+    threshold: -1
+  - !type:BiomeTileLayer
+    tile: FloorNaturalLetoferol
+    threshold: 0.3
+    noise:
+      seed: 81
+      frequency: 0.006
+      noiseType: OpenSimplex2
+      fractalType: FBm
+      octaves: 3
+  - !type:BiomeTileLayer
+    tile: FloorNaturalLetoferol
+    threshold: 0.88
+    noise:
+      seed: 92
+      frequency: 0.009
+      noiseType: OpenSimplex2
+      fractalType: Ridged
+      octaves: 1

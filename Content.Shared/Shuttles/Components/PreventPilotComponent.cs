@@ -10,3 +10,6 @@ public sealed partial class PreventPilotComponent : Component
 {
 
 }
+
+[RegisterComponent, NetworkedComponent]
+public sealed partial class PreventDockingComponent : Component;

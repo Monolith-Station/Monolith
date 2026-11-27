@@ -127,6 +127,10 @@ namespace Content.Client.Input
             human.AddFunction(ContentKeyFunctions.TargetRightFoot);
             // Shitmed Change End
 
+            var fabricator = contexts.New("fabricator", human);
+            fabricator.AddFunction(EngineKeyFunctions.EditorPlaceObject);
+            fabricator.AddFunction(EngineKeyFunctions.EditorGridPlace);
+
             // actions should be common (for ghosts, mobs, etc)
             common.AddFunction(ContentKeyFunctions.OpenActionsMenu);
 

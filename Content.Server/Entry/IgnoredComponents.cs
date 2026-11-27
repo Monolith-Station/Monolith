@@ -26,7 +26,12 @@ namespace Content.Server.Entry
             "HolidayRsiSwap",
             "OptionsVisualizer",
             "MultipartMachineGhost",
-            "CEIconSmooth"
+            "CEIconSmooth",
+            "CEZGrid",
+            "CEZGridConnector",
+            "CEZGridNetwork",
+            "CEZMappingAnchor",
+            "CEZMappingAnchorGrid"
         };
     }
 }

@@ -8,6 +8,24 @@ namespace Content.Shared._Mono.CCVar;
 [CVarDefs]
 public sealed partial class MonoCVars
 {
+    public static readonly CVarDef<int> RadarTerrainBatchSize =
+        CVarDef.Create("mono.radar.terrain_batch_size", 256, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    public static readonly CVarDef<int> RadarTerrainWorkers =
+        CVarDef.Create("mono.radar.terrain_workers", 8, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    public static readonly CVarDef<float> HellpodRicochetPercent =
+        CVarDef.Create("mono.hellpod.ricochet_percent", 1f, CVar.SERVERONLY);
+
+    public static readonly CVarDef<bool> PersistPlanets =
+        CVarDef.Create("mono.planet.persist_planets", true, CVar.SERVERONLY);
+
+    public static readonly CVarDef<int> PlanetPersistInterval =
+        CVarDef.Create("mono.planet.persist_interval", 10, CVar.SERVERONLY);
+
+    public static readonly CVarDef<int> PlanetMaxSaves =
+        CVarDef.Create("mono.planet.max_saves", 3, CVar.SERVERONLY);
+
     #region Cleanup
 
     /// <summary>

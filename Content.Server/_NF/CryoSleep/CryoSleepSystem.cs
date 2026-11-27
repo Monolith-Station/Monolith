@@ -4,6 +4,7 @@ using Content.Server.EUI;
 using Content.Server.GameTicking;
 using Content.Server.Interaction;
 using Content.Server.Mind;
+using Content.Server._Mono.Persistence;
 using Content.Server.Popups;
 using Content.Server._NF.Shipyard.Systems;
 using Content.Server.Radio.EntitySystems;
@@ -56,6 +57,7 @@ public sealed partial class CryoSleepSystem : SharedCryoSleepSystem
     [Dependency] private SharedMapSystem _maps = default!;
     [Dependency] private EuiManager _euiManager = null!;
     [Dependency] private MindSystem _mind = default!;
+    [Dependency] private CryopodRespawnSystem _respawn = default!;
     [Dependency] private InteractionSystem _interaction = default!;
     [Dependency] private DoAfterSystem _doAfter = default!;
     [Dependency] private MobStateSystem _mobSystem = default!;
@@ -241,7 +243,7 @@ public sealed partial class CryoSleepSystem : SharedCryoSleepSystem
         if (_player.TryGetSessionByEntity(toInsert.Value, out var session)
             && session.Status == SessionStatus.Disconnected)
         {
-            CryoStoreBody(toInsert.Value, cryopod);
+            StoreBody(toInsert.Value, cryopod, component);
             return true;
         }
 
@@ -249,7 +251,7 @@ public sealed partial class CryoSleepSystem : SharedCryoSleepSystem
 
         if (success && session != null)
         {
-            _euiManager.OpenEui(new CryoSleepEui(toInsert.Value,  cryopod, this), session);
+            _euiManager.OpenEui(new CryoSleepEui(toInsert.Value, cryopod, this, _respawn.CanSave(toInsert.Value, cryopod)), session);
         }
 
         if (success)
@@ -280,7 +282,13 @@ public sealed partial class CryoSleepSystem : SharedCryoSleepSystem
 
     public void CryoStoreBody(EntityUid bodyId, EntityUid cryopod)
     {
-        if (!TryComp<CryoSleepComponent>(cryopod, out var cryo))
+        if (TryComp<CryoSleepComponent>(cryopod, out var cryo) && cryo.BodyContainer.ContainedEntity == bodyId)
+            StoreBody(bodyId, cryopod, cryo);
+    }
+
+    private void StoreBody(EntityUid bodyId, EntityUid cryopod, CryoSleepComponent cryo)
+    {
+        if (TerminatingOrDeleted(bodyId) || TerminatingOrDeleted(cryopod))
             return;
 
         NetUserId? id = null;
@@ -291,9 +299,8 @@ public sealed partial class CryoSleepSystem : SharedCryoSleepSystem
         {
             var argMind = mind;
             RaiseLocalEvent(bodyId, new CryosleepBeforeMindRemovedEvent(cryopod, argMind?.UserId), true);
-            _ghost.OnGhostAttempt(mindEntity, false, true, mind: mind);
-
             id = mind.UserId;
+            _ghost.OnGhostAttempt(mindEntity, false, true, mind: mind);
             if (id != null)
             {
                 _storedBodies[id.Value] = new StoredBody() { Body = body, Cryopod = cryopod };
@@ -389,7 +396,7 @@ public sealed partial class CryoSleepSystem : SharedCryoSleepSystem
         bodyTransform.Coordinates = new EntityCoordinates(storage, _cryoCoords); // Mono, replaced Vector.Zero with _cryoCoords. Sets body to this location on cryomap.
         _cryoCoords = Vector2.Add(_cryoCoords, _cryoDistance); // Mono - Increments for next body.
 
-        RaiseLocalEvent(bodyId, new CryosleepEnterEvent(cryopod, mind?.UserId), true);
+        RaiseLocalEvent(bodyId, new CryosleepEnterEvent(cryopod, id), true);
 
         if (cryo.CryosleepDoAfter != null && _doAfter.GetStatus(cryo.CryosleepDoAfter) == DoAfterStatus.Running)
             _doAfter.Cancel(cryo.CryosleepDoAfter);

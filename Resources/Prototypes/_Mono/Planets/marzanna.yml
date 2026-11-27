@@ -1,0 +1,107 @@
+- type: planetMap
+  id: Marzanna
+  name: Marzanna
+  components:
+  - type: MapAtmosphere
+    space: false
+    mixture:
+      volume: 2500
+      immutable: true
+      temperature: 20
+      moles: [0, 0, 0, 0, 0, 0, 0, 0.14282343, 0.00751702]
+  - type: CEZLevelRoof
+  - type: MapLight
+    ambientLightColor: "#B8D8E8"
+  layers:
+  - !type:PlanetFileLayer
+    map: /Maps/_CE/empty.yml
+    components:
+    - type: ToroidalMap
+      size: 8192
+  - !type:PlanetFileLayer
+    map: /Maps/_CE/empty.yml
+    components:
+    - type: ToroidalMap
+      size: 8192
+  - !type:PlanetBiomeLayer
+    biome: Marzanna
+    atmosphere: false
+    components:
+    - type: CEZGroundLayer
+    - type: ToroidalMap
+      size: 8192
+
+- type: biomeTemplate
+  id: Marzanna
+  layers:
+  - !type:BiomeMetaLayer
+    template: MarzannaPlasma
+  - !type:BiomeMetaLayer
+    template: MarzannaLand
+    threshold: 1.05
+    originBiasRadius: 1700
+    originBiasStrength: 4
+    biasPeriod: 8192
+    biasCenters:
+    - "0,-800"
+    - "-2600,2800"
+    - "2600,2800"
+    noise:
+      seed: 43
+      frequency: 0.002
+      noiseType: OpenSimplex2
+      fractalType: FBm
+      octaves: 3
+  - !type:BiomeMetaLayer
+    template: MarzannaPlasma
+    threshold: 0.92
+    originBiasRadius: 256
+    originBiasStrength: -2
+    noise:
+      seed: 73
+      frequency: 0.0008
+      noiseType: OpenSimplex2
+      fractalType: Ridged
+      octaves: 1
+
+- type: biomeTemplate
+  id: MarzannaPlasma
+  layers:
+  - !type:BiomeTileLayer
+    tile: FloorChromite
+    threshold: -1
+  - !type:BiomeEntityLayer
+    allowedTiles:
+    - FloorChromite
+    threshold: -1
+    radarColor: "#974988"
+    entities:
+    - FloorLiquidPlasmaEntity
+
+- type: biomeTemplate
+  id: MarzannaLand
+  layers:
+  - !type:BiomeTileLayer
+    tile: FloorSnow
+    threshold: -1
+  - !type:BiomeTileLayer
+    tile: FloorIce
+    threshold: 0.12
+    noise:
+      seed: 17
+      noiseType: OpenSimplex2
+      frequency: 0.025
+      fractalType: FBm
+      octaves: 3
+  - !type:BiomeEntityLayer
+    allowedTiles:
+    - FloorSnow
+    threshold: 0.4
+    noise:
+      seed: 31
+      noiseType: OpenSimplex2
+      frequency: 0.065
+      fractalType: FBm
+      octaves: 2
+    entities:
+    - MonoPlanetmapOreSnow

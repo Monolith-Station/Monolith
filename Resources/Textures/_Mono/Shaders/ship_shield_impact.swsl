@@ -1,0 +1,48 @@
+light_mode unshaded;
+blend_mode mix;
+
+#include "/Textures/_Mono/Shaders/shield_skin_common.swsl"
+#include "/Textures/_Mono/Shaders/shield_wave_common.swsl"
+
+uniform highp float WAVE_COUNT;
+uniform highp vec2 WAVE_METRIC;
+uniform highp vec2[8] WAVE_CENTERS;
+uniform highp vec2[8] WAVE_HEIGHTS_RADII;
+uniform highp float[8] WAVE_STRENGTHS;
+uniform highp float SHATTER_ANIMATION;
+
+void fragment() {
+    highp vec2 point = UV * 2.0 - 1.0;
+    bool mesh = UV2.x > 0.5;
+    highp vec2 lattice = shipShieldLattice(point);
+    highp vec3 hex = shieldHexCoordinates(lattice);
+    highp vec2 center = floor(hex.yz / vec2(0.5, 0.8660255) + 0.5) * vec2(0.5, 0.8660255);
+    highp float lengthOnLattice = length(center) / 15.0;
+    // Invert the shell's lattice warp to evaluate the wave once at the hex center.
+    highp float angle = lengthOnLattice;
+    for (int i = 0; i < 3; i++) {
+        angle -= (0.2 * sin(angle) + 0.8 * angle - lengthOnLattice) / (0.2 * cos(angle) + 0.8);
+    }
+    angle = clamp(angle, 0.0, 1.5707963);
+    highp vec2 xy = center * sin(angle) / max(length(center), 0.0001);
+    highp float height = cos(angle) * (mesh && UV2.y < 0.0 ? -1.0 : 1.0);
+    highp vec3 surface = vec3(xy, height);
+    highp float energy = 0.0;
+    highp float peak = 0.0;
+    highp vec2 ripple = vec2(0.0);
+    for (int i = 0; i < 8; i++) {
+        if (float(i) < WAVE_COUNT) {
+            highp vec2 wave = WAVE_HEIGHTS_RADII[i];
+            highp vec3 waveCenter = vec3(WAVE_CENTERS[i], wave.x);
+            accumulateShieldWave(point, surface, waveCenter, WAVE_METRIC, wave.y, WAVE_STRENGTHS[i], energy, peak, ripple);
+        }
+    }
+
+    highp float radius = length(point);
+    highp float mask = mesh ? 1.0 : 1.0 - smoothstep(UV2.y - 0.01, UV2.y, radius);
+    if (SHATTER_ANIMATION > 1.0) {
+        mask *= shipShieldFracture(lattice, radius, SHATTER_ANIMATION).x;
+    }
+    highp float edge = shieldWaveEdge(lattice, ripple);
+    COLOR = vec4(vec3(1.0), shieldWaveAlpha(edge, fwidth(edge), energy, peak) * mask);
+}

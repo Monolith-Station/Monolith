@@ -3,6 +3,9 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
 using Content.Shared._Mono.Sensors;
+using System;
+using System.Numerics;
+using Content.Shared._CE.ZLevels.Core.Components;
 
 namespace Content.Shared._Mono.Detection;
 
@@ -13,6 +16,20 @@ public sealed partial class DetectionSystem : EntitySystem
 {
     [Dependency] private IConfigurationManager _cfg = default!;
     [Dependency] private SharedTransformSystem _xform = default!;
+
+    public EntityUid? GetRadarNetwork(EntityUid? map)
+    {
+        if (TryComp<CEZTransitMapComponent>(map, out var transit))
+            map = transit.LowerMap ?? transit.UpperMap;
+
+        return TryComp<CEZMapComponent>(map, out var layer) ? layer.NetworkUid : null;
+    }
+
+    public bool SharesRadarSpace(EntityUid? first, EntityUid? second)
+    {
+        return first != null && second != null &&
+            (first == second || GetRadarNetwork(first) is { } network && network == GetRadarNetwork(second));
+    }
 
     private float _thermalMul;
     private float _visualMul;
@@ -68,9 +85,10 @@ public sealed partial class DetectionSystem : EntitySystem
         var level = DetectionLevel.Undetected;
 
         var xform = Transform(grid);
-        if (!xform.Coordinates.TryDistance(EntityManager, byXform.Coordinates, out var distance))
+        if (!SharesRadarSpace(xform.MapUid, byXform.MapUid))
             return DetectionLevel.Undetected;
 
+        var distance = Vector2.Distance(_xform.GetWorldPosition(xform), _xform.GetWorldPosition(byXform));
         if (IsActiveRadarDetected(observerGrid, grid, gridDiagonal, distance, byXform, xform)
             || (visualRadius > 0f && distance <= visualRadius))
             level = DetectionLevel.Detected;

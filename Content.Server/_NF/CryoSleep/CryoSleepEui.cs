@@ -9,13 +9,23 @@ public sealed class CryoSleepEui : BaseEui
     private readonly CryoSleepSystem _cryoSystem;
     private readonly EntityUid _body;
     private readonly EntityUid _cryopod;
+    private readonly bool _savesRespawn;
 
-    public CryoSleepEui(EntityUid body, EntityUid cryopod, CryoSleepSystem cryoSys)
+    public CryoSleepEui(EntityUid body, EntityUid cryopod, CryoSleepSystem cryoSys, bool savesRespawn)
     {
         _body = body;
         _cryopod = cryopod;
         _cryoSystem = cryoSys;
+        _savesRespawn = savesRespawn;
     }
+
+    public override void Opened()
+    {
+        base.Opened();
+        StateDirty();
+    }
+
+    public override EuiStateBase GetNewState() => new CryoSleepEuiState(_savesRespawn);
 
     public override void HandleMessage(EuiMessageBase msg)
     {

@@ -4,9 +4,13 @@
  */
 
 using System.Numerics;
+using System.Linq;
+using Content.Client._CE.Planets.Shields;
 using Content.Client._CE.ZLevels.Core;
+using Content.Client._Mono.ShipShieldShell; // Mono
 using Content.Shared._CE.ZLevels.Core.Components;
 using Content.Shared._CE.ZLevels.Core.EntitySystems;
+using Content.Shared._FarHorizons.StarSystem;
 using Content.Shared.Maps;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
@@ -14,15 +18,17 @@ using Robust.Shared.Graphics;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 
 namespace Content.Client.Viewport;
 
 public sealed partial class ScalingViewport
 {
-    [Dependency] private IEyeManager _eyeManager = default!;
+    [Dependency] private IOverlayManager _overlayManager = default!;
     [Dependency] private IPlayerManager _player = default!;
     [Dependency] private ITileDefinitionManager _tile = default!;
     [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
 
     private CEClientZLevelsSystem? _zLevels;
     private SharedMapSystem? _mapSystem;
@@ -32,57 +38,51 @@ public sealed partial class ScalingViewport
 
     private IEye? _fallbackEye;
 
+    // Mono Start
+    private IEye? _lookUpAimEye;
+    private MapId _lookUpSourceMap;
+
+    internal bool TryGetLookUpAim(Vector2 screenPosition, MapId sourceMap, out MapCoordinates aim)
+    {
+        aim = default;
+        if (_lookUpAimEye is not { } eye || sourceMap != _lookUpSourceMap)
+            return false;
+
+        aim = PixelToMap(screenPosition, eye);
+        return aim.MapId != MapId.Nullspace;
+    }
+    // Mono end
+
     /// <summary>
     /// We are looking for at least one empty tile on the screen.
     /// This is used to ensure that it makes sense to draw the z-planes and that they are visible.
     /// </summary>
-    public bool TryFindEmptyTiles(EntityUid mapUid)
+    private bool TryFindEmptyTiles(EntityUid mapUid, IClydeViewport viewport, IEye? eye)
     {
-        if (_xformQuery is null || !_xformQuery.Value.TryComp(mapUid, out var xform))
+        if (_mapSystem is null || eye is null ||
+            !Matrix3x2.Invert(viewport.RenderTarget.GetWorldToLocalMatrix(eye, viewport.RenderScale), out var toWorld))
             return true;
 
-        var drawBox = GetDrawBox();
-        var mapId = xform.MapID;
-
-        var corners = new[]
-        {
-            _eyeManager.ScreenToMap(drawBox.BottomLeft).Position,
-            _eyeManager.ScreenToMap(drawBox.BottomRight).Position,
-            _eyeManager.ScreenToMap(drawBox.TopLeft).Position,
-            _eyeManager.ScreenToMap(drawBox.TopRight).Position
-        };
-
-        float minX = float.MaxValue, minY = float.MaxValue;
-        float maxX = float.MinValue, maxY = float.MinValue;
-
-        foreach (var c in corners)
-        {
-            if (c.X < minX)
-                minX = c.X;
-            if (c.Y < minY)
-                minY = c.Y;
-            if (c.X > maxX)
-                maxX = c.X;
-            if (c.Y > maxY)
-                maxY = c.Y;
-        }
-
-        var mapCoordsBottomLeft = new MapCoordinates(new Vector2(minX, minY), mapId);
-        var mapCoordsTopRight = new MapCoordinates(new Vector2(maxX, maxY), mapId);
-
-        if (_mapSystem is null || !_mapSystem.TryFindGridAt(mapUid, mapCoordsBottomLeft.Position, out var gridUid, out var grid))
+        var pixels = Box2.FromDimensions(Vector2.Zero, viewport.Size);
+        var corner = Vector2.Transform(pixels.BottomLeft, toWorld);
+        if (_mapSystem is null || !_mapSystem.TryFindGridAt(mapUid, corner, out var gridUid, out var grid))
             return true;
 
-        var tileBottomLeft = _mapSystem.TileIndicesFor(gridUid, grid, mapCoordsBottomLeft);
-        var tileTopRight = _mapSystem.TileIndicesFor(gridUid, grid, mapCoordsTopRight);
+        var transforms = _entityManager.System<SharedTransformSystem>();
+        var bounds = (toWorld * transforms.GetInvWorldMatrix(gridUid)).TransformBox(pixels);
+        var min = bounds.BottomLeft / grid.TileSize;
+        var max = bounds.TopRight / grid.TileSize;
 
-        for (var x = tileBottomLeft.X - 1; x <= tileTopRight.X + 1; x++)
+        for (var x = (int) MathF.Floor(min.X) - 1; x <= (int) MathF.Floor(max.X) + 1; x++)
         {
-            for (var y = tileBottomLeft.Y - 1; y <= tileTopRight.Y + 1; y++)
+            for (var y = (int) MathF.Floor(min.Y) - 1; y <= (int) MathF.Floor(max.Y) + 1; y++)
             {
                 var tile = _mapSystem.GetTileRef(gridUid, grid, new Vector2i(x, y));
+                if (tile.Tile.IsEmpty)
+                    return true;
+
                 var tileDef = (ContentTileDefinition)_tile[tile.Tile.TypeId];
-                if (tileDef.Transparent || tile.Tile.IsEmpty)
+                if (tileDef.Transparent)
                     return true;
             }
         }
@@ -92,38 +92,71 @@ public sealed partial class ScalingViewport
 
     private readonly List<(EntityUid MapUid, float Depth, bool AllowFov, bool Transit)> _zPasses = new();
     private IClydeViewport? _transitViewport;
+    private ShaderInstance? _zDeckComposite;
     private ShaderInstance? _transitBlitShader;
     private ShaderInstance? _cloudShader;
 
+    internal static (float Scale, float Offset) ZProjection(float depth, float anchorDepth = 0f) // Mono: Shared with the ship shield renderer.
+    {
+        const float shrink = CESharedZLevelsSystem.ZLevelViewShrink;
+        var relativeDepth = depth - anchorDepth;
+        return shrink == 1f
+            ? (1f, CESharedZLevelsSystem.ZLevelOffset * relativeDepth)
+            : (MathF.Pow(shrink, -depth),
+                CESharedZLevelsSystem.ZLevelOffset * (1f - MathF.Pow(shrink, relativeDepth)) / (1f - shrink));
+    }
+
     private void RenderZLevels(IRenderHandle renderHandle, IClydeViewport viewport)
     {
+        _lookUpAimEye = null; // Mono
         if (_eye is null)
             return;
 
         _fallbackEye = _eye;
 
-        // Cache frequently accessed components/systems
         _xformQuery ??= _entityManager.GetEntityQuery<TransformComponent>();
         _mapQuery ??= _entityManager.GetEntityQuery<MapComponent>();
 
-        // Cache systems and components
         _zLevels ??= _entityManager.System<CEClientZLevelsSystem>();
         _mapSystem ??= _entityManager.System<SharedMapSystem>();
 
-        if (_player.LocalEntity is null)
+        if (_player.LocalEntity is not { } observer ||
+            !_entityManager.TryGetComponent<CEZLevelViewerComponent>(observer, out var zLevelViewer))
+        {
+            RenderFallback(viewport);
             return;
+        }
 
-        if (!_entityManager.TryGetComponent<CEZLevelViewerComponent>(_player.LocalEntity.Value, out var zLevelViewer))
+        var cameraAnchor = observer;
+        if (_entityManager.TryGetComponent<EyeComponent>(observer, out var eyeComponent) &&
+            ReferenceEquals(eyeComponent.Eye, _eye) && eyeComponent.Target is { } eyeTarget)
+            cameraAnchor = eyeTarget;
+
+        if (!_xformQuery.Value.TryComp(cameraAnchor, out var playerXform) ||
+            playerXform.MapUid is not { } playerMap ||
+            playerXform.MapID != _eye.Position.MapId)
+        {
+            RenderFallback(viewport);
             return;
+        }
 
-        if (!_xformQuery.Value.TryComp(_player.LocalEntity, out var playerXform))
+        if (cameraAnchor == observer)
+            cameraAnchor = _zLevels.GetCameraAltitudeAnchor(playerXform);
+
+        if (_entityManager.TryGetComponent<PlanetTransitMapComponent>(playerMap, out var planetMap))
+        {
+            RenderPlanetTransitRider(renderHandle, viewport, playerMap, planetMap);
             return;
+        }
 
-        if (playerXform.MapUid is null)
+        if (!_entityManager.HasComponent<CEZMapComponent>(playerMap) &&
+            !_entityManager.HasComponent<CEZTransitMapComponent>(playerMap))
+        {
+            RenderFallback(viewport);
             return;
+        }
 
-        var playerMap = playerXform.MapUid.Value;
-
+        var observerAltitude = _zLevels.GetAbsoluteAltitude(cameraAnchor);
         _zPasses.Clear();
 
         var frac = 0f;
@@ -132,18 +165,21 @@ public sealed partial class ScalingViewport
         var belowChainStartDepth = -1f;
         EntityUid? aboveMap = null;
         var aboveDepth = 1f;
+        var lowestDepth = float.MaxValue;
+        var highestDepth = float.MinValue;
 
         if (_entityManager.TryGetComponent(playerMap, out CEZTransitMapComponent? riderTransit))
         {
-            frac = GetTransitProgress(riderTransit);
+            var span = _zLevels.GetTransitSpan(riderTransit);
+            frac = GetTransitProgress(riderTransit) * span;
             belowChainStart = riderTransit.LowerMap;
             belowChainStartDepth = -frac;
             aboveMap = riderTransit.UpperMap;
-            aboveDepth = 1f - frac;
+            aboveDepth = span - frac;
         }
         else
         {
-            frac = _zLevels.GetLocalAltitude(_player.LocalEntity.Value);
+            frac = _zLevels.GetLocalAltitude(cameraAnchor);
             ownDepth = -frac;
             belowChainStartDepth = -1f - frac;
             aboveDepth = 1f - frac;
@@ -154,27 +190,28 @@ public sealed partial class ScalingViewport
                 aboveMap = mapAbove.Owner;
         }
 
-        // Depth of the nearest layer below the observer that caps the view, if any, with the
-        // band under it that still renders. A cloud deck keeps a dissolve band (ships sink
-        // through the tops); a ground layer is a hard floor you land ON, never below, so
-        // nothing under it should ever draw. Transit ships past this are occluded and skip
-        // their render pass (see the transit cull below).
+        // Clouds retain a dissolve band below the view cap; solid ground does not.
         float? occludeBelowDepth = null;
-        var occludeBand = 0f;
+        EntityUid? backdropCloudMap = null;
+        var riderDeck = aboveDepth <= CloudFullCoverDepth
+            ? _entityManager.GetComponentOrNull<CEZCloudLayerComponent>(aboveMap)
+            : null;
 
-        // Standing on such a layer caps the whole view below the observer at once.
-        if (_entityManager.HasComponent<CEZCloudLayerComponent>(playerMap))
+        if (riderDeck != null)
         {
             occludeBelowDepth = ownDepth;
-            occludeBand = CloudDissolveBand;
+        }
+        else if (_entityManager.HasComponent<CEZCloudLayerComponent>(playerMap))
+        {
+            occludeBelowDepth = ownDepth;
+            backdropCloudMap = playerMap;
         }
         else if (_entityManager.HasComponent<CEZGroundLayerComponent>(playerMap))
         {
             occludeBelowDepth = ownDepth;
         }
-        // Otherwise walk downward while there are empty tiles to see through. A cloud or
-        // ground layer ends the walk: nothing beneath it is visible.
-        else if (TryFindEmptyTiles(playerMap))
+        // Walk down through visible gaps until a cloud or ground layer occludes the view.
+        else if (riderTransit != null || TryFindEmptyTiles(playerMap, viewport, MakeZEye(playerMap, ownDepth)))
         {
             var current = belowChainStart;
             var depthCursor = belowChainStartDepth;
@@ -185,7 +222,7 @@ public sealed partial class ScalingViewport
                 if (_entityManager.HasComponent<CEZCloudLayerComponent>(current.Value))
                 {
                     occludeBelowDepth = depthCursor;
-                    occludeBand = CloudDissolveBand;
+                    backdropCloudMap = current;
                     break;
                 }
 
@@ -195,7 +232,7 @@ public sealed partial class ScalingViewport
                     break;
                 }
 
-                if (!TryFindEmptyTiles(current.Value))
+                if (!TryFindEmptyTiles(current.Value, viewport, MakeZEye(current.Value, depthCursor)))
                     break;
 
                 current = _zLevels.TryMapOffset(current.Value, -1, out var next) ? next.Owner : null;
@@ -203,24 +240,26 @@ public sealed partial class ScalingViewport
             }
         }
 
-        // always render your own map
         _zPasses.Add((playerMap, ownDepth, true, false));
 
-        if (riderTransit != null)
+        var visibleAbove = zLevelViewer.LookUp ? _zLevels.GetVisibleZLevelsAbove(cameraAnchor, playerMap) : 0;
+        var overheadViewDepth = 0f;
+        for (var i = 1; i <= visibleAbove; i++)
         {
-            if (aboveMap != null && aboveDepth > 0.001f && TransitFade(aboveDepth) > 0.01f)
-                _zPasses.Add((aboveMap.Value, aboveDepth, false, true));
-        }
-        else if (zLevelViewer.LookUp && aboveMap != null)
-        {
-            _zPasses.Add((aboveMap.Value, aboveDepth, true, false));
+            if (!_zLevels.TryMapOffset(playerMap, i, out var upper))
+                break;
+
+            overheadViewDepth = aboveDepth + i - 1;
+            _zPasses.Add((upper.Owner, overheadViewDepth, true, false));
         }
 
-        // transit maps also render
+        if (visibleAbove == 0 && riderTransit != null && aboveMap != null &&
+            aboveDepth >= 0f && TransitFade(aboveDepth) > 0.01f)
+            _zPasses.Add((aboveMap.Value, aboveDepth, false, true));
+
         var altitudeAnchor = riderTransit?.LowerMap ?? playerMap;
         if (_entityManager.HasComponent<CEZMapComponent>(altitudeAnchor))
         {
-            var observerAltitude = _zLevels.GetAbsoluteAltitude(_player.LocalEntity.Value);
             var hasObserverNetwork = _zLevels.TryGetMapNetwork(altitudeAnchor, out var observerNetwork);
 
             var transitQuery = _entityManager.EntityQueryEnumerator<CEZTransitMapComponent>();
@@ -239,24 +278,16 @@ public sealed partial class ScalingViewport
                     continue;
                 }
 
-                // Transit grid's absolute altitude (lower-anchor depth + gap progress, folded in by
-                // the API) relative to the observer's. Fall back to the gap's lower plane if the map
-                // has no primary grid to read.
                 var transitAltitude = transit.PrimaryGrid is { } primaryGrid
                     ? _zLevels.GetAbsoluteAltitude(primaryGrid)
                     : lowerZ.Depth;
                 var transitDepth = transitAltitude - observerAltitude;
 
-                // Hidden under a layer between it and the observer: for a cloud, ships still
-                // within the dissolve band show through (as sinking ghosts) so only deeper
-                // ones are culled; for a ground layer the band is zero, so anything below the
-                // floor is dropped outright. This is what lets a deck cheapen the scene
-                // without hiding ships still crossing it.
-                if (occludeBelowDepth is { } occludeDepth && transitDepth < occludeDepth - occludeBand)
+                var dissolveBand = backdropCloudMap != null ? CloudDissolveBand : 0f;
+                if (occludeBelowDepth is { } occludeDepth && transitDepth < occludeDepth - dissolveBand)
                     continue;
 
-                // they're gone
-                if (transitDepth > 0f && TransitFade(transitDepth) <= 0.01f)
+                if (transitDepth > 0f && TransitFade(transitDepth - overheadViewDepth) <= 0.01f)
                     continue;
 
                 _zPasses.Add((transitUid, transitDepth, false, true));
@@ -264,42 +295,26 @@ public sealed partial class ScalingViewport
         }
 
         // Painter's algorithm.
-        _zPasses.Sort(static (a, b) =>
+        _zPasses.Sort((a, b) =>
         {
-            var aUp = a.Depth > 0f;
-            var bUp = b.Depth > 0f;
-            if (aUp != bUp)
-                return aUp ? 1 : -1;
-            return aUp ? b.Depth.CompareTo(a.Depth) : a.Depth.CompareTo(b.Depth);
+            var order = a.Depth.CompareTo(b.Depth);
+            return order != 0 ? order : (a.MapUid == playerMap).CompareTo(b.MapUid == playerMap);
         });
 
-        CEZCloudLayerComponent? riderDeck = null;
-        if (aboveMap != null &&
-            aboveDepth <= CloudFullCoverDepth &&
-            _entityManager.TryGetComponent(aboveMap.Value, out CEZCloudLayerComponent? riderDeckComp))
-        {
-            riderDeck = riderDeckComp;
-        }
-
-        var lowestDepth = float.MaxValue;
-        var highestDepth = float.MinValue;
         foreach (var pass in _zPasses)
         {
             lowestDepth = Math.Min(lowestDepth, pass.Depth);
             highestDepth = Math.Max(highestDepth, pass.Depth);
         }
 
-        // Builds the perspective eye for a pass at an arbitrary depth. Factored out of the
-        // main loop's inline construction so a ship that has sunk below a cloud deck can be
-        // re-projected and re-drawn OVER the deck (see the cloudDeck branch).
         ZEye? MakeZEye(EntityUid targetMap, float d)
         {
             if (_fallbackEye is null || !_mapQuery.Value.TryComp(targetMap, out var mapComp))
                 return null;
 
             Angle rot = _fallbackEye.Rotation * -1;
-            var off = rot.ToWorldVec() * CEClientZLevelsSystem.ZLevelOffset * (d - ownDepth);
-            var scale = MathF.Pow(CESharedZLevelsSystem.ZLevelViewShrink, -d);
+            var (scale, heightOffset) = ZProjection(d, ownDepth);
+            var off = rot.ToWorldVec() * heightOffset;
 
             return new ZEye(lowestDepth, d, highestDepth)
             {
@@ -314,46 +329,99 @@ public sealed partial class ScalingViewport
         }
 
         var first = true;
+        void PrepareBeams(int splitDepth, IClydeViewport target)
+        {
+            if (!_entityManager.TryGetComponent<CEZMapComponent>(riderTransit?.LowerMap ?? playerMap, out var observerLevel)
+                || !_overlayManager.TryGetOverlay<CEShieldBeamOverlayDispatcher>(out var beams))
+                return;
+            (int, Vector2, Vector2)? ProjectBeamPoint(EntityUid pointMap, Vector2 position)
+            {
+                if (!_entityManager.TryGetComponent<CEZMapComponent>(pointMap, out var level)
+                    || level.NetworkUid != observerLevel.NetworkUid)
+                    return null;
+                var depth = level.Depth - observerLevel.Depth - frac;
+                Vector2 ProjectReference(float referenceDepth, Vector2 worldPosition)
+                {
+                    var eye = MakeZEye(pointMap, referenceDepth)!;
+                    eye.GetViewMatrix(out var matrix, viewport.RenderScale);
+                    var local = Vector2.Transform(worldPosition, matrix) * EyeManager.PixelsPerMeter;
+                    return (Vector2) viewport.Size / 2 + new Vector2(local.X, -local.Y);
+                }
+                var point = ProjectReference(depth, position);
+                return (level.Depth, point, ProjectReference(depth + 1, position) - point);
+            }
+
+            float BeamCloudCoverage(EntityUid map)
+            {
+                if (!_entityManager.TryGetComponent<CEZMapComponent>(map, out var level))
+                    return 0f;
+                var depth = level.Depth - observerLevel.Depth - frac;
+                return depth <= CloudFullCoverDepth ? 1f : CloudCoverage(depth);
+            }
+
+            beams.PreparePass(target, ProjectBeamPoint, BeamCloudCoverage,
+                _fallbackEye!.Scale.Y * viewport.RenderScale.Y * EyeManager.PixelsPerMeter, splitDepth);
+        }
+
+        var beamTopDepth = _zPasses
+            .Where(pass => !pass.Transit && _entityManager.HasComponent<CEZMapComponent>(pass.MapUid))
+            .Select(pass => (int?) _entityManager.GetComponent<CEZMapComponent>(pass.MapUid).Depth)
+            .Max();
+        _overlayManager.TryGetOverlay<ShipShieldShellOverlay>(out var shipShields); // Mono
+        var drewOverheadCloud = false;
+        void DrawOverheadCloud()
+        {
+            drewOverheadCloud = true;
+            if (aboveMap is not { } cloudMap ||
+                !_entityManager.TryGetComponent(cloudMap, out CEZCloudLayerComponent? cloudAbove))
+                return;
+
+            var coverage = CloudCoverage(aboveDepth);
+            if (coverage > 0.001f)
+                DrawClouds(renderHandle, viewport, MakeZEye(cloudMap, aboveDepth),
+                    GetLitCloudColor(cloudMap, cloudAbove.CloudColor), coverage);
+        }
 
         foreach (var (mapUid, depth, allowFov, isTransit) in _zPasses)
         {
-            // A cloud layer at or below the observer draws an opaque deck beneath
-            // its own pass: deeper passes already rendered vanish under it, grids
-            // parked on the layer draw crisp on top of it.
+            // These ships are composited over the cloud backdrop instead of rendered twice.
+            if (isTransit && backdropCloudMap != null && occludeBelowDepth is { } cloudDepth && depth <= cloudDepth)
+                continue;
+
+            if (!drewOverheadCloud && mapUid != playerMap && depth >= aboveDepth)
+                DrawOverheadCloud();
+
+            using var shieldPass = shipShields?.BeginZPass(_zPasses, mapUid, playerMap,
+                viewport, _fallbackEye!, observerAltitude, ownDepth); // Mono
+            // Draw the opaque cloud deck beneath this pass.
             CEZCloudLayerComponent? cloudDeck = null;
             if (depth <= 0.001f && !isTransit)
                 _entityManager.TryGetComponent(mapUid, out cloudDeck);
 
-            if (mapUid == playerMap && depth == 0f)
+            if (riderDeck == null && first && cloudDeck == null && mapUid == playerMap &&
+                depth == 0f)
             {
                 viewport.Eye = _fallbackEye;
             }
             else
             {
-                if (!_mapQuery.Value.TryComp(mapUid, out var mapComp))
+                if (MakeZEye(mapUid, depth) is not { } zEye)
                     continue;
-
-                Angle rotation = _fallbackEye.Rotation * -1;
-
-                var offset = rotation.ToWorldVec() * CEClientZLevelsSystem.ZLevelOffset * (depth - ownDepth);
-                var zScale = MathF.Pow(CESharedZLevelsSystem.ZLevelViewShrink, -depth);
-
-                var zEye = new ZEye(lowestDepth, depth, highestDepth)
+                // Mono Start: Cache the eye that actually draws the aimed-at deck.
+                if (zLevelViewer.LookUp && !isTransit && mapUid == aboveMap)
                 {
-                    Position = new MapCoordinates(_fallbackEye.Position.Position, mapComp.MapId),
-                    // For overlay guards and other random shit that should only ever run on the actual eye and not the rest.
-                    Primary = mapUid == playerMap && !isTransit,
-                    DrawFov = _fallbackEye.DrawFov && allowFov,
-                    DrawLight = _fallbackEye.DrawLight,
-                    DrawParallax = !isTransit && depth == lowestDepth && cloudDeck == null,
-                    Offset = _fallbackEye.Offset + offset,
-                    Rotation = _fallbackEye.Rotation,
-                    Scale = _fallbackEye.Scale * zScale,
-                };
+                    _lookUpAimEye = zEye;
+                    _lookUpSourceMap = _fallbackEye.Position.MapId;
+                }
+                // Mono End
+                zEye.Primary = mapUid == playerMap && !isTransit;
+                zEye.DrawFov = _fallbackEye.DrawFov && allowFov;
+                zEye.DrawParallax = riderDeck == null && !isTransit && depth == lowestDepth && cloudDeck == null;
 
                 if (isTransit && depth > 0f)
                 {
-                    RenderTransitOverhead(renderHandle, viewport, mapUid, zEye, depth);
+                    var effectDepth = depth - (_entityManager.HasComponent<CEZTransitMapComponent>(mapUid) ? overheadViewDepth : 0f);
+                    RenderTransitOverhead(renderHandle, viewport, mapUid, zEye, effectDepth, shipShields);
                     continue;
                 }
 
@@ -361,61 +429,260 @@ public sealed partial class ScalingViewport
             }
 
 
-            Color? wispColor = null;
-
             if (riderDeck != null && mapUid == playerMap && !isTransit && depth == ownDepth)
             {
-                DrawCloudDeck(renderHandle, viewport, riderDeck.CloudColor, 1f);
-                DrawCloudWisps(renderHandle, viewport, riderDeck.CloudColor);
+                var cloudColor = GetLitCloudColor(aboveMap!.Value, riderDeck.CloudColor);
+                // Procedural clouds need the plane's projection, not its map render target.
+                var cloudEye = MakeZEye(playerMap, aboveDepth);
+                DrawClouds(renderHandle, viewport, cloudEye, cloudColor, 1f, clear: first);
+                DrawClouds(renderHandle, viewport, cloudEye, cloudColor, 0f, 0.85f);
                 first = false;
             }
 
 
             else if (cloudDeck != null)
             {
-                DrawCloudDeck(renderHandle, viewport, cloudDeck.CloudColor, 1f);
+                var cloudColor = GetLitCloudColor(mapUid, cloudDeck.CloudColor);
+                DrawClouds(renderHandle, viewport, viewport.Eye, cloudColor, 1f, clear: first);
+                var wisp = 0.85f * Math.Clamp(1f + depth * 2f, 0f, 1f);
+                DrawClouds(renderHandle, viewport, viewport.Eye, cloudColor, 0f, wisp);
 
-                // Clouds are an opaque layer. Rendering hack so that transit maps still render right when a ship goes below the clouds.
-                foreach (var (sinkMap, sinkDepth, _, sinkTransit) in _zPasses)
+                if (mapUid == backdropCloudMap)
                 {
-                    if (!sinkTransit)
-                        continue;
-
-                    var below = depth - sinkDepth; // how far this ship sits below the deck
-                    if (below <= 0f || below >= CloudDissolveBand)
-                        continue;
-
-                    if (MakeZEye(sinkMap, sinkDepth) is { } sinkEye)
+                    foreach (var (sinkMap, sinkDepth, _, sinkTransit) in _zPasses)
                     {
+                        var below = depth - sinkDepth;
+                        if (!sinkTransit || below < 0f || below >= CloudDissolveBand ||
+                            MakeZEye(sinkMap, sinkDepth) is not { } sinkEye)
+                            continue;
+
                         var t = below / CloudDissolveBand;
-                        BlitTransitCloudGhost(renderHandle, viewport, sinkEye, cloudDeck.CloudColor, tint: t, alpha: 1f - t);
+                        var fog = t * t * (3f - 2f * t);
+                        using var sinkShieldPass = shipShields?.BeginZPass(_zPasses, sinkMap, playerMap,
+                            GetTransitViewport(viewport), _fallbackEye!, observerAltitude, ownDepth);
+                        BlitTransitCloudGhost(renderHandle, viewport, sinkEye, cloudColor, tint: fog * 0.75f, alpha: 1f - fog);
                     }
                 }
-                if (mapUid == playerMap && depth <= 0.001f)
-                    DrawCloudWisps(renderHandle, viewport, cloudDeck.CloudColor);
-
-                else if (depth > -0.5f)
-                    wispColor = cloudDeck.CloudColor;
                 first = false;
             }
 
             viewport.ClearColor = first ? Color.Black : null;
+            // Keep the same render path when a deck crosses zero visual depth.
+            var isolate = !first;
             first = false;
+            var target = isolate ? GetTransitViewport(viewport) : viewport;
+            using var isolatedShieldPass = isolate
+                ? shipShields?.BeginZPass(_zPasses, mapUid, playerMap, target, _fallbackEye!, observerAltitude, ownDepth)
+                : null;
+            if (isolate)
+            {
+                target.Eye = viewport.Eye;
+                target.ClearColor = new Color(0f, 0f, 0f, 0f);
+            }
+
+            if (!isTransit && _entityManager.TryGetComponent<CEZMapComponent>(mapUid, out var beamLevel)
+                && beamLevel.Depth == beamTopDepth)
+                PrepareBeams(beamLevel.Depth, target);
+            target.Render();
+            if (isolate)
+                CompositeZDeck(renderHandle, viewport, target.RenderTarget.Texture);
+
+        }
+
+        var drewPlanetTransit = false;
+        var planetQuery = _entityManager.EntityQueryEnumerator<PlanetTransitMapComponent>();
+        while (planetQuery.MoveNext(out var transitMap, out var mapTransit))
+        {
+            if (mapTransit.OriginMap != playerMap)
+                continue;
+
+            var duration = (mapTransit.End - mapTransit.Start).TotalSeconds;
+            var progress = duration <= 0
+                ? 1f
+                : Math.Clamp((float)((_gameTiming.CurTime - mapTransit.Start).TotalSeconds / duration), 0f, 1f);
+            var depthProgress = progress * progress * (3f - 2f * progress);
+            var depth = mapTransit.Arrival
+                ? 1f - depthProgress + 0.001f
+                : mapTransit.Direction == PlanetTransitDirection.Ascent
+                    ? depthProgress + 0.001f
+                    : -depthProgress - 0.001f;
+            var fade = mapTransit.Arrival
+                ? depthProgress
+                : Math.Clamp((1f - progress) / 0.5f, 0f, 1f);
+            if (fade <= 0.001f || MakeZEye(transitMap, depth) is not { } transitEye)
+                continue;
+
+            if (mapTransit.Direction == PlanetTransitDirection.Ascent && !mapTransit.Arrival)
+                transitEye.Offset = _fallbackEye.Offset - (transitEye.Offset - _fallbackEye.Offset);
+
+            var shrinkProgress = mapTransit.Arrival ? 1f - progress : progress;
+            var shrink = MathF.Pow(0.01f / CESharedZLevelsSystem.ZLevelViewShrink,
+                shrinkProgress * shrinkProgress);
+            BlitTransitCloudGhost(renderHandle,
+                viewport,
+                transitEye,
+                Color.Black,
+                0f,
+                fade,
+                shrink);
+            drewPlanetTransit = true;
+        }
+
+        if (drewPlanetTransit && _fallbackEye != null)
+        {
+            var ownEye = new ZEye(lowestDepth, ownDepth, highestDepth)
+            {
+                Position = _fallbackEye.Position,
+                DrawFov = _fallbackEye.DrawFov,
+                DrawLight = _fallbackEye.DrawLight,
+                DrawParallax = false,
+                Offset = _fallbackEye.Offset,
+                Rotation = _fallbackEye.Rotation,
+                Scale = _fallbackEye.Scale,
+            };
+            BlitTransitCloudGhost(renderHandle, viewport, ownEye, Color.Black, 0f, 1f);
+        }
+
+        if (!drewOverheadCloud)
+            DrawOverheadCloud();
+
+        Eye = _fallbackEye;
+        viewport.Eye = Eye;
+    }
+
+    private void RenderFallback(IClydeViewport viewport)
+    {
+        viewport.Eye = _fallbackEye;
+        viewport.ClearColor = Color.Black;
+        viewport.Render();
+    }
+
+    private void RenderPlanetTransitRider(IRenderHandle renderHandle,
+        IClydeViewport viewport,
+        EntityUid transitMap,
+        PlanetTransitMapComponent transit)
+    {
+        if (_fallbackEye == null ||
+            !_mapQuery!.Value.TryComp(transit.OriginMap, out var originMap) ||
+            !_mapQuery.Value.TryComp(transitMap, out var transitMapComp))
+        {
+            RenderFallback(viewport);
+            return;
+        }
+
+        var duration = (transit.End - transit.Start).TotalSeconds;
+        var progress = duration <= 0
+            ? 1f
+            : Math.Clamp((float)((_gameTiming.CurTime - transit.Start).TotalSeconds / duration), 0f, 1f);
+        progress = progress * progress * (3f - 2f * progress);
+
+        var backdropScale = transit.Direction == PlanetTransitDirection.Ascent
+            ? transit.Arrival
+                ? MathHelper.Lerp(0.08f, 1f, progress)
+                : MathHelper.Lerp(1f, 0.08f, progress)
+            : MathHelper.Lerp(1f, 1f / 0.35f, progress);
+
+        ZEye BackdropEye(MapComponent map, float scale, bool parallax, float depth)
+        {
+            var projection = ZProjection(depth);
+            return new ZEye(0f, 0f, 0f)
+            {
+                PlanetTransitBackdrop = true,
+                Position = new MapCoordinates(_fallbackEye.Position.Position, map.MapId),
+                DrawFov = false,
+                DrawLight = _fallbackEye.DrawLight,
+                DrawParallax = parallax,
+                Offset = _fallbackEye.Offset + (-_fallbackEye.Rotation).ToWorldVec() * projection.Offset,
+                Rotation = _fallbackEye.Rotation,
+                Scale = _fallbackEye.Scale * scale * projection.Scale,
+            };
+        }
+
+        void RenderBackdrop(EntityUid mapUid, MapComponent map, float scale, bool clear, bool parallax, float depth = 0f)
+        {
+            viewport.Eye = BackdropEye(map, scale, parallax, depth);
+            viewport.ClearColor = clear ? Color.Black : null;
             viewport.Render();
 
-            if (wispColor != null)
-                DrawCloudWisps(renderHandle, viewport, wispColor.Value);
+            if (_entityManager.TryGetComponent<CEZCloudLayerComponent>(mapUid, out var cloud))
+                DrawClouds(renderHandle, viewport, viewport.Eye, GetLitCloudColor(mapUid, cloud.CloudColor), 1f);
         }
 
-        if (aboveMap != null &&
-            _entityManager.TryGetComponent(aboveMap.Value, out CEZCloudLayerComponent? cloudAbove))
+        if (transit.Direction == PlanetTransitDirection.Ascent && !transit.Arrival &&
+            _zLevels!.TryGetMapNetwork(transit.OriginMap, out var network) &&
+            _entityManager.TryGetComponent<CEZMapComponent>(transit.OriginMap, out var originZ))
         {
-            var coverage = CloudCoverage(aboveDepth);
-            if (coverage > 0.001f)
-                DrawCloudDeck(renderHandle, viewport, cloudAbove.CloudColor, coverage);
+            var minimumDepth = network.Comp.SortedMin;
+            foreach (var mapUid in network.Comp.SortedZLevels)
+            {
+                if (_entityManager.TryGetComponent<CEZMapComponent>(mapUid, out var zMap) &&
+                    zMap.Depth <= originZ.Depth &&
+                    (_entityManager.HasComponent<CEZCloudLayerComponent>(mapUid) ||
+                     _entityManager.HasComponent<CEZGroundLayerComponent>(mapUid)))
+                {
+                    minimumDepth = Math.Max(minimumDepth, zMap.Depth);
+                }
+            }
+
+            var clear = true;
+            foreach (var mapUid in network.Comp.SortedZLevels)
+            {
+                if (!_entityManager.TryGetComponent<CEZMapComponent>(mapUid, out var zMap) ||
+                    zMap.Depth < minimumDepth ||
+                    zMap.Depth > originZ.Depth ||
+                    !_mapQuery.Value.TryComp(mapUid, out var map))
+                {
+                    continue;
+                }
+
+                RenderBackdrop(mapUid, map, backdropScale, clear, clear, zMap.Depth - originZ.Depth);
+                clear = false;
+            }
+        }
+        else
+        {
+            RenderBackdrop(transit.OriginMap, originMap, backdropScale, true, true);
         }
 
-        // Restore the Eye
+        var gridEye = new ZEye(0f, 0f, 0f)
+        {
+            Position = new MapCoordinates(_fallbackEye.Position.Position, transitMapComp.MapId),
+            DrawFov = _fallbackEye.DrawFov,
+            DrawLight = _fallbackEye.DrawLight,
+            DrawParallax = false,
+            Offset = _fallbackEye.Offset,
+            Rotation = _fallbackEye.Rotation,
+            Scale = _fallbackEye.Scale,
+        };
+
+        BlitTransitCloudGhost(renderHandle, viewport, gridEye, Color.Black, 0f, 1f);
+        if (_entityManager.TryGetComponent<CEZMapComponent>(transit.OriginMap, out var beamOrigin)
+            && _overlayManager.TryGetOverlay<CEShieldBeamOverlayDispatcher>(out var beams))
+        {
+            (int, Vector2, Vector2)? ProjectBeamPoint(EntityUid map, Vector2 position)
+            {
+                if (!_entityManager.TryGetComponent<CEZMapComponent>(map, out var level)
+                    || level.NetworkUid != beamOrigin.NetworkUid)
+                    return null;
+                Vector2 Project(float depth, Vector2 worldPosition)
+                {
+                    var eye = BackdropEye(originMap, backdropScale, false, depth);
+                    eye.GetViewMatrix(out var matrix, viewport.RenderScale);
+                    var local = Vector2.Transform(worldPosition, matrix) * EyeManager.PixelsPerMeter;
+                    return (Vector2) viewport.Size / 2 + new Vector2(local.X, -local.Y);
+                }
+                var depth = level.Depth - beamOrigin.Depth;
+                var point = Project(depth, position);
+                return (level.Depth, point, Project(depth + 1, position) - point);
+            }
+
+            float BeamCloudCoverage(EntityUid map) =>
+                _entityManager.TryGetComponent<CEZMapComponent>(map, out var level)
+                && level.Depth <= beamOrigin.Depth ? 1f : 0f;
+
+            beams.RenderPass(renderHandle, viewport, ProjectBeamPoint, BeamCloudCoverage,
+                _fallbackEye.Scale.Y * backdropScale * viewport.RenderScale.Y * EyeManager.PixelsPerMeter);
+        }
         Eye = _fallbackEye;
         viewport.Eye = Eye;
     }
@@ -424,23 +691,19 @@ public sealed partial class ScalingViewport
         IClydeViewport viewport,
         EntityUid transitMap,
         ZEye zEye,
-        float depth)
+        float depth,
+        ShipShieldShellOverlay? shipShields)
     {
-        if (_transitViewport == null || _transitViewport.Size != viewport.Size)
-        {
-            _transitViewport?.Dispose();
-            _transitViewport = _clyde.CreateViewport(viewport.Size, nameof(_transitViewport));
-            _transitViewport.RenderScale = viewport.RenderScale;
-        }
+        var scratch = GetTransitViewport(viewport);
 
         _transitBlitShader ??= _prototypeManager.Index<ShaderPrototype>("CEZBlurBlit").InstanceUnique();
 
         zEye.DrawParallax = false;
 
-        _transitViewport.Eye = zEye;
+        scratch.Eye = zEye;
         // "Why aren't you using Color.Transparent" because it's LIES it is entirely white
-        _transitViewport.ClearColor = new Color(0f, 0f, 0f, 0f);
-        _transitViewport.Render();
+        scratch.ClearColor = new Color(0f, 0f, 0f, 0f);
+        scratch.Render();
 
         var hazeColor = new Vector3(0, 0, 1);
         if (_entityManager.TryGetComponent(transitMap, out MapLightComponent? mapLight))
@@ -455,15 +718,19 @@ public sealed partial class ScalingViewport
 
         var cloud = 0f;
         var cloudColor = Vector3.One;
-        if (_entityManager.TryGetComponent(transitMap, out CEZTransitMapComponent? transit))
+        var fade = TransitFade(depth);
+        var isShipTransit = _entityManager.TryGetComponent(transitMap, out CEZTransitMapComponent? transit);
+        if (transit != null)
         {
-            var progress = GetTransitProgress(transit);
+            var span = _zLevels!.GetTransitSpan(transit);
+            var progress = GetTransitProgress(transit) * span;
 
             if (transit.UpperMap is { } upper &&
                 _entityManager.TryGetComponent(upper, out CEZCloudLayerComponent? cloudAbove))
             {
-                cloud = CloudCoverage(1f - progress);
-                cloudColor = new Vector3(cloudAbove.CloudColor.R, cloudAbove.CloudColor.G, cloudAbove.CloudColor.B);
+                cloud = CloudCoverage(span - progress);
+                var color = GetLitCloudColor(upper, cloudAbove.CloudColor);
+                cloudColor = new Vector3(color.R, color.G, color.B);
             }
 
             if (transit.LowerMap is { } lower &&
@@ -473,59 +740,88 @@ public sealed partial class ScalingViewport
                 if (belowCover > cloud)
                 {
                     cloud = belowCover;
-                    cloudColor = new Vector3(cloudBelow.CloudColor.R, cloudBelow.CloudColor.G, cloudBelow.CloudColor.B);
+                    var color = GetLitCloudColor(lower, cloudBelow.CloudColor);
+                    cloudColor = new Vector3(color.R, color.G, color.B);
                 }
             }
         }
 
+        if (isShipTransit)
+            shipShields?.DrawTransitSurface(renderHandle, viewport, scratch, fade, aboveHull: false);
+
         var screenHandle = renderHandle.DrawingHandleScreen;
         screenHandle.RenderInRenderTarget(viewport.RenderTarget, () =>
         {
-            var texture = _transitViewport.RenderTarget.Texture;
+            var texture = scratch.RenderTarget.Texture;
 
             _transitBlitShader.SetParameter("BLUR_COLOR", hazeColor);
             _transitBlitShader.SetParameter("STRENGTH", strength);
             _transitBlitShader.SetParameter("CLOUD_COLOR", cloudColor);
             _transitBlitShader.SetParameter("CLOUD", cloud);
-            _transitBlitShader.SetParameter("FADE", TransitFade(depth));
+            _transitBlitShader.SetParameter("FADE", fade);
 
             screenHandle.UseShader(_transitBlitShader);
             screenHandle.DrawTextureRect(texture, new UIBox2(Vector2.Zero, texture.Size));
             screenHandle.UseShader(null);
         }, null);
+        shipShields?.DrawTransitSurface(renderHandle, viewport, scratch, fade, aboveHull: isShipTransit ? true : null);
     }
 
-    /// <summary>
-    /// Renders a transit map to the scratch viewport under <paramref name="eye"/> and blits
-    /// just its hull over the main target: its own colors tinted toward
-    /// <paramref name="cloudColor"/> by <paramref name="tint"/> (0 = untouched hull, 1 = flat
-    /// deck color) and drawn at <paramref name="alpha"/>. Used to re-draw a ship that has sunk
-    /// below a cloud deck — and been hidden by its opaque fill — as a fogging, fading hull
-    /// sinking into the clouds instead of vanishing on the spot.
-    /// </summary>
-    private void BlitTransitCloudGhost(IRenderHandle renderHandle, IClydeViewport viewport, IEye? eye, Color cloudColor, float tint, float alpha)
+    private IClydeViewport GetTransitViewport(IClydeViewport viewport)
     {
-        if (eye is null || alpha <= 0.001f)
-            return;
-
         if (_transitViewport == null || _transitViewport.Size != viewport.Size)
         {
             _transitViewport?.Dispose();
             _transitViewport = _clyde.CreateViewport(viewport.Size, nameof(_transitViewport));
-            _transitViewport.RenderScale = viewport.RenderScale;
         }
+
+        _transitViewport.RenderScale = viewport.RenderScale;
+        return _transitViewport;
+    }
+
+    private void CompositeZDeck(IRenderHandle render, IClydeViewport viewport, Texture texture)
+    {
+        _zDeckComposite ??= _prototypeManager.Index<ShaderPrototype>("CEZDeckComposite").Instance();
+        var handle = render.DrawingHandleScreen;
+        handle.RenderInRenderTarget(viewport.RenderTarget, () =>
+        {
+            handle.UseShader(_zDeckComposite);
+            handle.DrawTextureRect(texture, new UIBox2(Vector2.Zero, texture.Size));
+            handle.UseShader(null);
+        }, null);
+    }
+
+    /// <summary>Composites a transit hull over the cloud deck with tint and fade.</summary>
+    private void BlitTransitCloudGhost(IRenderHandle renderHandle,
+        IClydeViewport viewport,
+        IEye? eye,
+        Color cloudColor,
+        float tint,
+        float alpha,
+        float shrink = 1f)
+    {
+        if (eye is null || alpha <= 0.001f)
+            return;
+
+        var scratch = GetTransitViewport(viewport);
 
         _transitBlitShader ??= _prototypeManager.Index<ShaderPrototype>("CEZBlurBlit").InstanceUnique();
 
-        _transitViewport.Eye = eye;
-        _transitViewport.ClearColor = new Color(0f, 0f, 0f, 0f);
-        _transitViewport.Render();
+        const float minEyeShrink = 0.25f;
+        var eyeShrink = Math.Max(shrink, minEyeShrink);
+        var textureShrink = shrink / eyeShrink;
+        var eyeScale = eye.Scale;
+        eye.Scale *= eyeShrink;
+        scratch.Eye = eye;
+        scratch.ClearColor = new Color(0f, 0f, 0f, 0f);
+        scratch.Render();
+        eye.Scale = eyeScale;
 
         var col = new Vector3(cloudColor.R, cloudColor.G, cloudColor.B);
         var screenHandle = renderHandle.DrawingHandleScreen;
         screenHandle.RenderInRenderTarget(viewport.RenderTarget, () =>
         {
-            var texture = _transitViewport.RenderTarget.Texture;
+            var texture = scratch.RenderTarget.Texture;
 
             _transitBlitShader.SetParameter("BLUR_COLOR", new Vector3(0f, 0f, 0f));
             _transitBlitShader.SetParameter("STRENGTH", 0f);
@@ -534,16 +830,20 @@ public sealed partial class ScalingViewport
             _transitBlitShader.SetParameter("FADE", Math.Clamp(alpha, 0f, 1f));
 
             screenHandle.UseShader(_transitBlitShader);
-            screenHandle.DrawTextureRect(texture, new UIBox2(Vector2.Zero, texture.Size));
+            var size = (Vector2) texture.Size;
+            var half = size / 2f;
+            var rect = textureShrink < 1f
+                ? new UIBox2(half - half * textureShrink, half + half * textureShrink)
+                : new UIBox2(Vector2.Zero, size);
+            screenHandle.DrawTextureRect(texture, rect);
             screenHandle.UseShader(null);
         }, null);
     }
 
     /// <summary>
-    /// Levels of descent over which a below-observer ship dissolves into a cloud deck
-    /// beneath it: full whiteout at the plane, clear this far above.
+    /// Transit hulls fade from clear at the cloud plane to hidden one deck below it.
     /// </summary>
-    private const float CloudDissolveBand = 0.5f;
+    private const float CloudDissolveBand = 1f;
 
     /// <summary>
     /// How many z-levels of climb it takes for a transiting ship seen from below to
@@ -577,41 +877,43 @@ public sealed partial class ScalingViewport
             1f);
     }
 
-    /// <summary>
-    /// Draw clouds.
-    /// </summary>
-    private void DrawCloudDeck(IRenderHandle renderHandle, IClydeViewport viewport, Color color, float coverage)
+    private void DrawClouds(IRenderHandle renderHandle, IClydeViewport viewport, IEye? eye,
+        Color color, float coverage, float wisp = 0f, bool clear = false)
     {
+        if (eye == null || (coverage <= 0f && wisp <= 0f))
+            return;
+
         _cloudShader ??= _prototypeManager.Index<ShaderPrototype>("CEZClouds").InstanceUnique();
+
+        eye.GetViewMatrixInv(out var inverseView, viewport.RenderScale);
+        var size = (Vector2) viewport.Size / EyeManager.PixelsPerMeter;
+        var origin = Vector2.Transform(-size / 2f, inverseView);
+        var axisX = Vector2.TransformNormal(new Vector2(size.X, 0f), inverseView);
+        var axisY = Vector2.TransformNormal(new Vector2(0f, size.Y), inverseView);
 
         var screenHandle = renderHandle.DrawingHandleScreen;
         screenHandle.RenderInRenderTarget(viewport.RenderTarget, () =>
         {
             _cloudShader.SetParameter("CLOUD_COLOR", new Vector3(color.R, color.G, color.B));
             _cloudShader.SetParameter("COVERAGE", coverage);
-            _cloudShader.SetParameter("WISP", 0f);
+            _cloudShader.SetParameter("WISP", wisp);
+            _cloudShader.SetParameter("WORLD_ORIGIN", origin);
+            _cloudShader.SetParameter("WORLD_X", axisX);
+            _cloudShader.SetParameter("WORLD_Y", axisY);
 
             screenHandle.UseShader(_cloudShader);
             screenHandle.DrawRect(new UIBox2(Vector2.Zero, viewport.RenderTarget.Texture.Size), Color.White);
             screenHandle.UseShader(null);
-        }, null);
+        }, clear ? Color.Black : null);
     }
 
-    private void DrawCloudWisps(IRenderHandle renderHandle, IClydeViewport viewport, Color color)
+    private Color GetLitCloudColor(EntityUid mapUid, Color color)
     {
-        _cloudShader ??= _prototypeManager.Index<ShaderPrototype>("CEZClouds").InstanceUnique();
+        if (!_entityManager.TryGetComponent<MapLightComponent>(mapUid, out var light))
+            return color;
 
-        var screenHandle = renderHandle.DrawingHandleScreen;
-        screenHandle.RenderInRenderTarget(viewport.RenderTarget, () =>
-        {
-            _cloudShader.SetParameter("CLOUD_COLOR", new Vector3(color.R, color.G, color.B));
-            _cloudShader.SetParameter("COVERAGE", 0f);
-            _cloudShader.SetParameter("WISP", 0.85f);
-
-            screenHandle.UseShader(_cloudShader);
-            screenHandle.DrawRect(new UIBox2(Vector2.Zero, viewport.RenderTarget.Texture.Size), Color.White);
-            screenHandle.UseShader(null);
-        }, null);
+        var ambient = _entityManager.System<Content.Client.Light.LightCycleSystem>().SampleAmbient(mapUid, light);
+        return new Color(color.R * ambient.R, color.G * ambient.G, color.B * ambient.B, color.A);
     }
 
     private float GetTransitProgress(CEZTransitMapComponent transit)
@@ -631,17 +933,12 @@ public sealed partial class ScalingViewport
         public float Depth = depth;
         public float HighestDepth = high;
 
-        /// <summary>
-        /// whether parallax draws (only used on the actual bottom layer of a z stack so transit doesnt explode time)
-        /// </summary>
+        /// <summary>Parallax is restricted to the bottom pass.</summary>
         public bool DrawParallax = true;
 
-        /// <summary>
-        /// Marker for which eye the player sees as their "primary" one (the one their entity is on).
-        /// This is here to make anyone messing with screenspace overlay's lives easier.
-        ///
-        /// (You should add a guard like the one in Vignette if it applies to every eye.)
-        /// </summary>
+        /// <summary>Marks the player's own deck pass for screen-space overlays.</summary>
         public bool Primary;
+
+        public bool PlanetTransitBackdrop;
     }
 }

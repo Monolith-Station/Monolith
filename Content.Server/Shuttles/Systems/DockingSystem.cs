@@ -507,6 +507,15 @@ namespace Content.Server.Shuttles.Systems
                 return false;
             }
 
+            var gridA = Transform(dockA).GridUid;
+            var gridB = Transform(dockB).GridUid;
+            if (gridA == null || gridB == null ||
+                HasComp<PreventDockingComponent>(gridA.Value) ||
+                HasComp<PreventDockingComponent>(gridB.Value))
+            {
+                return false;
+            }
+
             // Frontier: mask docking types
             if ((dockA.Comp.DockType & dockB.Comp.DockType) == DockType.None)
                 return false;

@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared._Mono.Ships; // Mono
 using Content.Shared._RMC14.Weapons.Ranged.Prediction;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Camera;
@@ -119,8 +120,18 @@ public abstract partial class SharedProjectileSystem : EntitySystem
             || component.ProjectileSpent || component is { Weapon: null, OnlyCollideWhenShot: true })
             return;
 
+        // Mono Start
+        if (args.OtherFixtureId.StartsWith(ShipShieldProjectorComponent.FixturePrefix, StringComparison.Ordinal))
+        {
+            OnShieldContact((uid, component), ref args);
+            return;
+        }
+        // Mono End
+
         ProjectileCollide((uid, component, args.OurBody), args.OtherEntity);
     }
+
+    protected virtual void OnShieldContact(Entity<ProjectileComponent> projectile, ref StartCollideEvent args) { } // Mono
 
     public DamageSpecifier? ProjectileCollide(Entity<ProjectileComponent, PhysicsComponent> projectile, EntityUid target, bool predicted = false)
     {

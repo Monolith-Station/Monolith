@@ -3,14 +3,19 @@
  * https://github.com/space-wizards/space-station-14/blob/master/LICENSE.TXT
  */
 
+using Content.Shared._CE.Planets.Hellpods;
 using Content.Shared._CE.ZLevels.Core.Components;
+using Content.Shared._Mono.Ships; // Mono
 using Content.Shared.Throwing;
+using Robust.Shared.Map.Components; // Mono
 using Robust.Shared.Physics.Components;
 
 namespace Content.Shared._CE.ZLevels.Core.EntitySystems;
 
 public abstract partial class CESharedZLevelsSystem
 {
+    [Dependency] private SharedShipShieldShellSystem _shieldContainment = default!; // Mono
+
     public int UpdateCalls { get; private set; }
 
     public override void Update(float frameTime)
@@ -41,7 +46,7 @@ public abstract partial class CESharedZLevelsSystem
                 continue;
             }
 
-            if (!_zMapQuery.HasComp(xform.MapUid))
+            if (!_zMapQuery.HasComp(xform.MapUid) || !IsDirectlyOnGridOrMap(xform))
             {
                 _activeBodies.RemoveAt(i);
                 continue;
@@ -49,6 +54,10 @@ public abstract partial class CESharedZLevelsSystem
 
             // Mono: The client only handles predicted stuff (non-predicted is the server's problem)
             if (_net.IsClient && !physics.Predict)
+                continue;
+
+            // Keep a launched projectile airborne even when transit hands it off to another map.
+            if (zPhysicsComponent.ProjectileFlight)
                 continue;
 
             ProcessZPhysics((uid, zPhysicsComponent, physics), frameTime);
@@ -79,14 +88,41 @@ public abstract partial class CESharedZLevelsSystem
         zPhysicsComponent.LocalPosition += zPhysicsComponent.Velocity * frameTime;
         var distanceToGround = zPhysicsComponent.LocalPosition - zPhysicsComponent.CachedGroundHeight;
 
-        var stickyGround = zPhysicsComponent.CachedStickyGround &&
-            zPhysicsComponent.Velocity is <= 0 and > -2f;
-
-        if (stickyGround || zPhysicsComponent.AutoStep && distanceToGround < 0)
+        var sticksToGround = zPhysicsComponent.CachedStickyGround && zPhysicsComponent.Velocity is <= 0f and > -2f;
+        if (sticksToGround || zPhysicsComponent.AutoStep && distanceToGround < 0)
+        {
             zPhysicsComponent.LocalPosition = zPhysicsComponent.CachedGroundHeight;
-
-        if (stickyGround)
             distanceToGround = 0;
+        }
+
+        // Mono Start
+        var xform = Transform(entity);
+        if (CompOrNull<CEHellpodComponent>(entity) is { InFlight: true })
+        {
+            var ground = zPhysicsComponent.CachedGroundHeight;
+            var next = MathF.Max(zPhysicsComponent.LocalPosition, ground);
+            if (next < oldHeight)
+            {
+                var plane = _zMapQuery.TryComp(xform.MapUid, out var podLevel) ? podLevel.Depth : GetAbsoluteAltitude(entity);
+                _shieldContainment.ClampVertical(entity, xform.MapUid, plane + oldHeight, plane + next, false);
+            }
+        }
+        else if (!xform.Anchored && entity.Comp2.CanCollide && entity.Comp2.InvMass > 0f &&
+            !HasComp<MapGridComponent>(entity) && _zMapQuery.TryComp(xform.MapUid, out var level))
+        {
+            var from = level.Depth + oldHeight;
+            var to = level.Depth + zPhysicsComponent.LocalPosition;
+            var altitude = _shieldContainment.ClampVertical(entity, xform.MapUid, from, to,
+                _shieldContainment.HasMovementIntent(entity) || oldVelocity > 0f && zPhysicsComponent.VelocityRaiseEvent,
+                verticalSpeed: zPhysicsComponent.Velocity);
+            if (altitude != to)
+            {
+                zPhysicsComponent.LocalPosition = altitude - level.Depth;
+                zPhysicsComponent.Velocity = 0f;
+                distanceToGround = zPhysicsComponent.LocalPosition - zPhysicsComponent.CachedGroundHeight;
+            }
+        }
+        // Mono End
 
         if (zPhysicsComponent is { Velocity: < 0, Fallable: true })
         {
@@ -118,7 +154,7 @@ public abstract partial class CESharedZLevelsSystem
             if (TryMoveDown(entity))
             {
                 zPhysicsComponent.LocalPosition += 1;
-                if (zPhysicsComponent is { CachedStickyGround: false, Fallable: true })
+                if (!sticksToGround && zPhysicsComponent.Fallable)
                 {
                     var fallEv = new CEZLevelFallMapEvent();
                     RaiseLocalEvent(entity, ref fallEv);
@@ -146,6 +182,11 @@ public abstract partial class CESharedZLevelsSystem
             {
                 if (TryMoveUp(entity))
                     zPhysicsComponent.LocalPosition -= 1;
+                else
+                {
+                    zPhysicsComponent.LocalPosition = 1f;
+                    zPhysicsComponent.Velocity = MathF.Min(0f, zPhysicsComponent.Velocity);
+                }
             }
         }
 
@@ -157,6 +198,7 @@ public abstract partial class CESharedZLevelsSystem
 
         if (zPhysicsComponent.VelocityGravity)
         {
+            distanceToGround = zPhysicsComponent.LocalPosition - zPhysicsComponent.CachedGroundHeight;
             var targetStatus = distanceToGround > AirborneHeightThreshold ? BodyStatus.InAir : BodyStatus.OnGround;
             if (entity.Comp2.BodyStatus != targetStatus)
             {

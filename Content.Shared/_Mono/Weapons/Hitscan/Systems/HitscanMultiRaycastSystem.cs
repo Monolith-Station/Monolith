@@ -1,15 +1,13 @@
-using System.Linq;
+using System.Numerics;
 using Content.Shared._Mono.Weapons.Hitscan.Components;
 using Content.Shared.Administration.Logs;
-using Content.Shared.Damage.Components;
 using Content.Shared.Database;
-using Content.Shared.Weapons.Hitscan.Components;
 using Content.Shared.Weapons.Hitscan.Events;
-using Robust.Shared.Containers;
+using Content.Shared.Weapons.Hitscan.Systems;
+using Robust.Shared.Map;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
-using Robust.Shared.Utility;
 
 namespace Content.Shared._Mono.Weapons.Hitscan.Systems;
 
@@ -18,6 +16,7 @@ public sealed partial class HitscanMultiRaycastSystem : EntitySystem
     [Dependency] private SharedPhysicsSystem _physics = default!;
     [Dependency] private ISharedAdminLogManager _log = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private HitscanBasicRaycastSystem _basicTrace = default!;
 
     [Dependency] private EntityQuery<PhysicsComponent> _physicQuery = default!;
     private HashSet<EntityUid> _hitEntities = [];
@@ -33,29 +32,11 @@ public sealed partial class HitscanMultiRaycastSystem : EntitySystem
     {
         var shooter = args.Shooter ?? args.Gun;
         var mapCords = _transform.ToMapCoordinates(args.FromCoordinates);
-        var ray = new CollisionRay(mapCords.Position, args.ShotDirection, (int) ent.Comp.CollisionMask);
-        var rayCastResults = _physics.IntersectRay(mapCords.MapId, ray, ent.Comp.MaxDistance, shooter, false);
-        var hitCount = 0;
-        var latestDistance = ent.Comp.MaxDistance;
-
-        foreach (var result in rayCastResults)
+        Trace(ent.Comp, mapCords, args.ShotDirection, shooter, out var shield, out var distance, _hitEntities);
+        foreach (var target in _hitEntities)
         {
-            if (!_physicQuery.TryComp(result.HitEntity, out var phys))
-                continue;
-
-            _hitEntities.Add(result.HitEntity);
-            latestDistance = result.Distance;
-
-            hitCount++;
-
-            if (hitCount > ent.Comp.MaxPierce)
-                break;
-
-            if ((phys.CollisionLayer & (int) ent.Comp.PierceCollisionMask) != 0x0)
-                break;
-
             _log.Add(LogType.HitScanHit,
-                $"{ToPrettyString(shooter):user} hit {ToPrettyString(result.HitEntity):target}"
+                $"{ToPrettyString(shooter):user} hit {ToPrettyString(target):target}"
                 + $" using {ToPrettyString(args.Gun):entity}.");
         }
 
@@ -66,10 +47,37 @@ public sealed partial class HitscanMultiRaycastSystem : EntitySystem
             Gun = args.Gun,
             Shooter = args.Shooter,
             HitEntities = _hitEntities,
-            DistanceTried = latestDistance,
+            DistanceTried = distance,
         };
 
         RaiseLocalEvent(ent, ref trace);
         _hitEntities.Clear();
+        if (!trace.Canceled && shield.IsValid())
+            _basicTrace.PublishShieldHit(ent.Owner, shield, shooter, mapCords.Offset(args.ShotDirection * distance));
+    }
+
+    public void Trace(HitscanMultiRaycastComponent settings, MapCoordinates start, Vector2 direction, EntityUid shooter,
+        out EntityUid shield, out float distance, HashSet<EntityUid>? hits = null)
+    {
+        var limit = _basicTrace.ShieldRange(start, direction, shooter, settings.MaxDistance, out shield);
+        var ray = new CollisionRay(start.Position, direction, (int) settings.CollisionMask);
+        distance = limit;
+        var hitCount = 0;
+        foreach (var result in _physics.IntersectRay(start.MapId, ray, limit, shooter, false))
+        {
+            if (_basicTrace.IsShieldProxy(result) || !_physicQuery.TryComp(result.HitEntity, out var phys))
+                continue;
+
+            hits?.Add(result.HitEntity);
+            distance = result.Distance;
+            if (++hitCount > settings.MaxPierce || (phys.CollisionLayer & (int) settings.PierceCollisionMask) != 0)
+            {
+                shield = EntityUid.Invalid;
+                return;
+            }
+        }
+
+        if (shield.IsValid())
+            distance = limit;
     }
 }

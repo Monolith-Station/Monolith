@@ -1,6 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
+using Content.Server._CE.ZLevels.Core;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;
 using Content.Server.Station.Events;
@@ -37,6 +38,8 @@ namespace Content.Server.Shuttles.Systems;
 
 public sealed partial class ShuttleSystem
 {
+    [Dependency] private CEZLevelsSystem _crushZLevels = default!;
+
     /*
      * This is a way to move a shuttle from one location to another, via an intermediate map for fanciness.
      */
@@ -1461,6 +1464,9 @@ public sealed partial class ShuttleSystem
                     continue;
                 }
 
+                if (!_crushZLevels.GridFootprintOverlapsEntity((uid, grid), ent))
+                    continue;
+
                 if (_bodyQuery.TryGetComponent(ent, out var mob))
                 {
                     _logger.Add(LogType.Gib, LogImpact.Extreme, $"{ToPrettyString(ent):player} got gibbed by the shuttle" +
@@ -1483,10 +1489,6 @@ public sealed partial class ShuttleSystem
         RaiseLocalEvent(ref ev);
     }
 
-    private const float CrushIntensityPerArea = 5f;
-    private const float CrushMinIntensity = 300f;
-    private const float CrushMaxIntensity = 25000f;
-
     /// <summary>
     /// Did you make absolutely sure there wasn't anything under you when you landed?
     /// </summary>
@@ -1496,37 +1498,29 @@ public sealed partial class ShuttleSystem
             !TryComp<MapGridComponent>(crusher, out var crusherGrid))
             return;
 
-        var crushedAabb = _transform.GetWorldMatrix(crushed).TransformBox(crushedGrid.LocalAABB);
-        var crusherAabb = _transform.GetWorldMatrix(crusher).TransformBox(crusherGrid.LocalAABB);
-        var overlap = crushedAabb.Intersect(crusherAabb);
-
-        var epicentre = overlap.Width > 0f && overlap.Height > 0f
-            ? overlap.Center
-            : (crushedAabb.Center + crusherAabb.Center) / 2f;
+        var area = _crushZLevels.GetCrushOverlap((crushed, crushedGrid), (crusher, crusherGrid), out var epicentre);
+        if (area <= 0f)
+            return;
+        var intensity = MathF.Min(area * 5f, 25000f);
 
         _logger.Add(LogType.Explosion, LogImpact.Extreme,
             $"{ToPrettyString(crushed)} and {ToPrettyString(crusher)} crushed into each other during z-level transit");
 
-        ExplodeCrushedGrid(crushed, crushedGrid, epicentre);
-        ExplodeCrushedGrid(crusher, crusherGrid, epicentre);
+        ExplodeCrushedGrid(crushed, epicentre, intensity);
+        ExplodeCrushedGrid(crusher, epicentre, intensity);
     }
 
     /// <summary>
     /// No, Zed, I did not.
     /// </summary>
-    private void ExplodeCrushedGrid(EntityUid gridUid, MapGridComponent grid, Vector2 worldEpicentre)
+    private void ExplodeCrushedGrid(EntityUid grid, Vector2 worldEpicentre, float intensity)
     {
-        var xform = Transform(gridUid);
-        if (xform.MapID == MapId.Nullspace)
+        if (Transform(grid).MapID == MapId.Nullspace)
             return;
 
-        var area = grid.LocalAABB.Width * grid.LocalAABB.Height;
-        var intensity = Math.Clamp(area * CrushIntensityPerArea, CrushMinIntensity, CrushMaxIntensity);
-
-        // Boom.
-        var localEpicentre = Vector2.Transform(worldEpicentre, _transform.GetInvWorldMatrix(gridUid));
+        var localEpicentre = Vector2.Transform(worldEpicentre, _transform.GetInvWorldMatrix(grid));
         _explosion.QueueExplosion(
-            _transform.ToMapCoordinates(new EntityCoordinates(gridUid, localEpicentre)),
+            new EntityCoordinates(grid, localEpicentre),
             ExplosionSystem.DefaultExplosionPrototypeId,
             intensity,
             slope: 5f,

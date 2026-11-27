@@ -17,6 +17,7 @@ public sealed partial class GravityGeneratorSystem : EntitySystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<GravityGeneratorComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<GravityGeneratorComponent, EntParentChangedMessage>(OnParentChanged);
         SubscribeLocalEvent<GravityGeneratorComponent, ChargedMachineActivatedEvent>(OnActivated);
         SubscribeLocalEvent<GravityGeneratorComponent, ChargedMachineDeactivatedEvent>(OnDeactivated);
@@ -94,7 +95,16 @@ public sealed partial class GravityGeneratorSystem : EntitySystem
         }
     }
 
-    private void OnActivated(Entity<GravityGeneratorComponent> ent, ref ChargedMachineActivatedEvent args)
+    private void OnStartup(Entity<GravityGeneratorComponent> ent, ref ComponentStartup args)
+    {
+        if (TryComp<PowerChargeComponent>(ent, out var charge) && charge.Active)
+            ActivateGravity(ent);
+    }
+
+    private void OnActivated(Entity<GravityGeneratorComponent> ent, ref ChargedMachineActivatedEvent args) =>
+        ActivateGravity(ent);
+
+    private void ActivateGravity(Entity<GravityGeneratorComponent> ent)
     {
         ent.Comp.GravityActive = true;
 

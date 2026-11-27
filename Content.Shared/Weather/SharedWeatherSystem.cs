@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared._CE.ZLevels.Roof;
 using Content.Shared.Light.Components;
 using Content.Shared.Light.EntitySystems;
 using Content.Shared.Maps;
@@ -20,6 +21,7 @@ public abstract partial class SharedWeatherSystem : EntitySystem
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private SharedMapSystem _mapSystem = default!;
     [Dependency] private SharedRoofSystem _roof = default!;
+    [Dependency] private CESharedZLevelsRoofSystem _zRoof = default!;
 
     private EntityQuery<BlockWeatherComponent> _blockQuery;
 
@@ -45,10 +47,13 @@ public abstract partial class SharedWeatherSystem : EntitySystem
 
     public bool CanWeatherAffect(EntityUid uid, MapGridComponent grid, TileRef tileRef, RoofComponent? roofComp = null)
     {
+        if (_zRoof.IsWeatherBlocked(uid, tileRef.GridIndices))
+            return false;
+
         if (tileRef.Tile.IsEmpty)
             return true;
 
-        if (Resolve(uid, ref roofComp, false) && _roof.IsRooved((uid, grid, roofComp), tileRef.GridIndices))
+        if (Resolve(uid, ref roofComp, false) && _roof.IsRooved((uid, grid, roofComp), tileRef.GridIndices, includeZLevels: false))
             return false;
 
         var tileDef = (ContentTileDefinition) _tileDefManager[tileRef.Tile.TypeId];

@@ -1,3 +1,4 @@
+using Content.Client.Message;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
@@ -9,6 +10,7 @@ public sealed class AcceptCryoWindow : DefaultWindow
 {
     public readonly Button DenyButton;
     public readonly Button AcceptButton;
+    public readonly RichTextLabel RespawnWarning = new() { Visible = false, MaxWidth = 380 };
 
     public AcceptCryoWindow()
     {
@@ -29,6 +31,7 @@ public sealed class AcceptCryoWindow : DefaultWindow
                         {
                             Text = Loc.GetString("accept-cryo-window-prompt-text-part")
                         }),
+                        RespawnWarning,
                         new BoxContainer
                         {
                             Orientation = LayoutOrientation.Horizontal,
@@ -55,6 +58,6 @@ public sealed class AcceptCryoWindow : DefaultWindow
                 },
             }
         });
+        RespawnWarning.SetMarkup(Loc.GetString("accept-cryo-window-respawn-warning"));
     }
 }
-

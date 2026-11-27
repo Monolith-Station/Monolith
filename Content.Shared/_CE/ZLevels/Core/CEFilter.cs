@@ -41,8 +41,11 @@ public static class CEFilter
 
         var visibleMap = new List<EntityUid>();
 
-        if (zSystem.TryMapOffset(currentMap, 1, out var mapAbove))
-            visibleMap.Add(mapAbove);
+        for (var i = 1; i <= CESharedZLevelsSystem.MaxZLevelsAboveRendering; i++)
+        {
+            if (zSystem.TryMapOffset(currentMap, i, out var mapAbove))
+                visibleMap.Add(mapAbove);
+        }
 
         for (var i = 1; i <= CESharedZLevelsSystem.MaxZLevelsBelowRendering; i++)
         {
@@ -84,8 +87,11 @@ public static class CEFilter
 
         var visibleMap = new List<EntityUid>();
 
-        if (zSystem.TryMapOffset(currentMap, 1, out var mapAbove))
-            visibleMap.Add(mapAbove);
+        for (var i = 1; i <= CESharedZLevelsSystem.MaxZLevelsAboveRendering; i++)
+        {
+            if (zSystem.TryMapOffset(currentMap, i, out var mapAbove))
+                visibleMap.Add(mapAbove);
+        }
 
         for (var i = 1; i <= CESharedZLevelsSystem.MaxZLevelsBelowRendering; i++)
         {

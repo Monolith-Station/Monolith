@@ -4,41 +4,43 @@ using Robust.Client.GameObjects;
 namespace Content.Client.Shuttles;
 
 /// <summary>
-/// Handles making a thruster visibly turn on/emit an exhaust plume according to its state. 
+/// Handles making a thruster visibly turn on/emit an exhaust plume according to its state.
 /// </summary>
-public sealed class ThrusterSystem : VisualizerSystem<ThrusterComponent>
+public sealed partial class ThrusterSystem : VisualizerSystem<ThrusterComponent>
 {
-    /// <summary>
-    /// Updates whether or not the thruster is visibly active/thrusting.
-    /// </summary>
-    protected override void OnAppearanceChange(EntityUid uid, ThrusterComponent comp, ref AppearanceChangeEvent args)
+    public override void Initialize()
     {
-        if (args.Sprite == null
-        || !AppearanceSystem.TryGetData<bool>(uid, ThrusterVisualState.State, out var state, args.Component))
-            return;
-
-        args.Sprite.LayerSetVisible(ThrusterVisualLayers.ThrustOn, state);
-        SetThrusting(
-            uid,
-            state && AppearanceSystem.TryGetData<bool>(uid, ThrusterVisualState.Thrusting, out var thrusting, args.Component) && thrusting,
-            args.Sprite
-        );
+        base.Initialize();
+        InitializeTransit();
     }
 
-    /// <summary>
-    /// Sets whether or not the exhaust plume of the thruster is visible or not.
-    /// </summary>
-    private static void SetThrusting(EntityUid _, bool value, SpriteComponent sprite)
+    protected override void OnAppearanceChange(EntityUid uid, ThrusterComponent comp, ref AppearanceChangeEvent args)
     {
-        if (sprite.LayerMapTryGet(ThrusterVisualLayers.Thrusting, out var thrustingLayer))
-        {
-            sprite.LayerSetVisible(thrustingLayer, value);
-        }
+        if (args.Sprite == null ||
+            !AppearanceSystem.TryGetData<bool>(uid, ThrusterVisualState.State, out var state, args.Component))
+            return;
 
-        if (sprite.LayerMapTryGet(ThrusterVisualLayers.ThrustingUnshaded, out var unshadedLayer))
-        {
-            sprite.LayerSetVisible(unshadedLayer, value);
-        }
+        SetLayerVisible((uid, args.Sprite), ThrusterVisualLayers.ThrustOn, state);
+
+        var transit = UpdateTransitAppearance(uid, comp, args.Component, args.Sprite);
+        var thrusting = AppearanceSystem.TryGetData<bool>(uid,
+            ThrusterVisualState.Thrusting,
+            out var active,
+            args.Component) && active;
+
+        SetThrusting((uid, args.Sprite), state && (transit || thrusting));
+    }
+
+    private void SetThrusting(Entity<SpriteComponent?> sprite, bool value)
+    {
+        SetLayerVisible(sprite, ThrusterVisualLayers.Thrusting, value);
+        SetLayerVisible(sprite, ThrusterVisualLayers.ThrustingUnshaded, value);
+    }
+
+    private void SetLayerVisible(Entity<SpriteComponent?> sprite, ThrusterVisualLayers key, bool value)
+    {
+        if (SpriteSystem.TryGetLayer(sprite, key, out var layer, false))
+            SpriteSystem.LayerSetVisible(layer, value);
     }
 }
 

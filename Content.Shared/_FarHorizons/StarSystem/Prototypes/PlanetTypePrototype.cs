@@ -1,4 +1,5 @@
 using Content.Shared._FarHorizons.StarSystem.Helpers;
+using Content.Shared._Mono.Planets;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._FarHorizons.StarSystem.Prototypes;
@@ -10,6 +11,7 @@ public sealed partial class PlanetTypePrototype : IPrototype
     [DataField(required: true)] public string Name = default!;
     [DataField(required: true)] public string Shader = default!;
     [DataField(required: true)] public float EarthMass;
+    [DataField] public float BodyScale = 1f;
     [DataField] public float Rotation;
     [DataField(required: true)] public ProtoId<PlanetPalettePrototype> Palette;
     [DataField] public float HueShift;
@@ -17,5 +19,23 @@ public sealed partial class PlanetTypePrototype : IPrototype
     [DataField] public ProtoId<PlanetaryAtmosphereTypePrototype>? Atmosphere;
     [DataField] public ProtoId<PlanetaryLiquidTypePrototype>? Liquid;
     [DataField] public ProtoId<PlanetaryRingsTypePrototype>? Rings;
+    [DataField] public ProtoId<PlanetMapPrototype>? Surface;
+    [DataField] public PlanetPersistenceMode Persistence = PlanetPersistenceMode.None;
+    [DataField] public ProtoId<PlanetPersistenceListPrototype>? PersistenceList;
+    [DataField] public List<PlanetPersistenceFlag> PersistenceFlags = new();
+    [DataField] public float LandingRadius = 256f;
     [DataField] public PlanetCustomValues CustomData = new();
+}
+
+public enum PlanetPersistenceMode : byte
+{
+    None,
+    Terrain,
+    Semi,
+    Full,
+}
+
+public enum PlanetPersistenceFlag : byte
+{
+    AllowRespawns,
 }

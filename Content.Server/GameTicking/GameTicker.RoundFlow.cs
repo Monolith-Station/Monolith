@@ -956,6 +956,7 @@ namespace Content.Server.GameTicking
             if (DummyTicker)
                 return;
 
+            RaiseLocalEvent(new RoundRestartingEvent());
             ReplayEndRound();
 
             // Handle restart for server update
@@ -1136,6 +1137,8 @@ namespace Content.Server.GameTicking
             }
         }
     }
+
+    public sealed class RoundRestartingEvent : EntityEventArgs;
 
     public enum GameRunLevel
     {

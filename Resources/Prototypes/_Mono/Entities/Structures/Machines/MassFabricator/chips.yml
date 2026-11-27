@@ -1,0 +1,27 @@
+- type: entity
+  id: HZBlueprintChipBase
+  parent: BaseItem
+  abstract: true
+  description: Adds new recipes to a Mass Fabricator when inserted.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: door_electronics
+  - type: Item
+    size: Tiny
+
+- type: entity
+  id: HZBlueprintChipStairs
+  parent: HZBlueprintChipBase
+  name: H-Z stairs blueprint chip
+  components:
+  - type: MassFabricatorBlueprintChip
+    blueprints: [HZBlueprintStairs, HZBlueprintCornerStairs]
+
+- type: entity
+  id: HZBlueprintChipWindows
+  parent: HZBlueprintChipBase
+  name: H-Z window blueprint chip
+  components:
+  - type: MassFabricatorBlueprintChip
+    blueprints: [HZBlueprintWindows]

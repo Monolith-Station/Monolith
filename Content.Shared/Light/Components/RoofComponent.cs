@@ -18,4 +18,8 @@ public sealed partial class RoofComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public Dictionary<Vector2i, ulong> Data = new();
+
+    // Rebuilt from the Z-network; never baked into a saved map's authored roofs.
+    [AutoNetworkedField]
+    public Dictionary<Vector2i, ulong> ZLevelData = new();
 }

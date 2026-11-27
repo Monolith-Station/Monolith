@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Created by Zethine for Monolith.",
+  "size": {
+    "x": 180,
+    "y": 180
+  },
+  "states": [
+    {
+      "name": "core"
+    },
+    {
+      "name": "energyloop",
+      "delays": [[0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1]]
+    },
+    {
+      "name": "energyspool",
+      "delays": [[0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1]]
+    },
+    {
+      "name": "online",
+      "delays": [[0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2]]
+    },
+    {
+      "name": "shutdown",
+      "delays": [[0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2]]
+    },
+    {
+      "name": "spoolup",
+      "delays": [[0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2]]
+    },
+    {
+      "name": "idle",
+      "delays": [[0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2]]
+    }
+  ]
+}

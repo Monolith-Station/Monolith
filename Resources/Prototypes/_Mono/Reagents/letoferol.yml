@@ -91,6 +91,22 @@
       effects:
       - !type:HealthChange
         conditions:
+        - !type:HasTag
+          tag: PlanetaryStrain
+        - !type:MobStateCondition
+          mobstate: Alive
+        damage:
+          groups:
+            Brute: -6
+            Burn: -3
+          types:
+            Poison: -2
+            Cellular: -2
+      - !type:HealthChange
+        conditions:
+        - !type:HasTag
+          tag: PlanetaryStrain
+          invert: true
         - !type:ReagentThreshold
           max: 15
         - !type:OrganType
@@ -101,6 +117,9 @@
             Cellular: 0.5
       - !type:HealthChange
         conditions:
+        - !type:HasTag
+          tag: PlanetaryStrain
+          invert: true
         - !type:ReagentThreshold
           min: 15
         - !type:OrganType
@@ -113,6 +132,9 @@
       - !type:Polymorph
         prototype: LetoferolMutationNatural
         conditions:
+        - !type:HasTag
+          tag: PlanetaryStrain
+          invert: true
         - !type:ReagentThreshold
           min: 15
         - !type:HasTag
@@ -120,19 +142,25 @@
         - !type:HasTag
           tag: Chimera
           invert: true
-#      - !type:Polymorph
-#        prototype: LetoferolMutationBeastNatural
-#        conditions:
-#        - !type:ReagentThreshold
-#          min: 10 # less for non-humanoids
-#        - !type:HasTag
-#          tag: Humanoid
-#          invert: true
-#        - !type:HasTag
-#          tag: Chimera
-#          invert: true
+      - !type:Polymorph
+        prototype: LetoferolMutationBeastNatural
+        conditions:
+        - !type:HasTag
+          tag: PlanetaryStrain
+          invert: true
+        - !type:ReagentThreshold
+          min: 10 # less for non-humanoids
+        - !type:HasTag
+          tag: Humanoid
+          invert: true
+        - !type:HasTag
+          tag: Chimera
+          invert: true
       - !type:PopupMessage
         conditions:
+        - !type:HasTag
+          tag: PlanetaryStrain
+          invert: true
         - !type:OrganType
           type: Chimera
           shouldHave: false
@@ -144,6 +172,9 @@
         probability: 0.2
       - !type:PopupMessage
         conditions:
+        - !type:HasTag
+          tag: PlanetaryStrain
+          invert: true
         - !type:OrganType
           type: Chimera
           shouldHave: false
@@ -156,6 +187,9 @@
       - !type:Drunk
         boozePower: 15
         conditions:
+        - !type:HasTag
+          tag: PlanetaryStrain
+          invert: true
         - !type:OrganType
           type: Chimera
           shouldHave: false

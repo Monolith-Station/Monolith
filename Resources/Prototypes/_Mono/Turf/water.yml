@@ -1,5 +1,6 @@
 - type: tile
   id: FloorWater
+  radarColor: "#244A68"
   name: tiles-water
   sprite: /Textures/_Mono/Tiles/planet/water.png
   isSubfloor: true
@@ -11,11 +12,13 @@
   barestepSounds:
     collection: FootstepWater
   friction: 0.4
+  gridFriction: 0
   mobFriction: 0.2
   mobFrictionNoInput: 0.3
   mobAcceleration: 8
   # No, landing in water does not shatter thy kneecaps
   fallDamageMultiplier: 0
   fallStunMultiplier: 0.1 # You still do get a bit stunned though.
+  landingSound: /Audio/Effects/Fluids/watersplash.ogg
   entityShader: MonoSubmerged
   reagent: Water

@@ -1,0 +1,9 @@
+- type: entity
+  id: MonoShipShieldCollider
+  name: ship shield collider
+  categories: [ HideSpawnMenu ]
+  save: false
+  components:
+  - type: Physics
+    ignoreGravity: true
+  - type: Fixtures

@@ -1,5 +1,7 @@
 using Content.Shared.Parallax.Biomes.Layers;
 using Content.Shared.Parallax.Biomes.Markers;
+using Content.Shared.Maps;
+using Content.Shared.Procedural;
 using Robust.Shared.GameStates;
 using Robust.Shared.Noise;
 using Robust.Shared.Prototypes;
@@ -57,6 +59,14 @@ public sealed partial class BiomeComponent : Component
     /// </summary>
     [DataField("loadedChunks")]
     public HashSet<Vector2i> LoadedChunks = new();
+
+    [DataField]
+    public HashSet<Vector2i> ProcessedPointOfInterestRegions = new();
+
+    [DataField] public bool TemplateInitialized;
+    [DataField] public List<ProtoId<DungeonRoomPrototype>> PointOfInterestRooms = new();
+    [DataField] public List<ProtoId<ContentTileDefinition>> PointOfInterestTiles = new();
+    [DataField] public int PointOfInterestSpacing = 256;
 
     #region Markers
 

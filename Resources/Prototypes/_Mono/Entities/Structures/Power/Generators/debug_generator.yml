@@ -1,0 +1,9 @@
+- type: entity
+  id: MonoDebugGenerator
+  parent: DebugGenerator
+  description: A very high efficiency thermoelectric generator.
+  suffix: DEBUG, 3 GW
+  components:
+  - type: PowerSupplier
+    supplyRate: 3000000000
+    supplyRampTolerance: 3000000000

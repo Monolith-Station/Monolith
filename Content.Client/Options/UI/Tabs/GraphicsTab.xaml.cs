@@ -61,6 +61,10 @@ public sealed partial class GraphicsTab : Control
         Control.AddOption(new OptionIntegerScaling(Control, _cfg, IntegerScalingCheckBox));
         Control.AddOptionCheckBox(CCVars.ViewportScaleRender, ViewportLowResCheckBox, invert: true);
         Control.AddOptionCheckBox(CCVars.ParallaxLowQuality, ParallaxLowQualityCheckBox);
+        Control.AddOptionSlider(Content.Shared._Mono.CCVar.MonoCVars.RadarTerrainBatchSize,
+            RadarTerrainBatchSlider, 16, 2048);
+        Control.AddOptionSlider(Content.Shared._Mono.CCVar.MonoCVars.RadarTerrainWorkers,
+            RadarTerrainWorkersSlider, 1, 16);
         Control.AddOptionCheckBox(CCVars.HudFpsCounterVisible, FpsCounterCheckBox);
 
         Control.AddOptionCheckBox(FHCCVars.RenderStarSystem, RenderStarSystemCheckBox); // Far Horizons

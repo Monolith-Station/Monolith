@@ -29,6 +29,12 @@ shuttle-console-travel-state-grounded = Grounded
 shuttle-console-travel-state-flying = Flying
 shuttle-console-travel-state-hovering = Hovering
 shuttle-console-travel-state-launching = Launching ({$countdown})
+shuttle-console-travel-state-priming = Priming ({$countdown})
+shuttle-console-travel-state-charging = Charging ({$countdown})
+shuttle-console-travel-state-descending = Descending
+shuttle-console-travel-state-ascending = Ascending
+shuttle-console-travel-state-arriving = Arriving
+shuttle-console-travel-state-respooling = [color=red]Respooling ({$countdown})[/color]
 
 shuttle-console-unknown = Unknown
 shuttle-console-iff-label = {$name} ({$distance}m)

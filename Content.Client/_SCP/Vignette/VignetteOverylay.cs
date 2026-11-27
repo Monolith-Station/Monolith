@@ -1,4 +1,3 @@
-using Content.Client.Viewport;
 using Robust.Client.Graphics;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
@@ -18,25 +17,16 @@ public sealed partial class VignetteOverlay : Overlay
         _shader = _prototype.Index<ShaderPrototype>("Vignette").Instance().Duplicate();
     }
 
-    public override OverlaySpace Space => OverlaySpace.WorldSpace;
-
-    public override bool RequestScreenTexture => true;
+    public override OverlaySpace Space => OverlaySpace.ScreenSpace; // Mono: Kill this class of bug for good
 
     protected override void Draw(in OverlayDrawArgs args)
     {
-        if (ScreenTexture is null)
-            return;
-
-        // Mono: Only draw vignette on NON-Z EYES (or at the very least the PRIMARY Z-EYE IF WE MUST).
-        // I hate this overlay so much.
-        if (args.Viewport.Eye is ScalingViewport.ZEye { Primary: false })
-            return;
-
-        _shader.SetParameter("SCREEN_TEXTURE", ScreenTexture);
+        // Mono: Draw into screenspace instead of individual viewports.
+        // I hate this overlay so goddamn much.
         _shader.SetParameter("vignette_color", Color.Black.WithAlpha(0.9f));
 
-        args.WorldHandle.UseShader(_shader);
-        args.WorldHandle.DrawRect(args.WorldBounds, Color.White);
-        args.WorldHandle.UseShader(null);
+        args.ScreenHandle.UseShader(_shader);
+        args.ScreenHandle.DrawRect(args.ViewportBounds, Color.White);
+        args.ScreenHandle.UseShader(null);
     }
 }

@@ -17,6 +17,8 @@
             <cc:CommandButton Command="adminlogs" Text="{Loc admin-player-actions-window-admin-logs}"/>
             <cc:CommandButton Command="faxui" Text="{Loc admin-player-actions-window-admin-fax}"/>
             <cc:CommandButton Command="timetransferpanel" Text="{Loc admin-player-actions-window-time-transfer}"/>
+            <cc:CommandButton Command="planetviewer" Text="{Loc planet-viewer-button}"/>
+            <cc:CommandButton Command="persistencepanel" Text="{Loc persistence-panel-title}"/>
         </GridContainer>
     </BoxContainer>
 </Control>

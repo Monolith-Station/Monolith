@@ -4,10 +4,6 @@
   parent: BaseMachine
   abstract: true
   components:
-  - type: ItemMiner
-    proto: SpawnLootOres15
-    interval: 10
-    needApcPower: false
   - type: Sprite
     offset: 0,0.5
     noRot: true
@@ -47,7 +43,6 @@
   - type: PowerConsumer
     voltage: High
     drawRate: 50000
-  - type: PowerConsumerMiner
   - type: NodeContainer
     examinable: true
     nodes:
@@ -59,11 +54,9 @@
   id: LaserDrill
   name: automated laser drill
   parent: LaserDrillBase
-  description: A large automated drill that digs up random materials when powered with 50 kW of HV. Only works on expedition planets.
+  description: An automated drill that extracts buried ore deposits when placed on planetary ground and supplied with 50 kW of HV.
   components:
-  - type: PlanetMiner
-    requireExpedition: true
-    requireGround: false # works just fine on lattice
+  - type: OreDrill
 
 - type: entity
   id: StationLaserDrill
@@ -74,7 +67,10 @@
   - type: Anchorable
     flags: None # 1984
   - type: ItemMiner
-    interval: 1 # previously 20
+    proto: SpawnLootOres15
+    interval: 1
+    needApcPower: false
+  - type: PowerConsumerMiner
   - type: PowerConsumer
     voltage: High
     drawRate: 150000

@@ -1,0 +1,39 @@
+- type: entity
+  id: MonoShipShieldEllipsoidDummy
+  name: ellipsoid shield
+  suffix: DEBUG, Collision Test
+  description: A test shield with an elongated footprint.
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Machines/shield_generator.rsi
+    state: core
+    scale: 0.17778, 0.17778
+  - type: Clickable
+  - type: ApcPowerReceiver
+    needsPower: false
+  - type: ShipShieldProjector
+    state: Active
+    shield:
+      radii: 12, 4.5, 1.75
+    visuals:
+      color: "#75DFFF"
+
+- type: entity
+  id: MonoShipShieldCircularDummy
+  name: circular shield
+  suffix: DEBUG, Collision Test
+  description: A test shield with a round footprint.
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Machines/shield_generator.rsi
+    state: core
+    scale: 0.17778, 0.17778
+  - type: Clickable
+  - type: ApcPowerReceiver
+    needsPower: false
+  - type: ShipShieldProjector
+    state: Active
+    shield:
+      radii: 6, 6, 1.5
+    visuals:
+      color: "#91FFD0"

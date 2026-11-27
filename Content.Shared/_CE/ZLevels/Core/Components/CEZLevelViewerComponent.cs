@@ -20,7 +20,7 @@ public sealed partial class CEZLevelViewerComponent : Component
     public HashSet<EntityUid> Eyes = new();
 
     /// <summary>
-    /// We can look at 1 z-level up.
+    /// Whether to render visible levels above the viewer.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool LookUp;

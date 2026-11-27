@@ -2,11 +2,14 @@
 using Content.Shared.Parallax.Biomes;
 using Content.Shared.Parallax.Biomes.Layers;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.Manager;
 
 namespace Content.Server.Parallax;
 
 public sealed partial class BiomeSystem
 {
+    [Dependency] private ISerializationManager _biomeSerialization = default!;
+
     private void InitializeConfigManager()
     {
         // ConfigManager methods are now part of this partial class
@@ -50,6 +53,7 @@ public sealed partial class BiomeSystem
     public void SetSeed(EntityUid uid, BiomeComponent component, int seed, bool dirty = true)
     {
         component.Seed = seed;
+        InvalidateRadarTerrain(uid);
 
         if (dirty)
             Dirty(uid, component);
@@ -60,6 +64,10 @@ public sealed partial class BiomeSystem
         component.Layers.Clear();
         component.Template = null;
         InvalidateCompiledBiomes(); // Mono
+        component.TemplateInitialized = false;
+        component.PointOfInterestRooms.Clear();
+        component.PointOfInterestTiles.Clear();
+        InvalidateRadarTerrain(uid);
 
         if (dirty)
             Dirty(uid, component);
@@ -70,18 +78,36 @@ public sealed partial class BiomeSystem
     /// </summary>
     public void SetTemplate(EntityUid uid, BiomeComponent component, BiomeTemplatePrototype template, bool dirty = true)
     {
+        var layers = CopyLayers(template, new HashSet<string>());
         component.Layers.Clear();
         component.Template = template.ID;
-
-        foreach (var layer in template.Layers)
-        {
-            component.Layers.Add(layer);
-        }
+        component.Layers.AddRange(layers);
+        component.TemplateInitialized = true;
+        component.PointOfInterestRooms = new(template.PointOfInterestRooms);
+        component.PointOfInterestTiles = new(template.PointOfInterestTiles);
+        component.PointOfInterestSpacing = template.PointOfInterestSpacing;
+        InvalidateRadarTerrain(uid);
 
         InvalidateCompiledBiomes(); // Mono
 
         if (dirty)
             Dirty(uid, component);
+    }
+
+    private List<IBiomeLayer> CopyLayers(BiomeTemplatePrototype template, HashSet<string> visiting)
+    {
+        if (!visiting.Add(template.ID))
+            throw new InvalidOperationException($"Recursive biome template: {template.ID}");
+
+        var layers = _biomeSerialization.CreateCopy(template.Layers, notNullableOverride: true);
+        foreach (var layer in layers)
+        {
+            if (layer is BiomeMetaLayer meta)
+                meta.Layers = CopyLayers(_proto.Index<BiomeTemplatePrototype>(meta.Template), visiting);
+        }
+
+        visiting.Remove(template.ID);
+        return layers;
     }
 
     /// <summary>
@@ -96,8 +122,12 @@ public sealed partial class BiomeSystem
             if (layer is not BiomeDummyLayer dummy || dummy.ID != id)
                 continue;
 
-            addedLayer.Noise.SetSeed(addedLayer.Noise.GetSeed() + seedOffset);
-            component.Layers.Insert(i, addedLayer);
+            var copy = _biomeSerialization.CreateCopy(addedLayer, notNullableOverride: true);
+            if (copy is BiomeMetaLayer meta)
+                meta.Layers = CopyLayers(_proto.Index<BiomeTemplatePrototype>(meta.Template), new HashSet<string>());
+            copy.Noise.SetSeed(copy.Noise.GetSeed() + seedOffset);
+            component.Layers.Insert(i, copy);
+            InvalidateRadarTerrain(uid);
             break;
         }
 
@@ -124,12 +154,15 @@ public sealed partial class BiomeSystem
             if (layer is not BiomeDummyLayer dummy || dummy.ID != id)
                 continue;
 
-            for (var j = template.Layers.Count - 1; j >= 0; j--)
+            var copies = CopyLayers(template, new HashSet<string>());
+            for (var j = copies.Count - 1; j >= 0; j--)
             {
-                var addedLayer = template.Layers[j];
+                var addedLayer = copies[j];
                 addedLayer.Noise.SetSeed(addedLayer.Noise.GetSeed() + seedOffset);
                 component.Layers.Insert(i, addedLayer);
             }
+
+            InvalidateRadarTerrain(uid);
 
             break;
         }
@@ -137,5 +170,11 @@ public sealed partial class BiomeSystem
         InvalidateCompiledBiomes(); // Mono
 
         Dirty(uid, component);
+    }
+
+    private void InvalidateRadarTerrain(EntityUid uid)
+    {
+        var ev = new Content.Shared._Mono.Radar.BiomeTerrainChangedEvent(uid);
+        RaiseLocalEvent(ref ev);
     }
 }

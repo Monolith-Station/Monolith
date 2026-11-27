@@ -67,6 +67,20 @@
   minFireLevel: 1
   maxFireLevel: 3
 
+- type: explosion
+  id: CEHellpodImpact
+  damagePerIntensity:
+    types:
+      Heat: 5
+      Blunt: 5
+      Piercing: 5
+      Structural: 20
+  tileBreakChance: [0, 0.5, 1]
+  tileBreakIntensity: [0, 10, 30]
+  tileBreakRerollReduction: 20
+  throwEntitiesOnExplosion: false
+  maxCombineDistance: -1 # Preserve the source pod for rider protection.
+
 # STOP
 # BEFORE YOU ADD MORE EXPLOSION TYPES CONSIDER IF AN EXISTING ONE IS SUITABLE
 # ADDING NEW ONES IS PROHIBITIVELY EXPENSIVE

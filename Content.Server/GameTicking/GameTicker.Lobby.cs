@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Server.GameTicking.Events;
 using Content.Shared.GameTicking;
 using Content.Server.Station.Components;
 using Robust.Shared.Network;
@@ -191,7 +192,14 @@ namespace Content.Server.GameTicking
                 }
             }
             // Mono/BF14 end
-            var status = ready ? PlayerGameStatus.ReadyToPlay : PlayerGameStatus.NotReadyToPlay;
+
+            var request = new PlayerReadyRequestEvent(player, ready, () => SetReadyStatus(player, ready));
+            RaiseLocalEvent(request);
+            SetReadyStatus(player, ready && !request.Deferred);
+        }
+
+        internal void SetReadyStatus(ICommonSession player, bool ready)
+        {
             _playerGameStatuses[player.UserId] = ready ? PlayerGameStatus.ReadyToPlay : PlayerGameStatus.NotReadyToPlay;
             RaiseNetworkEvent(GetStatusMsg(player), player.Channel);
             // update server info to reflect new ready count

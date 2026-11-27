@@ -1,0 +1,25 @@
+light_mode unshaded;
+blend_mode add;
+
+uniform sampler2D beam;
+uniform highp vec2 beamAxis;
+uniform highp vec4 lightColor;
+uniform highp float lightRange;
+uniform highp float lightPower;
+uniform highp float lightFalloff;
+uniform highp float lightCurveFactor;
+uniform highp float projectedRadius;
+uniform highp float heightSquared;
+
+void fragment()
+{
+    highp vec2 delta = (2.0 * UV - 1.0) * projectedRadius;
+    highp vec2 beamOffset = vec2(dot(delta, beamAxis), dot(delta, vec2(beamAxis.y, -beamAxis.x)));
+    highp vec2 beamUv = 0.5 + 0.5 * beamOffset / lightRange;
+    highp float s2 = clamp((dot(delta, delta) + heightSquared) / (lightRange * lightRange), 0.0, 1.0);
+    highp float s = sqrt(s2);
+    highp float curve = mix(s, s2, clamp(lightCurveFactor, 0.0, 1.0));
+    highp float attenuation = clamp((1.0 - s2) * (1.0 - s2) / (1.0 + lightFalloff * curve), 0.0, 1.0);
+    highp float visibility = zTexture(UV).r * texture2D(beam, beamUv).r;
+    COLOR = vec4(lightColor.rgb * attenuation * lightPower * visibility, 1.0);
+}

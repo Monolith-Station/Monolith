@@ -11,7 +11,7 @@ namespace Content.Client._Mono.Water;
 /// <summary>
 /// Draws the animated surface for <c>FloorWater</c> tiles.
 /// </summary>
-public sealed partial class WaterOverlay : GridOverlay
+public abstract partial class WaterOverlay : GridOverlay
 {
     [Dependency] private IEntityManager _entManager = default!;
     [Dependency] private IPrototypeManager _proto = default!;
@@ -33,19 +33,18 @@ public sealed partial class WaterOverlay : GridOverlay
     /// </summary>
     private ushort? _waterTileId;
 
-    private static readonly ProtoId<ContentTileDefinition> WaterTile = "FloorWater";
+    private readonly ProtoId<ContentTileDefinition> WaterTile;
 
-    private static readonly ProtoId<ShaderPrototype> WaterShader = "MonoWater";
-
-    public WaterOverlay()
+    protected WaterOverlay(ProtoId<ContentTileDefinition> tile, ProtoId<ShaderPrototype> shader)
     {
+        WaterTile = tile;
         IoCManager.InjectDependencies(this);
 
         _mapSystem = _entManager.System<SharedMapSystem>();
         _xformSystem = _entManager.System<SharedTransformSystem>();
         _lookup = _entManager.System<EntityLookupSystem>();
 
-        _shader = _proto.Index(WaterShader).InstanceUnique();
+        _shader = _proto.Index(shader).InstanceUnique();
         _white = Texture.White;
     }
 
@@ -60,6 +59,12 @@ public sealed partial class WaterOverlay : GridOverlay
 
         var handle = args.WorldHandle;
         var tileSize = grid.Comp.TileSize;
+        var eye = args.Viewport.Eye;
+        if (eye == null)
+            return;
+
+        var tilesPerPixel = eye.Zoom / args.Viewport.RenderScale / (EyeManager.PixelsPerMeter * tileSize);
+        _shader.SetParameter("TILES_PER_PIXEL", MathF.Max(tilesPerPixel.X, tilesPerPixel.Y));
 
         var enumerator = _mapSystem.GetTilesEnumerator(grid.Owner, grid.Comp, args.WorldBounds);
         var drew = false;
@@ -182,3 +187,7 @@ public sealed partial class WaterOverlay : GridOverlay
         _indices.Clear();
     }
 }
+
+public sealed class NormalWaterOverlay() : WaterOverlay("FloorWater", "MonoWater");
+
+public sealed class LetoferolWaterOverlay() : WaterOverlay("FloorNaturalLetoferol", "MonoLetoferolWater");

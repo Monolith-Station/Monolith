@@ -583,6 +583,9 @@ public abstract partial class SharedGunSystem : EntitySystem
         projectile.Weapon = gunUid;
 
         TransformSystem.SetWorldRotation(uid, direction.ToWorldAngle() + projectile.Angle);
+
+        var shot = new ProjectileShotEvent(CompOrNull<TransformComponent>(gunUid)?.MapUid);
+        RaiseLocalEvent(uid, ref shot);
     }
 
     // Mono - handle hitscan

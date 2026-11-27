@@ -1,0 +1,9 @@
+- type: shader
+  id: MonoShipShieldShell
+  kind: source
+  path: /Textures/_Mono/Shaders/ship_shield_shell.swsl
+
+- type: shader
+  id: MonoShipShieldImpact
+  kind: source
+  path: /Textures/_Mono/Shaders/ship_shield_impact.swsl

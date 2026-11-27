@@ -223,13 +223,14 @@ namespace Content.Server.Atmos.EntitySystems
             RemoveMapAtmos(ent.Comp1, tile);
         }
 
-        private void RemoveMapAtmos(GridAtmosphereComponent atmos, TileAtmosphere tile)
+        private void RemoveMapAtmos(GridAtmosphereComponent atmos, TileAtmosphere tile, bool removeFromSet = true)
         {
             DebugTools.Assert(tile.MapAtmosphere);
             DebugTools.AssertNotNull(tile.Air);
             DebugTools.Assert(tile.Air?.Immutable ?? false);
             tile.MapAtmosphere = false;
-            atmos.MapTiles.Remove(tile);
+            if (removeFromSet)
+                atmos.MapTiles.Remove(tile);
             tile.Air = null;
             tile.AirArchived = null;
             tile.ArchivedCycle = 0;

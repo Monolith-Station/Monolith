@@ -34,13 +34,17 @@ public partial class AtmosphereSystem
         args.State = new MapAtmosphereComponentState(component.Overlay);
     }
 
-    public void SetMapAtmosphere(EntityUid uid, bool space, GasMixture mixture)
+    public void SetMapAtmosphere(EntityUid uid, bool space, GasMixture mixture, bool revalidateTiles = true)
     {
         DebugTools.Assert(HasComp<MapComponent>(uid));
         var component = EnsureComp<MapAtmosphereComponent>(uid);
         SetMapGasMixture(uid, mixture, component, false);
         SetMapSpace(uid, space, component, false);
-        RefreshAllGridMapAtmospheres(uid);
+
+        if (revalidateTiles)
+            RefreshAllGridMapAtmospheres(uid);
+        else
+            ReplaceMapAtmosphereTiles(uid, component);
     }
 
     public void SetMapGasMixture(EntityUid uid, GasMixture mixture, MapAtmosphereComponent? component = null, bool updateTiles = true)
@@ -89,6 +93,23 @@ public partial class AtmosphereSystem
         }
     }
 
+    private void ReplaceMapAtmosphereTiles(EntityUid map, MapAtmosphereComponent component)
+    {
+        var enumerator = AllEntityQuery<GridAtmosphereComponent, TransformComponent>();
+        while (enumerator.MoveNext(out _, out var atmos, out var xform))
+        {
+            if (xform.MapUid != map)
+                continue;
+
+            foreach (var tile in atmos.MapTiles)
+            {
+                tile.Air = component.Mixture;
+                tile.AirArchived = null;
+                tile.Space = component.Space;
+            }
+        }
+    }
+
     /// <summary>
     /// Forces a refresh of all MapAtmosphere tiles on a given grid.
     /// </summary>
@@ -100,7 +121,7 @@ public partial class AtmosphereSystem
         var atmos = grid.Comp;
         foreach (var tile in atmos.MapTiles)
         {
-            RemoveMapAtmos(atmos, tile);
+            RemoveMapAtmos(atmos, tile, false);
             atmos.InvalidatedCoords.Add(tile.GridIndices);
         }
         atmos.MapTiles.Clear();

@@ -1,0 +1,35 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      Title="{Loc 'mono-ship-shield-ui-title'}" MinSize="290 130" SetSize="400 180">
+    <BoxContainer Margin="4 0" Orientation="Horizontal">
+        <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+            <GridContainer Margin="2 0 0 0" Columns="2">
+                <Label Text="{Loc 'mono-ship-shield-ui-status'}" StyleClasses="StatusFieldTitle" />
+                <Label Name="StatusLabel" Text="-" />
+                <Label Name="EtaTitle" Text="{Loc 'mono-ship-shield-ui-eta'}" StyleClasses="StatusFieldTitle" Visible="False" />
+                <Label Name="EtaLabel" Visible="False" />
+                <Label Text="{Loc 'mono-ship-shield-ui-charge'}" StyleClasses="StatusFieldTitle" />
+                <ProgressBar Name="ChargeBar" MaxValue="1" HorizontalExpand="True">
+                    <BoxContainer Margin="4 0" Orientation="Horizontal">
+                        <Label Name="ChargeLabel" Text="0%" />
+                        <Label Name="StallIndicator" Margin="4 0 0 0" Visible="False"
+                               Text="{Loc 'mono-ship-shield-ui-stall-indicator'}" />
+                        <Control HorizontalExpand="True" />
+                        <Label Name="CapacityLabel" />
+                    </BoxContainer>
+                </ProgressBar>
+                <Label Text="{Loc 'mono-ship-shield-ui-draw'}" StyleClasses="StatusFieldTitle" />
+                <ProgressBar Name="DrawBar" MaxValue="1" HorizontalExpand="True">
+                    <BoxContainer Margin="4 0" Orientation="Horizontal">
+                        <Label Name="DrawPercentLabel" HorizontalExpand="True" Text="-" />
+                        <Label Name="DrawPowerLabel" Text="0 W" />
+                    </BoxContainer>
+                </ProgressBar>
+            </GridContainer>
+            <Button Name="ToggleButton" Text="{Loc 'mono-ship-shield-ui-raise'}" Disabled="True" />
+        </BoxContainer>
+        <PanelContainer Margin="12 0 0 0" StyleClasses="Inset" VerticalAlignment="Center">
+            <SpriteView Name="EntityView" SetSize="96 96" OverrideDirection="South" />
+        </PanelContainer>
+    </BoxContainer>
+</controls:FancyWindow>

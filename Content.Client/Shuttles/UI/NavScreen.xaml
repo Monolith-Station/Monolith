@@ -102,14 +102,12 @@
                                Visible="False"/>
                         <controls:Label Name="GridTravelStateCaption"
                                Text="{controls:Loc 'shuttle-console-travel-state'}"
-                               FontColorOverride="#00ff2a"
-                               Visible="False"/>
+                               FontColorOverride="#00ff2a"/>
                         <controls:Label Name="GridTravelState"
                                Text="-"
                                HorizontalExpand="True"
                                Align="Right"
-                               FontColorOverride="#00ff2a"
-                               Visible="False"/>
+                               FontColorOverride="#00ff2a"/>
                     </controls:GridContainer>
                     </controls:PanelContainer>
                     </controls:PanelContainer>
@@ -307,4 +305,3 @@
                     </controls:PanelContainer>
                 </controls:PanelContainer>
                 </controls:BoxContainer>
-

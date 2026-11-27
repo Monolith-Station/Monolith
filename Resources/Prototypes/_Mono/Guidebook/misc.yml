@@ -9,6 +9,50 @@
   - Economy
 
 - type: guideEntry
+  id: PlanetaryLogistics
+  name: Planetary Logistics
+  text: "/ServerInfo/_Mono/Guidebook/PlanetaryLogistics.xml"
+  priority: 10
+  children:
+  - PlanetaryMachinery
+  - GravityGenerators
+  - Flight
+  - TerrainPreview
+
+- type: guideEntry
+  id: PlanetaryMachinery
+  name: Machinery
+  text: "/ServerInfo/_Mono/Guidebook/PlanetaryLogistics/Machinery.xml"
+  children:
+  - PlanetaryShields
+  - MassFabricator
+
+- type: guideEntry
+  id: MassFabricator
+  name: Mass Fabricator
+  text: "/ServerInfo/_Mono/Guidebook/PlanetaryLogistics/MassFabricator.xml"
+
+- type: guideEntry
+  id: PlanetaryShields
+  name: Planetary Shields
+  text: "/ServerInfo/_Mono/Guidebook/PlanetaryLogistics/PlanetaryShields.xml"
+
+- type: guideEntry
+  id: GravityGenerators
+  name: Gravity Generators
+  text: "/ServerInfo/_Mono/Guidebook/PlanetaryLogistics/GravityGenerators.xml"
+
+- type: guideEntry
+  id: Flight
+  name: Flight
+  text: "/ServerInfo/_Mono/Guidebook/PlanetaryLogistics/Flight.xml"
+
+- type: guideEntry
+  id: TerrainPreview
+  name: Terrain Preview
+  text: "/ServerInfo/_Mono/Guidebook/PlanetaryLogistics/TerrainPreview.xml"
+
+- type: guideEntry
   id: GridClaimer
   name: guide-entry-gridclaimer
   text: "/ServerInfo/_Mono/Guidebook/Misc/GridClaimer.xml"

@@ -517,19 +517,25 @@ public sealed partial class ThrusterSystem : EntitySystem
         var query = EntityQueryEnumerator<ThrusterComponent>();
         var curTime = _timing.CurTime;
 
-        while (query.MoveNext(out var comp))
+        while (query.MoveNext(out var thrusterUid, out var comp))
         {
             if (comp.NextFire > curTime)
                 continue;
 
             comp.NextFire += comp.FireCooldown;
 
-            if (!comp.Firing || comp.Colliding.Count == 0 || comp.Damage == null)
+            var overclocked = IsPlanetTransitOverclocked(thrusterUid);
+            if ((!comp.Firing && !overclocked) ||
+                comp.Colliding.Count == 0 ||
+                (!overclocked && comp.Damage == null))
                 continue;
 
             foreach (var uid in comp.Colliding.ToArray())
             {
-                _damageable.TryChangeDamage(uid, comp.Damage);
+                if (overclocked)
+                    ApplyPlanetTransitBurnDamage(uid);
+                else
+                    _damageable.TryChangeDamage(uid, comp.Damage!);
             }
         }
     }
@@ -540,6 +546,8 @@ public sealed partial class ThrusterSystem : EntitySystem
             return;
 
         component.Colliding.Add(args.OtherEntity);
+        if (IsPlanetTransitOverclocked(uid))
+            ApplyPlanetTransitBurnDamage(args.OtherEntity);
     }
 
     private void OnEndCollide(EntityUid uid, ThrusterComponent component, ref EndCollideEvent args)

@@ -57,8 +57,10 @@
     resistance: 2
   - type: BlockWeather
   - type: SunShadowCast
+    useFixtureBounds: true
   - type: ArmorThickness
     thickness: 3
+  - type: CEGridStabilitySupport
 
 - type: entity
   parent: BaseWallTierOne # Mono

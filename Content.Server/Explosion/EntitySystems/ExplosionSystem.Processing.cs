@@ -397,11 +397,11 @@ public sealed partial class ExplosionSystem
     }
 
     private DamageSpecifier GetDamage(EntityUid uid,
-        string id, DamageSpecifier damage)
+        string id, DamageSpecifier damage, EntityUid? cause)
     {
         // TODO Explosion Performance
         // Cache this? I.e., instead of raising an event, check for a component?
-        var resistanceEv = new GetExplosionResistanceEvent(id);
+        var resistanceEv = new GetExplosionResistanceEvent(id) { Cause = cause };
         RaiseLocalEvent(uid, ref resistanceEv);
         resistanceEv.DamageCoefficient = Math.Max(0, resistanceEv.DamageCoefficient);
 
@@ -412,12 +412,12 @@ public sealed partial class ExplosionSystem
         return damage;
     }
 
-    private void GetEntitiesToDamage(EntityUid uid, DamageSpecifier originalDamage, string prototype)
+    private void GetEntitiesToDamage(EntityUid uid, DamageSpecifier originalDamage, string prototype, EntityUid? cause)
     {
         _toDamage.Clear();
 
         // don't raise BeforeExplodeEvent if the entity is completely immune to explosions
-        var thisDamage = GetDamage(uid, prototype, originalDamage);
+        var thisDamage = GetDamage(uid, prototype, originalDamage, cause);
         if (thisDamage.Empty)
             return;
 
@@ -440,7 +440,7 @@ public sealed partial class ExplosionSystem
             _toDamage.EnsureCapacity(_toDamage.Count + _containedEntities.Count);
             foreach (var contained in _containedEntities)
             {
-                var newDamage = GetDamage(contained, prototype, damage);
+                var newDamage = GetDamage(contained, prototype, damage, cause);
                 _toDamage.Add((contained, newDamage));
             }
         }
@@ -461,7 +461,7 @@ public sealed partial class ExplosionSystem
     {
         if (originalDamage != null)
         {
-            GetEntitiesToDamage(uid, originalDamage, id);
+            GetEntitiesToDamage(uid, originalDamage, id, cause);
             foreach (var (entity, damage) in _toDamage)
             {
                 if (_actorQuery.HasComp(entity))

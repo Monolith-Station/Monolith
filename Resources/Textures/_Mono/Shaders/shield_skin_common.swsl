@@ -1,0 +1,229 @@
+// Monolith: energy shield skin — a procedural hexfield dome, entirely
+// textureless (the whole pattern is shader math). Reused for both the planetary
+// shield (drawn over a planet disc) and the personal shield (drawn as a bubble
+// over a mob by PersonalShieldOverlay). The quad's uv is treated as a unit disc
+// (r = 1 at the quad edge), bulged into fake sphere coordinates so the hex cells
+// foreshorten toward the limb, then composed from a per-cell shimmering fill,
+// bright hex border lines, and a limb rim glow.
+//
+// `progress` runs 0 -> 2 in three phases:
+//   0.0 -> 1.0  the field crawls in across the dome from the top (activation).
+//   1.0 -> 1.8  the field shatters: a perlin dissolve eats it away in ragged
+//               noisy shards, each flashing hot right as it breaks off.
+//   1.8 -> 2.0  fully gone (invisible tail, so the clock can reset seamlessly).
+
+uniform highp float progress;
+uniform highp vec4 skin_color;
+
+// Multiplies the field's RGB — >1 pushes the colours hot/bloomy, <1 dims them.
+// Alpha (overall opacity) still comes from skin_color.a.
+uniform highp float brightness;
+
+// Pixellation: number of quantisation cells across the quad. Higher = finer (less
+// chunky); at/below 1 the spatial snap is skipped entirely and the field renders
+// smooth. Set by the overlay from the shield's PixelGrid field.
+uniform highp float pixel_grid;
+
+// Hex density: how many hex cells span the dome. Lower = fewer, larger cells. Set
+// by the overlay from the shield's HexDensity field.
+uniform highp float hex_density;
+
+// Formation origin, in disc space (-1..1, r = 1 at the dome edge): the point the
+// activation crawl sweeps out from. (0, -0.85) is the top of the dome. Set by the
+// overlay from the shield's FormOrigin field.
+uniform highp vec2 form_origin;
+
+// Strengths of the three layers: the wash inside the shell, the hex cell borders, and
+// the glow along the limb.
+uniform highp float fill_level;
+uniform highp float line_level;
+uniform highp float rim_level;
+
+// How much the field hollows out toward the middle. 0 fills the whole dome evenly; 1
+// leaves the centre almost clear and concentrates everything near the rim, so the
+// wearer stays visible through it the way a sci-fi bubble should.
+uniform highp float core_fade;
+
+// Frequency of the shatter noise. Higher = smaller, finer shards.
+uniform highp float shard_scale;
+
+// Posterise bands (lower = chunkier stepping) and depth of the slow pulse.
+uniform highp float alpha_bands;
+uniform highp float breath_depth;
+
+highp float shieldHash21(highp vec2 p) {
+    return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
+}
+
+highp float shieldVnoise(highp vec2 p) {
+    highp vec2 i = floor(p);
+    highp vec2 f = fract(p);
+    highp float a = shieldHash21(i);
+    highp float b = shieldHash21(i + vec2(1.0, 0.0));
+    highp float c = shieldHash21(i + vec2(0.0, 1.0));
+    highp float d = shieldHash21(i + vec2(1.0, 1.0));
+    highp vec2 u = f * f * (3.0 - 2.0 * f);
+    return mix(mix(a, b, u.x), mix(c, d, u.x), u.y);
+}
+
+highp float shieldCrackDistance(highp vec2 p) {
+    highp vec2 cell = floor(p);
+    highp vec2 local = fract(p);
+    highp float nearest = 8.0;
+    highp float second = 8.0;
+    for (int y = -1; y <= 1; y++) {
+        for (int x = -1; x <= 1; x++) {
+            highp vec2 offset = vec2(float(x), float(y));
+            highp vec2 seed = cell + offset;
+            highp vec2 point = vec2(shieldHash21(seed), shieldHash21(seed + vec2(19.7, 43.1)));
+            highp float d = length(offset + 0.2 + point * 0.6 - local);
+            second = min(second, max(nearest, d));
+            nearest = min(nearest, d);
+        }
+    }
+    return second - nearest;
+}
+
+highp vec2 shieldFracture(highp vec2 fractureUv, highp float front, highp float shatter) {
+    highp vec2 distortion = vec2(shieldVnoise(fractureUv * 1.7),
+        shieldVnoise(fractureUv * 1.7 + vec2(8.3, 2.8))) - vec2(0.5);
+    highp float cracks = shieldCrackDistance(fractureUv + distortion * 0.45);
+    highp float spread = clamp(front, 0.0, 1.0) * 0.3 + shieldVnoise(fractureUv * 0.65) * 0.14;
+    highp float threshold = 0.02 + spread + min(cracks, 1.0) * 0.32;
+    highp float elapsed = shatter - threshold;
+    highp float remaining = 1.0 - smoothstep(0.0, 0.16, elapsed);
+    highp float tip = smoothstep(-0.035, 0.0, elapsed) * (1.0 - smoothstep(0.0, 0.045, elapsed));
+    highp float glow = tip * (1.0 - smoothstep(0.04, 0.2, cracks));
+    return vec2(remaining, glow);
+}
+
+highp vec2 shipShieldFracture(highp vec2 lattice, highp float radius, highp float animationData) {
+    highp float shatter = clamp((mod(animationData, 2.0) - 1.0) / 0.8, 0.0, 1.0);
+    highp float seed = floor(animationData * 0.5);
+    highp vec2 offset = vec2(shieldHash21(vec2(seed, 1.0)), shieldHash21(vec2(seed, 2.0))) * 32.0;
+    return shieldFracture(lattice * 0.8 + offset, radius, shatter);
+}
+
+// Signed-ish distance to the hex cell border: 0 at the centre, 0.5 at an edge.
+highp float shieldHexDist(highp vec2 p) {
+    p = abs(p);
+    return max(dot(p, vec2(0.5, 0.866025)), p.x);
+}
+
+// Hex tiling: returns the edge distance and center of the cell containing uv.
+highp vec3 shieldHexCoordinates(highp vec2 uv) {
+    highp vec2 r = vec2(1.0, 1.732051);
+    highp vec2 h = r * 0.5;
+    highp vec2 a = mod(uv, r) - h;
+    highp vec2 b = mod(uv - h, r) - h;
+    highp float useB = step(dot(b, b), dot(a, a));
+    highp vec2 gv = mix(a, b, useB);
+    return vec3(shieldHexDist(gv), uv - gv);
+}
+
+highp vec2 shieldHexCell(highp vec2 uv) {
+    highp vec3 cell = shieldHexCoordinates(uv);
+    highp vec2 spacing = vec2(0.5, 0.8660255);
+    highp vec2 key = floor(cell.yz / spacing + 0.5);
+    return vec2(cell.x, shieldHash21(key * spacing));
+}
+
+highp vec2 shipShieldLattice(highp vec2 point) {
+    highp float radius = length(point);
+    highp float curve = asin(min(radius, 1.0)) / max(radius, 0.0001);
+    return point * mix(1.0, curve, 0.8) * 15.0;
+}
+
+highp vec2 shieldFormation(highp vec2 p, highp vec2 origin, highp float id, highp float form) {
+    highp float age = form - (distance(p, origin) * 0.5 + (id - 0.5) * 0.12);
+    return vec2(step(0.0, age), 1.0 - smoothstep(0.0, 0.25, age));
+}
+
+highp vec2 shieldShatter(highp vec2 p, highp float id, highp float animation) {
+    highp float shatter = clamp((animation - 1.0) / 0.8, 0.0, 1.0);
+    highp float threshold = clamp(shieldVnoise(p) * 0.7 + id * 0.3, 0.0, 1.0) * 0.85;
+    highp float remaining = 1.0 - smoothstep(threshold, threshold + 0.1, shatter);
+    highp float flash = (1.0 - smoothstep(0.0, 0.12, abs(shatter - threshold))) * step(0.001, shatter);
+    return vec2(remaining, flash);
+}
+
+highp vec2 shieldPixelUv(highp vec2 uv, highp float grid) {
+    return grid > 1.0 ? (floor(uv * grid) + vec2(0.5)) / grid : uv;
+}
+
+highp float shieldAlphaBands(highp float alpha, highp float bands) {
+    bands = max(bands, 1.0);
+    return floor(clamp(alpha, 0.0, 1.0) * bands + 0.5) / bands;
+}
+
+highp vec4 renderShieldSkin(highp vec2 uv) {
+    // Pixel-art quantisation: snap the sample point to a coarse grid and step the
+    // clock at ~8 fps, so the field is chunky in space AND time — smooth per-frame
+    // motion on a pixel grid reads as cheap; steppy motion reads as sprite animation.
+    // pixel_grid <= 1 disables the spatial snap (smooth field) for small bubbles
+    // where a coarse grid looks too blocky.
+    highp vec2 uvq = shieldPixelUv(uv, pixel_grid);
+    highp float t = floor(TIME * 8.0) / 8.0;
+
+    // Disc space: r = 1 at the quad's inscribed circle (the overlay sizes the quad
+    // to the sprite, so the field hugs the disc).
+    highp vec2 p = (uvq - vec2(0.5)) * 2.0;
+    highp float r = length(p);
+
+    // Hard disc mask with a little AA; everything below multiplies into this.
+    highp float mask = 1.0 - smoothstep(0.97, 1.0, r);
+
+    // Fake dome: z is the shell height (1 centre → 0 limb). The equal-angle bulge
+    // asin(r)/r runs the hex grid faster toward the limb, so cells visibly
+    // foreshorten there — reads as a curved shell, not wallpaper.
+    highp float rc = min(r, 1.0);
+    highp float z = sqrt(max(1.0 - rc * rc, 0.0));
+    highp float warp = asin(rc) / max(rc, 0.0001);
+    highp vec2 q = p * warp;
+
+    highp vec2 cell = shieldHexCell(q * hex_density);
+    highp float edge = cell.x;
+    highp float id = cell.y;
+
+    highp float form = clamp(progress, 0.0, 1.0);
+    highp vec2 formation = shieldFormation(p, form_origin, id, form);
+
+    // Per-cell shimmer so the field feels energised without strobing.
+    highp float shimmer = 0.75 + 0.25 * sin(t * 1.7 + id * 6.2832);
+
+    // Edge weighting: (1 - z) is 0 dead centre and 1 out at the limb. Fading the wash and
+    // the hex lines by it hollows the dome out, so you look THROUGH the middle and the
+    // structure only reads near the edges — the usual sci-fi bubble. core_fade = 0 restores
+    // the old evenly-filled shell.
+    highp float limb = 1.0 - z;
+    highp float edgeWeight = mix(1.0, limb * limb, clamp(core_fade, 0.0, 1.0));
+
+    // Faint cell fill, brighter borders, hot pop-in, and the limb glow. The pop-in flash is
+    // NOT edge-weighted: it should read across the whole dome as the field sweeps in.
+    highp float border = smoothstep(0.42, 0.5, edge);
+    highp float fill = fill_level * shimmer * edgeWeight;
+    highp float lines = line_level * border * edgeWeight;
+    highp float rim = pow(limb, 3.0) * rim_level;
+
+    highp float a = (fill + lines + formation.y * 0.6 + rim) * formation.x * mask;
+
+    // Shatter dissolve: every bit of the dome gets a break threshold from a noisy
+    // field (spatial perlin blended with per-cell jitter) so it comes apart in
+    // ragged clumps, not a ruler line. As `shatter` climbs past a fragment's
+    // threshold it winks out; fragments right at the front flash hot for the beat
+    // they break off, selling the shatter.
+    // Break threshold, scaled into [0, 0.85] so even the last-to-go fragment (plus
+    // its dissolve window and glow band) fully clears before `shatter` reaches 1 —
+    // otherwise the highest-threshold cells freeze mid-fade and never disappear.
+    highp vec2 shatter = shieldShatter(q * shard_scale, id, progress);
+    a = a * shatter.x + shatter.y * 0.7 * mask;
+
+    // Slow breath over the whole shell — alive, never flickering off.
+    a *= (1.0 - breath_depth) + breath_depth * sin(t * 0.9);
+
+    // Posterise into a handful of alpha bands: no smooth gradients, just the
+    // stepped shading pixel art actually has.
+    a = shieldAlphaBands(a, alpha_bands);
+
+    return vec4(skin_color.rgb * brightness, skin_color.a * a);
+}

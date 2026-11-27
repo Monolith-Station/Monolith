@@ -1,5 +1,6 @@
 - type: tile
   id: FloorPlanetDirt
+  radarColor: "#66513D"
   name: tiles-dirt-floor
   sprite: /Textures/Tiles/Planet/dirt.rsi/dirt.png
   variants: 4
@@ -234,6 +235,7 @@
 
 - type: tile
   id: FloorAsteroidSandPlanet
+  radarColor: "#958360"
   name: tiles-asteroid-sand
   sprite: /Textures/Tiles/Asteroid/asteroid.png
   variants: 13
@@ -253,7 +255,7 @@
   - 0.0116
   isSubfloor: true
   baseTurf: Space
-  edgeSpritePriority: 1
+  edgeSpritePriority: 2
   edgeSprites:
     SouthEast: /Textures/_Mono/Tiles/planet/Asteroid/sand_single_edge.png
     NorthEast: /Textures/_Mono/Tiles/planet/Asteroid/sand_single_edge.png
@@ -280,6 +282,7 @@
 # Grass
 - type: tile
   id: FloorPlanetGrass
+  radarColor: "#486540"
   name: tiles-grass-planet-floor
   sprite: /Textures/_CE/Tiles/Grass/grass.png
   variants: 6
