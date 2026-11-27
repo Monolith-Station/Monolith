@@ -67,11 +67,19 @@
   parent: [ PartRodentiaBase, BaseLeftLeg ]
   id: LeftLegRodentia
   name: "left rodentia leg"
+  components:
+  - type: MovementBodyPart #5% faster than human - Mono
+    walkSpeed: 2.625
+    sprintSpeed: 4.725
 
 - type: entity
   parent: [ PartRodentiaBase, BaseRightLeg ]
   id: RightLegRodentia
   name: "right rodentia leg"
+  components:
+  - type: MovementBodyPart #5% faster than human - Mono
+    walkSpeed: 2.625
+    sprintSpeed: 4.725
 
 - type: entity
   parent: [ PartRodentiaBase, BaseLeftFoot ]
