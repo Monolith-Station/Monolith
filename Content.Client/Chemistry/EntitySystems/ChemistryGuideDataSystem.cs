@@ -18,14 +18,10 @@ public sealed partial class ChemistryGuideDataSystem : SharedChemistryGuideDataS
 {
     [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
 
-    [ValidatePrototypeId<MixingCategoryPrototype>]
-    private const string DefaultMixingCategory = "DummyMix";
-    [ValidatePrototypeId<MixingCategoryPrototype>]
-    private const string DefaultGrindCategory = "DummyGrind";
-    [ValidatePrototypeId<MixingCategoryPrototype>]
-    private const string DefaultJuiceCategory = "DummyJuice";
-    [ValidatePrototypeId<MixingCategoryPrototype>]
-    private const string DefaultCondenseCategory = "DummyCondense";
+    private static readonly ProtoId<MixingCategoryPrototype> DefaultMixingCategory = "DummyMix";
+    private static readonly ProtoId<MixingCategoryPrototype> DefaultGrindCategory = "DummyGrind";
+    private static readonly ProtoId<MixingCategoryPrototype> DefaultJuiceCategory = "DummyJuice";
+    private static readonly ProtoId<MixingCategoryPrototype> DefaultCondenseCategory = "DummyCondense";
 
     private readonly Dictionary<string, List<ReagentSourceData>> _reagentSources = new();
 
@@ -230,4 +226,3 @@ public sealed class ReagentGasSourceData : ReagentSourceData
         GasPrototype = gasPrototype;
     }
 }
-

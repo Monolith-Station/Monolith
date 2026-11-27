@@ -37,8 +37,8 @@ public sealed partial class RevolverAmmoProviderComponent : AmmoProviderComponen
     [DataField("chambers")]
     public bool?[] Chambers = Array.Empty<bool?>();
 
-    [DataField("proto", customTypeSerializer:typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string? FillPrototype = "Cartridge357_magnumFMJ";
+    [DataField("proto")]
+    public EntProtoId? FillPrototype = "Cartridge357_magnumFMJ";
 
     [DataField("soundEject")]
     public SoundSpecifier? SoundEject = new SoundPathSpecifier("/Audio/Weapons/Guns/MagOut/revolver_magout.ogg");

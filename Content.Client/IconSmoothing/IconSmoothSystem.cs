@@ -4,6 +4,7 @@ using Content.Client.Overlays;
 using Content.Shared.IconSmoothing;
 using JetBrains.Annotations;
 using Robust.Client.GameObjects;
+using Robust.Shared.Graphics.RSI;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Map.Enumerators;
@@ -19,6 +20,7 @@ namespace Content.Client.IconSmoothing
     public sealed partial class IconSmoothSystem : EntitySystem
     {
         [Dependency] private SharedMapSystem _mapSystem = default!;
+        [Dependency] private SpriteSystem _sprite = default!;
 
         private readonly Queue<EntityUid> _dirtyEntities = new();
         private readonly Queue<EntityUid> _anchorChangedEntities = new();
@@ -61,12 +63,12 @@ namespace Content.Client.IconSmoothing
 
             SetCornerLayers(sprite, component);
 
-            if (component.Shader != null)
+            if (component.Shader is { } shader)
             {
-                sprite.LayerSetShader(CornerLayers.SE, component.Shader);
-                sprite.LayerSetShader(CornerLayers.NE, component.Shader);
-                sprite.LayerSetShader(CornerLayers.NW, component.Shader);
-                sprite.LayerSetShader(CornerLayers.SW, component.Shader);
+                sprite.LayerSetShader(CornerLayers.SE, shader.Id);
+                sprite.LayerSetShader(CornerLayers.NE, shader.Id);
+                sprite.LayerSetShader(CornerLayers.NW, shader.Id);
+                sprite.LayerSetShader(CornerLayers.SW, shader.Id);
             }
         }
 
@@ -307,7 +309,7 @@ namespace Content.Client.IconSmoothing
         {
             if (gridEntity == null)
             {
-                sprite.Comp.LayerSetState(0, $"{smooth.StateBase}0");
+                SetDiagonalState(sprite, smooth, false);
                 return;
             }
 
@@ -331,14 +333,17 @@ namespace Content.Client.IconSmoothing
                 matching = matching && MatchingEntity(smooth, _mapSystem.GetAnchoredEntitiesEnumerator(gridUid, grid, pos + neighbor), smoothQuery, neighbor); // Frontier: add neighbor
             }
 
-            if (matching)
-            {
-                sprite.Comp.LayerSetState(0, $"{smooth.StateBase}1");
-            }
+            SetDiagonalState(sprite, smooth, matching);
+        }
+
+        private void SetDiagonalState(Entity<SpriteComponent> sprite, IconSmoothComponent smooth, bool matching)
+        {
+            var stateId = $"{smooth.StateBase}{(matching ? 1 : 0)}";
+            // Rotate the same silhouette as the local collision hull.
+            if (smooth.RotateDiagonalSprite && sprite.Comp.BaseRSI is { } rsi && rsi.TryGetState(stateId, out var state))
+                _sprite.LayerSetTexture(sprite.AsNullable(), 0, state.GetFrame(RsiDirection.South, 0));
             else
-            {
-                sprite.Comp.LayerSetState(0, $"{smooth.StateBase}0");
-            }
+                _sprite.LayerSetRsiState(sprite.AsNullable(), 0, stateId);
         }
 
         // New Frontiers - Better icon smoothing - icon smoothing that supports more diagonal window states

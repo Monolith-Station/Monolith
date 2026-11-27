@@ -36,10 +36,10 @@ public sealed partial class FireControlSystem : EntitySystem
     [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private SharedContainerSystem _containers = default!;
     [Dependency] private IAdminLogManager _adminLogger = default!;
-    [Dependency] private IMapManager _mapMan = default!;
     [Dependency] private ShipSensorsSystem _sensors = default!;
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private RadarLockSystem _radarLock = default!;
+    [Dependency] private SharedMapSystem _mapMan = default!;
 
     private bool _completedCheck = false;
 

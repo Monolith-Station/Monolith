@@ -4,6 +4,7 @@ using Content.Shared.Access.Systems;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Damage;
 using Content.Shared.Database;
+using Robust.Shared.Prototypes;
 using Content.Shared.Doors.Components;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Interaction;
@@ -47,8 +48,7 @@ public abstract partial class SharedDoorSystem : EntitySystem
     [Dependency] private SharedPowerReceiverSystem _powerReceiver = default!;
 
 
-    [ValidatePrototypeId<TagPrototype>]
-    public const string DoorBumpTag = "DoorBumpOpener";
+    public static readonly ProtoId<TagPrototype> DoorBumpTag = "DoorBumpOpener";
 
     /// <summary>
     ///     A set of doors that are currently opening, closing, or just queued to open/close after some delay.

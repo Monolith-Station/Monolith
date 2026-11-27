@@ -155,7 +155,7 @@ public abstract partial class SharedBiomeSystem : EntitySystem
         return result;
     }
 
-    private bool[] BuildAllowedTiles(List<string> names)
+    private bool[] BuildAllowedTiles(List<ProtoId<ContentTileDefinition>> names)
     {
         var ids = new List<int>(names.Count);
         var max = -1;

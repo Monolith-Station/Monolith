@@ -47,7 +47,6 @@ public sealed class SpawnSalvageMissionJob : Job<bool>
 {
     private readonly IEntityManager _entManager;
     private readonly IGameTiming _timing;
-    private readonly IMapManager _mapManager;
     private readonly IPrototypeManager _prototypeManager;
     private readonly AnchorableSystem _anchorable;
     private readonly BiomeSystem _biome;
@@ -81,7 +80,6 @@ public sealed class SpawnSalvageMissionJob : Job<bool>
         double maxTime,
         IEntityManager entManager,
         IGameTiming timing,
-        IMapManager mapManager,
         IPrototypeManager protoManager,
         AnchorableSystem anchorable,
         BiomeSystem biome,
@@ -100,7 +98,6 @@ public sealed class SpawnSalvageMissionJob : Job<bool>
     {
         _entManager = entManager;
         _timing = timing;
-        _mapManager = mapManager;
         _prototypeManager = protoManager;
         _anchorable = anchorable;
         _biome = biome;
@@ -218,8 +215,8 @@ public sealed class SpawnSalvageMissionJob : Job<bool>
             }
         }
 
-        _mapManager.DoMapInitialize(mapId);
-        _mapManager.SetMapPaused(mapId, true);
+        _map.InitializeMap(mapId, unpause: false);
+        _map.SetPaused(mapId, true);
 
         // Setup expedition
         var expedition = _entManager.AddComponent<SalvageExpeditionComponent>(mapUid);
@@ -227,7 +224,7 @@ public sealed class SpawnSalvageMissionJob : Job<bool>
         expedition.EndTime = _timing.CurTime + mission.Duration;
         expedition.MissionParams = _missionParams;
         expedition.Difficulty = _missionParams.Difficulty;
-        expedition.Rewards = mission.Rewards;
+        expedition.Rewards = mission.Rewards.ConvertAll(id => new EntProtoId(id));
 
         // On Frontier, we cant share our locations it breaks ftl in a bad bad way
         // Don't want consoles to have the incorrect name until refreshed.

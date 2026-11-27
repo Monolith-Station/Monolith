@@ -11,3 +11,9 @@ public interface IWeightedRandomPrototype : IPrototype
     [ViewVariables]
     public Dictionary<string, float> Weights { get; }
 }
+
+public interface IWeightedRandomPrototype<T> : IPrototype where T : class, IPrototype
+{
+    [ViewVariables]
+    Dictionary<ProtoId<T>, float> Weights { get; }
+}

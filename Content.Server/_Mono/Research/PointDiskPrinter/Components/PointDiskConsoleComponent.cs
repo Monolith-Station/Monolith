@@ -1,6 +1,5 @@
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Server._Mono.Research.PointDiskPrinter.Components;
 
@@ -28,14 +27,14 @@ public sealed partial class PointDiskConsoleComponent : Component
     /// <summary>
     /// The prototype of what's being printed
     /// </summary>
-    [DataField("diskPrototype1K", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>)), ViewVariables(VVAccess.ReadWrite)]
-    public string Disk1KPrototype = "ResearchDisk5000";
+    [DataField("diskPrototype1K"), ViewVariables(VVAccess.ReadWrite)]
+    public EntProtoId Disk1KPrototype = "ResearchDisk5000";
 
-    [DataField("diskPrototype5K", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>)), ViewVariables(VVAccess.ReadWrite)]
-    public string Disk5KPrototype = "ResearchDisk10000";
+    [DataField("diskPrototype5K"), ViewVariables(VVAccess.ReadWrite)]
+    public EntProtoId Disk5KPrototype = "ResearchDisk10000";
 
-    [DataField("diskPrototype10K", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>)), ViewVariables(VVAccess.ReadWrite)]
-    public string Disk10KPrototype = "ResearchDisk35000";
+    [DataField("diskPrototype10K"), ViewVariables(VVAccess.ReadWrite)]
+    public EntProtoId Disk10KPrototype = "ResearchDisk35000";
 
     /// <summary>
     /// How long it takes to print <see cref="PointDiskPrototype"/>
