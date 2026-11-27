@@ -961,9 +961,9 @@
   loadouts:
   - HeadofSecurityCloak
   - HeadofSecurityMantle
-  - MonoClothingNeckWearableCameraCC # Mono
+  - CcClothingNeckWearableCameraCC # Mono
   fallbacks: # Mono
-  - MonoClothingNeckWearableCameraCC # Mono
+  - CcClothingNeckWearableCameraCC # Mono
 
 - type: loadoutGroup
   id: HeadofSecurityOuterClothing
