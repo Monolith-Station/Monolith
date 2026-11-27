@@ -483,9 +483,9 @@
     state: state0
   - type: IconSmooth
     mode: Diagonal
-    rotateDiagonalSprite: true
     key: walls
     base: state
+  - type: WorldSpaceSprite
   - type: DirectionalHull
     hulls:
       East:
@@ -755,9 +755,9 @@
     state: state0
   - type: IconSmooth
     mode: Diagonal
-    rotateDiagonalSprite: true
     key: walls
     base: state
+  - type: WorldSpaceSprite
   - type: DirectionalHull
     hulls:
       East:
