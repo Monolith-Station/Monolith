@@ -54,7 +54,7 @@ namespace Content.Shared.Damage
         ///     Groups which have no members that are supported by this component will not be present in this
         ///     dictionary.
         /// </remarks>
-        [ViewVariables] public Dictionary<string, FixedPoint2> DamagePerGroup = new();
+        [ViewVariables] public Dictionary<ProtoId<DamageGroupPrototype>, FixedPoint2> DamagePerGroup = new();
 
         /// <summary>
         ///     The sum of all damages in the DamageableComponent.
@@ -83,13 +83,13 @@ namespace Content.Shared.Damage
     [Serializable, NetSerializable]
     public sealed class DamageableComponentState : ComponentState
     {
-        public readonly Dictionary<string, FixedPoint2> DamageDict;
+        public readonly Dictionary<ProtoId<DamageTypePrototype>, FixedPoint2> DamageDict;
         public readonly string? DamageContainerId;
         public readonly string? ModifierSetId;
         public readonly FixedPoint2? HealthBarThreshold;
 
         public DamageableComponentState(
-            Dictionary<string, FixedPoint2> damageDict,
+            Dictionary<ProtoId<DamageTypePrototype>, FixedPoint2> damageDict,
             string? damageContainerId,
             string? modifierSetId,
             FixedPoint2? healthBarThreshold)

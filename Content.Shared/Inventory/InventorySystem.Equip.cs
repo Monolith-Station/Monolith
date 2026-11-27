@@ -4,6 +4,7 @@ using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Clothing.Components;
 using Content.Shared.DoAfter;
+using Robust.Shared.Prototypes;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -39,8 +40,7 @@ public abstract partial class InventorySystem
     [Dependency] private SharedStrippableSystem _strippable = default!;
     [Dependency] private SharedBodySystem _body = default!; // Mono
 
-    [ValidatePrototypeId<ItemSizePrototype>]
-    private const string PocketableItemSize = "Small";
+    private static readonly ProtoId<ItemSizePrototype> PocketableItemSize = "Small";
 
     private void InitializeEquip()
     {

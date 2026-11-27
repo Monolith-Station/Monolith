@@ -4,7 +4,7 @@ meta:
   engineVersion: 277.0.6
   forkId: ""
   forkVersion: ""
-  time: 11/24/2026 22:43:02
+  time: 11/26/2026 04:36:24
   entityCount: 399
 maps: []
 grids:
@@ -72,11 +72,11 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Smoke: []
-        MetalFoam: []
         ESTileFire: []
+        Smoke: []
         Puddle: []
         Kudzu: []
+        MetalFoam: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -2005,7 +2005,7 @@ entities:
       pos: 1.5,-5.5
       parent: 1
     - type: FuelGenerator
-      targetPower: 24000
+      targetPower: 27000
 - proto: PosterContrabandEAT
   entities:
   - uid: 219
@@ -2496,14 +2496,6 @@ entities:
       parent: 1
     - type: DeltaPressure
       gridUid: 1
-- proto: SensorInfraredCiv
-  entities:
-  - uid: 398
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 0.5,8.5
-      parent: 1
 - proto: SensorPassiveRadarCiv
   entities:
   - uid: 399
@@ -2511,6 +2503,14 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -2.5,7.5
+      parent: 1
+- proto: SensorRadarCiv
+  entities:
+  - uid: 398
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 0.5,8.5
       parent: 1
 - proto: ServiceTechFab
   entities:

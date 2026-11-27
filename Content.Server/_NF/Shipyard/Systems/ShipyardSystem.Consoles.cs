@@ -62,7 +62,7 @@ using Content.Server._Mono.Detection;
 using Content.Server.Access.Components;
 using Content.Server.CrewManifest;
 using Content.Shared._Mono.Economy; // Mono
-using Content.Shared._Mono.Economy.Component;
+using Content.Shared._Mono.Economy.Components;
 using Content.Shared.Roles; // Mono
 
 namespace Content.Server._NF.Shipyard.Systems;

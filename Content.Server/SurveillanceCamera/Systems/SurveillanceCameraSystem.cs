@@ -205,9 +205,9 @@ public sealed partial class SurveillanceCameraSystem : SharedSurveillanceCameraS
 
         if (camera.AvailableNetworks.Count == 0)
         {
-            if (deviceNet.ReceiveFrequencyId != null)
+            if (deviceNet.ReceiveFrequencyId is { } frequency)
             {
-                camera.AvailableNetworks.Add(deviceNet.ReceiveFrequencyId);
+                camera.AvailableNetworks.Add(frequency.Id);
             }
             else if (!camera.NetworkSet)
             {
@@ -218,7 +218,7 @@ public sealed partial class SurveillanceCameraSystem : SharedSurveillanceCameraS
 		
         var name = camera.UseEntityNameAsCameraId ? MetaData(uid).EntityName : camera.CameraId;
         var state = new SurveillanceCameraSetupBoundUiState(camera.CameraId, deviceNet.ReceiveFrequency ?? 0,
-            camera.AvailableNetworks, camera.NameSet, camera.NetworkSet);
+            camera.AvailableNetworks.ConvertAll(id => id.Id), camera.NameSet, camera.NetworkSet);
         _userInterface.SetUiState(uid, SurveillanceCameraSetupUiKey.Camera, state);
     }
 

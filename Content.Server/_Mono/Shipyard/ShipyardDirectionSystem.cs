@@ -16,7 +16,6 @@ public sealed partial class ShipyardDirectionSystem : EntitySystem
 {
     [Dependency] private IChatManager _chatManager = default!;
     [Dependency] private IPlayerManager _playerManager = default!;
-    [Dependency] private IMapManager _mapManager = default!;
     [Dependency] private TransformSystem _transformSystem = default!;
 
     /// <summary>

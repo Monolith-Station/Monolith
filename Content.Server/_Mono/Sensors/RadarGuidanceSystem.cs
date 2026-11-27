@@ -95,7 +95,12 @@ public sealed partial class RadarGuidanceSystem : EntitySystem
                 continue;
             if (!TryComp<FireControlConsoleComponent>(c, out var console))
                 continue;
-            if (console.RadarTrackEnabled && _lock.IsLockValid(c, console) && console.LockQuality >= 0.2f)
+            if (console.RadarTrackEnabled
+                && _lock.IsLockValid(c, console)
+                && console.LockQuality >= 0.2f
+                && console.LockedTarget is { } t
+                && Transform(c).GridUid is { } g
+                && _lock.HasIllumination(g, t))
                 continue;
 
             _targetGuided.SetGuidanceMode(missile, false, guided);

@@ -48,9 +48,9 @@ public sealed partial class BlackFlashSystem : EntitySystem
         Subs.CVar(_cfg, BlackFlashCVars.DamageMultiplier, val => NormalDamageMultiplier = val, true);
     }
 
-    [DataField] public float NormalDamageMultiplier = 2.5f;
-    [DataField] public float BaseProcChance = 0.00005f;
-    [DataField] private readonly BlackFlashComponent _procSettings = new();
+    public float NormalDamageMultiplier = 2.5f;
+    public float BaseProcChance = 0.00005f;
+    private readonly BlackFlashComponent _procSettings = new();
 
     private static float SwingRoll(uint tick, int user, int weapon)
     {

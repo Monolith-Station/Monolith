@@ -149,7 +149,7 @@ public sealed partial class FireControlSystem
                 TryComp<FTLComponent>(shipGrid, out _))
                 continue;
 
-            guidedComp.TargetPosition = targetCoordinates;
+            _targetGuided.SetTargetPosition(missile, targetCoordinates, guidedComp);
         }
     }
 

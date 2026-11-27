@@ -62,7 +62,7 @@ public abstract partial class CESharedZLevelsSystem
             return false;
 
         var worldPos = _transform.GetWorldPosition(ent);
-        if (!_mapManager.TryFindGridAt(mapAboveUid, worldPos, out var gridUid, out var grid))
+        if (!_map.TryFindGridAt(mapAboveUid, worldPos, out var gridUid, out var grid))
             return false;
 
         if (!_map.TryGetTileRef(gridUid, grid, worldPos, out var tileRef))
@@ -82,7 +82,7 @@ public abstract partial class CESharedZLevelsSystem
         if (!TryMapUp(currentMap, out var mapAboveUid))
             return false;
 
-        if (!_mapManager.TryFindGridAt(mapAboveUid, worldPos, out var gridUid, out var grid))
+        if (!_map.TryFindGridAt(mapAboveUid, worldPos, out var gridUid, out var grid))
             return false;
 
         if (!_map.TryGetTileRef(gridUid, grid, worldPos, out var tileRef))

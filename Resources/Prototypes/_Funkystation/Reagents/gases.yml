@@ -176,10 +176,16 @@
         scaleByQuantity: true
         ignoreResistances: true
         damage:
-          groups:
-            Burn: -2
-            Toxin: -1
-            Brute: -2
+          types:
+            Heat: -0.5
+            Shock: -0.5
+            Cold: -0.5
+            Caustic: -0.5
+            Poison: -0.5
+            Radiation: -0.5
+            Blunt: -0.66
+            Slash: -0.67
+            Piercing: -0.67
       - !type:EvenHealthChange # Mono: EvenHealthChange
         conditions:
         - !type:ReagentThreshold
@@ -221,10 +227,16 @@
       effects:
       - !type:HealthChange
         damage:
-          groups:
-            Burn: -0.1
-            Toxin: -0.1
-            Brute: -0.1
+          types:
+            Heat: -0.02
+            Shock: -0.02
+            Cold: -0.03
+            Caustic: -0.03
+            Poison: -0.05
+            Radiation: -0.05
+            Blunt: -0.03
+            Slash: -0.03
+            Piercing: -0.04
       - !type:GenericStatusEffect
         conditions:
         - !type:ReagentThreshold

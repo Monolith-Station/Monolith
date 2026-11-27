@@ -23,7 +23,7 @@
     fixtures:
       hard:
         shape: !type:PhysShapeAabb
-          bounds: -0.5,0.6,0.5,0.5
+          bounds: -0.5,0.5,0.5,0.6
         mask:
         - FullTileMask
         layer:
@@ -103,6 +103,5 @@
   components:
   - type: Occluder
     enabled: true
-    boundingBox: "-0.5,-0.5,0.5,0.5"
   - type: Sprite
     state: internal_corner

@@ -1,7 +1,7 @@
 using Content.Server.Botany.Systems;
 using Content.Server.Construction;
 using Content.Shared.Construction.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Botany.Components;
 
@@ -30,8 +30,8 @@ public sealed partial class SeedExtractorComponent : Component
     /// <summary>
     /// Machine part whose rating modifies the amount of seed packets dropped.
     /// </summary>
-    [DataField("machinePartYieldAmount", customTypeSerializer: typeof(PrototypeIdSerializer<MachinePartPrototype>))]
-    public string MachinePartSeedAmount = "Manipulator";
+    [DataField("machinePartYieldAmount")]
+    public ProtoId<MachinePartPrototype> MachinePartSeedAmount = "Manipulator";
 
     /// <summary>
     /// How much the machine part quality affects the amount of seeds outputted.

@@ -24,7 +24,7 @@ public sealed partial class DebrisFeaturePlacerSystem : BaseWorldSystem
     [Dependency] private PoissonDiskSampler _sampler = default!;
     [Dependency] private TransformSystem _xformSys = default!;
     [Dependency] private ILogManager _logManager = default!;
-    [Dependency] private IMapManager _mapManager = default!;
+    [Dependency] private SharedMapSystem _mapManager = default!;
     [Dependency] private IRobustRandom _random = default!;
 
     private ISawmill _sawmill = default!;
@@ -295,4 +295,3 @@ public record struct PrePlaceDebrisFeatureEvent(EntityCoordinates Coords, Entity
 [PublicAPI]
 public record struct TryGetPlaceableDebrisFeatureEvent(EntityCoordinates Coords, EntityUid Chunk,
     string? DebrisProto = null);
-
