@@ -27865,3 +27865,12 @@ Entries:
   id: 2985
   time: '2026-11-27T11:56:09.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/5105
+- author: Mrrpip
+  changes:
+    - type: Tweak
+      message: The Pillbox has lost it's APU, default generator output upped by 6KW
+    - type: Fix
+      message: The UGR has radars on their ships now.
+  id: 2986
+  time: '2026-11-27T13:32:26.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5126
