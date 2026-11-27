@@ -483,9 +483,22 @@
     state: state0
   - type: IconSmooth
     mode: Diagonal
-    rotateDiagonalSprite: true
     key: walls
     base: state
+  - type: DirectionalHull
+    hulls:
+      East:
+      - "-0.5,-0.5"
+      - "-0.5,-0.28125"
+      - "-0.109375,0.5"
+      - "0.5,0.5"
+      - "0.5,-0.5"
+      West:
+      - "-0.5,-0.5"
+      - "-0.5,-0.28125"
+      - "-0.109375,0.5"
+      - "0.5,0.5"
+      - "0.5,-0.5"
   - type: Icon
     sprite: Structures/Walls/plastitanium_diagonal.rsi
     state: state0
@@ -741,9 +754,22 @@
     state: state0
   - type: IconSmooth
     mode: Diagonal
-    rotateDiagonalSprite: true
     key: walls
     base: state
+  - type: DirectionalHull
+    hulls:
+      East:
+      - "-0.5,-0.5"
+      - "-0.5,-0.28125"
+      - "-0.109375,0.5"
+      - "0.5,0.5"
+      - "0.5,-0.5"
+      West:
+      - "-0.5,-0.5"
+      - "-0.5,-0.28125"
+      - "-0.109375,0.5"
+      - "0.5,0.5"
+      - "0.5,-0.5"
   - type: Icon
     sprite: Structures/Walls/shuttle_diagonal.rsi
     state: state0
