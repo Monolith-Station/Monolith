@@ -280,7 +280,8 @@
   id: JobDirectorOfCare
   groups:
   - DocHead
-  - DocNeck
+  - DocNeck # Monolith: Misc slot
+  - DocMisc # Monolith: Misc slot
   - DocJumpsuit
   - DocGloves
   - MdMedicBackpack
