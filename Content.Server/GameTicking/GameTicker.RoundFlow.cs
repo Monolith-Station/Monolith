@@ -12,6 +12,7 @@ using Content.Server.Station.Systems;
 using Content.Server._NF.Bank;
 using Content.Server._NF.GameRule;
 using Content.Shared.CCVar;
+using Content.Shared.Damage.Prototypes;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
 using Content.Shared.Maps;
@@ -26,6 +27,7 @@ using Robust.Shared.EntitySerialization;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
@@ -590,7 +592,7 @@ namespace Content.Server.GameTicking
 
                 var lastWords = "";
                 var mobState = MobState.Invalid;
-                var damagePerGroup = new Dictionary<string, FixedPoint2>();
+                var damagePerGroup = new Dictionary<ProtoId<DamageGroupPrototype>, FixedPoint2>();
                 var lastMob = mind.LastMob;
                 if (TryComp<LastWordsComponent>(mindId, out var lastWordsComponent)
                     && !TerminatingOrDeleted(lastMob))
@@ -1034,8 +1036,6 @@ namespace Content.Server.GameTicking
             RaiseNetworkEvent(ev);
 
             EntityManager.FlushEntities();
-
-            _mapManager.Restart();
 
             _banManager.Restart();
 

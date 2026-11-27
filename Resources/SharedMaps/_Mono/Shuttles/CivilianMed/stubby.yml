@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 277.0.0
+  engineVersion: 277.0.6
   forkId: ""
   forkVersion: ""
-  time: 09/03/2026 16:09:30
-  entityCount: 295
+  time: 11/26/2026 04:07:11
+  entityCount: 289
 maps: []
 grids:
 - 1
@@ -67,10 +67,11 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
       spreadQueues:
-        Kudzu: []
-        Puddle: []
-        MetalFoam: []
+        ESTileFire: []
         Smoke: []
+        Puddle: []
+        Kudzu: []
+        MetalFoam: []
     - type: Shuttle
       dampingModifier: 0.25
     - type: GridPathfinding
@@ -285,6 +286,9 @@ entities:
     - type: ThermalSignature
     - type: ImplicitRoof
     - type: ExplosionAirtightGrid
+    - type: GridSensors
+      datalinkCodes: []
+    - type: DetectionRangeMultiplier
 - proto: AirAlarm
   entities:
   - uid: 2
@@ -350,20 +354,10 @@ entities:
       parent: 1
 - proto: AtmosFixBlockerMarker
   entities:
-  - uid: 11
-    components:
-    - type: Transform
-      pos: -3.5,1.5
-      parent: 1
   - uid: 12
     components:
     - type: Transform
       pos: 3.5,2.5
-      parent: 1
-  - uid: 13
-    components:
-    - type: Transform
-      pos: -0.5,-6.5
       parent: 1
   - uid: 14
     components:
@@ -379,11 +373,6 @@ entities:
     components:
     - type: Transform
       pos: 1.5,-6.5
-      parent: 1
-  - uid: 17
-    components:
-    - type: Transform
-      pos: 2.5,-6.5
       parent: 1
   - uid: 18
     components:
@@ -425,35 +414,10 @@ entities:
     - type: Transform
       pos: -1.5,-5.5
       parent: 1
-  - uid: 26
-    components:
-    - type: Transform
-      pos: -2.5,-6.5
-      parent: 1
-  - uid: 27
-    components:
-    - type: Transform
-      pos: 4.5,-6.5
-      parent: 1
   - uid: 28
     components:
     - type: Transform
       pos: -3.5,-4.5
-      parent: 1
-  - uid: 29
-    components:
-    - type: Transform
-      pos: -1.5,3.5
-      parent: 1
-  - uid: 30
-    components:
-    - type: Transform
-      pos: -0.5,4.5
-      parent: 1
-  - uid: 31
-    components:
-    - type: Transform
-      pos: 2.5,4.5
       parent: 1
   - uid: 32
     components:
@@ -1320,7 +1284,7 @@ entities:
       pos: 0.5,-4.5
       parent: 1
     - type: FuelGenerator
-      targetPower: 24000
+      targetPower: 25000
 - proto: Poweredlight
   entities:
   - uid: 157
@@ -1696,6 +1660,22 @@ entities:
     components:
     - type: Transform
       pos: 1.5,-2.5
+      parent: 1
+- proto: SensorInfraredCiv
+  entities:
+  - uid: 11
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -0.5,4.5
+      parent: 1
+- proto: SensorRadarCiv
+  entities:
+  - uid: 13
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 2.5,4.5
       parent: 1
 - proto: SignalSwitchDirectional
   entities:

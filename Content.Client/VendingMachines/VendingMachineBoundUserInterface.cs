@@ -5,7 +5,7 @@ using Robust.Client.UserInterface;
 using Robust.Shared.Input;
 using System.Linq;
 using Content.Client._Mono.Economy;
-using Content.Shared._Mono.Economy.Component; // Mono
+using Content.Shared._Mono.Economy.Components; // Mono
 using Robust.Client.GameObjects;
 using Content.Shared._NF.Bank.Components; // Frontier
 using Content.Shared.Containers.ItemSlots; // Frontier

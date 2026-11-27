@@ -35,8 +35,7 @@ public sealed partial class EscapeInventorySystem : EntitySystem
     [Dependency] private  EntityManager _entityManager = default!;
 
     // Frontier - cancel inventory escape
-    [ValidatePrototypeId<EntityPrototype>]
-    private readonly string _escapeCancelAction = "ActionCancelEscape";
+    private static readonly EntProtoId EscapeCancelAction = "ActionCancelEscape";
 
     /// <summary>
     /// You can't escape the hands of an entity this many times more massive than you.
@@ -103,7 +102,7 @@ public sealed partial class EscapeInventorySystem : EntitySystem
 
         // Frontier - escape cancel action
         if (component.EscapeCancelAction is not { Valid: true })
-            _actions.AddAction(user, ref component.EscapeCancelAction, _escapeCancelAction);
+            _actions.AddAction(user, ref component.EscapeCancelAction, EscapeCancelAction);
     }
 
     private void OnEscape(EntityUid uid, CanEscapeInventoryComponent component, EscapeInventoryEvent args)

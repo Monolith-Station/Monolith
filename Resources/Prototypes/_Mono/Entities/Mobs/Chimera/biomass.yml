@@ -78,10 +78,11 @@
       - !type:HealthChange
         scaleByQuantity: true
         damage:
-          groups:
-            Burn: -60
           types:
-            Heat: -30
+            Heat: -45
+            Shock: -15
+            Cold: -15
+            Caustic: -15
   - type: AtmosExposed
   - type: SpeedModifierContacts
     walkSpeedModifier: 0.45

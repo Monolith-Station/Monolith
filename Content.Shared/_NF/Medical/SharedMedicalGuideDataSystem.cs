@@ -16,7 +16,6 @@ public abstract class SharedMedicalGuideDataSystem : EntitySystem
 [Serializable, NetSerializable]
 public sealed class MedicalGuideRegistryChangedEvent : EntityEventArgs
 {
-    [DataField]
     public List<MedicalGuideEntry> Changeset;
 
     public MedicalGuideRegistryChangedEvent(List<MedicalGuideEntry> changeset)
@@ -56,13 +55,10 @@ public partial struct MedicalGuideEntry
 [Serializable, NetSerializable]
 public sealed partial class MedicalRecipeData
 {
-    [DataField]
     public ProtoId<FoodRecipePrototype> Recipe;
 
-    [DataField]
     public EntProtoId Result;
 
-    [DataField]
     private int _outputCount;
     public int OutputCount => _outputCount;
 

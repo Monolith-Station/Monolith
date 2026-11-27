@@ -1,5 +1,5 @@
 ﻿using Content.Shared._Mono.Economy;
-using Content.Shared._Mono.Economy.Component;
+using Content.Shared._Mono.Economy.Components;
 using Content.Shared.VendingMachines;
 
 namespace Content.Client._Mono.Economy;

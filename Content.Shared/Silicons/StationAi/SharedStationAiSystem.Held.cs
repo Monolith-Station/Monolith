@@ -126,7 +126,7 @@ public abstract partial class SharedStationAiSystem
         RaiseLocalEvent(target.Value, (object) ev.Event);
     }
 
-    private void OnMessageAttempt(BoundUserInterfaceMessageAttempt ev)
+    private void OnMessageAttempt(ref BoundUserInterfaceMessageAttempt ev)
     {
         if (ev.Actor == ev.Target)
             return;

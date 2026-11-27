@@ -29,8 +29,8 @@ public sealed class AddAccentPickupSystem : EntitySystem
         AddComp(args.User, accentComponent);
 
         // snowflake case for replacement accent
-        if (accentComponent is ReplacementAccentComponent rep)
-            rep.Accent = component.ReplacementPrototype!;
+        if (accentComponent is ReplacementAccentComponent rep && component.ReplacementPrototype is { } replacement)
+            rep.Accent = replacement;
 
         component.IsActive = true;
         component.Holder = args.User;
@@ -87,8 +87,8 @@ public sealed class AddAccentPickupSystem : EntitySystem
             AddComp(component.Holder, accentComponent);
 
             // snowflake case for replacement accent
-            if (accentComponent is ReplacementAccentComponent rep)
-                rep.Accent = component.ReplacementPrototype!;
+            if (accentComponent is ReplacementAccentComponent rep && component.ReplacementPrototype is { } replacement)
+                rep.Accent = replacement;
 
             component.IsActive = true;
         }

@@ -8,22 +8,23 @@
 
 # Notes:
 # Down at your local saloon
-- type: pointOfInterest
-  id: CaseysCasino
-  parent: [BasePOI, BaseRepairablePOI]
-  name: "Crazy Casey's Casino"
-  minimumDistance: 4250
-  maximumDistance: 5600
-  gridPath: /Maps/_NF/POI/caseyscasino.yml
+# Mono: commented out
+#- type: pointOfInterest
+#  id: CaseysCasino
+#  parent: [BasePOI, BaseRepairablePOI]
+#  name: "Crazy Casey's Casino"
+#  minimumDistance: 4250
+#  maximumDistance: 5600
+#  gridPath: /Maps/_NF/POI/caseyscasino.yml
 
-- type: gameMap
-  id: CaseysCasino
-  mapName: "Crazy Casey's Casino"
-  mapPath: /Maps/_NF/POI/caseyscasino.yml
-  minPlayers: 0
-  stations:
-    CaseysCasino:
-      stationProto: DeadDropFrontierOutpost
-      components:
-        - type: StationNameSetup
-          mapNameTemplate: "Crazy Casey's Casino"
+#- type: gameMap
+#  id: CaseysCasino
+#  mapName: "Crazy Casey's Casino"
+#  mapPath: /Maps/_NF/POI/caseyscasino.yml
+#  minPlayers: 0
+#  stations:
+#    CaseysCasino:
+#      stationProto: DeadDropFrontierOutpost
+#      components:
+#        - type: StationNameSetup
+#          mapNameTemplate: "Crazy Casey's Casino"

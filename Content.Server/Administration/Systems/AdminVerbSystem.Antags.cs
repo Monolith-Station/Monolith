@@ -18,8 +18,7 @@ public sealed partial class AdminVerbSystem
     [Dependency] private AntagSelectionSystem _antag = default!;
     [Dependency] private ZombieSystem _zombie = default!;
 
-    [ValidatePrototypeId<EntityPrototype>]
-    private const string DefaultTraitorRule = "Traitor";
+    private static readonly EntProtoId DefaultTraitorRule = "Traitor";
 
     // [ValidatePrototypeId<EntityPrototype>] // Frontier: no initial infected verb
     // private const string DefaultInitialInfectedRule = "Zombie"; // Frontier: no initial infected verb
@@ -27,14 +26,11 @@ public sealed partial class AdminVerbSystem
     // [ValidatePrototypeId<EntityPrototype>] // Frontier: no nuke op verb
     // private const string DefaultNukeOpRule = "LoneOpsSpawn"; // Frontier: no nuke op verb
 
-    [ValidatePrototypeId<EntityPrototype>]
-    private const string DefaultRevsRule = "Revolutionary";
+    private static readonly EntProtoId DefaultRevsRule = "Revolutionary";
 
-    [ValidatePrototypeId<EntityPrototype>]
-    private const string DefaultThiefRule = "Thief";
+    private static readonly EntProtoId DefaultThiefRule = "Thief";
 
-    [ValidatePrototypeId<StartingGearPrototype>]
-    private const string PirateGearId = "PirateGear";
+    private static readonly ProtoId<StartingGearPrototype> PirateGearId = "PirateGear";
 
     // All antag verbs have names so invokeverb works.
     private void AddAntagVerbs(GetVerbsEvent<Verb> args)

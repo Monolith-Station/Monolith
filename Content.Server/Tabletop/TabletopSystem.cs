@@ -21,7 +21,7 @@ namespace Content.Server.Tabletop
     [UsedImplicitly]
     public sealed partial class TabletopSystem : SharedTabletopSystem
     {
-        [Dependency] private IMapManager _mapManager = default!;
+        [Dependency] private SharedMapSystem _mapManager = default!;
         [Dependency] private EyeSystem _eye = default!;
         [Dependency] private ViewSubscriberSystem _viewSubscriberSystem = default!;
         [Dependency] private PopupSystem _popupSystem = default!;

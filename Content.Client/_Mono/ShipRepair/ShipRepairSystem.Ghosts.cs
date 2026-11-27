@@ -63,7 +63,7 @@ public sealed partial class ShipRepairSystem : SharedShipRepairSystem
         // find all grids in range so it displays for nearby grids and not just our own
         var searchBox = Box2.CenteredAround(playerMapPos.Position, new Vector2(maxRange * 2, maxRange * 2));
         var grids = new List<Entity<MapGridComponent>>();
-        _mapMan.FindGridsIntersecting(playerMapPos.MapId, searchBox, ref grids, true, false);
+        _map.FindGridsIntersecting(playerMapPos.MapId, searchBox, ref grids, true, false);
 
         var shiftVec = new Vector2(maxRange, maxRange);
 
