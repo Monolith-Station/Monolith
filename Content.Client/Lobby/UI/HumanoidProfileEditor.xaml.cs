@@ -116,8 +116,7 @@ namespace Content.Client.Lobby.UI
 
         private bool _isDirty;
 
-        [ValidatePrototypeId<GuideEntryPrototype>]
-        private const string DefaultSpeciesGuidebook = "Species";
+        private static readonly ProtoId<GuideEntryPrototype> DefaultSpeciesGuidebook = "Species";
 
         public event Action<List<ProtoId<GuideEntryPrototype>>>? OnOpenGuidebook;
 
@@ -1352,7 +1351,7 @@ namespace Content.Client.Lobby.UI
 
             var guidebookController = UserInterfaceManager.GetUIController<GuidebookUIController>();
             var species = Profile?.Species ?? SharedHumanoidAppearanceSystem.DefaultSpecies;
-            var page = DefaultSpeciesGuidebook;
+            var page = DefaultSpeciesGuidebook.Id;
             if (_prototypeManager.HasIndex<GuideEntryPrototype>(species))
                 page = species;
 
@@ -2104,13 +2103,13 @@ namespace Content.Client.Lobby.UI
             }
             var hairMarking = Profile.Appearance.HairStyleId switch
             {
-                HairStyles.DefaultHairStyle => new List<Marking>(),
+                var id when id == HairStyles.DefaultHairStyle.Id => new List<Marking>(),
                 _ => new() { new(Profile.Appearance.HairStyleId, new List<Color>() { Profile.Appearance.HairColor }) },
             };
 
             var facialHairMarking = Profile.Appearance.FacialHairStyleId switch
             {
-                HairStyles.DefaultFacialHairStyle => new List<Marking>(),
+                var id when id == HairStyles.DefaultFacialHairStyle.Id => new List<Marking>(),
                 _ => new() { new(Profile.Appearance.FacialHairStyleId, new List<Color>() { Profile.Appearance.FacialHairColor }) },
             };
 

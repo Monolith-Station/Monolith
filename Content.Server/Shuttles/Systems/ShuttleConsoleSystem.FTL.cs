@@ -17,7 +17,6 @@ namespace Content.Server.Shuttles.Systems;
 
 public sealed partial class ShuttleConsoleSystem
 {
-    [Dependency] private IMapManager _mapManager = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
 
     private const float ShuttleFTLRange = 1536f; // Mono 512 -> 1536

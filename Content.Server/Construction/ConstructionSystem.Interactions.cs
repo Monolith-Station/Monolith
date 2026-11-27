@@ -377,7 +377,7 @@ namespace Content.Server.Construction
                         interactUsing.User,
                         uid,
                         durationEvent.Duration,
-                        new [] { toolInsertStep.Tool },
+                        new[] { toolInsertStep.Tool.Id },
                         new ConstructionInteractDoAfterEvent(EntityManager, interactUsing),
                         out var doAfterId,
                         toolInsertStep.Fuel);

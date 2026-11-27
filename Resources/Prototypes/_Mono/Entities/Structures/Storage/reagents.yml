@@ -68,7 +68,11 @@
     - state: fueltank
   - type: Occluder
     enabled: true
-    boundingBox: "-1.1,-1.1,1.1,1.1"
+    polygon:
+    - "-1.1,1.1"
+    - "1.1,1.1"
+    - "1.1,-1.1"
+    - "-1.1,-1.1"
   - type: Fixtures
     fixtures:
       fix1:

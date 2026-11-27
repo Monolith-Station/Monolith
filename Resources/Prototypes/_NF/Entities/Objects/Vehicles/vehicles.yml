@@ -502,7 +502,7 @@
     radius: 6
     energy: 2
     color: "#FF4020"
-    mask: /Textures/Effects/LightMasks/double_cone.png
+    lightMask: ConeDouble
 
 - type: entity
   parent: VehicleHoverbikeNfsd

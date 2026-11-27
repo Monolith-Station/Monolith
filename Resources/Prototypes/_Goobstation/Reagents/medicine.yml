@@ -21,12 +21,19 @@
             mobstate: Dead
         - !type:HealthChange
           damage:
-            groups:
-              Brute: -20
-              Burn: -20
-              Airloss: -20
-              Toxin: -20
-              Genetic: -20
+            types:
+              Blunt: -6.66
+              Slash: -6.67
+              Piercing: -6.67
+              Heat: -5
+              Shock: -5
+              Cold: -5
+              Caustic: -5
+              Asphyxiation: -10
+              Bloodloss: -10
+              Poison: -10
+              Radiation: -10
+              Cellular: -20
         - !type:HealthChange
           conditions:
           - !type:ReagentThreshold

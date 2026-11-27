@@ -579,9 +579,14 @@
       components:
       - MobState
     damage:
-      groups:
-        Brute: -300
-        Burn: -300
+      types:
+        Blunt: -100
+        Slash: -100
+        Piercing: -100
+        Heat: -75
+        Shock: -75
+        Cold: -75
+        Caustic: -75
 
 - type: artifactEffect
   id: EffectRadiateStrong

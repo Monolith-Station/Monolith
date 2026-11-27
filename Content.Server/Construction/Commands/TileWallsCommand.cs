@@ -1,5 +1,6 @@
 using Content.Server.Administration;
 using Content.Shared.Administration;
+using Robust.Shared.Prototypes;
 using Content.Shared.Maps;
 using Content.Shared.Tag;
 using Robust.Shared.Console;
@@ -20,11 +21,9 @@ public sealed partial class TileWallsCommand : IConsoleCommand
     public string Description => "Puts an underplating tile below every wall on a grid.";
     public string Help => $"Usage: {Command} <gridId> | {Command}";
 
-    [ValidatePrototypeId<ContentTileDefinition>]
-    public const string TilePrototypeId = "Plating";
+    public static readonly ProtoId<ContentTileDefinition> TilePrototypeId = "Plating";
 
-    [ValidatePrototypeId<TagPrototype>]
-    public const string WallTag = "Wall";
+    public static readonly ProtoId<TagPrototype> WallTag = "Wall";
 
     public void Execute(IConsoleShell shell, string argStr, string[] args)
     {
