@@ -408,6 +408,54 @@
       - PirateUplink
 
 - type: listing
+  id: UplinkPirateDeathAcidifier
+  name: uplink-pirate-death-acidifier-name
+  description: uplink-pirate-death-acidifier-desc
+  icon: { sprite: /Textures/Objects/Magic/magicactions.rsi, state: gib }
+  productEntity: DeathAcidiferImplanter
+  cost:
+    Doubloon: 20
+  categories:
+    - UplinkPirateUtility
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - PirateUplink
+
+- type: listing
+  id: UplinkPirateMicrobomb
+  name: uplink-pirate-microbomb-name
+  description: uplink-pirate-microbomb-desc
+  icon: { sprite: /Textures/Actions/Implants/implants.rsi, state: explosive }
+  productEntity: MicroBombImplanter
+  cost:
+    Doubloon: 35
+  categories:
+    - UplinkPirateUtility
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - PirateUplink
+
+- type: listing
+  id: UplinkPirateMacrobomb
+  name: uplink-pirate-macrobomb-name
+  description: uplink-pirate-macrobomb-desc
+  icon: { sprite: /Textures/Actions/Implants/implants.rsi, state: explosive }
+  productEntity: MacroBombImplanter
+  cost:
+    Doubloon: 75
+  categories:
+    - UplinkPirateUtility
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - PirateUplink
+
+- type: listing
   id: UplinkPirateHoverbikeFlatpack
   name: uplink-pirate-hoverbike-name
   description: uplink-pirate-hoverbike-desc
