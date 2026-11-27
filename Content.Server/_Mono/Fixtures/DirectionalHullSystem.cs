@@ -14,11 +14,11 @@ public sealed partial class DirectionalHullSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<DirectionalHullComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<DirectionalHullComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<DirectionalHullComponent, MoveEvent>(OnMove);
     }
 
-    private void OnMapInit(Entity<DirectionalHullComponent> ent, ref MapInitEvent args) => UpdateHull(ent);
+    private void OnStartup(Entity<DirectionalHullComponent> ent, ref ComponentStartup args) => UpdateHull(ent);
 
     private void OnMove(Entity<DirectionalHullComponent> ent, ref MoveEvent args)
     {
