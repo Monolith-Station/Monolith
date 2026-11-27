@@ -9,7 +9,7 @@ namespace Content.Client._CE.ZLevels.Light;
 
 public sealed partial class CEZLightProjectionSystem : EntitySystem
 {
-    private const float DeckSpacing = 3f;
+    internal const float DeckSpacing = 3f;
     private const float EmitterHeight = 1f;
 
     [Dependency] private CESharedZLevelsSystem _zLevels = default!;
@@ -17,10 +17,9 @@ public sealed partial class CEZLightProjectionSystem : EntitySystem
     [Dependency] private IOverlayManager _overlays = default!;
 
     private readonly Dictionary<EntityUid, List<LightPlane>> _planes = new();
-    private readonly List<ProjectedLight> _projectedLights = new();
+    private readonly Dictionary<EntityUid, (EntityUid Network, float Altitude)> _mapPlanes = new();
+    private readonly Dictionary<EntityUid, List<ZLight>> _lights = new();
     private CEZProjectedLightOverlay? _overlay;
-
-    internal IReadOnlyList<ProjectedLight> ProjectedLights => _projectedLights;
 
     public override void Initialize()
     {
@@ -35,7 +34,8 @@ public sealed partial class CEZLightProjectionSystem : EntitySystem
         base.FrameUpdate(frameTime);
 
         BuildPlanes();
-        _projectedLights.Clear();
+        foreach (var list in _lights.Values)
+            list.Clear();
 
         var query = EntityQueryEnumerator<PointLightComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var light, out var xform))
@@ -44,80 +44,86 @@ public sealed partial class CEZLightProjectionSystem : EntitySystem
                 light.ContainerOccluded ||
                 light.Energy <= 0f ||
                 xform.MapUid is not { } sourceMap ||
-                !TryGetPlane(sourceMap, out var network, out var sourceAltitude) ||
-                !_planes.TryGetValue(network, out var planes))
+                !_mapPlanes.TryGetValue(sourceMap, out var plane))
             {
                 continue;
             }
 
+            var sourceAltitude = plane.Altitude;
             // Transit planes already include their grid's elevation.
             if (!HasComp<CEZTransitMapComponent>(sourceMap))
                 sourceAltitude += _zLevels.GetLocalAltitude(uid);
 
-            var emitterAltitude = sourceAltitude + EmitterHeight / DeckSpacing;
             var (position, rotation) = _transform.GetWorldPositionRotation(xform);
             position += rotation.RotateVec(light.Offset);
 
-            foreach (var plane in planes)
-            {
-                if (plane.Map == sourceMap)
-                    continue;
+            if (!_lights.TryGetValue(plane.Network, out var list))
+                _lights[plane.Network] = list = new List<ZLight>();
 
-                var height = (emitterAltitude - plane.Altitude) * DeckSpacing;
-                var heightSquared = height * height;
-                var reachSquared = light.Radius * light.Radius - heightSquared;
-                if (reachSquared > 0f)
-                {
-                    _projectedLights.Add(new ProjectedLight(plane, planes, position, rotation, emitterAltitude,
-                        heightSquared, MathF.Sqrt(reachSquared), light));
-                }
+            list.Add(new ZLight(uid, sourceMap, position, rotation, sourceAltitude + EmitterHeight / DeckSpacing, light));
+        }
+    }
+
+    internal void CollectProjected(EntityUid targetMap, List<ProjectedLight> output)
+    {
+        if (!_mapPlanes.TryGetValue(targetMap, out var target) ||
+            !_lights.TryGetValue(target.Network, out var lights))
+        {
+            return;
+        }
+
+        var planes = _planes[target.Network];
+        var targetPlane = new LightPlane(targetMap, target.Altitude);
+        foreach (var light in lights)
+        {
+            if (light.SourceMap == targetMap)
+                continue;
+
+            var height = (light.EmitterAltitude - target.Altitude) * DeckSpacing;
+            var heightSquared = height * height;
+            var reachSquared = light.Source.Radius * light.Source.Radius - heightSquared;
+            if (reachSquared > 0f)
+            {
+                output.Add(new ProjectedLight(light.Uid, light.SourceMap, targetPlane, planes, light.Position,
+                    light.Rotation, light.EmitterAltitude, heightSquared, MathF.Sqrt(reachSquared), light.Source));
             }
         }
     }
 
     private void BuildPlanes()
     {
-        _planes.Clear();
+        _mapPlanes.Clear();
+        foreach (var list in _planes.Values)
+            list.Clear();
 
         var networks = EntityQueryEnumerator<CEZMapNetworkComponent>();
         while (networks.MoveNext(out var networkUid, out var network))
         {
-            var planes = new List<LightPlane>(network.SortedZLevels.Count);
-            _planes.Add(networkUid, planes);
-
             foreach (var mapUid in network.SortedZLevels)
             {
                 if (TryComp<CEZMapComponent>(mapUid, out var map) && HasComp<MapComponent>(mapUid))
-                    planes.Add(new LightPlane(mapUid, map.Depth));
+                    AddPlane(networkUid, mapUid, map.Depth);
             }
         }
 
         var transits = EntityQueryEnumerator<CEZTransitMapComponent, MapComponent>();
         while (transits.MoveNext(out var mapUid, out var transit, out _))
         {
-            if (TryGetTransitPlane(transit, out var network, out var altitude) &&
-                _planes.TryGetValue(network, out var planes))
-            {
-                planes.Add(new LightPlane(mapUid, altitude));
-            }
+            if (TryGetTransitPlane(transit, out var network, out var altitude))
+                AddPlane(network, mapUid, altitude);
         }
+
+        foreach (var list in _planes.Values)
+            list.Sort(static (a, b) => a.Altitude.CompareTo(b.Altitude));
     }
 
-    private bool TryGetPlane(EntityUid mapUid, out EntityUid network, out float altitude)
+    private void AddPlane(EntityUid network, EntityUid map, float altitude)
     {
-        if (TryComp<CEZMapComponent>(mapUid, out var map))
-        {
-            network = map.NetworkUid;
-            altitude = map.Depth;
-            return true;
-        }
+        if (!_planes.TryGetValue(network, out var list))
+            _planes[network] = list = new List<LightPlane>();
 
-        if (TryComp<CEZTransitMapComponent>(mapUid, out var transit))
-            return TryGetTransitPlane(transit, out network, out altitude);
-
-        network = default;
-        altitude = default;
-        return false;
+        list.Add(new LightPlane(map, altitude));
+        _mapPlanes[map] = (network, altitude);
     }
 
     private bool TryGetTransitPlane(CEZTransitMapComponent transit, out EntityUid network, out float altitude)
@@ -153,7 +159,16 @@ public sealed partial class CEZLightProjectionSystem : EntitySystem
     }
 
     internal readonly record struct LightPlane(EntityUid Map, float Altitude);
+    private readonly record struct ZLight(
+        EntityUid Uid,
+        EntityUid SourceMap,
+        Vector2 Position,
+        Angle Rotation,
+        float EmitterAltitude,
+        PointLightComponent Source);
     internal readonly record struct ProjectedLight(
+        EntityUid Uid,
+        EntityUid SourceMap,
         LightPlane Target,
         IReadOnlyList<LightPlane> Planes,
         Vector2 Position,

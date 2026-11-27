@@ -10,6 +10,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 using static Content.Client._CE.ZLevels.Light.CEZLightProjectionSystem;
 
 namespace Content.Client._CE.ZLevels.Light;
@@ -19,12 +20,13 @@ internal sealed partial class CEZProjectedLightOverlay : Overlay
     private static readonly ProtoId<ShaderPrototype> LightShader = "CEZProjectedLight";
     private static readonly ProtoId<ShaderPrototype> CopyShader = "CEZLightBufferCopy";
     private static readonly ProtoId<ShaderPrototype> CloudShader = "CEZLightCloudMask";
-    private const int MaskSize = 128;
+    private const int MaskSize = 512;
     private const float WallHeight = 1f;
     private const float CloudThickness = 0.25f;
     private static readonly ushort[][] WallFaces = BuildWallFaces();
 
     [Dependency] private IClyde _clyde = default!;
+    [Dependency] private IGameTiming _timing = default!;
     [Dependency] private IPrototypeManager _prototypes = default!;
     [Dependency] private IResourceCache _resources = default!;
     [Dependency] private ITileDefinitionManager _tiles = default!;
@@ -39,8 +41,19 @@ internal sealed partial class CEZProjectedLightOverlay : Overlay
     private readonly List<ShaderInstance> _cloudShaders = new();
     private readonly List<ProjectedLight> _visible = new();
     private readonly List<Entity<OccluderComponent, TransformComponent>> _walls = new();
+    private readonly List<(Vector2 Position, float Altitude)> _emitters = new();
     private readonly Vector2[] _wallCorners = new Vector2[PhysicsConstants.MaxPolygonVertices * 2];
     private List<Entity<MapGridComponent>> _grids = new();
+
+    private readonly Dictionary<(EntityUid Light, EntityUid Map), PlaneGeometry> _geometry = new();
+    private readonly Stack<PlaneGeometry> _geometryPool = new();
+    private uint _geometryFrame;
+
+    // Changing these is performance expensive. If 6 isn't enough you may have an issue.
+    private const int Samples = 6;
+    private const float SourceRadius = 0.25f;
+    private static readonly Vector3[] SampleOffsets = BuildSampleOffsets();
+
     private IRenderTexture? _lightBuffer;
     private IRenderTexture? _mask;
     private ShaderInstance? _shader;
@@ -67,12 +80,19 @@ internal sealed partial class CEZProjectedLightOverlay : Overlay
             return;
 
         _visible.Clear();
-        foreach (var light in _lights.ProjectedLights)
+        _lights.CollectProjected(args.MapUid, _visible);
+        var kept = 0;
+        for (var i = 0; i < _visible.Count; i++)
         {
-            if (light.Target.Map == args.MapUid && new Circle(light.Position, light.Reach).Intersects(args.WorldAABB))
-                _visible.Add(light);
+            var light = _visible[i];
+            if (new Circle(light.Position, light.Reach).Intersects(args.WorldAABB) &&
+                TargetCanReceive(light) && !FloorBlocksAll(light))
+            {
+                _visible[kept++] = light;
+            }
         }
 
+        _visible.RemoveRange(kept, _visible.Count - kept);
         if (_visible.Count == 0)
             return;
 
@@ -93,7 +113,6 @@ internal sealed partial class CEZProjectedLightOverlay : Overlay
         var screenBounds = new UIBox2(Vector2.Zero, target.Size);
         var worldToBuffer = buffer.GetWorldToLocalMatrix(eye, viewport.RenderScale * (target.Size / (Vector2) viewport.Size));
 
-        // Clyde's additive blend needs an opaque destination; copy the existing light buffer first.
         screen.RenderInRenderTarget(buffer, () =>
         {
             screen.UseShader(copy);
@@ -102,8 +121,14 @@ internal sealed partial class CEZProjectedLightOverlay : Overlay
 
             foreach (var light in _visible)
             {
-                world.RenderInRenderTarget(mask, () => DrawBlockers(world, light), Color.White);
-                DrawLight(world, worldToBuffer, mask.Texture, shader, light);
+                CollectEmitters(light);
+                var share = 1f / _emitters.Count;
+                var weight = Color.ToSrgb(new Color(share, share, share));
+                foreach (var (emitter, altitude) in _emitters)
+                {
+                    world.RenderInRenderTarget(mask, () => DrawBlockers(world, light, emitter, altitude), Color.White);
+                    DrawLight(world, worldToBuffer, mask.Texture, shader, light, weight);
+                }
             }
         }, null);
 
@@ -115,39 +140,158 @@ internal sealed partial class CEZProjectedLightOverlay : Overlay
         }, null);
     }
 
-    private void DrawBlockers(DrawingHandleWorld handle, ProjectedLight light)
+    private void DrawBlockers(DrawingHandleWorld handle, ProjectedLight light, Vector2 emitter, float emitterAltitude)
     {
-        var span = light.Target.Altitude - light.EmitterAltitude;
+        var span = light.Target.Altitude - emitterAltitude;
+        var low = MathF.Min(emitterAltitude, light.Target.Altitude);
+        var high = MathF.Max(emitterAltitude, light.Target.Altitude);
         var cloudPass = 0;
-        foreach (var plane in light.Planes)
+
+        var planes = light.Planes;
+        for (var i = FirstPlaneAbove(planes, low - WallHeight); i < planes.Count; i++)
         {
-            var floor = plane.Altitude - light.EmitterAltitude;
+            var plane = planes[i];
+            if (plane.Altitude > high + CloudThickness)
+                break;
+
+            var floor = plane.Altitude - emitterAltitude;
             var ceiling = floor + WallHeight;
             if (span == 0f)
             {
                 if (light.Source.CastShadows && floor <= 0f && ceiling > 0f)
-                    DrawWallBlockers(handle, light, plane.Map, 0f, 1f);
+                    DrawWallBlockers(handle, light, emitter, GetGeometry(light, plane.Map), 0f, 1f);
                 continue;
             }
 
             var floorFraction = floor / span;
             // Rays arriving from below must also clear the receiving floor.
             if (floorFraction is > 0f and < 1f || span > 0f && plane.Map == light.Target.Map)
-                DrawFloorBlockers(handle, light, plane.Map, floorFraction);
+                DrawFloorBlockers(handle, light, emitter, GetGeometry(light, plane.Map), floorFraction);
 
             if (light.Source.CastShadows)
             {
                 var ceilingFraction = ceiling / span;
-                DrawWallBlockers(handle, light, plane.Map, MathF.Min(floorFraction, ceilingFraction),
-                    MathF.Max(floorFraction, ceilingFraction));
+                DrawWallBlockers(handle, light, emitter, GetGeometry(light, plane.Map),
+                    MathF.Min(floorFraction, ceilingFraction), MathF.Max(floorFraction, ceilingFraction));
             }
 
-            if (_cloudQuery.HasComp(plane.Map) && DrawCloudMask(handle, light, floor, span, cloudPass))
+            if (_cloudQuery.HasComp(plane.Map) && DrawCloudMask(handle, light, emitter, floor, span, cloudPass))
                 cloudPass++;
         }
     }
 
-    private bool DrawCloudMask(DrawingHandleWorld handle, ProjectedLight light, float cloudTop, float span, int pass)
+    private bool TargetCanReceive(ProjectedLight light)
+    {
+        var fromBelow = light.Target.Altitude > light.EmitterAltitude;
+        var radius = light.Reach + SourceRadius + 0.5f;
+        _grids.Clear();
+        _map.FindGridsIntersecting(light.Target.Map, Box2.CenteredAround(light.Position, new Vector2(radius * 2f)), ref _grids, approx: true);
+        foreach (var grid in _grids)
+        {
+            var tileSize = grid.Comp.TileSize;
+            var local = Vector2.Transform(light.Position, _transform.GetInvWorldMatrix(grid.Owner)) / tileSize;
+            var r = radius / tileSize;
+            var min = (local - new Vector2(r)).Floored();
+            var max = (local + new Vector2(r)).Floored();
+            for (var y = min.Y; y <= max.Y; y++)
+            for (var x = min.X; x <= max.X; x++)
+            {
+                var nearest = Vector2.Clamp(local, new Vector2(x, y), new Vector2(x + 1, y + 1));
+                if ((nearest - local).LengthSquared() > r * r ||
+                    !_map.TryGetTileRef(grid.Owner, grid.Comp, new Vector2i(x, y), out var tile) ||
+                    tile.Tile.IsEmpty)
+                {
+                    continue;
+                }
+
+                if (!fromBelow || _tiles[tile.Tile.TypeId] is ContentTileDefinition { Transparent: true })
+                    return true;
+            }
+        }
+
+        return false;
+    }
+
+    private bool FloorBlocksAll(ProjectedLight light)
+    {
+        var span = light.Target.Altitude - light.EmitterAltitude;
+        if (span == 0f)
+            return false;
+
+        var low = MathF.Min(light.EmitterAltitude, light.Target.Altitude);
+        var high = MathF.Max(light.EmitterAltitude, light.Target.Altitude);
+        var planes = light.Planes;
+        for (var i = FirstPlaneAbove(planes, low); i < planes.Count && planes[i].Altitude <= high; i++)
+        {
+            var plane = planes[i];
+            var fraction = (plane.Altitude - light.EmitterAltitude) / span;
+            var receiving = span > 0f && plane.Map == light.Target.Map;
+            if (!receiving && fraction is <= 0f or >= 1f)
+                continue;
+
+            var radius = light.Reach * MathF.Min(1f, fraction * 1.1f) + SourceRadius + 0.5f;
+            if (DiskIsSolid(plane.Map, light.Position, radius))
+                return true;
+        }
+
+        return false;
+    }
+
+    private bool DiskIsSolid(EntityUid map, Vector2 center, float radius)
+    {
+        _grids.Clear();
+        _map.FindGridsIntersecting(map, Box2.CenteredAround(center, new Vector2(radius * 2f)), ref _grids, approx: true);
+        foreach (var grid in _grids)
+        {
+            var tileSize = grid.Comp.TileSize;
+            var local = Vector2.Transform(center, _transform.GetInvWorldMatrix(grid.Owner)) / tileSize;
+            var r = radius / tileSize;
+            var min = (local - new Vector2(r)).Floored();
+            var max = (local + new Vector2(r)).Floored();
+            if (CellsSolid(grid, local, r, min, max))
+                return true;
+        }
+
+        return false;
+    }
+
+    private bool CellsSolid(Entity<MapGridComponent> grid, Vector2 local, float r, Vector2i min, Vector2i max)
+    {
+        for (var y = min.Y; y <= max.Y; y++)
+        for (var x = min.X; x <= max.X; x++)
+        {
+            var nearest = Vector2.Clamp(local, new Vector2(x, y), new Vector2(x + 1, y + 1));
+            if ((nearest - local).LengthSquared() > r * r)
+                continue;
+
+            if (!_map.TryGetTileRef(grid.Owner, grid.Comp, new Vector2i(x, y), out var tile) ||
+                tile.Tile.IsEmpty ||
+                _tiles[tile.Tile.TypeId] is not ContentTileDefinition { Transparent: false })
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    // lower bound on altitude-sorted planes
+    private static int FirstPlaneAbove(IReadOnlyList<LightPlane> planes, float altitude)
+    {
+        int lo = 0, hi = planes.Count;
+        while (lo < hi)
+        {
+            var mid = (lo + hi) / 2;
+            if (planes[mid].Altitude <= altitude)
+                lo = mid + 1;
+            else
+                hi = mid;
+        }
+
+        return lo;
+    }
+
+    private bool DrawCloudMask(DrawingHandleWorld handle, ProjectedLight light, Vector2 emitter, float cloudTop, float span, int pass)
     {
         var lower = MathF.Max(MathF.Min(0f, span), cloudTop - CloudThickness);
         var upper = MathF.Min(MathF.Max(0f, span), cloudTop);
@@ -160,7 +304,7 @@ internal sealed partial class CEZProjectedLightOverlay : Overlay
 
         var shader = _cloudShaders[pass];
         var midFraction = (lower + upper) / (2f * span);
-        shader.SetParameter("cloudCenter", light.Position);
+        shader.SetParameter("cloudCenter", Vector2.Lerp(emitter, light.Position, midFraction));
         shader.SetParameter("cloudReach", light.Reach * midFraction);
         shader.SetParameter("cloudOverlap", (upper - lower) / CloudThickness);
 
@@ -171,63 +315,104 @@ internal sealed partial class CEZProjectedLightOverlay : Overlay
         return true;
     }
 
-    private void DrawFloorBlockers(DrawingHandleWorld handle, ProjectedLight light, EntityUid map, float fraction)
+    private void DrawFloorBlockers(DrawingHandleWorld handle, ProjectedLight light, Vector2 emitter, PlaneGeometry geometry,
+        float fraction)
     {
-        var reach = light.Reach * fraction;
-        var bounds = new Box2(light.Position - new Vector2(reach), light.Position + new Vector2(reach));
-        var scale = MaskSize / (2f * reach);
-        var matrix = Matrix3x2.CreateTranslation(-light.Position) *
-                     Matrix3x2.CreateScale(scale, -scale) *
-                     Matrix3x2.CreateTranslation(MaskSize / 2f, MaskSize / 2f);
+        var scale = MaskSize / (2f * light.Reach);
+        var shift = (emitter - light.Position) * scale;
+        var matrix = Matrix3x2.CreateTranslation(-emitter) *
+                     Matrix3x2.CreateScale(scale / fraction, -scale / fraction) *
+                     Matrix3x2.CreateTranslation(MaskSize / 2f + shift.X, MaskSize / 2f - shift.Y);
+
+        for (var i = 0; i < geometry.GridCount; i++)
+        {
+            var grid = geometry.Grids[i];
+            handle.SetTransform(grid.World * matrix);
+            foreach (var tile in grid.Tiles)
+                handle.DrawRect(tile, Color.Black);
+        }
+    }
+
+    private void DrawWallBlockers(DrawingHandleWorld handle, ProjectedLight light, Vector2 emitter, PlaneGeometry geometry,
+        float start, float end)
+    {
+        var near = MathF.Max(start, 0.0001f);
+        var far = MathF.Min(end, 1f);
+        if (near >= far)
+            return;
+
+        var scale = new Vector2(1f, -1f) * (MaskSize / (2f * light.Reach));
+        var center = new Vector2(MaskSize / 2f) + (emitter - light.Position) * scale;
+        var corners = _wallCorners;
+        handle.SetTransform(Matrix3x2.Identity);
+
+        var vertex = 0;
+        foreach (var count in geometry.WallCounts)
+        {
+            for (var i = 0; i < count; i++)
+            {
+                var delta = (geometry.WallVertices[vertex + i] - emitter) * scale;
+                corners[i] = center + delta / near;
+                corners[i + count] = center + delta / far;
+            }
+
+            vertex += count;
+            handle.DrawPrimitives(DrawPrimitiveTopology.TriangleList, WallFaces[count], corners.AsSpan(0, count * 2), Color.Black);
+        }
+    }
+
+    private PlaneGeometry GetGeometry(ProjectedLight light, EntityUid map)
+    {
+        if (_timing.CurFrame != _geometryFrame)
+        {
+            foreach (var stale in _geometry.Values)
+            {
+                stale.Reset();
+                _geometryPool.Push(stale);
+            }
+
+            _geometry.Clear();
+            _geometryFrame = _timing.CurFrame;
+        }
+
+        if (_geometry.TryGetValue((light.Uid, map), out var geometry))
+            return geometry;
+
+        geometry = _geometryPool.TryPop(out var pooled) ? pooled : new PlaneGeometry();
+        _geometry[(light.Uid, map)] = geometry;
+        var bounds = Box2.CenteredAround(light.Position, new Vector2(2f * (light.Source.Radius + SourceRadius)));
 
         _grids.Clear();
         _map.FindGridsIntersecting(map, bounds, ref _grids, approx: true);
         foreach (var grid in _grids)
         {
-            handle.SetTransform(_transform.GetWorldMatrix(grid.Owner) * matrix);
+            var floor = geometry.NextGrid(_transform.GetWorldMatrix(grid.Owner));
             var tiles = _map.GetTilesEnumerator(grid.Owner, grid.Comp, bounds);
             while (tiles.MoveNext(out var tile))
             {
                 if (_tiles[tile.Tile.TypeId] is ContentTileDefinition { Transparent: false })
-                    handle.DrawRect(_lookup.GetLocalBounds(tile, grid.Comp.TileSize), Color.Black);
+                    floor.Tiles.Add(_lookup.GetLocalBounds(tile, grid.Comp.TileSize));
             }
         }
-    }
 
-    private void DrawWallBlockers(DrawingHandleWorld handle, ProjectedLight light, EntityUid map, float start, float end)
-    {
-        // Clip the prism to the ray segment and keep the projection finite at the emitter.
-        var near = MathF.Max(start, 0.0001f);
-        var far = MathF.Min(end, 1f);
-        if (near >= far || !_mapQuery.TryComp(map, out var mapComp))
-            return;
+        if (!_mapQuery.TryComp(map, out var mapComp))
+            return geometry;
 
-        var offset = new Vector2(light.Reach * far);
-        var bounds = new Box2(light.Position - offset, light.Position + offset);
         _walls.Clear();
         _occluders.QueryAabb(_walls, mapComp.MapId, bounds);
-
-        var center = new Vector2(MaskSize / 2f);
-        var scale = new Vector2(1f, -1f) * (MaskSize / (2f * light.Reach));
-        var corners = _wallCorners;
-        handle.SetTransform(Matrix3x2.Identity);
         foreach (var wall in _walls)
         {
             var polygon = wall.Comp1.Polygon;
-            var count = polygon.Length;
-            if (!wall.Comp1.Enabled || count < 3 || count > PhysicsConstants.MaxPolygonVertices)
+            if (!wall.Comp1.Enabled || polygon.Length < 3 || polygon.Length > PhysicsConstants.MaxPolygonVertices)
                 continue;
 
             var matrix = _transform.GetWorldMatrix(wall.Comp2);
-            for (var i = 0; i < count; i++)
-            {
-                var delta = (Vector2.Transform(polygon[i], matrix) - light.Position) * scale;
-                corners[i] = center + delta / near;
-                corners[i + count] = center + delta / far;
-            }
-
-            handle.DrawPrimitives(DrawPrimitiveTopology.TriangleList, WallFaces[count], corners.AsSpan(0, count * 2), Color.Black);
+            foreach (var point in polygon)
+                geometry.WallVertices.Add(Vector2.Transform(point, matrix));
+            geometry.WallCounts.Add(polygon.Length);
         }
+
+        return geometry;
     }
 
     private static ushort[][] BuildWallFaces()
@@ -255,7 +440,60 @@ internal sealed partial class CEZProjectedLightOverlay : Overlay
         return faces;
     }
 
-    private void DrawLight(DrawingHandleWorld handle, Matrix3x2 matrix, Texture mask, ShaderInstance shader, ProjectedLight light)
+    private static Vector3[] BuildSampleOffsets()
+    {
+        var offsets = new Vector3[Samples];
+        for (var i = 0; i < Samples; i++)
+        {
+            var z = 1f - 2f * (i + 0.5f) / Samples;
+            var ring = MathF.Sqrt(1f - z * z);
+            var angle = i * 2.3999632f;
+            var radius = SourceRadius * MathF.Cbrt((i + 0.5f) / Samples);
+            offsets[i] = new Vector3(MathF.Cos(angle) * ring, MathF.Sin(angle) * ring, z) * radius;
+        }
+
+        return offsets;
+    }
+
+    private void CollectEmitters(ProjectedLight light)
+    {
+        _emitters.Clear();
+        var walls = GetGeometry(light, light.SourceMap);
+        foreach (var offset in SampleOffsets)
+        {
+            var emitter = light.Position + new Vector2(offset.X, offset.Y);
+            if (!InsideWall(walls, emitter))
+                _emitters.Add((emitter, light.EmitterAltitude + offset.Z / DeckSpacing));
+        }
+
+        if (_emitters.Count == 0)
+            _emitters.Add((light.Position, light.EmitterAltitude));
+    }
+
+    private static bool InsideWall(PlaneGeometry geometry, Vector2 point)
+    {
+        var vertex = 0;
+        foreach (var count in geometry.WallCounts)
+        {
+            var inside = false;
+            for (int i = 0, j = count - 1; i < count; j = i++)
+            {
+                var a = geometry.WallVertices[vertex + i];
+                var b = geometry.WallVertices[vertex + j];
+                if ((a.Y > point.Y) != (b.Y > point.Y) && point.X < (b.X - a.X) * (point.Y - a.Y) / (b.Y - a.Y) + a.X)
+                    inside = !inside;
+            }
+
+            if (inside)
+                return true;
+
+            vertex += count;
+        }
+
+        return false;
+    }
+
+    private void DrawLight(DrawingHandleWorld handle, Matrix3x2 matrix, Texture mask, ShaderInstance shader, ProjectedLight light, Color weight)
     {
         var source = light.Source;
         var beam = source.LightMask is { } maskId && _prototypes.TryIndex(maskId, out var lightMask)
@@ -275,7 +513,7 @@ internal sealed partial class CEZProjectedLightOverlay : Overlay
         var offset = new Vector2(light.Reach);
         handle.SetTransform(matrix);
         handle.UseShader(shader);
-        handle.DrawTextureRect(mask, new Box2(light.Position - offset, light.Position + offset));
+        handle.DrawTextureRect(mask, new Box2(light.Position - offset, light.Position + offset), weight);
         handle.UseShader(null);
     }
 
@@ -287,5 +525,37 @@ internal sealed partial class CEZProjectedLightOverlay : Overlay
         foreach (var shader in _cloudShaders)
             shader.Dispose();
         base.DisposeBehavior();
+    }
+
+    private sealed class PlaneGeometry
+    {
+        public readonly List<FloorGrid> Grids = new();
+        public int GridCount;
+        public readonly List<Vector2> WallVertices = new();
+        public readonly List<int> WallCounts = new();
+
+        public FloorGrid NextGrid(Matrix3x2 world)
+        {
+            if (GridCount == Grids.Count)
+                Grids.Add(new FloorGrid());
+
+            var grid = Grids[GridCount++];
+            grid.World = world;
+            grid.Tiles.Clear();
+            return grid;
+        }
+
+        public void Reset()
+        {
+            GridCount = 0;
+            WallVertices.Clear();
+            WallCounts.Clear();
+        }
+    }
+
+    private sealed class FloorGrid
+    {
+        public Matrix3x2 World;
+        public readonly List<Box2> Tiles = new();
     }
 }
