@@ -957,10 +957,13 @@
 - type: loadoutGroup
   id: HeadofSecurityNeck
   name: loadout-group-head-of-security-neck
-  minLimit: 0
+  minLimit: 1
   loadouts:
   - HeadofSecurityCloak
   - HeadofSecurityMantle
+  - MonoClothingNeckWearableCameraCC # Mono
+  fallbacks: # Mono
+  - MonoClothingNeckWearableCameraCC # Mono
 
 - type: loadoutGroup
   id: HeadofSecurityOuterClothing

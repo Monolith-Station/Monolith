@@ -74,6 +74,21 @@
     - ClothingMaskNeckGaiterRed
 
 - type: loadoutGroup
+  id: MonoSecurityGuardBodycam
+  name: loadout-group-contractor-neck
+  hidden: true
+  minLimit: 1
+  loadouts:
+  - MonoClothingNeckWearableCameraCC
+  fallbacks:
+  - MonoClothingNeckWearableCameraCC
+
+- type: loadout
+  id: MonoClothingNeckWearableCameraCC # WHY IS JUDGES' LOADOUTS LIKE THIS?!
+  equipment:
+    neck: ClothingNeckWearableCameraCC
+
+- type: loadoutGroup
   id: MonoSecurityGuardHud
   name: loadout-group-contractor-glasses
   loadouts:
