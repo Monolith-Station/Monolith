@@ -20,7 +20,6 @@ namespace Content.Client._CE.ZLevels.Core.Overlays;
 public sealed partial class CEZLevelShadowOverlay : Overlay
 {
     private readonly IEntityManager _entManager;
-    [Dependency] private IMapManager _mapManager = default!;
     [Dependency] private IOverlayManager _overlay = default!;
     [Dependency] private ITileDefinitionManager _tileDefMan = default!;
 
@@ -149,7 +148,7 @@ public sealed partial class CEZLevelShadowOverlay : Overlay
             return;
 
         _grids.Clear();
-        _mapManager.FindGridsIntersecting(mapComp.MapId, bounds, ref _grids, approx: true, includeMap: false);
+        _mapSystem.FindGridsIntersecting(mapComp.MapId, bounds, ref _grids, approx: true, includeMap: false);
 
         foreach (var grid in _grids)
         {
