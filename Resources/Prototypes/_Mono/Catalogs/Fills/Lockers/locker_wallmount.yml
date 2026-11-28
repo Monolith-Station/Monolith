@@ -3,3 +3,15 @@
   parent: [ LockerWallEVAColorDME, StorageFillEVASuitDME ]
   id: LockerWallEVAColorDMEFilled
   suffix: Filled
+
+
+- type: entity
+  id: ClosetWallFilledVanyk
+  suffix: Filled, 2 HE, 2 AAM Vanyk mags
+  parent: [ ClosetWall , StorageFillVanykMagazine ]
+
+
+- type: entity
+  id: ClosetWallFilledGPOB
+  suffix: Filled, 4 bombs.
+  parent: [ ClosetWall , StorageGPOBammo ]
