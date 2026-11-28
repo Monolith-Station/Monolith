@@ -28,7 +28,7 @@
       stationProto: StandardFrontierVessel
       components:
       - type: StationNameSetup
-        mapNameTemplate: 'Lightning CSEC{1}'
+        mapNameTemplate: 'Lightning CST{1}'
         nameGenerator:
           !type:NanotrasenNameGenerator
           prefixCreator: '14'

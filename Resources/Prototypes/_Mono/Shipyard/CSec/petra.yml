@@ -29,7 +29,7 @@
       stationProto: StandardFrontierVessel
       components:
       - type: StationNameSetup
-        mapNameTemplate: 'Petra CSEC{1}'
+        mapNameTemplate: 'Petra CST{1}'
         nameGenerator:
           !type:NanotrasenNameGenerator
           prefixCreator: '14'

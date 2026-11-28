@@ -27,7 +27,7 @@
       stationProto: StandardFrontierVessel
       components:
       - type: StationNameSetup
-        mapNameTemplate: 'Hornet CSEC{1}'
+        mapNameTemplate: 'Hornet CST{1}'
         nameGenerator:
           !type:NanotrasenNameGenerator
           prefixCreator: '14'
