@@ -3,6 +3,7 @@ using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 using Robust.Shared.Audio;
+using Content.Shared.Actions; //Mono
 
 namespace Content.Shared.Chemistry.Components;
 
@@ -55,3 +56,5 @@ public sealed partial class HyposprayDoAfterEvent : SimpleDoAfterEvent
 {
 }
 // End Frontier
+
+public sealed partial class HypoSelfInjectEvent : InstantActionEvent { }
