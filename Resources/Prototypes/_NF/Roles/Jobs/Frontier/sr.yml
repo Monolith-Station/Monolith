@@ -27,12 +27,12 @@
   guides:
   - Caelestinus
   special:
-  - !type:AddComponentSpecial
-    components:
-    - type: ChatRank
-      rank: cc-overseer
-    - type: RadioOnCryosleep
-      radioChannel: Service # service = caelestinus
+ #- !type:AddComponentSpecial
+ #   components:
+ #   - type: ChatRank
+ #     rank: cc-overseer
+ #   - type: RadioOnCryosleep
+ #     radioChannel: Service # service = caelestinus
 #   - !type:AddImplantSpecial
 #     implants: [ MindShieldImplant ] # Mono - remove TSFMC implants
   - !type:AddComponentSpecial
