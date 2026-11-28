@@ -18,8 +18,8 @@ public sealed partial class GunLockMagazineDuringBurstSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var gunQuery = EntityQueryEnumerator<GunComponent, GunLockMagazineDuringBurstComponent, ItemSlotsComponent>();
-        while (gunQuery.MoveNext(out var uid, out var gun, out var gunLock, out var slots))
+        var gunQuery = EntityQueryEnumerator<GunLockMagazineDuringBurstComponent, ItemSlotsComponent, GunComponent>();
+        while (gunQuery.MoveNext(out var uid, out var gunLock, out var slots, out var gun))
         {
             foreach (var slotId in gunLock.SlotIds)
             {

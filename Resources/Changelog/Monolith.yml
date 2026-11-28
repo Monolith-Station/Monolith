@@ -27887,3 +27887,43 @@ Entries:
   id: 2987
   time: '2026-11-27T13:52:07.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/5127
+- author: TheScienceOfKSP
+  changes:
+    - type: Add
+      message: Added the KSP Sturnus, a MilCiv carrier for QJ-series fighters
+    - type: Tweak
+      message: Gave Fluyt a bedroll and recharger
+  id: 2988
+  time: '2026-11-27T15:43:51.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5128
+- author: SuperGDPWYL
+  changes:
+    - type: Tweak
+      message: All Caelestinus roles are now prefixed with "CST".
+  id: 2989
+  time: '2026-11-27T17:16:37.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5125
+- author: kasature90
+  changes:
+    - type: Fix
+      message: Fixed a major performance issue with sensors.
+  id: 2990
+  time: '2026-11-27T22:20:38.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5132
+- author: DoubleHypercube
+  changes:
+    - type: Fix
+      message: Displacements are now serialized.
+  id: 2991
+  time: '2026-11-28T02:01:32.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5134
+- author: SuperGDPWYL
+  changes:
+    - type: Tweak
+      message: >-
+        Cargo, PDV and underground crates now have letters indicating their
+        destination: C for Caelestinus Central, F for Freeport Camelot and Z for
+        Zvezda Orbital Habitation.
+  id: 2992
+  time: '2026-11-28T02:02:25.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5130
