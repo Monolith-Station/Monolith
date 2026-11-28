@@ -1,26 +1,4 @@
 - type: entity
-  id: CrateNfsdArmor
-  parent: CrateNfsdSecure1
-  name: TSFMC armor crate
-  description: Three vests of well-rounded, decently-protective armor. Requires Security access to open.
-  components:
-  - type: StorageFill
-    contents:
-      - id: ClothingOuterArmorNfsd
-        amount: 3
-
-- type: entity
-  id: CrateNfsdHelmet
-  parent: CrateNfsdSecure1
-  name: TSFMC helmet crate
-  description: Contains three standard-issue brain buckets. Requires Security access to open.
-  components:
-  - type: StorageFill
-    contents:
-      - id: ClothingHeadHelmetNfsd
-        amount: 3
-
-- type: entity
   id: CrateNfsdNonlethal
   parent: CrateNfsdSecure1
   name: TSFMC nonlethals crate
