@@ -22,3 +22,31 @@
     buckleOffset: "0, 0.25"
   - type: Anchorable #looks really bad dragged around
     flags: Anchorable
+
+- type: entity
+  name: ejection seat
+  id: ChairEjectionSeat
+  parent: ChairBase
+  description: A pilot's seat with an advanced ejection mechanism, and storage for an emergency jetpack.
+  components:
+  - type: Sprite
+    sprite: _Mono/Structures/Furniture/ejection_seat.rsi
+    state: ejection
+  - type: ContainerContainer
+    containers:
+      tank_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      tank_slot:
+        startingItem: JetpackMiniFilled
+        whitelist:
+          components:
+            - Jetpack
+  - type: SeatEjection
+    specifier:
+      minRadiusFraction: 1 #ONLY teleport you in the specified radius (like a ring)
+      teleportRadius: 25
+      avoidSpace: false
+      forceSpace: true #avoid boarding via ejection
+  - type: Anchorable
+    flags: None #should be exclusive to certain shuttles
