@@ -267,10 +267,10 @@
     availableModes:
     - FullAuto
     - Burst
-    burstFireRate: 12
+    burstFireRate: 16
     burstCooldown: 0.8
     shotsPerBurst: 4
-    fireRate: 7.3
+    fireRate: 8.5 # 212.5 DPS, same as Iroh
     soundGunshot:
       path: /Audio/_Goobstation/Weapons/Guns/Gunshots/thock.ogg
   - type: ChamberMagazineAmmoProvider
