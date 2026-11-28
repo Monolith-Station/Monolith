@@ -1,14 +1,13 @@
 <Document>
   # Missile Weapons Specifications
   Notes:
-  - Munition range & ammo capacity is taken from the standard magazine & ammunition that comes loaded with the weapon.
-  - For munitions that accelerate over time (such as missiles), range is a rough estimate.
-  - For munitions that are fired at a static speed (such as normal weapons), range is simply just the launch velocity * projectile lifetime.
+  - Munition range &amp; ammo capacity is taken from the standard magazine &amp; ammunition that comes loaded with the weapon.
+  - For munitions that accelerate over time (such as missiles), range is an estimate based on acceleration, max velocity, and lifetime.
+  - For burst-fire weapons, firerate shows burst RPS (shots per burst / cooldown).
   - RPS may not be accurate due to it being capped by server tick speed (usually 20 or 30 ticks/second).
-  - Rare guns such as ADS/NT/Syndicate shipguns will not be included.
 
-  ## Specifications (as of 24-Oct-2025)
-  <Table Columns="7">
+  ## Specifications (as of 20-Nov-2026)
+  <Table Columns="6">
     <ColorBox>
       <Box>
         Name
@@ -39,15 +38,46 @@
         Size Class
       </Box>
     </ColorBox>
-    <!--Vanyk-->
+    <!--Vespera-->
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        ASM-302
+        ADMP-50 VESPERA
       </Box>
     </ColorBox>
     <ColorBox Color="#b58818">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        36 (CART.)
+        78 (MAG)
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#5a9926">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        16 RPS (13x / 20s CD)
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#8f2b65">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        ~1420 meters
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#8f2b65">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        300 m/s
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Medium
+      </Box>
+    </ColorBox>
+    <!--Vanyk-->
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        ASM-150 "Vanyk"
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#b58818">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        30 (MAG)
       </Box>
     </ColorBox>
     <ColorBox Color="#5a9926">
@@ -57,43 +87,12 @@
     </ColorBox>
     <ColorBox Color="#8f2b65">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        ~945 meters
+        ~2835 meters
       </Box>
     </ColorBox>
     <ColorBox Color="#8f2b65">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        210 m/s
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Medium
-      </Box>
-    </ColorBox>
-    <!--Vespera-->
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        ADMP-27 VESPERA
-      </Box>
-    </ColorBox>
-    <ColorBox Color="#b58818">
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        84 (CART.)
-      </Box>
-    </ColorBox>
-    <ColorBox Color="#5a9926">
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        16 RPS
-      </Box>
-    </ColorBox>
-    <ColorBox Color="#8f2b65">
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        ~630 meters
-      </Box>
-    </ColorBox>
-    <ColorBox Color="#8f2b65">
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        180 m/s
+        240 m/s
       </Box>
     </ColorBox>
     <ColorBox>
@@ -104,12 +103,12 @@
     <!--Tovek-->
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        ADMX-23 TOVEK
+        ADMX-250 TOVEK
       </Box>
     </ColorBox>
     <ColorBox Color="#b58818">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        6 (CART.)
+        2 (CART.)
       </Box>
     </ColorBox>
     <ColorBox Color="#5a9926">
@@ -119,12 +118,12 @@
     </ColorBox>
     <ColorBox Color="#8f2b65">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        ~812 meters
+        ~4069 meters
       </Box>
     </ColorBox>
     <ColorBox Color="#8f2b65">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        125 m/s
+        300 m/s
       </Box>
     </ColorBox>
     <ColorBox>
@@ -132,10 +131,72 @@
         Medium
       </Box>
     </ColorBox>
-    <!--Torps-->
+    <!--GPOB-L-->
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        ASM-220 (HE TORP)
+        GPOB-L Munitions Bay
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#b58818">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        2 (CART.)
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#5a9926">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        0.8 RPS
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#8f2b65">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        ~600-1500 meters
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#8f2b65">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        50-500 m/s
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Medium
+      </Box>
+    </ColorBox>
+    <!--Paladin-->
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        MLRS-382 "Paladin"
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#b58818">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        24 (MAG)
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#5a9926">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        3 RPS (4x / 5s CD)
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#8f2b65">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        ~5453 meters
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#8f2b65">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        350 m/s
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Medium
+      </Box>
+    </ColorBox>
+    <!--Trident-->
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        ASM-220 "Trident"
       </Box>
     </ColorBox>
     <ColorBox Color="#b58818">
@@ -150,17 +211,141 @@
     </ColorBox>
     <ColorBox Color="#8f2b65">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        ~1747 meters
+        ~12320 meters
       </Box>
     </ColorBox>
     <ColorBox Color="#8f2b65">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        70 m/s
+        250 m/s
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Medium
+      </Box>
+    </ColorBox>
+    <!--Serpent-->
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Serpent Torpedo
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#b58818">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        INF. (BAT)
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#5a9926">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        0.5 RPS
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#8f2b65">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        ~6360 meters
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#8f2b65">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        180 m/s
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Heavy
+      </Box>
+    </ColorBox>
+    <!--Entropy-->
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Curio-1602 "Entropy"
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#b58818">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        INF. (BAT)
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#5a9926">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        0.1 RPS
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#8f2b65">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        ~3865 meters
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#8f2b65">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        300 m/s
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Heavy
+      </Box>
+    </ColorBox>
+    <!--Vanquisher-->
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        SRM-573 "Vanquisher"
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#b58818">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        288 (MAG)
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#5a9926">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        14 RPS (72x / 15s CD)
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#8f2b65">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        ~3500 meters
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#8f2b65">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        300 m/s
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Heavy
+      </Box>
+    </ColorBox>
+    <!--Sandbox-->
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        SS-N-40 "Sandbox"
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#b58818">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        2 (CART.)
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#5a9926">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        0.02 RPS
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#8f2b65">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        ~23800+ meters
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#8f2b65">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        400 m/s
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Superheavy
       </Box>
     </ColorBox>
   </Table>

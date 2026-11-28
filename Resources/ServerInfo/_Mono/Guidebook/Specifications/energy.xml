@@ -1,13 +1,12 @@
 <Document>
   # Energy Weapons Specifications
   Notes:
-  - For munitions that accelerate over time (such as missiles), range is a rough estimate.
-  - For munitions that are fired at a static speed (such as normal weapons), range is simply just the launch velocity * projectile lifetime.
+  - For burst-fire or capacitor-limited weapons, firerate shows burst RPS (shots per burst / cooldown).
+  - For munitions that are fired at a static speed, range is simply launch velocity * projectile lifetime.
   - RPS may not be accurate due to it being capped by server tick speed (usually 20 or 30 ticks/second).
-  - Rare guns such as ADS/NT/Syndicate shipguns will not be included.
 
-  ## Specifications (as of 24-Oct-2025)
-  <Table Columns="7">
+  ## Specifications (as of 20-Nov-2026)
+  <Table Columns="6">
     <ColorBox>
       <Box>
         Name
@@ -38,6 +37,68 @@
         Size Class
       </Box>
     </ColorBox>
+    <!--M25-->
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        M25 Mining Pulsar
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#b58818">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        PROJ
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#5a9926">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        5 RPS
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#8f2b65">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        60 meters
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#8f2b65">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        20 m/s
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Superlight
+      </Box>
+    </ColorBox>
+    <!--Phalanx-->
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        L-1 Phalanx
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#b58818">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        HITSCAN
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#5a9926">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        15 RPS
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#8f2b65">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        512 meters
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#8f2b65">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        N/A
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Light
+      </Box>
+    </ColorBox>
     <!--Marauder-->
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
@@ -51,22 +112,115 @@
     </ColorBox>
     <ColorBox Color="#5a9926">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        0.5 RPS
+        0.7 RPS
       </Box>
     </ColorBox>
     <ColorBox Color="#8f2b65">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        924 meters
+        1800 meters
       </Box>
     </ColorBox>
     <ColorBox Color="#8f2b65">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        140 m/s
+        180 m/s
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Medium
+      </Box>
+    </ColorBox>
+    <!--Rubicon-->
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        M220 RUBICON
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#b58818">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        PROJ (EMP)
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#5a9926">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        0.2 RPS
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#8f2b65">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        1122 meters
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#8f2b65">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        170 m/s
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Medium
+      </Box>
+    </ColorBox>
+    <!--Sunder-->
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Curio-1007 "Sunder"
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#b58818">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        HITSCAN
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#5a9926">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        1.2 RPS
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#8f2b65">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        900 meters
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#8f2b65">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        N/A
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Medium
+      </Box>
+    </ColorBox>
+    <!--Cerberus-->
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        TPC Cerberus
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#b58818">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        PROJ (3x Spread)
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#5a9926">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        0.5 RPS
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#8f2b65">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        1800 meters
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#8f2b65">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        180 m/s
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Heavy
       </Box>
     </ColorBox>
     <!--Autopulser-->
@@ -87,12 +241,12 @@
     </ColorBox>
     <ColorBox Color="#8f2b65">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        777 meters
+        896 meters
       </Box>
     </ColorBox>
     <ColorBox Color="#8f2b65">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        185 m/s
+        320 m/s
       </Box>
     </ColorBox>
     <ColorBox>
@@ -100,103 +254,10 @@
         Heavy
       </Box>
     </ColorBox>
-    <!--Glassing beam-->
+    <!--Prometheus-->
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Type-241 Lance
-      </Box>
-    </ColorBox>
-    <ColorBox Color="#b58818">
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        CONT. BEAM
-      </Box>
-    </ColorBox>
-    <ColorBox Color="#5a9926">
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        13 RPS
-      </Box>
-    </ColorBox>
-    <ColorBox Color="#8f2b65">
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        1680 meters
-      </Box>
-    </ColorBox>
-    <ColorBox Color="#8f2b65">
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        70 m/s
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Superheavy
-      </Box>
-    </ColorBox>
-    <!--Rubicon-->
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        M220 RUBICON
-      </Box>
-    </ColorBox>
-    <ColorBox Color="#b58818">
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        PROJ
-      </Box>
-    </ColorBox>
-    <ColorBox Color="#5a9926">
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        0.2 RPS
-      </Box>
-    </ColorBox>
-    <ColorBox Color="#8f2b65">
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        924 meters
-      </Box>
-    </ColorBox>
-    <ColorBox Color="#8f2b65">
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        140 m/s
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Medium
-      </Box>
-    </ColorBox>
-    <!--DYMERE-->
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        ADEX-9 DYMERE
-      </Box>
-    </ColorBox>
-    <ColorBox Color="#b58818">
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        PROJ
-      </Box>
-    </ColorBox>
-    <ColorBox Color="#5a9926">
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        0.75 RPS
-      </Box>
-    </ColorBox>
-    <ColorBox Color="#8f2b65">
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        2500 meters
-      </Box>
-    </ColorBox>
-    <ColorBox Color="#8f2b65">
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        250 m/s
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Superheavy
-      </Box>
-    </ColorBox>
-    <!--Phalanx-->
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        L-1 Phalanx
+        TPC Prometheus
       </Box>
     </ColorBox>
     <ColorBox Color="#b58818">
@@ -206,12 +267,12 @@
     </ColorBox>
     <ColorBox Color="#5a9926">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        20 RPS
+        0.8 RPS
       </Box>
     </ColorBox>
     <ColorBox Color="#8f2b65">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        400 meters
+        1000 meters
       </Box>
     </ColorBox>
     <ColorBox Color="#8f2b65">
@@ -221,7 +282,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Light
+        Heavy
       </Box>
     </ColorBox>
     <!--Apollo-->
@@ -237,7 +298,7 @@
     </ColorBox>
     <ColorBox Color="#5a9926">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        0.3 RPS
+        25 RPS
       </Box>
     </ColorBox>
     <ColorBox Color="#8f2b65">
@@ -253,6 +314,285 @@
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Heavy
+      </Box>
+    </ColorBox>
+    <!--Tarnyx-->
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        ADBX-31 TARNYX
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#b58818">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        PROJ (EMP)
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#5a9926">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        0.066 RPS
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#8f2b65">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        2000 meters
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#8f2b65">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        400 m/s
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Heavy
+      </Box>
+    </ColorBox>
+    <!--Scythe-->
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Curio-1008 "Scythe"
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#b58818">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        PROJ
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#5a9926">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        20 RPS (3x / 2s CD)
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#8f2b65">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        1080 meters
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#8f2b65">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        180 m/s
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Heavy
+      </Box>
+    </ColorBox>
+    <!--Tartarus-->
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Curio-1810 "Tartarus"
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#b58818">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        PROJ
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#5a9926">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        0.4 RPS
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#8f2b65">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        2092 meters
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#8f2b65">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        465 m/s
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Heavy
+      </Box>
+    </ColorBox>
+    <!--Scylla-->
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        TPC Scylla
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#b58818">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        PROJ
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#5a9926">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        15 RPS (35x / 4.5s CD)
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#8f2b65">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        735 meters
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#8f2b65">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        350 m/s
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Superheavy
+      </Box>
+    </ColorBox>
+    <!--DYMERE-->
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        ADEX-9 DYMERE
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#b58818">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        PROJ
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#5a9926">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        0.75 RPS (17x / 20s CD)
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#8f2b65">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        2124 meters
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#8f2b65">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        295 m/s
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Superheavy
+      </Box>
+    </ColorBox>
+    <!--Malice-->
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Curio-8640 "Malice"
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#b58818">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        CONT. BEAM
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#5a9926">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        13 RPS (136x / 60s CD)
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#8f2b65">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        4080 meters
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#8f2b65">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        170 m/s
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Superheavy
+      </Box>
+    </ColorBox>
+    <!--Reaper-->
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Curio-1089 "Reaper"
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#b58818">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        HITSCAN
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#5a9926">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        0.066 RPS
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#8f2b65">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        1500 meters
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#8f2b65">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        N/A
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Superheavy
+      </Box>
+    </ColorBox>
+    <!--Harbringer-->
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Curio-129 "Harbringer"
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#b58818">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        PROJ (EMP)
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#5a9926">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        0.04 RPS
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#8f2b65">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        3520 meters
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#8f2b65">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        800 m/s
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Superheavy
+      </Box>
+    </ColorBox>
+    <!--Retribution-->
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        CWZS-2048 "Retribution"
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#b58818">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        HITSCAN (Beam)
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#5a9926">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        25 RPS (750x / 275s CD)
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#8f2b65">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        3500 meters
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#8f2b65">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        N/A
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Superheavy
       </Box>
     </ColorBox>
   </Table>
