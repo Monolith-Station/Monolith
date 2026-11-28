@@ -4,7 +4,7 @@ meta:
   engineVersion: 295.0.3
   forkId: ""
   forkVersion: ""
-  time: 11/27/2026 15:30:14
+  time: 11/28/2026 10:10:49
   entityCount: 615
 maps: []
 grids:
@@ -96,10 +96,10 @@ entities:
     - type: ThermalSignature
     - type: SpreaderGrid
       spreadQueues:
+        MetalFoam: []
         Kudzu: []
         ESTileFire: []
         Puddle: []
-        MetalFoam: []
         Smoke: []
     - type: Shuttle
       dampingModifier: 0.25
@@ -560,7 +560,7 @@ entities:
         DoorStatus: True
     - type: Door
       state: Opening
-      secondsUntilStateChange: -8685.131
+      secondsUntilStateChange: -8774.09
   - uid: 20
     components:
     - type: Transform
@@ -663,8 +663,6 @@ entities:
       parent: 1
       rot: 1.5707963267948966 rad
       pos: -1.5,5.5
-- proto: APCHighCapacity
-  entities:
   - uid: 32
     components:
     - type: Transform
