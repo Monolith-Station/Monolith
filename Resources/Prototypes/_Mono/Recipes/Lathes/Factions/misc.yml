@@ -262,3 +262,20 @@
     Steel: 500
     Plastic: 400
     Plasma: 200
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: BallisticTurretHeavyAICaelestinusFlatpack
+  result: BallisticTurretHeavyAICaelestinusFlatpack
+  categories:
+  - FactionEquipment
+  - Weapons
+  materials:
+    Steel: 2000
+    Plasteel: 3000
+    Plastic: 2500
+    Plasma: 1500
+    Gold: 1000
+    Diamond: 300
+  entities:
+    MonolithicCrystalSmall: 2
