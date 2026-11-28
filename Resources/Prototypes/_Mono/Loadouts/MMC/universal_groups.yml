@@ -36,6 +36,13 @@
   - ContractorClothingBeltUtilityFilled
 
 - type: loadoutGroup
+  id: MMCEmployeeNeck
+  name: loadout-group-contractor-neck
+  minLimit: 0
+  loadouts:
+  - MMCClothingNeckIFFMieyoYellow
+
+- type: loadoutGroup
   id: MMCOuterClothing
   name: loadout-group-contractor-outerclothing
   minLimit: 0

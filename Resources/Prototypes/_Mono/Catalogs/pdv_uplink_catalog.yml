@@ -253,6 +253,36 @@
       - PirateUplink
 
 - type: listing
+  id: UplinkWearableIFFAdjustablePDV
+  name: uplink-pirate-wearable-iffchameleon-name
+  description: uplink-pirate-wearable-iffchameleon-desc
+  productEntity: ClothingNeckIFFMercenary
+  cost:
+    Doubloon: 1
+  categories:
+  - UplinkPirateUtility
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - PirateUplink
+
+- type: listing
+  id: UplinkWearableIFFJammerPDV
+  name: uplink-pirate-wearable-iffjammer-name
+  description: uplink-pirate-wearable-iffjammer-desc
+  productEntity: ClothingNeckIFFJammer
+  cost:
+    Doubloon: 1
+  categories:
+  - UplinkPirateUtility
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - PirateUplink
+
+- type: listing
   id: UplinkPirateImplanterEmpty
   name: uplink-pirate-empty-implanter-name
   description: uplink-pirate-empty-implanter-desc

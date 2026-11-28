@@ -50,6 +50,12 @@ uplink-pirate-medical-assembler-desc = An assembler that can be used to make use
 uplink-pirate-wearable-camerapdv-name = Wireless Camera
 uplink-pirate-wearable-camerapdv-desc = Camera used for overwatching an operation area. Can be worn or placed somewhere, and comes with chameleon technology allowing it to be disguised as any neckwear.
 
+uplink-pirate-wearable-iffchameleon-name = Adjustable IFF strobes
+uplink-pirate-wearable-iffchameleon-desc = Adjustable strobes used for simplifying identification.
+
+uplink-pirate-wearable-iffjammer-name = HUD jamming strobes
+uplink-pirate-wearable-iffjammer-desc = Adjustable strobes used for simplifying identification, comes with scramblers that'll hide your HUD from friend and foe alike.
+
 uplink-pirate-romerol-name = Romerol Syringe
 uplink-pirate-romerol-desc = A bioweapon used in previous wars, and heavily outlawed. Its obviously taken some effort to smuggle this one. Reanimates the dead.
 

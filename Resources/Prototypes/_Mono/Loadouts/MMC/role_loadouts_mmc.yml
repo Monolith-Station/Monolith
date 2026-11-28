@@ -1,6 +1,7 @@
 - type: roleLoadout
   id: JobMMCEmployee
   groups:
+  - MMCEmployeeNeck
   - MMCEmployeeJumpsuit
   - MMCEmployeeBackpack
   - MMCOuterClothing
@@ -25,6 +26,7 @@
 - type: roleLoadout
   id: JobMMCSecurity
   groups:
+  - MMCEmployeeNeck
   - MMCCorpSecJumpsuit
   - MMCCorpSecGloves
   - MMCCorpSecBackpack
@@ -55,6 +57,7 @@
 - type: roleLoadout
   id: JobMMCLiason
   groups:
+  - MMCEmployeeNeck
   - MMCEmployeeJumpsuit
   - MMCCorpSecGloves
   - MMCEmployeeBackpack
