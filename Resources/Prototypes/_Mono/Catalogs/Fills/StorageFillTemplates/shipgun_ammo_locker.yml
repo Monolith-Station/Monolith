@@ -1,0 +1,21 @@
+- type: entity
+  abstract: true
+  id: StorageFillVanykMagazine
+  description: Contains two HE and AAM autoloaders.
+  components:
+  - type: StorageFill
+    contents:
+    - id: VanykMagazine
+      amount: 2
+    - id: VanykMagazineAAM
+      amount: 2
+
+- type: entity
+  abstract: true
+  id: StorageGPOBammo
+  description: Contains 4 50KG bombs.
+  components:
+  - type: StorageFill
+    contents:
+    - id: LightFighterOrdinanceGPOItem
+      amount: 4

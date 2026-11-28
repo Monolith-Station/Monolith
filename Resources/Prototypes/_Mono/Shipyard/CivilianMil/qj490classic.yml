@@ -64,3 +64,9 @@
     - chance: 1
       toReplace: WeaponTurretVanyk
       replaceWith: WeaponTurretType54
+  - !type:GridModEntityReplace
+    comp: ContainerContainer
+    data:
+    - chance: 1
+      toReplace: ClosetWallFilledVanyk
+      replaceWith: ClosetWallFilledGPOB
