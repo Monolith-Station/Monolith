@@ -27,7 +27,7 @@
   name: selectable-set-security-voidsuit-name
   description: selectable-set-security-voidsuit-desc
   sprite:
-    sprite: _Goobstation/Clothing/OuterClothing/Voidsuits/security.rsi
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/caelestinus_constable.rsi # Mono
     state: icon
   content:
   - ClothingOuterHardsuitSecurity
@@ -37,7 +37,7 @@
   name: selectable-set-security-modsuit-name
   description: selectable-set-security-modsuit-desc
   sprite:
-    sprite: _Goobstation/Clothing/Back/Modsuits/security.rsi
+    sprite: _Mono/Clothing/Back/Modsuits/soldat.rsi # Mono
     state: control
   content:
   - ClothingModsuitSecurityPowerCell
@@ -48,7 +48,7 @@
   name: selectable-set-headofsecurity-voidsuit-name
   description: selectable-set-headofsecurity-voidsuit-desc
   sprite:
-    sprite: Clothing/OuterClothing/Hardsuits/security-red.rsi
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/caelestinus_marshal.rsi # Mono
     state: icon
   content:
   - ClothingOuterHardsuitSecurityRed

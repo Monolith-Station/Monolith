@@ -3,13 +3,14 @@
   name: loadout-group-contractor-outerclothing
   minLimit: 1
   loadouts:
+  - MonoCaelestinusJudgeHardsuit
   - MonoSecurityGuardVestSlim
   - ContractorClothingOuterMilBomber
   - ContractorClothingOuterMilBomberCorpsman
   - ContractorClothingOuterMilFormal
   - ContractorClothingOuterMilLongcoat
   fallbacks:
-  - MonoSecurityGuardVestSlim
+  - MonoCaelestinusJudgeHardsuit
 
 - type: loadout
   id: MonoSecurityGuardVestSlim
@@ -213,3 +214,8 @@
   id: MonoSecurityGuardDuffel
   equipment:
     back: ClothingBackpackDuffelSecurity
+
+- type: loadout
+  id: MonoCaelestinusJudgeHardsuit
+  equipment:
+    outerClothing: ClothingOuterHardsuitSecurity

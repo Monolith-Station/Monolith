@@ -765,9 +765,9 @@
     layers:
     - state: icon
     - state: screen
-      color: "#9c2f2f"
+      color: "#2f805e"
     - state: screen7
-      color: "#c43a3a"
+      color: "#37946e"
       shader: unshaded
   - type: ShipyardVoucher
     destroyOnEmpty: true
@@ -788,9 +788,9 @@
     layers:
     - state: icon
     - state: screen
-      color: "#9c2f2f"
+      color: "#2f805e"
     - state: screen7
-      color: "#c43a3a"
+      color: "#37946e"
       shader: unshaded
   - type: ShipyardVoucher
     destroyOnEmpty: false
