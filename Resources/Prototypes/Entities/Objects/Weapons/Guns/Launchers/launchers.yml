@@ -63,6 +63,7 @@
       - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
+    drawTime: 0.75
   - type: BallisticAmmoProvider
     whitelist:
       tags:
@@ -92,6 +93,7 @@
     fireRate: 0.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/rpgfire.ogg
+    drawTime: 1.0
   - type: BallisticAmmoProvider
     whitelist:
       tags:
@@ -128,6 +130,7 @@
       - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/rpgfire.ogg
+    drawTime: 1.0
   - type: BallisticAmmoProvider
     whitelist:
       tags:
