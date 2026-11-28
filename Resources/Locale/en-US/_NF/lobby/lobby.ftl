@@ -6,13 +6,11 @@ frontier-lobby-station-subtext = Wake up from cryosleep to become captain, find 
 frontier-lobby-crew-title = Crew
 frontier-lobby-crew-subtext = Start your round aboard a ship amongst a crew that is looking for new crewmembers to give them a helping hand, whether you are a new or seasoned pilot!
 
-frontier-lobby-frontier-subtext = Main hub for many space pioneers.
-frontier-lobby-frontier-description = Awaken from cryosleep here to:
-   - Start your own crew and become captain
-   - Find a crew to join
-   - Purchase ships
-   - Socialize with other pioneers
- Some of the roles on this station are whitelist-only and require an application in the discord to be accepted.
+frontier-lobby-frontier-subtext = A "safe" haven for the independent.
+frontier-lobby-frontier-description = 
+   A civilian habitation and shelter ran by Caelestinus, doubling as their center of operations.
+   Caelestinus has committed itself to the aid and safekeeping of the independent elements of the Colossus sector, though this also makes it a popular target for attacks.
+
 
 frontier-lobby-exped-subtext = Where seasoned mercenaries gather.
 frontier-lobby-exped-description = This is base camp for mercenaries and alike. Here you can:
