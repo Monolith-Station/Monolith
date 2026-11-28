@@ -380,7 +380,7 @@ public sealed partial class DamageVisualsSystem : VisualizerSystem<DamageVisuals
         if (!AppearanceSystem.TryGetData<DamageVisualizerGroupData>(uid, DamageVisualizerKeys.DamageUpdateGroups,
                 out var data, component))
         {
-            data = new DamageVisualizerGroupData(Comp<DamageableComponent>(uid).DamagePerGroup.Keys.ToList());
+            data = new DamageVisualizerGroupData(Comp<DamageableComponent>(uid).DamagePerGroup.Keys.Select(id => id.Id).ToList());
         }
 
         UpdateDamageVisuals(data.GroupList, damageComponent, spriteComponent, damageVisComp);

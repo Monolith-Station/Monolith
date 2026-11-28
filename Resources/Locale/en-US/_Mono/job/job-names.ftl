@@ -7,8 +7,8 @@ job-supervisors-ussp-commissars = the Commissar
 job-supervisors-ussp-sergeant = the Serzhants
 
 # MARK: CAELESTINUS
-job-name-md-medic = Emergency Responder
-job-name-caelestinus-worker = Caelestinus Worker
+job-name-md-medic = CST Emergency Responder
+job-name-caelestinus-worker = CST Worker
 
 # MARK: TSF
 job-name-tsf-engineer = TSFMC Engineer

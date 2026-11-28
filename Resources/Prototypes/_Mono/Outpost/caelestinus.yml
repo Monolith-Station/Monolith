@@ -27,7 +27,7 @@
         - type: StationCargoOrderDatabase
           capacity: 240 # has to be large to compensate for playerbase
         - type: TradeCrateDestination
-          destinationProto: Trade
+          destinationProto: CargoC
         - type: ExtraStationInformation
           icon: /Textures/_Mono/Interface/Misc/LateJoin/caelestinus.png
           stationSubtext: 'frontier-lobby-frontier-subtext'

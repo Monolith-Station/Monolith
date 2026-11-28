@@ -63,10 +63,11 @@
     attackRate: 4
     heavyStaminaCost: 0 # Mono
     damage:
-      groups:
-        Brute: 6
       types:
         Structural: 15
+        Blunt: 2
+        Slash: 2
+        Piercing: 2
 
 - type: entity
   name: diamond tipped mining drill
@@ -86,10 +87,11 @@
     attackRate: 4
     heavyStaminaCost: 0 # Mono
     damage:
-      groups:
-        Brute: 8
       types:
         Structural: 35
+        Blunt: 2.66
+        Slash: 2.67
+        Piercing: 2.67
   - type: MiningGatheringHard # Frontier
 
 
@@ -123,8 +125,10 @@
     delay: 0.4 # Mono
   - type: LeechOnMarker
     leech:
-      groups:
-        Brute: -10
+      types:
+        Blunt: -3.33
+        Slash: -3.33
+        Piercing: -3.34
   - type: Gun
     soundGunshot: /Audio/Weapons/plasma_cutter.ogg
     fireRate: 1.4 # Mono
@@ -212,8 +216,10 @@
     delay: 1.4 # Mono
   - type: LeechOnMarker
     leech:
-      groups:
-        Brute: -21
+      types:
+        Blunt: -7
+        Slash: -7
+        Piercing: -7
   - type: MeleeWeapon
   - type: Tag
     tags:

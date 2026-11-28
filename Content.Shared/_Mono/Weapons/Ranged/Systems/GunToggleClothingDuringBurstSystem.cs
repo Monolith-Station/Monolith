@@ -12,8 +12,8 @@ public sealed partial class GunToggleClothingDuringBurstSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<GunComponent, ClothingComponent, GunToggleClothingDuringBurstComponent>();
-        while (query.MoveNext(out var uid, out var gun, out var clothing, out var toggle))
+        var query = EntityQueryEnumerator<GunToggleClothingDuringBurstComponent, ClothingComponent, GunComponent>();
+        while (query.MoveNext(out var uid, out var toggle, out var clothing, out var gun))
         {
             if (clothing.Slots == (gun.BurstActivated ? toggle.SlotsDuringBurst : toggle.IdleSlots))
                 continue;

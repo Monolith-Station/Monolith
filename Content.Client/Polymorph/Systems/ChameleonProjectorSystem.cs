@@ -11,6 +11,7 @@ namespace Content.Client.Polymorph.Systems;
 public sealed partial class ChameleonProjectorSystem : SharedChameleonProjectorSystem
 {
     [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     private EntityQuery<AppearanceComponent> _appearanceQuery;
     private EntityQuery<SpriteComponent> _spriteQuery;
@@ -31,7 +32,8 @@ public sealed partial class ChameleonProjectorSystem : SharedChameleonProjectorS
 
     private void OnHandleState(Entity<ChameleonDisguiseComponent> ent, ref AfterAutoHandleStateEvent args)
     {
-        CopyComp<SpriteComponent>(ent);
+        if (GetSrcComp<SpriteComponent>(ent.Comp, out var source))
+            _sprite.CopySprite((source.Owner, source), (ent.Owner, EnsureComp<SpriteComponent>(ent)));
         CopyComp<GenericVisualizerComponent>(ent);
         CopyComp<SolutionContainerVisualsComponent>(ent);
         CopyComp<BurnStateVisualsComponent>(ent);

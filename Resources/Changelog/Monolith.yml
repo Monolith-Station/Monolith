@@ -27805,3 +27805,125 @@ Entries:
   id: 2978
   time: '2026-11-26T14:23:33.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/5101
+- author: Pologuys
+  changes:
+    - type: Remove
+      message: >-
+        Banned the allowance of discrimination of disabilities fully. This
+        covers saying "retard" and other slurs pertaining to disabilities.
+  id: 2979
+  time: '2026-11-26T19:17:51.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5114
+- author: SuperGDPWYL
+  changes:
+    - type: Tweak
+      message: All Caelestinus roles now have "Caelestinus" at the start of their name.
+  id: 2980
+  time: '2026-11-26T23:45:59.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5117
+- author: SuperGDPWYL
+  changes:
+    - type: Tweak
+      message: >-
+        The Underground Black Market no longer sells death acidifiers,
+        microbombs or macrobombs. The PDV may acquire these instead through
+        their uplink.
+  id: 2981
+  time: '2026-11-27T00:39:51.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5118
+- author: tonotom1
+  changes:
+    - type: Tweak
+      message: Add basic EVA and fire extinguisher to Sandbox for my iron homies
+  id: 2982
+  time: '2026-11-27T00:42:15.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5112
+- author: DoubleHypercube
+  changes:
+    - type: Remove
+      message: >-
+        Caelestinus roles no longer have "Caelestinus" at the start of their
+        name.
+  id: 2983
+  time: '2026-11-27T02:56:36.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5120
+- author: SuperGDPWYL
+  changes:
+    - type: Remove
+      message: >-
+        Jetpacks no longer function on grids no matter if they have gravity or
+        not.
+  id: 2984
+  time: '2026-11-27T04:23:43.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/4827
+- author: Corrupt142
+  changes:
+    - type: Tweak
+      message: >-
+        Remapped both beacons at the resource patches! Now with proper interior
+        and loot!
+  id: 2985
+  time: '2026-11-27T11:56:09.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5105
+- author: Mrrpip
+  changes:
+    - type: Tweak
+      message: The Pillbox has lost it's APU, default generator output upped by 6KW
+    - type: Fix
+      message: The UGR has radars on their ships now.
+  id: 2986
+  time: '2026-11-27T13:32:26.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5126
+- author: chaoticevilizardwizard
+  changes:
+    - type: Add
+      message: >-
+        Goobstations new textures to Deathsquad, command, and CentComm glasses
+        for if anybody wants to reuse those textures
+    - type: Fix
+      message: >-
+        Fixed moth and spider clothing textures not working correctly because
+        they didnt have a speciesid for them
+  id: 2987
+  time: '2026-11-27T13:52:07.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5127
+- author: TheScienceOfKSP
+  changes:
+    - type: Add
+      message: Added the KSP Sturnus, a MilCiv carrier for QJ-series fighters
+    - type: Tweak
+      message: Gave Fluyt a bedroll and recharger
+  id: 2988
+  time: '2026-11-27T15:43:51.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5128
+- author: SuperGDPWYL
+  changes:
+    - type: Tweak
+      message: All Caelestinus roles are now prefixed with "CST".
+  id: 2989
+  time: '2026-11-27T17:16:37.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5125
+- author: kasature90
+  changes:
+    - type: Fix
+      message: Fixed a major performance issue with sensors.
+  id: 2990
+  time: '2026-11-27T22:20:38.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5132
+- author: DoubleHypercube
+  changes:
+    - type: Fix
+      message: Displacements are now serialized.
+  id: 2991
+  time: '2026-11-28T02:01:32.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5134
+- author: SuperGDPWYL
+  changes:
+    - type: Tweak
+      message: >-
+        Cargo, PDV and underground crates now have letters indicating their
+        destination: C for Caelestinus Central, F for Freeport Camelot and Z for
+        Zvezda Orbital Habitation.
+  id: 2992
+  time: '2026-11-28T02:02:25.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/5130

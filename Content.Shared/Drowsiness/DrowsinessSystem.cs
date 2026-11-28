@@ -1,9 +1,9 @@
 using Content.Shared.StatusEffect;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Drowsiness;
 
 public abstract class SharedDrowsinessSystem : EntitySystem
 {
-    [ValidatePrototypeId<StatusEffectPrototype>]
-    public const string DrowsinessKey = "Drowsiness";
+    public static readonly ProtoId<StatusEffectPrototype> DrowsinessKey = "Drowsiness";
 }

@@ -50,7 +50,7 @@
         - type: StationCargoOrderDatabase
           capacity: 240
         - type: TradeCrateDestination
-          destinationProto: Trade
+          destinationProto: CargoZ
         - type: ExtraStationInformation
           icon:
             sprite: _NF/Structures/Storage/Crates/secure_ammo.rsi
