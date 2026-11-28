@@ -11,6 +11,10 @@
   - type: Hunger
     baseDecayRate: 0.024 # 33% faster than usual #Mono 0.0467 > 0.024(rounded from 0.02394) 33% more than base 0.018
   - type: Carriable # Carrying system from nyanotrasen.
+  - type: Thieving #Mono - Same as the trait
+    stealthy: false
+    timeMultiplier: 0.5
+    identifyHidden: true
   - type: Inventory
     speciesId: rodentia
   - type: Icon
