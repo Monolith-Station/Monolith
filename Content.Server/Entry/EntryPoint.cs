@@ -1,3 +1,4 @@
+using Content.Server._Mono.Administration.DeadChatShadowban; // Mono
 using Content.Server._Mono.Company; // Mono
 using Content.Server._Mono.MonoCoins; // Mono
 using Content.Server._NF.Auth;
@@ -122,6 +123,7 @@ namespace Content.Server.Entry
                 _watchlistWebhookManager.Initialize();
                 IoCManager.Resolve<JobWhitelistManager>().Initialize();
                 IoCManager.Resolve<PlayerRateLimitManager>().Initialize();
+                IoCManager.Resolve<DeadChatShadowbanManager>().Initialize(); // Mono
             }
         }
 

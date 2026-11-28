@@ -1,3 +1,4 @@
+using Content.Server._Mono.Administration.DeadChatShadowban; // Mono
 using Content.Server._Mono.Company; // Mono
 using Content.Server._Mono.MonoCoins; // Mono
 using Content.Server._NF.Auth;
@@ -82,6 +83,7 @@ namespace Content.Server.IoC
             IoCManager.Register<MiniAuthManager>(); //Frontier
             IoCManager.Register<CompanyManager>(); // Mono
             IoCManager.Register<MonoCoinsManager>(); // Mono
+            IoCManager.Register<DeadChatShadowbanManager>(); // Mono
 
             IoCManager.Register<DiscordLink>();
             IoCManager.Register<DiscordChatLink>();
