@@ -5,6 +5,7 @@
   #description: boundaries and rules are ment to be broken otherwise there will be no progress, but this thing here is a good argumant against that statement. #Mono out
   description: A proto-kinetic accelerator pared down to its minimum operating parts. Easy to handle in one hand, but brutal on the wrist. #Mono in
   components:
+  - type: LightWeapon # Mono - dual wielding
   - type: Sprite
     sprite: _NF/Objects/Weapons/Guns/Basic/sawn_kinetic_accelerator.rsi
     state: icon
