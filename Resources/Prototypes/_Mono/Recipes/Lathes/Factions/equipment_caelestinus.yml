@@ -4,6 +4,11 @@
   result: ClothingModsuitSecurity
 
 - type: latheRecipe
+  id: ClothingOuterHardsuitTraumaCaelestinus
+  parent: MonoHardsuitT2Recipe
+  result: ClothingOuterHardsuitTrauma
+
+- type: latheRecipe
   id: ClothingOuterHardsuitSecurityCaelestinus
   parent: MonoHardsuitT2Recipe
   result: ClothingOuterHardsuitSecurity
@@ -12,3 +17,11 @@
   id: ClothingOuterHardsuitWardenCaelestinus
   parent: MonoHardsuitT3TsfRecipe
   result: ClothingOuterHardsuitWarden
+
+- type: latheRecipe
+  id: ClothingShoesBootsMagVoidTraumaCaelestinus
+  parent: NFBaseMagBootsRecipe
+  categories:
+  - ClothesNF
+  - FactionEquipment
+  result: ClothingShoesBootsMagVoidTrauma

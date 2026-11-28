@@ -121,6 +121,10 @@
         whitelist:
           tags:
           - MonoOptic8x
+  - type: ReverseEngineerable
+    category: BallisticWeapon
+    progressValue: 45
+    originCompany: PDV
 
 - type: entity
   name: MA PDW-58 Atreides (5.7x28mm)
@@ -166,6 +170,10 @@
         whitelist:
           tags:
           - Cartridge57x28mmFMJ
+  - type: ReverseEngineerable
+    category: BallisticWeapon
+    progressValue: 45
+    originCompany: PDV
 
 - type: entity
   name: CS C-20r submachine gun (9x19mm)
@@ -209,3 +217,7 @@
   - type: Appearance
   - type: StaticPrice # Mono
     price: 625
+  - type: ReverseEngineerable
+    category: BallisticWeapon
+    progressValue: 15
+    originCompany: PDV

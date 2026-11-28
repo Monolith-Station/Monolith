@@ -80,6 +80,9 @@
   - type: Construction
     graph: Modsuit
     node: rogue
+  - type: ReverseEngineerable
+    category: CombatHardsuit
+    progressValue: 45
 
 - type: entity
   parent: ClothingModsuitRogue

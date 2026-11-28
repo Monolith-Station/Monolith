@@ -16,3 +16,7 @@
     prototype: MobImperiRoach
   - type: EmitSoundOnUse
     sound: /Audio/Voice/Moth/moth_chitter.ogg
+  - type: ReverseEngineerable # Mono
+    category: FactionTool
+    progressValue: 30
+    originCompany: PDV

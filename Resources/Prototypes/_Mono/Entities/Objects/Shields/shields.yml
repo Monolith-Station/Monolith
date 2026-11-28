@@ -131,3 +131,7 @@
                   max: 5
     - type: StaticPrice
       price: 350
+    - type: ReverseEngineerable # Mono
+      category: MeleeWeapon
+      progressValue: 45
+      originCompany: PDV

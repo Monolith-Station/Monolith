@@ -395,6 +395,10 @@
     autoRechargeRate: 200
     autoRechargePause: true
     autoRechargePauseTime: 30
+  - type: ReverseEngineerable # Mono
+    category: EnergyWeapon
+    progressValue: 60
+    originCompany: TSF
   # End Mono
 
 - type: entity
@@ -444,6 +448,11 @@
     autoRechargeRate: 200
     autoRechargePause: true
     autoRechargePauseTime: 30
+  - type: ReverseEngineerable # Mono
+    category: EnergyWeapon
+    progressValue: 90
+    value: 2
+    originCompany: TSF
   # End Mono
 
 - type: entity
@@ -491,6 +500,11 @@
   - type: SpeedModifiedOnWield
     walkModifier: 0.90
     sprintModifier: 0.85
+  - type: ReverseEngineerable # Mono
+    category: EnergyWeapon
+    progressValue: 90
+    value: 2
+    originCompany: TSF
   # End Mono
 
   # Mono Addition

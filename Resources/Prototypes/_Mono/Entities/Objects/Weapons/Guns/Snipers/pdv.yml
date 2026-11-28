@@ -53,6 +53,10 @@
       collection: MetalThud
   - type: AltFireMelee
     attackType: Light
+  - type: ReverseEngineerable
+    category: BallisticWeapon
+    progressValue: 90
+    originCompany: PDV
 
 - type: entity
   name: SKR-WS M96 Hristov (14.5x114mm)

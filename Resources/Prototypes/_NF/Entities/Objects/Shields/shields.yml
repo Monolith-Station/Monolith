@@ -11,3 +11,7 @@
     color: blue
   - type: PirateBountyItem # Mono
     id: TSFEnergyWeapon
+  - type: ReverseEngineerable # Mono
+    category: MeleeWeapon
+    progressValue: 45
+    originCompany: TSF

@@ -12,6 +12,10 @@
     state: icon
   - type: Item
     sprite: Objects/Tools/access_breaker.rsi
+  - type: ReverseEngineerable # Mono
+    category: FactionTool
+    progressValue: 30
+    originCompany: PDV
 
 - type: entity
   parent: AccessBreakerUnlimited

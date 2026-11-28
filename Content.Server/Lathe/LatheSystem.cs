@@ -44,6 +44,7 @@ using Content.Shared.Storage.Components;
 using Content.Shared.Tools.Components; // Frontier
 using Robust.Shared.Containers;
 using Robust.Shared.Utility; // Frontier
+using Content.Shared._Mono.Caelestinus.Systems; // Mono
 
 namespace Content.Server.Lathe
 {
@@ -63,6 +64,7 @@ namespace Content.Server.Lathe
         [Dependency] private PopupSystem _popup = default!;
         [Dependency] private PuddleSystem _puddle = default!;
         [Dependency] private ReagentSpeedSystem _reagentSpeed = default!;
+        [Dependency] private ReverseEngineeringSystem _reverseEngineering = default!;
         [Dependency] private SharedSolutionContainerSystem _solution = default!;
         [Dependency] private StackSystem _stack = default!;
         [Dependency] private ContrabandTurnInSystem _contraband = default!; // Mono
@@ -386,8 +388,9 @@ namespace Content.Server.Lathe
                             ModifyPrintedEntityPrice(uid, comp, result);
                             // End Frontier
 
-                            // Mono: Handle printable contraband
+                            // Mono: Handle printable contraband & reverse-engineerable items
                             _contraband.HandleContrabandValueByCompany(result, prodComp.Actor);
+                            _reverseEngineering.HandleReverseEngineerableByCompany(result, prodComp.Actor);
                         }
 
                         _stack.TryMergeToContacts(result);

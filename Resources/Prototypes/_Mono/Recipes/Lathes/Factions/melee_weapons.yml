@@ -25,6 +25,16 @@
     Plasma: 500
 
 - type: latheRecipe
+  parent: EnergyDaggerRogue
+  id: EnergyDaggerLondonCaelestinus
+  result: EnergyDaggerLondon
+
+- type: latheRecipe
+  parent: EnergyShieldTSF
+  id: EnergyShieldCaelestinus
+  result: EnergyShield
+
+- type: latheRecipe
   parent: BaseWeaponRecipeLong
   id: HFSwordVT7
   categories:

@@ -73,6 +73,10 @@
   - type: EyeCursorOffset
     maxOffset: 3
     pvsIncrease: 1
+  - type: ReverseEngineerable # Mono
+    category: EnergyWeapon
+    progressValue: 45
+    originCompany: TSF
 
 
 - type: entity
@@ -184,3 +188,7 @@
     - description: Continued fire increases accuracy.
       color: "#4f94ad"
       requireDetailRange: true
+  - type: ReverseEngineerable # Mono
+    category: EnergyWeapon
+    progressValue: 90
+    originCompany: TSF

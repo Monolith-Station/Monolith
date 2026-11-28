@@ -1,0 +1,20 @@
+# reverse engineerable items should be TSF/PDV/BLACK MARKET items, nothing usually civ-available. the shield boards are an exception, but with exceptions like this ALWAYS set ProgressValue to 0.
+- type: reverseEngineeringCategory
+  id: BallisticWeapon # any FACTION/BLACKMARKET ballistic weapon
+  name: ballistic weapon
+
+- type: reverseEngineeringCategory
+  id: EnergyWeapon # any FACTION/BLACKMARKET ranged energy weapon
+  name: energy weapon
+
+- type: reverseEngineeringCategory
+  id: MeleeWeapon # any FACTION/BLACKMARKET exclusive melee weapon (energy sword, VT-7, naval sabre)
+  name: melee weapon
+
+- type: reverseEngineeringCategory
+  id: CombatHardsuit # any FACTION/BLACKMARKET exclusive suit (M86, M92, CV-32, CV-53, stealthsuit, juggsuit, blood-red, ENFORCER, rx-01)
+  name: combat hardsuit
+
+- type: reverseEngineeringCategory
+  id: FactionTool # accessbreaker, emp emitter, holobarrier emitter, etc
+  name: gadget

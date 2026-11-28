@@ -932,7 +932,10 @@
     - StaticGrenades
     - SecurityWeaponsStatic
     - MonoCaelestinusVouchersStatic
-    dynamicPacks:
+    - NFMercenaryTechfabDeprecatedStatic
+    - RoundstartShipgunAmmo
+    - MonoAttachmentsStatic
+    dynamicPacks: # also has most of what the military multipurpose assembler has.
     - SecurityEquipment
     - SecurityExplosives
     - DynamicAmmoRecipePack
@@ -946,9 +949,11 @@
     - MonoTSFWeaponsDynamicMelee
     - MonoTSFWeaponsDynamicRanged
     - MonoTSFMiscDynamic
+    - MonoTSFGearDynamic # NVGs
     - MonoRogueWeaponsDynamicMelee
     - MonoRogueWeaponsDynamicRanged
     - MonoRogueMiscDynamic
+    - MonoRogueGearDynamic # thermals
     - UniversalShellAmmo
     - ResearchedExplosives
     - UniversalRailgunAmmo
@@ -987,3 +992,8 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Machine
     board: SecurityTechFabCaelestinusMachineCircuitboard
+
+- type: entity
+  parent: [BaseStructureDisableToolUse, SecurityTechFabCaelestinus]
+  id: SecurityTechFabCaelestinusImmovable # exists for consistency, probably not a good idea to replace the mapped lathe with given there's a spare flatpack in the Overseer's locker anyways.
+  suffix: IMMOVABLE

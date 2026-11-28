@@ -143,3 +143,6 @@
       sprite: _RMC14/Interface/MousePointer/smartgun_mouse.rsi
       state: all
   - type: Appearance
+  - type: ReverseEngineerable # Mono
+    category: EnergyWeapon
+    progressValue: 90

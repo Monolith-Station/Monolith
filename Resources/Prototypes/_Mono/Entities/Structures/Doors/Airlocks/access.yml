@@ -106,3 +106,22 @@
       board: [ DoorElectronicsMieyoLiason ]
   - type: Wires
     layoutId: AirlockSecurity
+
+# Caelestinus (Archon)
+- type: entity
+  parent: AirlockGlassShuttleCaelestinusCapital
+  id: AirlockGlassShuttleCaelestinusCapitalLocked
+  suffix: CAPITAL ONLY, Caelestinus, Glass, Docking, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSecurity ]
+
+- type: entity
+  parent: AirlockShuttleCaelestinusCapital
+  id: AirlockShuttleCaelestinusCapitalLocked
+  suffix: CAPITAL ONLY, Caelestinus, Docking, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSecurity ]

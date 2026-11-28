@@ -82,6 +82,10 @@
     - RogueHardsuit
   - type: StaminaDamageResistance
     coefficient: 0.25
+  - type: ReverseEngineerable
+    category: CombatHardsuit
+    progressValue: 45
+    originCompany: PDV
 
 - type: entity
   parent: [ ClothingOuterHardsuitBase, BaseFactionGearPDVT3 ]
@@ -129,6 +133,10 @@
   - type: Tag  # Mono
     tags:
     - RogueHardsuit
+  - type: ReverseEngineerable
+    category: CombatHardsuit
+    progressValue: 90
+    originCompany: PDV
 
 - type: entity
   parent: ClothingOuterHardsuitSyndieCommander
@@ -200,6 +208,10 @@
   - type: Tag
     tags:
     - RogueHardsuit
+  - type: ReverseEngineerable
+    category: CombatHardsuit
+    progressValue: 45
+    originCompany: PDV
 #  # Shielding
 #  - type: PersonalShield
 #    visuals:

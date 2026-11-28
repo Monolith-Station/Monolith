@@ -112,6 +112,14 @@
   name: Caelestinus
   text: "/ServerInfo/_Mono/Guidebook/Factions/caelestinus.xml"
   priority: 4
+  children:
+  - Caelestinus_ReverseEngineering
+
+- type: guideEntry
+  id: Caelestinus_ReverseEngineering
+  name: Reverse Engineering
+  text: "/ServerInfo/_Mono/Guidebook/Factions/caelestinus_reverse-engineering.xml"
+  priority: 5
 
 - type: guideEntry
   id: Underground

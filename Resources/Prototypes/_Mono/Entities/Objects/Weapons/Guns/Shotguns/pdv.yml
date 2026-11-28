@@ -42,6 +42,10 @@
   - type: EyeCursorOffset
     maxOffset: 3
     pvsIncrease: 1
+  - type: ReverseEngineerable
+    category: BallisticWeapon
+    progressValue: 15
+    originCompany: PDV
 
 - type: entity
   name: PD-VI LK/210 Flagbearer (12 gauge)

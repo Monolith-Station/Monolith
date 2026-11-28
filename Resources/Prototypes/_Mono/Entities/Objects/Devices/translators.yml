@@ -31,3 +31,37 @@
     requires:
     - TauCetiBasic
     - NovaCygniBasic
+
+- type: entity
+  id: AsherTranslator
+  parent: [ TranslatorPoweredBase ]
+  name: Asher translator
+  description: Translates speech between Asher and Andromeda Standard. You probably already know the word for Sultan.
+  components:
+  - type: HandheldTranslator
+    spoken:
+    - TauCetiBasic
+    - Freespeak
+    understood:
+    - TauCetiBasic
+    - Freespeak
+    requires:
+    - TauCetiBasic
+    - Freespeak
+
+- type: entity
+  id: UndergroundCodespeakTranslator
+  parent: [ TranslatorPoweredBase ]
+  name: Underground Codespeak translator
+  description: Translates speech between Underground Codespeak and Andromeda Standard.
+  components:
+  - type: HandheldTranslator
+    spoken:
+    - TauCetiBasic
+    - UndergroundCodespeak
+    understood:
+    - TauCetiBasic
+    - UndergroundCodespeak
+    requires:
+    - TauCetiBasic
+    - UndergroundCodespeak

@@ -92,6 +92,10 @@
     preventFiring: true
   - type: UseDelay
     delay: 1
+  - type: ReverseEngineerable
+    category: BallisticWeapon
+    progressValue: 90
+    originCompany: TSF
 
 - type: entity
   name: "TCA QBU-284 'Shenzhen' coilgun AMR"
@@ -260,6 +264,10 @@
         whitelist:
           tags:
           - MonoOptic8x
+  - type: ReverseEngineerable
+    category: BallisticWeapon
+    progressValue: 90
+    originCompany: TSF
 
 - type: entity
   parent: BaseWeaponRifle # Mono

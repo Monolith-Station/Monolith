@@ -204,9 +204,9 @@
 - type: entity
   parent: [EncryptionKey, RecyclableItemDeviceTiny]
   id: EncryptionKeyService
-  name: caelestinus staff encryption key # Mono
+  name: caelestinus encryption key # Mono
   categories: [ DoNotMap ] # Frontier
-  description: An encryption key used by the service staff, tasked with keeping the station full, happy and clean.
+  description: An encryption key used by Caelestinus. For the people. # Mono
   components:
   - type: EncryptionKey
     channels:

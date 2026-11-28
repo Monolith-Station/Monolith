@@ -111,6 +111,10 @@
   - type: StaticPrice
     price: 7500
     vendPrice: 1000
+  - type: ReverseEngineerable
+    category: CombatHardsuit
+    progressValue: 45
+    originCompany: TSF
 
 - type: entity
   parent: ClothingOuterHardsuitBaseNFNfsd
@@ -198,6 +202,10 @@
     coefficient: 0.25
   - type: PirateBountyItem # Mono
     id: ClothingOuterHardsuitTacsuitHighValue
+  - type: ReverseEngineerable
+    category: CombatHardsuit
+    progressValue: 90
+    originCompany: TSF
 #  # Mono - Shielding comps
 #  - type: PersonalShield
 #    visuals:
