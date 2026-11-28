@@ -85,8 +85,6 @@
   - MercenaryHead
   - ContractorMisc # Monolith: Misc slot
   - ContractorNeck # Monolith: Misc slot
-  - MercenaryJumpsuit
-  - MercenaryGloves
   - MercenaryBackpack
   - MercenaryOuterClothing
   - MercenaryShoes
@@ -115,11 +113,13 @@
 - type: roleLoadout
   id: JobCCServiceWorker # Mono
   groups:
+  - ContractorHead # Mono
   - ContractorNeck # Monolith: Misc slot
   - ContractorMisc # Monolith: Misc slot
-  - ValetJumpsuit
+  - ContractorJumpsuit # Mono:
+  - ContractorGloves # Mono
   - ContractorBackpack
-  - ValetOuterClothing
+  - ContractorOuterClothing # Mono
   - ContractorShoes
   - ContractorFace
   - ContractorGlasses
