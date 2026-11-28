@@ -73,10 +73,11 @@ namespace Content.Server.GameTicking.Commands
                     return;
                 }
 
-                if (_adminManager.IsAdmin(player) && _cfg.GetCVar(CCVars.AdminDeadminOnJoin))
-                {
-                    _adminManager.DeAdmin(player);
-                }
+                // Monolith: We'll just readmin anyway lol
+                // if (_adminManager.IsAdmin(player) && _cfg.GetCVar(CCVars.AdminDeadminOnJoin))
+                // {
+                //     _adminManager.DeAdmin(player);
+                // }
 
                 ticker.MakeJoinGame(player, station, id);
                 return;
