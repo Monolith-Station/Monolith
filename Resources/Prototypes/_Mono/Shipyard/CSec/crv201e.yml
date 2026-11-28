@@ -48,40 +48,19 @@
     data:
     - chance: 1
       toReplace: HardpointBallisticHeavy
-      replaceWith: HardpointMissileHeavy
+      replaceWith: DecalSpawnerDirtSingle
     - chance: 1
-      toReplace: HardpointEnergySuperlight
-      replaceWith: RailingRound
-    - chance: 1
-      toReplace: HardpointBallisticSuperlight
-      replaceWith: HardpointEnergyMedium
-    - chance: 1
-      toReplace: HardpointMissileSuperlight
+      toReplace: HardpointBallisticMedium
       replaceWith: HardpointEnergyMedium
   - !type:GridModEntityReplace
     comp: Gun
     data:
     - chance: 1
-      toReplace: WeaponTurretPinhole
-      replaceWith: WeaponTurretType35 # Going full weapon bay, I guess? If it was a T0, I would've probably just done empty and called it a day.
+      toReplace: WeaponTurretAC-35
+      replaceWith: WeaponLaserTurretPrometheus
     - chance: 1
-      toReplace: WeaponTurretFragment
-      replaceWith: Catwalk
-    - chance: 1
-      toReplace: WeaponTurretShard
+      toReplace: WeaponTurretDravon
       replaceWith: WeaponTurretType35
     - chance: 1
       toReplace: WeaponTurretBofors
-      replaceWith: WeaponTurretPaladin
-  - !type:GridModEntityReplace
-    comp: FireControlServer
-    data:
-    - chance: 1
-      toReplace: GunneryServerMedium
-      replaceWith: GunneryServerHigh
-  - !type:GridModEntityReplace
-    comp: Destructible
-    data:
-    - chance: 1
-      toReplace: SensorRadarCivT2
-      replaceWith: SensorRadarTsfXiaoDou
+      replaceWith: WhiteCatwalkMono

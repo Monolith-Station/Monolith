@@ -47,41 +47,11 @@
     comp: Hardpoint
     data:
     - chance: 1
-      toReplace: HardpointEnergyMedium
-      replaceWith: HardpointBallisticMedium
-    - chance: 1
-      toReplace: HardpointEnergySuperlight
-      replaceWith: RailingRound
-    - chance: 1
-      toReplace: HardpointBallisticSuperlight
-      replaceWith: HardpointBallisticMedium
-    - chance: 1
-      toReplace: HardpointMissileSuperlight
-      replaceWith: HardpointBallisticMedium
+      toReplace: HardpointMissileHeavy
+      replaceWith: DecalSpawnerDirtSingle
   - !type:GridModEntityReplace
     comp: Gun
     data:
     - chance: 1
-      toReplace: WeaponTurretPinhole
-      replaceWith: WeaponTurretDravon
-    - chance: 1
-      toReplace: WeaponTurretFragment
-      replaceWith: Catwalk
-    - chance: 1
-      toReplace: WeaponTurretShard
-      replaceWith: WeaponTurretDravon
-    - chance: 1
-      toReplace: WeaponLaserTurretPrometheus
-      replaceWith: WeaponTurretAC-35
-  - !type:GridModEntityReplace
-    comp: FireControlServer
-    data:
-    - chance: 1
-      toReplace: GunneryServerMedium
-      replaceWith: GunneryServerHigh
-  - !type:GridModEntityReplace
-    comp: Destructible
-    data:
-    - chance: 1
-      toReplace: SensorRadarCivT2
-      replaceWith: SensorRadarTsfXiaoDou
+      toReplace: WeaponTurretPaladin
+      replaceWith: WhiteCatwalkMono

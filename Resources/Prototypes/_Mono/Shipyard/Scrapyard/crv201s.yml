@@ -45,32 +45,23 @@
     comp: Hardpoint
     data:
     - chance: 1
-      toReplace: HardpointEnergySuperlight #Unused 2x1
-      replaceWith: RailingRound
-    - chance: 1
-      toReplace: HardpointBallisticSuperlight # Top
-      replaceWith: HardpointMissileLight
-    - chance: 1
-      toReplace: HardpointMissileSuperlight # Bottom
-      replaceWith: HardpointBallisticMedium
+      toReplace: HardpointMissileHeavy
+      replaceWith: DecalSpawnerDirtSingle
   - !type:GridModEntityReplace
     comp: Gun
     data:
     - chance: 1
-      toReplace: WeaponTurretPinhole # Top
+      toReplace: WeaponTurretDravon # Top
       replaceWith: MachineFrameDestroyed
     - chance: 1
-      toReplace: WeaponTurretFragment # Middle 2x1 unused
-      replaceWith: Catwalk
-    - chance: 1
-      toReplace: WeaponTurretShard # Rear
+      toReplace: WeaponTurretAC-35 # Middle 2x1 unused
       replaceWith: MachineFrameDestroyed
     - chance: 1
       toReplace: WeaponTurretBofors # Middle 2x1
       replaceWith: MachineFrameDestroyed
     - chance: 1
-      toReplace: WeaponLaserTurretPrometheus # Middle 1x1
-      replaceWith: MachineFrameDestroyed
+      toReplace: WeaponTurretPaladin
+      replaceWith: WhiteCatwalkMono
   - !type:GridModEntityReplace
     comp: AccessReader
     data:
@@ -128,3 +119,6 @@
     - chance: 1
       toReplace: SensorInfraredTSF
       replaceWith: SensorInfraredCiv
+    - chance: 1
+      toReplace: SensorRadarTsfXiaoDou
+      replaceWith: SensorRadarCivT2
