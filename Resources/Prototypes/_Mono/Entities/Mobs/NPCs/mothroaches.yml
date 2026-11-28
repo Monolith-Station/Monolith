@@ -96,7 +96,9 @@
         maxVol: 100
   - type: ProtectedFromStepTriggers
   - type: Insulated
-
+  - type: MouseSwarm
+    sprite: Mobs/Animals/mothroach/moproach.rsi
+    state: mothroach
 
 - type: entity
   name: Boomroach
@@ -220,6 +222,9 @@
       100: Dead
   - type: Company
     companyName: TSF
+  - type: MouseSwarm
+    sprite: Mobs/Animals/mothroach/boomroach.rsi
+    state: mothroach
 
 - type: entity
   name: ImperiRoach
@@ -313,6 +318,9 @@
     - Moffic
     - TauCetiBasic
     - Freespeak
+  - type: MouseSwarm
+    sprite: Mobs/Animals/mothroach/imperiroach.rsi
+    state: mothroach
 
 - type: entity
   name: OwOroach
@@ -403,6 +411,10 @@
   - type: AddAccentClothing
     accent: OwOAccent
   - type: OwOAccent
+  - type: MouseSwarm
+    sprite: /Textures/Mobs/Animals/mothroach/oworoach.rsi
+    state: mothroach
+    extraState: tail
 
 - type: entity
   name: leopard mothroach
@@ -432,6 +444,9 @@
     equippedPrefix: 0
     slots:
     - HEAD
+  - type: MouseSwarm
+    sprite: Mobs/Animals/mothroach/leopard_mothroach.rsi
+    state: mothroach
 
 - type: entity
   name: cecropia mothroach
@@ -461,6 +476,9 @@
     equippedPrefix: 0
     slots:
     - HEAD
+  - type: MouseSwarm
+    sprite: Mobs/Animals/mothroach/cecropia_mothroach.rsi
+    state: mothroach
 
 - type: entity
   name: lunar mothroach
@@ -490,6 +508,9 @@
     equippedPrefix: 0
     slots:
     - HEAD
+  - type: MouseSwarm
+    sprite: Mobs/Animals/mothroach/lunar_mothroach.rsi
+    state: mothroach
 
 - type: entity
   name: mustard mothroach
@@ -537,3 +558,6 @@
           Quantity: 5
         - ReagentId: Mustard
           Quantity: 5
+  - type: MouseSwarm
+    sprite: Mobs/Animals/mothroach/mustard_mothroach.rsi
+    state: mothroach
