@@ -192,7 +192,7 @@
   components:
     - type: Sprite
       sprite: _Mono/Clothing/Neck/Misc/pir.rsi
-      layers: 
+      layers:
         - state: pdvbox
     - type: DeviceNetwork
       receiveFrequencyId: SurveillanceCameraPDV
@@ -227,3 +227,15 @@
         - state: civbox
     - type: DeviceNetwork
       receiveFrequencyId: SurveillanceCameraMMC
+
+- type: entity
+  parent: ClothingNeckWearableCamera
+  id: ClothingNeckWearableCameraCC
+  name: Caelestinus wireless camera
+  components:
+  - type: Sprite
+    sprite: _Mono/Clothing/Neck/Misc/pir.rsi
+    layers:
+    - state: ccbox
+  - type: DeviceNetwork
+    receiveFrequencyId: SurveillanceCameraCC

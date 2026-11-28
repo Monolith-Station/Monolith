@@ -74,6 +74,21 @@
     - ClothingMaskNeckGaiterRed
 
 - type: loadoutGroup
+  id: CaelestinusBodyCam
+  name: loadout-group-contractor-neck
+  hidden: true
+  minLimit: 1
+  loadouts:
+  - CcClothingNeckWearableCameraCC
+  fallbacks:
+  - CcClothingNeckWearableCameraCC
+
+- type: loadout
+  id: CcClothingNeckWearableCameraCC # WHY IS JUDGES' LOADOUTS LIKE THIS?!
+  equipment:
+    neck: ClothingNeckWearableCameraCC
+
+- type: loadoutGroup
   id: MonoSecurityGuardHud
   name: loadout-group-contractor-glasses
   loadouts:

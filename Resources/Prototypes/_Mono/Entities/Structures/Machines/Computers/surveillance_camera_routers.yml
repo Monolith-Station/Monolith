@@ -27,3 +27,13 @@
       subnetFrequency: SurveillanceCameraMMC
     - type: WirelessNetworkConnection
       range: 40000
+
+- type: entity
+  parent: SurveillanceCameraWirelessRouterBase
+  id: SurveillanceCameraRouterWirelessCC
+  suffix: CC (long range)
+  components:
+  - type: SurveillanceCameraRouter
+    subnetFrequency: SurveillanceCameraCC
+  - type: WirelessNetworkConnection
+    range: 40000
