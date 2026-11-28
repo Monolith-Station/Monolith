@@ -18,7 +18,7 @@
   - type: PlayerToolModifier
     pryTimeMultiplier: 0.6
   - type: PlayerAccuracyModifier
-    spreadMultiplier: 15
+    spreadMultiplier: 5 #Mono 15 -> 5, guns are incredibly common, and this lets onis have slightly more gun variety.
     maxSpreadAngle: 180
   - type: BonusMeleeDamage
     damageModifierSet:
