@@ -3,6 +3,8 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Threading;
 using Robust.Shared.Utility;
+using System.Collections.Concurrent;
+using System.Linq;
 
 namespace Content.Shared.Silicons.StationAi;
 
@@ -29,7 +31,8 @@ public sealed partial class StationAiVisionSystem : EntitySystem
     private EntityQuery<OccluderComponent> _occluderQuery;
 
     // Dummy set
-    private readonly HashSet<Vector2i> _singleTiles = new();
+    // Mono - change HashSet to ConcurrentStack
+    private readonly ConcurrentStack<Vector2i> _singleTiles = new();
 
     // Occupied tiles per-run.
     // For now it's only 1-grid supported but updating to TileRefs if required shouldn't be too hard.
@@ -115,8 +118,9 @@ public sealed partial class StationAiVisionSystem : EntitySystem
         _singleTiles.Clear();
         _job.Grid = (grid.Owner, grid.Comp2);
         _job.VisibleTiles = _singleTiles;
-        _parallel.ProcessNow(_job, _job.Data.Count);
+        _parallel.ProcessSerialNow(_job, _job.Data.Count); // # MONO - evil hack that worked on localhost, try it on the live server
 
+        // Mono - change HashSet to ConcurrentStack
         return _job.VisibleTiles.Contains(tile);
     }
 
@@ -143,7 +147,8 @@ public sealed partial class StationAiVisionSystem : EntitySystem
     /// Gets a byond-equivalent for tiles in the specified worldAABB.
     /// </summary>
     /// <param name="expansionSize">How much to expand the bounds before to find vision intersecting it. Makes this the largest vision size + 1 tile.</param>
-    public void GetView(Entity<BroadphaseComponent, MapGridComponent> grid, Box2Rotated worldBounds, HashSet<Vector2i> visibleTiles, float expansionSize = 8.5f)
+    /// // Mono - change HashSet to ConcurrentStack
+    public void GetView(Entity<BroadphaseComponent, MapGridComponent> grid, Box2Rotated worldBounds, ConcurrentStack<Vector2i> visibleTiles, float expansionSize = 8.5f)
     {
         _viewportTiles.Clear();
         _opaque.Clear();
@@ -301,7 +306,8 @@ public sealed partial class StationAiVisionSystem : EntitySystem
         public Entity<MapGridComponent> Grid;
         public List<Entity<StationAiVisionComponent>> Data = new();
 
-        public required HashSet<Vector2i> VisibleTiles;
+        // Mono - change HashSet to ConcurrentStack
+        public required ConcurrentStack<Vector2i> VisibleTiles;
 
         public readonly List<Dictionary<Vector2i, int>> Vis1 = new();
         public readonly List<Dictionary<Vector2i, int>> Vis2 = new();
@@ -322,12 +328,10 @@ public sealed partial class StationAiVisionSystem : EntitySystem
                     Grid.Comp,
                     new Circle(System._xforms.GetWorldPosition(seedXform), seed.Comp.Range), ignoreEmpty: false);
 
-                lock (VisibleTiles)
+                foreach (var tile in squircles)
                 {
-                    foreach (var tile in squircles)
-                    {
-                        VisibleTiles.Add(tile.GridIndices);
-                    }
+                    // Mono - change HashSet to ConcurrentStack, remove lock()
+                    VisibleTiles.Push(tile.GridIndices);
                 }
 
                 return;
@@ -456,11 +460,8 @@ public sealed partial class StationAiVisionSystem : EntitySystem
 
                 if (tileVis != 0)
                 {
-                    // No idea if it's better to do this inside or out.
-                    lock (VisibleTiles)
-                    {
-                        VisibleTiles.Add(tile);
-                    }
+                    // Mono - change HashSet to ConcurrentStack, remove lock()
+                    VisibleTiles.Push(tile);
                 }
             }
         }
