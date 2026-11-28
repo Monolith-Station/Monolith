@@ -17,6 +17,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
+using Robust.Shared.Maths; // Goobstation
 using Robust.Shared.Utility;
 
 namespace Content.Server.Guardian
@@ -58,6 +59,8 @@ namespace Content.Server.Guardian
             SubscribeLocalEvent<GuardianHostComponent, GuardianToggleActionEvent>(OnPerformAction);
 
             SubscribeLocalEvent<GuardianComponent, AttackAttemptEvent>(OnGuardianAttackAttempt);
+
+            SubscribeLocalEvent<GuardianHostComponent, Content.Shared.Polymorph.PolymorphedEvent>(OnHostPolymorphed); // Goob
         }
 
         private void OnGuardianShutdown(EntityUid uid, GuardianComponent component, ComponentShutdown args)
@@ -332,8 +335,9 @@ namespace Content.Server.Guardian
             if (!guardianComponent.GuardianLoose)
                 return;
 
+            // Goobstation - now moves you closer instead of retracting
             if (!_transform.InRange(guardianXform.Coordinates, hostXform.Coordinates, guardianComponent.DistanceAllowed))
-                RetractGuardian(hostUid, hostComponent, guardianUid, guardianComponent);
+                PullGuardianToHost(guardianUid, guardianComponent, hostXform, guardianXform);
         }
 
         private bool CanRelease(EntityUid guardian)
