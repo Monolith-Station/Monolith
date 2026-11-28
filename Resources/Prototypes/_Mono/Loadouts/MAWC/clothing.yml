@@ -1,0 +1,116 @@
+- type: loadout
+  id: MAWCJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformMAWCMesh
+
+- type: loadoutGroup
+  id: MAWCJumpsuit
+  name: loadout-group-contractor-jumpsuit
+  minLimit: 1
+  loadouts: [MAWCJumpsuit]
+  fallbacks: [MAWCJumpsuit]
+
+- type: loadout
+  id: MAWCGloves
+  equipment:
+    gloves: ClothingHandsGlovesMAWC
+
+- type: loadoutGroup
+  id: MAWCGloves
+  name: loadout-group-contractor-gloves
+  minLimit: 1
+  loadouts: [MAWCGloves]
+  fallbacks: [MAWCGloves]
+
+- type: loadout
+  id: MAWCShoes
+  equipment:
+    shoes: ClothingShoesBootsMAWCFilled
+
+- type: loadoutGroup
+  id: MAWCShoes
+  name: loadout-group-contractor-shoes
+  minLimit: 1
+  loadouts: [MAWCShoes]
+  fallbacks: [MAWCShoes]
+
+- type: loadout
+  id: MAWCMask
+  equipment:
+    mask: ClothingMaskVisorMAWC
+
+- type: loadoutGroup
+  id: MAWCMask
+  name: loadout-group-contractor-face
+  minLimit: 1
+  loadouts: [MAWCMask]
+  fallbacks: [MAWCMask]
+
+- type: loadout
+  id: MAWCNeck
+  equipment:
+    neck: ClothingNeckMAWCRing
+
+- type: loadoutGroup
+  id: MAWCNeck
+  name: loadout-group-contractor-neck
+  minLimit: 1
+  loadouts: [MAWCNeck]
+  fallbacks: [MAWCNeck]
+
+- type: loadoutGroup
+  id: MAWCOuterClothingInitiate
+  name: loadout-group-contractor-outerclothing
+  minLimit: 1
+  loadouts:
+  - MAWCTermite
+  fallbacks:
+  - MAWCTermite
+
+- type: loadoutGroup
+  id: MAWCOuterClothingCarpenter
+  name: loadout-group-contractor-outerclothing
+  minLimit: 1
+  loadouts:
+  - MAWCCarpenter
+  fallbacks:
+  - MAWCCarpenter
+
+- type: loadoutGroup
+  id: MAWCOuterClothingAcolyte
+  name: loadout-group-contractor-outerclothing
+  minLimit: 1
+  loadouts:
+  - MAWCWeaver
+  fallbacks:
+  - MAWCWeaver
+
+- type: loadoutGroup
+  id: MAWCOuterClothingSeraph
+  name: loadout-group-contractor-outerclothing
+  minLimit: 1
+  loadouts:
+  - MAWCWidowmaker
+  fallbacks:
+  - MAWCWidowmaker
+
+
+- type: loadout
+  id: MAWCWidowmaker
+  equipment:
+    outerClothing: ClothingOuterHardsuitMAWCWidowmaker
+
+- type: loadout
+  id: MAWCWeaver
+  equipment:
+    outerClothing: ClothingOuterHardsuitMAWCWeaver
+
+- type: loadout
+  id: MAWCCarpenter
+  equipment:
+    outerClothing: ClothingOuterHardsuitMAWCCarpenter
+
+- type: loadout
+  id: MAWCTermite
+  equipment:
+    outerClothing: ClothingOuterHardsuitMAWCTermite

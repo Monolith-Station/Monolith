@@ -145,12 +145,16 @@ public sealed partial class JobRequirementsManager : ISharedPlaytimeManager
     {
         reason = null;
 
-        if (requirements == null || (!_cfg.GetCVar(CCVars.GameRoleTimers) && !enforcedPlayTime)) // Mono - checking strict job playtime enforcement
+        if (requirements == null)
             return true;
 
+        var checkPlayTime = _cfg.GetCVar(CCVars.GameRoleTimers) || enforcedPlayTime;
         var reasons = new List<string>();
         foreach (var requirement in requirements)
         {
+            if (!checkPlayTime && requirement.IsPlayTime)
+                continue;
+
             if (requirement.Check(_entManager, _prototypes, profile, _roles, out var jobReason))
                 continue;
 

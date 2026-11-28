@@ -1,0 +1,38 @@
+- type: vessel
+  id: Spark
+  parent: BaseVessel
+  name: MAWC Spark
+  description: A small and frail pre-fabricated vessel equipped with an APOLLO mining laser. Its sole purpose is to come in, harvest, and leave without overstaying its welcome.
+  price: 67250 # 61K * 1.1~
+#  purchasable: false # T0
+  category: Small
+  group: Mawc
+  access: MAWC
+  shuttlePath: /SharedMaps/_Mono/Shuttles/MAWC/spark.yml
+  guidebookPage: Null
+  class:
+  - Salvage
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Spark
+  mapName: 'MAWC Spark'
+  mapPath: /SharedMaps/_Mono/Shuttles/MAWC/spark.yml
+  minPlayers: 0
+  stations:
+    Spark:
+      stationProto: StandardFrontierVessel
+      gridComponents:
+      - type: VesselInfo
+        description: "And so the little kobold snuck into the hoard, seeking something shiny. And the dragon awoke, but the little kobold stood defiant."
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Spark MAWC{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            MAWCInitiate: [ 0, 0 ]
+            MAWCCarpenter: [ 0, 0 ]

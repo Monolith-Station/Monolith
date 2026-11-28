@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared._Mono.MAWC.Scrap;
 using Content.Shared.Examine;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -124,6 +125,11 @@ namespace Content.Shared.Stacks
                 return false;
 
             transferred = Math.Min(donorStack.Count, GetAvailableSpace(recipientStack));
+            if (transferred > 0) // Mono
+            {
+                var ev = new StackMergeEvent(recipient, donor, transferred);
+                RaiseLocalEvent(recipient, ref ev);
+            }
             SetCount(donor, donorStack.Count - transferred, donorStack);
             SetCount(recipient, recipientStack.Count + transferred, recipientStack);
             return transferred > 0;

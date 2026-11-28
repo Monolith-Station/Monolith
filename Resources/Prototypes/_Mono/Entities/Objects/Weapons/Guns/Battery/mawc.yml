@@ -1,0 +1,53 @@
+- type: entity
+  parent: BaseWeaponBattery
+  id: WeaponMAWCSirius
+  name: M-WC Type-55 "Sirius" reclaiming laser
+  description: A privatized version of the popular civilian industrial mining laser, this special tool is specially attuned for turning walls into usable refined scrap that can be used in specialized machines. Quite heavy and unwieldy, but it makes for a decent emergency weapon in a pinch.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Battery/sirius.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: charge-5
+      map: ["enum.GunVisualLayers.Mag"]
+      shader: unshaded
+  - type: Item
+    size: Ginormous
+    sprite: _Mono/Objects/Weapons/Guns/Battery/sirius_inhands.rsi
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/Battery/sirius_inhands.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Gun
+    fireRate: 3
+    minAngle: 2
+    maxAngle: 4
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/e-fire.ogg
+  - type: MultiHandedItem
+  - type: HitscanBatteryAmmoProvider
+    proto: MAWCSiriusBeam
+    fireCost: 100
+  - type: Battery
+    maxCharge: 1200
+    startingCharge: 1200
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 100
+    autoRechargePause: true
+    autoRechargePauseTime: 10
+  - type: MagazineVisuals
+    magState: charge
+    steps: 6
+    zeroVisible: false
+    zeroNoAmmo: true
+  - type: Appearance
+  - type: HeldSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.7

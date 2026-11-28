@@ -1,0 +1,86 @@
+- type: entity
+  parent: BaseWeaponMAWC
+  id: WeaponPistolMAWCGame
+  name: M-WC Type-36 "Game" pistol
+  description: A ubiquitous and cheap pistol issued to all MAWC forces with respectable stopping power, firerate and self recharge.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Battery/game.rsi
+    state: base
+  - type: Item
+    sprite: _Mono/Objects/Weapons/Guns/Battery/game_inhands.rsi
+    size: Small
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+  - type: Tag
+    tags:
+    - Sidearm
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/Battery/game_inhands.rsi
+    quickEquip: false
+    slots:
+    - Belt
+    - suitStorage
+  - type: Gun
+    fireRate: 6
+    projectileSpeed: 55
+    minAngle: 3
+    maxAngle: 12
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      collection: MAWCLight
+  - type: HeatAmmoProvider
+    proto: BulletMAWCGame
+    maxHeat: 16
+    heatDissipation: 1.333333
+  - type: MeleeWeapon
+    attackRate: 1.1
+    damage:
+      types:
+        Blunt: 8
+    angle: 0
+    wideAnimationRotation: 135
+    animation: WeaponArcThrust
+    soundHit:
+      collection: MetalThud
+
+- type: entity
+  parent: BaseWeaponMAWC
+  id: WeaponRevolverMAWC
+  name: M-WC "Heartpiercer" rail revolver
+  description: A heavy railgun revolver issued to the Seraph.
+  components:
+  - type: Sprite
+    sprite: _Mono/Objects/Weapons/Guns/Battery/heartpiercer.rsi
+    state: base
+  - type: Item
+    sprite: _Mono/Objects/Weapons/Guns/Battery/heartpiercer_inhands.rsi
+    size: Small
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+  - type: Tag
+    tags:
+    - Sidearm
+  - type: Clothing
+    sprite: _Mono/Objects/Weapons/Guns/Battery/heartpiercer_inhands.rsi
+    quickEquip: false
+    slots:
+    - Belt
+    - suitStorage
+  - type: Gun
+    fireRate: 2
+    minAngle: 2
+    maxAngle: 10
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/_Mono/Weapons/Guns/SmallArms/Gunshots/gauss_cannon_fire_01.ogg
+  - type: HeatAmmoProvider
+    proto: BulletMAWCHeartpiercer
+    maxHeat: 2
+    heatDissipation: 0.166667

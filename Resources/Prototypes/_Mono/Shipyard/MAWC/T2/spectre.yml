@@ -1,0 +1,39 @@
+- type: vessel
+  id: Spectre
+  parent: BaseVessel
+  name: MAWC Spectre
+  description: An aggressive frigate with twin AK820 120mm's and 800's, designed as the embodiment of MAWC's frontline warfare frigate. Distilled aggression packed into an angry frigate. Wield it well.
+  price: 188000 # 157K * 1.2~
+  purchasable: false # T2 - voucher only
+  category: Small
+  group: Mawc
+  access: MAWC
+  shuttlePath: /SharedMaps/_Mono/Shuttles/MAWC/spectre.yml
+  guidebookPage: Null
+  class:
+  - Brawler
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Spectre
+  mapName: 'MAWC Spectre'
+  mapPath: /SharedMaps/_Mono/Shuttles/MAWC/spectre.yml
+  minPlayers: 0
+  stations:
+    Spectre:
+      stationProto: StandardFrontierVessel
+      gridComponents:
+      - type: VesselInfo
+        description: "Mercy is weakness. Mercy is the virtue that holds you back. Show no mercy, Not one ounce of it."
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Spectre MAWC{1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            MAWCInitiate: [ 0, 0 ]
+            MAWCCarpenter: [ 0, 0 ]
+            MAWCAcolyte: [ 0, 0 ]

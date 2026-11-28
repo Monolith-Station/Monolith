@@ -36,3 +36,23 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsMieyo ]
+
+- type: entity
+  parent: AirlockExternal
+  id: AirlockExternalMAWCLocked
+  suffix: External, MAWC, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMawcLow ]
+  - type: Wires
+    layoutId: AirlockCommand
+
+- type: entity
+  parent: AirlockExternalGlass
+  id: AirlockExternalGlassMAWCLocked
+  suffix: MAWC, Glass, External
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMawcLow ]
