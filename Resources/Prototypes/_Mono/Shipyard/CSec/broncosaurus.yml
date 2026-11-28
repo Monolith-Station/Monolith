@@ -1,0 +1,59 @@
+- type: vessel
+  id: Bronco
+  parent: BaseVessel
+  name: GS Bronco
+  description: The QJ-271/B is a short-ranged escort ship with point defense capabilities. Variant outfitted with chainguns rather than Vanyks.
+  price: 90000 # appraised at 74k * 1.2
+  category: Small
+  group: Sr
+  access: Caelestinus
+  mapchecker_group_override: Security
+  shuttlePath: /SharedMaps/_Mono/Shuttles/CSec/triceratops.yml
+  guidebookPage: Null
+  class:
+  - Patrol
+  - Escort
+  engine:
+  - Uranium
+
+- type: gameMap
+  id: Bronco
+  mapName: 'Bronco'
+  mapPath: /SharedMaps/_Mono/Shuttles/CSec/triceratops.yml
+  minPlayers: 0
+  stations:
+    Bronco:
+      stationProto: StandardFrontierVessel
+      gridComponents:
+      - type: GridModifier
+        modifications:
+        - Bronco
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Broncosaurus CSEC{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+
+
+- type: gridModifier
+  id: Bronco
+  modifiers:
+  - !type:GridModEntityReplace
+    comp: Hardpoint
+    data:
+    - chance: 1
+      toReplace: HardpointMissileLight
+      replaceWith: HardpointBallisticMedium
+  - !type:GridModEntityReplace
+    comp: Destructible
+    data:
+    - chance: 1
+      toReplace: AmmoLoader
+      replaceWith: Rack
+  - !type:GridModEntityReplace
+    comp: Gun
+    data:
+    - chance: 1
+      toReplace: WeaponTurretVanyk
+      replaceWith: WeaponTurretAC-35
