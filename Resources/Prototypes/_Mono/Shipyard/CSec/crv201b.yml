@@ -1,0 +1,57 @@
+#Based off of @Fleshangel(Discord)'s Archon for Ratgore
+
+- type: vessel
+  id: CRV201Ballistic
+  parent: BaseVessel
+  name: GS CRV-201/B 'Huginn'
+  description: A relatively light corvette produced by GS for the defense market. Comes with a shield, reinforced cockpit and an elite radar. Compared to it's energy based twin, this brings a pair of BOFORs, AC-35s and 4 Dravons to work. Linking of systems to the autoloader will be necessary.
+  price: 999000 # Appraisal was at 150K
+  purchasable: false # T1 - voucher only
+  category: Medium
+  group: Sr
+  access: Caelestinus
+  mapchecker_group_override: Security
+  shuttlePath: /SharedMaps/_Mono/Shuttles/CSec/crv201.yml
+  guidebookPage: Null
+  class:
+  - Corvette
+  - EarlyWarning
+  engine:
+  - Plasma
+
+- type: gameMap
+  id: CRV201Ballistic
+  mapName: 'CRV201/B'
+  mapPath: /SharedMaps/_Mono/Shuttles/CSec/crv201.yml
+  minPlayers: 0
+  stations:
+    CRV201Ballistic:
+      stationProto: StandardFrontierVessel
+      gridComponents:
+      - type: GridModifier
+        modifications:
+        - CRV201Ballistic
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Huginn CSEC{1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs: {}
+
+- type: gridModifier
+  id: CRV201Ballistic
+  modifiers:
+  - !type:GridModEntityReplace
+    comp: Hardpoint
+    data:
+    - chance: 1
+      toReplace: HardpointMissileHeavy
+      replaceWith: DecalSpawnerDirtSingle
+  - !type:GridModEntityReplace
+    comp: Gun
+    data:
+    - chance: 1
+      toReplace: WeaponTurretPaladin
+      replaceWith: WhiteCatwalkMono
