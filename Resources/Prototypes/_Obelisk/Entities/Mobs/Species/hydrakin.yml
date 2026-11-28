@@ -115,6 +115,11 @@
           32:
             sprite: _Obelisk/Mobs/Species/Hydrakin/displacement.rsi
             state: neck
+      misc: # Mono
+        sizeMaps:
+          32:
+            sprite: _Obelisk/Mobs/Species/Hydrakin/displacement.rsi
+            state: neck
       outerClothing: # Mono 
         sizeMaps:
           32:
@@ -166,6 +171,11 @@
             sprite: _Obelisk/Mobs/Species/Hydrakin/displacement.rsi
             state: head
       neck: # Goob
+        sizeMaps:
+          32:
+            sprite: _Obelisk/Mobs/Species/Hydrakin/displacement.rsi
+            state: neck
+      misc: # Mono
         sizeMaps:
           32:
             sprite: _Obelisk/Mobs/Species/Hydrakin/displacement.rsi

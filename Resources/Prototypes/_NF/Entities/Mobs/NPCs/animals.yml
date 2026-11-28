@@ -1,6 +1,6 @@
 - type: entity
   name: parrot
-  parent: [ MobParrot, ClothingNeckBase ]
+  parent: [ MobParrot, ClothingMiscBase ] # Mono, also ????
   id: MobParrotNF
   components:
   - type: Item

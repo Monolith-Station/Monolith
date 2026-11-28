@@ -663,8 +663,8 @@
   - ContractorClothingHandsGlovesColorWhite
 
 - type: loadoutGroup
-  id: ContractorNeck
-  name: loadout-group-contractor-neck
+  id: ContractorMisc # Mono: Misc
+  name: loadout-group-contractor-misc
   minLimit: 0
   loadouts:
   - ContractorClothingNeckScarfStripedBlack
@@ -677,20 +677,11 @@
   - ContractorClothingNeckLawyerbadge
   - ContractorClothingNeckDrakeIndustriesBadge
   - ContractorClothingNeckHeadphones
-  - ContractorClothingNeckNovaSharksLeatherJacket
   - ContractorClothingNeckCrucifix
   - ContractorCDDogtags
   - ContractorClothingNeckStethoscope
   - ContractorClothingOuterPoncho
   - ContractorClothingOuterPonchoClassic
-  - ContractorClothingNeckPonchoSmallPurple # Monolith
-  - ContractorClothingNeckPonchoSmallRed # Monolith
-  - ContractorClothingNeckPonchoSmallPink # Monolith
-  - ContractorClothingNeckPonchoSmallOrange # Monolith
-  - ContractorClothingNeckPonchoSmallBlack # Monolith
-  - ContractorClothingNeckPonchoSmallWhite # Monolith
-  - ContractorClothingNeckPonchoBlack # Monolith
-  - ContractorClothingNeckPonchoArctic # Monolith
   - ContractorClothingNeckCloakBlack # Monolith
   - ContractorClothingNeckCloakCOG # Monolith
   - ContractorClothingNeckCloakMiner
@@ -729,7 +720,8 @@
   - ContractorClothingNeckArmbandUNSA
   - ContractorClothingNeckMantleBH # Mono
   - ContractorClothingNeckCloakSanabi # Mono
-  - ContractorClothingNeckUIOvercoat # Mono
+  - ContractorClothingNeckOvercoat # Mono
+  - ContractorClothingNeckHeavyOvercoat # Mono
 
 - type: loadoutGroup
   id: ContractorPDA

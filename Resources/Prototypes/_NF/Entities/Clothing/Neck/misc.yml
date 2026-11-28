@@ -1,5 +1,5 @@
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingMiscBase # Mono
   id: ClothingNeckCrucifix
   name: crucifix
   description: Damn, it feels good to be so pious.
@@ -53,7 +53,7 @@
     id: ClothingNeckAmuletBloodCult
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingMiscBase # Mono
   id: ClothingNeckIFFNeutral
   name: IFF white strobe
   description: Visible LED IFF kit that consists of helmet and shoulder strobes.

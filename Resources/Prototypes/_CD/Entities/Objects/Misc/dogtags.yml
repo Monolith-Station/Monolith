@@ -1,6 +1,6 @@
 - type: entity
   id: CDDogtags
-  parent: ClothingNeckBase 
+  parent: ClothingMiscBase # Mono
   name: dogtags
   description: A set of dogtags, hanging from a small piece of cord for wearing and carrying.
   components:

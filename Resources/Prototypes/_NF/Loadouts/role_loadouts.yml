@@ -21,7 +21,8 @@
   id: JobContractor
   groups:
   - MercenaryHead
-  - ContractorNeck
+  - ContractorNeck # Monolith: Misc slot
+  - ContractorMisc # Monolith: Misc slot
   - MercenaryJumpsuit
   - MercenaryGloves
   - MercenaryBackpack
@@ -82,9 +83,8 @@
   id: JobMercenary
   groups:
   - MercenaryHead
-  - ContractorNeck
-  - MercenaryJumpsuit
-  - MercenaryGloves
+  - ContractorMisc # Monolith: Misc slot
+  - ContractorNeck # Monolith: Misc slot
   - MercenaryBackpack
   - MercenaryOuterClothing
   - MercenaryShoes
@@ -113,10 +113,13 @@
 - type: roleLoadout
   id: JobCCServiceWorker # Mono
   groups:
-  - ContractorNeck
-  - ValetJumpsuit
+  - ContractorHead # Mono
+  - ContractorNeck # Monolith: Misc slot
+  - ContractorMisc # Monolith: Misc slot
+  - ContractorJumpsuit # Mono:
+  - ContractorGloves # Mono
   - ContractorBackpack
-  - ValetOuterClothing
+  - ContractorOuterClothing # Mono
   - ContractorShoes
   - ContractorFace
   - ContractorGlasses
@@ -162,7 +165,7 @@
 - type: roleLoadout
   id: JobMailCarrier
   groups:
-  - ContractorNeck
+  - ContractorMisc # Monolith: Misc slot
   - MailCarrierJumpsuit
   - ContractorGloves
   - MailCarrierBackpack
@@ -187,7 +190,7 @@
   id: JobStationTrafficController
   groups:
   - StcHead
-  - ContractorNeck
+  - ContractorMisc # Monolith: Misc slot
   - StcJumpsuit
   - ContractorGloves
   - ContractorBackpack
@@ -277,7 +280,8 @@
   id: JobDirectorOfCare
   groups:
   - DocHead
-  - DocNeck
+  - DocNeck # Monolith: Misc slot
+  - DocMisc # Monolith: Misc slot
   - DocJumpsuit
   - DocGloves
   - MdMedicBackpack

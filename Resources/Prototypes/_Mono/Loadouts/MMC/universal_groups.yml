@@ -70,6 +70,14 @@
   - MMCHeadset
 
 - type: loadoutGroup
+  id: MMCEmployeeNeck
+  name: loadout-group-contractor-neck
+  minLimit: 0
+  loadouts:
+  - ContractorClothingNeckOvercoat
+  - ContractorClothingNeckHeavyOvercoat
+
+- type: loadoutGroup
   id: MMCProducts
   name: loadout-group-mieyo-products
   minLimit: 0

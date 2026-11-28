@@ -4,6 +4,7 @@
   groups:
   - TsfmcHead
   - TsfmcNeck
+  - TsfmcMisc
   - TsfmcJumpsuit
   - TsfmcGloves
   - TsfmcBackpack
@@ -34,6 +35,7 @@
   groups:
   - TsfmcHead
   - TsfmcNeck
+  - TsfmcMisc
   - TsfmcJumpsuit
   - TsfmcGloves
   - TsfmcBackpack
@@ -64,7 +66,8 @@
   id: JobBrigmedic # Brigmedic
   groups:
   - TsfmcHeadMedic
-  - TsfmcNeckMedic
+  - TsfmcNeck
+  - TsfmcMiscMedic
   - TsfmcJumpsuit
   - TsfmcBrigmedicGloves
   - TsfmcBackpack
@@ -95,7 +98,8 @@
   id: JobBailiff # Captain
   groups:
   - TsfmcHead
-  - TsfmcNeckCaptain
+  - TsfmcNeck
+  - TsfmcMiscCaptain
   - TsfmcJumpsuit
   - TsfmcGloves
   - TsfmcBackpack
@@ -126,7 +130,8 @@
   id: JobSeniorOfficer # Fireteam Leader
   groups:
   - TsfmcHead
-  - TsfmcNeckFTL
+  - TsfmcNeck
+  - TsfmcMiscFTL
   - TsfmcJumpsuit
   - TsfmcGloves
   - TsfmcBackpack
@@ -157,7 +162,8 @@
   id: JobSheriff # Colonel
   groups:
   - TsfmcHead
-  - TsfmcNeckCommander
+  - TsfmcNeck
+  - TsfmcMiscCommander
   - TsfmcJumpsuit
   - TsfmcGloves
   - TsfmcBackpack
@@ -187,7 +193,8 @@
   id: JobTsfEngineer # Engineer
   groups:
   - TsfmcHeadEngi
-  - TsfmcNeckEngi
+  - TsfmcNeck
+  - TsfmcMiscEngi
   - TsfmcJumpsuitEngi
   - TsfmcGloves
   - TsfmcEngiModsuit
@@ -231,7 +238,8 @@
   id: JobTsfCivilian # Civvie
   groups:
   - MercenaryHead
-  - ContractorNeck
+  - ContractorNeck # Monolith: Misc slot
+  - ContractorMisc # Monolith: Misc slot
   - MercenaryJumpsuit
   - MercenaryGloves
   - MercenaryBackpack

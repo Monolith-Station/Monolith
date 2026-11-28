@@ -1,5 +1,5 @@
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingMiscBase # Mono
   id: ClothingNeckTieRed
   name: red-tie
   description: A neosilk clip-on red tie.
@@ -16,7 +16,7 @@
     - PetWearable
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingMiscBase # Mono
   id: ClothingNeckTieDet
   name: detective's tie
   description: A loosely tied necktie, a perfect accessory for the over-worked detective.
@@ -30,7 +30,7 @@
     - PetWearable
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingMiscBase # Mono
   id: ClothingNeckTieSci
   name: scientist's tie
   description: Why do we all have to wear these ridiculous ties?

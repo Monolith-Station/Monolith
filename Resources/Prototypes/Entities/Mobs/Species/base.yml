@@ -42,9 +42,9 @@
     - map: [ "balaclava" ]
     - map: [ "mask" ]
     - map: [ "head" ]
+    - map: [ "misc" ] # Mono
+    - map: [ "misc2" ] # Mono
     - map: [ "neck" ]
-    - map: [ "neck2" ]
-    - map: [ "neck3" ]
     - map: [ "helmetcover" ]
     - map: [ "helmetattachment" ]
     - map: [ "pocket1" ]
@@ -368,6 +368,8 @@
     - map: [ "belt" ]
     - map: [ "id" ]
     - map: [ "back" ]
+    - map: [ "misc" ] # Mono
+    - map: [ "misc2" ] # Mono
     - map: [ "neck" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.Hair" ]

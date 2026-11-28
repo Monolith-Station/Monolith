@@ -54,6 +54,8 @@
   id: JobPirateCaptain
   groups:
   - PDVCommanderHead
+  - PDVNeck
+  - PDVCommanderMisc
   - PDVJumpsuit
   - PDVGloves
   - PDVOuterClothingVizier
@@ -61,7 +63,6 @@
   - PDVBackpack
   - PDVShoesVizier
   - PDVFace
-  - PDVCommanderNeck
   - ContractorBoxSurvival
   - GrandVizierPDA
   - NFSpeciesSpecific
@@ -79,6 +80,7 @@
   id: JobPDVInfiltrator
   groups:
   - PDVHead
+  - PDVNeck
   - PDVJumpsuit
   - PDVGloves
   - PDVOuterClothing
@@ -86,7 +88,6 @@
   - PDVBackpack
   - PDVShoes
   - PDVFace
-  - PDVNeck
   - ContractorBoxSurvival
   - PDVInfiltratorPDA
   - NFSpeciesSpecific
@@ -144,6 +145,7 @@
   groups:
   - MercenaryHead
   - ContractorNeck
+  - ContractorMisc
   - MercenaryJumpsuit
   - MercenaryGloves
   - MercenaryBackpack

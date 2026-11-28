@@ -78,12 +78,12 @@
 
 - type: loadoutGroup
   id: PilotNeck
-  name: loadout-group-contractor-neck
+  name: loadout-group-contractor-misc
   minLimit: 0
   loadouts:
   - PilotClothingNeckScarfPilot
   subgroups:
-  - ContractorNeck
+  - ContractorMisc # Monolith: Misc slot
 
 - type: loadoutGroup
   id: PilotPDA
