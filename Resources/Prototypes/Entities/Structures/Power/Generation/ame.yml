@@ -126,6 +126,9 @@
       respectZoom: true
       rotate: true
       bounds: "-1.5,-1.5,1.5,1.5"
+  - type: PacketNetwork # KS14
+    frequency: PowerFrequency
+
 
 - type: entity
   categories: [ HideSpawnMenu ]

@@ -93,6 +93,9 @@
   - type: GuideHelp
     guides:
     - Pumps
+  - type: PacketNetwork # KS14
+    frequency: AtmosFrequency
+
 
 - type: entity
   parent: GasBinaryBase
@@ -165,6 +168,8 @@
     - type: GuideHelp
       guides:
       - Pumps
+    - type: PacketNetwork # KS14
+      frequency: AtmosFrequency
 
 - type: entity
   parent: GasBinaryBase

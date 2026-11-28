@@ -1,0 +1,17 @@
+- type: entity
+  parent: ClothingBackpackDuffelEngineering
+  id: ClothingBackpackDuffelEngineeringFilledPackets
+  name: packet networking bundle
+  description: "Everything needed for creating your very own packet network! Contains 4 packet configurators, 2 executors and frequencies paper."
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: PacketNetworkConfigurator
+          amount: 4
+        - id: ComputerExecutorFlatpack
+          amount: 2
+        - id: FrequenciesPaper
+          amount: 1
+
